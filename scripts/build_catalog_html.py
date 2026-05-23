@@ -122,21 +122,22 @@ def page(payload: dict) -> str:
   <title>Unified GitHub Category Catalog</title>
   <style>
     :root {{
-      --bg: #f6f7f9;
-      --surface: #ffffff;
-      --surface-2: #eef2f6;
-      --ink: #151a23;
-      --muted: #647184;
-      --line: #d9e0e8;
-      --line-strong: #b8c2cf;
-      --blue: #2f67d8;
-      --green: #22865f;
-      --amber: #aa6b08;
-      --red: #b84d44;
-      --violet: #6f52c7;
-      --shadow: 0 12px 34px rgba(18, 28, 45, 0.10);
+      --bg: #060606;
+      --surface: #101010;
+      --surface-2: #1a1510;
+      --surface-3: #0b0b0c;
+      --ink: #f7ead2;
+      --muted: #b7a78d;
+      --line: rgba(244, 177, 65, 0.22);
+      --line-strong: rgba(246, 196, 106, 0.48);
+      --blue: #f0b13e;
+      --green: #d08a2c;
+      --amber: #f6c46a;
+      --red: #e16745;
+      --violet: #d9a15f;
+      --shadow: 0 18px 48px rgba(0, 0, 0, 0.42);
       --radius: 8px;
-      color-scheme: light;
+      color-scheme: dark;
     }}
 
     * {{ box-sizing: border-box; }}
@@ -161,7 +162,7 @@ def page(payload: dict) -> str:
       overflow: auto;
       padding: 18px;
       border-right: 1px solid var(--line);
-      background: #fbfcfd;
+      background: var(--surface-3);
     }}
     .brand {{
       display: grid;
@@ -182,22 +183,28 @@ def page(payload: dict) -> str:
       padding: 10px 11px;
       border: 1px solid var(--line-strong);
       border-radius: var(--radius);
-      background: var(--surface);
+      background: #070707;
       color: var(--ink);
       outline: none;
     }}
-    .search:focus {{ border-color: var(--blue); box-shadow: 0 0 0 3px rgba(47,103,216,0.15); }}
+    .search::placeholder {{ color: #8f8069; }}
+    .search:focus {{ border-color: var(--amber); box-shadow: 0 0 0 3px rgba(240,177,62,0.18); }}
+    .search-help {{
+      margin: -2px 0 12px;
+      color: var(--muted);
+      font-size: 12px;
+    }}
     .filters {{ display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }}
     .filter {{
       border: 1px solid var(--line);
-      background: var(--surface);
+      background: #0b0b0b;
       border-radius: 999px;
       padding: 6px 9px;
       font-size: 12px;
       color: var(--muted);
       cursor: pointer;
     }}
-    .filter.active {{ border-color: var(--blue); color: var(--blue); background: #eef4ff; }}
+    .filter.active {{ border-color: var(--amber); color: #0b0b0b; background: var(--amber); }}
     .nav-list {{ display: grid; gap: 4px; }}
     .nav-item {{
       display: grid;
@@ -206,7 +213,7 @@ def page(payload: dict) -> str:
       gap: 8px;
       padding: 8px 9px;
       border-radius: var(--radius);
-      color: #334154;
+      color: #e1cfad;
     }}
     .nav-item:hover, .nav-item.active {{ background: var(--surface-2); color: var(--ink); }}
     .nav-title {{ overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }}
@@ -214,8 +221,8 @@ def page(payload: dict) -> str:
       min-width: 26px;
       padding: 2px 6px;
       border-radius: 999px;
-      background: #e3e9f1;
-      color: #435064;
+      background: #241b0f;
+      color: var(--amber);
       text-align: center;
       font-size: 12px;
     }}
@@ -282,7 +289,7 @@ def page(payload: dict) -> str:
     .decision-head {{
       padding: 14px;
       border-bottom: 1px solid var(--line);
-      background: #fbfcfd;
+      background: #15110d;
     }}
     .decision-head strong {{ display: block; font-size: 15px; }}
     .decision-head p {{ margin: 5px 0 0; color: var(--muted); font-size: 12px; }}
@@ -291,10 +298,10 @@ def page(payload: dict) -> str:
       grid-template-columns: minmax(110px, 0.9fr) minmax(0, 1.1fr);
       gap: 10px;
       padding: 10px 14px;
-      border-top: 1px solid #edf1f5;
+      border-top: 1px solid rgba(244, 177, 65, 0.14);
     }}
     .decision-row:first-of-type {{ border-top: 0; }}
-    .intent {{ color: #344258; font-size: 12px; }}
+    .intent {{ color: #e0cdaa; font-size: 12px; }}
     .path a {{ color: var(--blue); font-weight: 650; }}
     .path small {{ display: block; color: var(--muted); margin-top: 3px; }}
     .visual-grid {{
@@ -317,16 +324,16 @@ def page(payload: dict) -> str:
       font-size: 12px;
     }}
     .bar-label {{ overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }}
-    .bar-track {{ height: 10px; border-radius: 999px; background: #e7edf4; overflow: hidden; }}
+    .bar-track {{ height: 10px; border-radius: 999px; background: #241b0f; overflow: hidden; }}
     .bar-fill {{ height: 100%; border-radius: inherit; background: var(--blue); }}
     .source-stack {{ display: grid; gap: 10px; }}
     .stack-row {{ display: grid; gap: 5px; }}
     .stack-label {{ display: flex; justify-content: space-between; color: var(--muted); font-size: 12px; }}
-    .stack-track {{ height: 16px; border-radius: 999px; background: #e9edf2; overflow: hidden; }}
+    .stack-track {{ height: 16px; border-radius: 999px; background: #241b0f; overflow: hidden; }}
     .stack-fill {{ height: 100%; border-radius: inherit; }}
-    .stack-fill.account {{ background: var(--green); }}
-    .stack-fill.ai {{ background: var(--blue); }}
-    .stack-fill.business {{ background: var(--amber); }}
+    .stack-fill.account {{ background: #bc7f2e; }}
+    .stack-fill.ai {{ background: #f0b13e; }}
+    .stack-fill.business {{ background: #f6c46a; }}
     .category {{
       margin: 14px 0;
       border: 1px solid var(--line);
@@ -341,7 +348,7 @@ def page(payload: dict) -> str:
       gap: 16px;
       padding: 16px;
       border-bottom: 1px solid var(--line);
-      background: #fbfcfd;
+      background: #15110d;
     }}
     .category h4 {{ margin: 0; font-size: 18px; }}
     .category p {{ margin: 6px 0 0; color: var(--muted); max-width: 920px; }}
@@ -352,19 +359,19 @@ def page(payload: dict) -> str:
       gap: 5px;
       padding: 4px 8px;
       border-radius: 999px;
-      background: #eef2f6;
-      color: #415168;
+      background: #241b0f;
+      color: #f0d6a0;
       font-size: 12px;
     }}
-    .chip.account {{ background: #e9f5ef; color: #1f684d; }}
-    .chip.ai {{ background: #edf3ff; color: #2e5fb8; }}
-    .chip.business {{ background: #fff3df; color: #875305; }}
+    .chip.account {{ background: #1b1309; color: #d9a15f; border: 1px solid rgba(217,161,95,0.28); }}
+    .chip.ai {{ background: #211804; color: var(--amber); border: 1px solid rgba(246,196,106,0.30); }}
+    .chip.business {{ background: #2a1708; color: #ffb454; border: 1px solid rgba(255,180,84,0.28); }}
     .repo-total {{
       align-self: start;
       padding: 7px 10px;
       border-radius: 999px;
       background: var(--surface-2);
-      color: #39475a;
+      color: var(--amber);
       font-weight: 650;
       white-space: nowrap;
     }}
@@ -372,7 +379,7 @@ def page(payload: dict) -> str:
     table {{ width: 100%; border-collapse: collapse; min-width: 920px; }}
     th, td {{
       padding: 10px 12px;
-      border-bottom: 1px solid #edf1f5;
+      border-bottom: 1px solid rgba(244, 177, 65, 0.12);
       text-align: left;
       vertical-align: top;
     }}
@@ -380,7 +387,7 @@ def page(payload: dict) -> str:
       color: var(--muted);
       font-size: 12px;
       font-weight: 650;
-      background: #fbfcfd;
+      background: #15110d;
     }}
     td.repo-name {{ min-width: 210px; font-weight: 650; }}
     .repo-meta {{ color: var(--muted); font-size: 12px; margin-top: 3px; }}
@@ -389,15 +396,21 @@ def page(payload: dict) -> str:
       min-width: 48px;
       padding: 4px 7px;
       border-radius: 999px;
-      background: #eef4ff;
-      color: var(--blue);
+      background: #251706;
+      color: var(--amber);
       font-weight: 650;
       text-align: center;
       white-space: nowrap;
     }}
     .stars-cell {{ min-width: 110px; }}
-    .stars-bar {{ margin-top: 5px; height: 5px; border-radius: 999px; background: #e7edf4; overflow: hidden; }}
-    .stars-bar span {{ display: block; height: 100%; background: var(--green); }}
+    .stars-bar {{ margin-top: 5px; height: 5px; border-radius: 999px; background: #241b0f; overflow: hidden; }}
+    .stars-bar span {{ display: block; height: 100%; background: var(--amber); }}
+    mark {{
+      border-radius: 3px;
+      background: rgba(246, 196, 106, 0.30);
+      color: #ffe2a6;
+      padding: 0 2px;
+    }}
     .empty {{
       padding: 22px;
       border: 1px dashed var(--line-strong);
@@ -447,7 +460,8 @@ def page(payload: dict) -> str:
         <h1>Unified GitHub Catalog</h1>
         <div class="snapshot">Snapshot <span id="snapshot"></span></div>
       </div>
-      <input id="search" class="search" type="search" placeholder="Search categories or repositories">
+      <input id="search" class="search" type="search" placeholder="Search repos, categories, keywords">
+      <div class="search-help">Search covers category names, repository names, descriptions, language, license, and source.</div>
       <div class="filters" id="filters"></div>
       <nav class="nav-list" id="nav"></nav>
     </aside>
@@ -492,7 +506,7 @@ def page(payload: dict) -> str:
           <span id="visibleCount"></span>
         </div>
         <div id="categories"></div>
-        <div class="empty" id="emptyState" hidden>No categories match the current filter.</div>
+        <div class="empty" id="emptyState" hidden>No categories or repositories match the current search/filter.</div>
       </section>
 
       <div class="footer">Generated from UNIFIED_CATALOG.md source data. Scores are triage signals, not due-diligence ratings.</div>
@@ -539,40 +553,65 @@ def page(payload: dict) -> str:
       return new Intl.NumberFormat('en-US').format(value || 0);
     }}
 
+    function searchTokens() {{
+      return query.trim().toLowerCase().split(/\\s+/).filter(Boolean);
+    }}
+
+    function includesTokens(text, tokens) {{
+      const value = String(text || '').toLowerCase();
+      return tokens.every(token => value.includes(token));
+    }}
+
+    function categorySearchText(category) {{
+      return [category.title, category.description, category.groups.join(' '), category.topRepos.join(' ')].join(' ');
+    }}
+
+    function repoSearchText(repo) {{
+      return [
+        repo.fullName,
+        repo.description,
+        repo.language,
+        repo.license,
+        repo.sources,
+        repo.updated,
+        String(repo.stars)
+      ].join(' ');
+    }}
+
+    function escapeRegExp(value) {{
+      return String(value).replace(/[.*+?^${{}}()|[\\]\\\\]/g, '\\\\$&');
+    }}
+
+    function highlighted(value) {{
+      let safe = esc(value);
+      const tokens = searchTokens().filter(token => token.length > 1).sort((a, b) => b.length - a.length);
+      for (const token of tokens) {{
+        safe = safe.replace(new RegExp(escapeRegExp(esc(token)), 'ig'), match => `<mark>${{match}}</mark>`);
+      }}
+      return safe;
+    }}
+
     function repoMatchesSource(repo) {{
       return activeSource === 'all' || repo.sourceKeys.includes(activeSource);
     }}
 
     function categoryMatches(category) {{
-      const q = query.trim().toLowerCase();
+      const tokens = searchTokens();
       const sourceHit = activeSource === 'all' || category.repos.some(repoMatchesSource);
       if (!sourceHit) return false;
-      if (!q) return true;
-      const categoryText = [category.title, category.description, category.groups.join(' ')].join(' ').toLowerCase();
-      if (categoryText.includes(q)) return true;
-      return category.repos.some(repo => [
-        repo.fullName,
-        repo.description,
-        repo.language,
-        repo.license,
-        repo.sources
-      ].join(' ').toLowerCase().includes(q));
+      if (!tokens.length) return true;
+      if (includesTokens(categorySearchText(category), tokens)) return true;
+      return category.repos.some(repo => repoMatchesSource(repo) && includesTokens(repoSearchText(repo), tokens));
     }}
 
     function filteredRepos(category) {{
-      const q = query.trim().toLowerCase();
-      return category.repos.filter(repo => {{
-        if (!repoMatchesSource(repo)) return false;
-        if (!q) return true;
-        return [
-          repo.fullName,
-          repo.description,
-          repo.language,
-          repo.license,
-          repo.sources
-        ].join(' ').toLowerCase().includes(q) ||
-        [category.title, category.description].join(' ').toLowerCase().includes(q);
-      }});
+      const tokens = searchTokens();
+      const sourced = category.repos.filter(repoMatchesSource);
+      if (!tokens.length) return sourced;
+      const repoMatches = sourced.filter(repo => includesTokens(repoSearchText(repo), tokens));
+      if (repoMatches.length) return repoMatches;
+      if (includesTokens(categorySearchText(category), tokens)) return sourced;
+      return [];
     }}
 
     function renderStats() {{
@@ -611,7 +650,7 @@ def page(payload: dict) -> str:
       document.getElementById('nav').innerHTML = categories.map(category => `
         <a class="nav-item" href="#${{esc(category.key)}}" data-nav="${{esc(category.key)}}">
           <span class="nav-title">${{esc(category.title)}}</span>
-          <span class="count">${{category.repoCount}}</span>
+          <span class="count">${{filteredRepos(category).length}}</span>
         </a>
       `).join('');
     }}
@@ -684,8 +723,8 @@ def page(payload: dict) -> str:
       return `
         <tr>
           <td class="repo-name">
-            <a href="${{esc(repo.url)}}" target="_blank" rel="noreferrer">${{esc(repo.fullName)}}</a>
-            <div class="repo-meta">${{esc([repo.language, repo.license].filter(Boolean).join(' · '))}}</div>
+            <a href="${{esc(repo.url)}}" target="_blank" rel="noreferrer">${{highlighted(repo.fullName)}}</a>
+            <div class="repo-meta">${{highlighted([repo.language, repo.license].filter(Boolean).join(' / '))}}</div>
           </td>
           <td class="stars-cell">
             ${{formatNumber(repo.stars)}}
@@ -693,15 +732,18 @@ def page(payload: dict) -> str:
           </td>
           <td>${{esc(repo.updated)}}</td>
           <td><span class="score-pill">${{esc(repo.score || 'n/a')}}</span></td>
-          <td>${{esc(repo.sources)}}</td>
-          <td>${{esc(short(repo.description))}}</td>
+          <td>${{highlighted(repo.sources)}}</td>
+          <td>${{highlighted(short(repo.description))}}</td>
         </tr>
       `;
     }}
 
     function renderCategories() {{
       const visible = DATA.categories.filter(categoryMatches);
-      document.getElementById('visibleCount').textContent = `${{visible.length}} of ${{DATA.categories.length}} categories`;
+      const repoMatchCount = visible.reduce((sum, category) => sum + filteredRepos(category).length, 0);
+      document.getElementById('visibleCount').textContent = searchTokens().length
+        ? `${{visible.length}} categories / ${{repoMatchCount}} matching repositories`
+        : `${{visible.length}} of ${{DATA.categories.length}} categories`;
       document.getElementById('emptyState').hidden = visible.length > 0;
       document.getElementById('categories').innerHTML = visible.map(category => {{
         const repos = filteredRepos(category);
@@ -709,8 +751,8 @@ def page(payload: dict) -> str:
           <article class="category" id="${{esc(category.key)}}" data-category="${{esc(category.key)}}">
             <div class="category-header">
               <div>
-                <h4>${{esc(category.title)}}</h4>
-                <p>${{esc(category.description || 'No category description available.')}}</p>
+                <h4>${{highlighted(category.title)}}</h4>
+                <p>${{highlighted(category.description || 'No category description available.')}}</p>
                 <div class="chips">${{sourceChips(category)}}${{category.topRepos.slice(0, 3).map(repo => `<span class="chip">${{esc(repo)}}</span>`).join('')}}</div>
               </div>
               <div class="repo-total">${{repos.length}} repos</div>
