@@ -4,6 +4,8 @@ Current state: `spec_present_not_model_run`
 
 All project skills use the official repo discovery location `.agents/skills`. Structural checks do not prove implicit activation or output quality.
 
+The builder skills and expanded contracts are authored but not behaviorally promoted. The offline team grader and its synthetic unit tests do not change this status. New or changed instructions require fresh-session discovery and trace-backed activation/output review; see `.codex/agent-eval-workflow.md`.
+
 Promotion requires:
 
 - direct and indirect trigger cases;

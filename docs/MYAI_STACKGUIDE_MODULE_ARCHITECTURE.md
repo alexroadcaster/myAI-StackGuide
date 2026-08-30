@@ -1,3 +1,7 @@
+# Historical Module Architecture Proposal
+
+This retained multilingual source describes a proposed architecture, not implemented runtime evidence. Current V1 decisions and ownership come from [Codex Plugin V1](plan/2026-08-30-codex-plugin-v1-implementation-plan.md). Do not treat the historical wording below as proof of implementation or as active hosted-first instructions.
+
 В реализованной версии myAI-StackGuide — это не один «умный агент», а три изолированные подсистемы:
 
 1. безопасное получение и нормализация контекста проекта;

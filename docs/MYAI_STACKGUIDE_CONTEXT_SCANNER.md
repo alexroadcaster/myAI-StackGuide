@@ -1,5 +1,7 @@
 # myAI-StackGuide Context Scanner
 
+Current V1 scanner contract is owned by [Codex Plugin V1](plan/2026-08-30-codex-plugin-v1-implementation-plan.md), R02 through R05 and CP-02/03/08. The concept below is background, not evidence of an implemented scanner. Hosted acquisition and broad adapter ideas are not the active V1 execution path.
+
 ## One-Sentence Idea
 
 The myAI-StackGuide Context Scanner lets users load myAI-StackGuide into their own product, repository, or workspace so it can understand the product context before recommending open-source repositories from the curated catalog.

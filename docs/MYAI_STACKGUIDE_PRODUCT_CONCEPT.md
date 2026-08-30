@@ -1,5 +1,7 @@
 # myAI-StackGuide Product Concept
 
+Current V1 direction: [Codex Plugin V1](plan/2026-08-30-codex-plugin-v1-implementation-plan.md). Retain this concept as background; earlier hosted-first and optional-adapter descriptions do not override the local plugin-first plan, separate candidate overlay, or current approval gates.
+
 ## One-Sentence Idea
 
 myAI-StackGuide is a read-only advisory product that helps users navigate a large curated library of open-source repositories and choose what to inspect, compare, learn from, or avoid for their specific project context.

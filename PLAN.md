@@ -4,13 +4,17 @@ Active Product-Agent OS plan for myAI-StackGuide. Detailed product milestones re
 
 ## Lifecycle
 
-- Current state: `team_ready` for the contract-definition slice after static validation.
+- Current state: `partially_verified` after local agent-team remediation. Static contracts and offline grader checks pass; fresh-session loading, behavioral runs, and product CP-02/03 gates remain open. The historical `team_ready` did not apply to plugin-first runtime.
 - Entry evidence: V1 PRD and roadmap exist; current requirements are mapped in `REQUIREMENTS.md`.
 - Build boundary: no hosted app, provider activation, or live GitHub access is authorized by this plan.
-- Exit condition: the six contract artifacts have schemas/policies, fixtures, deterministic checks, review evidence, and a `RUNLOG.md` handoff.
+- Remediation exit: AR-01 through AR-06 have scoped changes, current local checks, self-review, and a RUNLOG handoff. Product exit remains the separately accepted CP plan, not the historical six-contract slice.
 - Stop condition: missing ownership, overlapping write scopes, unverified source claims, secret-bearing data, failed checks, or required external approval.
 
 ## Active Dependency Order
+
+Completed local preparation: [Agent Team Audit Remediation](docs/plan/2026-08-30-agent-team-remediation-plan.md), AR-01 through AR-06. Next: verify updated instruction loading in a fresh session, finish CP-01 requirements reconciliation, and accept CP-02 decisions before product implementation. Product direction and gates: [Codex Plugin V1 Implementation Plan](docs/plan/2026-08-30-codex-plugin-v1-implementation-plan.md). No product runtime is authorized by team remediation. The previous sequence below is historical context, not a competing dispatch queue.
+
+### Historical Contract-Definition Sequence
 
 1. Stabilize the control plane and custom-agent team.
 2. Define repository card and taxonomy contracts.
@@ -21,6 +25,8 @@ Active Product-Agent OS plan for myAI-StackGuide. Detailed product milestones re
 7. Only after contract acceptance, plan catalog expansion and hosted application slices.
 
 ## Task Matrix
+
+The CP-S and V1-S rows below retain historical traceability. New execution uses the linked AR/CP task plans, not these rows as fresh dispatch authorization.
 
 | Task | Owner | Exact output files | Depends on | Verification | Status |
 | --- | --- | --- | --- | --- | --- |
@@ -58,7 +64,7 @@ Active Product-Agent OS plan for myAI-StackGuide. Detailed product milestones re
 | Gate | Status | Owner | Required evidence |
 | --- | --- | --- | --- |
 | Control-plane presence | `present_verified` | Product Planner | Product-Agent OS validator output from current run |
-| Custom-agent configuration | `present_verified` | Product Planner | Agent validator, contract tests, and Codex strict-config from the remediation run |
+| Custom-agent file structure | `present_verified` | Product Planner | Current nine-agent validator and contract tests; refreshed runtime loading is not yet verified |
 | Repository skill discovery | `present_verified` | Product Planner | Canonical `.agents/skills` location, no path pinning, and contract test from the remediation run |
 | GPT-5.6 role policy | `configured_not_behaviorally_verified` | Quality Evaluator | Static model mapping and eval specs; no fresh-context model comparison yet |
 | Fresh-context handoff | `proposal_staged` | Product Planner | `.codex/artifact-templates/agent-task-packet.md` and completed packet per task |

@@ -4,10 +4,26 @@ Compact Product-Agent OS execution registry for myAI-StackGuide. The product def
 
 ## Lifecycle State
 
-- State: `requirements_ready` for the V1 contract-definition slice.
+- State: `partially_verified` after local team remediation; structural checks pass, behavioral/product evidence remains open. The earlier registry below retains historical traceability.
 - Usage mode: `standard-product` with `ai-product` and read-only integration constraints.
 - Decision horizon: `MVP` leading to `beta`.
-- Build status: contract work is planned; hosted application implementation has not started.
+- Build status: plugin-first direction accepted; team remediation authorized; plugin/backend implementation and runtime acceptance remain gated by the detailed CP plan.
+
+## Active Direction And Traceability
+
+The current product direction is `docs/plan/2026-08-30-codex-plugin-v1-implementation-plan.md` (R01 through R14). The active bounded task list is `docs/plan/2026-08-30-agent-team-remediation-plan.md`. Earlier hosted-first requirements are historical where they conflict; they must not silently govern new task packets.
+
+| Existing requirement | Plugin-plan requirement | Disposition |
+| --- | --- | --- |
+| CP-001 through CP-005 | R01, R12, R14 | Retain control-plane and evidence goals; AR tasks repair the implementation contracts |
+| V1-CAT-001, V1-TAX-001 | R06, R07, R08, R11 | Preserve current v5 manifest; add candidate overlay separately, never automatic curator acceptance |
+| V1-SCAN-001 | R03, R04 | Local bounded scanning replaces hosted-first project acquisition |
+| V1-CTX-001 | R02, R04, R05, R10 | Add adaptive intake, corrections, resume, and sanitized state |
+| V1-MEMO-001 | R07, R10, R13 | Decision Report remains advisory; offline HTML is a projection |
+| V1-EVAL-001 | R12 | Separate team behavior, deterministic product contracts, and recommendation usefulness |
+| V1-GH-001 | R06, R08, R09 | GitHub retrieval stays read-only; own-backend ledger writes have a distinct approval/auth boundary |
+
+CP-02 decisions, CP-03 schemas, and product quality runs remain open. No missing architecture decision is accepted implicitly by this mapping.
 
 ## Goal
 
@@ -19,7 +35,7 @@ Define the source-owned schemas, policies, taxonomy, and eval contract needed be
 | --- | --- | --- | --- | --- | --- |
 | `CP-001` | Maintain a compact control plane with requirements, plan, test, eval, evidence, ownership, and stop conditions. | `AGENTS.md`, user request | All six root control-plane files exist and validation reports no missing files. | Product Planner | `implemented` |
 | `CP-002` | Define project-scoped Codex agents with disjoint ownership and fresh-context handoffs. | user request, `AGENTS.md` | Agent TOML files parse, required fields exist, and `.codex/TEAM.md` maps ownership and sequential fallback. | Product Planner | `implemented` |
-| `CP-003` | Assign two or three reusable project skills to every custom agent. | user request | Every agent names exactly three auto-discovered project skills in its executable instructions and every skill passes structural contract checks. | Product Planner | `partially_verified` |
+| `CP-003` | Assign the smallest relevant set of reusable project skills to every custom agent. | owner-approved team audit | Assigned names resolve to discovered skills; no fixed skill quota; trigger and output quality require separate behavioral evidence. | Product Planner | `partially_verified` |
 | `CP-004` | Use official portable Codex project locations and runtime configuration. | official Codex documentation | Skills are discovered from `.agents/skills`, agent files contain no workspace-absolute skill paths, and `.codex/config.toml` sets bounded multi-agent defaults. | Product Planner | `present_verified` |
 | `CP-005` | Configure a tier-aware GPT-5.6 model and reasoning policy without inflating readiness claims. | official GPT-5.6 migration and prompting guidance | Sol/high and Terra/medium role mappings parse, static eval specs exist, and behavioral suitability remains explicitly unverified until fresh-context comparisons run. | Quality Evaluator | `configured_not_behaviorally_verified` |
 | `CAT-V5-001` | Make the current HTML v5 catalog reproducible from source-owned data and a stable template without changing its user-owned content. | project owner decision, `docs/UNIFIED_CATALOG.html` | Canonical manifest and schema exist, the builder validates identity/count/reference invariants, and generated HTML matches the checked-in artifact byte-for-byte. | Catalog Pipeline Builder | `implemented_verified` |

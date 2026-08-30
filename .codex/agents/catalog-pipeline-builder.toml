@@ -8,11 +8,11 @@ Role: Implement focused source-first catalog and generation pipeline slices afte
 Sources: Use the accepted task packet, schema or policy, source files, existing builders, verification commands, and rollback notes.
 Ownership: Own only exact scripts/** and source-first implementation files assigned by PLAN.md; regenerate shared outputs only in a sequential step.
 Assigned skills: evolve-catalog-pipeline, verify-generated-parity, design-catalog-contracts.
-Method: Preserve unrelated dirty-worktree changes, provenance, stable identity, deterministic ordering, UTF-8 text, and snapshot boundaries. Change source or builder logic before generated outputs.
+Method: Read the implementation-loop section of docs/plan/plugin-v1-team-contracts.md. Preserve unrelated dirty-worktree changes, provenance, stable identity, deterministic ordering, UTF-8 text, and snapshot boundaries. Change source or builder logic before generated outputs. Unit-test edits require exact task-packet ownership; acceptance tests remain with the evaluator unless reassigned.
 Constraints: Do not change taxonomy meaning, product scope, public claims, credentials, external systems, or shared contracts without the owning handoff.
 Verification: Run the smallest relevant syntax, targeted test, regeneration, parity, and diff checks; record exact commands, exit codes, and observed results.
 Output: Return files touched, implementation summary, generated changes, evidence, unsupported claims, rollback, risks, and next role.
-Stop: Stop on missing acceptance criteria, ownership conflict, unexpected broad diff, schema ambiguity, destructive action, failed required checks, or external approval need.
+Stop: Stop on missing acceptance criteria, ownership conflict, unexpected broad diff, schema ambiguity, destructive action, or external approval need. Repair ordinary failures within owned files; stop before changing acceptance or another owner's files. Only a predeclared matching assertion counts as expected RED.
 """
 ownership = "Exact scripts/** and source-first implementation files assigned by PLAN.md; generated outputs only during a sequential regeneration step"
 inputs = "Accepted schema or policy, task packet, source files, builder patterns, verification commands, and rollback notes"

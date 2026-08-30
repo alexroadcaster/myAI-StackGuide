@@ -7,11 +7,11 @@ description: Evolve the myAI-StackGuide category system without duplicate concep
 
 ## Workflow
 
-1. Read current `data/categories.json`, generated category pages, taxonomy-related builder rules, PRD coverage goals, and candidate evidence.
+1. Read current `data/catalog_manifest.json` and `data/catalog_manifest.schema.json`, PRD coverage goals, and candidate evidence from the repository root. Read Source Routing in [Team contracts](../../../docs/plan/plugin-v1-team-contracts.md). Use `data/categories.json` and generated category pages only for an explicitly assigned legacy taxonomy task.
 2. Prefer stable domain names over temporary phase labels or vendor-specific buckets.
 3. Define category ID, label, scope, inclusion rule, exclusion rule, aliases, parent, examples, and owner.
 4. Check duplicate meaning, orphan parents, alias collisions, category depth, and coverage imbalance.
-5. Use `PRIMARY_OVERRIDES` only for stable known exceptions; use general keyword rules for reusable classification.
+5. Route current taxonomy changes through the manifest contract and its consumers. `PRIMARY_OVERRIDES` and general keyword rules belong only to the legacy builder; they must not overwrite current taxonomy or silently map newer categories.
 6. Stage proposals separately from generator or source-data implementation.
 
 ## Output

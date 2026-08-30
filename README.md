@@ -124,9 +124,10 @@ The repository deliberately separates implemented evidence from product intent.
 | Product concept, PRD, and roadmap | Present as source-controlled planning artifacts. |
 | Project-scoped skills and agents | Structurally configured and statically tested. |
 | Read-only scanner | Planned; no production scanner runtime is committed. |
-| Hosted web app and GitHub OAuth | Planned; not implemented or activated. |
+| Codex plugin and remote MCP backend | Accepted V1 direction; team contracts updated and locally checked, runtime not implemented or activated. |
+| Hosted web app and project GitHub OAuth | Earlier entrypoint proposal; superseded for V1 by local plugin-first context acquisition. |
 | Recommendation engine and interview runtime | Planned; contracts and eval cases are still being defined. |
-| MCP server or Agents SDK application | Deferred; no runtime has been activated. |
+| MCP server / Agents SDK | MCP is planned; no runtime is activated. An Agents SDK application is not required by the selected plugin architecture. |
 
 Static configuration, generated artifacts, and local tests do not prove recommendation quality, browser behavior, GitHub integration, private-repository safety, or production readiness.
 
@@ -174,7 +175,7 @@ The planned product follows these default rules:
 
 The product is being designed around clear trust boundaries:
 
-1. **Context access** — GitHub read-only connection first; local or embedded adapters may follow later.
+1. **Context access** — authorized local project scanning through the Codex plugin; public GitHub discovery uses a separate sanitized MCP query boundary.
 2. **Scanner and sanitizer** — deterministic inventory, exclusions, facts, evidence references, and confidence.
 3. **Project Context Brief** — user-readable understanding that can be corrected before matching.
 4. **Catalog matching** — task archetypes, category paths, stack recipes, repository cards, and policy constraints.
@@ -190,6 +191,8 @@ Detailed documents:
 
 ## Development Priorities
 
+The active direction is [Codex Plugin V1](docs/plan/2026-08-30-codex-plugin-v1-implementation-plan.md). Local [agent-team audit remediation](docs/plan/2026-08-30-agent-team-remediation-plan.md) is implemented; fresh-session behavioral verification and accepted runtime/auth/storage decisions remain open. Static team checks do not authorize product execution.
+
 The active dependency order is:
 
 1. Define stable repository-card and taxonomy contracts.
@@ -197,7 +200,7 @@ The active dependency order is:
 3. Define recommendation memo and evaluation contracts.
 4. Validate provenance, identity, confidence, and privacy boundaries across contracts.
 5. Review the exact read-only GitHub and MCP permission surface.
-6. Only then plan and implement the hosted product workflow.
+6. Only then implement the gated local plugin and MCP workflow; deployment and publication require separate authorization.
 
 See [REQUIREMENTS.md](REQUIREMENTS.md), [PLAN.md](PLAN.md), [TEST.md](TEST.md), and [EVALS.md](EVALS.md) for the current execution state and evidence gates.
 

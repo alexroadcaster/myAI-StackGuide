@@ -4,7 +4,9 @@
 
 Build the first full product version of myAI-StackGuide around one primary entrypoint:
 
-> Hosted Web App + GitHub read-only connection.
+> Codex plugin + bounded local scanner + remote MCP.
+
+Active phases and dependencies are in [Codex Plugin V1](plan/2026-08-30-codex-plugin-v1-implementation-plan.md). The earlier hosted-first milestone detail below is historical where it conflicts with that plan. Agent-team remediation is the current authorized slice; this direction does not authorize deployment or product runtime execution.
 
 V1 must let a user connect a repository, approve a read-only scan, receive a Project Context Brief, and get a context-aware open-source recommendation memo from a curated catalog of 1,000 repositories.
 

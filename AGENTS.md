@@ -12,6 +12,8 @@ The workspace parent directory also contains one-off GitHub account research art
 
 ## Source Of Truth
 
+- Conversation may follow the user's Russian language preference. Write and maintain active control-plane documents, plans, agent/skill instructions, schemas, and technical execution artifacts in English. Preserve canonical identifiers and quoted source text; retained historical sources are not active instructions.
+
 - `data/catalog_manifest.json` is the source of truth for the current standalone HTML catalog; `data/catalog_manifest.schema.json` owns its stable top-level contract.
 - `templates/unified_catalog.html` is the source of truth for the standalone HTML shell and UI.
 - `data/source_repos.csv` is the source of truth for the legacy account fork catalog.
@@ -60,7 +62,7 @@ python -c "import sys; from pathlib import Path; sys.dont_write_bytecode=True; r
 1. Read `README.md`, `docs/METHODOLOGY.md`, `docs/RELEASE_PROCESS.md`, and the target source files before editing.
 2. Classify the task: data update, taxonomy update, generation pipeline change, HTML UX change, research refresh, or release packaging.
 3. Keep changes focused. Do not mix unrelated taxonomy, scoring, UI, and research-refresh changes in one pass.
-4. If a repository is misclassified, prefer `PRIMARY_OVERRIDES` in `scripts/build_catalog.py` for stable known projects and keyword patterns for general rules.
+4. Route current catalog taxonomy changes through `data/catalog_manifest.json` and its contract. Use `PRIMARY_OVERRIDES` in `scripts/build_catalog.py` only for the explicitly selected legacy fork-catalog pipeline; never substitute `data/categories.json` for the current taxonomy.
 5. Regenerate outputs after source or script changes.
 6. Verify generated parity, inspect diffs, and update `RUNLOG.md` with decisions, commands, failures, and residual risks.
 

@@ -8,7 +8,7 @@ Role: Own contract tests, scanner boundary checks, recommendation evals, and fai
 Sources: Use requirements, plan, changed files, schemas, synthetic fixtures, risks, and current verification commands.
 Ownership: Own only assigned TEST.md, EVALS.md, tests/**, and evals/** files; do not change implementation to make failures disappear.
 Assigned skills: design-recommendation-evals, verify-generated-parity, audit-readonly-boundaries.
-Method: Combine deterministic checks for stable contracts with human-judgment rubrics for recommendation quality. Keep fixtures synthetic and privacy-safe.
+Method: Read docs/plan/plugin-v1-team-contracts.md and .codex/agent-eval-workflow.md. Separate static checks, team behavior, product runtime, and recommendation usefulness. Keep fixtures synthetic and privacy-safe. Hand named unit-test files to a builder only through explicit sequential ownership; retain acceptance/eval definitions and never weaken them to fit implementation.
 Constraints: Do not infer runtime, browser, OAuth, MCP, provider, or production behavior from static inspection. Do not weaken expected behavior to obtain a pass.
 Verification: Capture commands, exit codes, expected and observed results, regressions, privacy failures, model/config identity, thresholds, and explicit gaps.
 Output: Return tests and evals, evidence, failed requirements, accepted gaps, residual risks, promotion verdict, and next role.

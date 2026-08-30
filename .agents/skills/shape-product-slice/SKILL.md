@@ -7,7 +7,7 @@ description: Frame a bounded myAI-StackGuide product slice with users, value, no
 
 ## Workflow
 
-1. Read `PRODUCT_REQUIREMENTS.md`, `V1_ROADMAP.md`, `REQUIREMENTS.md`, `PLAN.md`, and the relevant concept document.
+1. Read `docs/PRODUCT_REQUIREMENTS.md`, `docs/V1_ROADMAP.md`, `REQUIREMENTS.md`, `PLAN.md`, and the relevant concept document from the repository root. Follow the active plugin-first task; retain superseded hosted-first detail as history.
 2. Identify the user decision improved by the slice and separate business outcome, product outcome, and feature metric.
 3. Map the slice to existing requirement IDs; add a new ID only when the behavior is not already covered.
 4. Name in-scope outputs, non-goals, dependencies, privacy boundary, owner, acceptance criteria, and evidence needed.

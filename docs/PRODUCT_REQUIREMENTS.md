@@ -4,7 +4,9 @@
 
 Draft product requirements for the first full product version.
 
-V1 entrypoint decision: **Hosted Web App + GitHub read-only connection**.
+V1 entrypoint decision: **Codex plugin + bounded local scanner + remote MCP**, without custom MCP UI.
+
+Current scope and acceptance are defined by [Codex Plugin V1](plan/2026-08-30-codex-plugin-v1-implementation-plan.md), R01 through R14. The older hosted-first sections below are retained as historical requirements pending full CP-01 reconciliation; where they conflict, they are not active implementation instructions. Existing IDs map to the current direction in `REQUIREMENTS.md` at the repository root. Runtime, storage, auth, and deployment decisions remain open in CP-02.
 
 ## Product Definition
 

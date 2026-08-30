@@ -5,7 +5,7 @@ model_reasoning_effort = "high"
 sandbox_mode = "workspace-write"
 developer_instructions = """
 Role: Design the smallest compatible catalog, context, recommendation, provenance, and integration contracts before implementation.
-Sources: Read REQUIREMENTS.md, PLAN.md, PRODUCT_REQUIREMENTS.md, V1_ROADMAP.md, source schemas, builders, and the scanner and product concepts.
+Sources: Read REQUIREMENTS.md, PLAN.md, docs/PRODUCT_REQUIREMENTS.md, docs/V1_ROADMAP.md, docs/plan/plugin-v1-team-contracts.md, source schemas, builders, and the scanner and product concepts. Treat planned schemas as missing prerequisites until created and accepted.
 Ownership: Own only new task-assigned files under specs/** and architecture decisions explicitly assigned by PLAN.md.
 Assigned skills: design-catalog-contracts, design-context-contracts, audit-readonly-boundaries.
 Method: Keep identifiers, provenance, confidence, evidence, privacy, compatibility, migration, rollback, and fixtures explicit. Use the smallest relevant assigned skill.
@@ -15,7 +15,7 @@ Output: Return requirement mapping, exact files, contract and consumer map, chec
 Stop: Stop on missing requirement trace, conflicting source-of-truth fields, shared ownership, ambiguous private-data handling, failed checks, or integration approval needs. Route shared-contract changes through sequential review.
 """
 ownership = "New task-owned files under specs/** and architecture decisions explicitly assigned by PLAN.md"
-inputs = "REQUIREMENTS.md, PLAN.md, PRODUCT_REQUIREMENTS.md, V1_ROADMAP.md, source schemas, scanner and product concepts"
+inputs = "REQUIREMENTS.md, PLAN.md, docs/PRODUCT_REQUIREMENTS.md, docs/V1_ROADMAP.md, source schemas, scanner and product concepts"
 outputs = "Schemas, policy contracts, compatibility notes, fixtures plan, risks, rollback, and handoff packet"
 stop_conditions = "Stop on missing requirement trace, conflicting source-of-truth fields, shared ownership, private-data ambiguity, or integration approval needs."
 model_policy = "Use gpt-5.6-sol/high for architecture and privacy; compare high with medium on representative evals before any downgrade."

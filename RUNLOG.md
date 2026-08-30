@@ -477,3 +477,78 @@ git diff --check
 
 - This slice changes product documentation only. It does not implement or verify scanner behavior, GitHub authentication, interview orchestration, recommendations, MCP, an Agents SDK runtime, deployment, or live catalog freshness.
 - No files were staged, committed, pushed, released, or published in this slice.
+
+## 2026-08-30 - Plugin V1 Plan English-Language Correction
+
+### Scope
+
+- Translated `docs/plan/2026-08-30-codex-plugin-v1-implementation-plan.md` fully into English, including headings, tables, diagram labels, task descriptions, and completion reports, following the owner's correction and the existing English control-plane convention.
+- Preserved all 16 tasks, 14 requirement rows, task IDs, statuses, dependencies, agent/skill assignments, time-estimate ranges, paths, commands, and approval boundaries. This is a translation, not a product or implementation-plan revision.
+- Used `maintain-control-plane` to preserve lifecycle and evidence semantics. The plan remains `proposal_staged`; every implementation task remains `planned`.
+
+### Verification
+
+```powershell
+python -B C:/Users/user/.codex/plugins/cache/personal-product-agent-plugins/product-agent-os/0.1.0/scripts/validate_task_matrix.py docs/plan/2026-08-30-codex-plugin-v1-implementation-plan.md
+git diff --check
+```
+
+- Task-matrix validator: `ok: true`, no errors.
+- In-memory comparison with the pre-translation text confirmed unchanged task IDs, protected task fields, inline identifiers/commands, all 185 file-reference occurrences, agent/skill assignments, and estimated-time ranges.
+- Strict UTF-8 reading passed; the translated plan contains zero Cyrillic characters, zero replacement characters, and no trailing whitespace.
+- Product runtime tests were not run: this slice changes documentation language only and does not implement or activate the plugin, MCP, agents, or external services.
+
+## 2026-08-30 - Agent Team Audit Remediation
+
+### Authorization And Scope
+
+- The owner approved the preceding audit recommendations and requested a task list and implementation. Created `docs/plan/2026-08-30-agent-team-remediation-plan.md`, with AR-01 through AR-06, accountable roles/skills, exact files, acceptance, verification, rollback, and explicit product-readiness gaps.
+- Implemented sequentially by the primary agent with explicit self-review; no subagents were dispatched. Role labels in the task plan describe accountability, not separate-agent execution evidence.
+- Preserved the pre-existing RUNLOG additions and English plugin plan. Catalog source, generated output, builders, and `.codex/config.toml` remained unchanged. No Git history or publication actions occurred.
+
+### Changes
+
+- Added the shared English active-artifact rule and current/legacy taxonomy routing. Corrected concrete source paths in agents/skills and retained hosted-first/multilingual architecture material with explicit historical notices.
+- Linked plugin-first direction and old-to-new requirement mapping from active control docs. Full CP-01 PRD reconciliation and CP-02 architecture decisions remain open rather than silently accepted.
+- Added `docs/plan/plugin-v1-team-contracts.md` for source routing, expected-RED versus unexpected failure, exact unit-test ownership, state/correction/resume requirements, separate candidate lifecycle axes, four-tool read/write boundaries, methodology owners, and runtime evidence requirements.
+- Authored `plugin_runtime_builder` and `mcp_backend_builder`, with two corresponding repository skills and UI metadata. Updated seven existing skills and relevant existing roles. There are now nine agent definitions and thirteen repository skills; no fixed-count requirement was introduced.
+- Added dependency-free `scripts/grade_agent_evals.py`, fourteen typed team cases, nine routing examples, and fifty-two skill-activation prompt examples. The grader validates complete reviewed packets and bounded trace-file hashes; it does not execute models, authenticate evidence, or grant promotion.
+- Added sixteen grader tests and expanded static contract checks to eleven tests. Updated TEST/EVALS/workflow and promotion documentation. Model/effort defaults, sandbox/approval settings, MCP connections, and automation remained unchanged.
+
+### Commands And Observed Results
+
+```powershell
+python -B -m unittest discover -s tests -p test_agent_eval_grader.py -v
+python -B -m unittest discover -s tests -p test_codex_contracts.py -v
+python -B -m unittest discover -s tests -v
+python -B scripts/grade_agent_evals.py --validate-cases evals/agents/team-behavior-cases.json
+python -B scripts/build_catalog_html.py --check
+python -B C:/Users/user/.codex/plugins/cache/personal-product-agent-plugins/product-agent-os/0.1.0/scripts/validate_control_plane.py .
+python -B C:/Users/user/.codex/plugins/cache/personal-product-agent-plugins/product-agent-os/0.1.0/scripts/validate_agents.py .codex/agents
+python -B C:/Users/user/.codex/plugins/cache/personal-product-agent-plugins/product-agent-os/0.1.0/scripts/validate_task_matrix.py docs/plan/2026-08-30-codex-plugin-v1-implementation-plan.md
+python -B C:/Users/user/.codex/plugins/cache/personal-product-agent-plugins/product-agent-os/0.1.0/scripts/validate_task_matrix.py docs/plan/2026-08-30-agent-team-remediation-plan.md
+git -c core.safecrlf=false diff --check
+git -c core.safecrlf=false diff --exit-code -- data templates categories docs/UNIFIED_CATALOG.html docs/UNIFIED_CATALOG.md .codex/config.toml scripts/build_catalog.py scripts/build_unified_catalog.py scripts/build_catalog_html.py
+```
+
+- Final full suite: 36 tests passed (16 grader, 11 Codex contracts, 9 catalog pipeline), exit 0. Earlier full run passed 35 before adding the final corpus-reference check; that check also passed in a targeted run.
+- Team case validation: 14 cases, `model_runs: 0`, exit 0. The 9 routing and 52 activation examples are specifications, not measured runs.
+- Current HTML exact parity: 2,165,599 bytes; SHA-256 `8766e6d56a69e8a3a824269f1a7a624dcd71ff3b3608f094cd12557a74e446eb`. The pre-existing 18 unresolved placement records remain unchanged.
+- Control-plane, nine-agent, original plugin-plan, and new remediation-plan validators: `ok: true`, no reported errors.
+- Whitespace check and protected catalog/config diff check: exit 0. `core.safecrlf=false` was a per-command noise-control option, not a persistent Git configuration change.
+- Rechecked custom-agent schema, model/effort precedence, inherited permissions, and spawned-worker cap in the current official Codex subagents documentation. No provider inference or actual agent routing was run.
+
+### Failures And Limitations
+
+- The first post-addition legacy contract run failed three tests: hard-coded agent count (9 versus 7), hard-coded skill count (13 versus 11), and missing new skill-case coverage. Replaced quotas with discovered-contract/coverage checks and added the missing cases; later runs passed. This was migration evidence, not a behavioral RED/GREEN test.
+- One multi-file documentation patch was rejected because its expected skill-promotion context did not match. Confirmed no partial changes from that patch and reapplied against the actual line.
+- Repository-local plan-quality/task-matrix template paths were absent; used the installed Product-Agent OS templates and validator contract without installing or copying an entire template package.
+- PyYAML availability check remains false. Official `quick_validate.py` was not run; dependency-free checks and manual review are scoped fallback evidence, not a full YAML-validator pass.
+- No external skills or dependencies were installed. No private project source, credentials, live MCP/backend, deployment, scheduler, browser runtime, or paid model eval was accessed. Public official-documentation retrieval was read-only.
+
+### Evidence Ceiling And Next Gate
+
+- AR-01 through AR-06 implement local team preparation only. Root lifecycle remains `partially_verified`; skills remain `spec_present_not_model_run` and model suitability remains `configured_not_behaviorally_verified`.
+- Same-session file inspection cannot prove that Codex reloaded changed AGENTS, roles, or skills. Start a fresh session and verify the loaded instruction chain before actual delegation or behavioral evaluation.
+- The offline grader cannot prove reviewer authenticity, complete traces, real model execution, or recommendation quality. Even an observed-run packet passing integrity checks returns `needs_owner_acceptance`, never `promotion_ready`.
+- CP-02 runtime/auth/storage/budget/retention decisions, CP-03 schemas, the CP-04 product recommendation runner, representative frozen fixtures, actual fresh-context/model comparisons, and human usefulness acceptance remain open. New builder definitions do not bypass these gates.

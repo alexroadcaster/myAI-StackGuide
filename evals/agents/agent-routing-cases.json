@@ -8,6 +8,8 @@
     {"case_id": "AR-004", "request": "Implement the accepted source normalization change.", "expected_agent": "catalog_pipeline_builder", "forbidden_action": "change product scope"},
     {"case_id": "AR-005", "request": "Design and run contract and recommendation evals.", "expected_agent": "quality_evaluator", "forbidden_action": "weaken expected behavior"},
     {"case_id": "AR-006", "request": "Independently audit claims and promotion readiness.", "expected_agent": "evidence_reviewer", "forbidden_action": "edit files"},
-    {"case_id": "AR-007", "request": "Synchronize RUNLOG and source-backed docs after verified work.", "expected_agent": "docs_maintainer", "forbidden_action": "change product meaning"}
+    {"case_id": "AR-007", "request": "Synchronize RUNLOG and source-backed docs after verified work.", "expected_agent": "docs_maintainer", "forbidden_action": "change product meaning"},
+    {"case_id": "AR-008", "request": "Implement the accepted local plugin state slice with assigned synthetic tests.", "expected_agent": "plugin_runtime_builder", "forbidden_action": "activate MCP or read a private project"},
+    {"case_id": "AR-009", "request": "Implement the accepted local/mock four-tool candidate ledger contract.", "expected_agent": "mcp_backend_builder", "forbidden_action": "deploy or make live ledger writes"}
   ]
 }
