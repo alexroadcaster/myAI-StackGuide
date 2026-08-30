@@ -1,387 +1,246 @@
 # myAI-StackGuide
 
-myAI-StackGuide is a myAI Labs product for context-aware open-source stack guidance.
+> A context-aware guide for choosing open-source repositories, stacks, and adoption paths for a real product—not another “awesome list.”
 
-It helps people connect a product or project context to the right open-source repositories, stack recipes, comparison views, and adoption paths.
+myAI-StackGuide is a myAI Labs project that helps founders, product teams, engineers, and operators understand which open-source solutions are relevant to their specific project, why they fit, what should be compared, and what should be avoided or deferred.
 
-This repository started as an analysis of a personal GitHub fork collection and grew into a broader landscape catalog. It now combines agentic engineering tools, AI development infrastructure, and business/product operations software into one navigable reference for the myAI-StackGuide product.
+The project combines a curated repository catalog with a planned read-only project scanner, a short user interview, and an evidence-aware recommendation workflow. The intended result is a practical decision artifact that a user can discuss with a technical team before adopting or integrating anything.
 
-The goal is practical: help people in different roles quickly find relevant repositories, understand where they fit, compare options, avoid distractions, and decide what to inspect next.
+**Current status:** the catalog, reproducible data pipeline, product contracts, and agent-control layer are present. The hosted scanner, GitHub connection, recommendation runtime, and MCP surface are planned and are not yet implemented.
 
-## What Is Inside
+## Why This Project Exists
 
-- A current HTML v5 catalog with 77 categories, 1,290 category placements, and 1,142 canonical repositories.
-- A standalone interactive artifact with navigation, search, filters, decision views, stack recipes, and repository tables.
-- A source-owned `data/catalog_manifest.json` that reproduces the HTML artifact exactly.
-- A legacy Markdown snapshot with 42 categories, 351 category placements, and 314 accepted repositories.
-- CSV and JSON data files for analysis, automation, or import into other tools.
-- Research snapshots for AI/engineering repositories and business/product repositories.
-- Category pages generated from the original fork collection.
+Choosing open-source software is rarely a search problem alone.
 
-## Start Here
+A user may know that they need “better support automation,” “a RAG layer,” or “an agent workflow,” but still not know:
 
-- [Interactive HTML catalog](docs/UNIFIED_CATALOG.html)
-- [Legacy Markdown catalog](docs/UNIFIED_CATALOG.md)
-- [myAI-StackGuide product concept](docs/MYAI_STACKGUIDE_PRODUCT_CONCEPT.md)
-- [myAI-StackGuide context scanner](docs/MYAI_STACKGUIDE_CONTEXT_SCANNER.md)
+- which technical category actually matches the problem;
+- what capabilities already exist in their project;
+- whether they need a library, platform, reference implementation, or complete product;
+- which popular repositories are a poor fit for their stage or constraints;
+- what must be verified before adoption;
+- how several repositories could fit together as a stack.
+
+Most repository lists and search tools return candidates. myAI-StackGuide is intended to turn project context and user intent into a structured decision path.
+
+## What myAI-StackGuide Is
+
+myAI-StackGuide has three product layers.
+
+### 1. Curated Catalog
+
+A structured map of open-source repositories across:
+
+- AI and agentic engineering;
+- RAG, retrieval, memory, and knowledge graphs;
+- MCP, tools, evals, observability, and sandboxing;
+- frontend, backend, data, infrastructure, and security;
+- product, design, analytics, support, CRM, finance, legal, and business operations.
+
+The catalog is organized around categories, repository roles, use cases, compatibility relationships, and stack recipes. Stars and freshness are retained as discovery signals, not treated as proof of quality or fit.
+
+### 2. Project Context Layer
+
+The planned scanner will inspect an authorized project in read-only mode and build a sanitized **Project Context Brief** containing:
+
+- product type and target users when inferable;
+- detected languages, frameworks, databases, and infrastructure;
+- product surfaces, domain entities, and integrations;
+- visible capabilities, maturity signals, and possible gaps;
+- observed facts, inferences, confidence, and missing context.
+
+The scanner is context acquisition—not a coding agent. It must not edit files, execute project code, install dependencies, create pull requests, or collect secrets.
+
+### 3. Decision Workflow
+
+The guide combines the corrected Project Context Brief with a short interview about the user’s goal, stage, constraints, and preferred adoption mode. It then maps the project to category paths and repository candidates.
+
+The target output is an evidence-aware recommendation memo or Integration Blueprint—not automatic implementation.
+
+## Intended User Journey
+
+```mermaid
+flowchart LR
+    A[User project or product idea] --> B[Read-only context scan]
+    A --> C[Short goal and constraints interview]
+    B --> D[Project Context Brief]
+    C --> D
+    D --> E[Category and task-archetype mapping]
+    F[Curated catalog snapshot] --> E
+    G[Optional shortlist freshness check] -. planned .-> E
+    E --> H[Shortlist by repository role]
+    H --> I[Compare, avoid or defer, and reading path]
+    I --> J[Decision memo or Integration Blueprint]
+    J --> K[Human adoption decision]
+```
+
+The user remains the decision owner. Any code changes, installation, integration work, external writes, or pull requests require a separate explicitly authorized workflow.
+
+## What The User Receives
+
+A complete recommendation flow is designed to produce:
+
+1. **Project understanding** — what the product appears to be and which facts support that view.
+2. **Detected constraints** — stack, stage, deployment, integration, privacy, and team constraints.
+3. **Category path** — the sequence of repository categories relevant to the problem.
+4. **Role-based shortlist** — candidates labeled as primary, supporting, reference-only, compare-against, or avoid-for-now.
+5. **Fit explanation** — why each repository is relevant to this project rather than generally popular.
+6. **Compare view** — the trade-offs that matter before choosing.
+7. **Avoid/defer guidance** — attractive options that are premature or mismatched, plus conditions for revisiting them.
+8. **Reading path** — what to inspect first in documentation, examples, deployment guides, releases, issues, and licenses.
+9. **Evidence and caveats** — provenance, snapshot date, freshness, confidence, and unverified assumptions.
+10. **Next human decision** — the choice that should be made before implementation begins.
+
+## Who It Is For
+
+| User | Typical question | Useful outcome |
+|---|---|---|
+| Non-technical founder or product owner | “What open-source solutions could help this product?” | Plain-language shortlist and decision memo for discussion with a technical partner. |
+| Product manager | “Which platforms or libraries fit this workflow?” | Category path, comparison frame, and build-versus-buy guidance. |
+| Engineer or technical lead | “What should we evaluate before adding another subsystem?” | Faster landscape triage grounded in the existing stack and project stage. |
+| Internal operator | “What can improve support, CRM, analytics, finance, or automation?” | Business-workflow interpretation and relevant self-hosted or integration options. |
+| Researcher or analyst | “How is this open-source landscape structured?” | Source-aware map, shortlist, caveats, and reading order. |
+
+## Example Scenarios
+
+- A founder connects a SaaS repository and asks which open-source support and analytics tools are worth evaluating.
+- A product team wants to compare RAG platforms, retrieval libraries, memory systems, and evaluation tools for an existing document product.
+- An engineer needs a controlled coding-agent delivery stack spanning runtime, MCP tools, sandboxing, evals, and security.
+- An operator wants to compare self-hosted CRM, helpdesk, workflow automation, and reporting products.
+- A team needs to understand whether a repository should be adopted directly, integrated as a component, forked, studied, or deferred.
+
+## Current Product State
+
+The repository deliberately separates implemented evidence from product intent.
+
+| Surface | Current state |
+|---|---|
+| Interactive catalog | Available as a self-contained HTML artifact. |
+| Catalog snapshot | Source-owned and reproducible from manifest + template. |
+| Repository count | 1,142 canonical repository records. |
+| Taxonomy | 77 categories and 1,290 category placements in the current HTML snapshot. |
+| Catalog status groups | 314 accepted, 813 candidate, and 15 reference/benchmark records. |
+| Stack guidance | 10 stack recipes and 10 compatibility edges in the current manifest. |
+| Product concept, PRD, and roadmap | Present as source-controlled planning artifacts. |
+| Project-scoped skills and agents | Structurally configured and statically tested. |
+| Read-only scanner | Planned; no production scanner runtime is committed. |
+| Hosted web app and GitHub OAuth | Planned; not implemented or activated. |
+| Recommendation engine and interview runtime | Planned; contracts and eval cases are still being defined. |
+| MCP server or Agents SDK application | Deferred; no runtime has been activated. |
+
+Static configuration, generated artifacts, and local tests do not prove recommendation quality, browser behavior, GitHub integration, private-repository safety, or production readiness.
+
+## Use The Catalog Today
+
+Open [docs/UNIFIED_CATALOG.html](docs/UNIFIED_CATALOG.html) in a browser. It is a self-contained artifact and does not require a server.
+
+The current catalog supports:
+
+- search across repository metadata;
+- category and use-case navigation;
+- persona and status filters;
+- stack recipes and compatibility relationships;
+- repository comparison and triage signals;
+- visible source, snapshot, and evidence metadata where available.
+
+Useful searches include `RAG`, `MCP`, `agent memory`, `sandbox`, `browser automation`, `CRM`, `support`, `analytics`, and `workflow automation`.
+
+## Catalog Snapshot And Provenance
+
+| Snapshot layer | Date | Scope |
+|---|---|---|
+| Current HTML v5 | 2026-08-12 | 1,142 repositories, 77 categories, and 1,290 placements. |
+| Legacy unified Markdown | 2026-05-23 | 314 repositories, 42 categories, and 351 placements. |
+| Original account-fork catalog | 2026-05-23 | 107 repositories generated from `data/source_repos.csv`. |
+
+Canonical current HTML data lives in [data/catalog_manifest.json](data/catalog_manifest.json), with its top-level contract in [data/catalog_manifest.schema.json](data/catalog_manifest.schema.json). The UI shell lives in [templates/unified_catalog.html](templates/unified_catalog.html).
+
+Catalog metadata is a snapshot. Repository stars, activity, license metadata, ownership, and archive status may change. Current claims require a fresh source-backed check; discovery metadata must not be presented as security, legal, procurement, or production-readiness evidence.
+
+## Privacy And Advisory Boundaries
+
+The planned product follows these default rules:
+
+- repository access is read-only and least-privilege;
+- the user sees scan scope, exclusions, retention, and transmission rules before scanning;
+- allowlisted files and metadata are preferred over broad source ingestion;
+- secrets, credentials, keys, dumps, customer exports, raw user messages, logs, dependency folders, and build outputs are excluded by default;
+- raw project source stops at the scanner/sanitizer boundary;
+- downstream recommendation components receive sanitized facts and evidence references;
+- private repository data is not used to enrich the public catalog without explicit contribution consent;
+- recommendations are advisory and do not constitute security, legal, license, compliance, procurement, or production approval.
+
+## Architecture Direction
+
+The product is being designed around clear trust boundaries:
+
+1. **Context access** — GitHub read-only connection first; local or embedded adapters may follow later.
+2. **Scanner and sanitizer** — deterministic inventory, exclusions, facts, evidence references, and confidence.
+3. **Project Context Brief** — user-readable understanding that can be corrected before matching.
+4. **Catalog matching** — task archetypes, category paths, stack recipes, repository cards, and policy constraints.
+5. **Advisory response** — shortlist, compare view, avoid/defer guidance, reading path, evidence, and next decision.
+
+Detailed documents:
+
+- [Product concept](docs/MYAI_STACKGUIDE_PRODUCT_CONCEPT.md)
+- [Context scanner](docs/MYAI_STACKGUIDE_CONTEXT_SCANNER.md)
+- [Module architecture](docs/MYAI_STACKGUIDE_MODULE_ARCHITECTURE.md)
 - [Product requirements](docs/PRODUCT_REQUIREMENTS.md)
 - [V1 roadmap](docs/V1_ROADMAP.md)
-- Product decision layer: when to use, when to avoid, stack recipes, and compare views are included below and in the HTML catalog.
-- [Methodology](docs/METHODOLOGY.md)
-- [Contributing guide](docs/CONTRIBUTING.md)
 
-The HTML file is self-contained. Download or open it locally to use the interactive search and filters.
+## Development Priorities
 
-## Snapshot
+The active dependency order is:
 
-| Area | Count |
-|---|---:|
-| HTML v5 categories | 77 |
-| HTML v5 category placements | 1,290 |
-| HTML v5 canonical repositories | 1,142 |
-| Accepted repositories | 314 |
-| Candidate repositories | 813 |
-| Reference or benchmark repositories | 15 |
-| Original fork catalog repositories | 107 |
-| Source research snapshots | 3 |
+1. Define stable repository-card and taxonomy contracts.
+2. Define scanner allowlist, exclusions, and Project Context Brief schema.
+3. Define recommendation memo and evaluation contracts.
+4. Validate provenance, identity, confidence, and privacy boundaries across contracts.
+5. Review the exact read-only GitHub and MCP permission surface.
+6. Only then plan and implement the hosted product workflow.
 
-Current HTML snapshot date: 2026-08-12. The legacy Markdown and dated research inputs retain their 2026-05-23 snapshot boundary.
+See [REQUIREMENTS.md](REQUIREMENTS.md), [PLAN.md](PLAN.md), [TEST.md](TEST.md), and [EVALS.md](EVALS.md) for the current execution state and evidence gates.
 
-## Main Category Groups
+## Build And Verify
 
-### AI And Agentic Engineering
+Run from the repository root:
 
-For people building AI products, coding agents, RAG systems, memory layers, eval pipelines, and tool-using agents.
+```powershell
+python scripts/build_catalog.py
+python scripts/build_unified_catalog.py
+python scripts/build_catalog_html.py
+python scripts/build_catalog_html.py --check
+python -m unittest discover -s tests -v
+```
 
-Examples:
-
-- Agent Runtime & Orchestration
-- Codex, Claude & Skill Workflows
-- MCP & Tool Integrations
-- RAG, Retrieval & Search
-- Memory & Context Systems
-- Evals, Observability & Prompt Ops
-- Sandboxed Code Execution
-- Voice & Realtime Agents
-- Multimodal & Vision Agents
-
-### Engineering Platform
-
-For teams that need infrastructure around AI-assisted software delivery.
-
-Examples:
-
-- Developer Tools & CLI
-- Frontend, UI, Desktop & Browser Automation
-- Cloudflare, Edge & Backend
-- Databases, Storage & SQLite
-- Documents, OCR & Parsing
-- Security, Safety & Supply Chain
-- Web Crawling & Data Ingestion
-- Workflow State Machines & Durable Agents
-
-### Business And Product Operations
-
-For non-engineering and cross-functional teams using AI to accelerate real business work.
-
-Examples:
-
-- Marketing, Growth & SEO
-- Design, Brand & UI/UX
-- Sales, CRM & Lead Generation
-- Fundraising, Investor Relations & Startup Ops
-- Accounting, Finance & ERP
-- Legal, Contracts & Compliance
-- Analytics, BI & Reporting
-- Customer Support & Success
-- Product Management, Roadmaps & Feedback
-- E-commerce, Payments & Revenue
-- HR, Recruiting & People Ops
-- Operations, Project Management & Internal Tools
-- Automation, Workflows & No-code
-- Market Research & Competitive Intelligence
-
-## Product Decision Layer
-
-Use the catalog as a decision aid: start from the work you need to do, narrow to the right category path, then inspect repositories with their caveats in mind.
-
-### When To Use
-
-| Situation | Start with | Decision output |
-|---|---|---|
-| You need a shortlist before choosing an AI or automation stack. | Search by workflow, then inspect the matching category and top repositories. | A focused list of projects to read, prototype, or compare. |
-| You are deciding what to self-host, buy, fork, or ignore. | Use the business/product categories alongside engineering platform categories. | A decision map for build-versus-buy and adoption planning. |
-| You are designing an agentic workflow and need adjacent components. | Move across runtime, tools, memory, retrieval, evals, execution, and UI categories. | A stack-shaped view instead of isolated repository bookmarks. |
-| You are auditing a personal fork library or research queue. | Use source groups, scores, categories, and stale metadata caveats. | A cleaner queue of active candidates, references, and archive/delete items. |
-
-### When To Avoid
-
-| Need | Why this catalog is not enough | Better next step |
-|---|---|---|
-| Security, compliance, legal, or procurement approval. | The catalog is not a security audit, license opinion, vendor review, or production-readiness certification. | Run dedicated code, security, license, and vendor due diligence. |
-| Realtime repository rankings. | Stars, forks, update timestamps, and licenses are snapshot metadata and drift quickly. | Refresh from the GitHub API before presenting current claims. |
-| An exhaustive market map. | The catalog is curated for practical decision support, not complete market coverage. | Run a scoped research refresh with explicit search queries and inclusion rules. |
-| A direct product recommendation for a high-stakes adoption. | Scores are triage signals and are not comparable to hands-on evaluation in your environment. | Prototype the top candidates against your workload, data, permissions, and failure modes. |
-
-### Stack Recipes
-
-| Recipe | Use when | Category path | Decision question |
-|---|---|---|---|
-| Coding Agent Delivery Loop | You want agents to plan, edit, run tools, evaluate changes, and ship safely. | Codex, Claude & Skill Workflows -> Agent Runtime & Orchestration -> MCP & Tool Integrations -> Sandboxed Code Execution -> Evals, Observability & Prompt Ops -> Security, Safety & Supply Chain | Which parts of the loop must be reliable before autonomy increases? |
-| RAG Knowledge Product | You need a product that reads documents, retrieves context, remembers decisions, and cites sources. | Documents, OCR & Parsing -> RAG, Retrieval & Search -> Vector DBs & Embedding Infrastructure -> Memory & Context Systems -> Knowledge Graphs -> Evals, Observability & Prompt Ops | Is the bottleneck ingestion quality, retrieval quality, memory, or evaluation? |
-| Business Ops Automation Stack | You want to connect internal workflows across leads, support, reporting, and back office. | Automation, Workflows & No-code -> Sales, CRM & Lead Generation -> Customer Support & Success -> Analytics, BI & Reporting -> Accounting, Finance & ERP -> Legal, Contracts & Compliance | Which system owns customer, revenue, and compliance state? |
-| Founder Lean Operating System | You need a lightweight startup stack before buying multiple SaaS products. | Market Research & Competitive Intelligence -> Marketing, Growth & SEO -> Sales, CRM & Lead Generation -> Product Management, Roadmaps & Feedback -> Analytics, BI & Reporting -> Automation, Workflows & No-code | What should be self-hosted, bought, or deferred for the next 90 days? |
-| Design-To-Prototype Loop | You want to move from product idea to interface, demo, or user-testable prototype. | Design, Brand & UI/UX -> Frontend, UI, Desktop & Browser Automation -> Codex, Claude & Skill Workflows -> Multimodal & Vision Agents -> Developer Tools & CLI | Which artifact is the next decision point: design system, prototype, demo, or production UI? |
-
-### Compare Views
-
-| Compare | Use this view to decide | Categories |
-|---|---|---|
-| Agent runtimes vs workflow engines | Whether you need autonomous agent behavior, deterministic orchestration, or both. | Agent Runtime & Orchestration -> Workflow State Machines & Durable Agents |
-| RAG vs memory vs knowledge graphs | Whether the problem is retrieval, long-lived context, entity relationships, or source-grounded answers. | RAG, Retrieval & Search -> Memory & Context Systems -> Knowledge Graphs |
-| MCP integrations vs no-code automation | Whether agents need programmable tool access or business teams need workflow automation. | MCP & Tool Integrations -> Automation, Workflows & No-code |
-| Evals/observability vs security/safety | Whether the immediate risk is quality drift, prompt behavior, unsafe execution, or supply-chain exposure. | Evals, Observability & Prompt Ops -> Security, Safety & Supply Chain |
-| Self-hosted suite vs focused tool | Whether to adopt a broad operating platform or combine narrow tools around one workflow. | Operations, Project Management & Internal Tools -> Analytics, BI & Reporting -> Customer Support & Success |
-
-## How This Helps Different Roles
-
-### Founder Or CEO
-
-Use the catalog to map what can be built, automated, or self-hosted before buying another SaaS tool.
-
-Example workflows:
-
-- Compare open-source CRM, analytics, support, and finance options before selecting a startup stack.
-- Find fundraising and investor-relations tools for cap tables, research, donations, or investor analysis.
-- Identify AI agent platforms that can automate internal research, reporting, or operations.
-- Build a shortlist for "what should we self-host, buy, or ignore?"
-
-Useful entry points:
-
-- Marketing, Growth & SEO
-- Sales, CRM & Lead Generation
-- Fundraising, Investor Relations & Startup Ops
-- Accounting, Finance & ERP
-- Automation, Workflows & No-code
-
-### Product Manager
-
-Use the catalog to discover tools for feedback, analytics, roadmaps, experimentation, and customer understanding.
-
-Example workflows:
-
-- Search for "feedback", "roadmap", "analytics", or "feature flags".
-- Compare product analytics tools with BI and reporting tools.
-- Find repositories that support AI-powered discovery, summarization, or workflow automation.
-- Build a product ops stack around customer feedback, metrics, and changelogs.
-
-Useful entry points:
-
-- Product Management, Roadmaps & Feedback
-- Analytics, BI & Reporting
-- Marketing, Growth & SEO
-- Customer Support & Success
-- Evals, Observability & Prompt Ops
-
-### Engineer Or AI Builder
-
-Use the catalog as a decision map for agent architecture and implementation choices.
-
-Example workflows:
-
-- Search for "RAG", "memory", "MCP", "sandbox", "evals", "workflow", or "vector database".
-- Compare agent orchestration frameworks before starting a prototype.
-- Find tools for code execution, browser automation, document parsing, and secure sandboxing.
-- Build a reference stack for AI agents that can read documents, call tools, browse the web, and run code.
-
-Useful entry points:
-
-- Agent Runtime & Orchestration
-- MCP & Tool Integrations
-- RAG, Retrieval & Search
-- Memory & Context Systems
-- Sandboxed Code Execution
-- Developer Tools & CLI
-
-### Designer Or Creative Technologist
-
-Use the catalog to find tools for design systems, whiteboards, UI generation, prototyping, and AI-assisted design workflows.
-
-Example workflows:
-
-- Search for "design", "whiteboard", "prototype", "UI", or "components".
-- Compare open-source design and diagramming tools.
-- Find repositories that help turn prompts into interfaces or design artifacts.
-- Combine design tools with frontend, browser automation, and AI coding workflows.
-
-Useful entry points:
-
-- Design, Brand & UI/UX
-- Frontend, UI, Desktop & Browser Automation
-- Codex, Claude & Skill Workflows
-- Multimodal & Vision Agents
-
-### Marketing Or Growth Lead
-
-Use the catalog to assemble an AI-friendly growth stack with analytics, SEO, content, campaigns, and automation.
-
-Example workflows:
-
-- Search for "SEO", "analytics", "campaign", "newsletter", or "social".
-- Compare privacy-first analytics tools and product analytics platforms.
-- Find content and community platforms that can be paired with AI content workflows.
-- Use workflow automation tools to connect lead capture, CRM, reporting, and notifications.
-
-Useful entry points:
-
-- Marketing, Growth & SEO
-- Content, Social & Community
-- Analytics, BI & Reporting
-- Automation, Workflows & No-code
-- Market Research & Competitive Intelligence
-
-### Sales, Support, And Customer Success
-
-Use the catalog to find systems for CRM, helpdesk, live chat, ticketing, and customer workflow automation.
-
-Example workflows:
-
-- Search for "CRM", "helpdesk", "ticket", "support", or "live chat".
-- Compare open-source alternatives to Salesforce, Intercom, Zendesk, or Help Scout.
-- Connect support systems with AI summarization, routing, and internal knowledge tools.
-- Build a customer operations stack before committing to expensive enterprise software.
-
-Useful entry points:
-
-- Sales, CRM & Lead Generation
-- Customer Support & Success
-- Product Management, Roadmaps & Feedback
-- Automation, Workflows & No-code
-
-### Finance, Legal, And Operations
-
-Use the catalog to discover tools for accounting, invoicing, ERP, document signing, compliance, and operational automation.
-
-Example workflows:
-
-- Search for "invoice", "ERP", "accounting", "contract", "signature", or "compliance".
-- Find open-source tools for finance back office and lightweight operations.
-- Pair document signing or compliance tools with AI document parsing and workflow automation.
-- Build an internal operating system around finance, legal, support, and project management.
-
-Useful entry points:
-
-- Accounting, Finance & ERP
-- Legal, Contracts & Compliance
-- Operations, Project Management & Internal Tools
-- Documents, OCR & Parsing
-- Workflow State Machines & Durable Agents
-
-### Researcher, Analyst, Or Educator
-
-Use the catalog to find reference projects, research tools, benchmarks, papers, and structured learning paths.
-
-Example workflows:
-
-- Search for "benchmark", "papers", "simulation", "synthetic data", or "awesome".
-- Find agent benchmarks and evaluation tools.
-- Explore AI learning repositories and curated lists.
-- Build teaching material around real repositories instead of abstract examples.
-
-Useful entry points:
-
-- Research, Papers & Science
-- Benchmarks, Simulation & Synthetic Data
-- Learning, Guides & Awesome Lists
-- Market Research & Competitive Intelligence
-
-## Example Searches
-
-The HTML catalog search works across category names, repository names, descriptions, language, license, and source.
-
-Try:
-
-- `posthog`
-- `privacy analytics`
-- `invoice`
-- `DocuSign alternative`
-- `vector database`
-- `MCP`
-- `sandbox`
-- `roadmap`
-- `social media`
-- `agent memory`
+The HTML parity check validates deterministic reconstruction of the checked-in artifact. It does not refresh GitHub metadata or prove browser behavior.
 
 ## Repository Structure
 
 ```text
 .
-|-- docs/
-|   |-- UNIFIED_CATALOG.html
-|   |-- UNIFIED_CATALOG.md
-|   |-- MYAI_STACKGUIDE_PRODUCT_CONCEPT.md
-|   |-- MYAI_STACKGUIDE_CONTEXT_SCANNER.md
-|   |-- PRODUCT_REQUIREMENTS.md
-|   |-- V1_ROADMAP.md
-|   |-- METHODOLOGY.md
-|   `-- CONTRIBUTING.md
-|-- data/
-|   |-- catalog_manifest.json
-|   |-- catalog_manifest.schema.json
-|   |-- source_repos.csv
-|   |-- repos.csv
-|   |-- repos.json
-|   `-- categories.json
-|-- templates/
-|   `-- unified_catalog.html
-|-- LICENSE
-|-- research/
-|   |-- github_curated_recommendations_2026-05-23.*
-|   |-- github_business_curated_recommendations_2026-05-23.*
-|   `-- github_search_candidates_2026-05-23.*
-|-- categories/
-|-- scripts/
-|   |-- build_catalog.py
-|   |-- build_unified_catalog.py
-|   |-- build_catalog_html.py
-|   |-- research_github_landscape.py
-|   `-- research_github_business_landscape_html.py
-|-- tests/
-`-- .agents/
+|-- data/                 # Current manifest plus legacy catalog sources
+|-- templates/            # Source HTML shell
+|-- scripts/              # Reproducible catalog builders and research utilities
+|-- docs/                 # Catalog artifacts, product concept, PRD, architecture, roadmap
+|-- categories/           # Generated legacy category pages
+|-- tests/                # Pipeline and Codex contract tests
+|-- evals/                # Agent/skill cases and future recommendation evals
+|-- .agents/skills/       # Project-scoped Codex skills
+|-- .codex/agents/        # Project-scoped agent roles
+|-- REQUIREMENTS.md       # Compact execution registry
+|-- PLAN.md               # Active dependency order and gates
+|-- TEST.md               # Verification strategy
+|-- EVALS.md              # Recommendation-quality contract
+`-- RUNLOG.md             # Decisions, commands, evidence, and residual risks
 ```
 
-## Data Files
+## Contributing
 
-- `data/source_repos.csv` is the original working CSV.
-- `data/catalog_manifest.json` is the canonical source for the current standalone HTML catalog.
-- `data/catalog_manifest.schema.json` defines the stable top-level v5 manifest contract.
-- `data/repos.csv` is the generated catalog from the original fork collection.
-- `data/repos.json` is the JSON version of that generated catalog.
-- `data/categories.json` contains the original category definitions and counts.
-- `research/github_curated_recommendations_2026-05-23.*` contains AI/engineering GitHub research.
-- `research/github_business_curated_recommendations_2026-05-23.*` contains business/product GitHub research.
-- `docs/UNIFIED_CATALOG.md` is the legacy GitHub-readable catalog generated from the dated inputs.
-- `docs/UNIFIED_CATALOG.html` is generated from the current manifest and HTML template.
+Contributions should preserve source provenance, snapshot boundaries, deterministic generation, and the distinction between discovery signals and adoption evidence.
 
-## Regenerate
+Read [docs/CONTRIBUTING.md](docs/CONTRIBUTING.md), [docs/METHODOLOGY.md](docs/METHODOLOGY.md), and [docs/RELEASE_PROCESS.md](docs/RELEASE_PROCESS.md) before changing catalog sources or generated artifacts.
 
-```bash
-python scripts/build_catalog.py
-python scripts/build_unified_catalog.py
-python scripts/build_catalog_html.py
-python scripts/build_catalog_html.py --check
-```
+## License
 
-## Scoring And Ratings
-
-Scores are triage signals, not objective quality ratings.
-
-The catalog uses public GitHub metadata such as stars, update timestamps, descriptions, and license fields. Scores help sort candidates inside a research snapshot, but they should not replace technical review, security review, license review, or product fit analysis.
-
-## Caveats
-
-- Stars and update timestamps are snapshots and will drift over time.
-- Some repositories appear in more than one category because they support multiple workflows.
-- Some descriptions come from upstream GitHub metadata and may be incomplete.
-- Inclusion does not imply endorsement by, or affiliation with, upstream maintainers.
-- This is a discovery and decision-support catalog, not a benchmark or procurement recommendation.
+This project is available under the [MIT License](LICENSE).

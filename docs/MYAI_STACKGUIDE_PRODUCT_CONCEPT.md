@@ -132,8 +132,8 @@ The important distinction is that the V1 catalog can include 1,000 repositories,
 
 Recommended growth path:
 
-1. Strengthen the current 314-repository catalog with better product metadata.
-2. Expand to 1,000 repositories by source group, category, and domain.
+1. Stabilize the current 1,142-record v5 catalog with source-owned identity, provenance, and reproducible generation.
+2. Enrich and curate the high-confidence recommendation pool instead of treating catalog inclusion as recommendation readiness.
 3. Ensure broad coverage across AI engineering, developer tooling, product operations, business operations, design, data, security, research, and automation categories.
 4. Add repository cards with advisory metadata.
 5. Add semantic retrieval, compare views, and stack recipes.

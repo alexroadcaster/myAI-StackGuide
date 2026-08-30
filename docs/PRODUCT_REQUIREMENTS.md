@@ -441,5 +441,5 @@ V1 beta is ready when:
 
 - `MYAI_STACKGUIDE_PRODUCT_CONCEPT.md` defines the advisory-only repository selection product, V1 catalog size, feature layers, repository card model, and recommendation output contract.
 - `MYAI_STACKGUIDE_CONTEXT_SCANNER.md` defines embedded/project scanning, read-only boundaries, Project Context Brief schema, deployment modes, exclusions, and scanner risks.
-- `README.md` defines the current catalog state: 42 categories, 351 placements, 314 unique repositories, and product decision layer.
-- Current repository data is a 2026-05-23 snapshot and must not be described as current without refresh.
+- `README.md` distinguishes the current HTML v5 snapshot (2026-08-12, 1,142 repository records, 77 categories, and 1,290 placements) from the legacy Markdown/research boundary (2026-05-23, 314 repositories, 42 categories, and 351 placements).
+- Catalog metadata is snapshot evidence and must not be described as live or current without a fresh source-backed check.

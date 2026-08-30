@@ -443,3 +443,37 @@ git diff --check
 - The optional external `jsonschema` package is unavailable in the current Python environment. The schema parses as JSON and the dependency-free builder/tests validate the owned contract and negative cases, but no third-party JSON Schema engine was run.
 - Exact byte parity proves deterministic reconstruction of the checked-in HTML; it does not prove browser behavior, live GitHub freshness, security, legal suitability, recommendation quality, hosted runtime, or release readiness.
 - Docs impact: updated. No product meaning, catalog records, or UI bytes were intentionally changed in this reproducibility slice.
+
+## 2026-08-30 - README Product Positioning Rewrite
+
+### Scope And Decisions
+
+- Rewrote `README.md` around the product purpose: a context-aware advisor that helps users decide which existing open-source solutions to inspect, compare, adopt, defer, or avoid.
+- Made the intended journey explicit: read-only project context, short user interview, Project Context Brief, catalog matching, shortlist, comparison, and an advisory decision memo or Integration Blueprint.
+- Separated current evidence from planned capability. The reproducible catalog and project-scoped control plane exist now; the hosted scanner, GitHub OAuth flow, recommendation/interview runtime, MCP surface, and Agents SDK runtime remain planned.
+- Preserved the advisory boundary: the product does not automatically edit code, install dependencies, create migrations, or replace security, legal, procurement, or engineering review.
+- Updated stale current-state wording in `docs/MYAI_STACKGUIDE_PRODUCT_CONCEPT.md` and `docs/PRODUCT_REQUIREMENTS.md` to distinguish the 2026-08-12 HTML v5 snapshot from the legacy 2026-05-23 boundary.
+
+### Commands And Observed Evidence
+
+```powershell
+python -c "<README local-link check>"
+python -c "<README claims versus data/catalog_manifest.json>"
+python scripts\build_catalog_html.py --check
+python -m unittest discover -s tests -v
+python C:\Users\user\.codex\plugins\cache\personal-product-agent-plugins\product-agent-os\0.1.0\scripts\validate_control_plane.py .
+git diff --check
+```
+
+- README local links: 17 checked; all targets exist.
+- README snapshot and summary claims matched `data/catalog_manifest.json`.
+- Exact HTML parity passed at 2,165,599 UTF-8 bytes with SHA-256 `8766e6d56a69e8a3a824269f1a7a624dcd71ff3b3608f094cd12557a74e446eb`.
+- Unit/contract tests: 14 passed.
+- Product-Agent OS control-plane validator: `ok: true`.
+- `git diff --check`: exit 0 with LF-to-CRLF conversion warnings for the modified Markdown files.
+- The first inline manifest-claim check was rejected by PowerShell parsing around a Python format expression; the simplified equivalent check then passed without changing files.
+
+### Evidence Boundary
+
+- This slice changes product documentation only. It does not implement or verify scanner behavior, GitHub authentication, interview orchestration, recommendations, MCP, an Agents SDK runtime, deployment, or live catalog freshness.
+- No files were staged, committed, pushed, released, or published in this slice.
