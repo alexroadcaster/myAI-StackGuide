@@ -552,3 +552,50 @@ git -c core.safecrlf=false diff --exit-code -- data templates categories docs/UN
 - Same-session file inspection cannot prove that Codex reloaded changed AGENTS, roles, or skills. Start a fresh session and verify the loaded instruction chain before actual delegation or behavioral evaluation.
 - The offline grader cannot prove reviewer authenticity, complete traces, real model execution, or recommendation quality. Even an observed-run packet passing integrity checks returns `needs_owner_acceptance`, never `promotion_ready`.
 - CP-02 runtime/auth/storage/budget/retention decisions, CP-03 schemas, the CP-04 product recommendation runner, representative frozen fixtures, actual fresh-context/model comparisons, and human usefulness acceptance remain open. New builder definitions do not bypass these gates.
+
+## 2026-08-30 - CP-01 Plugin-First Requirements Reconciliation
+
+### Authorization, Ownership And Outcome
+
+- The owner explicitly requested CP-01 implementation with agents and skills. The accepted plugin direction already resolves the hosted-first conflicts; no new product, backend, data-disclosure, cost or retention decision was selected. CP-01 is `implemented` for documentation only; overall product lifecycle remains `partially_verified`.
+- Starting `git -c core.excludesfile= status --short` was empty. The primary acted as Product Planner, then sequential Docs Maintainer, with one writer for all shared files. Used `shape-product-slice`, `maintain-control-plane` and `review-advisory-evidence`; instruction/skill/team files were read before work.
+- Two explicitly delegated read-only workers received complete fresh-context packets: `cp01_scope_audit` for baseline conflicts and `cp01_final_review` for independent review, both assigned `gpt-5.6-sol/high` per the team role policy. No overlapping writes or additional subagents. This records observed manual delegation, not automatic named-agent routing, implicit skill activation, model comparison or CP-05 readiness.
+- The scope audit identified hosted/OAuth dispatch drift, legacy sensitive-file/command/raw-storage exceptions, private-contribution wording and blanket no-local-write contradictions. The final reviewer found no actionable findings and recommended documentation closure after the primary's final evidence/status update. No new owner decision was required.
+
+### Changes
+
+- Updated exactly ten documentation files: `REQUIREMENTS.md`, `PLAN.md`, `README.md`, `docs/PRODUCT_REQUIREMENTS.md`, `docs/V1_ROADMAP.md`, `docs/MYAI_STACKGUIDE_PRODUCT_CONCEPT.md`, `docs/MYAI_STACKGUIDE_CONTEXT_SCANNER.md`, `docs/MYAI_STACKGUIDE_MODULE_ARCHITECTURE.md`, `docs/plan/2026-08-30-codex-plugin-v1-implementation-plan.md`, and this RUNLOG.
+- The PRD now owns active R01-R14 product requirements; roadmap owns P1-P5 milestones; root PLAN owns the current assignment; the detailed CP plan owns execution contracts. Mapped all fifteen FRs, cross-cutting legacy sections, ten historical milestones and thirteen V1X rows. Preserved five earlier document bodies inside explicitly inactive historical sections.
+- Aligned the idea/local-project -> adaptive intake -> bounded scan -> versioned Brief -> catalog/public GitHub lanes -> offline Decision Report journey. Clarified correction invalidation, pinned versions, hard constraints/unknowns, machine eligibility versus curator acceptance and visible catalog-only fallback.
+- Distinguished read-only scanner/GitHub retrieval, sanitized model input, minimal MCP payload, bounded local artifact writes and separately authorized own-backend public-candidate writes. Historical private-contribution, sensitive-file override, project-command and raw-source persistence exceptions are not active permissions.
+- Preserved the catalog and historical counts without imposing new release quotas. CP-02-CP-16 task blocks remain unchanged; CP-01 metadata uses the existing task-matrix status/timestamp contract.
+
+### Commands And Observed Evidence
+
+```powershell
+python -B -m unittest discover -s tests -p test_codex_contracts.py -v
+python -B C:/Users/user/.codex/plugins/cache/personal-product-agent-plugins/product-agent-os/0.1.0/scripts/validate_control_plane.py .
+python -B C:/Users/user/.codex/plugins/cache/personal-product-agent-plugins/product-agent-os/0.1.0/scripts/validate_task_matrix.py docs/plan/2026-08-30-codex-plugin-v1-implementation-plan.md
+git -c core.safecrlf=false diff --check
+git -c core.excludesfile= status --short
+```
+
+- Existing targeted control-plane contracts: 11 tests passed, exit 0. No new tests, policy changes or broad unchanged suite reruns.
+- Control-plane validator: `ok: true`, no missing files. Final task-matrix validator: `ok: true`, no errors, exit 0.
+- Read-only inline Python audit (`python -B -`, supplied through a PowerShell single-quoted here-string) compared current files with `git show HEAD:<path>`: all 14 R-to-task mappings agree across original/current CP plan, active PRD and root registry; all 15 FR mappings exist; the 16-task dependency graph is acyclic with no missing target; all 15 later CP blocks are textually unchanged.
+- The same audit validated 44 active local Markdown links/anchors, strict UTF-8/no replacement characters, English added text and whitespace, and unchanged historical bodies in five documents after newline normalization. Historical links/commands were preserved rather than promoted as current instructions; external package/auth documentation remains a CP-02 verification task.
+- Independent reviewer checked snapshot figures against the current manifest: 2026-08-12, 1,142 repositories, 77 categories and 1,290 placements; README status/recipe/edge counts also matched. This is local snapshot evidence, not a GitHub refresh.
+- Protected-surface verification uses the changed-file allowlist and Git diff: only the ten named documents may differ. No catalog/source/template/generated files, scripts, tests, schemas, agent/skill definitions, config, TEST.md or EVALS.md were changed. No generated output was rebuilt.
+
+### Failures And Corrections
+
+- Initial task validation rejected the temporary `implemented_not_verified` status because `task_matrix_plan_v1` accepts `planned`, `in_progress`, `implemented`, `blocked` and `accepted_gap`. An intermediate status-only correction then exposed a task/completion-report mismatch. Read the validator contract and synchronized final `implemented` statuses and both `30-08-2026 21:27` timestamps; final validation passed without changing the validator or acceptance.
+- The first inline audit assertion counted CP references in requirement prose as task mappings. Restricted parsing to the dedicated task column; the corrected check passed without product changes. This was an audit-script error, not a requirement failure.
+- Git emitted nonfatal LF-to-CRLF notices during diff inspection. No persistent Git setting changed; `core.safecrlf=false` was limited to individual checks.
+
+### Evidence Ceiling And Next Task
+
+- CP-01 documentation implementation and independent semantic review are complete. The authorization covered this already-selected product scope; it did not accept new architecture decisions or downstream implementation.
+- CP-02 runtime/OS/backend/storage/auth/consent/retention/budget/operations decisions are next. CP-03 schemas, CP-04 recommendation runner/calibration and full CP-05 routing/model readiness remain open. Future task packets must reference active sections rather than the historical appendices.
+- No plugin/scanner/recommendation/backend runtime, browser flow, security enforcement, provider call, live GitHub/MCP operation, telemetry, deployment, publication, scheduler or Git history action was performed. Catalog parity was not rerun because neither inputs, builders nor generated artifacts changed; protected diff supplies the preservation evidence.
+- Rollback: review and reverse only this documentation diff against the clean starting worktree, preserving any later unrelated edits. No runtime rollback is required.

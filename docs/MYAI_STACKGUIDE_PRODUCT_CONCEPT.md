@@ -1,6 +1,32 @@
 # myAI-StackGuide Product Concept
 
-Current V1 direction: [Codex Plugin V1](plan/2026-08-30-codex-plugin-v1-implementation-plan.md). Retain this concept as background; earlier hosted-first and optional-adapter descriptions do not override the local plugin-first plan, separate candidate overlay, or current approval gates.
+Current product meaning is defined by the [active PRD](PRODUCT_REQUIREMENTS.md#active-plugin-v1-requirements), with execution in the [CP plan](plan/2026-08-30-codex-plugin-v1-implementation-plan.md). This active summary supersedes the historical concept below; it does not implement or activate a product.
+
+## Active Plugin V1 Concept
+
+myAI-StackGuide is a context-aware open-source guide for founders, product owners, engineers and operators. It turns a goal and local project evidence into a decision about what to inspect, compare, adopt, defer or avoid. Its value hypothesis is useful, explainable choices with less research effort; no measured improvement is claimed.
+
+The selected entrypoint is a Codex plugin, combining a skill, bounded local scanner/scripts and remote MCP without custom MCP UI. An idea or empty project is valid. Adaptive intake asks 1-10 relevant questions; sanitized answers and phase results persist locally. A versioned Project Context Brief separates facts, inferences, assumptions, corrections, gaps and evidence. Corrections invalidate dependent recommendations.
+
+After a preliminary Brief, catalog and authorized public GitHub discovery lanes can run in parallel. Hard constraints, canonical identity and evidence determine eligibility; unknown mandatory fields and popularity cannot establish fit. The final Decision Report presents roles, reasons, comparison, avoid/defer, reading path, provenance, caveats and a next human decision. A justified no-match is useful output.
+
+## Active Boundaries And Deferred Features
+
+- The scanner is read-only: no project execution, installs, secrets, sensitive-path exceptions, raw-source persistence or network. Raw source remains inside scanner/sanitizer; the model receives sanitized structures and cannot bypass the scanner.
+- The plugin may write only its own `docs/myai-stackguide/` state, offline HTML and finalized run snapshots. It does not edit analyzed source, install recommendations, perform Git operations or deploy projects.
+- Remote MCP receives a minimal DiscoveryQuery, not the full Brief, answers, private project content, excerpts, absolute paths or project identifiers. User-entered chat cannot retroactively be made untransmitted; warn against secrets and sanitize before persistence.
+- GitHub retrieval is read-only. `candidate_batch_upsert` is a distinct own-backend external write of public candidate metadata, requiring auth and explicit consent or a bounded standing policy. Refusal/unavailability preserves catalog-only results; failed upload cannot block the report.
+- Preserve the immutable catalog snapshot plus versioned overlay. Keep `catalog_status`, evidence stage and `recommendation_eligibility` separate; machine evidence never grants curator `accepted`.
+- Hosted app/OAuth project acquisition, archive upload, standalone CLI, SDK/widget, hosted boards, general catalog API and watchlists are deferred. An Integration Blueprint is historical terminology, not an extra implementation stage.
+
+The historical no-local-files rule is replaced by the bounded artifact exception; historical private-contribution, broad MCP resource and quantity/pool requirements are superseded by R01-R14. Snapshot size is not recommendation quality. CP-02 owns runtime/backend/auth/retention/budgets, CP-03 owns schemas, and CP-04/15 own measured recommendation quality.
+
+## Historical Product Concept — Not Active Requirements
+
+All text below, including earlier strict boundaries, feature ideas, V1 scope, retrieval architecture, quotas and example behavior, is preserved background. Product intent is retained only through the active PRD mappings; these sections cannot grant additional permissions or add release requirements.
+
+<details>
+<summary>Preserved historical product concept</summary>
 
 ## One-Sentence Idea
 
@@ -1090,3 +1116,5 @@ The guide should help users pick the right repository to read next, not pretend 
 The product wins when a user says:
 
 > I did not know what to search for. The guide understood my situation, showed me the right shelf, warned me away from distractions, and gave me a useful reading path.
+
+</details>

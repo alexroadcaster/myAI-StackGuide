@@ -1,6 +1,40 @@
 # myAI-StackGuide Context Scanner
 
-Current V1 scanner contract is owned by [Codex Plugin V1](plan/2026-08-30-codex-plugin-v1-implementation-plan.md), R02 through R05 and CP-02/03/08. The concept below is background, not evidence of an implemented scanner. Hosted acquisition and broad adapter ideas are not the active V1 execution path.
+Active scanner requirements derive from [PRD R02-R05](PRODUCT_REQUIREMENTS.md#active-plugin-v1-requirements) and [CP-02/03/08](plan/2026-08-30-codex-plugin-v1-implementation-plan.md). This document clarifies the product boundary, not a finished schema or implemented scanner.
+
+## Active Local Scanner Contract
+
+The Codex plugin inspects an approved local workspace through a bounded scanner/sanitizer. It may classify an idea/empty project as a valid no-scan outcome. The workflow is topology -> high-signal -> goal-targeted -> normalization -> user correction. It reports inspected/excluded scope, missing areas, evidence references and confidence; reaching a cap produces `coverage_partial`, not a complete-scan claim.
+
+| Mode/default from the CP plan | Status |
+| --- | --- |
+| `idea_or_empty`: no scan-eligible files | Required valid outcome |
+| `compact`: at most 500 eligible files and five manifests | Proposed design threshold, not runtime-calibrated |
+| `standard`: at most 5,000 eligible files and twenty manifests/service roots | Proposed design threshold; counting rule remains CP-02 |
+| `large_or_monorepo`: standard limit exceeded, monorepo detected or budget reached | CP-02 must define precedence over compact |
+| Standard reads: 200 files and 10 MiB text; deep expansion: up to 300 more files and 20 MiB | Existing design budgets, not measured performance |
+
+Quick, topology enumeration/time/depth and individual-file caps, supported OS, monorepo precedence and counting rules remain open in CP-02. Do not silently select limits or promise complete scanning of large repositories.
+
+## Active Privacy And Output Contract
+
+- Allowlist-first access with mandatory exclusions for secrets, credentials, private keys, logs, dumps, customer exports and generated dependency/build folders. No user-override branch for sensitive reads in this V1 contract.
+- Canonical containment must prevent traversal and symlink/junction escape. No project subprocesses, local project commands, tests/build execution, dependency installation or scanner network access.
+- Raw project source is transient within scanner/sanitizer, never persisted into product artifacts or forwarded as excerpts to the model. Model-facing output is sanitized structures and evidence references; no direct source-reading bypass.
+- Facts, inferences, assumptions, gaps and corrections stay separate. Corrections create a new Brief version and invalidate dependent recommendations. Cancellation and partial coverage are visible.
+- The scanner itself writes no project files. The separate plugin artifact layer may atomically save sanitized state and offline HTML only under `docs/myai-stackguide/`; finalized run JSON is immutable. It must protect prior valid state and concurrent runs.
+- Scanner stdout/errors must not expose raw source or secrets. Sanitize secret-like user answers before persistence; already-entered Codex chat cannot be made retroactively untransmitted.
+- MCP receives only a minimal DiscoveryQuery for public evidence, never the full Brief, raw source, answers, excerpts, absolute local paths or private project identifiers. Read permission does not imply transmission permission.
+- Auth/consent refusal or unavailable public discovery preserves a visible catalog-only report. Authorized public candidate writes belong to the backend, not the scanner; no private-contribution exception.
+
+Acceptance requires CP-03 schema/negative fixtures and CP-08 observed scanner cases, including empty input, caps, sensitive paths, path escapes, cancellation and output leakage. Static text does not prove enforcement. This slice adds no runtime, fixtures or access to private projects.
+
+## Historical Scanner Concept — Not Active Permissions
+
+All text below is retained background, including hosted/archive/CLI/SDK/MCP adapters, permission tiers and persistence ideas. In particular, its local-command permission, sensitive-file override and raw-source storage alternatives are superseded and must not be implemented. Use the active PRD and CP-02/03/08; the old generic adapter concept does not authorize new data sources.
+
+<details>
+<summary>Preserved historical scanner concept</summary>
 
 ## One-Sentence Idea
 
@@ -615,3 +649,5 @@ The embedded scanner should make recommendations more grounded without turning t
 The product wins when a non-technical user can say:
 
 > I did not know what was inside my product technically. The guide inspected it safely, explained it clearly, and gave me a repository shortlist that my team could evaluate.
+
+</details>

@@ -2,7 +2,7 @@
 
 Planning date: 2026-08-30. Timezone: `Europe/Moscow`.
 
-Document status: `proposal_staged`. This is a work plan, not authorization to execute it. All tasks below are `planned`; this document does not activate the plugin, MCP, new agents, or publication.
+Document status: `proposal_staged` for remaining product work. The owner authorized CP-01 documentation implementation with agents and skills; its current result is recorded in that task block and RUNLOG. CP-02 through CP-16 remain `planned`; this document does not activate the plugin, MCP or publication.
 
 Team-audit remediation was subsequently authorized in [Agent Team Audit Remediation](2026-08-30-agent-team-remediation-plan.md). That bounded slice updates source routing, instructions, builder definitions, and offline team checks. It does not close the CP tasks or authorize product runtime. Active shared execution contracts are in [Plugin V1 Team Execution Contracts](plugin-v1-team-contracts.md).
 
@@ -20,7 +20,7 @@ Local baseline verified when the plan was prepared:
 - The existing `PLAN.md` contains V1-S1–V1-S7; the `specs/` directory does not yet exist. The previous `team_ready` status applies to the earlier static slice and does not establish readiness of the new plugin team.
 - `EVALS.md` already defines ten rubric dimensions, but the executable recommendation evaluator is marked `applicable_missing`.
 
-Direction conflict: previous product/control documents include a hosted journey, while the new user-provided plan replaces the V1 entry point with a plugin. CP-01 must reconcile these documents while preserving the history of previous requirements. Creating this file does not itself change the active root `PLAN.md`.
+Direction reconciliation: CP-01 replaces the active hosted journey with the plugin direction in the PRD, roadmap and root control plane while retaining historical requirements and mappings. The active [PRD](../PRODUCT_REQUIREMENTS.md#active-plugin-v1-requirements) owns product acceptance; this plan owns execution contracts. Scope alignment does not close CP-02 architecture choices.
 
 Future implementation scope: intake, scanner, sanitized context, catalog matching, bounded GitHub discovery, a shared candidate ledger, local artifacts, evals, and plugin packaging.
 
@@ -177,7 +177,7 @@ The agent returns distilled findings, touched/proposed files, commands/exit code
 
 | Decision / gate | Status | Repair task / closure criterion |
 | --- | --- | --- |
-| Product reset and old-ID migration | `proposal_staged` | CP-01: explicit old→new mapping without losing history |
+| Product reset and old-ID migration | `implemented` | CP-01: active PRD/roadmap, preserved history, old-to-new mapping, documentation checks and independent review; RUNLOG records evidence |
 | Runtime/local packaging | `applicable_missing` | CP-02: supported OS/runtime, installation prerequisites, commands; Python local scripts below are a proposal, not an accepted platform requirement |
 | Backend/storage/hosting, schema migration | `applicable_missing` | CP-02: one selected option, costs, rollback, test runner, and exact backend-owned paths |
 | MCP auth/provider/session expiry, credentials | `applicable_missing` | CP-02: auth ADR without OAuth activation or secret use |
@@ -216,19 +216,19 @@ Shared rollback/stop rules: preserve the last working local artifact and previou
 ### Task `CP-01`
 
 - Task: CP-01 — reconcile plugin-first requirements with the existing control plane
-- Status: planned
+- Status: implemented
 - Schema version: task_matrix_plan_v1
 - Timezone: Europe/Moscow
 - Plan trigger: The user-provided Codex Plugin V1 replaces the hosted V1 journey.
 - Validator target: detailed task blocks
-- Date and time of task implementation: pending_execution_timestamp
+- Date and time of task implementation: 30-08-2026 21:27
 - Depends on: none
 - Blocks: CP-02, CP-03, CP-04, CP-05, CP-16
 - Source: User-provided plan; R01–R14; current REQUIREMENTS.md and PLAN.md.
 - Short description: Record scope, non-goals, acceptance, and old-to-new mapping.
 - Technical value: One aligned contract instead of competing hosted/plugin paths.
 - Product value: A clear Codex entry point and a report without unauthorized implementation.
-- Scope: product_planner owns REQUIREMENTS.md and PLAN.md; docs_maintainer then sequentially updates README.md, docs/PRODUCT_REQUIREMENTS.md, docs/V1_ROADMAP.md, docs/MYAI_STACKGUIDE_PRODUCT_CONCEPT.md, docs/MYAI_STACKGUIDE_CONTEXT_SCANNER.md, docs/MYAI_STACKGUIDE_MODULE_ARCHITECTURE.md, and RUNLOG.md using approved decisions.
+- Scope: product_planner owns REQUIREMENTS.md and PLAN.md; docs_maintainer then sequentially updates README.md, docs/PRODUCT_REQUIREMENTS.md, docs/V1_ROADMAP.md, docs/MYAI_STACKGUIDE_PRODUCT_CONCEPT.md, docs/MYAI_STACKGUIDE_CONTEXT_SCANNER.md, docs/MYAI_STACKGUIDE_MODULE_ARCHITECTURE.md, and RUNLOG.md using approved decisions. The primary also updates this file's CP-01 record and status references; other task contracts remain unchanged.
 - Non-goals: Code, agent configs, generated catalog, external actions.
 - Expected result: Requirement IDs and milestones are aligned; previous records are preserved as historical/superseded.
 - Acceptance criteria: All R01–R14 map to tasks; advisory-only behavior and upload consent are consistent with a read-only scanner; the owner accepts the scope.
@@ -247,15 +247,15 @@ Shared rollback/stop rules: preserve the last working local artifact and previou
 
 #### Completion report
 
-- status: planned
-- what was done: Implementation has not started; the work is planned.
-- files touched / work locations: This plan file only; target documents have not been changed.
-- technical value delivered: Not claimed until the task is executed.
-- product value delivered: Not claimed until the task is executed.
-- actual implementation date and time: pending_execution_timestamp
-- verification evidence: Plan validation is not evidence of task execution.
-- residual risks: The hosted/plugin conflict still requires agreement.
-- follow-up: Obtain authorization to implement CP-01.
+- status: implemented
+- what was done: Reconciled active plugin-first requirements, journey, boundaries and milestones; mapped R01-R14, FR1-FR15, cross-cutting legacy sections and historical milestones/V1X rows. Historical source bodies remain preserved, explicitly inactive.
+- files touched / work locations: The ten documentation files listed in Scope; no product code, schemas, catalog, agent/skill definitions or configuration changes.
+- technical value delivered: A single active requirements path with distinct scanner, model, MCP and local-output boundaries; independent review found no actionable gaps.
+- product value delivered: A consistent idea/local-project to Decision Report journey; no runtime or measured user outcome claimed.
+- actual implementation date and time: 30-08-2026 21:27
+- verification evidence: Eleven existing control-plane contract tests pass. Local audit confirms all fourteen R/task mappings, fifteen FR mappings, sixteen-task dependency DAG, five preserved historical bodies, forty-four active local links/anchors and unchanged CP-02-CP-16 blocks. Independent evidence_reviewer found no actionable findings. Final V-DOC/status validation and exact command outcomes are recorded in RUNLOG.
+- residual risks: CP-02 decisions, CP-03 schemas, CP-04 quality runner and full CP-05 readiness remain open. No implicit model/skill routing promotion or runtime acceptance.
+- follow-up: CP-02 architecture/runtime/permission decisions under a separate assignment; this documentation authorization does not execute downstream tasks.
 
 ### Task `CP-02`
 

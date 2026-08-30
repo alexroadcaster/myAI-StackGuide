@@ -4,14 +4,36 @@ Compact Product-Agent OS execution registry for myAI-StackGuide. The product def
 
 ## Lifecycle State
 
-- State: `partially_verified` after local team remediation; structural checks pass, behavioral/product evidence remains open. The earlier registry below retains historical traceability.
+- State: `partially_verified` for the product. CP-01 reconciles documentation only; behavioral/product evidence remains open.
 - Usage mode: `standard-product` with `ai-product` and read-only integration constraints.
 - Decision horizon: `MVP` leading to `beta`.
-- Build status: plugin-first direction accepted; team remediation authorized; plugin/backend implementation and runtime acceptance remain gated by the detailed CP plan.
+- Build status: plugin-first direction and CP-01 documentation implementation authorized by the owner; plugin/backend implementation and runtime acceptance remain gated by the detailed CP plan.
+- CP-01 outcome: `implemented`, documentation scope verified and independently reviewed; no product-runtime acceptance is implied. Current-run evidence is in RUNLOG.md.
 
 ## Active Direction And Traceability
 
-The current product direction is `docs/plan/2026-08-30-codex-plugin-v1-implementation-plan.md` (R01 through R14). The active bounded task list is `docs/plan/2026-08-30-agent-team-remediation-plan.md`. Earlier hosted-first requirements are historical where they conflict; they must not silently govern new task packets.
+The active product requirements are [PRD: Plugin V1](docs/PRODUCT_REQUIREMENTS.md#active-plugin-v1-requirements), R01 through R14. [V1 roadmap](docs/V1_ROADMAP.md#active-plugin-v1-milestones) owns phases; [PLAN.md](PLAN.md) and the [detailed CP plan](docs/plan/2026-08-30-codex-plugin-v1-implementation-plan.md) own execution. AR-01 through AR-06 are completed local preparation, not the active work queue. CP-01 is the authorized documentation slice; CP-02 decisions are next, without automatic implementation authorization.
+
+The PRD contains complete FR1-FR15 and cross-cutting legacy mappings. Historical sections below and in the supporting documents are retained for traceability, not a second set of V1 requirements. R01-R14 acceptance is planned product behavior, not delivered capability.
+
+| Active requirement | Execution tasks | Acceptance / evidence owner |
+| --- | --- | --- |
+| R01 | CP-01, CP-02, CP-07, CP-16 | Product Planner / plugin packaging and runtime review |
+| R02 | CP-03, CP-07, CP-11 | Quality Evaluator / adaptive intake, correction and resume cases |
+| R03 | CP-02, CP-03, CP-08 | Catalog Architect + Quality Evaluator / bounded scan cases |
+| R04 | CP-03, CP-08, CP-12, CP-15 | Evidence Reviewer + Quality Evaluator / data-boundary negative cases |
+| R05 | CP-03, CP-07, CP-08, CP-10 | Quality Evaluator / versioned fact and correction contracts |
+| R06 | CP-09, CP-12, CP-13, CP-14 | Quality Evaluator / both retrieval lanes and visible fallback |
+| R07 | CP-03, CP-06, CP-09, CP-13 | Catalog Architect + Quality Evaluator / eligibility and provenance |
+| R08 | CP-03, CP-12, CP-15 | Evidence Reviewer / candidate versus curator acceptance |
+| R09 | CP-02, CP-12, CP-14, CP-15 | Quality Evaluator + Evidence Reviewer / auth and side-effect evidence |
+| R10 | CP-03, CP-07, CP-10, CP-11 | Quality Evaluator / state recovery, offline HTML and run history |
+| R11 | CP-03, CP-12, CP-13, CP-16 | Quality Evaluator / pinned snapshot and overlay replay |
+| R12 | CP-04, CP-11, CP-14, CP-15, CP-16 | Quality Evaluator + Product Planner / quality, privacy and release gates |
+| R13 | CP-01, CP-07, CP-14, CP-16 | Product Planner + Evidence Reviewer / advisory and approval boundaries |
+| R14 | CP-06, CP-09, CP-15 | Evidence Reviewer / no popularity-to-fit or unsupported readiness claims |
+
+### Legacy Execution-ID Mapping
 
 | Existing requirement | Plugin-plan requirement | Disposition |
 | --- | --- | --- |
@@ -27,9 +49,11 @@ CP-02 decisions, CP-03 schemas, and product quality runs remain open. No missing
 
 ## Goal
 
-Define the source-owned schemas, policies, taxonomy, and eval contract needed before building the hosted GitHub read-only product.
+Help a user choose what open-source solution to inspect, compare, adopt, defer, or avoid for an idea or local project, ending with a saved Project Context Brief and offline Decision Report. The selected entrypoint is a Codex plugin with local scripts and remote MCP, not a hosted project-acquisition app. CP-01 aligns this goal and its acceptance across documents; it does not create schemas or runtime.
 
-## Requirement Registry
+## Historical Requirement Registry
+
+The rows below preserve the earlier contract-definition baseline, including its statuses and source references. Their active successors are mapped above; old counts, hosted/private-access assumptions, and read-only MCP shorthand do not add requirements or authorize execution.
 
 | ID | Requirement | Source | Acceptance | Owner | Status |
 | --- | --- | --- | --- | --- | --- |
@@ -54,35 +78,32 @@ Define the source-owned schemas, policies, taxonomy, and eval contract needed be
 - Input metrics: evidence completeness, shortlist relevance, advisory-card coverage, and time to first memo.
 - Counter-metrics: Project Context Brief correction rate, false-positive recommendation rate, stale evidence rate, and sensitive-source policy violations.
 - Privacy classification: repository metadata is public or explicitly authorized; private repository content is confidential and minimized.
-- Analytics tracking plan: `applicable_missing`; it is required before hosted beta telemetry, not before the contract-definition slice.
-- Release measurement evidence: `applicable_missing`; no hosted product release exists.
+- Metric classification: useful decisions and reduced research time are intended outcomes; evidence coverage and time from plugin intake to Brief/report are product indicators. No measured improvement is claimed.
+- Analytics tracking plan: `applicable_missing`; collecting product telemetry requires a separate privacy/consent decision. CP-01 adds no telemetry or target values.
+- Release measurement evidence: `applicable_missing`; no plugin release or recommendation-quality pass is claimed.
 
 ## Scope
 
-In scope for the next slice:
+In scope for CP-01: align this registry, PLAN.md, README, PRD, roadmap, product/scanner/architecture summaries, the CP-01 task record, and RUNLOG; preserve historical text and map it to R01-R14. Product scope is defined in the active PRD, not by this documentation assignment.
 
-- Repository card schema.
-- Category taxonomy contract.
-- Scanner allowlist and exclusion policy.
-- Project Context Brief schema.
-- Recommendation memo schema.
-- Eval scenario and result formats.
-- Read-only GitHub evidence provenance design after the schema contracts.
+Next dependency: CP-02 architecture, runtime, auth, storage, scan budgets, consent and retention decisions; no values are selected in CP-01. CP-03 schemas and CP-04 eval contracts follow their own dependencies and assignments.
 
 Out of scope:
 
-- Hosted application implementation.
-- GitHub OAuth activation or private repository access.
-- MCP server activation or write-capable GitHub tools.
-- Automated ingestion, deployment, hooks, schedules, GitHub Actions, or Agents SDK runners.
+- Plugin/backend code, schemas, tests/eval policy changes, durable agent/skill/config changes, catalog edits or regeneration.
+- Hosted app, GitHub OAuth/project acquisition, private repository access, or credentials.
+- MCP activation, candidate upload, deployment, publication, hooks, schedules, GitHub Actions, or Agents SDK runners. Future authorized own-backend writes are distinct from read-only GitHub retrieval.
 - Claims that catalog scores prove production readiness, security, legal, or procurement suitability.
 
 ## Constraints
 
 - Preserve `data/source_repos.csv` and the two dated research JSON files as their documented source-of-truth layers.
+- Preserve the current `data/catalog_manifest.json` and template unchanged; old quantity goals do not mandate a new catalog refresh or imply advisory eligibility.
 - Change source data or builders before generated catalog outputs; regenerate and verify parity when those sources change.
 - Separate `catalog_snapshot`, `github_live_evidence`, `curator_decision`, and `recommendation_output` states.
 - Preserve read-only scanning, no code execution, no dependency installation, and sensitive-file exclusions.
+- Scanner raw source remains local; the model receives sanitized structures only, with no direct raw-source bypass. MCP accepts only a minimal DiscoveryQuery and public candidate metadata, never the full Brief, answers, excerpts, absolute paths, secrets or private project identifiers.
+- Future plugin writes are limited to `docs/myai-stackguide/` in the selected project. Own-backend candidate writes require auth and explicit consent or a bounded standing policy; refusal preserves a visible catalog-only report. No contribution-consent exception permits private project data in the public ledger.
 - Do not place secrets, private repository content, customer data, credentials, or raw conversations in artifacts or fixtures.
 - Use fresh-context handoffs and disjoint write ownership for subagents.
 
@@ -94,10 +115,11 @@ Out of scope:
 - AI recommendation quality needs deterministic contract checks plus a human-judgment rubric; either one alone is insufficient.
 - Current command evidence is recorded in `RUNLOG.md`; generated files or status summaries alone are not proof.
 
-## Open Decisions
+## Open Decisions And Ownership
 
-- Minimum advisory fields required before a repository can become a primary candidate.
-- First 60–90 categories and the initial 100–200 high-confidence repositories.
-- Private repository retention default and deletion SLA.
-- Hosted model/retrieval stack and cost/latency budget.
-- Exact GitHub OAuth and MCP permission profile; activation remains separately approval-gated.
+- CP-02 / Catalog Architect and product owner: supported runtime/OS and packaging, backend/storage/auth, credential location, consent/retention, per-user limits, retry/latency/cost budgets, quick/topology/time/depth/file-size limits, monorepo precedence, replay/concurrency/recovery and stale/archive policy.
+- CP-03 / Catalog Architect: exact schemas, advisory eligibility fields, lifecycle/compatibility and migration contracts. The current taxonomy remains the starting point, not an accepted new schema.
+- CP-04 / Quality Evaluator and Product Planner: representative corpus, executable runner contract and human calibration; no new quality thresholds in CP-01.
+- CP-05 / primary orchestrator and Quality Evaluator: loaded role/skill routing and model comparison evidence. Explicit delegation during documentation work does not close this gate.
+- CP-06 / Catalog Pipeline Builder: evidence-qualified seed/advisory coverage; historical 1,000 and 100-200 quantity targets are not new release gates.
+- Hosted project OAuth, archive upload, standalone CLI, SDK/widget, hosted boards and general catalog API are deferred alternatives, not unresolved choices blocking plugin V1.

@@ -8,11 +8,32 @@ Active Product-Agent OS plan for myAI-StackGuide. Detailed product milestones re
 - Entry evidence: V1 PRD and roadmap exist; current requirements are mapped in `REQUIREMENTS.md`.
 - Build boundary: no hosted app, provider activation, or live GitHub access is authorized by this plan.
 - Remediation exit: AR-01 through AR-06 have scoped changes, current local checks, self-review, and a RUNLOG handoff. Product exit remains the separately accepted CP plan, not the historical six-contract slice.
+- CP-01: `implemented` with documentation checks and independent review; the owner's instruction authorized this scope. No additional product or architecture decision was needed. The next unexecuted task is CP-02.
 - Stop condition: missing ownership, overlapping write scopes, unverified source claims, secret-bearing data, failed checks, or required external approval.
 
 ## Active Dependency Order
 
-Completed local preparation: [Agent Team Audit Remediation](docs/plan/2026-08-30-agent-team-remediation-plan.md), AR-01 through AR-06. Next: verify updated instruction loading in a fresh session, finish CP-01 requirements reconciliation, and accept CP-02 decisions before product implementation. Product direction and gates: [Codex Plugin V1 Implementation Plan](docs/plan/2026-08-30-codex-plugin-v1-implementation-plan.md). No product runtime is authorized by team remediation. The previous sequence below is historical context, not a competing dispatch queue.
+Completed local preparation: [Agent Team Audit Remediation](docs/plan/2026-08-30-agent-team-remediation-plan.md), AR-01 through AR-06. CP-01 is the owner-authorized documentation reconciliation; its result and checks are recorded in the [detailed CP plan](docs/plan/2026-08-30-codex-plugin-v1-implementation-plan.md#task-cp-01) and RUNLOG. Product requirements are [R01-R14 in the PRD](docs/PRODUCT_REQUIREMENTS.md#active-plugin-v1-requirements); phases are in the [active roadmap](docs/V1_ROADMAP.md#active-plugin-v1-milestones).
+
+1. CP-01: align requirements, history, scope and acceptance; documentation only.
+2. CP-02: accept architecture, runtime and permission decisions. CP-04 eval-contract preparation can follow CP-01 independently, with CP-03 compatibility review before acceptance.
+3. CP-03: accept schemas; CP-05: complete builder readiness after CP-01/02, preserving already-authored roles. Runtime dispatch also requires applicable CP-03 contracts and actual loading/routing evidence.
+4. CP-06-CP-11: implement and verify the local vertical slice under separate assignments; prove one useful synthetic case first, without MCP.
+5. CP-12-CP-14: local mock-first backend and mixed retrieval after CP-11, then separately authorized test-environment integration.
+6. CP-15-CP-16: independent verification, owner acceptance and release packaging; publication/deployment require their own authorization.
+
+CP-01 does not authorize the later tasks. The detailed task dependency graph governs over this phase summary. The historical sequence and matrix below are not a competing dispatch queue.
+
+### CP-01 Execution Boundary
+
+- Owner authorization: implement CP-01 with agents and skills, preserving the accepted plugin-first product meaning. No new hosting, disclosure, cost, retention or implementation decision is implied.
+- Primary acts as Product Planner, then sequential Docs Maintainer; independent read-only scope audit and final Evidence Reviewer receive complete fresh-context packets. One writer owns shared documents.
+- Exact editable files: `REQUIREMENTS.md`, `PLAN.md`, `README.md`, `docs/PRODUCT_REQUIREMENTS.md`, `docs/V1_ROADMAP.md`, `docs/MYAI_STACKGUIDE_PRODUCT_CONCEPT.md`, `docs/MYAI_STACKGUIDE_CONTEXT_SCANNER.md`, `docs/MYAI_STACKGUIDE_MODULE_ARCHITECTURE.md`, `docs/plan/2026-08-30-codex-plugin-v1-implementation-plan.md` (CP-01/status references only), and `RUNLOG.md`.
+- Forbidden: product code, schemas, catalog/source/generated data, agent/skill/config changes, TEST/EVALS policy changes, credentials, external actions and Git history. Temporary local verification artifacts are not product implementation.
+- Acceptance: all R01-R14 map to unchanged CP tasks; FR1-FR15 and older milestones/cross-cutting rules have explicit dispositions; active docs agree on scanner/model/MCP/local-write boundaries; open CP-02 choices remain open; historical requirements remain recoverable.
+- Verification: V-DOC, local links/anchors and UTF-8, requirement coverage and dependency DAG, historical-text preservation, targeted control-plane contracts, protected-surface diff, and independent semantic review. No new product tests or model evaluation are required for this documentation slice.
+- Runtime evidence: the current session exposes the project instructions and requested skills; their files and team contracts were read before explicit delegation. This does not prove automatic named-agent loading, implicit skill selection, model suitability or CP-05 promotion.
+- Rollback: review and reverse only CP-01 document changes against the starting worktree; preserve any unrelated edits. No runtime rollback or catalog regeneration is needed.
 
 ### Historical Contract-Definition Sequence
 
@@ -68,12 +89,12 @@ The CP-S and V1-S rows below retain historical traceability. New execution uses 
 | Repository skill discovery | `present_verified` | Product Planner | Canonical `.agents/skills` location, no path pinning, and contract test from the remediation run |
 | GPT-5.6 role policy | `configured_not_behaviorally_verified` | Quality Evaluator | Static model mapping and eval specs; no fresh-context model comparison yet |
 | Fresh-context handoff | `proposal_staged` | Product Planner | `.codex/artifact-templates/agent-task-packet.md` and completed packet per task |
-| Repository contracts | `applicable_missing` | Catalog Architect | Schemas, fixtures, and checks from `V1-S1`–`V1-S5` |
-| Recommendation eval contract | `applicable_missing` | Quality Evaluator | `V1-S6` artifacts and rubric review |
-| GitHub MCP permission review | `approval_required` | Project Owner | `V1-S7` review and explicit activation decision |
+| Repository contracts | `applicable_missing` | Catalog Architect | CP-03 schemas/fixtures; V1-S1-V1-S5 remain historical references |
+| Recommendation eval contract | `applicable_missing` | Quality Evaluator | CP-04 runner/corpus and human rubric; offline team grader is separate |
+| MCP permission review | `approval_required` | Project Owner | CP-02/03 read/write/auth contracts and CP-14 bounded activation decision |
 | Hosted runtime evidence | `not_applicable` | Project Owner | Not applicable to the current contract-definition slice |
 | FSD structure | `not_applicable` | Catalog Architect | No application UI structure exists yet |
-| Production telemetry | `not_applicable` | Product Planner | No hosted runtime exists; define before beta |
+| Production telemetry | `not_applicable` | Product Planner | Not part of CP-01; collection requires an explicit privacy/consent design |
 
 ## Rollback
 

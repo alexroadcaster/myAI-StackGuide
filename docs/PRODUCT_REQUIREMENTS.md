@@ -2,11 +2,113 @@
 
 ## Status
 
-Draft product requirements for the first full product version.
+Active product requirements for the selected plugin-first V1. Requirements describe intended behavior; plugin, scanner, recommendations and MCP runtime are not implemented by CP-01.
 
 V1 entrypoint decision: **Codex plugin + bounded local scanner + remote MCP**, without custom MCP UI.
 
-Current scope and acceptance are defined by [Codex Plugin V1](plan/2026-08-30-codex-plugin-v1-implementation-plan.md), R01 through R14. The older hosted-first sections below are retained as historical requirements pending full CP-01 reconciliation; where they conflict, they are not active implementation instructions. Existing IDs map to the current direction in `REQUIREMENTS.md` at the repository root. Runtime, storage, auth, and deployment decisions remain open in CP-02.
+This PRD owns product meaning and acceptance for R01-R14; the [detailed CP plan](plan/2026-08-30-codex-plugin-v1-implementation-plan.md) owns task contracts and engineering defaults. [REQUIREMENTS.md](../REQUIREMENTS.md) maps execution IDs; [V1 roadmap](V1_ROADMAP.md) owns milestone order. The historical appendix is preserved in full and is not active acceptance. CP-01 applies the owner's accepted direction; runtime, storage, auth, budget and retention choices remain open in CP-02.
+
+## Active Product Definition And Users
+
+myAI-StackGuide helps founders/product owners, product managers, engineers and internal operators choose what open-source solution to inspect, compare, adopt, defer or avoid for a goal and local project. An idea or empty workspace is a valid input. Non-technical owners remain the primary ICP; their outcome is a plain-language decision they can discuss with an engineer, not a requirement to connect GitHub.
+
+The entrypoint is a Codex plugin combining a skill, local scripts and remote MCP, without custom MCP UI. The workflow ends with a saved Project Context Brief and Decision Report in local offline HTML. The report includes project understanding, constraints, category path, role-based shortlist, fit reasons, comparison, avoid/defer guidance, reading path, evidence, caveats and the next human decision. A justified no-match is valid.
+
+The product does not install recommended software, modify the analyzed project's source, execute its scripts/tests/build, perform Git operations, or deploy it. A subsequent implementation workflow needs separate authorization. Writing the plugin's own local artifacts and authorized public candidate metadata is distinct from the read-only scanner.
+
+## Active Plugin V1 Requirements
+
+The IDs and task mappings below preserve R01-R14 from the owner-provided plugin direction. All acceptance checks remain future product evidence; documentation reconciliation does not pass them.
+
+| ID | Required behavior and acceptance | Tasks |
+| --- | --- | --- |
+| R01 | Public Codex plugin: skill + local scripts + remote MCP; no hosted project-acquisition app or custom MCP UI. Packaging/support prerequisites require CP-02 verification and CP-16 clean-install evidence. | CP-01, CP-02, CP-07, CP-16 |
+| R02 | Ask 1-10 adaptive questions only when the answer changes scope, eligibility or decision. Reuse answers, persist sanitized state after each answer, support resume/corrections and truthful progress. At the limit proceed with explicit assumptions or `clarification_required`, never invented answers. | CP-03, CP-07, CP-11 |
+| R03 | Support idea/empty, compact, standard and large/monorepo contexts with progressive bounded scanning. Empty is valid; exhausted budgets yield `coverage_partial` and visible uninspected areas. CP-02 closes unresolved budget and precedence rules. | CP-02, CP-03, CP-08 |
+| R04 | Raw source stays inside the local scanner/sanitizer. The model receives sanitized structures only; MCP receives a minimal allowlisted DiscoveryQuery. No source-reading agent bypass, raw excerpts, full Brief, answers, local absolute paths or private project identifiers enter MCP/ledger. | CP-03, CP-08, CP-12, CP-15 |
+| R05 | Version and separate facts, inferences, assumptions, corrections, gaps and evidence references. Corrections preserve evidence history and invalidate dependent recommendations. | CP-03, CP-07, CP-08, CP-10 |
+| R06 | After a preliminary Brief, run local catalog and bounded public GitHub discovery lanes in parallel when authorized. Auth/consent refusal, unavailable discovery or rate limits produce explicit catalog-only fallback; no silent live-success claim. | CP-09, CP-12, CP-13, CP-14 |
+| R07 | Dedupe by canonical identity, apply hard constraints, retain reason codes and roles, and show source/freshness badges. Unknown mandatory constraints do not satisfy a match; each primary candidate needs traceable fit and evidence. | CP-03, CP-06, CP-09, CP-13 |
+| R08 | Automatically append eligible public candidates only within an authorized overlay workflow. Keep `catalog_status`, evidence stage and `recommendation_eligibility` separate; machine evidence never assigns curator `accepted`. | CP-03, CP-12, CP-15 |
+| R09 | Require auth/authz, per-user limits, audit, idempotency, bounded retries and public-provenance validation for own-backend writes; no anonymous mutation. Credentials stay outside project artifacts. Exact mechanisms remain CP-02 decisions. | CP-02, CP-12, CP-14, CP-15 |
+| R10 | Atomically persist `docs/myai-stackguide/state.json` after answers and phases. Generate deterministic offline `status.html`; finalized `runs/{run_id}.json` snapshots are immutable. Support safe crash recovery, version history and concurrent-run protection. | CP-03, CP-07, CP-10, CP-11 |
+| R11 | Pin `catalog_snapshot_id` plus `candidate_overlay_version`. Compact after 100 new candidates or 24 hours; scheduler activation is separate. Replay, retention, concurrent updates and retractions require CP-02/03 contracts. | CP-03, CP-12, CP-13, CP-16 |
+| R12 | Require recommendation evals, privacy/provenance gates, rendered browser QA, actual runtime evidence, rollback and owner acceptance before release. Prove one useful local synthetic case before expanding; preserve separate evidence levels. | CP-04, CP-11, CP-14, CP-15, CP-16 |
+| R13 | End with a Decision Report and next human decision. Installation, source modification, Git, deployment/publication and external writes require distinct authorization; the authorized candidate-overlay exception is narrowly defined below. | CP-01, CP-07, CP-14, CP-16 |
+| R14 | Popularity, legacy scores, incomplete metadata and static checks do not prove fit, security, legal/procurement suitability or production readiness. Show unknowns and caveats rather than promoting them into verified facts. | CP-06, CP-09, CP-15 |
+
+## Active Journey And Output
+
+1. Start or resume the plugin in a selected local project, or describe an idea; establish goal, stage, constraints and adoption mode through adaptive intake.
+2. Before file access, disclose scan scope, exclusions, local persistence, model-facing sanitization and the separate MCP transmission boundary. Warn users not to type secrets into Codex chat.
+3. Run only the authorized bounded scanner; show coverage, exclusions, cancellation or missing context honestly. Do not run project commands.
+4. Build a preliminary Brief from sanitized observations and answers. Let the user correct it; version changes invalidate dependent results, including any provisional matching.
+5. Match the pinned catalog; in the authorized mixed mode also discover public GitHub candidates using minimal queries. Merge/dedupe evidence without overwriting snapshot provenance or assigning curator acceptance.
+6. Save the current state and offline report with comparisons, avoid/defer reasons, reading paths, source/freshness badges, ingestion status, limitations and next decision. Resume interrupted work from the last valid state; preserve finalized run history.
+
+Progress is `Intake -> Scan -> Context Review -> Matching -> Report`, with question number, last saved and next action. Progress is not confidence. No hosted decision board or Markdown export is required for plugin V1; the former memo/Integration Blueprint terminology does not authorize implementation.
+
+## Active Privacy And Side-Effect Boundaries
+
+| Surface | Allowed data/action | Excluded or gated |
+| --- | --- | --- |
+| Scanner | Read allowlisted local project scope; emit sanitized facts and evidence references | No secrets, credential files, dumps, production logs, customer exports, dependency/build folders, project subprocesses, dependency installation, network or path/junction escape |
+| Codex/model | Sanitized structures and user-entered chat; distinguish facts from inference | No agent bypass to raw source. Text already typed into chat cannot be made retroactively untransmitted; redact secret-like answers before persistence and MCP use |
+| Plugin artifacts | Write only `docs/myai-stackguide/` in the selected project; state, offline HTML and finalized run snapshots | No source changes, raw-source storage, raw conversations, secrets or MCP credentials; atomicity and concurrency must be tested |
+| GitHub discovery | Read public repository evidence through the bounded MCP query contract | No GitHub writes or private-project acquisition. Initial plan budget: 3-5 sanitized queries and at most 20 normalized candidates/run |
+| Candidate backend | Append public candidate metadata after gates, auth and explicit consent or bounded standing policy | `candidate_batch_upsert` is an external write, not read-only. No full Brief, answers, private content, project identifiers, raw excerpts or absolute local paths; no private-data contribution exception |
+
+MCP tools are `catalog_delta_get`, `github_discover`, `candidate_batch_upsert` and `candidate_status_get`. CP-03 owns their typed input/output/errors, limits and annotations; CP-02 owns auth/consent/credential/retention decisions. Declining auth or transmission preserves a visible catalog-only path. Failed candidate upload is visible but does not block delivery of the local report. Disclosure of permitted local scan data to the model is a separate boundary from reading it locally; a scan approval does not authorize raw-source transmission.
+
+Snapshot metadata, live GitHub evidence, machine inference, recommendation roles and curator decisions must remain distinguishable. Policy wording is a requirement, not proof of technical enforcement.
+
+## Active Catalog And Quality Baseline
+
+The current source is `data/catalog_manifest.json`, snapshot 2026-08-12: 1,142 repositories and 77 categories. These are snapshot counts, not current GitHub checks or a count of primary-eligible solutions. Preserve the manifest and template. CP-03 defines advisory contracts and explicit unknowns; CP-06 adapts the catalog without mapping legacy scores to fit or automatically promoting candidates.
+
+The old 1,000-repository, 60-90-category and 100-200 enriched-pool targets are historical planning context, not additional plugin release gates. One evidence-qualified seed is sufficient for the first local semantic case; broader quality/coverage still needs CP-04/15 evidence.
+
+Desired business outcome: reduce research effort and improve adoption decisions. Primary product metric: share of target-user Decision Reports judged useful for the next decision. Supporting indicators: time from plugin intake to first Brief/report, primary evidence completeness, shortlist relevance, avoid/defer usefulness and advisory coverage. Counter-metrics: incorrect recommendations, stale evidence, correction rate and privacy violations. Targets, telemetry and measured gains are not invented here; CP-04 owns operational evaluation and human calibration.
+
+Release acceptance follows CP-11 (local semantic case), CP-14 (authorized live integration), CP-15 (privacy/auth/evals/browser and owner review) and CP-16 (package/rollback/publication gate). Existing rubric thresholds remain in [EVALS.md](../EVALS.md) and the CP plan: at least 16/20, no critical dimension below 1, zero critical failures, and evidence for every primary recommendation. CP-04 must calibrate them; no quality pass is claimed.
+
+## Legacy Requirement Disposition
+
+| Historical requirement | Active successor | Decision |
+| --- | --- | --- |
+| FR1 hosted interface | R01, R02, R10 | Replace hosted onboarding and account settings with plugin intake/local artifacts; hosted app deferred |
+| FR2 GitHub connection | R03, R04, R06, R09 | Local project selection replaces OAuth acquisition; public GitHub retrieval stays read-only; own-backend writes have separate auth |
+| FR3 permission review | R03, R04, R09 | Retain explicit scan/transmission disclosure and consent/refusal; no implicit upload |
+| FR4 scanner | R03, R04 | Retain allowlists/exclusions/no execution; add bounded modes and escape protection |
+| FR5 Brief | R05, R10 | Retain plain-language facts/inferences/corrections; add versions and invalidation |
+| FR6 post-scan interview | R02, R05 | Replace fixed post-scan ordering with adaptive intake, persistence and resume |
+| FR7 catalog | R07, R08, R11, R14 | Preserve v5; define advisory eligibility separately; old quantity targets do not prove fit |
+| FR8 matching | R06, R07, R14 | Retain context, role and caveat goals; add mixed lanes, strict unknowns and explicit no-match |
+| FR9 comparison | R07, R10, R13 | Retain decision-relevant trade-offs in offline report; old 2-5 workbench limit is not a new UI requirement |
+| FR10 avoid/defer | R07, R13, R14 | Retain reasons and conditions for revisiting |
+| FR11 reading path | R07, R13 | Retain inspection guidance, without implementation commands |
+| FR12 memo/boards/export | R10, R13 | Replace hosted boards/Markdown export with local state, HTML Decision Report and immutable runs |
+| FR13 freshness | R06, R07, R11, R14 | Replace shortlist-only live checking with bounded discovery; preserve snapshot/live distinction |
+| FR14 curator queue | R08, R09 | Retain auditable curator-only acceptance; dedicated queue UI deferred; candidate overlay is not curator approval |
+| FR15 evals | R12 | Retain persona/negative/regression goals; CP-04/15 own corpus and human usefulness acceptance |
+
+| Historical cross-cutting section | Active disposition |
+| --- | --- |
+| Product definition, problem, ICP, JTBD and goals | Retain decision-support intent/users; replace mandatory GitHub connection with local project or idea |
+| Scope and core journey | Replace with active R01-R14/journey above; standalone CLI, archive/doc upload, SDK/widget, hosted boards and general catalog API remain deferred |
+| Data requirements | Carry baseline/advisory/provenance intent into CP-03/06; preserve current source IDs/unknowns; do not treat historical field lists as accepted schemas |
+| Privacy/security and UX | Use active boundary table, including local writes and restricted public overlay; historical private-contribution and raw-storage exceptions are superseded |
+| Success metrics and beta criteria | Use plugin intake/Brief/report timing, useful decisions and CP-11/14/15/16 evidence; no hosted release checklist |
+| Non-functional requirements | Retain observable progress, bounded deterministic scanning, graceful failure and versioned evidence. Pinned replay does not promise identical model text |
+| Assumptions/open questions/source notes | Resolve entrypoint/scope through this PRD; route runtime/OS/backend/auth/consent/retention/budgets/replay choices to CP-02, schemas to CP-03, calibration to CP-04 |
+
+## Historical Hosted-First PRD — Not Active Acceptance
+
+Everything below is the preserved earlier PRD, including its original FR IDs, present-tense requirements, assumptions and source notes. None is an additional plugin requirement or authorization. The mappings above are exhaustive for its functional and cross-cutting sections; consult the active PRD and CP tasks when preparing new work.
+
+<details>
+<summary>Preserved historical PRD</summary>
+
 
 ## Product Definition
 
@@ -445,3 +547,5 @@ V1 beta is ready when:
 - `MYAI_STACKGUIDE_CONTEXT_SCANNER.md` defines embedded/project scanning, read-only boundaries, Project Context Brief schema, deployment modes, exclusions, and scanner risks.
 - `README.md` distinguishes the current HTML v5 snapshot (2026-08-12, 1,142 repository records, 77 categories, and 1,290 placements) from the legacy Markdown/research boundary (2026-05-23, 314 repositories, 42 categories, and 351 placements).
 - Catalog metadata is snapshot evidence and must not be described as live or current without a fresh source-backed check.
+
+</details>

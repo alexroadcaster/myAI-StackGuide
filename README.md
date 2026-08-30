@@ -4,9 +4,9 @@
 
 myAI-StackGuide is a myAI Labs project that helps founders, product teams, engineers, and operators understand which open-source solutions are relevant to their specific project, why they fit, what should be compared, and what should be avoided or deferred.
 
-The project combines a curated repository catalog with a planned read-only project scanner, a short user interview, and an evidence-aware recommendation workflow. The intended result is a practical decision artifact that a user can discuss with a technical team before adopting or integrating anything.
+The selected V1 is a Codex plugin combining a curated repository catalog, a bounded local read-only scanner, adaptive intake and a remote MCP discovery backend. It starts from an idea or local project and ends with a saved Project Context Brief and offline **Decision Report** to discuss before adopting or integrating anything.
 
-**Current status:** the catalog, reproducible data pipeline, product contracts, and agent-control layer are present. The hosted scanner, GitHub connection, recommendation runtime, and MCP surface are planned and are not yet implemented.
+**Current status:** the catalog and reproducible pipeline exist; agent/skill definitions and offline team checks are present. CP-01 aligns the plugin-first product documentation. Product schemas, scanner, intake/recommendation runtime and MCP backend remain planned; documentation and static checks do not make them operational.
 
 ## Why This Project Exists
 
@@ -55,26 +55,26 @@ The scanner is context acquisition—not a coding agent. It must not edit files,
 
 The guide combines the corrected Project Context Brief with a short interview about the user’s goal, stage, constraints, and preferred adoption mode. It then maps the project to category paths and repository candidates.
 
-The target output is an evidence-aware recommendation memo or Integration Blueprint—not automatic implementation.
+The target output is an offline Decision Report with evidence, caveats and a next human decision. The older memo/Integration Blueprint names are retained in historical documents; they do not add an implementation stage.
 
 ## Intended User Journey
 
 ```mermaid
 flowchart LR
-    A[User project or product idea] --> B[Read-only context scan]
-    A --> C[Short goal and constraints interview]
-    B --> D[Project Context Brief]
+    A[Codex plugin: idea or local project] --> B[Adaptive intake and scan disclosure]
+    B --> C[Bounded local scanner and sanitizer]
+    B --> D[Versioned Project Context Brief]
     C --> D
-    D --> E[Category and task-archetype mapping]
-    F[Curated catalog snapshot] --> E
-    G[Optional shortlist freshness check] -. planned .-> E
-    E --> H[Shortlist by repository role]
-    H --> I[Compare, avoid or defer, and reading path]
-    I --> J[Decision memo or Integration Blueprint]
-    J --> K[Human adoption decision]
+    D --> E[Local catalog matching]
+    D --> F[Authorized minimal-query public GitHub discovery]
+    E --> G[Merge, dedupe, constraints and evidence]
+    F --> G
+    F -. refused or unavailable: catalog-only .-> G
+    G --> H[Offline Decision Report and local state]
+    H --> I[Human adoption decision]
 ```
 
-The user remains the decision owner. Any code changes, installation, integration work, external writes, or pull requests require a separate explicitly authorized workflow.
+This is the intended workflow, not runtime evidence. The catalog and authorized discovery lanes can run in parallel after a preliminary Brief; corrections invalidate dependent results. The user remains the decision owner. Code changes, recommended installations, integration, Git operations and deployment require a separate workflow. The plugin's bounded local artifact writes and separately authorized public candidate uploads are described below; neither is a scanner write.
 
 ## What The User Receives
 
@@ -103,7 +103,7 @@ A complete recommendation flow is designed to produce:
 
 ## Example Scenarios
 
-- A founder connects a SaaS repository and asks which open-source support and analytics tools are worth evaluating.
+- A founder opens a local SaaS project in Codex and asks which open-source support and analytics tools are worth evaluating.
 - A product team wants to compare RAG platforms, retrieval libraries, memory systems, and evaluation tools for an existing document product.
 - An engineer needs a controlled coding-agent delivery stack spanning runtime, MCP tools, sandboxing, evals, and security.
 - An operator wants to compare self-hosted CRM, helpdesk, workflow automation, and reporting products.
@@ -162,13 +162,17 @@ Catalog metadata is a snapshot. Repository stars, activity, license metadata, ow
 
 The planned product follows these default rules:
 
-- repository access is read-only and least-privilege;
+- local project scanning and public GitHub retrieval are read-only and least-privilege;
 - the user sees scan scope, exclusions, retention, and transmission rules before scanning;
 - allowlisted files and metadata are preferred over broad source ingestion;
 - secrets, credentials, keys, dumps, customer exports, raw user messages, logs, dependency folders, and build outputs are excluded by default;
 - raw project source stops at the scanner/sanitizer boundary;
-- downstream recommendation components receive sanitized facts and evidence references;
-- private repository data is not used to enrich the public catalog without explicit contribution consent;
+- the model receives sanitized structures and evidence references; agents must not bypass the scanner to read raw source;
+- MCP receives a minimal DiscoveryQuery and public candidate metadata, never the full Brief, answers, excerpts, absolute paths or private project identifiers; no private-data contribution exception applies;
+- warn users not to type secrets into Codex chat; already-entered chat cannot retroactively become untransmitted, and secret-like answers must be sanitized before persistence;
+- plugin output writes are limited to `docs/myai-stackguide/`: atomic `state.json`, offline `status.html` and immutable finalized `runs/{run_id}.json`;
+- `candidate_batch_upsert` is an own-backend external write requiring auth and explicit consent or bounded standing policy; machine candidates never acquire curator `accepted` automatically;
+- refusal of auth/transmission or unavailable discovery produces visible catalog-only fallback; failed candidate upload does not block delivery of the local report;
 - recommendations are advisory and do not constitute security, legal, license, compliance, procurement, or production approval.
 
 ## Architecture Direction
@@ -178,8 +182,8 @@ The product is being designed around clear trust boundaries:
 1. **Context access** — authorized local project scanning through the Codex plugin; public GitHub discovery uses a separate sanitized MCP query boundary.
 2. **Scanner and sanitizer** — deterministic inventory, exclusions, facts, evidence references, and confidence.
 3. **Project Context Brief** — user-readable understanding that can be corrected before matching.
-4. **Catalog matching** — task archetypes, category paths, stack recipes, repository cards, and policy constraints.
-5. **Advisory response** — shortlist, compare view, avoid/defer guidance, reading path, evidence, and next decision.
+4. **Matching and discovery** — pinned local catalog plus authorized bounded public GitHub evidence, hard constraints, dedupe, separate snapshot/live provenance and explicit fallback.
+5. **Advisory response** — Decision Report, comparison, avoid/defer, reading path, evidence and next decision; local persistence and version history.
 
 Detailed documents:
 
@@ -191,16 +195,16 @@ Detailed documents:
 
 ## Development Priorities
 
-The active direction is [Codex Plugin V1](docs/plan/2026-08-30-codex-plugin-v1-implementation-plan.md). Local [agent-team audit remediation](docs/plan/2026-08-30-agent-team-remediation-plan.md) is implemented; fresh-session behavioral verification and accepted runtime/auth/storage decisions remain open. Static team checks do not authorize product execution.
+The active [PRD](docs/PRODUCT_REQUIREMENTS.md#active-plugin-v1-requirements) defines R01-R14; the [roadmap](docs/V1_ROADMAP.md#active-plugin-v1-milestones) and [CP plan](docs/plan/2026-08-30-codex-plugin-v1-implementation-plan.md) define delivery gates. Local agent-team remediation is implemented. CP-01 reconciles the documentation; runtime/auth/storage decisions and measured builder readiness remain open.
 
 The active dependency order is:
 
-1. Define stable repository-card and taxonomy contracts.
-2. Define scanner allowlist, exclusions, and Project Context Brief schema.
-3. Define recommendation memo and evaluation contracts.
-4. Validate provenance, identity, confidence, and privacy boundaries across contracts.
-5. Review the exact read-only GitHub and MCP permission surface.
-6. Only then implement the gated local plugin and MCP workflow; deployment and publication require separate authorization.
+1. CP-01: reconcile scope, requirements, historical mappings and acceptance.
+2. CP-02: accept runtime, auth, storage, privacy and budget decisions; CP-04 eval preparation can follow CP-01 independently.
+3. CP-03/05: accept schemas and complete builder readiness, preserving already-authored roles.
+4. CP-06-CP-11: build the local plugin/report vertical slice and prove one useful synthetic case before broader cases.
+5. CP-12-CP-14: mock-first backend and mixed retrieval, then separately authorized test-environment verification.
+6. CP-15-CP-16: independent quality/privacy/browser review and release package; publication, deployment and scheduling need separate authorization.
 
 See [REQUIREMENTS.md](REQUIREMENTS.md), [PLAN.md](PLAN.md), [TEST.md](TEST.md), and [EVALS.md](EVALS.md) for the current execution state and evidence gates.
 
