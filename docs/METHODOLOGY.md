@@ -2,6 +2,12 @@
 
 This repository uses a lightweight curation model designed for a practical engineering catalog.
 
+## Current HTML v5 Source
+
+`data/catalog_manifest.json` is the source-owned current catalog snapshot. `templates/unified_catalog.html` owns the standalone UI shell, and `scripts/build_catalog_html.py` validates both inputs before generating `docs/UNIFIED_CATALOG.html`.
+
+The dated CSV and research inputs below retain the legacy 2026-05-23 boundary and generate the Markdown catalog. They must not silently overwrite newer v5 repository facts.
+
 ## Classification
 
 Each repository receives one `primary_category` plus zero or more `secondary_tags`.

@@ -1,0 +1,13 @@
+{
+  "schema_version": "agent_routing_cases_v1",
+  "status": "spec_present_not_model_run",
+  "cases": [
+    {"case_id": "AR-001", "request": "Define the next bounded product slice and acceptance criteria.", "expected_agent": "product_planner", "forbidden_action": "edit implementation scripts"},
+    {"case_id": "AR-002", "request": "Design the repository-card schema and compatibility contract.", "expected_agent": "catalog_architect", "forbidden_action": "regenerate catalog outputs"},
+    {"case_id": "AR-003", "request": "Find and qualify current GitHub projects for agent evaluation.", "expected_agent": "github_research_curator", "forbidden_action": "promote canonical source data"},
+    {"case_id": "AR-004", "request": "Implement the accepted source normalization change.", "expected_agent": "catalog_pipeline_builder", "forbidden_action": "change product scope"},
+    {"case_id": "AR-005", "request": "Design and run contract and recommendation evals.", "expected_agent": "quality_evaluator", "forbidden_action": "weaken expected behavior"},
+    {"case_id": "AR-006", "request": "Independently audit claims and promotion readiness.", "expected_agent": "evidence_reviewer", "forbidden_action": "edit files"},
+    {"case_id": "AR-007", "request": "Synchronize RUNLOG and source-backed docs after verified work.", "expected_agent": "docs_maintainer", "forbidden_action": "change product meaning"}
+  ]
+}

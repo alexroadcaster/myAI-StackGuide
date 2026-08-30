@@ -1,4 +1,4 @@
-# Unified GitHub Category Catalog
+# myAI-StackGuide Catalog
 
 Snapshot: 2026-05-23
 
@@ -14,6 +14,48 @@ The same repository can appear in more than one category when it is genuinely us
 - Category placements: 351
 - Unique repositories: 314
 - Sources: `data/repos.csv`, `research/github_curated_recommendations_2026-05-23.json`, `research/github_business_curated_recommendations_2026-05-23.json`
+
+## Product Decision Layer
+
+Use this catalog as a decision aid: start from the work you need to do, narrow to the right category path, then inspect repositories with their caveats in mind.
+
+### When To Use
+
+| Situation | Start With | Decision Output |
+|---|---|---|
+| You need a shortlist before choosing an AI or automation stack. | Search by workflow, then inspect the matching category and top repositories. | A focused list of projects to read, prototype, or compare. |
+| You are deciding what to self-host, buy, fork, or ignore. | Use the business/product categories alongside engineering platform categories. | A decision map for build-versus-buy and adoption planning. |
+| You are designing an agentic workflow and need adjacent components. | Move across runtime, tools, memory, retrieval, evals, execution, and UI categories. | A stack-shaped view instead of isolated repository bookmarks. |
+| You are auditing a personal fork library or research queue. | Use source groups, scores, categories, and stale metadata caveats. | A cleaner queue of active candidates, references, and archive/delete items. |
+
+### When To Avoid
+
+| Need | Why This Catalog Is Not Enough | Better Next Step |
+|---|---|---|
+| Security, compliance, legal, or procurement approval. | The catalog is not a security audit, license opinion, vendor review, or production-readiness certification. | Run dedicated code, security, license, and vendor due diligence. |
+| Realtime repository rankings. | Stars, forks, update timestamps, and licenses are snapshot metadata and drift quickly. | Refresh from the GitHub API before presenting current claims. |
+| An exhaustive market map. | The catalog is curated for practical decision support, not complete market coverage. | Run a scoped research refresh with explicit search queries and inclusion rules. |
+| A direct product recommendation for a high-stakes adoption. | Scores are triage signals and are not comparable to hands-on evaluation in your environment. | Prototype the top candidates against your workload, data, permissions, and failure modes. |
+
+### Stack Recipes
+
+| Recipe | Use When | Category Path | Decision Question |
+|---|---|---|---|
+| Coding Agent Delivery Loop | You want agents to plan, edit, run tools, evaluate changes, and ship safely. | Codex, Claude & Skill Workflows -> Agent Runtime & Orchestration -> MCP & Tool Integrations -> Sandboxed Code Execution -> Evals, Observability & Prompt Ops -> Security, Safety & Supply Chain | Which parts of the loop must be reliable before autonomy increases? |
+| RAG Knowledge Product | You need a product that reads documents, retrieves context, remembers decisions, and cites sources. | Documents, OCR & Parsing -> RAG, Retrieval & Search -> Vector DBs & Embedding Infrastructure -> Memory & Context Systems -> Knowledge Graphs -> Evals, Observability & Prompt Ops | Is the bottleneck ingestion quality, retrieval quality, memory, or evaluation? |
+| Business Ops Automation Stack | You want to connect internal workflows across leads, support, reporting, and back office. | Automation, Workflows & No-code -> Sales, CRM & Lead Generation -> Customer Support & Success -> Analytics, BI & Reporting -> Accounting, Finance & ERP -> Legal, Contracts & Compliance | Which system owns customer, revenue, and compliance state? |
+| Founder Lean Operating System | You need a lightweight startup stack before buying multiple SaaS products. | Market Research & Competitive Intelligence -> Marketing, Growth & SEO -> Sales, CRM & Lead Generation -> Product Management, Roadmaps & Feedback -> Analytics, BI & Reporting -> Automation, Workflows & No-code | What should be self-hosted, bought, or deferred for the next 90 days? |
+| Design-To-Prototype Loop | You want to move from product idea to interface, demo, or user-testable prototype. | Design, Brand & UI/UX -> Frontend, UI, Desktop & Browser Automation -> Codex, Claude & Skill Workflows -> Multimodal & Vision Agents -> Developer Tools & CLI | Which artifact is the next decision point: design system, prototype, demo, or production UI? |
+
+### Compare Views
+
+| Compare | Use This View To Decide | Categories |
+|---|---|---|
+| Agent runtimes vs workflow engines | Whether you need autonomous agent behavior, deterministic orchestration, or both. | Agent Runtime & Orchestration -> Workflow State Machines & Durable Agents |
+| RAG vs memory vs knowledge graphs | Whether the problem is retrieval, long-lived context, entity relationships, or source-grounded answers. | RAG, Retrieval & Search -> Memory & Context Systems -> Knowledge Graphs |
+| MCP integrations vs no-code automation | Whether agents need programmable tool access or business teams need workflow automation. | MCP & Tool Integrations -> Automation, Workflows & No-code |
+| Evals/observability vs security/safety | Whether the immediate risk is quality drift, prompt behavior, unsafe execution, or supply-chain exposure. | Evals, Observability & Prompt Ops -> Security, Safety & Supply Chain |
+| Self-hosted suite vs focused tool | Whether to adopt a broad operating platform or combine narrow tools around one workflow. | Operations, Project Management & Internal Tools -> Analytics, BI & Reporting -> Customer Support & Success |
 
 ## Category Index
 

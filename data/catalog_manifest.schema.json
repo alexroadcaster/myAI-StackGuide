@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/alexroadcaster/myAI-StackGuide/blob/main/data/catalog_manifest.schema.json",
+  "title": "myAI-StackGuide catalog manifest",
+  "description": "Source-owned contract for the embedded data in docs/UNIFIED_CATALOG.html.",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "snapshot",
+    "title",
+    "baseline",
+    "target",
+    "summary",
+    "profiles",
+    "useCases",
+    "repositories",
+    "categories",
+    "placements",
+    "compatibility",
+    "stackRecipes",
+    "discoveryQueries",
+    "dataPolicy",
+    "activitySchema",
+    "enrichment"
+  ],
+  "properties": {
+    "schemaVersion": { "const": "5.0-full-refresh" },
+    "snapshot": { "type": "string", "format": "date" },
+    "title": { "type": "string", "minLength": 1 },
+    "summary": {
+      "type": "object",
+      "required": [
+        "canonicalRepositories",
+        "accepted",
+        "candidates",
+        "referenceOrBenchmark",
+        "categories",
+        "placements",
+        "activityEnriched",
+        "stackRecipes",
+        "compatibilityEdges"
+      ],
+      "properties": {
+        "canonicalRepositories": { "type": "integer", "minimum": 0 },
+        "accepted": { "type": "integer", "minimum": 0 },
+        "candidates": { "type": "integer", "minimum": 0 },
+        "referenceOrBenchmark": { "type": "integer", "minimum": 0 },
+        "categories": { "type": "integer", "minimum": 0 },
+        "placements": { "type": "integer", "minimum": 0 },
+        "activityEnriched": { "type": "integer", "minimum": 0 },
+        "stackRecipes": { "type": "integer", "minimum": 0 },
+        "compatibilityEdges": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "repositories": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "fullName", "url", "catalogStatus", "primaryCategory", "provenance"]
+      }
+    },
+    "categories": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["key", "title", "repoIds"]
+      }
+    },
+    "placements": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["repoKey", "categoryKey", "source"]
+      }
+    },
+    "compatibility": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["sourceRepoId", "targetRepoId", "relation"]
+      }
+    },
+    "stackRecipes": { "type": "array" }
+  }
+}

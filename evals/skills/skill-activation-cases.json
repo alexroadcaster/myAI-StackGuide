@@ -1,0 +1,84 @@
+{
+  "schema_version": "skill_activation_cases_v1",
+  "status": "spec_present_not_model_run",
+  "case_types": ["direct", "indirect", "incomplete", "non_trigger"],
+  "cases": [
+    {
+      "skill": "audit-readonly-boundaries",
+      "direct": "Use audit-readonly-boundaries to review the planned GitHub MCP permissions.",
+      "indirect": "Check whether our scanner and GitHub evidence flow can remain strictly read-only.",
+      "incomplete": "Review the integration permissions, but the tool allowlist is not defined yet.",
+      "non_trigger": "Implement the accepted repository-card JSON schema."
+    },
+    {
+      "skill": "curate-catalog-taxonomy",
+      "direct": "Use curate-catalog-taxonomy to review aliases and parent categories.",
+      "indirect": "These repositories appear to belong to overlapping categories; propose stable boundaries.",
+      "incomplete": "Classify this candidate, but its verified capabilities are missing.",
+      "non_trigger": "Regenerate the catalog HTML from unchanged source data."
+    },
+    {
+      "skill": "design-catalog-contracts",
+      "direct": "Use design-catalog-contracts to define the repository-card schema.",
+      "indirect": "Specify provenance, identity, nullability, and compatibility for catalog entries.",
+      "incomplete": "Design the schema, but the source-of-truth owner is unresolved.",
+      "non_trigger": "Find five current GitHub candidates for agent observability."
+    },
+    {
+      "skill": "design-context-contracts",
+      "direct": "Use design-context-contracts to define the Project Context Brief.",
+      "indirect": "Separate scanner observations, inferences, confidence, and user corrections.",
+      "incomplete": "Design the context contract, but retention policy is unknown.",
+      "non_trigger": "Fix deterministic ordering in the catalog builder."
+    },
+    {
+      "skill": "design-recommendation-evals",
+      "direct": "Use design-recommendation-evals to create recommendation quality cases.",
+      "indirect": "Define a rubric for shortlist fit, avoid guidance, caveats, and stale evidence.",
+      "incomplete": "Create the eval, but expected recommendation behavior is not yet accepted.",
+      "non_trigger": "Update the README wording after a verified documentation change."
+    },
+    {
+      "skill": "evolve-catalog-pipeline",
+      "direct": "Use evolve-catalog-pipeline to implement the accepted normalization change.",
+      "indirect": "Modify the assigned builder while preserving source-first generation and provenance.",
+      "incomplete": "Implement the pipeline change, but no acceptance criteria were supplied.",
+      "non_trigger": "Review the GitHub MCP permission proposal without editing files."
+    },
+    {
+      "skill": "maintain-control-plane",
+      "direct": "Use maintain-control-plane to synchronize PLAN, TEST, EVALS, and RUNLOG.",
+      "indirect": "The implementation evidence changed; align lifecycle status and accepted gaps.",
+      "incomplete": "Close the task, but the verification output is missing.",
+      "non_trigger": "Design a new provenance schema under specs/catalog."
+    },
+    {
+      "skill": "research-github-candidates",
+      "direct": "Use research-github-candidates to find current projects for agent evaluation.",
+      "indirect": "Research official GitHub repositories that could accelerate this product idea.",
+      "incomplete": "Find candidates, but no category or comparison question was provided.",
+      "non_trigger": "Promote an already reviewed candidate into canonical source data."
+    },
+    {
+      "skill": "review-advisory-evidence",
+      "direct": "Use review-advisory-evidence to audit this recommendation before promotion.",
+      "indirect": "Challenge the provenance, freshness, confidence, and unsupported claims in this memo.",
+      "incomplete": "Review the claim, but the cited source artifact is unavailable.",
+      "non_trigger": "Implement a source ingestion parser."
+    },
+    {
+      "skill": "shape-product-slice",
+      "direct": "Use shape-product-slice to frame the next V1 contract slice.",
+      "indirect": "Turn this roadmap goal into bounded scope, metrics, non-goals, and acceptance.",
+      "incomplete": "Define the product slice, but the target user decision is unresolved.",
+      "non_trigger": "Run generated-output parity checks."
+    },
+    {
+      "skill": "verify-generated-parity",
+      "direct": "Use verify-generated-parity after the builder change.",
+      "indirect": "Check whether Markdown, HTML, JSON, CSV, and category outputs match their builders.",
+      "incomplete": "Verify parity, but the source builder ownership is unknown.",
+      "non_trigger": "Research new GitHub candidates for the RAG category."
+    }
+  ]
+}

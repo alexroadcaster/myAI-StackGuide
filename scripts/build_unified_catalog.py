@@ -9,6 +9,8 @@ from collections import OrderedDict
 from datetime import date
 from pathlib import Path
 
+import product_guidance
+
 
 ROOT = Path(__file__).resolve().parents[1]
 SNAPSHOT = date(2026, 5, 23).isoformat()
@@ -17,7 +19,7 @@ DATA_REPOS = ROOT / "data" / "repos.csv"
 DATA_CATEGORIES = ROOT / "data" / "categories.json"
 AI_RESEARCH = ROOT / "research" / "github_curated_recommendations_2026-05-23.json"
 BUSINESS_RESEARCH = ROOT / "research" / "github_business_curated_recommendations_2026-05-23.json"
-OUTPUT = ROOT / "UNIFIED_CATALOG.md"
+OUTPUT = ROOT / "docs" / "UNIFIED_CATALOG.md"
 
 SOURCE_ORDER = {
     "account_fork_catalog": 0,
@@ -244,7 +246,7 @@ def build_markdown(categories: OrderedDict[str, dict]) -> str:
     }
 
     lines = [
-        "# Unified GitHub Category Catalog",
+        "# myAI-StackGuide Catalog",
         "",
         f"Snapshot: {SNAPSHOT}",
         "",
@@ -260,6 +262,8 @@ def build_markdown(categories: OrderedDict[str, dict]) -> str:
         f"- Category placements: {total_placements}",
         f"- Unique repositories: {len(unique_repos)}",
         "- Sources: `data/repos.csv`, `research/github_curated_recommendations_2026-05-23.json`, `research/github_business_curated_recommendations_2026-05-23.json`",
+        "",
+        product_guidance.markdown_section(level=2).rstrip(),
         "",
         "## Category Index",
         "",
@@ -305,6 +309,7 @@ def build_markdown(categories: OrderedDict[str, dict]) -> str:
 def main() -> None:
     categories = load_categories()
     load_repositories(categories)
+    OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT.write_text(build_markdown(categories), encoding="utf-8")
     print(
         json.dumps(

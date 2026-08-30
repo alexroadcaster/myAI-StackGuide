@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>AI MVP Stack Navigator — Catalog v5.0</title>
+<style>
+:root{--bg:#070707;--surface:#101010;--surface2:#17120d;--surface3:#0b0b0c;--ink:#f7ead2;--muted:#b7a78d;--line:rgba(244,177,65,.22);--line2:rgba(246,196,106,.48);--amber:#f6c46a;--orange:#f0b13e;--green:#94d3a2;--red:#ef8e72;--blue:#91baf5;--r:9px;color-scheme:dark}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.45 ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{color:inherit;text-decoration:none}a:hover{color:var(--amber)}button,input,select{font:inherit}.shell{display:grid;grid-template-columns:340px minmax(0,1fr);min-height:100vh}.sidebar{position:sticky;top:0;height:100vh;overflow:auto;padding:18px;border-right:1px solid var(--line);background:var(--surface3)}.brand h1{font-size:20px;margin:0 0 4px}.muted{color:var(--muted)}.small{font-size:12px}.target,.panel,.stat,.usecard,.recipe,.category,.statuscard{border:1px solid var(--line);border-radius:var(--r);background:var(--surface)}.target{margin:14px 0;padding:12px}.meter{height:7px;background:#2a2115;border-radius:99px;overflow:hidden;margin-top:8px}.meter>span{display:block;height:100%;background:var(--amber)}.search{width:100%;padding:10px 11px;border:1px solid var(--line2);border-radius:var(--r);background:#070707;color:var(--ink);outline:none;margin:8px 0}.modes,.chiprow,.actions{display:flex;gap:6px;flex-wrap:wrap}.pill,.mode,.btn{border:1px solid var(--line);background:#0b0b0b;color:var(--muted);border-radius:99px;padding:6px 9px;cursor:pointer}.mode.active,.btn.primary{background:var(--amber);color:#111;border-color:var(--amber);font-weight:700}.btn:disabled{opacity:.45;cursor:not-allowed}.filters{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin:10px 0}.filters select{width:100%;background:#0b0b0b;color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:8px}.navgroup{margin:14px 0 6px;color:var(--amber);font-size:11px;text-transform:uppercase;letter-spacing:.08em}.navitem{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;padding:7px 8px;border-radius:8px;color:#dfcfb0}.navitem:hover{background:#1b160f}.count{font-size:11px;color:var(--amber)}main{min-width:0;padding:26px}.topbar{display:flex;justify-content:space-between;gap:20px;align-items:flex-start}.title h2{font-size:clamp(30px,4.5vw,54px);line-height:1;margin:0 0 9px;max-width:920px}.title p{margin:0;color:var(--muted);max-width:960px}.statuscard{min-width:290px;padding:12px}.banner{margin:18px 0;padding:13px 14px;border:1px solid var(--line2);border-radius:var(--r);background:linear-gradient(90deg,#1a1308,#111)}.stats{display:grid;grid-template-columns:repeat(7,minmax(105px,1fr));gap:9px;margin:16px 0}.stat{padding:12px}.stat .value{font-size:24px;font-weight:760}.stat .label{font-size:11px;color:var(--muted)}.section{margin:30px 0}.sectitle{display:flex;justify-content:space-between;align-items:end;gap:14px;margin-bottom:11px}.sectitle h3{margin:0;font-size:22px}.panel{padding:14px}.enrich-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:12px}.progress{height:10px;background:#271e12;border-radius:99px;overflow:hidden;margin:10px 0}.progress span{display:block;height:100%;background:var(--orange);width:0}.api-note{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:11px;color:var(--muted);overflow-wrap:anywhere}.builder{display:grid;grid-template-columns:repeat(4,minmax(130px,1fr)) auto;gap:9px;align-items:end}.field label{display:block;color:var(--muted);font-size:11px;margin-bottom:4px}.field select{width:100%;padding:9px;background:#090909;color:var(--ink);border:1px solid var(--line);border-radius:8px}.recommendations{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:12px}.rec{border:1px solid var(--line);border-radius:var(--r);padding:13px;background:#0c0c0c}.rec .rank{font-size:11px;color:var(--amber);text-transform:uppercase}.rec strong{display:block;font-size:16px;margin:4px 0}.usegrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}.usecard{padding:13px;cursor:pointer}.usecard:hover{border-color:var(--line2)}.recipegrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.recipe{padding:14px}.recipe h4{margin:0 0 4px;font-size:16px}.stackline{display:flex;align-items:center;gap:5px;flex-wrap:wrap;margin:10px 0}.stacknode{padding:5px 7px;border:1px solid var(--line);background:#20180c;border-radius:7px;font-size:11px}.arrow{color:var(--amber)}.coverage{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}.cover{border:1px solid var(--line);padding:10px;border-radius:8px;background:#0c0c0c}.coverbar{height:6px;background:#251d12;border-radius:99px;overflow:hidden;margin-top:7px}.coverbar span{display:block;height:100%;background:var(--orange)}.comparebar{position:sticky;top:8px;z-index:6;display:none;justify-content:space-between;align-items:center;gap:12px;padding:10px 12px;border:1px solid var(--line2);border-radius:var(--r);background:#17120b;box-shadow:0 10px 30px rgba(0,0,0,.35)}.comparebar.show{display:flex}.comparegrid{display:grid;grid-template-columns:190px repeat(3,minmax(190px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:auto}.comparegrid>div{background:#101010;padding:9px;min-height:38px}.comparegrid .head{font-weight:700;background:#17130e}.category{margin:13px 0;overflow:hidden}.cathead{display:flex;justify-content:space-between;gap:14px;padding:14px;background:#15110d;border-bottom:1px solid var(--line)}.cathead h4{margin:0;font-size:18px}.repos{overflow:auto;max-height:70vh}.repotable{width:100%;border-collapse:collapse;min-width:1740px}.repotable th,.repotable td{padding:8px 9px;border-bottom:1px solid rgba(244,177,65,.11);text-align:left;vertical-align:top}.repotable th{font-size:11px;color:var(--muted);background:#12100e;position:sticky;top:0;z-index:2}.repoName{font-weight:700;min-width:230px}.repoDesc{min-width:280px;max-width:420px;color:var(--muted);font-size:12px}.badge{display:inline-block;padding:3px 6px;border-radius:99px;font-size:10px;border:1px solid var(--line);margin:1px 2px 1px 0}.accepted{color:var(--green)}.candidate{color:var(--amber)}.reference,.benchmark{color:var(--blue)}.archived,.deprecated,.stale{color:var(--red)}.active{color:var(--green)}.refreshed{color:var(--green)}.redirected{color:var(--blue)}.unavailable{color:var(--red)}.superseded{color:var(--amber)}.unknown{color:var(--muted)}.num{white-space:nowrap}.repo-detail{font-size:11px;color:var(--muted)}.empty{padding:20px;border:1px dashed var(--line2);border-radius:var(--r);color:var(--muted)}.footer{margin:30px 0 10px;color:var(--muted);font-size:12px}.hidden{display:none!important}.metric{font-variant-numeric:tabular-nums}
+@media(max-width:1250px){.stats{grid-template-columns:repeat(4,1fr)}.builder{grid-template-columns:repeat(2,1fr)}.enrich-grid{grid-template-columns:1fr}.usegrid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:850px){.shell{grid-template-columns:1fr}.sidebar{position:relative;height:auto;border-right:0;border-bottom:1px solid var(--line)}main{padding:17px}.topbar{display:grid}.statuscard{min-width:0}.stats{grid-template-columns:repeat(2,1fr)}.usegrid,.recipegrid,.recommendations,.coverage{grid-template-columns:1fr}.builder{grid-template-columns:1fr}.filters{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body><div class="shell">
+<aside class="sidebar">
+<div class="brand"><h1>AI MVP Stack Navigator</h1><div class="small muted">Catalog v5.0 · repository data</div></div>
+<div class="target"><div class="small muted">Repository target</div><strong id="targetText"></strong><div class="meter"><span id="meterFill"></span></div><div class="small muted" style="margin-top:6px">Target is unique repositories passing the strict V4 factual gate.</div></div>
+<input class="search" id="search" placeholder="Search repos, tools, categories" type="search"/>
+<div class="modes"><button class="mode active" data-mode="vibe_coder">Vibe Coder</button><button class="mode" data-mode="ai_engineer">AI Engineer</button><button class="mode" data-mode="explore">Explore</button></div>
+<div class="filters">
+<select id="statusFilter"><option value="all">Status: all</option><option>accepted</option><option>candidate</option><option>reference</option><option>benchmark</option></select>
+<select id="activityFilter"><option value="all">Activity: all</option><option value="active">Active ≤365d</option><option value="maintenance">Maintenance</option><option value="stale">Stale</option><option value="unknown">Unknown</option></select>
+<select id="formFilter"><option value="all">Form: all</option></select>
+<select id="languageFilter"><option value="all">Stack: all</option></select>
+<select id="difficultyFilter"><option value="all">Difficulty: all</option><option>beginner</option><option>intermediate</option><option>advanced</option></select>
+<select id="licenseFilter"><option value="all">License: all</option><option value="known">Known</option><option value="unknown">Unknown</option></select>
+</div>
+<nav id="nav"></nav>
+</aside>
+<main>
+<div class="topbar">
+<div class="title"><h2>Open-source building blocks for shipping an MVP</h2><p>Canonical repository catalog with product and engineering facets, source-backed repository metadata, and explicit activity fields. Existing repository identities and category mappings are preserved.</p></div>
+<div class="statuscard"><strong>Snapshot <span id="snapshot"></span></strong><div class="small muted" id="sourceStatus"></div></div>
+</div>
+<section class="stats" id="stats"></section>
+<div class="comparebar" id="compareBar"><div><strong>Compare:</strong> <span class="small" id="compareNames"></span></div><div class="actions"><button class="btn primary" id="compareBtn">Compare selected</button><button class="btn" id="clearCompare">Clear</button></div></div>
+<section class="section" id="builder"><div class="sectitle"><div><h3>Build an MVP</h3><div class="small muted">Shortlist components by use case; accepted sources rank above unreviewed candidates.</div></div></div>
+<div class="panel"><div class="builder">
+<div class="field"><label>Use case</label><select id="buildUseCase"></select></div>
+<div class="field"><label>Deployment</label><select id="buildDeployment"><option value="any">Any</option><option value="local">Local</option><option value="cloud">Cloud</option><option value="browser">Browser</option><option value="edge">Edge</option></select></div>
+<div class="field"><label>Stack</label><select id="buildLanguage"><option value="any">Any</option><option>Python</option><option>TypeScript</option><option>Go</option><option>Rust</option></select></div>
+<div class="field"><label>Priority</label><select id="buildPriority"><option value="easiest">Easiest</option><option value="private">Private / local</option><option value="scalable">Scalable</option><option value="cheapest">Low ops/cost</option></select></div>
+<button class="btn primary" id="buildBtn">Build shortlist</button>
+</div><div class="recommendations" id="recommendations"></div></div></section>
+<section class="section"><div class="sectitle"><div><h3>Use cases</h3><div class="small muted">Start from a product outcome, not a repository name.</div></div></div><div class="usegrid" id="useCases"></div></section>
+<section class="section"><div class="sectitle"><div><h3>Concrete stack recipes</h3><div class="small muted">Reusable architecture patterns retained from v2.</div></div></div><div class="recipegrid" id="recipes"></div></section>
+<section class="section"><div class="sectitle"><div><h3>Coverage</h3><div class="small muted">Category placements by stack layer.</div></div></div><div class="coverage" id="coverage"></div></section>
+<section class="section hidden" id="compareSection"><div class="sectitle"><div><h3>Compare workspace</h3><div class="small muted">Activity, license, lifecycle and evidence are first-class comparison criteria.</div></div></div><div id="compareContent"></div></section>
+<section class="section"><div class="sectitle"><div><h3>Repositories by category</h3><div class="small muted" id="visibleCount"></div></div></div><div id="categories"></div></section>
+<div class="footer">Catalog v5.0 · existing repository corpus and curated taxonomy preserved; repository facts are updated from source-backed checks.</div>
+</main></div>
+<script id="catalog-data" type="application/json">{{CATALOG_DATA_JSON}}</script>
+<script>
+let DATA=JSON.parse(document.getElementById('catalog-data').textContent);
+let repoMap,catMap;
+let state={mode:'vibe_coder',q:'',status:'all',activity:'all',form:'all',language:'all',difficulty:'all',license:'all',selected:new Set()};
+const esc=v=>String(v??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+const num=v=>v==null?'—':new Intl.NumberFormat('en-US').format(v);
+const unique=a=>[...new Set(a.filter(Boolean))];
+const dateShort=v=>!v?'—':String(v).slice(0,10);
+const statusClass=s=>['accepted','candidate','reference','benchmark'].includes(s)?s:'unknown';
+function resetMaps(){repoMap=new Map(DATA.repositories.map(r=>[r.id,r]));catMap=new Map(DATA.categories.map(c=>[c.key,c]));}
+function activityGroup(r){const b=r.activity?.activityBand||'unknown';if(b.startsWith('active_'))return'active';if(b==='maintenance')return'maintenance';if(b==='stale')return'stale';return'unknown'}
+function repoSearch(r){return [r.fullName,r.description,r.language,r.license?.spdx,r.primaryCategory,...(r.secondaryCategories||[]),r.form,r.persona,r.difficulty,...(r.deployment||[]),...(r.topics||[])].join(' ').toLowerCase()}
+function matches(r){
+ const q=state.q.trim().toLowerCase().split(/\s+/).filter(Boolean);if(q.length&&!q.every(t=>repoSearch(r).includes(t)))return false;
+ if(state.status!=='all'&&r.catalogStatus!==state.status)return false;
+ if(state.activity!=='all'&&activityGroup(r)!==state.activity)return false;
+ if(state.form!=='all'&&r.form!==state.form)return false;
+ if(state.language!=='all'&&r.language!==state.language)return false;
+ if(state.difficulty!=='all'&&r.difficulty!==state.difficulty)return false;
+ const knownLic=r.license?.spdx&&!['NOASSERTION','unknown','NO_LICENSE_DETECTED'].includes(r.license.spdx);
+ if(state.license==='known'&&!knownLic)return false;if(state.license==='unknown'&&knownLic)return false;
+ if(state.mode==='vibe_coder'&&r.persona==='ai_engineer')return false;
+ if(state.mode!=='explore'&&['reference','benchmark'].includes(r.catalogStatus))return false;
+ return true;
+}
+function requiredFieldsResolved(r){
+ const a=r.activity||{};
+ return r._requiredMetaResolved===true || (r.activity?.status==='enriched' && !!r.url && r.stars!=null && !!r.language && r.language!=='unknown' && !!a.createdAt && !!a.pushedAt && !!String(r.description||'').trim());
+}
+function refreshSummary(){
+ DATA.summary.canonicalRepositories=DATA.repositories.length;
+ DATA.summary.activityEnriched=DATA.repositories.filter(r=>r.activity?.status==='enriched').length;
+ const complete=DATA.repositories.filter(requiredFieldsResolved).length,total=DATA.repositories.length;
+ const pct=total?Math.round(complete/total*100):0;
+ document.getElementById('targetText').textContent=`${num(complete)} / ${num(total)} repositories complete`;
+ document.getElementById('meterFill').style.width=Math.min(100,pct)+'%';
+ const vals=[['Repositories',total],['Accepted',DATA.summary.accepted],['Candidates',DATA.summary.candidates],['Reference / benchmark',DATA.summary.referenceOrBenchmark],['Activity enriched',DATA.summary.activityEnriched],['Categories',DATA.summary.categories],['Placements',DATA.summary.placements]];
+ document.getElementById('stats').innerHTML=vals.map(([l,v])=>`<div class="stat"><div class="value">${num(v)}</div><div class="label">${esc(l)}</div></div>`).join('');
+ document.getElementById('snapshot').textContent=DATA.snapshot;
+}
+function populateFilters(){
+ const langs=unique(DATA.repositories.map(r=>r.language)).filter(v=>v&&v!=='unknown').sort();
+ document.getElementById('languageFilter').innerHTML='<option value="all">Stack: all</option>'+langs.map(v=>`<option>${esc(v)}</option>`).join('');
+ const forms=unique(DATA.repositories.map(r=>r.form)).filter(Boolean).sort();
+ document.getElementById('formFilter').innerHTML='<option value="all">Form: all</option>'+forms.map(v=>`<option>${esc(v)}</option>`).join('');
+ document.getElementById('buildUseCase').innerHTML=DATA.useCases.map(u=>`<option value="${esc(u.key)}">${esc(u.title)}</option>`).join('');
+}
+function modeButtons(){document.querySelectorAll('.mode').forEach(b=>b.classList.toggle('active',b.dataset.mode===state.mode))}
+function renderNav(){
+ const grouped={};DATA.categories.forEach(c=>{const n=c.repoIds.map(id=>repoMap.get(id)).filter(r=>r&&matches(r)).length;if(!n)return;(grouped[c.layer]??=[]).push([c,n])});
+ document.getElementById('nav').innerHTML=Object.entries(grouped).map(([layer,items])=>`<div class="navgroup">${esc(layer)}</div>${items.sort((a,b)=>a[0].title.localeCompare(b[0].title)).map(([c,n])=>`<a class="navitem" href="#cat-${esc(c.key)}"><span>${esc(c.title)}</span><span class="count">${n}</span></a>`).join('')}`).join('');
+}
+function renderUseCases(){document.getElementById('useCases').innerHTML=DATA.useCases.map(u=>`<div class="usecard" data-usecase="${esc(u.key)}"><strong>${esc(u.title)}</strong><div class="small muted">${esc(u.desc)}</div></div>`).join('');document.querySelectorAll('.usecard').forEach(x=>x.onclick=()=>{document.getElementById('buildUseCase').value=x.dataset.usecase;runBuilder();document.getElementById('builder').scrollIntoView({behavior:'smooth'})})}
+function renderRecipes(){document.getElementById('recipes').innerHTML=DATA.stackRecipes.map(r=>`<div class="recipe"><h4>${esc(r.name)}</h4><div class="small muted">${esc(r.goal)}</div><div class="stackline">${r.steps.map((s,i)=>`${i?'<span class="arrow">→</span>':''}<span class="stacknode" title="${esc(s.options.join(' / '))}">${esc(s.role)}: ${esc(s.options[0])}</span>`).join('')}</div><div class="small"><b>Trade-off:</b> ${esc(r.tradeoff)}</div></div>`).join('')}
+function renderCoverage(){const layers={};DATA.categories.forEach(c=>layers[c.layer]=(layers[c.layer]||0)+c.repoIds.length);const max=Math.max(...Object.values(layers),1);document.getElementById('coverage').innerHTML=Object.entries(layers).sort((a,b)=>b[1]-a[1]).map(([l,n])=>`<div class="cover"><strong>${esc(l)}</strong><div class="small muted">${num(n)} placements</div><div class="coverbar"><span style="width:${n/max*100}%"></span></div></div>`).join('')}
+function candidateScore(r,usecase,dep,lang,pri){
+ let s=0;const uc=DATA.useCases.find(x=>x.key===usecase),cats=uc?.categories||[];
+ if(cats.includes(r.primaryCategory))s+=50;else if((r.secondaryCategories||[]).some(x=>cats.includes(x)))s+=28;
+ if(r.catalogStatus==='accepted')s+=18;else if(r.catalogStatus==='candidate')s+=2;
+ if(r.productionEligible===false)s-=20;if(r.archived===true)s-=30;
+ if(dep!=='any'){if((r.deployment||[]).includes(dep))s+=10;else if(!(r.deployment||[]).includes('unknown'))s-=10}
+ if(lang!=='any'&&r.language!=='unknown'){if(r.language.toLowerCase()===lang.toLowerCase())s+=8;else s-=2}
+ if(pri==='easiest'){if(r.difficulty==='beginner')s+=10;if(['template','application','platform'].includes(r.form))s+=5}
+ if(pri==='private'){if((r.deployment||[]).includes('local'))s+=10;if(['self_hosted','both'].includes(r.hosting))s+=7}
+ if(pri==='scalable'&&r.stars)s+=Math.min(9,Math.log10(r.stars+1)*2);
+ const ag=activityGroup(r);if(ag==='active')s+=5;if(ag==='stale')s-=8;
+ return s;
+}
+function runBuilder(){
+ const uc=document.getElementById('buildUseCase').value,dep=document.getElementById('buildDeployment').value,lang=document.getElementById('buildLanguage').value,pri=document.getElementById('buildPriority').value;
+ const arr=DATA.repositories.filter(r=>!['reference','benchmark'].includes(r.catalogStatus)&&r.lifecycle!=='deprecated'&&r.archived!==true).map(r=>[r,candidateScore(r,uc,dep,lang,pri)]).filter(x=>x[1]>15).sort((a,b)=>b[1]-a[1]).slice(0,3);
+ document.getElementById('recommendations').innerHTML=arr.map(([r,s],i)=>`<div class="rec"><div class="rank">${['Recommended','Simplest / alternative','Advanced / alternative'][i]}</div><strong><a target="_blank" rel="noreferrer" href="${esc(r.url)}">${esc(r.fullName)}</a></strong><div class="small muted">${esc(r.description||'Description pending source enrichment')}</div><div class="chiprow" style="margin-top:8px"><span class="badge ${statusClass(r.catalogStatus)}">${esc(r.catalogStatus)}</span><span class="badge">${esc(catMap.get(r.primaryCategory)?.title||r.primaryCategory)}</span><span class="badge">${esc(activityGroup(r))}</span></div></div>`).join('')||'<div class="empty">No shortlist under current evidence/constraints.</div>';
+}
+function activityBadge(r){const g=activityGroup(r);return `<span class="badge ${g==='active'?'active':g}">${esc(r.activity?.activityBand||'unknown')}</span>`}
+function row(r){
+ const a=r.activity||{};
+ const resolved=requiredFieldsResolved(r),pending=!resolved && r._requiredMetaAttempted!==true;
+ const fmtDate=(v,fallback)=>{if(!v)return fallback;const t=String(v);return /^\d{4}-\d{2}-\d{2}/.test(t)?dateShort(t):t};
+ const stack=pending?'Loading…':((r.language && r.language!=='unknown')?r.language:'No primary language reported');
+ const stars=pending?'Loading…':num(r.stars);
+ const description=pending?'Loading source metadata…':(String(r.description||'').trim() || 'No GitHub description provided');
+ const created=pending?'Loading…':fmtDate(a.createdAt,'Not available');
+ const pushed=pending?'Loading…':fmtDate(a.pushedAt,'No pushes reported');
+ return `<tr>
+ <td class="repoName"><a target="_blank" rel="noreferrer" href="${esc(r.url)}">${esc(r.url)}</a></td>
+ <td>${esc(stack)}</td>
+ <td class="metric">${esc(stars)}</td>
+ <td>${esc(created)}</td>
+ <td>${esc(pushed)}</td>
+ <td class="repoDesc">${esc(description)}</td></tr>`;
+}
+function renderCategories(){
+ const out=[];let placements=0;
+ for(const c of DATA.categories){let rs=c.repoIds.map(id=>repoMap.get(id)).filter(r=>r&&matches(r));if(!rs.length)continue;rs.sort((a,b)=>{const aa=activityGroup(a)==='active'?1:0,bb=activityGroup(b)==='active'?1:0;return (b.catalogStatus==='accepted')-(a.catalogStatus==='accepted')||bb-aa||(b.stars||0)-(a.stars||0)});placements+=rs.length;
+ out.push(`<article class="category" id="cat-${esc(c.key)}"><div class="cathead"><div><h4>${esc(c.title)}</h4><div class="small muted">${esc(c.layer)} · ${esc(c.description)}</div></div><div class="pill">${rs.length} repos</div></div><div class="repos"><table class="repotable"><thead><tr><th>Repository URL</th><th>Stack</th><th>Stars</th><th>Created</th><th>Last push</th><th>Description</th></tr></thead><tbody>${rs.map(row).join('')}</tbody></table></div></article>`) }
+ document.getElementById('visibleCount').textContent=`${out.length} categories / ${placements} matching placements`;
+ document.getElementById('categories').innerHTML=out.join('')||'<div class="empty">No repositories match.</div>';
+ document.querySelectorAll('.selectCompare').forEach(cb=>cb.onchange=()=>{if(cb.checked){if(state.selected.size>=3){cb.checked=false;return alert('Compare supports up to 3 repositories.')}state.selected.add(cb.dataset.id)}else state.selected.delete(cb.dataset.id);renderCompareBar()});
+ renderNav();
+}
+function renderCompareBar(){const b=document.getElementById('compareBar');b.classList.toggle('show',state.selected.size>0);document.getElementById('compareNames').textContent=[...state.selected].map(id=>repoMap.get(id)?.fullName).filter(Boolean).join(' · ');document.getElementById('compareBtn').disabled=state.selected.size<2}
+function showCompare(){
+ const rs=[...state.selected].map(id=>repoMap.get(id)).filter(Boolean);if(rs.length<2)return;
+ const rows=[['Primary category',r=>catMap.get(r.primaryCategory)?.title||r.primaryCategory],['Catalog status',r=>r.catalogStatus],['Lifecycle',r=>r.lifecycle],['Activity band',r=>r.activity?.activityBand||'unknown'],['Created',r=>dateShort(r.activity?.createdAt)],['Repository updated',r=>dateShort(r.activity?.updatedAt)],['Last push',r=>dateShort(r.activity?.pushedAt)],['Commits',r=>num(r.activity?.commitsTotal)],['Commits 12m',r=>num(r.activity?.commits12m)],['Total issues',r=>num(r.activity?.issuesTotal)],['Issues 12m',r=>num(r.activity?.issues12m)],['Open issues',r=>num(r.activity?.openIssues)],['Pull requests',r=>num(r.activity?.pullRequestsTotal)],['Stars',r=>num(r.stars)],['Language',r=>r.language],['License',r=>r.license?.spdx||'NOASSERTION'],['Form',r=>r.form],['Evidence completeness',r=>(r.evidenceCompleteness??0)+'%']];
+ document.getElementById('compareContent').innerHTML=`<div class="comparegrid"><div class="head">Criterion</div>${rs.map(r=>`<div class="head">${esc(r.fullName)}</div>`).join('')}${rows.map(([l,fn])=>`<div>${esc(l)}</div>${rs.map(r=>`<div>${esc(fn(r))}</div>`).join('')}`).join('')}</div>`;document.getElementById('compareSection').classList.remove('hidden');document.getElementById('compareSection').scrollIntoView({behavior:'smooth'});
+}
+function renderAll(){modeButtons();refreshSummary();renderCategories();renderCompareBar()}
+function bind(){
+ document.getElementById('search').oninput=e=>{state.q=e.target.value;renderAll()};
+ document.querySelectorAll('.mode').forEach(b=>b.onclick=()=>{state.mode=b.dataset.mode;renderAll()});
+ for(const [id,key] of [['statusFilter','status'],['activityFilter','activity'],['formFilter','form'],['languageFilter','language'],['difficultyFilter','difficulty'],['licenseFilter','license']])document.getElementById(id).onchange=e=>{state[key]=e.target.value;renderAll()};
+ document.getElementById('buildBtn').onclick=runBuilder;
+ document.getElementById('compareBtn').onclick=showCompare;
+ document.getElementById('clearCompare').onclick=()=>{state.selected.clear();renderAll();document.getElementById('compareSection').classList.add('hidden')};
+}
+resetMaps();populateFilters();renderUseCases();renderRecipes();renderCoverage();bind();renderAll();runBuilder();
+
+const REQUIRED_META_CACHE_KEY='ai-mvp-stack-v5-required-meta-2026-08-12';
+const REQUIRED_META_CACHE_TTL=6*60*60*1000;
+let requiredMetaFailures=0;
+let requiredMetaDone=0;
+let githubFallbackBudget=40;
+
+function compactRequiredMeta(m,source){
+ return {
+  html_url:m.html_url||null,
+  full_name:m.full_name||null,
+  description:m.description??null,
+  language:m.language??null,
+  stargazers_count:Number.isFinite(Number(m.stargazers_count))?Number(m.stargazers_count):null,
+  created_at:m.created_at||null,
+  pushed_at:m.pushed_at||null,
+  updated_at:m.updated_at||null,
+  last_synced_at:m.last_synced_at||null,
+  _source:source,
+  _cachedAt:Date.now()
+ };
+}
+function applyRequiredMeta(r,m){
+ if(!m)return;
+ if(m.html_url)r.url=m.html_url;
+ if(m.stargazers_count!=null)r.stars=Number(m.stargazers_count);
+ r.language=m.language || 'No primary language reported';
+ r.description=(m.description && String(m.description).trim()) ? String(m.description).trim() : 'No GitHub description provided';
+ r.activity=r.activity||{};
+ r.activity.createdAt=m.created_at || r.activity.createdAt || 'Not available';
+ r.activity.pushedAt=m.pushed_at || r.activity.pushedAt || 'No pushes reported';
+ if(m.updated_at)r.activity.updatedAt=m.updated_at;
+ if(m.last_synced_at)r.activity.lastSyncedAt=m.last_synced_at;
+ r._requiredMetaResolved=true;
+ r._requiredMetaAttempted=true;
+ r._requiredMetaSource=m._source||'repository_api';
+}
+async function fetchEcosystemsMeta(r){
+ const key=encodeURIComponent(r.fullName);
+ const url=`https://repos.ecosyste.ms/api/v1/hosts/GitHub/repositories/${key}`;
+ const res=await fetch(url,{headers:{'Accept':'application/json'}});
+ if(!res.ok)throw new Error(`ecosyste.ms ${res.status}`);
+ return compactRequiredMeta(await res.json(),'repos.ecosyste.ms');
+}
+async function fetchGithubFallback(r){
+ if(githubFallbackBudget<=0)throw new Error('GitHub fallback budget exhausted');
+ githubFallbackBudget--;
+ const url=`https://api.github.com/repos/${r.fullName}`;
+ const res=await fetch(url,{headers:{'Accept':'application/vnd.github+json'}});
+ if(!res.ok)throw new Error(`GitHub ${res.status}`);
+ return compactRequiredMeta(await res.json(),'api.github.com');
+}
+function readRequiredMetaCache(){
+ try{return JSON.parse(localStorage.getItem(REQUIRED_META_CACHE_KEY)||'{}')||{}}catch(_){return {}}
+}
+function writeRequiredMetaCache(cache){
+ try{localStorage.setItem(REQUIRED_META_CACHE_KEY,JSON.stringify(cache))}catch(_){/* localStorage may be disabled for file:// */}
+}
+function setRequiredMetaStatus(text){
+ const el=document.getElementById('sourceStatus');
+ if(el)el.textContent=text;
+}
+async function enrichRequiredMetadata(){
+ const cache=readRequiredMetaCache(),now=Date.now(),queue=[];
+ for(const r of DATA.repositories){
+  const k=String(r.fullName||'').toLowerCase();
+  const c=cache[k];
+  if(c && now-Number(c._cachedAt||0)<REQUIRED_META_CACHE_TTL){applyRequiredMeta(r,c);requiredMetaDone++;}
+  else queue.push(r);
+ }
+ renderAll();
+ setRequiredMetaStatus(`Repository metadata: ${num(requiredMetaDone)} / ${num(DATA.repositories.length)} source-backed`);
+ const workers=Array.from({length:16},()=> (async()=>{
+  while(queue.length){
+   const r=queue.shift(); if(!r)break;
+   const k=String(r.fullName||'').toLowerCase();
+   try{
+    let meta;
+    try{meta=await fetchEcosystemsMeta(r)}catch(primaryErr){meta=await fetchGithubFallback(r)}
+    applyRequiredMeta(r,meta); cache[k]=meta;
+   }catch(err){
+    requiredMetaFailures++;
+    r.language=(r.language&&r.language!=='unknown')?r.language:'Not available';
+    r.description=String(r.description||'').trim()||'Repository metadata unavailable';
+    r.activity=r.activity||{};
+    r.activity.createdAt=r.activity.createdAt||'Not available';
+    r.activity.pushedAt=r.activity.pushedAt||'Not available';
+    r._requiredMetaResolved=false;
+    r._requiredMetaAttempted=true;
+   }
+   requiredMetaDone++;
+   if(requiredMetaDone%25===0 || requiredMetaDone===DATA.repositories.length){
+    setRequiredMetaStatus(`Repository metadata: ${num(requiredMetaDone-requiredMetaFailures)} source-backed · ${num(requiredMetaFailures)} unavailable · ${num(DATA.repositories.length-requiredMetaDone)} remaining`);
+    renderAll();
+   }
+  }
+ })());
+ await Promise.all(workers);
+ writeRequiredMetaCache(cache);
+ DATA.snapshot=new Date().toISOString().slice(0,10);
+ setRequiredMetaStatus(`Repository metadata: ${num(DATA.repositories.length-requiredMetaFailures)} source-backed · ${num(requiredMetaFailures)} unavailable`);
+ renderAll(); runBuilder();
+}
+
+enrichRequiredMetadata();
+</script></body></html>

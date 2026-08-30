@@ -15,6 +15,7 @@ from typing import Iterable
 
 
 ROOT = Path(__file__).resolve().parents[1]
+DOCS_DIR = ROOT / "docs"
 SOURCE_CSV = ROOT / "data" / "source_repos.csv"
 REPOS_CSV = ROOT / "data" / "repos.csv"
 REPOS_JSON = ROOT / "data" / "repos.json"
@@ -633,6 +634,12 @@ def write_methodology() -> None:
         "",
         "This repository uses a lightweight curation model designed for a practical engineering catalog.",
         "",
+        "## Current HTML v5 Source",
+        "",
+        "`data/catalog_manifest.json` is the source-owned current catalog snapshot. `templates/unified_catalog.html` owns the standalone UI shell, and `scripts/build_catalog_html.py` validates both inputs before generating `docs/UNIFIED_CATALOG.html`.",
+        "",
+        "The dated CSV and research inputs below retain the legacy 2026-05-23 boundary and generate the Markdown catalog. They must not silently overwrite newer v5 repository facts.",
+        "",
         "## Classification",
         "",
         "Each repository receives one `primary_category` plus zero or more `secondary_tags`.",
@@ -661,7 +668,7 @@ def write_methodology() -> None:
         "4. Manually adjust `PRIMARY_OVERRIDES` if a repo lands in the wrong primary category.",
         "",
     ]
-    (ROOT / "METHODOLOGY.md").write_text("\n".join(lines), encoding="utf-8")
+    (DOCS_DIR / "METHODOLOGY.md").write_text("\n".join(lines), encoding="utf-8")
 
 
 def write_contributing() -> None:
@@ -670,7 +677,18 @@ def write_contributing() -> None:
         "",
         "Contributions should keep the catalog useful, auditable, and low-noise.",
         "",
+        "## Update The Current HTML Catalog",
+        "",
+        "1. Update `data/catalog_manifest.json` without changing its snapshot or provenance semantics silently.",
+        "2. Update `templates/unified_catalog.html` only for standalone UI changes.",
+        "3. Run `python scripts/build_catalog_html.py`.",
+        "4. Run `python scripts/build_catalog_html.py --check` and the focused catalog pipeline tests.",
+        "",
+        "Keep the manifest as canonical compact JSON. Repository facts must be source-backed; unknown values remain null or `unknown`.",
+        "",
         "## Add or Update a Repository",
+        "",
+        "The following steps update the legacy account-fork catalog:",
         "",
         "1. Edit `data/source_repos.csv`.",
         "2. Run `python scripts/build_catalog.py`.",
@@ -691,7 +709,7 @@ def write_contributing() -> None:
         "- Star-count-only ranking arguments.",
         "",
     ]
-    (ROOT / "CONTRIBUTING.md").write_text("\n".join(lines), encoding="utf-8")
+    (DOCS_DIR / "CONTRIBUTING.md").write_text("\n".join(lines), encoding="utf-8")
 
 
 def write_license() -> None:
@@ -719,7 +737,9 @@ def write_license() -> None:
         "SOFTWARE.",
         "",
     ]
-    (ROOT / "LICENSE").write_text("\n".join(lines), encoding="utf-8")
+    license_text = "\n".join(lines)
+    (ROOT / "LICENSE").write_text(license_text, encoding="utf-8")
+    (DOCS_DIR / "LICENSE").write_text(license_text, encoding="utf-8")
 
 
 def write_gitignore() -> None:
@@ -738,11 +758,14 @@ def write_gitignore() -> None:
 
 
 def main() -> None:
+    DOCS_DIR.mkdir(parents=True, exist_ok=True)
     rows = enrich_rows(read_rows())
     write_csv(rows)
     write_json(rows)
     write_category_pages(rows)
-    write_readme(rows)
+    # README.md is a curated product-facing guide. Do not overwrite it from the
+    # base fork-catalog generator; update it intentionally when the product
+    # narrative changes.
     write_methodology()
     write_contributing()
     write_license()
