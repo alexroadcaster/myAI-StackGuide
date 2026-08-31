@@ -743,6 +743,10 @@ def write_license() -> None:
 
 
 def write_gitignore() -> None:
+    # Existing ignore rules are user-owned, including resumable local run state.
+    # Only bootstrap a missing file; regeneration must not erase those rules.
+    if (ROOT / ".gitignore").exists():
+        return
     (ROOT / ".gitignore").write_text(
         "\n".join(
             [
@@ -750,6 +754,8 @@ def write_gitignore() -> None:
                 "*.pyc",
                 ".DS_Store",
                 "Thumbs.db",
+                ".codex-tmp/",
+                "/work/",
                 "",
             ]
         ),

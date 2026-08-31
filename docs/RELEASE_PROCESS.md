@@ -17,6 +17,13 @@ Do not mix update types unless the release explicitly needs the combined change.
 
 ## 2. Refresh Inputs
 
+For the current standalone catalog, follow [the refresh operating guide](CATALOG_REFRESH.md).
+Version reusable scripts, contracts and accepted public evidence; keep resumable
+run state under ignored `.codex-tmp/catalog-refresh/`. The retired `work/` tree is
+not a build or refresh input. Preserve the active run before clearing local
+temporary storage; a clean checkout can start a new run but cannot recover
+uncommitted checkpoints from Git.
+
 For account fork catalog updates:
 
 ```powershell
@@ -62,6 +69,9 @@ Expected generated outputs:
 - `docs/UNIFIED_CATALOG.html`
 
 `data/catalog_manifest.json` and `templates/unified_catalog.html` are the source-owned inputs for the current HTML catalog. `README.md` is a curated product-facing guide. Update it intentionally when positioning, usage guidance, stack recipes, or release instructions change.
+
+The legacy builder only creates `.gitignore` when absent; existing user-owned
+rules must survive regeneration unchanged.
 
 ## 4. Verify
 

@@ -13,15 +13,15 @@
 </head>
 <body><div class="shell">
 <aside class="sidebar">
-<div class="brand"><h1>AI MVP Stack Navigator</h1><div class="small muted">Catalog v5.0 · repository data</div></div>
-<div class="target"><div class="small muted">Repository target</div><strong id="targetText"></strong><div class="meter"><span id="meterFill"></span></div><div class="small muted" style="margin-top:6px">Target is unique repositories passing the strict V4 factual gate.</div></div>
+<div class="brand"><h1>AI MVP Stack Navigator</h1><div class="small muted">Catalog v5.1 · taxonomy v2 snapshot</div></div>
+<div class="target"><div class="small muted">Saved basic-field coverage</div><strong id="targetText"></strong><div class="meter"><span id="meterFill"></span></div><div class="small muted" style="margin-top:6px">Six saved fields only. Full field completeness, Stars eligibility and live verification remain pending.</div></div>
 <input class="search" id="search" placeholder="Search repos, tools, categories" type="search"/>
-<div class="modes"><button class="mode active" data-mode="vibe_coder">Vibe Coder</button><button class="mode" data-mode="ai_engineer">AI Engineer</button><button class="mode" data-mode="explore">Explore</button></div>
+<div class="modes"><button class="mode" data-mode="vibe_coder">Vibe Coder</button><button class="mode" data-mode="ai_engineer">AI Engineer</button><button class="mode active" data-mode="explore">Explore</button></div>
 <div class="filters">
 <select id="statusFilter"><option value="all">Status: all</option><option>accepted</option><option>candidate</option><option>reference</option><option>benchmark</option></select>
 <select id="activityFilter"><option value="all">Activity: all</option><option value="active">Active ≤365d</option><option value="maintenance">Maintenance</option><option value="stale">Stale</option><option value="unknown">Unknown</option></select>
 <select id="formFilter"><option value="all">Form: all</option></select>
-<select id="languageFilter"><option value="all">Stack: all</option></select>
+<select id="languageFilter"><option value="all">Language: all</option></select>
 <select id="difficultyFilter"><option value="all">Difficulty: all</option><option>beginner</option><option>intermediate</option><option>advanced</option></select>
 <select id="licenseFilter"><option value="all">License: all</option><option value="known">Known</option><option value="unknown">Unknown</option></select>
 </div>
@@ -29,7 +29,7 @@
 </aside>
 <main>
 <div class="topbar">
-<div class="title"><h2>Open-source building blocks for shipping an MVP</h2><p>Canonical repository catalog with product and engineering facets, source-backed repository metadata, and explicit activity fields. Existing repository identities and category mappings are preserved.</p></div>
+<div class="title"><h2>Open-source building blocks for shipping an MVP</h2><p>Canonical repository catalog with product and engineering facets, source-backed repository metadata, and explicit activity fields. Taxonomy v2 is applied to the saved snapshot. Metadata refresh and final eligibility checks are pending.</p></div>
 <div class="statuscard"><strong>Snapshot <span id="snapshot"></span></strong><div class="small muted" id="sourceStatus"></div></div>
 </div>
 <section class="stats" id="stats"></section>
@@ -38,7 +38,7 @@
 <div class="panel"><div class="builder">
 <div class="field"><label>Use case</label><select id="buildUseCase"></select></div>
 <div class="field"><label>Deployment</label><select id="buildDeployment"><option value="any">Any</option><option value="local">Local</option><option value="cloud">Cloud</option><option value="browser">Browser</option><option value="edge">Edge</option></select></div>
-<div class="field"><label>Stack</label><select id="buildLanguage"><option value="any">Any</option><option>Python</option><option>TypeScript</option><option>Go</option><option>Rust</option></select></div>
+<div class="field"><label>Primary language</label><select id="buildLanguage"><option value="any">Any</option><option>Python</option><option>TypeScript</option><option>Go</option><option>Rust</option></select></div>
 <div class="field"><label>Priority</label><select id="buildPriority"><option value="easiest">Easiest</option><option value="private">Private / local</option><option value="scalable">Scalable</option><option value="cheapest">Low ops/cost</option></select></div>
 <button class="btn primary" id="buildBtn">Build shortlist</button>
 </div><div class="recommendations" id="recommendations"></div></div></section>
@@ -47,13 +47,13 @@
 <section class="section"><div class="sectitle"><div><h3>Coverage</h3><div class="small muted">Category placements by stack layer.</div></div></div><div class="coverage" id="coverage"></div></section>
 <section class="section hidden" id="compareSection"><div class="sectitle"><div><h3>Compare workspace</h3><div class="small muted">Activity, license, lifecycle and evidence are first-class comparison criteria.</div></div></div><div id="compareContent"></div></section>
 <section class="section"><div class="sectitle"><div><h3>Repositories by category</h3><div class="small muted" id="visibleCount"></div></div></div><div id="categories"></div></section>
-<div class="footer">Catalog v5.0 · existing repository corpus and curated taxonomy preserved; repository facts are updated from source-backed checks.</div>
+<div class="footer">Catalog v5.1 · taxonomy v2 applied to the original snapshot. Repository metadata has not been refreshed in this migration.</div>
 </main></div>
 <script id="catalog-data" type="application/json">{{CATALOG_DATA_JSON}}</script>
 <script>
 let DATA=JSON.parse(document.getElementById('catalog-data').textContent);
 let repoMap,catMap;
-let state={mode:'vibe_coder',q:'',status:'all',activity:'all',form:'all',language:'all',difficulty:'all',license:'all',selected:new Set()};
+let state={mode:'explore',q:'',status:'all',activity:'all',form:'all',language:'all',difficulty:'all',license:'all',selected:new Set()};
 const esc=v=>String(v??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
 const num=v=>v==null?'—':new Intl.NumberFormat('en-US').format(v);
 const unique=a=>[...new Set(a.filter(Boolean))];
@@ -61,7 +61,7 @@ const dateShort=v=>!v?'—':String(v).slice(0,10);
 const statusClass=s=>['accepted','candidate','reference','benchmark'].includes(s)?s:'unknown';
 function resetMaps(){repoMap=new Map(DATA.repositories.map(r=>[r.id,r]));catMap=new Map(DATA.categories.map(c=>[c.key,c]));}
 function activityGroup(r){const b=r.activity?.activityBand||'unknown';if(b.startsWith('active_'))return'active';if(b==='maintenance')return'maintenance';if(b==='stale')return'stale';return'unknown'}
-function repoSearch(r){return [r.fullName,r.description,r.language,r.license?.spdx,r.primaryCategory,...(r.secondaryCategories||[]),r.form,r.persona,r.difficulty,...(r.deployment||[]),...(r.topics||[])].join(' ').toLowerCase()}
+function repoSearch(r){return [r.fullName,r.description,r.language,r.license?.spdx,r.primaryCategory,catMap.get(r.primaryCategory)?.title,catMap.get(catMap.get(r.primaryCategory)?.parentId)?.title,...(r.secondaryCategories||[]),r.form,r.persona,r.difficulty,...(r.deployment||[]),...(r.topics||[])].join(' ').toLowerCase()}
 function matches(r){
  const q=state.q.trim().toLowerCase().split(/\s+/).filter(Boolean);if(q.length&&!q.every(t=>repoSearch(r).includes(t)))return false;
  if(state.status!=='all'&&r.catalogStatus!==state.status)return false;
@@ -77,30 +77,34 @@ function matches(r){
 }
 function requiredFieldsResolved(r){
  const a=r.activity||{};
- return r._requiredMetaResolved===true || (r.activity?.status==='enriched' && !!r.url && r.stars!=null && !!r.language && r.language!=='unknown' && !!a.createdAt && !!a.pushedAt && !!String(r.description||'').trim());
+ return !!r.url && Number.isInteger(r.stars) && r.stars>0 && !!r.language && r.language!=='unknown' && /^\d{4}-\d{2}-\d{2}/.test(a.createdAt||'') && /^\d{4}-\d{2}-\d{2}/.test(a.pushedAt||'') && !!String(r.description||'').trim();
 }
+function categoryRepoIds(c){return c.kind==='container'?(c.descendantRepoIds||[]):c.repoIds}
+function orderedCategories(){return DATA.categories.filter(c=>!c.parentId).flatMap(c=>[c,...DATA.categories.filter(x=>x.parentId===c.key)])}
 function refreshSummary(){
  DATA.summary.canonicalRepositories=DATA.repositories.length;
  DATA.summary.activityEnriched=DATA.repositories.filter(r=>r.activity?.status==='enriched').length;
  const complete=DATA.repositories.filter(requiredFieldsResolved).length,total=DATA.repositories.length;
  const pct=total?Math.round(complete/total*100):0;
- document.getElementById('targetText').textContent=`${num(complete)} / ${num(total)} repositories complete`;
+ document.getElementById('targetText').textContent=`${num(complete)} / ${num(total)} with six saved basic fields (not eligibility)`;
  document.getElementById('meterFill').style.width=Math.min(100,pct)+'%';
- const vals=[['Repositories',total],['Accepted',DATA.summary.accepted],['Candidates',DATA.summary.candidates],['Reference / benchmark',DATA.summary.referenceOrBenchmark],['Activity enriched',DATA.summary.activityEnriched],['Categories',DATA.summary.categories],['Placements',DATA.summary.placements]];
+ const vals=[['Repositories',total],['Accepted',DATA.summary.accepted],['Candidates',DATA.summary.candidates],['Reference / benchmark',DATA.summary.referenceOrBenchmark],['Activity enriched',DATA.summary.activityEnriched],['Thematic categories',DATA.summary.thematicCategories??DATA.summary.categories],['Placements',DATA.summary.placements]];
  document.getElementById('stats').innerHTML=vals.map(([l,v])=>`<div class="stat"><div class="value">${num(v)}</div><div class="label">${esc(l)}</div></div>`).join('');
  document.getElementById('snapshot').textContent=DATA.snapshot;
+ const refreshed=DATA.enrichment?.verifiedReplacement?.includedFreshRecords||0;
+ document.getElementById('sourceStatus').textContent=`Static snapshot: ${num(DATA.repositories.length)} records; ${num(refreshed)} entries refreshed in the current pilot, remaining metadata awaits verification. Verified Stars below 500 are excluded; no exceptions. Needs Review is not an accepted classification.`;
 }
 function populateFilters(){
  const langs=unique(DATA.repositories.map(r=>r.language)).filter(v=>v&&v!=='unknown').sort();
- document.getElementById('languageFilter').innerHTML='<option value="all">Stack: all</option>'+langs.map(v=>`<option>${esc(v)}</option>`).join('');
+ document.getElementById('languageFilter').innerHTML='<option value="all">Language: all</option>'+langs.map(v=>`<option>${esc(v)}</option>`).join('');
  const forms=unique(DATA.repositories.map(r=>r.form)).filter(Boolean).sort();
  document.getElementById('formFilter').innerHTML='<option value="all">Form: all</option>'+forms.map(v=>`<option>${esc(v)}</option>`).join('');
  document.getElementById('buildUseCase').innerHTML=DATA.useCases.map(u=>`<option value="${esc(u.key)}">${esc(u.title)}</option>`).join('');
 }
 function modeButtons(){document.querySelectorAll('.mode').forEach(b=>b.classList.toggle('active',b.dataset.mode===state.mode))}
 function renderNav(){
- const grouped={};DATA.categories.forEach(c=>{const n=c.repoIds.map(id=>repoMap.get(id)).filter(r=>r&&matches(r)).length;if(!n)return;(grouped[c.layer]??=[]).push([c,n])});
- document.getElementById('nav').innerHTML=Object.entries(grouped).map(([layer,items])=>`<div class="navgroup">${esc(layer)}</div>${items.sort((a,b)=>a[0].title.localeCompare(b[0].title)).map(([c,n])=>`<a class="navitem" href="#cat-${esc(c.key)}"><span>${esc(c.title)}</span><span class="count">${n}</span></a>`).join('')}`).join('');
+ const grouped={};orderedCategories().forEach(c=>{const n=categoryRepoIds(c).map(id=>repoMap.get(id)).filter(r=>r&&matches(r)).length;(grouped[c.layer]??=[]).push([c,n])});
+ document.getElementById('nav').innerHTML=Object.entries(grouped).map(([layer,items])=>`<div class="navgroup">${esc(layer)}</div>${items.map(([c,n])=>`<a class="navitem" href="#cat-${esc(c.key)}" style="padding-left:${c.parentId?20:8}px"><span>${c.kind==='container'?'▾ ':''}${esc(c.title)}</span><span class="count">${n}</span></a>`).join('')}`).join('');
 }
 function renderUseCases(){document.getElementById('useCases').innerHTML=DATA.useCases.map(u=>`<div class="usecard" data-usecase="${esc(u.key)}"><strong>${esc(u.title)}</strong><div class="small muted">${esc(u.desc)}</div></div>`).join('');document.querySelectorAll('.usecard').forEach(x=>x.onclick=()=>{document.getElementById('buildUseCase').value=x.dataset.usecase;runBuilder();document.getElementById('builder').scrollIntoView({behavior:'smooth'})})}
 function renderRecipes(){document.getElementById('recipes').innerHTML=DATA.stackRecipes.map(r=>`<div class="recipe"><h4>${esc(r.name)}</h4><div class="small muted">${esc(r.goal)}</div><div class="stackline">${r.steps.map((s,i)=>`${i?'<span class="arrow">→</span>':''}<span class="stacknode" title="${esc(s.options.join(' / '))}">${esc(s.role)}: ${esc(s.options[0])}</span>`).join('')}</div><div class="small"><b>Trade-off:</b> ${esc(r.tradeoff)}</div></div>`).join('')}
@@ -120,19 +124,18 @@ function candidateScore(r,usecase,dep,lang,pri){
 }
 function runBuilder(){
  const uc=document.getElementById('buildUseCase').value,dep=document.getElementById('buildDeployment').value,lang=document.getElementById('buildLanguage').value,pri=document.getElementById('buildPriority').value;
- const arr=DATA.repositories.filter(r=>!['reference','benchmark'].includes(r.catalogStatus)&&r.lifecycle!=='deprecated'&&r.archived!==true).map(r=>[r,candidateScore(r,uc,dep,lang,pri)]).filter(x=>x[1]>15).sort((a,b)=>b[1]-a[1]).slice(0,3);
- document.getElementById('recommendations').innerHTML=arr.map(([r,s],i)=>`<div class="rec"><div class="rank">${['Recommended','Simplest / alternative','Advanced / alternative'][i]}</div><strong><a target="_blank" rel="noreferrer" href="${esc(r.url)}">${esc(r.fullName)}</a></strong><div class="small muted">${esc(r.description||'Description pending source enrichment')}</div><div class="chiprow" style="margin-top:8px"><span class="badge ${statusClass(r.catalogStatus)}">${esc(r.catalogStatus)}</span><span class="badge">${esc(catMap.get(r.primaryCategory)?.title||r.primaryCategory)}</span><span class="badge">${esc(activityGroup(r))}</span></div></div>`).join('')||'<div class="empty">No shortlist under current evidence/constraints.</div>';
+ const arr=DATA.repositories.filter(r=>!['reference','benchmark'].includes(r.catalogStatus)&&r.lifecycle!=='deprecated'&&r.archived!==true&&r.primaryCategory!=='uncategorized_review').map(r=>[r,candidateScore(r,uc,dep,lang,pri)]).filter(x=>x[1]>15).sort((a,b)=>b[1]-a[1]).slice(0,3);
+ document.getElementById('recommendations').innerHTML=arr.map(([r,s],i)=>`<div class="rec"><div class="rank">${['Snapshot shortlist','Snapshot alternative','Snapshot alternative'][i]}</div><strong><a target="_blank" rel="noreferrer" href="${esc(r.url)}">${esc(r.fullName)}</a></strong><div class="small muted">${esc(r.description||'Description pending source enrichment')}</div><div class="chiprow" style="margin-top:8px"><span class="badge ${statusClass(r.catalogStatus)}">${esc(r.catalogStatus)}</span><span class="badge">${esc(catMap.get(r.primaryCategory)?.title||r.primaryCategory)}</span><span class="badge">${esc(activityGroup(r))}</span></div></div>`).join('')||'<div class="empty">No shortlist under current evidence/constraints.</div>';
 }
 function activityBadge(r){const g=activityGroup(r);return `<span class="badge ${g==='active'?'active':g}">${esc(r.activity?.activityBand||'unknown')}</span>`}
 function row(r){
  const a=r.activity||{};
- const resolved=requiredFieldsResolved(r),pending=!resolved && r._requiredMetaAttempted!==true;
  const fmtDate=(v,fallback)=>{if(!v)return fallback;const t=String(v);return /^\d{4}-\d{2}-\d{2}/.test(t)?dateShort(t):t};
- const stack=pending?'Loading…':((r.language && r.language!=='unknown')?r.language:'No primary language reported');
- const stars=pending?'Loading…':num(r.stars);
- const description=pending?'Loading source metadata…':(String(r.description||'').trim() || 'No GitHub description provided');
- const created=pending?'Loading…':fmtDate(a.createdAt,'Not available');
- const pushed=pending?'Loading…':fmtDate(a.pushedAt,'No pushes reported');
+ const stack=Array.isArray(r.stack)&&r.stack.length?r.stack.join(', '):((r.language&&r.language!=='unknown')?r.language+' (primary language; Stack pending)':'Not recorded');
+ const stars=num(r.stars);
+ const description=String(r.catalogDescription||r.description||'').trim() || 'Description not recorded in snapshot';
+ const created=fmtDate(a.createdAt,'Not recorded');
+ const pushed=fmtDate(a.pushedAt,'Not recorded');
  return `<tr>
  <td class="repoName"><a target="_blank" rel="noreferrer" href="${esc(r.url)}">${esc(r.url)}</a></td>
  <td>${esc(stack)}</td>
@@ -142,13 +145,19 @@ function row(r){
  <td class="repoDesc">${esc(description)}</td></tr>`;
 }
 function renderCategories(){
- const out=[];let placements=0;
- for(const c of DATA.categories){let rs=c.repoIds.map(id=>repoMap.get(id)).filter(r=>r&&matches(r));if(!rs.length)continue;rs.sort((a,b)=>{const aa=activityGroup(a)==='active'?1:0,bb=activityGroup(b)==='active'?1:0;return (b.catalogStatus==='accepted')-(a.catalogStatus==='accepted')||bb-aa||(b.stars||0)-(a.stars||0)});placements+=rs.length;
- out.push(`<article class="category" id="cat-${esc(c.key)}"><div class="cathead"><div><h4>${esc(c.title)}</h4><div class="small muted">${esc(c.layer)} · ${esc(c.description)}</div></div><div class="pill">${rs.length} repos</div></div><div class="repos"><table class="repotable"><thead><tr><th>Repository URL</th><th>Stack</th><th>Stars</th><th>Created</th><th>Last push</th><th>Description</th></tr></thead><tbody>${rs.map(row).join('')}</tbody></table></div></article>`) }
- document.getElementById('visibleCount').textContent=`${out.length} categories / ${placements} matching placements`;
- document.getElementById('categories').innerHTML=out.join('')||'<div class="empty">No repositories match.</div>';
- document.querySelectorAll('.selectCompare').forEach(cb=>cb.onchange=()=>{if(cb.checked){if(state.selected.size>=3){cb.checked=false;return alert('Compare supports up to 3 repositories.')}state.selected.add(cb.dataset.id)}else state.selected.delete(cb.dataset.id);renderCompareBar()});
- renderNav();
+ const out=[];let placements=0;const visible=new Set();
+ for(const c of orderedCategories()){
+  if(c.kind==='container'){
+   const n=categoryRepoIds(c).filter(id=>matches(repoMap.get(id))).length;
+   const children=DATA.categories.filter(x=>x.parentId===c.key);
+   out.push(`<article class="category" id="cat-${esc(c.key)}"><div class="cathead"><div><h4>${esc(c.title)}</h4><div class="small muted">Navigation container · ${n} unique repositories in child categories</div><div class="chiprow">${children.map(x=>`<a class="pill" href="#cat-${esc(x.key)}">${esc(x.title)}</a>`).join('')}</div></div></div></article>`);continue;
+  }
+  let rs=c.repoIds.map(id=>repoMap.get(id)).filter(r=>r&&matches(r));
+  rs.sort((a,b)=>(b.stars||0)-(a.stars||0));placements+=rs.length;rs.forEach(r=>visible.add(r.id));
+  out.push(`<article class="category" id="cat-${esc(c.key)}"><div class="cathead"><div><h4>${esc(c.title)}</h4><div class="small muted">${esc(c.parentId?catMap.get(c.parentId)?.title:c.layer)} · ${esc(c.description)}</div></div><div class="pill">${rs.length} repos</div></div>${rs.length?`<div class="repos"><table class="repotable"><thead><tr><th>Repository URL</th><th>Stack / primary language</th><th>Stars (snapshot)</th><th>Created</th><th>Last push</th><th>Description (snapshot)</th></tr></thead><tbody>${rs.map(row).join('')}</tbody></table></div>`:'<div class="empty">No matching repositories. The category remains defined.</div>'}</article>`);
+ }
+ document.getElementById('visibleCount').textContent=`${visible.size} unique repositories / ${placements} matching placements · ${DATA.categories.length} taxonomy nodes (including navigation containers and review)`;
+ document.getElementById('categories').innerHTML=out.join('');renderNav();
 }
 function renderCompareBar(){const b=document.getElementById('compareBar');b.classList.toggle('show',state.selected.size>0);document.getElementById('compareNames').textContent=[...state.selected].map(id=>repoMap.get(id)?.fullName).filter(Boolean).join(' · ');document.getElementById('compareBtn').disabled=state.selected.size<2}
 function showCompare(){
@@ -167,108 +176,4 @@ function bind(){
 }
 resetMaps();populateFilters();renderUseCases();renderRecipes();renderCoverage();bind();renderAll();runBuilder();
 
-const REQUIRED_META_CACHE_KEY='ai-mvp-stack-v5-required-meta-2026-08-12';
-const REQUIRED_META_CACHE_TTL=6*60*60*1000;
-let requiredMetaFailures=0;
-let requiredMetaDone=0;
-let githubFallbackBudget=40;
-
-function compactRequiredMeta(m,source){
- return {
-  html_url:m.html_url||null,
-  full_name:m.full_name||null,
-  description:m.description??null,
-  language:m.language??null,
-  stargazers_count:Number.isFinite(Number(m.stargazers_count))?Number(m.stargazers_count):null,
-  created_at:m.created_at||null,
-  pushed_at:m.pushed_at||null,
-  updated_at:m.updated_at||null,
-  last_synced_at:m.last_synced_at||null,
-  _source:source,
-  _cachedAt:Date.now()
- };
-}
-function applyRequiredMeta(r,m){
- if(!m)return;
- if(m.html_url)r.url=m.html_url;
- if(m.stargazers_count!=null)r.stars=Number(m.stargazers_count);
- r.language=m.language || 'No primary language reported';
- r.description=(m.description && String(m.description).trim()) ? String(m.description).trim() : 'No GitHub description provided';
- r.activity=r.activity||{};
- r.activity.createdAt=m.created_at || r.activity.createdAt || 'Not available';
- r.activity.pushedAt=m.pushed_at || r.activity.pushedAt || 'No pushes reported';
- if(m.updated_at)r.activity.updatedAt=m.updated_at;
- if(m.last_synced_at)r.activity.lastSyncedAt=m.last_synced_at;
- r._requiredMetaResolved=true;
- r._requiredMetaAttempted=true;
- r._requiredMetaSource=m._source||'repository_api';
-}
-async function fetchEcosystemsMeta(r){
- const key=encodeURIComponent(r.fullName);
- const url=`https://repos.ecosyste.ms/api/v1/hosts/GitHub/repositories/${key}`;
- const res=await fetch(url,{headers:{'Accept':'application/json'}});
- if(!res.ok)throw new Error(`ecosyste.ms ${res.status}`);
- return compactRequiredMeta(await res.json(),'repos.ecosyste.ms');
-}
-async function fetchGithubFallback(r){
- if(githubFallbackBudget<=0)throw new Error('GitHub fallback budget exhausted');
- githubFallbackBudget--;
- const url=`https://api.github.com/repos/${r.fullName}`;
- const res=await fetch(url,{headers:{'Accept':'application/vnd.github+json'}});
- if(!res.ok)throw new Error(`GitHub ${res.status}`);
- return compactRequiredMeta(await res.json(),'api.github.com');
-}
-function readRequiredMetaCache(){
- try{return JSON.parse(localStorage.getItem(REQUIRED_META_CACHE_KEY)||'{}')||{}}catch(_){return {}}
-}
-function writeRequiredMetaCache(cache){
- try{localStorage.setItem(REQUIRED_META_CACHE_KEY,JSON.stringify(cache))}catch(_){/* localStorage may be disabled for file:// */}
-}
-function setRequiredMetaStatus(text){
- const el=document.getElementById('sourceStatus');
- if(el)el.textContent=text;
-}
-async function enrichRequiredMetadata(){
- const cache=readRequiredMetaCache(),now=Date.now(),queue=[];
- for(const r of DATA.repositories){
-  const k=String(r.fullName||'').toLowerCase();
-  const c=cache[k];
-  if(c && now-Number(c._cachedAt||0)<REQUIRED_META_CACHE_TTL){applyRequiredMeta(r,c);requiredMetaDone++;}
-  else queue.push(r);
- }
- renderAll();
- setRequiredMetaStatus(`Repository metadata: ${num(requiredMetaDone)} / ${num(DATA.repositories.length)} source-backed`);
- const workers=Array.from({length:16},()=> (async()=>{
-  while(queue.length){
-   const r=queue.shift(); if(!r)break;
-   const k=String(r.fullName||'').toLowerCase();
-   try{
-    let meta;
-    try{meta=await fetchEcosystemsMeta(r)}catch(primaryErr){meta=await fetchGithubFallback(r)}
-    applyRequiredMeta(r,meta); cache[k]=meta;
-   }catch(err){
-    requiredMetaFailures++;
-    r.language=(r.language&&r.language!=='unknown')?r.language:'Not available';
-    r.description=String(r.description||'').trim()||'Repository metadata unavailable';
-    r.activity=r.activity||{};
-    r.activity.createdAt=r.activity.createdAt||'Not available';
-    r.activity.pushedAt=r.activity.pushedAt||'Not available';
-    r._requiredMetaResolved=false;
-    r._requiredMetaAttempted=true;
-   }
-   requiredMetaDone++;
-   if(requiredMetaDone%25===0 || requiredMetaDone===DATA.repositories.length){
-    setRequiredMetaStatus(`Repository metadata: ${num(requiredMetaDone-requiredMetaFailures)} source-backed · ${num(requiredMetaFailures)} unavailable · ${num(DATA.repositories.length-requiredMetaDone)} remaining`);
-    renderAll();
-   }
-  }
- })());
- await Promise.all(workers);
- writeRequiredMetaCache(cache);
- DATA.snapshot=new Date().toISOString().slice(0,10);
- setRequiredMetaStatus(`Repository metadata: ${num(DATA.repositories.length-requiredMetaFailures)} source-backed · ${num(requiredMetaFailures)} unavailable`);
- renderAll(); runBuilder();
-}
-
-enrichRequiredMetadata();
 </script></body></html>

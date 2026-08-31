@@ -1,0 +1,844 @@
+{
+  "sourceId": "gh-pending:dpny518/llm-worker",
+  "blocks": {
+    "metadata": {
+      "status": "observed",
+      "data": {
+        "githubRepositoryId": 1190119328,
+        "fullName": "dpny518/llm-worker",
+        "url": "https://github.com/dpny518/llm-worker",
+        "stars": 1,
+        "forks": 0,
+        "watchers": 0,
+        "sizeKb": 80,
+        "archived": false,
+        "isFork": false,
+        "disabled": false,
+        "visibility": "public",
+        "defaultBranch": "main",
+        "language": "JavaScript",
+        "description": null,
+        "topics": [],
+        "homepage": null,
+        "activity.createdAt": "2026-03-24T01:35:55Z",
+        "activity.updatedAt": "2026-07-15T06:42:59Z",
+        "activity.pushedAt": "2026-07-15T06:42:38Z",
+        "license.spdx": null,
+        "license.name": null,
+        "license.source": null
+      },
+      "url": "https://api.github.com/repos/dpny518/llm-worker",
+      "observedAt": "2026-08-31T14:07:47.043994Z"
+    },
+    "languages": {
+      "status": "observed",
+      "data": {
+        "JavaScript": 39111
+      },
+      "url": "https://api.github.com/repos/dpny518/llm-worker/languages",
+      "observedAt": "2026-08-31T14:07:47.595267Z"
+    },
+    "head_commit": {
+      "status": "observed",
+      "data": {
+        "sha": "90120a68e9af6fd3d4c47f2fc808bee3dce46313",
+        "date": "2026-07-15T06:42:27Z",
+        "branch": "main"
+      },
+      "url": "https://api.github.com/repos/dpny518/llm-worker/commits/main",
+      "observedAt": "2026-08-31T14:07:48.262744Z"
+    },
+    "readme": {
+      "status": "observed",
+      "data": {
+        "path": "README.md",
+        "sha": "6c438139e0374635ccfea16d9a81021cdffbaedc",
+        "ref": "90120a68e9af6fd3d4c47f2fc808bee3dce46313",
+        "excerpt": "# LLM Worker — OpenAI-Compatible Cloudflare AI Gateway\n\nAn OpenAI-compatible API gateway that proxies requests to Cloudflare Workers AI. Drop this into any OpenAI SDK by changing the `baseURL`, and your requests route to Cloudflare's hosted models.\n\n## Quick Start (Deploy in 5 Minutes)\n\n### 1. Create a Cloudflare Account\nGo to [dash.cloudflare.com/sign-up](https://dash.cloudflare.com/sign-up) and create a free account. No credit card required — Workers AI has a generous free tier.\n\n### 2. Create an API Token\n  1. Go to [dash.cloudflare.com/profile/api-tokens](https://dash.cloudflare.com/profile/api-tokens)\n  2. Click **Create Token** → Use the **Edit Cloudflare Workers** template\n  3. Under **Account Resources**, select your account\n  4. Under **Zone Resources**, select **All zones**\n  5. Click **Continue to summary** → **Create Token**\n  6. Copy the token — you won't see it again\n\n### 3. Install Wrangler CLI\n```bash\nnpm install -g wrangler\n```\n\n### 4. Connect Wrangler to Your Cloudflare Account\n```bash\nwrangler login\n```\nThis opens a browser window. Log in and authorize Wrangler to access your account.\n\n### 5. Clone and Deploy\n```bash\ngit clone <this-repo-url> llm-worker\ncd llm-worker\nnpm install\n\n# Generate a strong random API key (32+ characters) — this is what clients use\nopenssl rand -hex 32\n\n# Set it as the worker secret\nwrangler secret put LLM_API_KEY\n# Paste your API key when prompted\n\n# Deploy\nwrangler deploy\n```\n\nAfter deploying, note the worker URL (looks like `https://llm-worker.your-subdomain.workers.dev`).\n\n### 6. Make Your First Request\n```bash\nexport WORKER_BASE_URL=\"https://llm-worker.your-subdomain.workers.dev\"\nexport LLM_API_KEY=\"your-api-key-from-step-5\"\n\n# List available models\ncurl -H \"Authorization: Bearer $LLM_API_KEY\" \"$WORKER_BASE_URL/v1/models\"\n\n# Chat completion\ncurl \"$WORKER_BASE_URL/v1/chat/completions\" \\\n  -H \"Authorization: Bearer $LLM_API_KEY\" \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\"model\":\"llama-3.3-70b\",\"messages\":[{\"role\":\"user\",\"content\":\"Hello!\"}]}'\n\n# Or use the OpenAI SDK\n```\n\n### Using the OpenAI SDK\n```javascript\nimport OpenAI from 'openai';\n\nconst openai = new OpenAI({\n  apiKey: process.env.LLM_API_KEY,\n  baseURL: `${process.env.WORKER_BASE_URL}/v1`\n});\n\nconst completion = await openai.chat.completions.create({\n  model: 'llama-3.3-70b',\n  messages: [{ role: 'user', content: 'Hello!' }]\n});\n\nconst embeddings = await openai.embeddings.create({\n  model: 'bge-large',\n  input: 'Hello world'\n});\n```\n\n## Updating the API Key\n```bash\n# Change the key clients must use\nwrangler secret put LLM_API_KEY\n# Paste the new key\n# Then redeploy\nwrangler deploy\n```\n\n---\n\n## OpenAI-Compatible Endpoints\n```text\nPOST ${WORKER_BASE_URL}/v1/chat/completions\nPOST ${WORKER_BASE_URL}/v1/embeddings\nGET  ${WORKER_BASE_URL}/v1/models\n```\n\nThe worker accepts OpenAI-style payloads for chat completions and embeddings. The legacy root `POST /` endpoint remains available for the older custom contract.\n\n## Authentication\nAll requests must include the API key set via `wrangler secret put LLM_API_KEY`:\n```\nAuthorization: Bearer ${LLM_API_KEY}\n```\n\n## Environment Variables\n```bash\ncp .env.example .env          # local helper scripts\ncp .dev.vars.example .dev.vars # local Wrangler dev secrets\n\nexport WORKER_BASE_URL=\"https://your-worker.your-subdomain.workers.dev\"\nexport LLM_API_KEY=\"your-client-facing-api-key\"\nexport CLOUDFLARE_ACCOUNT_ID=\"your-cloudflare-account-id\"\nexport CLOUDFLARE_API_TOKEN=\"your-cloudflare-api-token\"\n```\n\n- `WORKER_BASE_URL`: deployed worker URL\n- `LLM_API_KEY`: secret checked by the worker before forwarding to AI binding\n- `CLOUDFLARE_ACCOUNT_ID` / `CLOUDFLARE_API_TOKEN`: only needed for helper scripts or CI\n\n## OpenAI SDK Example\n\n```javascript\nimport OpenAI from 'openai';\n\nconst openai = new OpenAI({\n  apiKey: process.env.LLM_API_KEY,\n  baseURL: `${process.env.WORKER_BASE_URL}/v1`\n});\n\nconst completion = await openai.chat.completions.create({\n  model: 'llama-3.3-70b',\n  messages: [\n    { role: 'user', content: 'Hello!' }\n  ]\n});\n\nconst embeddings = await openai.embeddings.create({\n  model: 'bge-large',\n  input: 'Hello world'\n});\n```\n\n## Chat Completions\n\n### Request Format\n```json\n{\n  \"model\": \"llama-3.3-70b\",\n  \"messages\": [\n    {\"role\": \"user\", \"content\": \"Hello!\"}\n  ],\n  \"max_tokens\": 512\n}\n```\n\n### Available Models\n- `llama-3.3-70b` - Meta Llama 3.3 70B (fp8, fast)\n- `llama-4-scout` - Meta Llama 4 Scout 17B\n- `llama-3.2-3b` - Llama 3.2 3B\n- `llama-3.2-1b` - Llama 3.2 1B\n- `llama-3.2-11b-vision` - Llama 3.2 11B Vision\n- `llama-3-8b` - Llama 3 8B\n- `llama-3.1-8b` - Llama 3.1 8B (fp8)\n- `llama-3.1-8b-awq` - Llama 3.1 8B (quantized)\n- `llama-3-8b-awq` - Llama 3 8B (quantized)\n- `llama-2-7b` - Llama 2 7B (fp16)\n- `llama-2-7b-int8` - Llama 2 7B (int8)\n- `llama-guard-3` - Llama Guard 3 8B (content safety)\n- `gpt-oss-120b` - OpenAI GPT OSS 120B\n- `gpt-oss-20b` - OpenAI GPT OSS 20B\n- `qwen3-30b` - Qwen 3 30B (fp8)\n- `qwq-32b` - QwQ 32B (reasoning model)\n- `qwen2.5-coder` - Qwen 2.5 Coder 32B\n- `mistral-7b` - Mistral 7B v0.1\n- `mistral-small` - Mistral Small 3.1 24B\n- `deepseek-r1` - DeepSeek R1 Distill 32B\n- `gemma-3` - Gemma 3 12B\n- `gemma-4` - Gemma 4 (26B MoE)\n- `granite-4` - IBM Granite 4.0 Micro\n- `glm-4.7-flash` - GLM-4.7-Flash\n- `glm-5.2` - GLM-5.2 (agentic coding)\n- `kimi-k2.7-code` - Kimi K2.7 Code (1T params)\n- `kimi-k2.6` - Kimi K2.6 (1T params)\n- `nemotron-3` - NVIDIA Nemotron 3 (120B MoE)\n\n## Embeddings\n\n### Request Format\n```json\n{\n  \"model\": \"bge-large\",\n  \"input\": \"Your text to embed\"\n}\n```\n\n### Response Format\n```json\n{\n  \"object\": \"list\",\n  \"data\": [\n    {\n      \"object\": \"embedding\",\n      \"index\": 0,\n      \"embedding\": [0.0123, -0.0456]\n    }\n  ],\n  \"model\": \"bge-large\",\n  \"usage\": {\n    \"prompt_tokens\": 3,\n    \"total_tokens\": 3\n  }\n}\n```\n\n### Available Models\n- `bge-large` - BGE Large (1024-dim)\n- `bge-base` - BGE Base (768-dim)\n- `bge-small` - BGE Small (384-dim)\n- `bge-m3` - BGE M3 (multilingual)\n- `qwen3-embedding` - Qwen 3 Embedding\n- `plamo-embedding` - PLaMo Embedding 1B (Japanese)\n- `embedding-gemma` - EmbeddingGemma 300M\n\n## Text-to-Image\n\n### Request Format\n```json\n{\n  \"model\": \"flux-2-dev\",\n  \"task\": \"text-to-image\",\n  \"prompt\": \"A beautiful sunset over mountains\",\n  \"num_steps\": 20,\n  \"guidance\": 7.5\n}\n```\n\n### Available Models\n- `flux-2-dev` - FLUX.2 [dev]\n- `flux-2-klein-9b` - FLUX.2 [klein] 9B\n- `flux-2-klein-4b` - FLUX.2 [klein] 4B\n- `flux-1-schnell` - FLUX.1 [schnell]\n- `phoenix` - Leonardo Phoenix 1.0\n- `lucid-origin` - Leonardo Lucid Origin\n- `stable-diffusion-xl` - Stable Diffusion XL\n\n## Speech Recognition\n\n### Request Format\n```json\n{\n  \"model\": \"whisper\",\n  \"task\": \"automatic-speech-recognition\",\n  \"audio\": \"base64_encoded_audio_data\"\n}\n```\n\n### Available Models\n- `whisper` - OpenAI Whisper\n- `whisper-turbo` - Whisper Large v3 Turbo\n- `nova-3` - Deepgram Nova 3\n- `flux` - Deepgram Flux (conversational, voice agents)\n\n## Text-to-Speech\n\n### Request Format\n```json\n{\n  \"model\": \"aura-2-en\",\n  \"task\": \"text-to-speech\",\n  \"input_text\": \"Hello, how are you today?\",\n  \"voice\": \"alloy\"\n}\n```\n\n### Available Models\n- `aura-2-en` - Deepgram Aura 2 (English)\n- `aura-2-es` - Deepgram Aura 2 (Spanish)\n- `aura-1` - Deepgram Aura 1\n- `melotts` - MeloTTS\n\n## Examples\n\n### Chat Completions\n```javascript\nconst response = await fetch(`${process.env.WORKER_BASE_URL}/v1/chat/completions`, {\n  method: 'POST',\n  headers: {\n    'Authorization': `Bearer ${process.env.LLM_API_KEY}`,\n    'Content-Type': 'application/json'\n  },\n  body: JSON.stringify({\n    model: 'llama-3.3-70b',\n    messages: [\n      { role: 'user', content: 'What is AI?' }\n    ],\n    max_tokens: 100\n  })\n});\n```\n\n### Embeddings\n```javascript\nconst response = await fetch(`${process.env.WORKER_BASE_URL}/v1/embeddings`, {\n  method: 'POST',\n  headers: {\n    'Authorization': `Bearer ${process.env.LLM_API_KEY}`,\n    'Content-Type': 'application/json'\n  },\n  body: JSON.stringify({\n    model: 'bge-large',\n    input: 'Hello world'\n  })\n});\n```\n\n### Legacy Root Endpoint\n```javascript\nconst response = await fetch(process.env.WORKER_BASE_URL, {\n  method: 'POST',\n  headers: {\n    'Authorization': `Bearer ${process.env.LLM_API_KEY}`,\n    'Content-Type': 'application/json'\n  },\n  body: JSON.stringify({\n    model: 'llama-3.3-70b',\n    task: 'text-generation',\n    messages: [\n      { role: 'user', content: 'What is AI?' }\n    ]\n  })\n});\n```\n\n### Text-to-Image\n```javascript\nconst response = await fetch(process.env.WORKER_BASE_URL, {\n  method: 'POST',\n  headers: {\n    'Authorization': `Bearer ${process.env.LLM_API_KEY}`,\n    'Content-Type': 'application/json'\n  },\n  body: JSON.stringify({\n    model: 'flux-2-dev',\n    task: 'text-to-image',\n    prompt: 'A futuristic city at sunset'\n  })\n});\n```\n\n## Response Format\n```json\n{\n  \"id\": \"chatcmpl_123\",\n  \"object\": \"chat.completion\",\n  \"created\": 1710000000,\n  \"model\": \"llama-3.3-70b\",\n  \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\": \"assistant\",\n        \"content\": \"AI response text here...\"\n      },\n      \"finish_reason\": \"stop\"\n    }\n  ],\n  \"usage\": {\n    \"prompt_tokens\": 0,\n    \"completion_tokens\": 19,\n    \"total_tokens\": 67\n  }\n}\n```\n\n## Complete Model Documentation\n\nFor detailed schemas, parameters, and examples for all available Cloudflare AI models, see:\n**[CLOUDFLARE_AI_MODELS.md](./CLOUDFLARE_AI_MODELS.md)**\n\nThis comprehensive guide includes:\n- Input/output schemas for all 75+ models\n- Complete parameter documentation\n- Ready-to-use code examples\n- Models organized by task type (Text Generation, Image Generation, etc.)\n\n## Model Information Endpoints\n\n### List All Models\n```\nGET ${WORKER_BASE_URL}/models\n```\n\nReturns all available models organized by task type.\n\n### List OpenAI-Compatible Models\n```\nGET ${WORKER_BASE_URL}/v1/models\n```\n\nReturns models in OpenAI's `object: \"list\"` format.\n\n### Get Model Schema\n```\nGET ${WORKER_BASE_URL}/models/{model_name}\n```\n\nReturns the input schema and parameters for a specific model.\n\n**Example:**\n```javascript\n// Get schema for llama-3.3-70b\nconst response = await fetch(`${process.env.WORKER_BASE_URL}/models/llama-3.3-70b`);\nconst schema = await response.json();\nconsole.log(schema);\n```\n\n### Cloudflare AI Direct Endpoints\n\n### List All Cloudflare Models\n```\nGET ${WORKER_BASE_URL}/cf/models\n```\n\nReturns all models directly from Cloudflare AI platform with full metadata.\n\n### Get Cloudflare Model Schema\n```\nGET ${WORKER_BASE_URL}/cf/schema?model={cloudflare_model_id}\n```\n\nReturns the official schema for a Cloudflare model ID.\n\n**Example:**\n```javascript\n// Get all CF models\nconst cfModels = await fetch(`${process.env.WORKER_BASE_URL}/cf/models`);\n\n// Get schema for specific CF model\nconst cfSchema = await fetch(`${process.env.WORKER_BASE_URL}/cf/schema?model=@cf/meta/llama-3.3-70b-instruct-fp8-fast`);\n```\n\n## Deployment\n```bash\n# authenticate Wrangler first\nwrangler login\n\n# set the API key your clients must send\nwrangler secret put LLM_API_KEY\n\n# Deploy after authenticating Wrangler\nwrangler deploy\n```\n\n## GitHub Deploy\nThis repo includes a GitHub Actions workflow at [.github/workflows/deploy.yml]([LOCAL PATH REDACTED]) that deploys on pushes to `main` or manual runs.\n\nRequired GitHub repository secrets:\n- `CLOUDFLARE_API_TOKEN`\n- `CLOUDFLARE_ACCOUNT_ID`\n- `LLM_API_KEY`\n\nWhat the workflow does:\n- installs dependencies\n- writes `LLM_API_KEY` to the Worker with `wrangler secret put`\n- runs `wrangler deploy`\n\nIf you want GitHub to be the only deployment path, you can skip local `wrangler login` and deploy directly from the workflow.\n\n## Publishing As A Template\nUse your own values for deployment and secrets. Do not commit `.env`, `.dev.vars`, or bearer tokens.\n\nFor GitHub-based deploys, define secrets in Cloudflare or GitHub Actions rather than hardcoding them in the repo.\n\n\n## Error Responses\n- `401` - Invalid or missing API key\n- `400` - Invalid model or request format\n- `405` - Method not allowed (use POST)\n- `500` - Server error\n",
+        "truncated": false,
+        "sanitization": "credential_email_and_personal_local_path_redaction"
+      },
+      "url": "https://api.github.com/repos/dpny518/llm-worker/readme?ref=90120a68e9af6fd3d4c47f2fc808bee3dce46313",
+      "observedAt": "2026-08-31T14:07:48.957786Z"
+    },
+    "manifest_names": {
+      "status": "observed",
+      "data": [
+        "package.json"
+      ],
+      "url": "https://api.github.com/repos/dpny518/llm-worker/contents?ref=90120a68e9af6fd3d4c47f2fc808bee3dce46313",
+      "observedAt": "2026-08-31T14:07:49.511127Z"
+    },
+    "file:package.json": {
+      "status": "observed",
+      "data": {
+        "path": "package.json",
+        "sha": "6934d84dbc1fbf59e802d241e25509c47ee2b202",
+        "ref": "90120a68e9af6fd3d4c47f2fc808bee3dce46313",
+        "excerpt": "{\n  \"name\": \"llm-gateway\",\n  \"version\": \"1.0.0\",\n  \"scripts\": {\n    \"dev\": \"wrangler dev\",\n    \"deploy\": \"wrangler deploy\"\n  },\n  \"devDependencies\": {\n    \"wrangler\": \"^3.0.0\"\n  }\n}\n",
+        "truncated": false
+      },
+      "url": "https://api.github.com/repos/dpny518/llm-worker/contents/package.json?ref=90120a68e9af6fd3d4c47f2fc808bee3dce46313",
+      "observedAt": "2026-08-31T14:07:50.049092Z"
+    },
+    "release": {
+      "status": "source_absent",
+      "httpStatus": 404,
+      "url": "https://api.github.com/repos/dpny518/llm-worker/releases/latest",
+      "observedAt": "2026-08-31T14:07:50.843362Z"
+    }
+  },
+  "manifestEvidenceTruncated": false,
+  "values": {
+    "id": "gh-pending:dpny518/llm-worker",
+    "sourceRecordIds": [
+      "gh-pending:dpny518/llm-worker"
+    ],
+    "catalogStatus": "accepted",
+    "githubRepositoryId": 1190119328,
+    "fullName": "dpny518/llm-worker",
+    "url": "https://github.com/dpny518/llm-worker",
+    "stars": 1,
+    "forks": 0,
+    "watchers": 0,
+    "sizeKb": 80,
+    "archived": false,
+    "isFork": false,
+    "disabled": false,
+    "visibility": "public",
+    "defaultBranch": "main",
+    "language": "JavaScript",
+    "description": null,
+    "topics": [],
+    "homepage": null,
+    "activity.createdAt": "2026-03-24T01:35:55Z",
+    "activity.updatedAt": "2026-07-15T06:42:59Z",
+    "activity.pushedAt": "2026-07-15T06:42:38Z",
+    "license.spdx": null,
+    "license.name": null,
+    "license.source": null,
+    "aliases": [],
+    "identityStatus": "resolved",
+    "availability": "available",
+    "watchersScope": "subscribers_count",
+    "license.confidence": null,
+    "activity.observedAt": "2026-08-31T14:07:47.043994Z",
+    "languages": {
+      "JavaScript": 39111
+    },
+    "activity.lastCommitAt": "2026-07-15T06:42:27Z",
+    "activity.lastCommitSha": "90120a68e9af6fd3d4c47f2fc808bee3dce46313",
+    "activity.lastCommitBranch": "main",
+    "reviewStatus": "reviewed",
+    "primaryCategory": "llm_gateways_routing_caching",
+    "secondaryCategories": [],
+    "catalogDescription": "A JavaScript gateway deployed on Cloudflare Workers that exposes OpenAI-compatible chat, embedding and model-list endpoints backed by Workers AI.",
+    "descriptionOrigin": "curator_summary",
+    "stack": [
+      {
+        "technology": "JavaScript",
+        "evidenceRefs": [
+          "languages",
+          "readme"
+        ]
+      },
+      {
+        "technology": "Cloudflare Workers",
+        "evidenceRefs": [
+          "readme"
+        ]
+      },
+      {
+        "technology": "Cloudflare Workers AI",
+        "evidenceRefs": [
+          "readme"
+        ]
+      },
+      {
+        "technology": "Wrangler (development/deployment tool)",
+        "evidenceRefs": [
+          "file:package.json",
+          "readme"
+        ]
+      }
+    ],
+    "recommendation.whyRecommended": "Useful as a small documented API gateway reference for Workers AI; current Stars do not meet the default catalog threshold, so this review does not recommend inclusion.",
+    "recommendation.bestFor": "Inspecting how an OpenAI-compatible client can call a Workers AI backend through a deployed gateway.",
+    "recommendation.tradeoffs": "Requires Cloudflare deployment and secret configuration. License metadata and a latest release are absent. One observed Star is below the strict 500-Star minimum: exclude from active catalog and find a replacement.",
+    "recommendation.adoption_status": "excluded_below_500_stars",
+    "recommendation.role": "Gateway between an OpenAI-compatible client and Workers AI.",
+    "form": {
+      "value": "application",
+      "rationale": "README documents a deployable gateway with HTTP endpoints."
+    },
+    "deployment": {
+      "value": "Cloudflare Workers",
+      "rationale": "README and package scripts document Wrangler deployment."
+    },
+    "hosting": {
+      "value": "user-deployed on Cloudflare",
+      "rationale": "README requires the operator to configure their own deployment and secrets."
+    },
+    "persona": {
+      "value": "developers integrating Workers AI",
+      "rationale": "README demonstrates SDK and HTTP API integration."
+    },
+    "activity.status": "metadata_observed",
+    "provenance": {
+      "inputSha256": "17d43dc4bbd4b71521746d413f3de57a4881fad1ff497dff86fc7b83a13e80f4",
+      "apiVersion": "2026-03-10",
+      "sourceId": "gh-pending:dpny518/llm-worker"
+    },
+    "evidenceCompleteness": 100.0,
+    "eligibility": {
+      "dataGatePassed": false,
+      "reasons": [
+        "confirmed_below_minimum_stars"
+      ],
+      "minimumStars": 500,
+      "replacementRequired": true,
+      "catalogAcceptanceChanged": false,
+      "globalCAT07Applied": false
+    },
+    "fieldObservations": [
+      {
+        "field": "id",
+        "status": "observed",
+        "evidenceRefs": [
+          "frozen_input"
+        ],
+        "observedAt": "2026-08-31T14:14:59.888468Z"
+      },
+      {
+        "field": "sourceRecordIds",
+        "status": "observed",
+        "evidenceRefs": [
+          "frozen_input"
+        ],
+        "observedAt": "2026-08-31T14:14:59.888468Z"
+      },
+      {
+        "field": "githubRepositoryId",
+        "status": "observed",
+        "evidenceRefs": [
+          "metadata"
+        ],
+        "observedAt": "2026-08-31T14:07:47.043994Z"
+      },
+      {
+        "field": "fullName",
+        "status": "observed",
+        "evidenceRefs": [
+          "metadata"
+        ],
+        "observedAt": "2026-08-31T14:07:47.043994Z"
+      },
+      {
+        "field": "url",
+        "status": "observed",
+        "evidenceRefs": [
+          "metadata"
+        ],
+        "observedAt": "2026-08-31T14:07:47.043994Z"
+      },
+      {
+        "field": "aliases",
+        "status": "derived_reviewed",
+        "evidenceRefs": [
+          "metadata"
+        ],
+        "observedAt": "2026-08-31T14:07:47.043994Z"
+      },
+      {
+        "field": "identityStatus",
+        "status": "derived_reviewed",
+        "evidenceRefs": [
+          "metadata"
+        ],
+        "observedAt": "2026-08-31T14:07:47.043994Z"
+      },
+      {
+        "field": "availability",
+        "status": "observed",
+        "evidenceRefs": [
+          "metadata"
+        ],
+        "observedAt": "2026-08-31T14:07:47.043994Z"
+      },
+      {
+        "field": "stars",
+        "status": "observed",
+        "evidenceRefs": [
+          "metadata"
+        ],
+        "observedAt": "2026-08-31T14:07:47.043994Z"
+      },
+      {
+        "field": "forks",
+        "status": "observed",
+        "evidenceRefs": [
+          "metadata"
+        ],
+        "observedAt": "2026-08-31T14:07:47.043994Z"
+      },
+      {
+        "field": "watchers",
+        "status": "observed",
+        "evidenceRefs": [
+          "metadata"
+        ],
+        "observedAt": "2026-08-31T14:07:47.043994Z"
+      },
+      {
+        "field": "sizeKb",
+        "status": "observed",
+        "evidenceRefs": [
+          "metadata"
+        ],
+        "observedAt": "2026-08-31T14:07:47.043994Z"
+      },
+      {
+        "field": "watchersScope",
+        "status": "derived_reviewed",
+        "evidenceRefs": [
+          "metadata"
+        ],
+        "observedAt": "2026-08-31T14:07:47.043994Z"
+      },
+      {
+        "field": "archived",
+        "status": "observed",
+        "evidenceRefs": [
+          "metadata"
+        ],
+        "observedAt": "2026-08-31T14:07:47.043994Z"
+      },
+      {
+        "field": "isFork",
+        "status": "observed",
+        "evidenceRefs": [
+          "metadata"
+        ],
+        "observedAt": "2026-08-31T14:07:47.043994Z"
+      },
+      {
+        "field": "disabled",
+        "status": "observed",
+        "evidenceRefs": [
+          "metadata"
+        ],
+        "observedAt": "2026-08-31T14:07:47.043994Z"
+      },
+      {
+        "field": "visibility",
+        "status": "observed",
+        "evidenceRefs": [
+          "metadata"
+        ],
+        "observedAt": "2026-08-31T14:07:47.043994Z"
+      },
+      {
+        "field": "defaultBranch",
+        "status": "observed",
+        "evidenceRefs": [
+          "metadata"
+        ],
+        "observedAt": "2026-08-31T14:07:47.043994Z"
+      },
+      {
+        "field": "language",
+        "status": "observed",
+        "evidenceRefs": [
+          "metadata"
+        ],
+        "observedAt": "2026-08-31T14:07:47.043994Z"
+      },
+      {
+        "field": "languages",
+        "status": "observed",
+        "evidenceRefs": [
+          "languages"
+        ],
+        "observedAt": "2026-08-31T14:07:47.595267Z"
+      },
+      {
+        "field": "stack",
+        "status": "derived_reviewed",
+        "evidenceRefs": [
+          "languages",
+          "readme",
+          "file:package.json"
+        ],
+        "observedAt": "2026-08-31T14:07:47.595267Z"
+      },
+      {
+        "field": "description",
+        "status": "source_absent",
+        "evidenceRefs": [
+          "metadata"
+        ],
+        "observedAt": "2026-08-31T14:07:47.043994Z"
+      },
+      {
+        "field": "catalogDescription",
+        "status": "derived_reviewed",
+        "evidenceRefs": [
+          "readme"
+        ],
+        "observedAt": "2026-08-31T14:07:48.957786Z"
+      },
+      {
+        "field": "descriptionOrigin",
+        "status": "derived_reviewed",
+        "evidenceRefs": [
+          "readme"
+        ],
+        "observedAt": "2026-08-31T14:07:48.957786Z"
+      },
+      {
+        "field": "topics",
+        "status": "observed",
+        "evidenceRefs": [
+          "metadata"
+        ],
+        "observedAt": "2026-08-31T14:07:47.043994Z"
+      },
+      {
+        "field": "homepage",
+        "status": "source_absent",
+        "evidenceRefs": [
+          "metadata"
+        ],
+        "observedAt": "2026-08-31T14:07:47.043994Z"
+      },
+      {
+        "field": "license.spdx",
+        "status": "source_absent",
+        "evidenceRefs": [
+          "metadata"
+        ],
+        "observedAt": "2026-08-31T14:07:47.043994Z"
+      },
+      {
+        "field": "license.name",
+        "status": "source_absent",
+        "evidenceRefs": [
+          "metadata"
+        ],
+        "observedAt": "2026-08-31T14:07:47.043994Z"
+      },
+      {
+        "field": "license.source",
+        "status": "source_absent",
+        "evidenceRefs": [
+          "metadata"
+        ],
+        "observedAt": "2026-08-31T14:07:47.043994Z"
+      },
+      {
+        "field": "license.confidence",
+        "status": "source_absent",
+        "evidenceRefs": [
+          "metadata"
+        ],
+        "observedAt": "2026-08-31T14:07:47.043994Z"
+      },
+      {
+        "field": "activity.createdAt",
+        "status": "observed",
+        "evidenceRefs": [
+          "metadata"
+        ],
+        "observedAt": "2026-08-31T14:07:47.043994Z"
+      },
+      {
+        "field": "activity.updatedAt",
+        "status": "observed",
+        "evidenceRefs": [
+          "metadata"
+        ],
+        "observedAt": "2026-08-31T14:07:47.043994Z"
+      },
+      {
+        "field": "activity.pushedAt",
+        "status": "observed",
+        "evidenceRefs": [
+          "metadata"
+        ],
+        "observedAt": "2026-08-31T14:07:47.043994Z"
+      },
+      {
+        "field": "activity.lastCommitAt",
+        "status": "observed",
+        "evidenceRefs": [
+          "head_commit"
+        ],
+        "observedAt": "2026-08-31T14:07:48.262744Z"
+      },
+      {
+        "field": "activity.lastCommitSha",
+        "status": "observed",
+        "evidenceRefs": [
+          "head_commit"
+        ],
+        "observedAt": "2026-08-31T14:07:48.262744Z"
+      },
+      {
+        "field": "activity.lastCommitBranch",
+        "status": "observed",
+        "evidenceRefs": [
+          "head_commit"
+        ],
+        "observedAt": "2026-08-31T14:07:48.262744Z"
+      },
+      {
+        "field": "activity.lastReleaseAt",
+        "status": "source_absent",
+        "evidenceRefs": [
+          "release"
+        ]
+      },
+      {
+        "field": "activity.commitsTotal",
+        "status": "not_attempted",
+        "reason": "not_collected_or_not_reviewed"
+      },
+      {
+        "field": "activity.commits12m",
+        "status": "not_attempted",
+        "reason": "not_collected_or_not_reviewed"
+      },
+      {
+        "field": "activity.committersTotal",
+        "status": "not_attempted",
+        "reason": "not_collected_or_not_reviewed"
+      },
+      {
+        "field": "activity.issuesTotal",
+        "status": "not_attempted",
+        "reason": "not_collected_or_not_reviewed"
+      },
+      {
+        "field": "activity.issues12m",
+        "status": "not_attempted",
+        "reason": "not_collected_or_not_reviewed"
+      },
+      {
+        "field": "activity.openIssues",
+        "status": "not_attempted",
+        "reason": "not_collected_or_not_reviewed"
+      },
+      {
+        "field": "activity.pullRequestsTotal",
+        "status": "not_attempted",
+        "reason": "not_collected_or_not_reviewed"
+      },
+      {
+        "field": "activity.openPullRequests",
+        "status": "not_attempted",
+        "reason": "not_collected_or_not_reviewed"
+      },
+      {
+        "field": "activity.activityBand",
+        "status": "not_attempted",
+        "reason": "not_collected_or_not_reviewed"
+      },
+      {
+        "field": "activity.status",
+        "status": "derived_reviewed",
+        "evidenceRefs": [
+          "metadata"
+        ],
+        "observedAt": "2026-08-31T14:07:47.043994Z"
+      },
+      {
+        "field": "activity.observedAt",
+        "status": "observed",
+        "evidenceRefs": [
+          "metadata"
+        ],
+        "observedAt": "2026-08-31T14:07:47.043994Z"
+      },
+      {
+        "field": "activity.sources",
+        "status": "not_attempted",
+        "reason": "not_collected_or_not_reviewed"
+      },
+      {
+        "field": "catalogStatus",
+        "status": "observed",
+        "evidenceRefs": [
+          "frozen_input"
+        ],
+        "observedAt": "2026-08-31T14:14:59.888468Z"
+      },
+      {
+        "field": "reviewStatus",
+        "status": "derived_reviewed",
+        "evidenceRefs": [
+          "readme"
+        ],
+        "observedAt": "2026-08-31T14:07:48.957786Z"
+      },
+      {
+        "field": "primaryCategory",
+        "status": "derived_reviewed",
+        "evidenceRefs": [
+          "readme"
+        ],
+        "observedAt": "2026-08-31T14:07:48.957786Z"
+      },
+      {
+        "field": "secondaryCategories",
+        "status": "derived_reviewed",
+        "evidenceRefs": [
+          "readme"
+        ],
+        "observedAt": "2026-08-31T14:07:48.957786Z"
+      },
+      {
+        "field": "facets",
+        "status": "not_attempted",
+        "reason": "not_collected_or_not_reviewed"
+      },
+      {
+        "field": "form",
+        "status": "derived_reviewed",
+        "evidenceRefs": [
+          "readme"
+        ],
+        "observedAt": "2026-08-31T14:07:48.957786Z"
+      },
+      {
+        "field": "deployment",
+        "status": "derived_reviewed",
+        "evidenceRefs": [
+          "readme",
+          "file:package.json"
+        ],
+        "observedAt": "2026-08-31T14:07:48.957786Z"
+      },
+      {
+        "field": "hosting",
+        "status": "derived_reviewed",
+        "evidenceRefs": [
+          "readme"
+        ],
+        "observedAt": "2026-08-31T14:07:48.957786Z"
+      },
+      {
+        "field": "difficulty",
+        "status": "not_attempted",
+        "reason": "not_collected_or_not_reviewed"
+      },
+      {
+        "field": "persona",
+        "status": "derived_reviewed",
+        "evidenceRefs": [
+          "readme"
+        ],
+        "observedAt": "2026-08-31T14:07:48.957786Z"
+      },
+      {
+        "field": "lifecycle",
+        "status": "not_attempted",
+        "reason": "not_collected_or_not_reviewed"
+      },
+      {
+        "field": "maturity",
+        "status": "not_attempted",
+        "reason": "not_collected_or_not_reviewed"
+      },
+      {
+        "field": "recommendation.whyRecommended",
+        "status": "derived_reviewed",
+        "evidenceRefs": [
+          "readme"
+        ],
+        "observedAt": "2026-08-31T14:07:48.957786Z"
+      },
+      {
+        "field": "recommendation.bestFor",
+        "status": "derived_reviewed",
+        "evidenceRefs": [
+          "readme"
+        ],
+        "observedAt": "2026-08-31T14:07:48.957786Z"
+      },
+      {
+        "field": "recommendation.tradeoffs",
+        "status": "derived_reviewed",
+        "evidenceRefs": [
+          "metadata",
+          "readme"
+        ],
+        "observedAt": "2026-08-31T14:07:47.043994Z"
+      },
+      {
+        "field": "recommendation.role",
+        "status": "derived_reviewed",
+        "evidenceRefs": [
+          "readme"
+        ],
+        "observedAt": "2026-08-31T14:07:48.957786Z"
+      },
+      {
+        "field": "recommendation.adoption_status",
+        "status": "derived_reviewed",
+        "evidenceRefs": [
+          "readme"
+        ],
+        "observedAt": "2026-08-31T14:07:48.957786Z"
+      },
+      {
+        "field": "recommendation.selection_signals",
+        "status": "not_attempted",
+        "reason": "not_collected_or_not_reviewed"
+      },
+      {
+        "field": "fieldObservations",
+        "status": "derived_reviewed",
+        "evidenceRefs": [
+          "blocks"
+        ]
+      },
+      {
+        "field": "evidenceCompleteness",
+        "status": "derived_reviewed",
+        "evidenceRefs": [
+          "field_contract"
+        ],
+        "observedAt": "2026-08-31T14:14:59.888468Z"
+      },
+      {
+        "field": "eligibility",
+        "status": "derived_reviewed",
+        "evidenceRefs": [
+          "field_contract"
+        ],
+        "observedAt": "2026-08-31T14:14:59.888468Z"
+      },
+      {
+        "field": "provenance",
+        "status": "derived_reviewed",
+        "evidenceRefs": [
+          "frozen_input"
+        ],
+        "observedAt": "2026-08-31T14:14:59.888468Z"
+      }
+    ]
+  },
+  "missingMandatory": [],
+  "status": "excluded_below_star_threshold",
+  "curation": {
+    "sourceId": "gh-pending:dpny518/llm-worker",
+    "reviewedAt": "2026-08-31T14:10:33.478672Z",
+    "fields": {
+      "reviewStatus": "reviewed",
+      "primaryCategory": "llm_gateways_routing_caching",
+      "secondaryCategories": [],
+      "catalogDescription": "A JavaScript gateway deployed on Cloudflare Workers that exposes OpenAI-compatible chat, embedding and model-list endpoints backed by Workers AI.",
+      "descriptionOrigin": "curator_summary",
+      "stack": [
+        {
+          "technology": "JavaScript",
+          "evidenceRefs": [
+            "languages",
+            "readme"
+          ]
+        },
+        {
+          "technology": "Cloudflare Workers",
+          "evidenceRefs": [
+            "readme"
+          ]
+        },
+        {
+          "technology": "Cloudflare Workers AI",
+          "evidenceRefs": [
+            "readme"
+          ]
+        },
+        {
+          "technology": "Wrangler (development/deployment tool)",
+          "evidenceRefs": [
+            "file:package.json",
+            "readme"
+          ]
+        }
+      ],
+      "recommendation.whyRecommended": "Useful as a small documented API gateway reference for Workers AI; current Stars do not meet the default catalog threshold, so this review does not recommend inclusion.",
+      "recommendation.bestFor": "Inspecting how an OpenAI-compatible client can call a Workers AI backend through a deployed gateway.",
+      "recommendation.tradeoffs": "Requires Cloudflare deployment and secret configuration. License metadata and a latest release are absent. One observed Star is below the strict 500-Star minimum: exclude from active catalog and find a replacement.",
+      "recommendation.adoption_status": "excluded_below_500_stars",
+      "recommendation.role": "Gateway between an OpenAI-compatible client and Workers AI.",
+      "form": {
+        "value": "application",
+        "rationale": "README documents a deployable gateway with HTTP endpoints."
+      },
+      "deployment": {
+        "value": "Cloudflare Workers",
+        "rationale": "README and package scripts document Wrangler deployment."
+      },
+      "hosting": {
+        "value": "user-deployed on Cloudflare",
+        "rationale": "README requires the operator to configure their own deployment and secrets."
+      },
+      "persona": {
+        "value": "developers integrating Workers AI",
+        "rationale": "README demonstrates SDK and HTTP API integration."
+      }
+    },
+    "evidenceRefs": {
+      "reviewStatus": [
+        "readme"
+      ],
+      "primaryCategory": [
+        "readme"
+      ],
+      "secondaryCategories": [
+        "readme"
+      ],
+      "catalogDescription": [
+        "readme"
+      ],
+      "descriptionOrigin": [
+        "readme"
+      ],
+      "stack": [
+        "languages",
+        "readme",
+        "file:package.json"
+      ],
+      "recommendation.whyRecommended": [
+        "readme"
+      ],
+      "recommendation.bestFor": [
+        "readme"
+      ],
+      "recommendation.tradeoffs": [
+        "metadata",
+        "readme"
+      ],
+      "recommendation.adoption_status": [
+        "readme"
+      ],
+      "recommendation.role": [
+        "readme"
+      ],
+      "form": [
+        "readme"
+      ],
+      "deployment": [
+        "readme",
+        "file:package.json"
+      ],
+      "hosting": [
+        "readme"
+      ],
+      "persona": [
+        "readme"
+      ]
+    }
+  }
+}

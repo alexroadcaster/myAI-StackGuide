@@ -1,0 +1,112 @@
+{
+  "date": "2026-08-31",
+  "scope": "storage_retirement_only_not_full_catalog_refresh_or_browser_acceptance",
+  "status": "verified_ready_for_owner_deletion_of_work_only",
+  "workDeleted": false,
+  "durablePaths": {
+    "taxonomy": "specs/catalog/taxonomy.yaml",
+    "fieldContract": "specs/catalog/enrichment-field-contract.json",
+    "publicEvidence": "data/catalog-evidence/2026-08-31",
+    "legacyPolicyFixture": "tests/fixtures/catalog_enrichment_legacy_contract.json",
+    "operatingGuide": "docs/CATALOG_REFRESH.md"
+  },
+  "localPaths": {
+    "activeRun": ".codex-tmp/catalog-refresh/active",
+    "archive": ".codex-tmp/catalog-refresh/work-retirement-2026-08-31/retired-work-and-migration-baseline.zip",
+    "archiveManifest": ".codex-tmp/catalog-refresh/work-retirement-2026-08-31/archive-manifest.json",
+    "runMigration": ".codex-tmp/catalog-refresh/active/storage-migration.json"
+  },
+  "preservation": {
+    "archiveSha256": "055c2b1ebbb2a0321a5295d87b0449a62d487128081aef28e36f5a9274815c75",
+    "archiveBytes": 8335660,
+    "archiveMembers": 210,
+    "ownedBaselineFiles": 14,
+    "originalWorkFilesUnchanged": 196,
+    "nonownedFilesUnchanged": 156,
+    "canonicalChangedPaths": [
+      "/repositories/82/provenance/evidenceArtifact",
+      "/enrichment/verifiedReplacement/evidenceRun"
+    ],
+    "retainedEvidence": [
+      {
+        "path": "data/catalog-evidence/2026-08-31/0bddab74768fe472e48c250dc34911acb6666e7458eaaff87ba3e3f2f702e2b9.json",
+        "sha256": "79e17eb14c0bcd1fc08ef536279d2979f3f9f1d792da1ced90ff06a502579556",
+        "originalArchiveMember": "work/catalog-refresh/2026-08-31-cat-04/strict-pilot/records/0bddab74768fe472e48c250dc34911acb6666e7458eaaff87ba3e3f2f702e2b9.json"
+      },
+      {
+        "path": "data/catalog-evidence/2026-08-31/fd570e9dc7266761950c11482e8c15abdd653e5ed90233f5860386ce3c2bd7d4.json",
+        "sha256": "52d186bacc19a0654b2b5907bd8ae22b583f98820b94584207eeab6a500d0f62",
+        "originalArchiveMember": "work/catalog-refresh/2026-08-31-cat-04/strict-pilot/records/fd570e9dc7266761950c11482e8c15abdd653e5ed90233f5860386ce3c2bd7d4.json"
+      },
+      {
+        "path": "data/catalog-evidence/2026-08-31/replacement-decision.json",
+        "sha256": "b3c352f0f9522c8584e2104a717b4112888ce58de148d4fa5d342b06fddce1e6",
+        "originalArchiveMember": "work/catalog-refresh/2026-08-31-cat-04/replacement-decision.json"
+      }
+    ],
+    "gitIgnores": [
+      "work/catalog-refresh",
+      ".codex-tmp/catalog-refresh/active"
+    ],
+    "workTrackedFiles": 0,
+    "localLinksChecked": 30,
+    "oldRunlogPrefixUnchanged": true
+  },
+  "verification": {
+    "command": "python -B .codex-tmp/catalog-refresh/work-retirement-2026-08-31/verify_without_work.py",
+    "pythonVersion": "3.13.5",
+    "validator": "existing user-site jsonschema, no installation",
+    "testModules": [
+      "tests.test_catalog_storage_layout",
+      "tests.test_catalog_enrichment",
+      "tests.test_catalog_refresh_pipeline",
+      "tests.test_catalog_v5_pipeline",
+      "tests.test_plugin_contracts"
+    ],
+    "testsRun": 104,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "workAccessDeniedDuringChecks": true,
+    "workAccessAttempts": 0,
+    "networkDeniedDuringChecks": true,
+    "networkAttempts": 0,
+    "cachedCompleteRecordsResumed": 7,
+    "savedRecordsVerified": 13,
+    "checkpointSha256Unchanged": "6ebd0217a1084a264a697f2967db9611a952a30594b7714a5f056b2aa2d3fc6c",
+    "requestLogSha256Unchanged": "b163abd5795c2f064b876b3fdca8306e23c87d6bd03fde5159a24eda2ff177d4",
+    "htmlCheckCommand": "python -B scripts/build_catalog_html.py --check",
+    "htmlByteParity": true,
+    "htmlBytes": 5806093
+  },
+  "migrationCheckpoint": {
+    "inputStates": {
+      "not_started": 1787,
+      "complete_card": 7,
+      "needs_review_or_retry": 4,
+      "excluded_below_star_threshold": 2
+    },
+    "requests": 80,
+    "bytes": 1309367,
+    "canonicalRows": 1800,
+    "workingCandidateRows": 1798,
+    "rateLimitDeadlineAndBudgetsPreserved": true,
+    "wholeCorpusComplete": false
+  },
+  "currentHashes": {
+    "source": "f90b6b4540ff263df7fe624b34f5f2eb4306cf5309b9e2e6e9604335614dcff1",
+    "taxonomy": "7f74561ff8206d1fb6782e7815ebb7c8080ae813f303fabfd6c9c72d8cbbaaec",
+    "html": "18d1b086fb539d05f968399bb8a7dd027f255ed5bda10cbbc7ce17a953290138"
+  },
+  "notes": [
+    "Canonical metadata and assignments unchanged; only two evidence path strings changed.",
+    "Record source blocks, curator decisions, statuses and observation dates preserved; normalized provenance.inputSha256 migrated to the relocated input.",
+    "Legacy catalog generation now preserves existing .gitignore bytes, including local work and checkpoint exclusions.",
+    "No original work file deleted or changed; no API fetch, credential use, LLM call, Git mutation or publication.",
+    "Old RUNLOG references are archive member identifiers, not active commands.",
+    "The local archive and active run are ignored; Git does not back them up. Preserve active until CAT-08 reconciliation.",
+    "The full legacy generation pipeline was not run; its ignore-writing function was regression-tested in isolation.",
+    "Earlier sandbox Python had no accessible jsonschema; the verification ran with existing Python 3.13.5 and user-site validator under reviewed local execution.",
+    "Browser rendering, full corpus freshness and remote aggregators were not exercised by this storage migration."
+  ]
+}

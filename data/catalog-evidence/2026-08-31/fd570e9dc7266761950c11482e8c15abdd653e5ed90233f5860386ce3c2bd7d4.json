@@ -1,0 +1,925 @@
+{
+  "sourceId": "gh-pending:portkey-ai/gateway",
+  "blocks": {
+    "metadata": {
+      "status": "observed",
+      "data": {
+        "githubRepositoryId": 682080300,
+        "fullName": "Portkey-AI/gateway",
+        "url": "https://github.com/Portkey-AI/gateway",
+        "stars": 12864,
+        "forks": 1276,
+        "watchers": 60,
+        "sizeKb": 67695,
+        "archived": false,
+        "isFork": false,
+        "disabled": false,
+        "visibility": "public",
+        "defaultBranch": "main",
+        "language": "TypeScript",
+        "description": "A blazing fast AI Gateway with integrated guardrails. Route to 1,600+ LLMs, 50+ AI Guardrails with 1 fast & friendly API.",
+        "topics": [
+          "ai-gateway",
+          "gateway",
+          "generative-ai",
+          "hacktoberfest",
+          "langchain",
+          "llm",
+          "llm-gateway",
+          "llmops",
+          "llms",
+          "mcp",
+          "mcp-client",
+          "mcp-gateway",
+          "mcp-servers",
+          "model-router",
+          "openai"
+        ],
+        "homepage": "https://portkey.ai/features/ai-gateway",
+        "activity.createdAt": "2023-08-23T11:52:47Z",
+        "activity.updatedAt": "2026-08-31T13:20:03Z",
+        "activity.pushedAt": "2026-05-25T13:54:51Z",
+        "license.spdx": "MIT",
+        "license.name": "MIT License",
+        "license.source": "https://api.github.com/licenses/mit"
+      },
+      "url": "https://api.github.com/repos/Portkey-AI/gateway",
+      "observedAt": "2026-08-31T14:15:20.609166Z"
+    },
+    "languages": {
+      "status": "observed",
+      "data": {
+        "TypeScript": 2084298,
+        "HTML": 81138,
+        "JavaScript": 8350,
+        "Dockerfile": 1172
+      },
+      "url": "https://api.github.com/repos/Portkey-AI/gateway/languages",
+      "observedAt": "2026-08-31T14:15:21.130655Z"
+    },
+    "head_commit": {
+      "status": "observed",
+      "data": {
+        "sha": "669825cbe89ee51569918b8f78a9db486fd69dd4",
+        "date": "2026-05-25T13:54:51Z",
+        "branch": "main"
+      },
+      "url": "https://api.github.com/repos/Portkey-AI/gateway/commits/main",
+      "observedAt": "2026-08-31T14:15:21.802940Z"
+    },
+    "readme": {
+      "status": "observed",
+      "data": {
+        "path": "README.md",
+        "sha": "199b744cab2e0a3cf48f98a44782aeda482fc0f1",
+        "ref": "669825cbe89ee51569918b8f78a9db486fd69dd4",
+        "excerpt": "\n<p align=\"right\">\n   <strong>English</strong> | <a href=\"./.github/README.cn.md\">中文</a> | <a href=\"./.github/README.jp.md\">日本語</a>\n</p>\n\n> [!IMPORTANT]\n> :rocket: Gateway 2.0 (Pre-Release) Portkey's core enterprise gateway is merging into open-source with our 2.0 release. You can try the pre-release branch [here](https://github.com/portkey-ai/gateway/tree/2.0.0).\n> Read more about what's next for Portkey in our [**Series A announcement**](https://portkey.wiki/rohit-a).\n\n\n<div align=\"center\">\n\n🆕 **[Portkey Models](https://github.com/Portkey-AI/models)** - Open-source LLM pricing for 2,300+ models across 40+ providers. [Explore →](https://portkey.ai/models)\n\n\n# AI Gateway\n#### Route to 250+ LLMs with 1 fast & friendly API\n\n<img src=\"https://cfassets.portkey.ai/sdk.gif\" width=\"550px\" alt=\"Portkey AI Gateway Demo showing LLM routing capabilities\" style=\"margin-left:-35px\">\n\n[Docs](https://portkey.wiki/gh-1) | [Enterprise](https://portkey.wiki/gh-2) | [Hosted Gateway](https://portkey.wiki/gh-3) | [Changelog](https://portkey.wiki/gh-4) | [API Reference](https://portkey.wiki/gh-5)\n\n\n[![License](https://img.shields.io/github/license/Ileriayo/markdown-badges)](./LICENSE)\n[![Discord](https://img.shields.io/discord/1143393887742861333)](https://portkey.wiki/gh-6)\n[![Twitter](https://img.shields.io/twitter/url/https/twitter/follow/portkeyai?style=social&label=Follow%20%40PortkeyAI)](https://portkey.wiki/gh-7)\n[![npm version](https://badge.fury.io/js/%40portkey-ai%2Fgateway.svg)](https://portkey.wiki/gh-8)\n[![Better Stack Badge](https://uptime.betterstack.com/status-badges/v1/monitor/q94g.svg)](https://portkey.wiki/gh-9)\n\n<a href=\"https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/quickcreate?stackName=portkey-gateway&templateURL=https://portkey-gateway-ec2-quicklaunch.s3.us-east-1.amazonaws.com/portkey-gateway-ec2-quicklaunch.template.yaml\"><img src=\"https://img.shields.io/badge/Deploy_to_EC2-232F3E?style=for-the-badge&logo=amazonwebservices&logoColor=white\" alt=\"Deploy to AWS EC2\" width=\"105\"/></a> [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/Portkey-AI/gateway)\n</div>\n\n<br/>\n\nThe [**AI Gateway**](https://portkey.wiki/gh-10) is designed for fast, reliable & secure routing to 1600+ language, vision, audio, and image models. It is a lightweight, open-source, and enterprise-ready solution that allows you to integrate with any language model in under 2 minutes.\n\n- [x] **Blazing fast** (<1ms latency) with a tiny footprint (122kb)\n- [x] **Battle tested**, with over 10B tokens processed everyday\n- [x] **Enterprise-ready** with enhanced security, scale, and custom deployments\n\n<br>\n\n#### What can you do with the AI Gateway?\n- Integrate with any LLM in under 2 minutes - [Quickstart](#quickstart-2-mins)\n- Prevent downtimes through **[automatic retries](https://portkey.wiki/gh-11)** and **[fallbacks](https://portkey.wiki/gh-12)**\n- Scale AI apps with **[load balancing](https://portkey.wiki/gh-13)** and **[conditional routing](https://portkey.wiki/gh-14)**\n- Protect your AI deployments with **[guardrails](https://portkey.wiki/gh-15)**\n- Go beyond text with **[multi-modal capabilities](https://portkey.wiki/gh-16)**\n- Explore **[agentic workflow](https://portkey.wiki/gh-17)** integrations\n- Manage MCP servers with enterprise auth & observability using **[MCP Gateway](https://portkey.ai/docs/product/mcp-gateway)**\n\n<br><br>\n\n> [!TIP]\n> Starring this repo helps more developers discover the AI Gateway 🙏🏻\n>\n> ![star-2](https://github.com/user-attachments/assets/53597dce-6333-4ecc-a154-eb05532954e4)\n> \n<br>\n\n\n<br>\n\n## Quickstart (2 mins)\n\n### 1. Setup your AI Gateway\n\n```bash\n# Run the gateway locally (needs Node.js and npm)\nnpx @portkey-ai/gateway\n```\n> The Gateway is running on `http://localhost:8787/v1`\n> \n> The Gateway Console is running on `http://localhost:8787/public/`\n\n<sup>\nDeployment guides:\n&nbsp; <a href=\"https://portkey.wiki/gh-18\"><img height=\"12\" width=\"12\" src=\"https://cfassets.portkey.ai/logo/dew-color.svg\" /> Portkey Cloud (Recommended)</a>\n&nbsp; <a href=\"./docs/installation-deployments.md#docker\"><img height=\"12\" width=\"12\" src=\"https://cdn.simpleicons.org/docker/3776AB\" /> Docker</a>\n&nbsp; <a href=\"./docs/installation-deployments.md#nodejs-server\"><img height=\"12\" width=\"12\" src=\"https://cdn.simpleicons.org/node.js/3776AB\" /> Node.js</a>\n&nbsp; <a href=\"./docs/installation-deployments.md#cloudflare-workers\"><img height=\"12\" width=\"12\" src=\"https://cdn.simpleicons.org/cloudflare/3776AB\" /> Cloudflare</a>\n&nbsp; <a href=\"./docs/installation-deployments.md#replit\"><img height=\"12\" width=\"12\" src=\"https://cdn.simpleicons.org/replit/3776AB\" /> Replit</a>\n&nbsp; <a href=\"./docs/installation-deployments.md\"> Others...</a>\n\n</sup>\n\n### 2. Make your first request\n\n<!-- <details open>\n<summary>Python Example</summary> -->\n```python\n# pip install -qU portkey-ai\n\nfrom portkey_ai import Portkey\n\n# OpenAI compatible client\nclient = Portkey(\n    provider=\"openai\", # or 'anthropic', 'bedrock', 'groq', etc\n    Authorization=\"sk-***\" # the provider API key\n)\n\n# Make a request through your AI Gateway\nclient.chat.completions.create(\n    messages=[{\"role\": \"user\", \"content\": \"What's the weather like?\"}],\n    model=\"gpt-4o-mini\"\n)\n```\n\n\n\n<sup>Supported Libraries:\n&nbsp; [<img height=\"12\" width=\"12\" src=\"https://cdn.simpleicons.org/javascript/3776AB\" /> JS](https://portkey.wiki/gh-19)\n&nbsp; [<img height=\"12\" width=\"12\" src=\"https://cdn.simpleicons.org/python/3776AB\" /> Python](https://portkey.wiki/gh-20)\n&nbsp; [<img height=\"12\" width=\"12\" src=\"https://cdn.simpleicons.org/gnubash/3776AB\" /> REST](https://portkey.sh/gh-84)\n&nbsp; [<img height=\"12\" width=\"12\" src=\"https://cdn.simpleicons.org/openai/3776AB\" /> OpenAI SDKs](https://portkey.wiki/gh-21)\n&nbsp; [<img height=\"12\" width=\"12\" src=\"https://cdn.simpleicons.org/langchain/3776AB\" /> Langchain](https://portkey.wiki/gh-22)\n&nbsp; [LlamaIndex](https://portkey.wiki/gh-23)\n&nbsp; [Autogen](https://portkey.wiki/gh-24)\n&nbsp; [CrewAI](https://portkey.wiki/gh-25)\n&nbsp; [More..](https://portkey.wiki/gh-26)\n</sup>\n\nOn the Gateway Console (`http://localhost:8787/public/`) you can see all of your local logs in one place.\n\n<img src=\"https://github.com/user-attachments/assets/362bc916-0fc9-43f1-a39e-4bd71aac4a3a\" width=\"400\" />\n\n\n### 3. Routing & Guardrails\n`Configs` in the LLM gateway allow you to create routing rules, add reliability and setup guardrails.\n```python\nconfig = {\n  \"retry\": {\"attempts\": 5},\n\n  \"output_guardrails\": [{\n    \"default.contains\": {\"operator\": \"none\", \"words\": [\"Apple\"]},\n    \"deny\": True\n  }]\n}\n\n# Attach the config to the client\nclient = client.with_options(config=config)\n\nclient.chat.completions.create(\n    model=\"gpt-4o-mini\",\n    messages=[{\"role\": \"user\", \"content\": \"Reply randomly with Apple or Bat\"}]\n)\n\n# This would always response with \"Bat\" as the guardrail denies all replies containing \"Apple\". The retry config would retry 5 times before giving up.\n```\n<div align=\"center\">\n<img src=\"https://portkey.ai/blog/content/images/size/w1600/2024/11/image-15.png\" width=600 title=\"Request flow through Portkey's AI gateway with retries and guardrails\" alt=\"Request flow through Portkey's AI gateway with retries and guardrails\"/>\n</div>\n\nYou can do a lot more stuff with configs in your AI gateway. [Jump to examples  →](https://portkey.wiki/gh-27)\n\n<br/>\n\n### Enterprise Version (Private deployments)\n\n<sup>\n\n[<img height=\"12\" width=\"12\" src=\"https://cfassets.portkey.ai/amazon-logo.svg\" /> AWS](https://portkey.wiki/gh-28)\n&nbsp; [<img height=\"12\" width=\"12\" src=\"https://cfassets.portkey.ai/azure-logo.svg\" /> Azure](https://portkey.wiki/gh-29)\n&nbsp; [<img height=\"12\" width=\"12\" src=\"https://cdn.simpleicons.org/googlecloud/3776AB\" /> GCP](https://portkey.wiki/gh-30)\n&nbsp; [<img height=\"12\" width=\"12\" src=\"https://cdn.simpleicons.org/redhatopenshift/3776AB\" /> OpenShift](https://portkey.wiki/gh-31)\n&nbsp; [<img height=\"12\" width=\"12\" src=\"https://cdn.simpleicons.org/kubernetes/3776AB\" /> Kubernetes](https://portkey.wiki/gh-85)\n\n</sup>\n\nThe LLM Gateway's [enterprise version](https://portkey.wiki/gh-86) offers advanced capabilities for **org management**, **governance**, **security** and [more](https://portkey.wiki/gh-87) out of the box. [View Feature Comparison →](https://portkey.wiki/gh-32)\n\nThe enterprise deployment architecture for supported platforms is available here - [**Enterprise Private Cloud Deployments**](https://portkey.ai/docs/self-hosting/hybrid-deployments/architecture)\n\n<a href=\"https://portkey.sh/demo-13\"><img src=\"https://portkey.ai/blog/content/images/2024/08/Get-API-Key--5-.png\" height=50 alt=\"Book an enterprise AI gateway demo\" /></a><br/>\n\n<br>\n\n## MCP Gateway\n\n[MCP Gateway](https://portkey.ai/docs/product/mcp-gateway) provides a centralized control plane for managing MCP (Model Context Protocol) servers across your organization.\n\n- **Authentication** — Single auth layer at the gateway. Users authenticate once; your MCP servers receive verified requests\n- **Access Control** — Control which teams and users can access which servers and tools. Revoke access instantly\n- **Observability** — Every tool call logged with full context: who called what, parameters, response, latency\n- **Identity Forwarding** — Forward user identity (email, team, roles) to MCP servers automatically\n\nWorks with Claude Desktop, Cursor, VS Code, and any MCP-compatible client. [Get started →](https://portkey.ai/docs/product/mcp-gateway/quickstart)\n\n<br>\n\n## Core Features\n### Reliable Routing\n- <a href=\"https://portkey.wiki/gh-37\">**Fallbacks**</a>: Fallback to another provider or model on failed requests using the LLM gateway. You can specify the errors on which to trigger the fallback. Improves reliability of your application.\n- <a href=\"https://portkey.wiki/gh-38\">**Automatic Retries**</a>: Automatically retry failed requests up to 5 times. An exponential backoff strategy spaces out retry attempts to prevent network overload.\n- <a href=\"https://portkey.wiki/gh-39\">**Load Balancing**</a>: Distribute LLM requests across multiple API keys or AI providers with weights to ensure high availability and optimal performance.\n- <a href=\"https://portkey.wiki/gh-40\">**Request Timeouts**</a>: Manage unruly LLMs & latencies by setting up granular request timeouts, allowing automatic termination of requests that exceed a specified duration.\n- <a href=\"https://portkey.wiki/gh-41\">**Multi-modal LLM Gateway**</a>: Call vision, audio (text-to-speech & speech-to-text), and image generation models from multiple providers  — all using the familiar OpenAI signature\n- <a href=\"https://portkey.wiki/gh-42\">**Realtime APIs**</a>: Call realtime APIs launched by OpenAI through the integrate websockets server.\n\n### Security & Accuracy\n- <a href=\"https://portkey.wiki/gh-88\">**Guardrails**</a>: Verify your LLM inputs and outputs to adhere to your specified checks. Choose from the 40+ pre-built guardrails to ensure compliance with security and accuracy standards. You can <a href=\"https://portkey.wiki/gh-43\">bring your own guardrails</a> or choose from our <a href=\"https://portkey.wiki/gh-44\">many partners</a>.\n- [**Secure Key Management**](https://portkey.wiki/gh-45): Use your own keys or generate virtual keys on the fly.\n- [**Role-based access control**](https://portkey.wiki/gh-46): Granular access control for your users, workspaces and API keys.\n- <a href=\"https://portkey.wiki/gh-47\">**Compliance & Data Privacy**</a>: The AI gateway is SOC2, HIPAA, GDPR, and CCPA compliant.\n\n### Cost Management\n- [**Smart caching**](https://portkey.wiki/gh-48): Cache responses from LLMs to reduce costs and improve latency. Supports simple and semantic* caching.\n- [**Usage analytics**](https://portkey.wiki/gh-49): Monitor and analyze your AI and LLM usage, including request volume, latency, costs and error rates.\n- [**Provider optimization***](https://portkey.wiki/gh-89): Automatically switch to the most cost-effective provider based on usage patterns and pricing models.\n\n### Collaboration & Workflows\n- <a href=\"https://portkey.ai/docs/integrations/agents\">**Agents Support**</a>: Seamlessly integrate with popular agent frameworks to build complex AI applications. The gateway seamlessly integrates with [Autogen](https://portkey.wiki/gh-50), [CrewAI](https://portkey.wiki/gh-51), [LangChain](https://portkey.wiki/gh-52), [LlamaIndex](https://portkey.wiki/gh-53), [Phidata](https://portkey.wiki/gh-54), [Control Flow](https://portkey.wiki/gh-55), and even [Custom Agents](https://portkey.wiki/gh-56).\n- [**Prompt Template Management***](https://portkey.wiki/gh-57): Create, manage and version your prompt templates collaboratively through a universal prompt playground.\n<br/><br/>\n\n<sup>\n*&nbsp;Available in hosted and enterprise versions\n</sup>\n\n<br>\n\n## Portkey Models\nOpen-source LLM pricing database for 40+ providers - used by the Gateway for cost tracking.\n\n[GitHub](https://github.com/Portkey-AI/models) | [Model Explorer](https://portkey.ai/models)\n\n<br>\n\n## Cookbooks\n\n### ☄️ Trending\n- Use models from [Nvidia NIM](/cookbook/providers/nvidia.ipynb) with AI Gateway\n- Monitor [CrewAI Agents](/cookbook/monitoring-agents/CrewAI_with_Telemetry.ipynb) with Portkey!\n- Comparing [Top 10 LMSYS Models](/cookbook/use-cases/LMSYS%20Series/comparing-top10-LMSYS-models-with-Portkey.ipynb) with AI Gateway.\n\n### 🚨 Latest\n* [Create Synthetic Datasets using Nemotron](/cookbook/use-cases/Nemotron_GPT_Finetuning_Portkey.ipynb)\n* [Use the LLM Gateway with Vercel's AI SDK](/cookbook/integrations/vercel-ai.md)\n* [Monitor Llama Agents with Portkey's LLM Gateway](/cookbook/monitoring-agents/Llama_Agents_with_Telemetry.ipynb)\n\n[View all cookbooks →](https://portkey.wiki/gh-58)\n<br/><br/>\n\n## Supported Providers\n\nExplore Gateway integrations with [45+ providers](https://portkey.wiki/gh-59) and [8+ agent frameworks](https://portkey.wiki/gh-90).\n\n|                                                                                                                            | Provider                                                                                      | Support | Stream |\n| -------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | ------- | ------ |\n| <img src=\"docs/images/openai.png\" width=35 />                                                                              | [OpenAI](https://portkey.wiki/gh-60)                           | ✅       | ✅      |\n| <img src=\"docs/images/azure.png\" width=35>                                                                                 | [Azure OpenAI](https://portkey.wiki/gh-61)               | ✅       | ✅      |\n| <img src=\"docs/images/anyscale.png\" width=35>                                                                              | [Anyscale](https://portkey.wiki/gh-62) | ✅       | ✅      |\n| <img src=\"https://upload.wikimedia.org/wikipedia/commons/2/2d/Google-favicon-2015.png\" width=35>                           | [Google Gemini](https://portkey.wiki/gh-63)             | ✅       | ✅      |\n| <img src=\"docs/images/anthropic.png\" width=35>                                                                             | [Anthropic](https://portkey.wiki/gh-64)                     | ✅       | ✅      |\n| <img src=\"docs/images/cohere.png\" width=35>                                                                                | [Cohere](https://portkey.wiki/gh-65)                           | ✅       | ✅      |\n| <img src=\"https://assets-global.website-files.com/64f6f2c0e3f4c5a91c1e823a/654693d569494912cfc0c0d4_favicon.svg\" width=35> | [Together AI](https://portkey.wiki/gh-66)                 | ✅       | ✅      |\n| <img src=\"https://www.perplexity.ai/favicon.svg\" width=35>                                                                 | [Perplexity](https://portkey.wiki/gh-67)        ",
+        "truncated": true
+      },
+      "url": "https://api.github.com/repos/Portkey-AI/gateway/readme?ref=669825cbe89ee51569918b8f78a9db486fd69dd4",
+      "observedAt": "2026-08-31T14:15:22.440593Z"
+    },
+    "manifest_names": {
+      "status": "observed",
+      "data": [
+        "Dockerfile",
+        "package.json"
+      ],
+      "url": "https://api.github.com/repos/Portkey-AI/gateway/contents?ref=669825cbe89ee51569918b8f78a9db486fd69dd4",
+      "observedAt": "2026-08-31T14:15:23.030781Z"
+    },
+    "file:Dockerfile": {
+      "status": "observed",
+      "data": {
+        "path": "Dockerfile",
+        "sha": "541feeba92e01be5c89de8e16f1462e995a0fe08",
+        "ref": "669825cbe89ee51569918b8f78a9db486fd69dd4",
+        "excerpt": "# Use the official Node.js runtime as a parent image\nFROM node:20-alpine AS build\n\n# Set the working directory in the container\nWORKDIR /app\n\n# Copy package.json and package-lock.json to the working directory\nCOPY package*.json ./\nCOPY patches ./\n\n# Upgrade system packages\nRUN apk upgrade --no-cache\n\n# Upgrade npm to version 10.9.2\nRUN npm install -g npm@10.9.2\n\n# Install app dependencies\nRUN npm install\n\n# Copy the rest of the application code\nCOPY . .\n\n# Build the application and clean up\nRUN npm run build \\\n&& rm -rf node_modules \\\n&& npm install --omit=dev\n\n# Use the official Node.js runtime as a parent image\nFROM node:20-alpine\n\n# Upgrade system packages\nRUN apk upgrade --no-cache\n\n# Upgrade npm to version 10.9.2\nRUN npm install -g npm@10.9.2\n\n# Set the working directory in the container\nWORKDIR /app\n\n# Copy the build directory, node_modules, and package.json to the working directory\nCOPY --from=build /app/build /app/build\nCOPY --from=build /app/node_modules /app/node_modules\nCOPY --from=build /app/package.json /app/package.json\nCOPY --from=build /app/patches /app/patches\n\n# Expose port 8787\nEXPOSE 8787\n\nENTRYPOINT [\"npm\"]\nCMD [\"run\", \"start:node\"]\n",
+        "truncated": false
+      },
+      "url": "https://api.github.com/repos/Portkey-AI/gateway/contents/Dockerfile?ref=669825cbe89ee51569918b8f78a9db486fd69dd4",
+      "observedAt": "2026-08-31T14:15:23.549770Z"
+    },
+    "file:package.json": {
+      "status": "observed",
+      "data": {
+        "path": "package.json",
+        "sha": "30ba6551ba068e1ebf4c192df2fd6a63f0904db7",
+        "ref": "669825cbe89ee51569918b8f78a9db486fd69dd4",
+        "excerpt": "{\n  \"name\": \"@portkey-ai/gateway\",\n  \"version\": \"1.15.2\",\n  \"description\": \"A fast AI gateway by Portkey\",\n  \"repository\": {\n    \"type\": \"git\",\n    \"url\": \"git+https://github.com/Portkey-AI/gateway.git\"\n  },\n  \"keywords\": [\n    \"AI gateway\",\n    \"Portkey\",\n    \"Portkey AI\",\n    \"LLM\",\n    \"OpenAI\"\n  ],\n  \"author\": \"portkey-ai <[EMAIL REDACTED]>\",\n  \"license\": \"MIT\",\n  \"files\": [\n    \"build\",\n    \"README.md\",\n    \"SECURITY.md\",\n    \"LICENSE\",\n    \"build/public\"\n  ],\n  \"scripts\": {\n    \"dev\": \"npm run dev:workerd\",\n    \"dev:node\": \"tsx src/start-server.ts\",\n    \"dev:workerd\": \"wrangler dev src/index.ts\",\n    \"deploy\": \"wrangler deploy --minify src/index.ts\",\n    \"pretty\": \"prettier --write \\\"./**/*.{js,jsx,ts,tsx,json}\\\"\",\n    \"build\": \"rollup -c\",\n    \"build-plugins\": \"tsx plugins/build.ts\",\n    \"prepublishOnly\": \"npm run build\",\n    \"start:node\": \"node build/start-server.js\",\n    \"format\": \"prettier --write \\\"./**/*.{js,jsx,ts,tsx,json}\\\"\",\n    \"format:check\": \"prettier --check \\\"./**/*.{js,jsx,ts,tsx,json}\\\"\",\n    \"test:gateway\": \"jest src/\",\n    \"test:plugins\": \"jest plugins/\",\n    \"pre-push\": \"npm run build && node start-test.js\",\n    \"prepare\": \"node -e \\\"if (process.env.NODE_ENV !== 'production'){process.exit(1)} \\\" || husky\",\n    \"postinstall\": \"patch-package\"\n  },\n  \"dependencies\": {\n    \"@aws-crypto/sha256-js\": \"^5.2.0\",\n    \"@cfworker/json-schema\": \"^4.0.3\",\n    \"@hono/node-server\": \"^1.3.3\",\n    \"@hono/node-ws\": \"^1.2.0\",\n    \"@portkey-ai/mustache\": \"^2.1.3\",\n    \"@smithy/signature-v4\": \"^2.1.1\",\n    \"@types/mustache\": \"^4.2.5\",\n    \"async-retry\": \"^1.3.3\",\n    \"avsc\": \"^5.7.7\",\n    \"ioredis\": \"^5.8.0\",\n    \"hono\": \"^4.9.7\",\n    \"jose\": \"^6.0.11\",\n    \"patch-package\": \"^8.0.1\",\n    \"ws\": \"^8.18.0\",\n    \"zod\": \"^3.22.4\"\n  },\n  \"devDependencies\": {\n    \"@cloudflare/workers-types\": \"^4.20230518.0\",\n    \"@rollup/plugin-json\": \"^6.1.0\",\n    \"@rollup/plugin-terser\": \"^0.4.4\",\n    \"@rollup/plugin-typescript\": \"^11.1.5\",\n    \"@types/async-retry\": \"^1.4.5\",\n    \"@types/jest\": \"^29.5.12\",\n    \"@types/node\": \"20.8.3\",\n    \"@types/ws\": \"^8.5.12\",\n    \"husky\": \"^9.1.4\",\n    \"jest\": \"^29.7.0\",\n    \"portkey-ai\": \"^1.9.1\",\n    \"prettier\": \"3.2.5\",\n    \"rollup\": \"^4.9.1\",\n    \"rollup-plugin-copy\": \"^3.5.0\",\n    \"ts-jest\": \"^29.2.4\",\n    \"tsx\": \"^4.7.0\",\n    \"typescript-eslint\": \"^8.1.0\",\n    \"wrangler\": \"^3.97.0\"\n  },\n  \"bin\": \"build/start-server.js\",\n  \"type\": \"module\"\n}\n",
+        "truncated": false
+      },
+      "url": "https://api.github.com/repos/Portkey-AI/gateway/contents/package.json?ref=669825cbe89ee51569918b8f78a9db486fd69dd4",
+      "observedAt": "2026-08-31T14:15:24.042027Z"
+    },
+    "release": {
+      "status": "observed",
+      "data": {
+        "publishedAt": "2026-01-12T08:46:07Z",
+        "tag": "v1.15.2"
+      },
+      "url": "https://api.github.com/repos/Portkey-AI/gateway/releases/latest",
+      "observedAt": "2026-08-31T14:15:24.574585Z"
+    }
+  },
+  "manifestEvidenceTruncated": false,
+  "values": {
+    "id": "gh-pending:portkey-ai/gateway",
+    "sourceRecordIds": [
+      "gh-pending:portkey-ai/gateway"
+    ],
+    "catalogStatus": "candidate",
+    "githubRepositoryId": 682080300,
+    "fullName": "Portkey-AI/gateway",
+    "url": "https://github.com/Portkey-AI/gateway",
+    "stars": 12864,
+    "forks": 1276,
+    "watchers": 60,
+    "sizeKb": 67695,
+    "archived": false,
+    "isFork": false,
+    "disabled": false,
+    "visibility": "public",
+    "defaultBranch": "main",
+    "language": "TypeScript",
+    "description": "A blazing fast AI Gateway with integrated guardrails. Route to 1,600+ LLMs, 50+ AI Guardrails with 1 fast & friendly API.",
+    "topics": [
+      "ai-gateway",
+      "gateway",
+      "generative-ai",
+      "hacktoberfest",
+      "langchain",
+      "llm",
+      "llm-gateway",
+      "llmops",
+      "llms",
+      "mcp",
+      "mcp-client",
+      "mcp-gateway",
+      "mcp-servers",
+      "model-router",
+      "openai"
+    ],
+    "homepage": "https://portkey.ai/features/ai-gateway",
+    "activity.createdAt": "2023-08-23T11:52:47Z",
+    "activity.updatedAt": "2026-08-31T13:20:03Z",
+    "activity.pushedAt": "2026-05-25T13:54:51Z",
+    "license.spdx": "MIT",
+    "license.name": "MIT License",
+    "license.source": "https://api.github.com/licenses/mit",
+    "aliases": [],
+    "identityStatus": "resolved",
+    "availability": "available",
+    "watchersScope": "subscribers_count",
+    "license.confidence": "source_reported",
+    "catalogDescription": "An AI gateway with a unified provider API, routing, retries, fallbacks and guardrail configuration, with Node.js and container deployment options.",
+    "descriptionOrigin": "curator_summary",
+    "activity.observedAt": "2026-08-31T14:15:20.609166Z",
+    "languages": {
+      "TypeScript": 2084298,
+      "HTML": 81138,
+      "JavaScript": 8350,
+      "Dockerfile": 1172
+    },
+    "activity.lastCommitAt": "2026-05-25T13:54:51Z",
+    "activity.lastCommitSha": "669825cbe89ee51569918b8f78a9db486fd69dd4",
+    "activity.lastCommitBranch": "main",
+    "activity.lastReleaseAt": "2026-01-12T08:46:07Z",
+    "reviewStatus": "reviewed",
+    "primaryCategory": "llm_gateways_routing_caching",
+    "secondaryCategories": [],
+    "stack": [
+      {
+        "technology": "TypeScript",
+        "evidenceRefs": [
+          "languages",
+          "file:package.json"
+        ]
+      },
+      {
+        "technology": "Node.js",
+        "evidenceRefs": [
+          "readme",
+          "file:Dockerfile",
+          "file:package.json"
+        ]
+      },
+      {
+        "technology": "Hono",
+        "evidenceRefs": [
+          "file:package.json"
+        ]
+      },
+      {
+        "technology": "Docker (deployment)",
+        "evidenceRefs": [
+          "file:Dockerfile"
+        ]
+      },
+      {
+        "technology": "Wrangler (optional Workers deployment)",
+        "evidenceRefs": [
+          "file:package.json",
+          "readme"
+        ]
+      }
+    ],
+    "recommendation.whyRecommended": "A functionally relevant replacement for the excluded gateway: public MIT-reported project with documented routing, fallback and guardrail configuration; observed Stars exceed the strict threshold.",
+    "recommendation.bestFor": "Teams comparing a self-deployed Node.js or container gateway for routing requests across model providers through a common API.",
+    "recommendation.tradeoffs": "The README mixes open-source and enterprise capabilities and labels the 2.0 branch pre-release; this review uses the observed main commit. Provider credentials, configuration security and integration behavior require separate checks. README speed, model-count and enterprise-readiness claims were not independently verified.",
+    "recommendation.adoption_status": "inspect_and_compare_before_integration",
+    "recommendation.role": "Model-provider API gateway and routing layer.",
+    "form": {
+      "value": "application",
+      "rationale": "README and package entry point document an independently running gateway."
+    },
+    "deployment": {
+      "value": [
+        "Node.js",
+        "Docker",
+        "Cloudflare Workers"
+      ],
+      "rationale": "README names all three; package scripts and Dockerfile provide source evidence."
+    },
+    "hosting": {
+      "value": "self-deployed; separate hosted offering described",
+      "rationale": "README provides local deployment and links a distinct hosted gateway."
+    },
+    "persona": {
+      "value": "developers operating multi-provider LLM applications",
+      "rationale": "Documented API routing, retries, fallback and local deployment."
+    },
+    "activity.status": "metadata_observed",
+    "provenance": {
+      "inputSha256": "17d43dc4bbd4b71521746d413f3de57a4881fad1ff497dff86fc7b83a13e80f4",
+      "apiVersion": "2026-03-10",
+      "sourceId": "gh-pending:portkey-ai/gateway"
+    },
+    "evidenceCompleteness": 100.0,
+    "eligibility": {
+      "dataGatePassed": true,
+      "reasons": [],
+      "minimumStars": 500,
+      "replacementRequired": false,
+      "catalogAcceptanceChanged": false,
+      "globalCAT07Applied": false
+    },
+    "fieldObservations": [
+      {
+        "field": "id",
+        "status": "observed",
+        "evidenceRefs": [
+          "frozen_input"
+        ],
+        "observedAt": "2026-08-31T14:14:59.888468Z"
+      },
+      {
+        "field": "sourceRecordIds",
+        "status": "observed",
+        "evidenceRefs": [
+          "frozen_input"
+        ],
+        "observedAt": "2026-08-31T14:14:59.888468Z"
+      },
+      {
+        "field": "githubRepositoryId",
+        "status": "observed",
+        "evidenceRefs": [
+          "metadata"
+        ],
+        "observedAt": "2026-08-31T14:15:20.609166Z"
+      },
+      {
+        "field": "fullName",
+        "status": "observed",
+        "evidenceRefs": [
+          "metadata"
+        ],
+        "observedAt": "2026-08-31T14:15:20.609166Z"
+      },
+      {
+        "field": "url",
+        "status": "observed",
+        "evidenceRefs": [
+          "metadata"
+        ],
+        "observedAt": "2026-08-31T14:15:20.609166Z"
+      },
+      {
+        "field": "aliases",
+        "status": "derived_reviewed",
+        "evidenceRefs": [
+          "metadata"
+        ],
+        "observedAt": "2026-08-31T14:15:20.609166Z"
+      },
+      {
+        "field": "identityStatus",
+        "status": "derived_reviewed",
+        "evidenceRefs": [
+          "metadata"
+        ],
+        "observedAt": "2026-08-31T14:15:20.609166Z"
+      },
+      {
+        "field": "availability",
+        "status": "observed",
+        "evidenceRefs": [
+          "metadata"
+        ],
+        "observedAt": "2026-08-31T14:15:20.609166Z"
+      },
+      {
+        "field": "stars",
+        "status": "observed",
+        "evidenceRefs": [
+          "metadata"
+        ],
+        "observedAt": "2026-08-31T14:15:20.609166Z"
+      },
+      {
+        "field": "forks",
+        "status": "observed",
+        "evidenceRefs": [
+          "metadata"
+        ],
+        "observedAt": "2026-08-31T14:15:20.609166Z"
+      },
+      {
+        "field": "watchers",
+        "status": "observed",
+        "evidenceRefs": [
+          "metadata"
+        ],
+        "observedAt": "2026-08-31T14:15:20.609166Z"
+      },
+      {
+        "field": "sizeKb",
+        "status": "observed",
+        "evidenceRefs": [
+          "metadata"
+        ],
+        "observedAt": "2026-08-31T14:15:20.609166Z"
+      },
+      {
+        "field": "watchersScope",
+        "status": "derived_reviewed",
+        "evidenceRefs": [
+          "metadata"
+        ],
+        "observedAt": "2026-08-31T14:15:20.609166Z"
+      },
+      {
+        "field": "archived",
+        "status": "observed",
+        "evidenceRefs": [
+          "metadata"
+        ],
+        "observedAt": "2026-08-31T14:15:20.609166Z"
+      },
+      {
+        "field": "isFork",
+        "status": "observed",
+        "evidenceRefs": [
+          "metadata"
+        ],
+        "observedAt": "2026-08-31T14:15:20.609166Z"
+      },
+      {
+        "field": "disabled",
+        "status": "observed",
+        "evidenceRefs": [
+          "metadata"
+        ],
+        "observedAt": "2026-08-31T14:15:20.609166Z"
+      },
+      {
+        "field": "visibility",
+        "status": "observed",
+        "evidenceRefs": [
+          "metadata"
+        ],
+        "observedAt": "2026-08-31T14:15:20.609166Z"
+      },
+      {
+        "field": "defaultBranch",
+        "status": "observed",
+        "evidenceRefs": [
+          "metadata"
+        ],
+        "observedAt": "2026-08-31T14:15:20.609166Z"
+      },
+      {
+        "field": "language",
+        "status": "observed",
+        "evidenceRefs": [
+          "metadata"
+        ],
+        "observedAt": "2026-08-31T14:15:20.609166Z"
+      },
+      {
+        "field": "languages",
+        "status": "observed",
+        "evidenceRefs": [
+          "languages"
+        ],
+        "observedAt": "2026-08-31T14:15:21.130655Z"
+      },
+      {
+        "field": "stack",
+        "status": "derived_reviewed",
+        "evidenceRefs": [
+          "languages",
+          "readme",
+          "file:package.json",
+          "file:Dockerfile"
+        ],
+        "observedAt": "2026-08-31T14:15:21.130655Z"
+      },
+      {
+        "field": "description",
+        "status": "observed",
+        "evidenceRefs": [
+          "metadata"
+        ],
+        "observedAt": "2026-08-31T14:15:20.609166Z"
+      },
+      {
+        "field": "catalogDescription",
+        "status": "derived_reviewed",
+        "evidenceRefs": [
+          "readme"
+        ],
+        "observedAt": "2026-08-31T14:15:22.440593Z"
+      },
+      {
+        "field": "descriptionOrigin",
+        "status": "derived_reviewed",
+        "evidenceRefs": [
+          "readme"
+        ],
+        "observedAt": "2026-08-31T14:15:22.440593Z"
+      },
+      {
+        "field": "topics",
+        "status": "observed",
+        "evidenceRefs": [
+          "metadata"
+        ],
+        "observedAt": "2026-08-31T14:15:20.609166Z"
+      },
+      {
+        "field": "homepage",
+        "status": "observed",
+        "evidenceRefs": [
+          "metadata"
+        ],
+        "observedAt": "2026-08-31T14:15:20.609166Z"
+      },
+      {
+        "field": "license.spdx",
+        "status": "observed",
+        "evidenceRefs": [
+          "metadata"
+        ],
+        "observedAt": "2026-08-31T14:15:20.609166Z"
+      },
+      {
+        "field": "license.name",
+        "status": "observed",
+        "evidenceRefs": [
+          "metadata"
+        ],
+        "observedAt": "2026-08-31T14:15:20.609166Z"
+      },
+      {
+        "field": "license.source",
+        "status": "observed",
+        "evidenceRefs": [
+          "metadata"
+        ],
+        "observedAt": "2026-08-31T14:15:20.609166Z"
+      },
+      {
+        "field": "license.confidence",
+        "status": "derived_reviewed",
+        "evidenceRefs": [
+          "metadata"
+        ],
+        "observedAt": "2026-08-31T14:15:20.609166Z"
+      },
+      {
+        "field": "activity.createdAt",
+        "status": "observed",
+        "evidenceRefs": [
+          "metadata"
+        ],
+        "observedAt": "2026-08-31T14:15:20.609166Z"
+      },
+      {
+        "field": "activity.updatedAt",
+        "status": "observed",
+        "evidenceRefs": [
+          "metadata"
+        ],
+        "observedAt": "2026-08-31T14:15:20.609166Z"
+      },
+      {
+        "field": "activity.pushedAt",
+        "status": "observed",
+        "evidenceRefs": [
+          "metadata"
+        ],
+        "observedAt": "2026-08-31T14:15:20.609166Z"
+      },
+      {
+        "field": "activity.lastCommitAt",
+        "status": "observed",
+        "evidenceRefs": [
+          "head_commit"
+        ],
+        "observedAt": "2026-08-31T14:15:21.802940Z"
+      },
+      {
+        "field": "activity.lastCommitSha",
+        "status": "observed",
+        "evidenceRefs": [
+          "head_commit"
+        ],
+        "observedAt": "2026-08-31T14:15:21.802940Z"
+      },
+      {
+        "field": "activity.lastCommitBranch",
+        "status": "observed",
+        "evidenceRefs": [
+          "head_commit"
+        ],
+        "observedAt": "2026-08-31T14:15:21.802940Z"
+      },
+      {
+        "field": "activity.lastReleaseAt",
+        "status": "observed",
+        "evidenceRefs": [
+          "release"
+        ],
+        "observedAt": "2026-08-31T14:15:24.574585Z"
+      },
+      {
+        "field": "activity.commitsTotal",
+        "status": "not_attempted",
+        "reason": "not_collected_or_not_reviewed"
+      },
+      {
+        "field": "activity.commits12m",
+        "status": "not_attempted",
+        "reason": "not_collected_or_not_reviewed"
+      },
+      {
+        "field": "activity.committersTotal",
+        "status": "not_attempted",
+        "reason": "not_collected_or_not_reviewed"
+      },
+      {
+        "field": "activity.issuesTotal",
+        "status": "not_attempted",
+        "reason": "not_collected_or_not_reviewed"
+      },
+      {
+        "field": "activity.issues12m",
+        "status": "not_attempted",
+        "reason": "not_collected_or_not_reviewed"
+      },
+      {
+        "field": "activity.openIssues",
+        "status": "not_attempted",
+        "reason": "not_collected_or_not_reviewed"
+      },
+      {
+        "field": "activity.pullRequestsTotal",
+        "status": "not_attempted",
+        "reason": "not_collected_or_not_reviewed"
+      },
+      {
+        "field": "activity.openPullRequests",
+        "status": "not_attempted",
+        "reason": "not_collected_or_not_reviewed"
+      },
+      {
+        "field": "activity.activityBand",
+        "status": "not_attempted",
+        "reason": "not_collected_or_not_reviewed"
+      },
+      {
+        "field": "activity.status",
+        "status": "derived_reviewed",
+        "evidenceRefs": [
+          "metadata"
+        ],
+        "observedAt": "2026-08-31T14:15:20.609166Z"
+      },
+      {
+        "field": "activity.observedAt",
+        "status": "observed",
+        "evidenceRefs": [
+          "metadata"
+        ],
+        "observedAt": "2026-08-31T14:15:20.609166Z"
+      },
+      {
+        "field": "activity.sources",
+        "status": "not_attempted",
+        "reason": "not_collected_or_not_reviewed"
+      },
+      {
+        "field": "catalogStatus",
+        "status": "observed",
+        "evidenceRefs": [
+          "frozen_input"
+        ],
+        "observedAt": "2026-08-31T14:14:59.888468Z"
+      },
+      {
+        "field": "reviewStatus",
+        "status": "derived_reviewed",
+        "evidenceRefs": [
+          "readme"
+        ],
+        "observedAt": "2026-08-31T14:15:22.440593Z"
+      },
+      {
+        "field": "primaryCategory",
+        "status": "derived_reviewed",
+        "evidenceRefs": [
+          "readme"
+        ],
+        "observedAt": "2026-08-31T14:15:22.440593Z"
+      },
+      {
+        "field": "secondaryCategories",
+        "status": "derived_reviewed",
+        "evidenceRefs": [
+          "readme"
+        ],
+        "observedAt": "2026-08-31T14:15:22.440593Z"
+      },
+      {
+        "field": "facets",
+        "status": "not_attempted",
+        "reason": "not_collected_or_not_reviewed"
+      },
+      {
+        "field": "form",
+        "status": "derived_reviewed",
+        "evidenceRefs": [
+          "readme"
+        ],
+        "observedAt": "2026-08-31T14:15:22.440593Z"
+      },
+      {
+        "field": "deployment",
+        "status": "derived_reviewed",
+        "evidenceRefs": [
+          "readme",
+          "file:package.json",
+          "file:Dockerfile"
+        ],
+        "observedAt": "2026-08-31T14:15:22.440593Z"
+      },
+      {
+        "field": "hosting",
+        "status": "derived_reviewed",
+        "evidenceRefs": [
+          "readme"
+        ],
+        "observedAt": "2026-08-31T14:15:22.440593Z"
+      },
+      {
+        "field": "difficulty",
+        "status": "not_attempted",
+        "reason": "not_collected_or_not_reviewed"
+      },
+      {
+        "field": "persona",
+        "status": "derived_reviewed",
+        "evidenceRefs": [
+          "readme"
+        ],
+        "observedAt": "2026-08-31T14:15:22.440593Z"
+      },
+      {
+        "field": "lifecycle",
+        "status": "not_attempted",
+        "reason": "not_collected_or_not_reviewed"
+      },
+      {
+        "field": "maturity",
+        "status": "not_attempted",
+        "reason": "not_collected_or_not_reviewed"
+      },
+      {
+        "field": "recommendation.whyRecommended",
+        "status": "derived_reviewed",
+        "evidenceRefs": [
+          "metadata",
+          "readme"
+        ],
+        "observedAt": "2026-08-31T14:15:20.609166Z"
+      },
+      {
+        "field": "recommendation.bestFor",
+        "status": "derived_reviewed",
+        "evidenceRefs": [
+          "readme"
+        ],
+        "observedAt": "2026-08-31T14:15:22.440593Z"
+      },
+      {
+        "field": "recommendation.tradeoffs",
+        "status": "derived_reviewed",
+        "evidenceRefs": [
+          "readme"
+        ],
+        "observedAt": "2026-08-31T14:15:22.440593Z"
+      },
+      {
+        "field": "recommendation.role",
+        "status": "derived_reviewed",
+        "evidenceRefs": [
+          "readme"
+        ],
+        "observedAt": "2026-08-31T14:15:22.440593Z"
+      },
+      {
+        "field": "recommendation.adoption_status",
+        "status": "derived_reviewed",
+        "evidenceRefs": [
+          "readme"
+        ],
+        "observedAt": "2026-08-31T14:15:22.440593Z"
+      },
+      {
+        "field": "recommendation.selection_signals",
+        "status": "not_attempted",
+        "reason": "not_collected_or_not_reviewed"
+      },
+      {
+        "field": "fieldObservations",
+        "status": "derived_reviewed",
+        "evidenceRefs": [
+          "blocks"
+        ]
+      },
+      {
+        "field": "evidenceCompleteness",
+        "status": "derived_reviewed",
+        "evidenceRefs": [
+          "field_contract"
+        ],
+        "observedAt": "2026-08-31T14:14:59.888468Z"
+      },
+      {
+        "field": "eligibility",
+        "status": "derived_reviewed",
+        "evidenceRefs": [
+          "field_contract"
+        ],
+        "observedAt": "2026-08-31T14:14:59.888468Z"
+      },
+      {
+        "field": "provenance",
+        "status": "derived_reviewed",
+        "evidenceRefs": [
+          "frozen_input"
+        ],
+        "observedAt": "2026-08-31T14:14:59.888468Z"
+      }
+    ]
+  },
+  "missingMandatory": [],
+  "status": "complete_card",
+  "curation": {
+    "sourceId": "gh-pending:portkey-ai/gateway",
+    "reviewedAt": "2026-08-31T14:17:08.301602Z",
+    "fields": {
+      "reviewStatus": "reviewed",
+      "primaryCategory": "llm_gateways_routing_caching",
+      "secondaryCategories": [],
+      "catalogDescription": "An AI gateway with a unified provider API, routing, retries, fallbacks and guardrail configuration, with Node.js and container deployment options.",
+      "descriptionOrigin": "curator_summary",
+      "stack": [
+        {
+          "technology": "TypeScript",
+          "evidenceRefs": [
+            "languages",
+            "file:package.json"
+          ]
+        },
+        {
+          "technology": "Node.js",
+          "evidenceRefs": [
+            "readme",
+            "file:Dockerfile",
+            "file:package.json"
+          ]
+        },
+        {
+          "technology": "Hono",
+          "evidenceRefs": [
+            "file:package.json"
+          ]
+        },
+        {
+          "technology": "Docker (deployment)",
+          "evidenceRefs": [
+            "file:Dockerfile"
+          ]
+        },
+        {
+          "technology": "Wrangler (optional Workers deployment)",
+          "evidenceRefs": [
+            "file:package.json",
+            "readme"
+          ]
+        }
+      ],
+      "recommendation.whyRecommended": "A functionally relevant replacement for the excluded gateway: public MIT-reported project with documented routing, fallback and guardrail configuration; observed Stars exceed the strict threshold.",
+      "recommendation.bestFor": "Teams comparing a self-deployed Node.js or container gateway for routing requests across model providers through a common API.",
+      "recommendation.tradeoffs": "The README mixes open-source and enterprise capabilities and labels the 2.0 branch pre-release; this review uses the observed main commit. Provider credentials, configuration security and integration behavior require separate checks. README speed, model-count and enterprise-readiness claims were not independently verified.",
+      "recommendation.adoption_status": "inspect_and_compare_before_integration",
+      "recommendation.role": "Model-provider API gateway and routing layer.",
+      "form": {
+        "value": "application",
+        "rationale": "README and package entry point document an independently running gateway."
+      },
+      "deployment": {
+        "value": [
+          "Node.js",
+          "Docker",
+          "Cloudflare Workers"
+        ],
+        "rationale": "README names all three; package scripts and Dockerfile provide source evidence."
+      },
+      "hosting": {
+        "value": "self-deployed; separate hosted offering described",
+        "rationale": "README provides local deployment and links a distinct hosted gateway."
+      },
+      "persona": {
+        "value": "developers operating multi-provider LLM applications",
+        "rationale": "Documented API routing, retries, fallback and local deployment."
+      }
+    },
+    "evidenceRefs": {
+      "reviewStatus": [
+        "readme"
+      ],
+      "primaryCategory": [
+        "readme"
+      ],
+      "secondaryCategories": [
+        "readme"
+      ],
+      "catalogDescription": [
+        "readme"
+      ],
+      "descriptionOrigin": [
+        "readme"
+      ],
+      "stack": [
+        "languages",
+        "readme",
+        "file:package.json",
+        "file:Dockerfile"
+      ],
+      "recommendation.whyRecommended": [
+        "metadata",
+        "readme"
+      ],
+      "recommendation.bestFor": [
+        "readme"
+      ],
+      "recommendation.tradeoffs": [
+        "readme"
+      ],
+      "recommendation.adoption_status": [
+        "readme"
+      ],
+      "recommendation.role": [
+        "readme"
+      ],
+      "form": [
+        "readme"
+      ],
+      "deployment": [
+        "readme",
+        "file:package.json",
+        "file:Dockerfile"
+      ],
+      "hosting": [
+        "readme"
+      ],
+      "persona": [
+        "readme"
+      ]
+    }
+  }
+}

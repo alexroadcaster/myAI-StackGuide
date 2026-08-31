@@ -1,7 +1,8 @@
 # Local catalog contract and taxonomy compatibility
 
 CP-03 contract version: `1.0.0`. This is a source-owned projection of the
-current v5 manifest, not a new category system or catalog refresh.
+current catalog manifest. The 2026-08-31 owner-authorized taxonomy migration
+updates the projection to taxonomy v2; it is not a GitHub metadata refresh.
 
 ## Taxonomy ownership
 
@@ -9,11 +10,15 @@ current v5 manifest, not a new category system or catalog refresh.
 JSON-compatible YAML 1.2 subset so a JSON parser can read it without PyYAML.
 Every category preserves `key` as `id`, `title` as `label`, and `layer` exactly.
 The file records the actual source-byte SHA-256 and snapshot date. Current
-categories are flat: `parent_id=null` and `aliases=[]`; a hierarchy or alias
-must not be inferred from labels, layers or legacy generated categories.
+categories use explicit source-owned `parentId` and `kind` values: 111 thematic
+leaves, 14 navigation containers and one review queue. The local projection
+exposes these as `parent_id` and `kind`; aliases remain empty. Do not infer
+additional hierarchy or aliases from labels or legacy generated categories.
 
-Each card has one existing primary category and zero or more distinct secondary
-categories. Primary cannot also be secondary. Unknown keys fail validation;
+Each card has one existing assignable primary category and zero or more distinct
+secondary leaves. Navigation containers cannot be card assignments. The review
+queue preserves unresolved input but does not pass classification eligibility.
+Primary cannot also be secondary. Unknown keys fail validation;
 they are not silently replaced with a superficially similar label. Category
 changes belong in the source manifest first, followed by an explicit projection
 update, reference migration and parity check. Retired IDs need a reviewed mapping;

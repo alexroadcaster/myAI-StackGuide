@@ -58,7 +58,7 @@ def validate_payload(payload: dict[str, Any]) -> None:
     missing = REQUIRED_TOP_LEVEL_FIELDS - payload.keys()
     if missing:
         raise CatalogContractError(f"missing top-level fields: {sorted(missing)}")
-    if payload["schemaVersion"] != "5.0-full-refresh":
+    if payload["schemaVersion"] not in {"5.0-full-refresh", "5.1-taxonomy-v2"}:
         raise CatalogContractError("unsupported schemaVersion")
 
     repositories = payload["repositories"]
@@ -122,6 +122,53 @@ def validate_payload(payload: dict[str, Any]) -> None:
     )
     if unknown_placement_categories:
         raise CatalogContractError(f"placements reference unknown categories: {unknown_placement_categories}")
+
+    if payload['schemaVersion'] == '5.1-taxonomy-v2':
+        by_category = {c['key']: c for c in categories}
+        by_name = {r['fullName'].casefold(): r for r in repositories}
+        by_id = {r['id']: r for r in repositories}
+        declared = set()
+        for repository in repositories:
+            assigned = [repository['primaryCategory'], *repository.get('secondaryCategories', [])]
+            _require_unique(assigned, 'primary/secondary categories')
+            if any(by_category[k].get('kind') == 'container' for k in assigned):
+                raise CatalogContractError('repository assigned to a navigation container')
+            declared.update((repository['id'], k) for k in assigned)
+        if any(p['repoKey'].casefold() not in by_name for p in placements):
+            raise CatalogContractError('placement references unknown repository')
+        actual = {(by_name[p['repoKey'].casefold()]['id'], p['categoryKey']) for p in placements}
+        if actual != declared:
+            raise CatalogContractError('placement/declaration mismatch')
+        memberships = set()
+        for category in categories:
+            if category.get('kind') not in {'category','container','review_bucket'}:
+                raise CatalogContractError('unknown taxonomy node kind')
+            _require_unique(category['repoIds'], 'category membership ids')
+            if any(i not in by_id for i in category['repoIds']):
+                raise CatalogContractError('category references unknown repository')
+            memberships.update((i, category['key']) for i in category['repoIds'])
+            seen = {category['key']}
+            parent = category.get('parentId')
+            while parent is not None:
+                if parent not in by_category or parent in seen:
+                    raise CatalogContractError('unknown or cyclic category parent')
+                if by_category[parent].get('kind') != 'container':
+                    raise CatalogContractError('category parent must be a container')
+                seen.add(parent)
+                parent = by_category[parent].get('parentId')
+            if category.get('kind') == 'container':
+                if category['repoIds']:
+                    raise CatalogContractError('container has direct repository memberships')
+                children = {c['key'] for c in categories if c.get('parentId') == category['key']}
+                expected = {i for i,k in declared if k in children}
+                descendants = category.get('descendantRepoIds', [])
+                if len(descendants) != len(set(descendants)) or set(descendants) != expected:
+                    raise CatalogContractError('container descendant union mismatch')
+        if memberships != declared:
+            raise CatalogContractError('category membership/declaration mismatch')
+        for case in payload['useCases']:
+            if any(k not in by_category or by_category[k]['kind'] == 'container' for k in case['categories']):
+                raise CatalogContractError('use case references unknown or container category')
 
     repo_id_set = set(repo_ids)
     for index, edge in enumerate(compatibility):
@@ -230,7 +277,7 @@ def main() -> None:
 
     payload = load_manifest()
     expected = page(payload)
-    actual = OUTPUT.read_text(encoding="utf-8") if OUTPUT.exists() else None
+    actual = OUTPUT.read_bytes().decode("utf-8") if OUTPUT.exists() else None
     status = output_status(expected, actual, payload)
 
     if args.validate_only:

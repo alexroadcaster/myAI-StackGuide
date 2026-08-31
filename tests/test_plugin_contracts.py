@@ -180,7 +180,7 @@ ACTIVITY_FIELDS = {'createdAt': 'repository_created_at', 'pushedAt': 'repository
 
 def check_card(card):
     require(card['url'] == 'https://github.com/' + card['full_name'], 'repository URL identity')
-    categories = {item['id'] for item in TAXONOMY['categories']}
+    categories = {item['id'] for item in TAXONOMY['categories'] if item.get('kind') != 'container'}
     require(card['primary_category'] in categories and
             set(card['secondary_categories']) <= categories, 'unknown taxonomy category')
     require(card['primary_category'] not in card['secondary_categories'], 'duplicate primary category')
@@ -953,7 +953,7 @@ class SemanticContracts(unittest.TestCase):
         manifest = load(TAXONOMY['source_ref'])
         self.assertEqual(TAXONOMY['source_sha256'], hashlib.sha256((ROOT / TAXONOMY['source_ref']).read_bytes()).hexdigest())
         self.assertEqual(TAXONOMY['source_snapshot'], manifest['snapshot'])
-        self.assertEqual(TAXONOMY['categories'], [{'id': item['key'], 'label': item['title'], 'layer': item['layer'], 'parent_id': None, 'aliases': []} for item in manifest['categories']])
+        self.assertEqual(TAXONOMY['categories'], [{'id': item['key'], 'label': item['title'], 'layer': item['layer'], 'parent_id': item.get('parentId'), 'aliases': item.get('aliases', []), 'kind': item.get('kind', 'category')} for item in manifest['categories']])
         unique([item['id'] for item in TAXONOMY['categories']], 'taxonomy identifier')
 
     def test_scan_exclusion_examples(self):

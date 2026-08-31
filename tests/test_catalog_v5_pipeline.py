@@ -44,10 +44,36 @@ class CatalogV5PipelineTests(unittest.TestCase):
         self.assertEqual(len(repository_names), len(set(repository_names)))
         self.assertEqual(len(category_keys), len(set(category_keys)))
 
-    def test_preserved_unresolved_placement_keys_are_explicit(self):
+    def test_all_migrated_placements_resolve(self):
         warnings = self.builder.integrity_warnings(self.payload)
-        self.assertEqual(warnings["unresolvedPlacementCount"], 18)
-        self.assertEqual(len(warnings["unresolvedPlacementRepositoryKeys"]), 14)
+        self.assertEqual(warnings["unresolvedPlacementCount"], 0)
+        self.assertEqual(warnings["unresolvedPlacementRepositoryKeys"], [])
+
+    def test_container_primary_is_rejected(self):
+        payload = copy.deepcopy(self.payload)
+        payload['repositories'][0]['primaryCategory'] = 'frontend_frameworks_ui'
+        with self.assertRaisesRegex(self.builder.CatalogContractError, 'navigation container'):
+            self.builder.validate_payload(payload)
+
+    def test_parent_union_drift_is_rejected(self):
+        payload = copy.deepcopy(self.payload)
+        parent = next(c for c in payload['categories'] if c['kind'] == 'container')
+        parent['descendantRepoIds'].pop()
+        with self.assertRaisesRegex(self.builder.CatalogContractError, 'descendant union mismatch'):
+            self.builder.validate_payload(payload)
+
+    def test_membership_drift_is_rejected(self):
+        payload = copy.deepcopy(self.payload)
+        category = next(c for c in payload['categories'] if c['repoIds'])
+        category['repoIds'].pop()
+        with self.assertRaisesRegex(self.builder.CatalogContractError, 'membership/declaration mismatch'):
+            self.builder.validate_payload(payload)
+
+    def test_unknown_use_case_category_is_rejected(self):
+        payload = copy.deepcopy(self.payload)
+        payload['useCases'][0]['categories'].append('local_llm_inference_routing')
+        with self.assertRaisesRegex(self.builder.CatalogContractError, 'use case references'):
+            self.builder.validate_payload(payload)
 
     def test_duplicate_repository_identity_is_rejected(self):
         payload = copy.deepcopy(self.payload)
@@ -69,7 +95,7 @@ class CatalogV5PipelineTests(unittest.TestCase):
 
     def test_generated_html_matches_checked_in_artifact_exactly(self):
         expected = self.builder.page(self.payload)
-        actual = self.builder.OUTPUT.read_text(encoding="utf-8")
+        actual = self.builder.OUTPUT.read_bytes().decode("utf-8")
         self.assertEqual(expected, actual)
 
     def test_generated_outputs_live_under_docs(self):
