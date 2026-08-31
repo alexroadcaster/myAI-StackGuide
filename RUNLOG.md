@@ -697,3 +697,95 @@ git -c core.safecrlf=false diff --check
 - Rollback uses this revision's preserved starting document bytes/diff and keeps the owner's pre-existing CP-01/02 work. No runtime/service rollback, automatic deletion, publication or permission change is needed.
 
 Documentation closeout recorded at 2026-08-31 08:09:38 Europe/Moscow.
+
+## CP-03 Local Contracts — 2026-08-31
+
+User assignment: implement CP-03. Starting worktree was clean. Primary worked sequentially as contract architect, test author and documentation owner with explicit self-review; no subagents or protected agent/skill/config changes. Applied design-context-contracts, design-catalog-contracts, design-recommendation-evals, audit-readonly-boundaries and maintain-control-plane. No index/runtime, installation, Git mutation or external write was performed.
+
+### Delivered Scope
+
+- Twenty Draft 2020-12 schemas implement the exact local C1-C6/C9 registry: intake, scanner, minimized context/corrections, cards/activity/eligibility, query/results/evidence/index manifest, recommendation/integration and local state.
+- Source-aligned taxonomy/rules, scan policy/exclusions and FTS5 policy add seven non-schema files including the test module and fixture file: 27 registered additions in total. Public catalog source, builders and generated pages are unchanged.
+- Twenty linked positive examples, seventeen negative mutations and 26 lexical path cases are explicitly synthetic. They include old activity observations, unknown mandatory facts with conditional guidance, query/card/UTF-8 caps, correction invalidation, non-executed integration steps and explicit index failures.
+- Fixed 60 aggregate fetched hits including duplicates, 12 cards and 48 KiB evidence; Brief/targeted-context/request allocations give an 88-KiB controlled input sum, excluding host instructions/history/output. Limits are uncalibrated. Exact artifact byte hashes are distinct from canonical query hashes.
+- Self-review fixed no-manifest errors requiring fabricated pins (explicit failure now permits null pins), nested byte-budget enforcement beyond standard schema annotations, exact policy/taxonomy file hashing, explicit category paths and coverage-cap classification. It also clarified source/curator status versus machine evidence and eligibility.
+- Active PLAN/requirements/README/TEST/EVALS/scanner/roadmap/ADR references are synchronized. CP-03 remains in_progress / partially_verified; C8 does not yet exist and its compatibility join is not asserted from documentation alone.
+
+### Verification And Blockers
+
+Executed from the repository root:
+
+```powershell
+python -B -m unittest discover -s tests -p test_plugin_contracts.py -v
+python -B -m unittest discover -s tests -p test_plugin_contracts.py -k SemanticContracts -v
+python -B -m unittest discover -s tests -p test_codex_contracts.py -v
+python -B 'C:/Users/user/.codex/plugins/cache/personal-product-agent-plugins/product-agent-os/0.1.0/scripts/validate_task_matrix.py' 'docs/plan/2026-08-30-codex-plugin-v1-implementation-plan.md'
+python -B 'C:/Users/user/.codex/plugins/cache/personal-product-agent-plugins/product-agent-os/0.1.0/scripts/validate_control_plane.py' .
+python -B (Join-Path $env:TEMP 'stackguide-cp03-contracts-01a053d9/audit.py')
+git diff --check
+```
+
+- Initial full V-CONTRACT: exit 1; 15 then-existing semantic tests passed, but SchemaContracts setup failed because jsonschema/referencing was absent. This is a missing dependency, not expected RED or a skipped/green acceptance gate. Available Python 3.14.6, 3.13.5 and bundled 3.12.13 did not provide the validator. No installation was attempted. User permission was requested for jsonschema==4.26.0 plus dependencies in this task's temporary directory only; it remains pending.
+- Final semantic subset after refinements: 19 tests passed, exit 0. Nine standards/format/schema tests in the final module remain unexecuted pending that dependency. The subset cannot replace full Draft 2020-12 validation.
+- Existing control-plane suite: 11 tests passed, exit 0. Task/control validators: ok=true, no errors/missing files, exit 0. They prove static consistency, not new agent routing or plugin behavior.
+- Scope audit: 119 initial tracked files; all changed files are allowed documentation, 27 exact registered additions, 20 schemas, 15 other CP task blocks unchanged, 16-task acyclic reciprocal dependency graph, CP-15/16 independent of CP-12-14, five historical sections preserved and eight new local links resolved. The final audit also verifies that all non-document tracked sources remain byte-identical.
+- UTF-8/JSON/whitespace checks passed. One multi-file patch failed its precondition on an exact old sentence; no partial application occurred, and the corrected patch was applied. Git LF/CRLF notices are nonfatal; no persistent Git settings were changed.
+- Current primary references: JSON Schema Draft 2020-12 core and python-jsonschema validation docs (format assertions and offline schema references). No repository metadata refresh, product eval, SQLite query, browser check or unchanged catalog regeneration was run.
+
+### Handoff And Evidence Ceiling
+
+The local implementation candidate is reviewable, but CP-03 acceptance is not complete. Finish standards validation after permission for the temporary development dependency; CP-04 then supplies actual C8/scorer schemas and the bidirectional compatibility check. CP-05 aligns protected behavior before runtime dispatch. Remote C4/C7 remains deferred CP-12 work, not a local blocker.
+
+Schema/example tests do not prove secret detection, Windows handle/root containment, races, atomic persistence, FTS5 relevance, real integration usefulness, installation or release readiness. Runtime continues to target standard-library Python only. Rollback is limited to the CP-03 additions/documentation diff; retained starting bytes and audit are in $env:TEMP/stackguide-cp03-contracts-01a053d9. Do not reset Git, delete user artifacts or alter the catalog.
+
+Contract checkpoint recorded at 2026-08-31 09:55:49 Europe/Moscow.
+
+## 2026-08-31 - Detailed Session Workspace And RU-EN Design
+
+- Owner accepted the initial visual style, requested deeper content on all eight views and RU-EN localization, then explicitly excluded mobile. Scope is desktop/laptop design and planning; no runtime implementation, installation, Git action or external activation.
+- Read the active README/PRD/requirements/roadmap/CP plan, current C1-C6/C9 contracts, architecture and verification records. Applied imagegen-frontend-web, data-visualization with a local strategy/critique pass, and maintain-control-plane. One writer with explicit self-review; no subagent/config changes.
+- Added docs/plan/plugin-v1-session-workspace-design.md with product/technical findings, eight detailed view inventories, source/state mapping, recovery, one-HTML/Codex boundary, locale/presentation architecture and task ownership. Updated PLAN, REQUIREMENTS, PRD, roadmap, detailed CP plan, architecture ADR, TEST and EVALS; retained existing CP-03 changes.
+- Added identical R15 rows to the three active requirement tables and planned addenda to CP-03/04/05/07/09/10/11/15/16. The 16-task graph and every original completion-report body remain unchanged. CP-03 still has twenty existing schemas with partial verification; localized-presentation and missing view mappings are planned additions, not implemented contracts.
+- RU/EN interface dictionaries and revision-bound narrative are separate from multilingual retrieval aliases. Switching is local presentation only; no scan, retrieval/model call, domain-state write or new service. Canonical values/evidence/literals remain stable; missing translations are visible. Saved locale-only metadata changes are distinguished from semantic-content revisions. Existing evidence/state/HTML/storage caps remain unchanged.
+- Generated and visually inspected eight detailed desktop views plus one English comparison concept. RU/EN control appears in the common header. No mobile concepts were generated in this revision. Concept examples are synthetic, not real repository recommendations/scans. Corrected invented source/stack details in views 01/02 and removed a fabricated source-code fragment from view 04. These images do not prove working controls, browser layout, accessibility or translation-runtime parity.
+
+### Verification
+
+- python -B C:/Users/user/.codex/plugins/cache/personal-product-agent-plugins/product-agent-os/0.1.0/scripts/validate_task_matrix.py docs/plan/2026-08-30-codex-plugin-v1-implementation-plan.md: ok=true, no errors, exit 0.
+- python -B C:/Users/user/.codex/plugins/cache/personal-product-agent-plugins/product-agent-os/0.1.0/scripts/validate_control_plane.py .: ok=true, no missing files/errors, exit 0.
+- python -B -m unittest discover -s tests -p test_codex_contracts.py -v: initial run failed one of eleven checks because the new technical design document contained Cyrillic view-heading aliases. Changed those headings to English without changing tests or the RU UI; rerun passed all 11, exit 0.
+- Task-local read-only audit: 15 identical requirement rows across three sources, 16 unchanged acyclic tasks with reciprocal dependencies, all 16 original completion reports unchanged, historical PRD/roadmap/PLAN bodies preserved, 137 non-owned initial file hashes unchanged, 38 local links/anchors resolved. CP-15/16 remain independent of CP-12/13/14. Starting bytes/audit result: $env:TEMP/stackguide-session-design-v2-yd335j6p.
+- git -c core.safecrlf=false diff --check: no output, exit 0. No schema/runtime/model/browser/catalog suite or catalog regeneration was run. A baseline git listing emitted an inaccessible global-ignore warning; subsequent audit used an empty per-command excludesfile without changing Git configuration.
+- Primary browser documentation checked: MDN Window.localStorage, HTML lang and Intl. File-origin storage is not a dependable persistence layer; the planned artifact uses explicit fragment/default-locale behavior instead. Documentation is not browser execution evidence.
+
+### Retained Visual References
+
+Local image-tool output directory: C:/Users/user/.codex/generated_images/01a053d9-56da-7520-9f78-67fc444e86a3/. Files are design references outside the plugin package; the table selects final revised images rather than superseded drafts.
+
+| View | Final concept filename |
+| --- | --- |
+| 01 | `exec-2bb1008b-3914-47b8-8563-820ec27942e8.png` |
+| 02 | `exec-7b89605f-7f70-4d89-a9de-787f111368c3.png` |
+| 03 | `exec-46bbdf2e-c0b3-4ac1-a043-1f445ed16501.png` |
+| 04 | `exec-d78aa317-52d0-4a14-ad4e-c8fff632244b.png` |
+| 05 | `exec-69bb8d49-bd4c-4761-b671-c36ea46e4f99.png` |
+| 06 | `exec-0995d146-f92b-49f8-ae6e-9fb8e2ec3e8c.png` |
+| 07 | `exec-e82f034a-f728-4913-985f-ca2f1f3ea8ab.png` |
+| 08 | `exec-57e4fa2c-6061-484c-9809-c30a51c598ec.png` |
+| EN comparison | `exec-9f04a3ba-c705-4669-81cd-8653ddfdfa64.png` |
+
+### Remaining Acceptance
+
+The detailed design/planning revision is delivered; revised composition acceptance belongs to the owner. HTML/RU-EN implementation and semantic/browser/local-release evidence remain future CP work. Preserve existing CP-03 standards-validation and C8/C9 gaps; this design task does not resolve them. Roll back only this revision's document differences/new design file against the dirty starting bytes, never unrelated work or generated catalog outputs.
+
+
+## 2026-08-31 - Owner-Approved Session Workspace Implementation Plan
+
+- Authorization: update the implementation plan against the accepted detailed eight-view design, RU-EN localization and desktop/laptop-only scope. The preceding concept-acceptance item is now resolved by the owner; working HTML, translation parity and runtime acceptance remain pending.
+- Ownership/scope: primary is the sole documentation writer and self-reviewer, using maintain-control-plane. Updated PLAN, REQUIREMENTS, TEST, EVALS, active PRD/roadmap, detailed CP plan, workspace design and architecture ADR; this entry is append-only. No agent dispatch, new images, runtime/schema/test implementation, dependency installation, catalog regeneration, protected configuration or Git/publication change.
+- Plan: CP-03 presentation/view/publication addendum and existing standards gap -> CP-04 compatibility/CP-05 readiness -> CP-06/07 foundations -> CP-10 A-D (shell/RU-EN; views 1-4; views 5-7; History/recovery) with CP-08/09 data joins -> CP-11 lifecycle -> CP-15 independent working-artifact acceptance -> CP-16 local package. The 16-task graph is unchanged; CP-12-14 remain off the local release path.
+- Architecture: one status.html from the first committed session state, updated after each saved answer/phase through CP-07's shared writer and CP-10's renderer. Separate saved/published run/revision outcomes; preserve committed answers on render failure, reject obsolete publication and retry rendering only. Codex owns answers and saved decisions; the browser owns presentation and needs reload/reopen after publication. No second domain store, server, file polling, automatic integration or locale-triggered model/retrieval call. Existing retrieval/state/HTML/history caps remain unchanged.
+- Current checks: `python -B C:/Users/user/.codex/plugins/cache/personal-product-agent-plugins/product-agent-os/0.1.0/scripts/validate_task_matrix.py docs/plan/2026-08-30-codex-plugin-v1-implementation-plan.md` passed with no errors; `python -B C:/Users/user/.codex/plugins/cache/personal-product-agent-plugins/product-agent-os/0.1.0/scripts/validate_control_plane.py .` passed with no missing files/errors; `python -B -m unittest discover -s tests -p test_codex_contracts.py -v` passed all 11 checks; `git -c core.safecrlf=false diff --check` passed.
+- Preservation audit: all 15 R rows identical across three registries; all 16 task dependencies/reciprocal Blocks and historical completion reports unchanged; graph acyclic, local release independent of remote work; 40 local links/anchors valid; 137 non-owned baseline files byte-identical, no unexpected new files, prior RUNLOG bytes preserved. UTF-8/control-plane language checks passed. Semantic self-review reconciled the new lifecycle with the existing atomic writer and immutable-history rules.
+- Evidence ceiling: documentation verified; no working HTML, plugin activation, standards-schema acceptance, bilingual semantic quality, browser behavior or release readiness is claimed. Existing CP-03 standards-validation and C8/C9 gaps remain; the R15/publication addendum is planned. No additional package installation or permissions are inferred from this planning request.
+- Rollback: reverse only this update's document delta against `C:/Users/user/AppData/Local/Temp/stackguide-approved-workspace-plan-8atq5iqd`; retain preceding dirty CP-03/design work and every prior RUNLOG byte. Next implementation entry is the bounded CP-03 addendum, not another design-approval request.

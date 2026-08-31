@@ -1,6 +1,6 @@
 # myAI-StackGuide Context Scanner
 
-Active owner revision: 2026-08-31. Read [PRD](PRODUCT_REQUIREMENTS.md#active-plugin-v1-requirements), [architecture](../specs/decisions/plugin-v1-architecture.md#scan-budgets-and-classification) and [permissions](../specs/decisions/plugin-v1-permissions.md). These are planned contracts, not implemented scanning evidence.
+Active owner revision: 2026-08-31. Read [PRD](PRODUCT_REQUIREMENTS.md#active-plugin-v1-requirements), [architecture](../specs/decisions/plugin-v1-architecture.md#scan-budgets-and-classification) and [permissions](../specs/decisions/plugin-v1-permissions.md). CP-03 now provides [scan policy](../specs/scanner/scan-policy.yaml), [exclusion examples](../specs/scanner/exclusion-cases.json) and typed context contracts. Their acceptance is partially verified; scanning and filesystem containment remain unimplemented CP-08 work.
 
 ## Active Local Scanner Contract
 

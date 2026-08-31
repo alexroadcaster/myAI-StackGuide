@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://myai-stackguide.invalid/contracts/v1/intake/intake-state.schema.json",
+  "title": "Bounded resumable interview",
+  "description": "Local CP-03 v1 contract. This schema does not execute or authorize side effects.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "run_id",
+    "status",
+    "questions_asked",
+    "answers",
+    "pending_question_id",
+    "next_action",
+    "assumptions"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "run_id": {
+      "$ref": "https://myai-stackguide.invalid/contracts/v1/context/sanitized-project-summary.schema.json#/$defs/uuid"
+    },
+    "status": {
+      "enum": [
+        "asking",
+        "ready",
+        "cancelled"
+      ]
+    },
+    "questions_asked": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 10
+    },
+    "answers": {
+      "type": "array",
+      "items": {
+        "$ref": "https://myai-stackguide.invalid/contracts/v1/intake/interview-answer.schema.json"
+      },
+      "maxItems": 10,
+      "minItems": 0
+    },
+    "pending_question_id": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[a-z][a-z0-9_]*$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "next_action": {
+      "enum": [
+        "answer_question",
+        "review_context",
+        "proceed_with_assumptions",
+        "clarification_required",
+        "resume_or_finalize"
+      ]
+    },
+    "assumptions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 500
+      },
+      "maxItems": 12,
+      "minItems": 0,
+      "uniqueItems": true
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "enum": [
+              "ready",
+              "cancelled"
+            ]
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "then": {
+        "properties": {
+          "pending_question_id": {
+            "type": "null"
+          }
+        }
+      }
+    }
+  ],
+  "x-invariants": [
+    "questions_asked equals unique answered/skipped questions plus any pending question; ordinals are contiguous from 1. Corrections replace an answer version without increasing unique question count.",
+    "ready may occur before ten questions; zero questions is valid only for cancellation or existing sufficient explicit context, never fabricated answers."
+  ]
+}

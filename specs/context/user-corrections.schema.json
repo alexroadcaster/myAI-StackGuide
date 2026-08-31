@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://myai-stackguide.invalid/contracts/v1/context/user-corrections.schema.json",
+  "title": "Versioned user correction event",
+  "description": "Local CP-03 v1 contract. This schema does not execute or authorize side effects.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "run_id",
+    "correction_id",
+    "expected_state_revision",
+    "from_brief_version",
+    "to_brief_version",
+    "target",
+    "sanitized_correction",
+    "recorded_at",
+    "invalidates",
+    "observed_facts_mutated"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "run_id": {
+      "$ref": "https://myai-stackguide.invalid/contracts/v1/context/sanitized-project-summary.schema.json#/$defs/uuid"
+    },
+    "correction_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]*$"
+    },
+    "expected_state_revision": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "from_brief_version": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 1000000
+    },
+    "to_brief_version": {
+      "type": "integer",
+      "minimum": 2,
+      "maximum": 1000000
+    },
+    "target": {
+      "enum": [
+        "goal",
+        "success_criterion",
+        "constraints",
+        "project_stage",
+        "assumption",
+        "observation_interpretation"
+      ]
+    },
+    "sanitized_correction": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1000
+    },
+    "recorded_at": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32,
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,6})?Z$",
+      "format": "date-time"
+    },
+    "invalidates": {
+      "const": [
+        "retrieval_result",
+        "evidence_pack",
+        "recommendation_memo"
+      ]
+    },
+    "observed_facts_mutated": {
+      "const": false
+    }
+  },
+  "x-invariants": [
+    "to_brief_version is from_brief_version + 1. Corrections do not rewrite observed facts as if rescanned."
+  ]
+}

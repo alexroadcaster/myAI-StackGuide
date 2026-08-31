@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://myai-stackguide.invalid/contracts/v1/scanner/scan-report.schema.json",
+  "title": "Structured scan outcome",
+  "description": "Local CP-03 v1 contract. This schema does not execute or authorize side effects.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "run_id",
+    "policy_version",
+    "mode",
+    "status",
+    "classification",
+    "manifest",
+    "summary",
+    "reason_codes"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "run_id": {
+      "$ref": "https://myai-stackguide.invalid/contracts/v1/context/sanitized-project-summary.schema.json#/$defs/uuid"
+    },
+    "policy_version": {
+      "const": "1.0.0"
+    },
+    "mode": {
+      "enum": [
+        "quick",
+        "standard",
+        "deep"
+      ]
+    },
+    "status": {
+      "enum": [
+        "complete",
+        "partial",
+        "cancelled",
+        "unavailable"
+      ]
+    },
+    "classification": {
+      "enum": [
+        "idea_or_empty",
+        "compact",
+        "standard",
+        "large_or_monorepo"
+      ]
+    },
+    "manifest": {
+      "$ref": "https://myai-stackguide.invalid/contracts/v1/scanner/scan-manifest.schema.json"
+    },
+    "summary": {
+      "$ref": "https://myai-stackguide.invalid/contracts/v1/context/sanitized-project-summary.schema.json"
+    },
+    "reason_codes": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "no_eligible_files",
+          "budget_reached",
+          "topology_incomplete",
+          "monorepo_detected",
+          "oversized_project",
+          "excluded_sources",
+          "encoding_error",
+          "changed_file",
+          "cancelled",
+          "containment_unsupported"
+        ]
+      },
+      "maxItems": 16,
+      "minItems": 0,
+      "uniqueItems": true
+    }
+  },
+  "x-max-utf8-bytes": 262144,
+  "x-invariants": [
+    "Incomplete topology cannot be labeled empty. Monorepo classification precedes compact; do not claim monorepo detection for size/budget alone.",
+    "Mode-specific counters are validated against scan-policy.yaml; no source content or sensitive path names appear in exclusions/errors."
+  ]
+}

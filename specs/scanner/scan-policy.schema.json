@@ -1,0 +1,235 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://myai-stackguide.invalid/contracts/v1/scanner/scan-policy.schema.json",
+  "title": "Local read-only scan policy",
+  "description": "Local CP-03 v1 contract. This schema does not execute or authorize side effects.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "policy_id",
+    "platform",
+    "source_access",
+    "network",
+    "execute_project",
+    "install_dependencies",
+    "modes",
+    "topology",
+    "max_file_bytes",
+    "max_response_bytes",
+    "targeted_context",
+    "allowed_filenames",
+    "allowed_extensions",
+    "denied_segments",
+    "denied_filename_globs",
+    "excluded_output_root",
+    "reject_links",
+    "reject_hardlinks",
+    "reject_ads",
+    "classification",
+    "counting",
+    "deadline",
+    "deny_precedes_allow",
+    "precedence",
+    "policy_limits_calibrated"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "policy_id": {
+      "const": "local-scan-v1"
+    },
+    "platform": {
+      "const": "windows_local_disk"
+    },
+    "source_access": {
+      "const": "bounded_relevant_context"
+    },
+    "network": {
+      "const": false
+    },
+    "execute_project": {
+      "const": false
+    },
+    "install_dependencies": {
+      "const": false
+    },
+    "modes": {
+      "const": {
+        "quick": {
+          "max_files": 50,
+          "max_bytes": 2097152,
+          "max_seconds": 10
+        },
+        "standard": {
+          "max_files": 200,
+          "max_bytes": 10485760,
+          "max_seconds": 30
+        },
+        "deep": {
+          "max_files": 500,
+          "max_bytes": 31457280,
+          "max_seconds": 90
+        }
+      }
+    },
+    "topology": {
+      "const": {
+        "max_entries": 10000,
+        "max_depth": 12,
+        "max_seconds": 5
+      }
+    },
+    "max_file_bytes": {
+      "const": 524288
+    },
+    "max_response_bytes": {
+      "const": 262144
+    },
+    "targeted_context": {
+      "const": {
+        "max_files": 8,
+        "max_read_bytes": 262144,
+        "max_model_context_bytes": 16384,
+        "charge_to_scan_budget": true,
+        "persist_excerpts": false
+      }
+    },
+    "allowed_filenames": {
+      "const": [
+        "README",
+        "README.md",
+        "README.rst",
+        "package.json",
+        "pyproject.toml",
+        "requirements.txt",
+        "Cargo.toml",
+        "go.mod",
+        "pom.xml",
+        "build.gradle",
+        "Dockerfile",
+        "compose.yaml",
+        "docker-compose.yml",
+        "pnpm-workspace.yaml"
+      ]
+    },
+    "allowed_extensions": {
+      "const": [
+        ".md",
+        ".rst",
+        ".txt",
+        ".json",
+        ".toml",
+        ".yaml",
+        ".yml",
+        ".py",
+        ".js",
+        ".jsx",
+        ".ts",
+        ".tsx",
+        ".go",
+        ".rs",
+        ".java",
+        ".cs",
+        ".cpp",
+        ".c",
+        ".h",
+        ".sql"
+      ]
+    },
+    "denied_segments": {
+      "const": [
+        ".git",
+        ".codex",
+        ".agents",
+        ".ssh",
+        ".aws",
+        ".azure",
+        ".kube",
+        ".gnupg",
+        ".venv",
+        "venv",
+        "node_modules",
+        "vendor",
+        "dist",
+        "build",
+        "coverage",
+        "__pycache__",
+        "logs",
+        "dumps",
+        "exports",
+        "secrets",
+        "credentials"
+      ]
+    },
+    "denied_filename_globs": {
+      "const": [
+        ".env*",
+        "*secret*",
+        "*credential*",
+        "*private*key*",
+        "id_rsa*",
+        "id_ed25519*",
+        "*.pem",
+        "*.key",
+        "*.p12",
+        "*.pfx",
+        "*.keystore",
+        "*.log",
+        "*.dump",
+        "*.sqlite",
+        "*.sqlite3",
+        "*.db",
+        "*customer*export*"
+      ]
+    },
+    "excluded_output_root": {
+      "const": "docs/myai-stackguide"
+    },
+    "reject_links": {
+      "const": true
+    },
+    "reject_hardlinks": {
+      "const": true
+    },
+    "reject_ads": {
+      "const": true
+    },
+    "classification": {
+      "const": {
+        "compact_max_eligible_files": 500,
+        "compact_max_manifests": 5,
+        "standard_max_eligible_files": 5000,
+        "standard_max_manifests": 20,
+        "standard_max_service_roots": 20,
+        "monorepo_min_service_roots": 2
+      }
+    },
+    "counting": {
+      "const": "attempts_and_consumed_bytes_including_failed_reads"
+    },
+    "deadline": {
+      "const": "monotonic_cooperative"
+    },
+    "deny_precedes_allow": {
+      "const": true
+    },
+    "precedence": {
+      "const": [
+        "incomplete_or_monorepo",
+        "empty",
+        "compact",
+        "standard",
+        "large"
+      ]
+    },
+    "policy_limits_calibrated": {
+      "const": false
+    }
+  },
+  "x-invariants": [
+    "Policy is version-owned, not model-overridable. Deep totals include prior reads. Targeted reads share the same root, exclusions, counters and deadlines.",
+    "Names/extensions grant parsing eligibility only; root/handle containment, secret exclusions and no execution still require runtime checks."
+  ]
+}

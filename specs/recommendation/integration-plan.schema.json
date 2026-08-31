@@ -1,0 +1,303 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://myai-stackguide.invalid/contracts/v1/recommendation/integration-plan.schema.json",
+  "title": "Actionable non-executed integration handoff",
+  "description": "Local CP-03 v1 contract. This schema does not execute or authorize side effects.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "run_id",
+    "plan_id",
+    "brief_version",
+    "selected_repo_ids",
+    "goal",
+    "integration_surface",
+    "affected_components",
+    "prerequisites",
+    "steps",
+    "first_validation",
+    "risks",
+    "rollback",
+    "unresolved_questions",
+    "evidence_refs",
+    "handoff",
+    "execution_status"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "run_id": {
+      "$ref": "https://myai-stackguide.invalid/contracts/v1/context/sanitized-project-summary.schema.json#/$defs/uuid"
+    },
+    "plan_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]*$"
+    },
+    "brief_version": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 1000000
+    },
+    "selected_repo_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 180,
+        "pattern": "^gh(?:-pending)?:[A-Za-z0-9_.:/-]+$"
+      },
+      "maxItems": 6,
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "goal": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1000
+    },
+    "integration_surface": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 700
+    },
+    "affected_components": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 160
+      },
+      "maxItems": 12,
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "prerequisites": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 400
+      },
+      "maxItems": 12,
+      "minItems": 0,
+      "uniqueItems": true
+    },
+    "steps": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "step_id",
+          "action",
+          "affected_components",
+          "prerequisites",
+          "proposed_commands",
+          "command_status",
+          "acceptance"
+        ],
+        "properties": {
+          "step_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128,
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]*$"
+          },
+          "action": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 700
+          },
+          "affected_components": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 160
+            },
+            "maxItems": 8,
+            "minItems": 0,
+            "uniqueItems": true
+          },
+          "prerequisites": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 300
+            },
+            "maxItems": 8,
+            "minItems": 0,
+            "uniqueItems": true
+          },
+          "proposed_commands": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 500
+            },
+            "maxItems": 4,
+            "minItems": 0,
+            "uniqueItems": true
+          },
+          "command_status": {
+            "const": "not_executed"
+          },
+          "acceptance": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          }
+        }
+      },
+      "maxItems": 12,
+      "minItems": 1
+    },
+    "first_validation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "goal",
+        "success_criterion",
+        "proposed_commands",
+        "status"
+      ],
+      "properties": {
+        "goal": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 500
+        },
+        "success_criterion": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 500
+        },
+        "proposed_commands": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "maxItems": 4,
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "status": {
+          "const": "not_executed"
+        }
+      }
+    },
+    "risks": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 400
+      },
+      "maxItems": 12,
+      "minItems": 0,
+      "uniqueItems": true
+    },
+    "rollback": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 500
+      },
+      "maxItems": 12,
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "unresolved_questions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 400
+      },
+      "maxItems": 12,
+      "minItems": 0,
+      "uniqueItems": true
+    },
+    "evidence_refs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 80,
+        "pattern": "^ev-[a-z0-9][a-z0-9_-]*$"
+      },
+      "maxItems": 40,
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "handoff": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "goal",
+        "scope",
+        "non_goals",
+        "stop_conditions",
+        "execution_authority",
+        "permission_changes"
+      ],
+      "properties": {
+        "goal": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 700
+        },
+        "scope": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1000
+        },
+        "non_goals": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 300
+          },
+          "maxItems": 12,
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "stop_conditions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 300
+          },
+          "maxItems": 12,
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "execution_authority": {
+          "const": "separate_user_implementation_request"
+        },
+        "permission_changes": {
+          "const": false
+        }
+      }
+    },
+    "execution_status": {
+      "const": "not_started"
+    }
+  },
+  "x-max-utf8-bytes": 49152,
+  "x-invariants": [
+    "Implementation commands are proposed data, never executable instructions to the scanner. Actual user-authorized coding belongs to the next workflow; this artifact never grants permissions.",
+    "Selected repository IDs and evidence references resolve to the evidence pack; unknown license/version facts appear in prerequisites/unresolved questions."
+  ]
+}

@@ -1,0 +1,587 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://myai-stackguide.invalid/contracts/v1/context/sanitized-project-summary.schema.json",
+  "title": "Minimized structured project observations",
+  "description": "Local CP-03 v1 contract. This schema does not execute or authorize side effects.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "run_id",
+    "summary_id",
+    "content_class",
+    "coverage",
+    "facts",
+    "inferences",
+    "gaps",
+    "evidence"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "run_id": {
+      "$ref": "https://myai-stackguide.invalid/contracts/v1/context/sanitized-project-summary.schema.json#/$defs/uuid"
+    },
+    "summary_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]*$"
+    },
+    "content_class": {
+      "const": "minimized_project_context"
+    },
+    "coverage": {
+      "enum": [
+        "not_scanned",
+        "partial",
+        "complete"
+      ]
+    },
+    "facts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "fact_id",
+          "kind",
+          "value",
+          "evidence_refs"
+        ],
+        "properties": {
+          "fact_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128,
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]*$"
+          },
+          "kind": {
+            "enum": [
+              "language",
+              "framework",
+              "storage",
+              "dependency",
+              "capability",
+              "integration",
+              "topology"
+            ]
+          },
+          "value": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 240
+          },
+          "evidence_refs": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80,
+              "pattern": "^ev-[a-z0-9][a-z0-9_-]*$"
+            },
+            "maxItems": 8,
+            "minItems": 1,
+            "uniqueItems": true
+          }
+        }
+      },
+      "maxItems": 64,
+      "minItems": 0
+    },
+    "inferences": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "inference_id",
+          "statement",
+          "confidence",
+          "basis_fact_ids"
+        ],
+        "properties": {
+          "inference_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128,
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]*$"
+          },
+          "statement": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 700
+          },
+          "confidence": {
+            "enum": [
+              "low",
+              "medium",
+              "high"
+            ]
+          },
+          "basis_fact_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]*$"
+            },
+            "maxItems": 16,
+            "minItems": 1,
+            "uniqueItems": true
+          }
+        }
+      },
+      "maxItems": 24,
+      "minItems": 0
+    },
+    "gaps": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "code",
+          "detail",
+          "next_check"
+        ],
+        "properties": {
+          "code": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128,
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]*$"
+          },
+          "detail": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 400
+          },
+          "next_check": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 400
+          }
+        }
+      },
+      "maxItems": 32,
+      "minItems": 0
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "evidence_id",
+          "kind",
+          "relative_path",
+          "line_start",
+          "line_end",
+          "answer_id",
+          "content_persisted"
+        ],
+        "properties": {
+          "evidence_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 80,
+            "pattern": "^ev-[a-z0-9][a-z0-9_-]*$"
+          },
+          "kind": {
+            "enum": [
+              "project_manifest",
+              "project_source",
+              "project_document",
+              "user_answer"
+            ]
+          },
+          "relative_path": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 240,
+                "pattern": "^(?!/)(?!.*(?:^|/)\\.{1,2}(?:/|$))(?!.*//)[^\\\\:\\x00-\\x1f\\x7f<>|?*]+$"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "line_start": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 10000000
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "line_end": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 10000000
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "answer_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 128,
+                "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]*$"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "content_persisted": {
+            "const": false
+          }
+        }
+      },
+      "maxItems": 80,
+      "minItems": 0
+    }
+  },
+  "$defs": {
+    "uuid": {
+      "type": "string",
+      "minLength": 36,
+      "maxLength": 36,
+      "format": "uuid"
+    },
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]*$"
+    },
+    "sha256": {
+      "type": "string",
+      "minLength": 64,
+      "maxLength": 64,
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "timestamp": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32,
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,6})?Z$",
+      "format": "date-time"
+    },
+    "relativePath": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 240,
+      "pattern": "^(?!/)(?!.*(?:^|/)\\.{1,2}(?:/|$))(?!.*//)[^\\\\:\\x00-\\x1f\\x7f<>|?*]+$"
+    },
+    "repositoryId": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 180,
+      "pattern": "^gh(?:-pending)?:[A-Za-z0-9_.:/-]+$"
+    },
+    "evidenceId": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 80,
+      "pattern": "^ev-[a-z0-9][a-z0-9_-]*$"
+    },
+    "constraints": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "languages",
+        "deployment",
+        "allowed_licenses",
+        "compatibility",
+        "require_no_server",
+        "mandatory_fields"
+      ],
+      "properties": {
+        "languages": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64
+          },
+          "maxItems": 8,
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "deployment": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "local",
+              "self_hosted",
+              "cloud"
+            ]
+          },
+          "maxItems": 3,
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "allowed_licenses": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 80
+          },
+          "maxItems": 12,
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "compatibility": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 160
+          },
+          "maxItems": 12,
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "require_no_server": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "mandatory_fields": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "license",
+              "deployment",
+              "language",
+              "compatibility",
+              "no_server"
+            ]
+          },
+          "maxItems": 5,
+          "minItems": 0,
+          "uniqueItems": true
+        }
+      }
+    },
+    "pins": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "catalog_snapshot_id",
+        "source_sha256",
+        "cards_sha256",
+        "index_sha256",
+        "policy_sha256",
+        "taxonomy_sha256",
+        "card_schema_version",
+        "index_format_version",
+        "retrieval_policy_version",
+        "corpus_kind"
+      ],
+      "properties": {
+        "catalog_snapshot_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]*$"
+        },
+        "source_sha256": {
+          "type": "string",
+          "minLength": 64,
+          "maxLength": 64,
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "cards_sha256": {
+          "type": "string",
+          "minLength": 64,
+          "maxLength": 64,
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "index_sha256": {
+          "type": "string",
+          "minLength": 64,
+          "maxLength": 64,
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "policy_sha256": {
+          "type": "string",
+          "minLength": 64,
+          "maxLength": 64,
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "taxonomy_sha256": {
+          "type": "string",
+          "minLength": 64,
+          "maxLength": 64,
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "card_schema_version": {
+          "const": "1.0.0"
+        },
+        "index_format_version": {
+          "const": 1
+        },
+        "retrieval_policy_version": {
+          "const": "1.0.0"
+        },
+        "corpus_kind": {
+          "enum": [
+            "catalog_snapshot",
+            "synthetic_fixture"
+          ]
+        }
+      }
+    },
+    "role": {
+      "enum": [
+        "primary_candidate",
+        "supporting_tool",
+        "reference_only",
+        "compare_against",
+        "avoid_for_now"
+      ]
+    },
+    "reason": {
+      "enum": [
+        "constraint_mismatch",
+        "mandatory_fact_unknown",
+        "archived",
+        "unavailable",
+        "duplicate_identity",
+        "insufficient_evidence",
+        "context_budget",
+        "candidate_budget",
+        "invalid_query",
+        "fts5_unavailable",
+        "index_missing",
+        "index_corrupt",
+        "index_incompatible",
+        "no_hits",
+        "cancelled"
+      ]
+    },
+    "publicEvidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "evidence_id",
+        "source_kind",
+        "source_ref",
+        "observed_at",
+        "verification",
+        "fields"
+      ],
+      "properties": {
+        "evidence_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80,
+          "pattern": "^ev-[a-z0-9][a-z0-9_-]*$"
+        },
+        "source_kind": {
+          "enum": [
+            "catalog_snapshot",
+            "github_api",
+            "upstream_document",
+            "curator_record",
+            "synthetic_fixture"
+          ]
+        },
+        "source_ref": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 500,
+          "pattern": "^(?:https://(?:github\\.com|raw\\.githubusercontent\\.com)/[^\\s]+|catalog:[A-Za-z0-9._:/-]+|fixture:[A-Za-z0-9._:/-]+)$"
+        },
+        "observed_at": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 32,
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,6})?Z$",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "verification": {
+          "enum": [
+            "source_reported",
+            "verified",
+            "unknown"
+          ]
+        },
+        "fields": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 150,
+            "pattern": "^/[A-Za-z0-9_/-]+$"
+          },
+          "maxItems": 20,
+          "minItems": 1,
+          "uniqueItems": true
+        }
+      }
+    },
+    "gap": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "code",
+        "detail",
+        "next_check"
+      ],
+      "properties": {
+        "code": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]*$"
+        },
+        "detail": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 400
+        },
+        "next_check": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 400
+        }
+      }
+    }
+  },
+  "x-max-utf8-bytes": 16384,
+  "x-invariants": [
+    "Every fact evidence reference resolves within evidence. Inferences refer to observed facts, not invented evidence.",
+    "No raw_source, excerpt, credentials, absolute root or raw chat field is admitted. Text minimization still requires the CP-07/08 producer; structural validation is not a secret detector."
+  ]
+}

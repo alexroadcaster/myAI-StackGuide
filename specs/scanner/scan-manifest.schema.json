@@ -1,0 +1,192 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://myai-stackguide.invalid/contracts/v1/scanner/scan-manifest.schema.json",
+  "title": "Bounded scan inventory",
+  "description": "Local CP-03 v1 contract. This schema does not execute or authorize side effects.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "run_id",
+    "policy_version",
+    "mode",
+    "root_ref",
+    "files",
+    "counters",
+    "excluded_counts"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "run_id": {
+      "$ref": "https://myai-stackguide.invalid/contracts/v1/context/sanitized-project-summary.schema.json#/$defs/uuid"
+    },
+    "policy_version": {
+      "const": "1.0.0"
+    },
+    "mode": {
+      "enum": [
+        "quick",
+        "standard",
+        "deep"
+      ]
+    },
+    "root_ref": {
+      "const": "selected-project"
+    },
+    "files": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "relative_path",
+          "size_bytes",
+          "kind",
+          "disposition",
+          "evidence_ref"
+        ],
+        "properties": {
+          "relative_path": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 240,
+            "pattern": "^(?!/)(?!.*(?:^|/)\\.{1,2}(?:/|$))(?!.*//)[^\\\\:\\x00-\\x1f\\x7f<>|?*]+$"
+          },
+          "size_bytes": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 524288
+          },
+          "kind": {
+            "enum": [
+              "manifest",
+              "document",
+              "source"
+            ]
+          },
+          "disposition": {
+            "enum": [
+              "eligible",
+              "read",
+              "unread",
+              "changed",
+              "unparseable"
+            ]
+          },
+          "evidence_ref": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 80,
+                "pattern": "^ev-[a-z0-9][a-z0-9_-]*$"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        }
+      },
+      "maxItems": 500,
+      "minItems": 0
+    },
+    "counters": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "visited_entries",
+        "file_attempts",
+        "bytes_consumed",
+        "elapsed_ms",
+        "eligible_files",
+        "manifest_count",
+        "service_roots",
+        "workspace_declared",
+        "topology_complete",
+        "budget_reached"
+      ],
+      "properties": {
+        "visited_entries": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 10000
+        },
+        "file_attempts": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 500
+        },
+        "bytes_consumed": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 31457280
+        },
+        "elapsed_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 86400000
+        },
+        "eligible_files": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 10000
+        },
+        "manifest_count": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 10000
+        },
+        "service_roots": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 10000
+        },
+        "workspace_declared": {
+          "type": "boolean"
+        },
+        "topology_complete": {
+          "type": "boolean"
+        },
+        "budget_reached": {
+          "type": "boolean"
+        }
+      }
+    },
+    "excluded_counts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sensitive",
+        "generated",
+        "unsupported",
+        "unsafe_path"
+      ],
+      "properties": {
+        "sensitive": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 10000
+        },
+        "generated": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 10000
+        },
+        "unsupported": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 10000
+        },
+        "unsafe_path": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 10000
+        }
+      }
+    }
+  },
+  "x-max-utf8-bytes": 262144
+}

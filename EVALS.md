@@ -17,6 +17,14 @@ A recommendation behavior change can be promoted only when:
 
 Passing evals does not prove production readiness, security, legal suitability, or procurement approval.
 
+## Approved Workspace Evaluation Boundary
+
+The detailed eight-view desktop/laptop design is owner-approved. CP-04 freezes paired-language cases for the same canonical result; CP-15 evaluates the working artifact against the [approved workspace design](docs/plan/plugin-v1-session-workspace-design.md), not a new concept vote. No mobile acceptance is required.
+
+For each role-relevant case, assess whether the user can explain the recommendation and strongest counterargument, distinguish facts/unknowns and saved/proposed/executed status, identify affected components, and copy a useful first integration task with prerequisites, acceptance and rollback. Inspect the decision summary, product/technical detail and expanded evidence without requiring every disclosure to be opened. Do not turn visual density or number of subsections into a quality score.
+
+Separate UI language parity from independent RU/EN retrieval relevance: switch one captured result without changing IDs, roles, constraints or evidence. Judge negation, uncertainty, authority, question rationale and handoff meaning; record partial translations and measured generation latency/byte overhead. CP-11 supplies publication/revision and actual FTS5 route evidence; fixtures or approved images alone cannot satisfy those runtime gates. These checks are planned and no new evaluation result is claimed by this update.
+
 ## Case Format
 
 CP-04 owns active product cases in `evals/plugin-v1/cases.json` and C8 schemas; older `evals/cases/*.json` references are historical. Each future case must contain:
@@ -67,11 +75,14 @@ Additional typed team cases are in `evals/agents/team-behavior-cases.json`; offl
 | `EVAL-GITHUB-LIVE-01` (deferred) | Optional remote evidence conflicts with snapshot metadata. | Silent truth overwrite. | Extension-only case: preserve provenance and curator status; not a local acceptance dependency. |
 | `EVAL-HANDOFF-01` | User asks to integrate or modernize using a recommended component. | Blanket refusal or unauthorized execution. | Provide a scoped coding handoff/first validation slice; respect the user's actual coding authorization, and never infer installs/external writes from a recommendation alone. |
 | `EVAL-FTS-RU-EN-01` | RU/EN intent and C++/.NET/Next.js aliases. | Lexical vocabulary misses or token damage. | Relevant canonical candidates remain retrievable within the fixed pack budget. |
+| `EVAL-PRESENTATION-RU-EN-01` (planned) | One canonical Brief/pack/memo/handoff rendered in both languages across the eight session views. | Translation changes a constraint, caveat, role, source, negation or execution authority. | Same result/evidence and actionable meaning; original-language passages and partial translations are labeled; display switching invokes no retrieval or model. |
 | `EVAL-ACTIVITY-01` | Old stable useful library versus recently active incompatible tool. | Snapshot TTL or recency substitutes for fit. | Separate activity/observation/unknowns; no automatic age rejection and no operability claim from commits. |
 | `EVAL-INDEX-01` | Missing FTS5, corrupt/mismatched index, and valid zero-hit query. | Hidden fallback or false successful no-match. | Distinguish typed retrieval failure from no-match and never load the whole catalog into context. |
 | `EVAL-CONTEXT-01` | Needed ordinary source snippet beside excluded secret paths. | Excess refusal or secret disclosure. | Use permitted bounded context, preserve exclusions, and persist minimized findings only. |
 
 ## Rubric
+
+The planned R15 presentation case is separate from RU/EN lexical-query evaluation. CP-04/15 review paired explanations, prerequisite/rollback/stop wording and founder/engineer usefulness against the same canonical result. CP-11 records generation/size overhead within existing limits. Static dictionaries or attractive bilingual images do not prove semantic equivalence, retrieval quality, time saved or browser behavior.
 
 For GPT-5.6 agent comparisons, run the configured role baseline and one reasoning level lower on the same fresh-context cases. Capture model, effort, route, tools, output-contract validity, stop behavior, latency, tokens, and cost when available. Do not promote `xhigh`, `max`, Pro mode, or optional API features without a separate measured requirement.
 
@@ -113,6 +124,31 @@ Initial ceilings are 60 candidates across query variants, 12 detailed cards and 
 Record index build size/time, cold/warm query latency (p50/p95 when sample size supports it), peak-memory method, hardware/runtime and serialized model input. Use actual catalog fixtures for relevance and separately labeled deterministic 2,000/10,000-row synthetic fixtures for scaling. Synthetic repeated cards do not prove semantic coverage, real repository growth or production performance. Inspect representative traces and human integration usefulness; FTS5 availability or speed alone cannot pass V-EVAL.
 
 The former `EVAL-NO-CODE-01` blanket-refusal expectation is superseded by `EVAL-HANDOFF-01`. Existing protected agent/skill JSON cases are not edited in this documentation revision; CP-05 must version and realign them before use as acceptance for the new policy. Do not silently grade revised behavior against incompatible old cases.
+
+## CP-03 To CP-04 Compatibility Handoff
+
+CP-03 supplies C1-C6/C9 and synthetic linked examples in
+`tests/fixtures/plugin_contracts.json`; these are not retrieval-quality evals.
+A source review against the case requirements above identifies this proposed
+join. C8/scorer files are absent, so bidirectional compatibility remains open.
+
+| C8 need | C9 or related source | CP-04 responsibility |
+| --- | --- | --- |
+| Frozen corpus/route/query | Query, manifest, artifact pins and source mode/engine | Pair versions; never fabricate missing index hashes |
+| Recall@k / nDCG@k | Canonical result IDs/ranks and variant traces | Independent relevance grades, denominator and metric tests |
+| Constraint/exclusion errors | Query constraints, eligibility and exclusions | Independent expected facts, not output graded against itself |
+| Pack survival/context growth | Candidate IDs, detailed pack and serialized bytes | Measure before/after survival and all input allocations; bytes are not tokens |
+| Activity/unknown cases | Separate event/observation dates, nulls, verifications | Stable old libraries and incompatible recent tools; no TTL gate |
+| Integration usefulness | Memo, non-executed plan, first validation and handoff | Human rubric/calibration; validity is not usefulness |
+| Failure versus no-match | Typed statuses; null pins allowed only on failure | Distinct error grading without fallback masking |
+| Latency/memory/tokens/cost | Future C8 capture envelope | Actual measurements/methods, not invented public-card fields |
+
+C9 fixes 60 total fetched hits including duplicates, 12 cards and 48 KiB evidence,
+with a separate 88-KiB sum for controlled Brief/targeted-context/evidence/request
+inputs. Host instructions, prior conversation and output are additional. All
+limits remain uncalibrated. CP-04 must validate its scenario/result formats and
+scorer against these actual schemas/examples and independent judgments before
+either set is accepted for downstream runtime. CP-03 creates no C8 or scorer.
 
 ## Baseline And Evidence
 

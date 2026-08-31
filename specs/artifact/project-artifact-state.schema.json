@@ -1,0 +1,284 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://myai-stackguide.invalid/contracts/v1/artifact/project-artifact-state.schema.json",
+  "title": "Current minimized local state and immutable-finalization contract",
+  "description": "Local CP-03 v1 contract. This schema does not execute or authorize side effects.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "owner_marker",
+    "run_id",
+    "predecessor_run_id",
+    "revision",
+    "status",
+    "phase",
+    "created_at",
+    "updated_at",
+    "intake",
+    "brief",
+    "selection",
+    "request",
+    "index_manifest",
+    "retrieval",
+    "evidence_pack",
+    "memo",
+    "corrections",
+    "html_revision",
+    "history",
+    "storage_policy_version"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "owner_marker": {
+      "const": "myai-stackguide.state.v1"
+    },
+    "run_id": {
+      "$ref": "https://myai-stackguide.invalid/contracts/v1/context/sanitized-project-summary.schema.json#/$defs/uuid"
+    },
+    "predecessor_run_id": {
+      "anyOf": [
+        {
+          "$ref": "https://myai-stackguide.invalid/contracts/v1/context/sanitized-project-summary.schema.json#/$defs/uuid"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 1000000
+    },
+    "status": {
+      "enum": [
+        "active",
+        "finalized",
+        "finalized_incomplete"
+      ]
+    },
+    "phase": {
+      "enum": [
+        "intake",
+        "scan",
+        "context_review",
+        "matching",
+        "report"
+      ]
+    },
+    "created_at": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32,
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,6})?Z$",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32,
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,6})?Z$",
+      "format": "date-time"
+    },
+    "intake": {
+      "$ref": "https://myai-stackguide.invalid/contracts/v1/intake/intake-state.schema.json"
+    },
+    "brief": {
+      "anyOf": [
+        {
+          "$ref": "https://myai-stackguide.invalid/contracts/v1/context/project-context-brief.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "selection": {
+      "anyOf": [
+        {
+          "$ref": "https://myai-stackguide.invalid/contracts/v1/context/context-selection.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "request": {
+      "anyOf": [
+        {
+          "$ref": "https://myai-stackguide.invalid/contracts/v1/recommendation/recommendation-request.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "index_manifest": {
+      "anyOf": [
+        {
+          "$ref": "https://myai-stackguide.invalid/contracts/v1/retrieval/index-manifest.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "retrieval": {
+      "anyOf": [
+        {
+          "$ref": "https://myai-stackguide.invalid/contracts/v1/retrieval/retrieval-result.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "evidence_pack": {
+      "anyOf": [
+        {
+          "$ref": "https://myai-stackguide.invalid/contracts/v1/retrieval/evidence-pack.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "memo": {
+      "anyOf": [
+        {
+          "$ref": "https://myai-stackguide.invalid/contracts/v1/recommendation/recommendation-memo.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "corrections": {
+      "type": "array",
+      "items": {
+        "$ref": "https://myai-stackguide.invalid/contracts/v1/context/user-corrections.schema.json"
+      },
+      "maxItems": 20,
+      "minItems": 0
+    },
+    "html_revision": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1000000
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "history": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "run_id",
+          "final_revision",
+          "status"
+        ],
+        "properties": {
+          "run_id": {
+            "$ref": "https://myai-stackguide.invalid/contracts/v1/context/sanitized-project-summary.schema.json#/$defs/uuid"
+          },
+          "final_revision": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 1000000
+          },
+          "status": {
+            "enum": [
+              "finalized",
+              "finalized_incomplete"
+            ]
+          }
+        }
+      },
+      "maxItems": 100,
+      "minItems": 0
+    },
+    "storage_policy_version": {
+      "const": "1.0.0"
+    }
+  },
+  "$defs": {
+    "storagePolicy": {
+      "const": {
+        "policy_version": "1.0.0",
+        "output_root": "docs/myai-stackguide",
+        "current_file": "state.json",
+        "html_file": "status.html",
+        "history_pattern": "runs/{run_id}.json",
+        "lock_file": ".state.lock",
+        "lock_wait_ms": 2000,
+        "previous_file": "state.previous.json",
+        "damaged_file": "state.damaged.json",
+        "pending_files": [
+          ".state.pending.json",
+          ".previous.pending.json",
+          ".run.pending.json",
+          ".status.pending.html"
+        ],
+        "max_state_bytes": 2097152,
+        "max_html_bytes": 5242880,
+        "max_finalized_runs": 100,
+        "max_total_bytes": 268435456,
+        "max_file_entries": 128,
+        "max_pending_files": 4,
+        "max_damaged_files": 1,
+        "json_slot_max_bytes": 2097152,
+        "html_slot_max_bytes": 5242880,
+        "auto_delete": false,
+        "overwrite_unrecognized_files": false,
+        "reuse_only_verified_plugin_owned_pending_files": true
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "finalized"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "then": {
+        "properties": {
+          "memo": {
+            "type": "object"
+          },
+          "phase": {
+            "const": "report"
+          },
+          "intake": {
+            "properties": {
+              "status": {
+                "const": "ready"
+              }
+            }
+          }
+        }
+      }
+    }
+  ],
+  "x-max-utf8-bytes": 2097152,
+  "x-invariants": [
+    "Every nested run/query/pack/request/brief version and pins agrees. Result from an earlier corrected Brief is invalid, never active.",
+    "Mutations require expected run/revision under OS-backed lock. Finalized runs are never mutated; a new run records predecessor. Identical final history publication is idempotent, conflicting bytes are an error.",
+    "State save precedes HTML publication; html_revision may lag but never exceed state revision. Runtime must render only the same committed revision.",
+    "Storage protocol is the exact $defs/storagePolicy constant. Validate prospective peak bytes/entries, not only final files; do not delete or overwrite user files to satisfy caps."
+  ]
+}

@@ -1,0 +1,409 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://myai-stackguide.invalid/contracts/v1/recommendation/recommendation-memo.schema.json",
+  "title": "Decision Report data with grounded integration plan",
+  "description": "Local CP-03 v1 contract. This schema does not execute or authorize side effects.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "run_id",
+    "memo_id",
+    "request_id",
+    "brief_version",
+    "pack_id",
+    "pins",
+    "status",
+    "summary",
+    "recommendations",
+    "comparison",
+    "avoid_defer",
+    "reading_path",
+    "missing_context",
+    "integration_plan",
+    "next_action",
+    "evidence_ceiling",
+    "category_path"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "run_id": {
+      "$ref": "https://myai-stackguide.invalid/contracts/v1/context/sanitized-project-summary.schema.json#/$defs/uuid"
+    },
+    "memo_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]*$"
+    },
+    "request_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]*$"
+    },
+    "brief_version": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 1000000
+    },
+    "pack_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]*$"
+    },
+    "pins": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "catalog_snapshot_id",
+            "source_sha256",
+            "cards_sha256",
+            "index_sha256",
+            "policy_sha256",
+            "taxonomy_sha256",
+            "card_schema_version",
+            "index_format_version",
+            "retrieval_policy_version",
+            "corpus_kind"
+          ],
+          "properties": {
+            "catalog_snapshot_id": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]*$"
+            },
+            "source_sha256": {
+              "type": "string",
+              "minLength": 64,
+              "maxLength": 64,
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "cards_sha256": {
+              "type": "string",
+              "minLength": 64,
+              "maxLength": 64,
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "index_sha256": {
+              "type": "string",
+              "minLength": 64,
+              "maxLength": 64,
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "policy_sha256": {
+              "type": "string",
+              "minLength": 64,
+              "maxLength": 64,
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "taxonomy_sha256": {
+              "type": "string",
+              "minLength": 64,
+              "maxLength": 64,
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "card_schema_version": {
+              "const": "1.0.0"
+            },
+            "index_format_version": {
+              "const": 1
+            },
+            "retrieval_policy_version": {
+              "const": "1.0.0"
+            },
+            "corpus_kind": {
+              "enum": [
+                "catalog_snapshot",
+                "synthetic_fixture"
+              ]
+            }
+          }
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "status": {
+      "enum": [
+        "recommendations",
+        "conditional_guidance",
+        "no_match",
+        "retrieval_unavailable"
+      ]
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1400
+    },
+    "recommendations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "repo_id",
+          "role",
+          "fit_rationale",
+          "confidence",
+          "evidence_refs",
+          "caveats",
+          "next_checks"
+        ],
+        "properties": {
+          "repo_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 180,
+            "pattern": "^gh(?:-pending)?:[A-Za-z0-9_.:/-]+$"
+          },
+          "role": {
+            "enum": [
+              "primary_candidate",
+              "supporting_tool",
+              "reference_only",
+              "compare_against",
+              "avoid_for_now"
+            ]
+          },
+          "fit_rationale": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1200
+          },
+          "confidence": {
+            "enum": [
+              "low",
+              "medium",
+              "high"
+            ]
+          },
+          "evidence_refs": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80,
+              "pattern": "^ev-[a-z0-9][a-z0-9_-]*$"
+            },
+            "maxItems": 12,
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "caveats": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 400
+            },
+            "maxItems": 12,
+            "minItems": 0,
+            "uniqueItems": true
+          },
+          "next_checks": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 400
+            },
+            "maxItems": 12,
+            "minItems": 0,
+            "uniqueItems": true
+          }
+        }
+      },
+      "maxItems": 12,
+      "minItems": 0
+    },
+    "comparison": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 600
+      },
+      "maxItems": 12,
+      "minItems": 0,
+      "uniqueItems": true
+    },
+    "avoid_defer": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 500
+      },
+      "maxItems": 12,
+      "minItems": 0,
+      "uniqueItems": true
+    },
+    "reading_path": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "evidence_ref",
+          "purpose"
+        ],
+        "properties": {
+          "evidence_ref": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 80,
+            "pattern": "^ev-[a-z0-9][a-z0-9_-]*$"
+          },
+          "purpose": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 400
+          }
+        }
+      },
+      "maxItems": 24,
+      "minItems": 0
+    },
+    "missing_context": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 400
+      },
+      "maxItems": 20,
+      "minItems": 0,
+      "uniqueItems": true
+    },
+    "integration_plan": {
+      "anyOf": [
+        {
+          "$ref": "https://myai-stackguide.invalid/contracts/v1/recommendation/integration-plan.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "next_action": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 700
+    },
+    "evidence_ceiling": {
+      "const": "guidance_not_operability_security_or_release_proof"
+    },
+    "category_path": {
+      "type": "array",
+      "maxItems": 8,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "category_id",
+          "reason"
+        ],
+        "properties": {
+          "category_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 400
+          }
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "recommendations"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "then": {
+        "properties": {
+          "recommendations": {
+            "minItems": 1
+          },
+          "integration_plan": {
+            "type": "object"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "enum": [
+              "no_match",
+              "retrieval_unavailable"
+            ]
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "then": {
+        "properties": {
+          "recommendations": {
+            "maxItems": 0
+          },
+          "integration_plan": {
+            "type": "null"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "enum": [
+              "recommendations",
+              "conditional_guidance",
+              "no_match"
+            ]
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "then": {
+        "properties": {
+          "pins": {
+            "type": "object"
+          }
+        }
+      }
+    }
+  ],
+  "x-max-utf8-bytes": 131072,
+  "x-invariants": [
+    "primary_candidate is allowed only for matching primary_eligible pack records; conditional guidance cannot disguise unknowns as adopted/verified.",
+    "Roles/evidence/selected IDs are request-scoped; report cannot upgrade catalog_status or turn a failed search into successful no-match.",
+    "An unavailable manifest may yield pins=null only in an explicit failure. Never invent hashes or use null pins for successful retrieval/no-match.",
+    "Category path IDs are unique current taxonomy keys with explicit relevance reasons; no invented taxonomy hierarchy is implied."
+  ]
+}

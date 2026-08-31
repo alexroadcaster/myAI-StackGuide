@@ -6,7 +6,7 @@ myAI-StackGuide is a myAI Labs project that helps founders, product teams, engin
 
 The selected path is a Codex plugin working locally from the user's project: adaptive intake, bounded relevant context, a curated catalog and **SQLite FTS5/BM25 retrieval**. It helps users build or modernize solutions through OSS integration, ending with a saved Project Context Brief, offline **Decision Report**, actionable integration plan and coding-agent handoff. Remote MCP/discovery and a shared backend are deferred, not installation/runtime/release prerequisites.
 
-**Current status:** the catalog and reproducible pipeline exist; agent/skill definitions and offline team checks are present. CP-01/02 documentation and [local ADRs](specs/decisions/plugin-v1-architecture.md) are amended to the owner's 2026-08-31 decisions. Schemas, FTS5 index, scanner and recommendation runtime remain planned; the plugin is not installed or operational. Relevant authorized project context is allowed; [privacy boundaries](specs/decisions/plugin-v1-permissions.md#context-access-and-product-privacy) retain minimization and sensitive exclusions without a host-wide isolation promise.
+**Current status:** the catalog and reproducible pipeline exist; agent/skill definitions and offline team checks are present. CP-01/02 documentation and [local ADRs](specs/decisions/plugin-v1-architecture.md) are amended to the owner's 2026-08-31 decisions. CP-03 local schemas, policies and [linked contract examples](tests/fixtures/plugin_contracts.json) are present with partial verification; standards validation and the CP-04 compatibility join remain open. FTS5 index, scanner and recommendation runtime remain planned; the plugin is not installed or operational. Relevant authorized project context is allowed; [privacy boundaries](specs/decisions/plugin-v1-permissions.md#context-access-and-product-privacy) retain minimization and sensitive exclusions without a host-wide isolation promise.
 
 ## Why This Project Exists
 
@@ -127,7 +127,7 @@ The repository deliberately separates implemented evidence from product intent.
 | Project-scoped skills and agents | Structurally configured and statically tested. |
 | Read-only scanner | Planned; no production scanner runtime is committed. |
 | Local Codex plugin | Selected local direction; CP-02 amended for FTS5, runtime not implemented or activated. |
-| SQLite FTS5 retrieval | Selected lexical baseline; index/card/query/eval work planned in CP-03/04/06/09/11/15. No embeddings or server needed. |
+| SQLite FTS5 retrieval | Selected lexical baseline; CP-03 contracts/examples present, index/retrieval/evals remain CP-04/06/09/11/15. No embeddings or server needed. |
 | Remote MCP and shared candidate backend | Deferred future extension; no service, hosting, storage or auth selected for the local path. |
 | Hosted web app and project GitHub OAuth | Earlier entrypoint proposal; superseded for V1 by local plugin-first context acquisition. |
 | Recommendation engine and interview runtime | Planned; contracts and eval cases are still being defined. |
@@ -191,7 +191,7 @@ Detailed documents: [product concept](docs/MYAI_STACKGUIDE_PRODUCT_CONCEPT.md), 
 The [PRD](docs/PRODUCT_REQUIREMENTS.md#active-plugin-v1-requirements) and [CP plan](docs/plan/2026-08-30-codex-plugin-v1-implementation-plan.md) reflect the 2026-08-31 owner decisions:
 
 1. CP-01/02: completed documentation, amended for local FTS5/context/activity/integration.
-2. CP-03/04/05: local contracts, relevance/usefulness evaluation design and existing agent/skill alignment before runtime dispatch.
+2. Finish CP-03 standards validation, join CP-04 relevance/usefulness evaluation contracts, then CP-05 agent/skill alignment before runtime dispatch.
 3. CP-06/07: persist catalog metadata, build cards/index, then local intake/state/preflight.
 4. CP-08/09/10/11: context, bounded retrieval and integration report; one useful actual FTS5 slice, then negatives/scaling.
 5. CP-15/16: independent local acceptance and package/index/fresh-session/rollback evidence. Publication requires separate authorization.

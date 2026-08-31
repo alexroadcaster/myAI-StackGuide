@@ -1,0 +1,335 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://myai-stackguide.invalid/contracts/v1/retrieval/evidence-pack.schema.json",
+  "title": "Bounded detailed cards and provenance for model comparison",
+  "description": "Local CP-03 v1 contract. This schema does not execute or authorize side effects.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "run_id",
+    "pack_id",
+    "query_id",
+    "query_sha256",
+    "brief_version",
+    "pins",
+    "status",
+    "cards",
+    "exclusions",
+    "truncated",
+    "reason_codes"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "run_id": {
+      "$ref": "https://myai-stackguide.invalid/contracts/v1/context/sanitized-project-summary.schema.json#/$defs/uuid"
+    },
+    "pack_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]*$"
+    },
+    "query_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]*$"
+    },
+    "query_sha256": {
+      "type": "string",
+      "minLength": 64,
+      "maxLength": 64,
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "brief_version": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 1000000
+    },
+    "pins": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "catalog_snapshot_id",
+            "source_sha256",
+            "cards_sha256",
+            "index_sha256",
+            "policy_sha256",
+            "taxonomy_sha256",
+            "card_schema_version",
+            "index_format_version",
+            "retrieval_policy_version",
+            "corpus_kind"
+          ],
+          "properties": {
+            "catalog_snapshot_id": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]*$"
+            },
+            "source_sha256": {
+              "type": "string",
+              "minLength": 64,
+              "maxLength": 64,
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "cards_sha256": {
+              "type": "string",
+              "minLength": 64,
+              "maxLength": 64,
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "index_sha256": {
+              "type": "string",
+              "minLength": 64,
+              "maxLength": 64,
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "policy_sha256": {
+              "type": "string",
+              "minLength": 64,
+              "maxLength": 64,
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "taxonomy_sha256": {
+              "type": "string",
+              "minLength": 64,
+              "maxLength": 64,
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "card_schema_version": {
+              "const": "1.0.0"
+            },
+            "index_format_version": {
+              "const": 1
+            },
+            "retrieval_policy_version": {
+              "const": "1.0.0"
+            },
+            "corpus_kind": {
+              "enum": [
+                "catalog_snapshot",
+                "synthetic_fixture"
+              ]
+            }
+          }
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "status": {
+      "enum": [
+        "ready",
+        "no_match",
+        "unavailable"
+      ]
+    },
+    "cards": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "card",
+          "retrieval_rank",
+          "eligibility",
+          "rrf_score",
+          "matched_fields"
+        ],
+        "properties": {
+          "card": {
+            "$ref": "https://myai-stackguide.invalid/contracts/v1/catalog/repository-card.schema.json"
+          },
+          "retrieval_rank": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 60
+          },
+          "eligibility": {
+            "$ref": "https://myai-stackguide.invalid/contracts/v1/catalog/candidate-eligibility.schema.json"
+          },
+          "rrf_score": {
+            "type": "number",
+            "exclusiveMinimum": 0,
+            "maximum": 1
+          },
+          "matched_fields": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 7,
+            "uniqueItems": true,
+            "items": {
+              "enum": [
+                "full_name",
+                "description",
+                "topics",
+                "category_labels",
+                "use_cases",
+                "integration_surface",
+                "best_for"
+              ]
+            }
+          }
+        }
+      },
+      "maxItems": 12,
+      "minItems": 0
+    },
+    "exclusions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "repo_id",
+          "reason_codes"
+        ],
+        "properties": {
+          "repo_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 180,
+            "pattern": "^gh(?:-pending)?:[A-Za-z0-9_.:/-]+$"
+          },
+          "reason_codes": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "constraint_mismatch",
+                "mandatory_fact_unknown",
+                "archived",
+                "unavailable",
+                "duplicate_identity",
+                "insufficient_evidence",
+                "context_budget",
+                "candidate_budget",
+                "invalid_query",
+                "fts5_unavailable",
+                "index_missing",
+                "index_corrupt",
+                "index_incompatible",
+                "no_hits",
+                "cancelled"
+              ]
+            },
+            "maxItems": 8,
+            "minItems": 1,
+            "uniqueItems": true
+          }
+        }
+      },
+      "maxItems": 60,
+      "minItems": 0
+    },
+    "truncated": {
+      "type": "boolean"
+    },
+    "reason_codes": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "constraint_mismatch",
+          "mandatory_fact_unknown",
+          "archived",
+          "unavailable",
+          "duplicate_identity",
+          "insufficient_evidence",
+          "context_budget",
+          "candidate_budget",
+          "invalid_query",
+          "fts5_unavailable",
+          "index_missing",
+          "index_corrupt",
+          "index_incompatible",
+          "no_hits",
+          "cancelled"
+        ]
+      },
+      "maxItems": 12,
+      "minItems": 0,
+      "uniqueItems": true
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "ready"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "then": {
+        "properties": {
+          "cards": {
+            "minItems": 1
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "enum": [
+              "no_match",
+              "unavailable"
+            ]
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "then": {
+        "properties": {
+          "cards": {
+            "maxItems": 0
+          },
+          "reason_codes": {
+            "minItems": 1
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "enum": [
+              "ready",
+              "no_match"
+            ]
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "then": {
+        "properties": {
+          "pins": {
+            "type": "object"
+          }
+        }
+      }
+    }
+  ],
+  "x-max-utf8-bytes": 49152,
+  "x-invariants": [
+    "Cards are unique canonical repositories from retrieval candidates, with matching ranks/query/pins. Exclusions cover every candidate not packed, never silently disappear.",
+    "Entire compact UTF-8 serialization including evidence/exclusions is <=49152 bytes and <=query.max_evidence_bytes. No fabricated measured byte field is trusted.",
+    "An unavailable manifest may yield pins=null only in an explicit failure. Never invent hashes or use null pins for successful retrieval/no-match."
+  ]
+}

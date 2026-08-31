@@ -1,0 +1,106 @@
+{
+  "schema_version": "1.0.0",
+  "policy_id": "fts5-local-v1",
+  "source_mode": "catalog_only",
+  "retrieval_engine": "sqlite_fts5",
+  "tokenizer": "unicode61",
+  "normalization": "nfkc_casefold_versioned_aliases",
+  "query_grammar": "quoted_literal_terms_only",
+  "variant_operator": "OR",
+  "prefix_queries": false,
+  "model_supplied_sql": false,
+  "field_weights": {
+    "full_name": 5.0,
+    "description": 3.0,
+    "topics": 3.0,
+    "category_labels": 1.0,
+    "use_cases": 3.0,
+    "integration_surface": 3.0,
+    "best_for": 2.0
+  },
+  "rank_fusion": {
+    "method": "rrf",
+    "k": 60,
+    "variant_weights": "equal",
+    "dedupe_key": "canonical_repo_id",
+    "tie_breaker": "canonical_repo_id_ascending",
+    "compare_raw_bm25_across_variants": false
+  },
+  "limits": {
+    "max_query_variants": 3,
+    "max_terms_per_variant": 8,
+    "max_term_chars": 64,
+    "max_retrieved_hits": 60,
+    "max_detailed_cards": 12,
+    "max_evidence_bytes": 49152,
+    "max_brief_bytes": 16384,
+    "max_targeted_context_bytes": 16384,
+    "max_request_bytes": 8192,
+    "max_plugin_input_bytes": 90112
+  },
+  "aliases": [
+    {
+      "canonical": "cplusplus",
+      "terms": [
+        "c++",
+        "cpp",
+        "cplusplus"
+      ]
+    },
+    {
+      "canonical": "dotnet",
+      "terms": [
+        ".net",
+        "dotnet"
+      ]
+    },
+    {
+      "canonical": "nextjs",
+      "terms": [
+        "next.js",
+        "nextjs"
+      ]
+    },
+    {
+      "canonical": "fulltext",
+      "terms": [
+        "full text search",
+        "full-text search",
+        "полнотекстовый поиск",
+        "fts"
+      ]
+    },
+    {
+      "canonical": "local",
+      "terms": [
+        "local",
+        "локально",
+        "локальный"
+      ]
+    },
+    {
+      "canonical": "search",
+      "terms": [
+        "search",
+        "поиск"
+      ]
+    }
+  ],
+  "snapshot_max_age_days": null,
+  "unknown_mandatory_fact": "reference_with_verification",
+  "runtime_index_access": "read_only",
+  "on_index_error": "explicit_failure",
+  "full_catalog_prompt_fallback": false,
+  "automatic_index_build": false,
+  "bytes_encoding": "utf-8",
+  "serialization": "sorted_keys_compact_json_ensure_ascii_false_allow_nan_false",
+  "calibration_status": "unmeasured_initial_policy",
+  "schema_guard_changes_require_version_review": true,
+  "variant_hit_allocation": "ceil_remaining_hits_divided_by_remaining_variants_in_request_order",
+  "card_selection": "primary_then_reference_in_rrf_order_skip_blocked_or_oversized_with_reasons",
+  "hashing": {
+    "artifact_pins": "sha256_of_exact_file_bytes",
+    "query_sha256": "sha256_of_canonical_query_json",
+    "synthetic_index_hash": "fixture_label_only_not_runtime_evidence"
+  }
+}

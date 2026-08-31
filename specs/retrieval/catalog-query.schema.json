@@ -1,0 +1,199 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://myai-stackguide.invalid/contracts/v1/retrieval/catalog-query.schema.json",
+  "title": "Bounded literal catalog query, never SQL",
+  "description": "Local CP-03 v1 contract. This schema does not execute or authorize side effects.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "query_id",
+    "brief_version",
+    "source_mode",
+    "retrieval_engine",
+    "policy_version",
+    "policy_sha256",
+    "language",
+    "variants",
+    "constraints",
+    "max_candidates",
+    "max_cards",
+    "max_evidence_bytes"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "query_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]*$"
+    },
+    "brief_version": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 1000000
+    },
+    "source_mode": {
+      "const": "catalog_only"
+    },
+    "retrieval_engine": {
+      "const": "sqlite_fts5"
+    },
+    "policy_version": {
+      "const": "1.0.0"
+    },
+    "policy_sha256": {
+      "type": "string",
+      "minLength": 64,
+      "maxLength": 64,
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "language": {
+      "enum": [
+        "ru",
+        "en",
+        "mixed"
+      ]
+    },
+    "variants": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "variant_id",
+          "terms"
+        ],
+        "properties": {
+          "variant_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 24,
+            "pattern": "^q[1-3]$"
+          },
+          "terms": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64,
+              "pattern": "^[^\"\\\\*^:{}()\\x00-\\x1f\\x7f]+$"
+            },
+            "maxItems": 8,
+            "minItems": 1,
+            "uniqueItems": true
+          }
+        }
+      },
+      "maxItems": 3,
+      "minItems": 1
+    },
+    "constraints": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "languages",
+        "deployment",
+        "allowed_licenses",
+        "compatibility",
+        "require_no_server",
+        "mandatory_fields"
+      ],
+      "properties": {
+        "languages": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64
+          },
+          "maxItems": 8,
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "deployment": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "local",
+              "self_hosted",
+              "cloud"
+            ]
+          },
+          "maxItems": 3,
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "allowed_licenses": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 80
+          },
+          "maxItems": 12,
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "compatibility": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 160
+          },
+          "maxItems": 12,
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "require_no_server": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "mandatory_fields": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "license",
+              "deployment",
+              "language",
+              "compatibility",
+              "no_server"
+            ]
+          },
+          "maxItems": 5,
+          "minItems": 0,
+          "uniqueItems": true
+        }
+      }
+    },
+    "max_candidates": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 60
+    },
+    "max_cards": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 12
+    },
+    "max_evidence_bytes": {
+      "type": "integer",
+      "minimum": 1024,
+      "maximum": 49152
+    }
+  },
+  "x-max-utf8-bytes": 8192,
+  "x-invariants": [
+    "Query IDs, variants and terms are unique; canonicalize aliases before lookup on both index and query. Quote literal terms and bind the MATCH string as a SQL parameter. Never interpolate field names, SQL or MATCH syntax supplied by a model.",
+    "The 60-hit total counts all variants including duplicates before canonical dedupe; at most three bounded queries, with remaining budget shared, not 60 per query."
+  ]
+}

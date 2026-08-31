@@ -1,0 +1,123 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://myai-stackguide.invalid/contracts/v1/context/context-selection.schema.json",
+  "title": "Bounded targeted context request without persisted excerpts",
+  "description": "Local CP-03 v1 contract. This schema does not execute or authorize side effects.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "run_id",
+    "brief_version",
+    "selection_id",
+    "root_ref",
+    "purpose",
+    "requested_sources",
+    "max_read_bytes",
+    "max_model_context_bytes",
+    "authorization_scope",
+    "content_delivery",
+    "persistence",
+    "scan_policy_version",
+    "charge_to_scan_budget"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "run_id": {
+      "$ref": "https://myai-stackguide.invalid/contracts/v1/context/sanitized-project-summary.schema.json#/$defs/uuid"
+    },
+    "brief_version": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 1000000
+    },
+    "selection_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]*$"
+    },
+    "root_ref": {
+      "const": "selected-project"
+    },
+    "purpose": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 500
+    },
+    "requested_sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "relative_path",
+          "line_start",
+          "line_end"
+        ],
+        "properties": {
+          "relative_path": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 240,
+            "pattern": "^(?!/)(?!.*(?:^|/)\\.{1,2}(?:/|$))(?!.*//)[^\\\\:\\x00-\\x1f\\x7f<>|?*]+$"
+          },
+          "line_start": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 10000000
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "line_end": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 10000000
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        }
+      },
+      "maxItems": 8,
+      "minItems": 1
+    },
+    "max_read_bytes": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 262144
+    },
+    "max_model_context_bytes": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 16384
+    },
+    "authorization_scope": {
+      "const": "existing_user_host_permissions"
+    },
+    "content_delivery": {
+      "const": "transient_host_context"
+    },
+    "persistence": {
+      "const": "references_only"
+    },
+    "scan_policy_version": {
+      "const": "1.0.0"
+    },
+    "charge_to_scan_budget": {
+      "const": true
+    }
+  },
+  "x-max-utf8-bytes": 8192
+}

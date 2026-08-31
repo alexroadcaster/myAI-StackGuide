@@ -1,0 +1,421 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://myai-stackguide.invalid/contracts/v1/catalog/repository-card.schema.json",
+  "title": "Public canonical repository solution card",
+  "description": "Local CP-03 v1 contract. This schema does not execute or authorize side effects.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "repo_id",
+    "github_repository_id",
+    "full_name",
+    "url",
+    "aliases",
+    "catalog_status",
+    "catalog_status_source",
+    "evidence_stage",
+    "description",
+    "language",
+    "license",
+    "deployment",
+    "requires_server",
+    "availability",
+    "archived",
+    "primary_category",
+    "secondary_categories",
+    "topics",
+    "use_cases",
+    "best_for",
+    "avoid_if",
+    "adoption_mode",
+    "project_stages",
+    "complexity",
+    "integration_surface",
+    "compatibility",
+    "caveats",
+    "activity",
+    "evidence",
+    "missing_facts",
+    "corpus_kind"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "repo_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 180,
+      "pattern": "^gh(?:-pending)?:[A-Za-z0-9_.:/-]+$"
+    },
+    "github_repository_id": {
+      "anyOf": [
+        {
+          "type": [
+            "integer",
+            "string"
+          ],
+          "minimum": 1,
+          "maxLength": 100,
+          "minLength": 1
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "full_name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 160,
+      "pattern": "^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$"
+    },
+    "url": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 250,
+      "pattern": "^https://github\\.com/[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$"
+    },
+    "aliases": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 180,
+        "pattern": "^gh(?:-pending)?:[A-Za-z0-9_.:/-]+$"
+      },
+      "maxItems": 20,
+      "minItems": 0,
+      "uniqueItems": true
+    },
+    "catalog_status": {
+      "enum": [
+        "candidate",
+        "accepted",
+        "reference"
+      ]
+    },
+    "catalog_status_source": {
+      "enum": [
+        "catalog_snapshot",
+        "curator_decision"
+      ]
+    },
+    "evidence_stage": {
+      "enum": [
+        "baseline",
+        "identity_validated",
+        "advisory_evidence_complete"
+      ]
+    },
+    "description": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1800
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "language": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 60
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "license": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "deployment": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "local",
+          "self_hosted",
+          "cloud"
+        ]
+      },
+      "maxItems": 3,
+      "minItems": 0,
+      "uniqueItems": true
+    },
+    "requires_server": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "availability": {
+      "enum": [
+        "available",
+        "unavailable",
+        "unknown"
+      ]
+    },
+    "archived": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "primary_category": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100,
+      "pattern": "^[a-z][a-z0-9_]*$"
+    },
+    "secondary_categories": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "maxItems": 8,
+      "minItems": 0,
+      "uniqueItems": true
+    },
+    "topics": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 80
+      },
+      "maxItems": 20,
+      "minItems": 0,
+      "uniqueItems": true
+    },
+    "use_cases": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 300
+      },
+      "maxItems": 8,
+      "minItems": 0,
+      "uniqueItems": true
+    },
+    "best_for": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 300
+      },
+      "maxItems": 8,
+      "minItems": 0,
+      "uniqueItems": true
+    },
+    "avoid_if": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 300
+      },
+      "maxItems": 8,
+      "minItems": 0,
+      "uniqueItems": true
+    },
+    "adoption_mode": {
+      "anyOf": [
+        {
+          "enum": [
+            "product",
+            "library",
+            "platform",
+            "reference",
+            "comparison"
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "project_stages": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "idea",
+          "empty",
+          "prototype",
+          "product"
+        ]
+      },
+      "maxItems": 4,
+      "minItems": 0,
+      "uniqueItems": true
+    },
+    "complexity": {
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "unknown"
+      ]
+    },
+    "integration_surface": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 700
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "compatibility": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 160
+      },
+      "maxItems": 12,
+      "minItems": 0,
+      "uniqueItems": true
+    },
+    "caveats": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 400
+      },
+      "maxItems": 12,
+      "minItems": 0,
+      "uniqueItems": true
+    },
+    "activity": {
+      "$ref": "https://myai-stackguide.invalid/contracts/v1/catalog/activity-evidence.schema.json"
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "evidence_id",
+          "source_kind",
+          "source_ref",
+          "observed_at",
+          "verification",
+          "fields"
+        ],
+        "properties": {
+          "evidence_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 80,
+            "pattern": "^ev-[a-z0-9][a-z0-9_-]*$"
+          },
+          "source_kind": {
+            "enum": [
+              "catalog_snapshot",
+              "github_api",
+              "upstream_document",
+              "curator_record",
+              "synthetic_fixture"
+            ]
+          },
+          "source_ref": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500,
+            "pattern": "^(?:https://(?:github\\.com|raw\\.githubusercontent\\.com)/[^\\s]+|catalog:[A-Za-z0-9._:/-]+|fixture:[A-Za-z0-9._:/-]+)$"
+          },
+          "observed_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 32,
+                "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,6})?Z$",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "verification": {
+            "enum": [
+              "source_reported",
+              "verified",
+              "unknown"
+            ]
+          },
+          "fields": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 150,
+              "pattern": "^/[A-Za-z0-9_/-]+$"
+            },
+            "maxItems": 20,
+            "minItems": 1,
+            "uniqueItems": true
+          }
+        }
+      },
+      "maxItems": 40,
+      "minItems": 0
+    },
+    "missing_facts": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "maxItems": 20,
+      "minItems": 0,
+      "uniqueItems": true
+    },
+    "corpus_kind": {
+      "enum": [
+        "catalog_snapshot",
+        "synthetic_fixture"
+      ]
+    }
+  },
+  "x-max-utf8-bytes": 12288,
+  "x-invariants": [
+    "Preserve v5 source repo_id; canonicalize aliases/redirects using verified GitHub identity without inventing a new upstream ID.",
+    "Every non-null factual/advisory field used for primary eligibility needs its own public evidence path; missing descriptions/licenses/activity remain unknown.",
+    "Baseline-valid sparse cards remain retrievable. accepted requires an existing source catalog status or separate curator decision; machine evidence never grants it."
+  ]
+}

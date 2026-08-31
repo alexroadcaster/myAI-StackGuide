@@ -9,7 +9,7 @@ Deliver a local Codex plugin that turns a user goal and project context into a u
 | Phase | Tasks | Exit evidence / status |
 | --- | --- | --- |
 | P0: direction and design | CP-01, CP-02 | Documentation implemented, amended to FTS5/relevant context/activity/integration; no runtime proof |
-| P1: local contracts and readiness | CP-03, CP-04, CP-05 | Local C1-C6/C9, compatible C8 eval contract and aligned fresh-session agent/skill behavior; planned |
+| P1: local contracts and readiness | CP-03, CP-04, CP-05 | Local C1-C6/C9 present with partial verification; standards validation, C8 compatibility and CP-05 fresh-session behavior remain open |
 | P2: local useful vertical slice | CP-06-CP-11 | Persist public metadata/cards, build index, intake/state, bounded context, FTS5/evidence pack and integration report; actual 1/1 route then targeted negatives/scaling; planned |
 | P3: optional remote extension | CP-12-CP-14 | Deferred pending a separate service/auth/consent/architecture decision; no local P4/P5 dependency |
 | P4: independent local acceptance | CP-15 | Depends on CP-04, CP-10, CP-11; held-out retrieval, privacy, rendered UI and integration usefulness; planned |
@@ -19,6 +19,7 @@ Execution path is P0 -> P1 -> P2 -> P4 -> P5. Phase numbering retains historical
 
 ## Active Acceptance And Scope Control
 
+- The detailed desktop/laptop-only eight-view design and R15 RU-EN direction are owner-approved. CP-03/04/05 prepare contracts/evals/behavior; CP-07 owns the shared commit/publication boundary; CP-10 A-D builds shell/localization, views 1-4, views 5-7 and History/recovery while CP-08/09 supply context/retrieval. CP-11 joins the full bilingual lifecycle, CP-15 accepts the working artifact and CP-16 packages it. [Approved workspace sequence](plan/plugin-v1-session-workspace-design.md#approved-implementation-sequence) owns depth, language semantics and fallback. The HTML starts with the session, not only with final recommendations. The dependency graph and remote deferral stay unchanged; mobile is excluded and runtime remains unimplemented.
 - FTS5/BM25 is the baseline, not an option awaiting another choice. No mandatory vectors, embeddings, service, provider key or Cloudflare work.
 - CP-03 owns complete local contracts including retrieval and integration handoff. Remote C4/C7 move to CP-12; they do not prevent local CP-03 completion.
 - CP-06 must persist available activity metadata and report coverage, preserve unknowns/canonical identity, and build a public-only versioned read-only index. Do not wait for exhaustive enrichment of every repository before a useful slice.

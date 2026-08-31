@@ -9,6 +9,55 @@ Verification strategy for the myAI-StackGuide control plane and local SQLite FTS
 - Generated catalog pages and reports are orientation or delivery artifacts; source builders and parity checks own reproducibility claims.
 - Runtime/browser claims require observed behavior; private-project, provider, OAuth and MCP actions require their actual authorization. Remote CP-12-14 are not local-release prerequisites. Relevant authorized source reads are not a failure by themselves.
 
+## CP-03 Local Contract Checks
+
+Twenty local schemas and linked examples now exist. YAML policy/taxonomy files
+use the JSON-compatible YAML 1.2 subset and require no YAML parser dependency.
+Full standards acceptance uses development-only `jsonschema==4.26.0`, Draft
+2020-12, an offline registry and explicit date/UUID format checks. This must not
+be copied into or automatically installed by the standard-library plugin.
+Installation follows the user's approval boundary.
+
+```powershell
+python -B -m unittest discover -s tests -p test_plugin_contracts.py -v
+```
+
+The suite covers twenty positive schema instances, linked examples, seventeen
+negative mutations, unknown-property rejection, count/UTF-8 caps, dates,
+early/ten-question intake, failures, eligibility/provenance, taxonomy parity and
+correction invalidation. Custom byte annotations and cross-document rules need
+explicit checks beyond ordinary JSON Schema. Lexical exclusions are not Windows
+containment tests.
+
+Current status is `partially_verified`: the full command reported missing
+`jsonschema`; no standards pass is claimed. Nineteen semantic tests pass:
+
+```powershell
+python -B -m unittest discover -s tests -p test_plugin_contracts.py -k SemanticContracts -v
+```
+
+This subset is not a replacement for full V-CONTRACT. Missing dependencies fail
+clearly rather than skipping mandatory checks or counting as expected RED.
+CP-04 C8/C9 compatibility remains open. No scanner, SQLite query, model quality,
+atomic save or installed-plugin behavior is proved; exact outcomes are in RUNLOG.
+
+## Planned Session Workspace And RU-EN Checks
+
+R15 and the [workspace design](docs/plan/plugin-v1-session-workspace-design.md) extend CP-03/07/10/11/15/16 acceptance. These are future checks, not executed results:
+
+- CP-10 follows A-D checkpoints in the approved design: common shell/RU-EN first, views 1-4, views 5-7, then History/recovery. Use the smallest relevant fixture/browser check per checkpoint and one final complete eight-view review; no repeated concept-approval gate.
+- CP-07 defines and CP-10 binds the commit/publication boundary. CP-11 verifies start -> saved answer -> scan/Brief -> actual FTS5 result -> memo -> correction/invalidation -> resume -> finalization, using one HTML path and explicit committed/published revision identity. No manual second report command is required in the normal flow.
+- Inject saved-state/render failure, first-render failure and a late older render racing a newer revision. Preserve saved answers and existing valid HTML, reject obsolete publication, report typed failure to Codex and retry rendering only. No repeat scan/model/retrieval or silent state rollback; an open old file cannot detect newer state on its own.
+- Validate locale/source-language, presentation revision/coverage and canonical field/evidence links; reject a translated view tied to the wrong Brief/result revision. Existing strict schemas are not changed by the planning task.
+- Require matching complete RU/EN static UI keys, including unknown/error/status/accessibility/print text. Preserve IDs, paths, URLs, commands, technical terms, timestamps and canonical values.
+- Inspect all eight views in RU/EN on desktop/laptop windows at 1280, 1440 and 1920 CSS pixels; add a narrower desktop window, long text and 200% zoom. Mobile adaptation is out of scope. Verify keyboard/focus, document/passages `lang`, direct evidence labels, print caveats and no overlap.
+- Switch RU -> EN -> RU on one saved captured result: retain candidate IDs/order, evidence, selected view, comparison and disclosure; no scan/retrieval/model/network call or domain-state write.
+- Verify explicit missing-dynamic-translation fallback, missing-dictionary-key build failure, invalid fragment, no JavaScript, denied storage and unavailable clipboard. Standalone-file behavior must not depend on `localStorage`.
+- Exercise empty/no-match versus index-unavailable, partial scan, invalidated Brief, saved-answer/render failure, historical run and recovery states in both languages. Old HTML never claims live detection of an unseen state revision.
+- Keep bilingual state <= 2 MiB, HTML <= 5 MiB, existing output-root/history caps and one canonical <= 48 KiB evidence pack. No silent budget increase or automatic pruning.
+
+Quality Evaluator uses the existing owned test files and records exact commands when those implementations are assigned; this design task creates no runtime tests or dependencies.
+
 ## Control-Plane Checks
 
 Run from the repository root:

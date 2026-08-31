@@ -4,13 +4,13 @@ Compact execution registry. The [active PRD](docs/PRODUCT_REQUIREMENTS.md#active
 
 ## Lifecycle State
 
-Owner revision: 2026-08-31. SQLite FTS5/BM25 is selected for local catalog retrieval. The product optimizes time to a useful open-source integration or modernization plan. Relevant project reads are allowed within existing permissions; the former host-wide source-isolation requirement is superseded, not technically proven. Repository activity and evidence observation are separate; the former 30-day snapshot rejection is withdrawn. CP-01/02 remain completed documentation records; CP-03-CP-16 remain planned, with CP-12-CP-14 deferred. This revision changes plans and contracts, not runtime or permissions.
+Owner revision: 2026-08-31. SQLite FTS5/BM25 is selected for local catalog retrieval. The product optimizes time to a useful open-source integration or modernization plan. Relevant project reads are allowed within existing permissions; the former host-wide source-isolation requirement is superseded, not technically proven. Repository activity and evidence observation are separate; the former 30-day snapshot rejection is withdrawn. CP-01/02 remain completed documentation records. CP-03 local schemas, policies and fixtures now exist; acceptance is partially verified pending standards validation and the CP-04 compatibility join. CP-04-CP-16 remain planned, with CP-12-CP-14 deferred. Runtime and permissions are unchanged.
 
-Product state is `partially_verified`: existing static control-plane/catalog work is not plugin runtime, retrieval quality or release evidence. This assignment revises documentation, TEST/EVALS policy and orchestration guidance; it does not execute CP-03 or later tasks.
+Product state is `partially_verified`: existing static control-plane/catalog work is not plugin runtime, retrieval quality or release evidence. CP-03 now supplies local schemas/policies/examples and tests; standards validation and CP-04 compatibility remain open. No later runtime task is executed.
 
 ## Active Direction And Traceability
 
-Stable R01-R14 identifiers are retained; their wording and task mappings below are explicitly revised by the owner, not frozen to the earlier remote/scanner-only design. The PRD retains all FR1-FR15 and cross-cutting historical dispositions. [CP-02 ADRs](specs/decisions/plugin-v1-architecture.md) define local FTS5, index/state separation, context budgets, activity semantics and integration boundaries.
+Stable R01-R14 identifiers are retained; their wording and task mappings below are explicitly revised by the owner, not frozen to the earlier remote/scanner-only design. R15 adds the owner's RU-EN localization requirement. The PRD retains all FR1-FR15 and cross-cutting historical dispositions. [CP-02 ADRs](specs/decisions/plugin-v1-architecture.md) define local FTS5, index/state separation, context budgets, activity semantics and integration boundaries.
 
 | ID | Requirement | Tasks |
 | --- | --- | --- |
@@ -28,6 +28,7 @@ Stable R01-R14 identifiers are retained; their wording and task mappings below a
 | R12 | Retrieval relevance, bounded context/scale, recommendation usefulness, privacy/provenance, rendered UI, local runtime and rollback evidence before local release. | CP-04, CP-11, CP-15, CP-16 |
 | R13 | Help build or modernize through an actionable integration plan and coding-agent handoff. Recommendations do not execute changes; an explicit implementation request authorizes its own bounded workflow. | CP-01, CP-03, CP-05, CP-07, CP-10, CP-11, CP-15, CP-16 |
 | R14 | Activity/popularity are signals, not proof of operability or fit; missing mandatory facts remain unknown. Prefer useful caveated guidance over unnecessary refusal. | CP-03, CP-04, CP-06, CP-09, CP-15 |
+| R15 | One session HTML supports RU-EN interface and localized narrative, preserving canonical facts, evidence, decisions and technical literals; offline switching performs no retrieval/model call or domain-state write. | CP-03, CP-04, CP-05, CP-07, CP-09, CP-10, CP-11, CP-15, CP-16 |
 
 Acceptance owners: Product Planner owns usefulness and scope; Catalog Architect owns local domain/retrieval/context contracts; Quality Evaluator owns tests/evals and acceptance evidence; Evidence Reviewer independently reviews provenance/permissions/claims. Builders own only their assigned runtime, source or index files.
 
@@ -43,7 +44,7 @@ Acceptance owners: Product Planner owns usefulness and scope; Catalog Architect 
 | V1-EVAL-001 | R12 | Separate team behavior, deterministic product contracts, and recommendation usefulness |
 | V1-GH-001 | R06, R08, R09 | GitHub retrieval stays read-only; own-backend ledger writes have a distinct approval/auth boundary |
 
-CP-02 selects the local design; CP-03 schemas and product quality evidence remain future work. Deferred remote contracts move to CP-12 and do not block local acceptance.
+CP-02 selects the local design; CP-03 schemas are present with partial verification. Product quality evidence remains future work. Deferred remote contracts move to CP-12 and do not block local acceptance.
 
 ## Goal
 
@@ -61,11 +62,11 @@ The rows below preserve the earlier contract-definition baseline, including its 
 | `CP-004` | Use official portable Codex project locations and runtime configuration. | official Codex documentation | Skills are discovered from `.agents/skills`, agent files contain no workspace-absolute skill paths, and `.codex/config.toml` sets bounded multi-agent defaults. | Product Planner | `present_verified` |
 | `CP-005` | Configure a tier-aware GPT-5.6 model and reasoning policy without inflating readiness claims. | official GPT-5.6 migration and prompting guidance | Sol/high and Terra/medium role mappings parse, static eval specs exist, and behavioral suitability remains explicitly unverified until fresh-context comparisons run. | Quality Evaluator | `configured_not_behaviorally_verified` |
 | `CAT-V5-001` | Make the current HTML v5 catalog reproducible from source-owned data and a stable template without changing its user-owned content. | project owner decision, `docs/UNIFIED_CATALOG.html` | Canonical manifest and schema exist, the builder validates identity/count/reference invariants, and generated HTML matches the checked-in artifact byte-for-byte. | Catalog Pipeline Builder | `implemented_verified` |
-| `V1-CAT-001` | Define baseline and advisory repository card JSON contracts with provenance, freshness, trust, and verification fields. | `docs/PRODUCT_REQUIREMENTS.md` FR7/FR13 and Data Requirements | Schema fixtures distinguish required baseline fields from optional advisory fields and reject missing identity/provenance. | Catalog Architect | `planned` |
-| `V1-TAX-001` | Define the V1 taxonomy contract and controlled evolution rules for 60–90 categories. | `docs/V1_ROADMAP.md` Milestone 1 | Category IDs, labels, parent relationships, aliases, ownership, and duplicate rules are explicit. | Catalog Architect | `planned` |
-| `V1-SCAN-001` | Define allowlist-first scanning and sensitive-source exclusions. | `docs/PRODUCT_REQUIREMENTS.md` FR3/FR4, Context Scanner | Policy covers included groups, denied patterns, no execution, no dependency install, redaction, and observable scan reporting. | Catalog Architect | `planned` |
-| `V1-CTX-001` | Define the Project Context Brief JSON contract. | `docs/PRODUCT_REQUIREMENTS.md` FR5, Context Scanner | Facts, inferences, evidence, confidence, corrections, missing context, and sanitized source references are separate. | Catalog Architect | `planned` |
-| `V1-MEMO-001` | Define the recommendation memo JSON contract. | `docs/PRODUCT_REQUIREMENTS.md` FR8–FR13 | Output includes category path, roles, shortlist, avoid/defer, comparison, reading path, caveats, evidence, and next human decision. | Catalog Architect | `planned` |
+| `V1-CAT-001` | Define baseline and advisory repository card JSON contracts with provenance, freshness, trust, and verification fields. | `docs/PRODUCT_REQUIREMENTS.md` FR7/FR13 and Data Requirements | Schema fixtures distinguish required baseline fields from optional advisory fields and reject missing identity/provenance. | Catalog Architect | `partially_verified` |
+| `V1-TAX-001` | Define the V1 taxonomy contract and controlled evolution rules for 60–90 categories. | `docs/V1_ROADMAP.md` Milestone 1 | Category IDs, labels, parent relationships, aliases, ownership, and duplicate rules are explicit. | Catalog Architect | `partially_verified` |
+| `V1-SCAN-001` | Define allowlist-first scanning and sensitive-source exclusions. | `docs/PRODUCT_REQUIREMENTS.md` FR3/FR4, Context Scanner | Policy covers included groups, denied patterns, no execution, no dependency install, redaction, and observable scan reporting. | Catalog Architect | `partially_verified` |
+| `V1-CTX-001` | Define the Project Context Brief JSON contract. | `docs/PRODUCT_REQUIREMENTS.md` FR5, Context Scanner | Facts, inferences, evidence, confidence, corrections, missing context, and sanitized source references are separate. | Catalog Architect | `partially_verified` |
+| `V1-MEMO-001` | Define the recommendation memo JSON contract. | `docs/PRODUCT_REQUIREMENTS.md` FR8–FR13 | Output includes category path, roles, shortlist, avoid/defer, comparison, reading path, caveats, evidence, and next human decision. | Catalog Architect | `partially_verified` |
 | `V1-EVAL-001` | Define recommendation eval case and result formats. | `docs/PRODUCT_REQUIREMENTS.md` FR15, `docs/V1_ROADMAP.md` Milestone 9 | Cases map requirement to scenario, rubric, deterministic checks, human judgment, evidence owner, and promotion threshold. | Quality Evaluator | `planned` |
 | `V1-GH-001` | Stage a read-only GitHub MCP permission and provenance contract after the schemas exist. | FR2/FR13 and current GitHub MCP research | Tool allowlist, no-write mode, data boundary, evidence provenance, rate-limit behavior, and fallback are reviewed before activation. | Catalog Architect | `approval_required` |
 
@@ -80,12 +81,15 @@ The rows below preserve the earlier contract-definition baseline, including its 
 
 ## Scope
 
+Current assignment: update the implementation plan against the owner-approved detailed eight-view desktop/laptop design and R15 localization in the [session workspace design](docs/plan/plugin-v1-session-workspace-design.md). Publish one HTML from session start through each committed answer/phase; answers and saved decisions remain in Codex, with one canonical state writer. Static UI dictionaries and revision-bound narrative translations are distinct from RU/EN retrieval aliases. CP-03 needs a planned contract addendum; existing schemas/runtime are not changed by this documentation task. Preserve all preceding dirty changes and historical completion evidence. Mobile adaptation is excluded; concept approval is complete and rendered implementation acceptance is pending.
+
 Current owner-authorized work: reconcile the full CP-01-CP-16 plan, active requirements/roadmap/docs, ADRs, TEST/EVALS and team-contract prose to selected FTS5, relevant context, activity evidence and integration output. Preserve original completion evidence, historical bodies and unrelated dirty work; append RUNLOG.
 
-Out of scope for this revision: runtime/schemas/index creation, catalog refresh/regeneration, test implementation, protected .codex/.agents definitions or behavioral JSON edits, installations, host/model/permission changes, Git operations and external activation. CP-03-CP-11/15/16 implementation requires its assigned work; CP-12-14 additionally needs a new remote extension decision.
+CP-03 authorizes the registered local schemas, policies, fixtures and tests. Out of scope: runtime/index creation, catalog refresh/regeneration, protected .codex/.agents definitions or behavioral JSON edits, installations without permission, host/model/permission changes, Git operations and external activation. Later implementation requires its own assignment; CP-12-14 additionally needs a new remote extension decision.
 
 ## Constraints
 
+- Target desktop PCs and laptops only; mobile adaptation is explicitly excluded by the owner. Desktop window resizing, keyboard access, readable text zoom and RU/EN layout remain acceptance requirements.
 - Preserve current v5 source, template and generated artifacts. CP-06 owns normalized metadata/card/index adapters; browser enrichment is not persisted source proof. Source changes, if assigned later, precede regeneration and parity checks.
 - No blanket snapshot-age rejection. Separate creation/push/verified commit/release/observation/build dates and unknowns; activity/popularity alone cannot prove quality, operability or fit.
 - Local `catalog_only` source uses `sqlite_fts5`; public index is immutable/read-only at runtime. Pin source/card/index/policy versions and reject mismatches visibly. No vector/provider/server dependency, startup index rebuild or full-catalog prompt fallback.

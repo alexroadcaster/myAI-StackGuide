@@ -2,11 +2,11 @@
 
 Planning date: 2026-08-30; owner revision: 2026-08-31. Timezone: `Europe/Moscow`.
 
-Document status: selected local direction; detailed implementation remains `proposal_staged` pending CP-03 contracts, CP-04 evaluation design and CP-05 behavior alignment. CP-01/02 are implemented documentation; CP-03-CP-16 remain planned. No product runtime, index, remote integration or publication is activated by this revision.
+Document status: the detailed eight-view desktop/laptop design and RU-EN implementation scope are `owner_accepted`; runtime dispatch still requires CP-03 contracts, CP-04 evaluation design and CP-05 behavior alignment. CP-01/02 are implemented documentation; CP-03 contracts/examples are present with partial verification, and CP-04-CP-16 remain planned. No product runtime, index, remote integration or publication is activated by this revision.
 
 ## 1. Goal, Sources, And Boundaries
 
-Owner revision: 2026-08-31. SQLite FTS5/BM25 is selected for local catalog retrieval. The product optimizes time to a useful open-source integration or modernization plan. Relevant project reads are allowed within existing permissions; the former host-wide source-isolation requirement is superseded, not technically proven. Repository activity and evidence observation are separate; the former 30-day snapshot rejection is withdrawn. CP-01/02 remain completed documentation records; CP-03-CP-16 remain planned, with CP-12-CP-14 deferred. This revision changes plans and contracts, not runtime or permissions.
+Owner revision: 2026-08-31. SQLite FTS5/BM25 is selected for local catalog retrieval. The product optimizes time to a useful open-source integration or modernization plan. Relevant project reads are allowed within existing permissions; the former host-wide source-isolation requirement is superseded, not technically proven. Repository activity and evidence observation are separate; the former 30-day snapshot rejection is withdrawn. CP-01/02 remain completed documentation records. CP-03 local schemas, policies and fixtures now exist; acceptance is partially verified pending standards validation and the CP-04 compatibility join. CP-04-CP-16 remain planned, with CP-12-CP-14 deferred. Runtime and permissions are unchanged.
 
 Goal: help users build or modernize their solutions faster by selecting suitable OSS components and handing off a concrete integration plan grounded in their project. The saved output is a Project Context Brief plus an offline Decision Report with comparison, integration steps, a first useful validation slice and rollback. Measured speed/quality improvements are hypotheses until evaluated.
 
@@ -36,6 +36,7 @@ The scanner remains read-only and does not execute project scripts/builds/instal
 | R12 | Retrieval relevance, bounded context/scale, recommendation usefulness, privacy/provenance, rendered UI, local runtime and rollback evidence before local release. | CP-04, CP-11, CP-15, CP-16 |
 | R13 | Help build or modernize through an actionable integration plan and coding-agent handoff. Recommendations do not execute changes; an explicit implementation request authorizes its own bounded workflow. | CP-01, CP-03, CP-05, CP-07, CP-10, CP-11, CP-15, CP-16 |
 | R14 | Activity/popularity are signals, not proof of operability or fit; missing mandatory facts remain unknown. Prefer useful caveated guidance over unnecessary refusal. | CP-03, CP-04, CP-06, CP-09, CP-15 |
+| R15 | One session HTML supports RU-EN interface and localized narrative, preserving canonical facts, evidence, decisions and technical literals; offline switching performs no retrieval/model call or domain-state write. | CP-03, CP-04, CP-05, CP-07, CP-09, CP-10, CP-11, CP-15, CP-16 |
 
 ### Intake And Context
 
@@ -60,6 +61,32 @@ The report explains what to integrate, why it fits, affected components, support
 `state.json` is sole current state; `status.html` is a deterministic escaped offline projection; finalized `runs/{run_id}.json` is immutable. Preserve the CP-02 lock/revision/atomicity/recovery and retention caps. Record catalog/index/policy/schema pins, source mode/engine and evidence-pack counts/bytes. A correction invalidates stale packs and reports. A frozen retrieval result can be replayed; identical LLM wording is not guaranteed.
 
 HTML contains outcome, context/coverage/gaps, shortlist/roles/evidence/activity, comparison, integration plan/handoff, risks, versions and history. No CDN, telemetry or automatic fetch. It must remain useful offline and pass rendered QA. No user context is stored in the public SQLite index or shared globally.
+
+### Detailed Session Workspace And RU-EN Localization
+
+The owner approved the detailed eight-view single-session HTML design and RU-EN direction, then requested this implementation-plan update. The [workspace design](plugin-v1-session-workspace-design.md) specifies all eight views and is the detailed design addendum to this plan. The owner explicitly excludes mobile: target desktop PCs and laptops, with readable window resizing and text zoom. Each view exposes a decision summary, useful product/technical subsections and on-demand evidence; the sample images are not a three-card result limit or runtime proof.
+
+R15 requires an always-available RU-EN control, complete static UI dictionaries, revision-bound localized narrative, canonical literals/source attribution, visible partial translations and local switching without new retrieval/model calls or state writes. CP-03 specifies the missing presentation/schema mapping; CP-07 owns saved locale and question text; CP-10 owns dictionaries/renderer; CP-04/05/09/11/15/16 add the semantic, host, stable-result, browser and package checks listed in the design. No extra CP task, service, translation provider or vector dependency is introduced. Existing retrieval/state/HTML byte ceilings remain in force for bilingual output.
+
+The detailed composition is the approved baseline; do not request concept approval again. This amendment is implementation planning, not runtime completion evidence. Existing CP-03 schemas are not silently extended; no previous completion report or later task status is promoted. CP-10/15 must still verify the working artifact for usefulness, correctness and accessibility.
+
+#### Approved Build Checkpoints
+
+Use the [approved implementation sequence](plugin-v1-session-workspace-design.md#approved-implementation-sequence) and [commit/publication lifecycle](plugin-v1-session-workspace-design.md#commit-and-html-publication-lifecycle) as the detailed execution contract. Keep the existing CP dependency graph and file ownership.
+
+| Checkpoint | Outcome | Evidence / next join |
+| --- | --- | --- |
+| CP-03/04/05 preparation | Eight-view source mapping, paired presentation/revision/publication contracts, C8/C9 compatibility and aligned host behavior | Resolve existing CP-03 standards-validation gap; future consumers cannot infer fields from images |
+| CP-06/07 foundations | Public card/index bundle; one local intake/state writer with commit/publication interface | Renderer fixture can verify the interface before CP-10; this is not full plugin UI proof |
+| CP-10-A | Eight-view shell, RU/EN dictionaries, partial-state rendering from session start | One saved-start fixture and focused offline browser check; no memo required |
+| CP-10-B | Goal, Questions, Scan, Context with all mapped subsections | Source/unknown/correction coverage; CP-08 supplies actual scan/Brief data |
+| CP-10-C | Options, Compare, Integration with detailed evidence and first useful change | All available roles/cards, decision matrix, prerequisites, proposed diagram, validation, rollback, handoff; CP-09 supplies actual retrieval |
+| CP-10-D | History, recovery and full state/accessibility coverage | Focused failures first, then one eight-view RU/EN desktop/keyboard/zoom/print review |
+| CP-11/15/16 acceptance | Actual lifecycle, independent quality/usefulness and reproducible local package | Real FTS5 1/1 first, affected negatives/scaling, held-out review, then authorized install/upgrade/rollback |
+
+Publish the same `docs/myai-stackguide/status.html` after the first session commit and each successful answer/phase/correction/finalization, through the CP-07 writer and CP-10 renderer. State remains canonical. Report saved and published revisions separately, preserve saved answers on render failure, reject late obsolete renders and retry publication without rescanning or recomposing the result. Codex owns input and saved decisions and links the updated artifact; an already-open file must be reopened/reloaded, not presented as a live monitor. Browser view/language changes do not trigger state writes. Wire the normal entry workflow so the user does not run a separate report command after every answer.
+
+CP-10-A-D are sequential checkpoints within one task, not new CP IDs. Runtime Builder owns template/dictionaries/rendering; Quality Evaluator owns `tests/test_plugin_artifact.py` and browser evidence. Any shared intake/state/skill wiring remains under CP-07 ownership with sequential handoff, not parallel overlapping edits. Existing 60-candidate/12-card/48 KiB retrieval and 2 MiB state/5 MiB HTML limits remain unchanged. No mobile layout, server, browser filesystem bridge, automatic integration or new translation provider is added.
 
 The deferred extension may add bounded GitHub discovery (original design: 3-5 public-safe queries and up to 20 normalized candidates/run), authenticated candidate ledger, overlay sync and compaction (original proposal: 100 candidates or 24 hours). These are retained proposals to revalidate in CP-12-14, not local requirements or accepted service choices. Remote C4/C7, consent/auth/retries/retention/commands and index-update compatibility must be accepted before activation. Candidate publication is never needed to deliver the local report.
 
@@ -94,6 +121,7 @@ Future schema/artifact registry; these paths are owned outputs, not files claime
 - C4 local catalog / CP-03: `specs/catalog/repository-card.schema.json`, `activity-evidence.schema.json`, `candidate-eligibility.schema.json`, `taxonomy.yaml`, `taxonomy-rules.md` under `specs/catalog/`. Include per-field provenance/observation, activity-date semantics and aliases; baseline unknowns remain representable.
 - C5 recommendation / CP-03: `specs/recommendation/recommendation-request.schema.json`, `recommendation-memo.schema.json`, `integration-plan.schema.json` under `specs/recommendation/`.
 - C6 artifact / CP-03: `specs/artifact/project-artifact-state.schema.json` including context/catalog/index/policy pins and correction invalidation.
+- R15 C6 presentation addendum / planned CP-03 follow-up: `specs/artifact/localized-presentation.schema.json`, joined to affected C1/C3/C5/C6 schemas and linked examples. Default/source language, revision, coverage and translated field/evidence identity are not yet implemented; the existing twenty-schema count is unchanged.
 - C7 remote MCP / deferred CP-12: `specs/mcp/discovery-query.schema.json`, `specs/mcp/tool-contracts.json`; deferred remote C4: `specs/catalog/live-evidence-record.schema.json`, `discovery-candidate.schema.json`, `candidate-ledger-event.schema.json` under `specs/catalog/`. Architect defines these before backend implementation; CP-13 consumes them. Not part of local CP-03 acceptance.
 - C8 evaluation / CP-04: `evals/scenario.schema.json`, `evals/result.schema.json`, `evals/plugin-v1/cases.json`, `evals/plugin-v1/rubric.json`, `evals/plugin-v1/runner-contract.md`; offline scoring harness `evals/plugin-v1/evaluate_retrieval.py`, `tests/test_plugin_retrieval_eval.py`, `tests/fixtures/plugin_retrieval_eval.json`.
 - C9 retrieval / CP-03: `specs/retrieval/catalog-query.schema.json`, `retrieval-result.schema.json`, `evidence-pack.schema.json`, `index-manifest.schema.json`, `retrieval-policy.json` under `specs/retrieval/`. Policy owns query grammar, field weights/aliases, multi-query rank fusion, caps, rejection reasons and version compatibility; CP-06 packages it, CP-09 consumes it.
@@ -118,9 +146,10 @@ Execution order: CP-03 local schemas and CP-04 eval contract can proceed indepen
 | Relevant project context; no strict host-isolation promise | `owner_revised` | CP-03/05/08/15 verify minimization, exclusions, authorized scope and useful reads |
 | Activity/observation dates; no blanket snapshot TTL | `owner_revised` | CP-03 semantics, CP-06 source persistence/coverage, CP-09/15 activity cases |
 | Actionable integration plan and coding handoff | `design_selected` | CP-03/10/11/15 contract, implementation and human usefulness |
-| Contracts and retrieval budgets | `applicable_missing` | CP-03 local C1-C6/C9 and fixtures; selected ceilings need encoding |
+| Contracts and retrieval budgets | `partially_verified` | CP-03 local C1-C6/C9 and fixtures present; standards validation and CP-04 join pending; ceilings uncalibrated |
 | Quality corpus, runner and calibration | `applicable_missing` | CP-04 freezes relevance judgments, runner, thresholds and human rubric |
 | Loaded agent/skill behavior | `present_unverified` | CP-05 alignment plus fresh-session evidence; no implicit promotion |
+| Detailed eight-view desktop design and RU-EN | `owner_accepted` | CP-10 A-D implements the approved composition; CP-11/15 verify the working artifact, without another concept gate |
 | Runtime/index/UI/install | `not_implemented` | CP-06-11, CP-15/16; planning is not product acceptance |
 | Remote tools/auth/backend/scheduler | `deferred` | New extension decision and CP-12-14; no local-release block |
 | Publication / external actions | `approval_required` | Exact destination/action only after a reviewable package exists |
@@ -129,13 +158,13 @@ Execution order: CP-03 local schemas and CP-04 eval contract can proceed indepen
 
 All future commands require their named test/runner files to exist; a zero-test discovery is not a pass. Current documentation checks and actual results are recorded in RUNLOG.
 
-- V-DOC: Product-Agent OS task/control-plane validators, focused existing `test_codex_contracts.py`, R01-R14/FR1-FR15 mapping, unique 16-task DAG and reciprocal Blocks, links/UTF-8/history/protected-file audit, whitespace and semantic self-review.
+- V-DOC: Product-Agent OS task/control-plane validators, focused existing `test_codex_contracts.py`, R01-R15/FR1-FR15 mapping, unique 16-task DAG and reciprocal Blocks, links/UTF-8/history/protected-file audit, whitespace and semantic self-review.
 - V-CONTRACT / CP-03: `python -B -m unittest discover -s tests -p test_plugin_contracts.py -v`; local C1-C6/C9 fixtures, bounded query/context, activity/unknown semantics and handoff. No remote-contract prerequisite.
 - V-CATALOG / CP-06: future `test_plugin_catalog.py` and `test_plugin_search_index.py`; normalized source/card/index/policy parity and hashes, dedupe/coverage/integrity. Run existing catalog HTML parity only if its source/output changes.
 - V-RETRIEVAL / CP-09: future `test_plugin_retrieval.py` and `test_plugin_matching.py`; actual FTS5, query grammar, RU/EN/aliases, stable ordering/constraints/caps, no-hit versus unavailable, read-only and mismatch cases.
 - V-LOCAL / CP-11: register one exact useful semantic-case command, then affected edges, then final `python -B -m unittest discover -s tests -p "test_plugin_*.py" -v`. Record intended `sqlite_fts5` route and prevent fallback/mock masking.
 - V-EVAL / CP-04/15: future offline scorer `evals/plugin-v1/evaluate_retrieval.py` consumes validated captured C9 results and frozen C8 judgments; CP-04 creates it and accepts its exact CLI/input/output contract. `command_gap` remains until then. Register the held-out cases, lexical baseline, Recall@k/nDCG@k, exclusion errors and human integration-usefulness rubric. Same-case comparisons; no quality gain inferred from FTS5 availability. Synthetic 2,000/10,000-row scaling is separate from actual catalog relevance and real size.
-- V-UI / CP-10/15: rendered offline report, links/escaping, injection, keyboard/accessibility, responsive overflow, console and zero third-party requests.
+- V-UI / CP-10/15: all eight views in RU/EN, localized narrative/evidence parity and unchanged captured retrieval, rendered offline report, links/escaping, injection, keyboard/lang/focus, desktop-window/200%-zoom overflow, print, missing translation, no-JS/storage/clipboard fallback, console and zero third-party requests. Raster concepts do not pass this gate.
 - V-RELEASE / CP-16: authorized clean install/fresh-session identity, actual Python/FTS5 preflight, package/index/policy hashes, read-only query, upgrade/downgrade/disable, previous compatible package and preserved history. Local gate excludes auth expiry/scheduler/live service tests.
 - V-MCP / V-LIVE: deferred CP-12/14 only; future exact endpoint, auth/data/cost/action scope, commands and observed traces. They are not marked passed and do not block local release.
 
@@ -145,7 +174,7 @@ Rollback preserves the previous compatible package/index and valid user state/hi
 
 ## 7. Detailed Task Matrix
 
-The task contracts below are amended to the 2026-08-31 local scope. CP-01/02 completion reports are preserved historical evidence for their original documentation runs; the amendment does not retroactively claim new tests or implementation. Remaining completion reports explicitly record planning only.
+The task contracts below are amended to the 2026-08-31 local scope. CP-01/02 completion reports are preserved historical evidence for their original documentation runs; the amendment does not retroactively claim new tests or implementation. CP-03 below records current implementation and open acceptance gates; CP-04-CP-16 completion reports still record planning only.
 
 ### Task `CP-01`
 
@@ -244,15 +273,15 @@ Historical report for the original 2026-08-30 documentation run, preserved verba
 ### Task `CP-03`
 
 - Task: CP-03 — define complete local context, catalog, retrieval and integration contracts
-- Status: planned
+- Status: in_progress
 - Schema version: task_matrix_plan_v1
 - Timezone: Europe/Moscow
 - Plan trigger: Owner revision 2026-08-31: local SQLite FTS5, relevant context, activity-aware evidence and actionable OSS integration. This task remains within the local product path.
 - Validator target: detailed task blocks
-- Date and time of task implementation: pending_execution_timestamp
+- Date and time of task implementation: 2026-08-31 (Europe/Moscow; acceptance pending)
 - Depends on: CP-01, CP-02
 - Blocks: CP-06, CP-07, CP-08, CP-09, CP-10, CP-11, CP-12, CP-13
-- Source: Owner decisions 2026-08-31; active PRD R02, R03, R04, R05, R06, R07, R08, R10, R11, R13, R14; accepted CP-02 ADRs and Section 3 registries.
+- Source: Owner decisions 2026-08-31; active PRD R02, R03, R04, R05, R06, R07, R08, R10, R11, R13, R14; accepted CP-02 ADRs and Section 3 registries. R15 session workspace/localization amendment and linked design addendum.
 - Short description: Accept local C1-C6 plus C9 with bounded interfaces, versions and representative fixtures.
 - Technical value: Stable query/card/index/pack/state contracts prevent context growth and source/version confusion.
 - Product value: Candidates can become actionable integration plans with visible gaps rather than blanket refusal.
@@ -260,6 +289,7 @@ Historical report for the original 2026-08-30 documentation run, preserved verba
 - Non-goals: Unassigned files, model/permission changes, Git history, automatic installs, private-data disclosure or external activation. No remote architecture/runtime or vector/embedding dependency.
 - Expected result: Versioned accepted schemas/policy and positive/negative/edge fixtures; local CP-03 fully closable. Remote C4/C7 ownership transferred to deferred CP-12 before its backend implementation.
 - Acceptance criteria: Represent unknown dates/license/compatibility without fabricated values; distinguish push from commit and observation; reject private fields in public index, unsafe query grammar/unbounded context and silent pin mismatch. Permit bounded relevant reads and non-executed integration steps. Specify invalidation, errors and compatibility; keep source/card identity stable.
+- Session workspace / R15 (planned): Map all eight views to typed fields or explicit unknowns; define specs/artifact/localized-presentation.schema.json and affected C1/C3/C5/C6 joins for default/source locale, paired prose, content versus saved-state revision, coverage and byte limits. Define the shared commit/publication outcome (saved versus published run/revision, first-render failure, stale result and retry semantics) without another domain store. Preserve existing schema evidence; validate the addendum and C8/C9 join before downstream acceptance.
 - Verification gates: V-CONTRACT and V-DOC; CP-04 compatibility review before either contract set is accepted; no index implementation or model-quality claim.
 - Risks / approval gates: Preserve pre-existing dirty work and source-owned boundaries. Public research is read-only; sensitive scope, credentials, material cost, external writes, publication and destructive operations follow actual authorization. Selected caps and ranking quality are not yet measured.
 - Complexity: L
@@ -271,19 +301,19 @@ Historical report for the original 2026-08-30 documentation run, preserved verba
 - Docs update path: Product Planner updates PLAN.md/task status; Quality Evaluator records TEST.md/EVALS.md evidence; Docs Maintainer appends RUNLOG.md after handoff. No unsupported completion claim.
 - Rollback: Undo only owned changes; preserve prior valid state, finalized history and compatible package/index. No automatic deletion, Git reset, permission weakening or silent retrieval fallback.
 - Stop conditions: Unexpected sensitive data or side effects, ownership overlap, incompatible accepted contract, unsafe containment, failed mandatory evidence or missing required external authorization. Routine relevant reads are not failures; report useful partial results when safe.
-- Next step: CP-06 normalization/index build and CP-07 local skeleton after CP-05; CP-04 can prepare independently.
+- Next step: Complete the presentation/view/publication addendum and existing standards validation, join CP-04 compatibility and CP-05 readiness; then CP-06/07 consumers. CP-04 may prepare independently.
 
 #### Completion report
 
-- status: planned
-- what was done: Task contract and dependencies revised on 2026-08-31; no task implementation executed by this plan revision.
-- files touched / work locations: Planning/control/ADR documentation only; future owned outputs are listed above.
-- technical value delivered: Implementation benefit not claimed; planned result is Stable query/card/index/pack/state contracts prevent context growth and source/version confusion.
-- product value delivered: User outcome not measured; planned result is Candidates can become actionable integration plans with visible gaps rather than blanket refusal.
-- actual implementation date and time: pending_execution_timestamp
-- verification evidence: Current documentation checks belong in RUNLOG.md; no task-specific runtime, schema, index, model or release pass claimed.
-- residual risks: Upstream acceptance and task-specific evidence remain open. Remote extension and vectors are not prerequisites.
-- follow-up: CP-06 normalization/index build and CP-07 local skeleton after CP-05; CP-04 can prepare independently.
+- status: in_progress
+- what was done: Implemented all 20 local C1-C6/C9 schemas, source-aligned taxonomy/rules, scan and retrieval policies, 20 linked positive examples, 17 negative mutations, exclusion cases and semantic/structural tests. Added explicit no-manifest failures without fabricated hashes.
+- files touched / work locations: Exact CP-03 specs registry; tests/test_plugin_contracts.py; tests/fixtures/plugin_contracts.json; active control/ADR documentation and append-only RUNLOG. No source catalog, generated artifacts, plugin runtime or protected configuration changed.
+- technical value delivered: Bounded context/query/card/pack interfaces, exact artifact pins, activity observations, unknown-fact eligibility, corrected-context invalidation and non-executed integration handoff are explicit and testable.
+- product value delivered: A concrete synthetic example reaches a useful integration plan; incomplete evidence permits conditional guidance. Real recommendation usefulness is not measured.
+- actual implementation date and time: 2026-08-31 (Europe/Moscow; exact verification command outcomes in RUNLOG)
+- verification evidence: 19 semantic contract tests and 11 existing control-plane tests pass. Full V-CONTRACT fails explicitly because jsonschema is unavailable; temporary development-only installation awaits user permission. This is a dependency blocker, not expected RED or a skipped pass.
+- residual risks: Draft 2020-12 standards validation and C8/C9 compatibility review remain open, so contracts are not yet accepted for downstream runtime. CP-04 owns C8/scorer creation; schemas alone do not prove privacy enforcement, search quality, actual Windows containment, atomic state or plugin installation.
+- follow-up: Finish standards validation; implement CP-04 and join its input/result schemas to these C9 examples, then CP-05 alignment. CP-06/07 follow accepted prerequisites. Remote C4/C7 stays deferred to CP-12.
 
 ### Task `CP-04`
 
@@ -296,7 +326,7 @@ Historical report for the original 2026-08-30 documentation run, preserved verba
 - Date and time of task implementation: pending_execution_timestamp
 - Depends on: CP-01
 - Blocks: CP-11, CP-15
-- Source: Owner decisions 2026-08-31; active PRD R06, R12, R14; accepted CP-02 ADRs and Section 3 registries.
+- Source: Owner decisions 2026-08-31; active PRD R06, R12, R14; accepted CP-02 ADRs and Section 3 registries. R15 session workspace/localization amendment and linked design addendum.
 - Short description: Freeze representative cases, lexical baseline, relevance judgments, metrics and executable runner contract.
 - Technical value: Separate search recall/ranking, deterministic safety, scaling and generated recommendation quality.
 - Product value: Evaluate time to a useful next integration step, not only a plausible shortlist.
@@ -304,6 +334,7 @@ Historical report for the original 2026-08-30 documentation run, preserved verba
 - Non-goals: Unassigned files, model/permission changes, Git history, automatic installs, private-data disclosure or external activation. No remote architecture/runtime or vector/embedding dependency.
 - Expected result: Versioned typical/edge/adversarial/regression and held-out corpus with RU/EN, technology aliases, replacement/integration intent, incomplete metadata, old stable versus newly active repositories, zero-hit/index failures and context limits.
 - Acceptance criteria: Predeclare Recall@k/nDCG@k, wrong-exclusion and hard-constraint checks, total context bytes/token measurement method, latency/memory methodology and thresholds before running. Keep initial 60/12/48-KiB caps explicit. Preserve 16/20 rubric and zero critical failures; calibrate authorized reads/handoff instead of blanket coding refusal. Label 2,000/10,000 synthetic scaling separately; no vectors/model provider dependency for lexical eval.
+- Session workspace / R15 (planned): Freeze paired RU/EN presentation cases separately from lexical-query cases: one canonical result, identical evidence/constraints/roles/negation/authority, explicit missing translations, and measured generation/byte overhead within existing limits.
 - Verification gates: V-DOC, C8 fixtures, runner-contract review and python -B -m unittest discover -s tests -p test_plugin_retrieval_eval.py -v. Tiny known-result fixtures verify metric computation/error handling; human calibration and actual CP-11 captures are required before a product quality verdict.
 - Risks / approval gates: Preserve pre-existing dirty work and source-owned boundaries. Public research is read-only; sensitive scope, credentials, material cost, external writes, publication and destructive operations follow actual authorization. Selected caps and ranking quality are not yet measured.
 - Complexity: M
@@ -340,7 +371,7 @@ Historical report for the original 2026-08-30 documentation run, preserved verba
 - Date and time of task implementation: pending_execution_timestamp
 - Depends on: CP-01, CP-02
 - Blocks: CP-07, CP-08, CP-09, CP-10, CP-12, CP-13, CP-16
-- Source: Owner decisions 2026-08-31; active PRD R04, R13; accepted CP-02 ADRs and Section 3 registries.
+- Source: Owner decisions 2026-08-31; active PRD R04, R13; accepted CP-02 ADRs and Section 3 registries. R15 session workspace/localization amendment and linked design addendum.
 - Short description: Update existing readiness contracts rather than recreate already-authored builder roles.
 - Technical value: Loaded instructions no longer conflict with authorized context access, retrieval or integration handoff.
 - Product value: Avoid needless refusals, repeated approvals and remote setup detours.
@@ -348,6 +379,7 @@ Historical report for the original 2026-08-30 documentation run, preserved verba
 - Non-goals: Unassigned files, model/permission changes, Git history, automatic installs, private-data disclosure or external activation. No remote architecture/runtime or vector/embedding dependency.
 - Expected result: Local builder/architect/reviewer routes apply revised R04/R13, FTS5/index boundaries and unknown/activity policy; backend role dormant. Explicit fresh-session evidence for changed contracts.
 - Acceptance criteria: Remove scanner-only host-source prohibitions and automatic refusal of requested coding handoff while preserving exclusions, no automatic installs, public/private separation and actual approval boundaries. FTS5 is default and no provider/server is introduced. Targeted static checks plus representative direct/indirect/incomplete/adversarial behavior traces; no model/effort promotion without existing comparison requirements.
+- Session workspace / R15 (planned): Align assigned host question/composition/handoff behavior with one canonical result and paired RU/EN presentation. No separate translation provider, automatic language-triggered retrieval or protected-definition edit is authorized by this plan.
 - Verification gates: V-DOC, relevant agent/skill validators and focused control-plane checks; fresh-session loading/routing before runtime dispatch. Old static passes are not revised-behavior proof.
 - Risks / approval gates: Preserve pre-existing dirty work and source-owned boundaries. Public research is read-only; sensitive scope, credentials, material cost, external writes, publication and destructive operations follow actual authorization. Selected caps and ranking quality are not yet measured.
 - Complexity: M
@@ -428,7 +460,7 @@ Historical report for the original 2026-08-30 documentation run, preserved verba
 - Date and time of task implementation: pending_execution_timestamp
 - Depends on: CP-02, CP-03, CP-05
 - Blocks: CP-08, CP-09, CP-10, CP-11, CP-13
-- Source: Owner decisions 2026-08-31; active PRD R01, R02, R05, R10, R13; accepted CP-02 ADRs and Section 3 registries.
+- Source: Owner decisions 2026-08-31; active PRD R01, R02, R05, R10, R13; accepted CP-02 ADRs and Section 3 registries. R15 session workspace/localization amendment and linked design addendum.
 - Short description: Create the local plugin skeleton, adaptive intake and one authoritative state writer.
 - Technical value: Trusted interpreter and FTS5 capability checks plus revision-safe minimized state.
 - Product value: Start quickly, resume and correct answers without losing progress or requiring login.
@@ -436,6 +468,7 @@ Historical report for the original 2026-08-30 documentation run, preserved verba
 - Non-goals: Unassigned files, model/permission changes, Git history, automatic installs, private-data disclosure or external activation. No remote architecture/runtime or vector/embedding dependency.
 - Expected result: Working local start/answer/resume/correct/finalize transitions and capability preflight; typed prerequisite errors instead of installations. State fields support later retrieval pins and integration handoff without importing unfinished retrieval code.
 - Acceptance criteria: 1-10 adaptive questions and early completion; sanitized save after each answer, correction invalidation, safe version checks; output-root containment, expected-revision locking, atomic save/recovery/immutable history, disk/sharing failure and bounded storage/retry slots from CP-02. No hidden network/project execution, raw chat persistence or public context cache. A recommendation request does not execute integration.
+- Session workspace / R15 (planned): Persist default locale/presentation revision through shared state_store.py; localize question-bank text and save/resume/error behavior. Own the normal commit-then-publish interface consumed by all phases, with separate saved/published revision outcomes, bounded render-only retry and obsolete-render rejection. A renderer fixture can test this boundary before CP-10 binds the actual renderer; coordinate shared intake/state/skill wiring sequentially. Browser preferences are not state writes; verify older-state compatibility.
 - Verification gates: Targeted test_plugin_intake.py and test_plugin_state.py; actual runtime capability and no-write-outside-root evidence; V-CONTRACT compatibility.
 - Risks / approval gates: Preserve pre-existing dirty work and source-owned boundaries. Public research is read-only; sensitive scope, credentials, material cost, external writes, publication and destructive operations follow actual authorization. Selected caps and ranking quality are not yet measured.
 - Complexity: L
@@ -447,7 +480,7 @@ Historical report for the original 2026-08-30 documentation run, preserved verba
 - Docs update path: Product Planner updates PLAN.md/task status; Quality Evaluator records TEST.md/EVALS.md evidence; Docs Maintainer appends RUNLOG.md after handoff. No unsupported completion claim.
 - Rollback: Undo only owned changes; preserve prior valid state, finalized history and compatible package/index. No automatic deletion, Git reset, permission weakening or silent retrieval fallback.
 - Stop conditions: Unexpected sensitive data or side effects, ownership overlap, incompatible accepted contract, unsafe containment, failed mandatory evidence or missing required external authorization. Routine relevant reads are not failures; report useful partial results when safe.
-- Next step: CP-08 scanner, CP-09 retrieval and CP-10 renderer after their own inputs are ready.
+- Next step: CP-10-A starts the shell after its prerequisites; CP-08/09 supply scan/context/retrieval through the same writer. CP-11 must prove actual commit/publication wiring, not only the fixture interface.
 
 #### Completion report
 
@@ -516,7 +549,7 @@ Historical report for the original 2026-08-30 documentation run, preserved verba
 - Date and time of task implementation: pending_execution_timestamp
 - Depends on: CP-03, CP-05, CP-06, CP-07
 - Blocks: CP-11, CP-13
-- Source: Owner decisions 2026-08-31; active PRD R06, R07, R08, R11, R14; accepted CP-02 ADRs and Section 3 registries.
+- Source: Owner decisions 2026-08-31; active PRD R06, R07, R08, R11, R14; accepted CP-02 ADRs and Section 3 registries. R15 session workspace/localization amendment and linked design addendum.
 - Short description: Compile structured intent into lexical search, filter/dedupe and pack bounded evidence.
 - Technical value: Catalog size no longer determines model-context size; indexed search remains deterministic and inspectable.
 - Product value: Return relevant reusable components and explicit integration gaps promptly.
@@ -524,6 +557,7 @@ Historical report for the original 2026-08-30 documentation run, preserved verba
 - Non-goals: Unassigned files, model/permission changes, Git history, automatic installs, private-data disclosure or external activation. No remote architecture/runtime or vector/embedding dependency.
 - Expected result: Read-only sqlite_fts5 route with version/hash/integrity validation, bounded compiled queries, weighted BM25, RU/EN/technology aliases, canonical dedupe and task-specific roles/evidence pack.
 - Acceptance criteria: Parameterize SQL and escape FTS grammar; handle malformed/empty/no-hit queries; stable ordering and total 60-candidate/12-card/48-KiB ceilings across query variants. Constraint unknowns produce caveats/next verification, no unconditional fit; snapshot age alone never rejects. Missing FTS5/corrupt/incompatible index returns explicit unavailable/incompatible outcome, never no-match or full-catalog fallback. No writes to index, embeddings, remote calls or hidden query logging.
+- Session workspace / R15 (planned): Keep the canonical query, pack, candidate order and source pins unchanged on a display-language switch. Changed semantic intent remains new retrieval work; UI localization is not another FTS query or a doubled evidence pack.
 - Verification gates: V-RETRIEVAL and targeted matching tests; trace source_mode=catalog_only and retrieval_engine=sqlite_fts5, result counts/bytes and pins. Semantic relevance gains require CP-04/15 evals.
 - Risks / approval gates: Preserve pre-existing dirty work and source-owned boundaries. Public research is read-only; sensitive scope, credentials, material cost, external writes, publication and destructive operations follow actual authorization. Selected caps and ranking quality are not yet measured.
 - Complexity: M
@@ -560,21 +594,22 @@ Historical report for the original 2026-08-30 documentation run, preserved verba
 - Date and time of task implementation: pending_execution_timestamp
 - Depends on: CP-03, CP-05, CP-07
 - Blocks: CP-11, CP-15
-- Source: Owner decisions 2026-08-31; active PRD R05, R07, R10, R13; accepted CP-02 ADRs and Section 3 registries.
-- Short description: Turn versioned findings into a useful decision and next implementation slice.
+- Source: Owner decisions 2026-08-31; active PRD R05, R07, R10, R13; accepted CP-02 ADRs and Section 3 registries. R15 session workspace/localization amendment and linked design addendum.
+- Short description: Build the approved eight-view bilingual workspace from first saved question through final integration report and history.
 - Technical value: Deterministic escaped projection of committed state, with explicit evidence and invalidation.
 - Product value: Users can hand the result to a coding agent instead of redoing research and planning.
-- Scope: Plugin Runtime Builder owns plugins/myai-stackguide/scripts/render_report.py and plugins/myai-stackguide/assets/status-template.html; Quality Evaluator owns tests/test_plugin_artifact.py and rendered QA evidence. Consume C5/C6 and shared CP-07 writer; do not create another state store.
+- Scope: Plugin Runtime Builder owns plugins/myai-stackguide/scripts/render_report.py and plugins/myai-stackguide/assets/status-template.html plus assets/locales/ru.json and assets/locales/en.json under the same plugin root; Quality Evaluator owns tests/test_plugin_artifact.py and rendered QA evidence. Consume C5/C6 and shared CP-07 writer; do not create another state store.
 - Non-goals: Unassigned files, model/permission changes, Git history, automatic installs, private-data disclosure or external activation. No remote architecture/runtime or vector/embedding dependency.
-- Expected result: Offline report: goal/context/coverage, ranked roles/comparison, actual activity versus observation, evidence/gaps, integration surface/steps, version/license checks, first validation slice, rollback and coding-agent handoff.
-- Acceptance criteria: Report supports build/upgrade/replace outcomes with clear prerequisites and unknowns; proposed code/commands are labeled unexecuted unless actual evidence exists. No automatic install or changes to project code. Escape content and links; no fetch/CDN/analytics; keyboard/responsive/empty/error/partial states; render only current committed revision and visibly recover stale HTML.
-- Verification gates: Targeted test_plugin_artifact.py, V-UI rendered evidence and evidence-to-state parity; first-screen usefulness reviewed by Product Planner.
+- Expected result: One offline status.html exists from the first committed session state and updates at the same path after saved answers/phases. It progressively exposes goal/questions, context/coverage, ranked roles/comparison, actual activity versus observation, evidence/gaps, integration steps/prerequisites, first validation slice, rollback, handoff and history in RU/EN.
+- Acceptance criteria: Complete CP-10 A-D against the approved design and source mapping. Bind the real renderer to the shared CP-07 commit/publication boundary; no separate manual report command per answer. Early/partial states work without C5 recommendations. Render committed data only, reject obsolete publication and preserve saved answers/previous valid HTML on failure. Explain proposed versus executed actions, unknowns and dependencies; no automatic code changes/install. Escape content/links; no fetch/CDN/analytics; desktop/laptop, keyboard/zoom/print/fallback checks, with mobile excluded.
+- Session workspace / R15 (planned): A: shell, eight-view navigation and embedded RU/EN dictionaries; B: Goal/Questions/Scan/Context; C: Options/Compare/Integration; D: History/recovery and full states. Implement the design subsection inventory, stable local fragment/comparison/disclosure, original-language and partial-translation labels, lang/focus and no-JS/clipboard fallback. Dynamic prose comes from the validated canonical result, not independent renderer recommendations. Language control makes no network, filesystem, scan or model call; concept approval is already complete.
+- Verification gates: Targeted test_plugin_artifact.py and one useful fixture/browser checkpoint per A-D slice, then one complete V-UI eight-view RU/EN review. Record evidence-to-state parity and failed-publication recovery; Product Planner checks founder/engineer usefulness. CP-11 proves actual lifecycle routing.
 - Risks / approval gates: Preserve pre-existing dirty work and source-owned boundaries. Public research is read-only; sensitive scope, credentials, material cost, external writes, publication and destructive operations follow actual authorization. Selected caps and ranking quality are not yet measured.
 - Complexity: M
 - Estimated execution time: Re-estimate at dispatch from accepted inputs and the first bounded slice; earlier ranges are superseded by the changed FTS5/context/integration scope. No delivery commitment or provider-cost estimate.
 - Agents: Owner proposed plugin_runtime_builder; tests/rendered QA quality_evaluator; evidence_reviewer for claims.
 - Skills: build-stackguide-plugin after CP-05; review-advisory-evidence; browser:control-in-app-browser only for authorized rendered QA.
-- Output artifacts: Plugin Runtime Builder owns plugins/myai-stackguide/scripts/render_report.py and plugins/myai-stackguide/assets/status-template.html; Quality Evaluator owns tests/test_plugin_artifact.py and rendered QA evidence. Consume C5/C6 and shared CP-07 writer; do not create another state store.
+- Output artifacts: Plugin Runtime Builder owns plugins/myai-stackguide/scripts/render_report.py and plugins/myai-stackguide/assets/status-template.html plus assets/locales/ru.json and assets/locales/en.json under the same plugin root; Quality Evaluator owns tests/test_plugin_artifact.py and rendered QA evidence. Consume C5/C6 and shared CP-07 writer; do not create another state store.
 - Evidence owner: quality_evaluator; product owner accepts visual usefulness.
 - Docs update path: Product Planner updates PLAN.md/task status; Quality Evaluator records TEST.md/EVALS.md evidence; Docs Maintainer appends RUNLOG.md after handoff. No unsupported completion claim.
 - Rollback: Undo only owned changes; preserve prior valid state, finalized history and compatible package/index. No automatic deletion, Git reset, permission weakening or silent retrieval fallback.
@@ -604,7 +639,7 @@ Historical report for the original 2026-08-30 documentation run, preserved verba
 - Date and time of task implementation: pending_execution_timestamp
 - Depends on: CP-03, CP-04, CP-06, CP-07, CP-08, CP-09, CP-10
 - Blocks: CP-12, CP-13, CP-15
-- Source: Owner decisions 2026-08-31; active PRD R02, R06, R10, R11, R12, R13; accepted CP-02 ADRs and Section 3 registries.
+- Source: Owner decisions 2026-08-31; active PRD R02, R06, R10, R11, R12, R13; accepted CP-02 ADRs and Section 3 registries. R15 session workspace/localization amendment and linked design addendum.
 - Short description: Join intake, context, public index, bounded evidence and saved integration report.
 - Technical value: Demonstrate intended routing and version/cap integrity without mock or remote masking.
 - Product value: One real build/modernization decision reaches an actionable next step.
@@ -612,6 +647,7 @@ Historical report for the original 2026-08-30 documentation run, preserved verba
 - Non-goals: Unassigned files, model/permission changes, Git history, automatic installs, private-data disclosure or external activation. No remote architecture/runtime or vector/embedding dependency.
 - Expected result: A named 1/1 useful synthetic project scenario with actual packaged FTS5 query and artifact; then focused edge/regression checks and bounded synthetic 2,000/10,000-row capacity measurements.
 - Acceptance criteria: Record Brief/source/index/policy versions, source_mode=catalog_only, retrieval_engine=sqlite_fts5, query/result counts/bytes, exclusions and integration handoff. Verify corrections/resume, no-match versus index failure, activity unknowns, sparse cards, no network/install/private-index writes, offline renderer and state recovery. Synthetic duplicates used for capacity cannot prove recall or genuine catalog growth; runtime pass cannot prove model quality.
+- Session workspace / R15 (planned): First 1/1 lifecycle: start -> saved answer -> scan/Brief -> actual captured FTS5 result -> memo -> correction/invalidation -> resume -> finalization. Verify the same HTML path, committed/published revisions, preserved history and both language views. Inject render failure and a competing newer revision; retry render only, without losing answers or presenting invalidated results as current. Then missing-translation/long-text/size negatives, unchanged captured retrieval and 2 MiB state/5 MiB HTML ceilings; language parity is not another retrieval-quality experiment.
 - Verification gates: V-LOCAL beginning with the registered 1/1 command; V-RETRIEVAL route evidence; affected negatives then one final product test join. V-EVAL is separate.
 - Risks / approval gates: Preserve pre-existing dirty work and source-owned boundaries. Public research is read-only; sensitive scope, credentials, material cost, external writes, publication and destructive operations follow actual authorization. Selected caps and ranking quality are not yet measured.
 - Complexity: M
@@ -780,7 +816,7 @@ Historical report for the original 2026-08-30 documentation run, preserved verba
 - Date and time of task implementation: pending_execution_timestamp
 - Depends on: CP-04, CP-10, CP-11
 - Blocks: CP-16
-- Source: Owner decisions 2026-08-31; active PRD R04, R12, R13, R14; accepted CP-02 ADRs and Section 3 registries.
+- Source: Owner decisions 2026-08-31; active PRD R04, R12, R13, R14; accepted CP-02 ADRs and Section 3 registries. R15 session workspace/localization amendment and linked design addendum.
 - Short description: Accept the local product against held-out cases, permitted context and rendered output.
 - Technical value: Independent evidence separates FTS5 behavior, model quality, minimization and package limitations.
 - Product value: A useful integration plan is understandable, evidence-grounded and actionable.
@@ -788,6 +824,7 @@ Historical report for the original 2026-08-30 documentation run, preserved verba
 - Non-goals: Unassigned files, model/permission changes, Git history, automatic installs, private-data disclosure or external activation. No remote architecture/runtime or vector/embedding dependency.
 - Expected result: Local pass/fail/gaps for retrieval/constraints/caps, activity semantics, human 16/20 rubric, authorized context/no secrets, offline browser behavior and handoff quality; remote gates explicitly not applicable.
 - Acceptance criteria: Use CP-04 frozen cases/runner/judgments and actual CP-11 FTS5 route. Inspect RU/EN/aliases, mature-old versus active-incompatible cases, missing facts/no-match, integration prerequisites and rollback. Permit useful ordinary source reads and proposed implementation steps; reject unauthorized execution/disclosure and unsupported operability claims. No CP-12/13/14 dependency. Record model/provider authority and evidence separately if a model run is needed.
+- Session workspace / R15 (planned): Independently inspect all eight views for product/engineering usefulness and RU/EN meaning/evidence parity on desktop/laptop windows, narrow-window comparison, keyboard/200% zoom and partial/error/history states. Accept the working artifact against the already-approved detailed composition; do not repeat concept approval. Images are not rendered-runtime evidence.
 - Verification gates: V-EVAL, V-RETRIEVAL evidence review, V-UI and independent privacy/provenance/usefulness review. Local synthetic evidence does not establish private-project safety universally or external release readiness.
 - Risks / approval gates: Preserve pre-existing dirty work and source-owned boundaries. Public research is read-only; sensitive scope, credentials, material cost, external writes, publication and destructive operations follow actual authorization. Selected caps and ranking quality are not yet measured.
 - Complexity: L
@@ -824,7 +861,7 @@ Historical report for the original 2026-08-30 documentation run, preserved verba
 - Date and time of task implementation: pending_execution_timestamp
 - Depends on: CP-01, CP-05, CP-06, CP-15
 - Blocks: none
-- Source: Owner decisions 2026-08-31; active PRD R01, R11, R12, R13; accepted CP-02 ADRs and Section 3 registries.
+- Source: Owner decisions 2026-08-31; active PRD R01, R11, R12, R13; accepted CP-02 ADRs and Section 3 registries. R15 session workspace/localization amendment and linked design addendum.
 - Short description: Freeze the tested local package/index and user instructions; publication remains separate.
 - Technical value: Reproducible package identity, runtime compatibility and a verified prior-version rollback.
 - Product value: Users can start from their project without server accounts or embedding setup.
@@ -832,6 +869,7 @@ Historical report for the original 2026-08-30 documentation run, preserved verba
 - Non-goals: Unassigned files, model/permission changes, Git history, automatic installs, private-data disclosure or external activation. No remote architecture/runtime or vector/embedding dependency.
 - Expected result: Frozen package/source/card/index/policy hashes and versions, prerequisites, clean install/resume/disable guide, privacy limitations, useful integration handoff and release go/no-go. Remote auth/overlay/scheduler absent, not failing local gates.
 - Acceptance criteria: Actual supported Windows/Python/FTS5 preflight, installed/cache identity, read-only query, no network/download, state compatibility and previous-package/index rollback verified in an authorized synthetic workspace. No private artifacts or secrets in package. Owner accepts local scope/evidence; publication needs exact separate authorization and is not required to label local package-ready.
+- Session workspace / R15 (planned): Package and pin both dictionaries with the tested template; verify fresh-install/resume/upgrade and a moved standalone HTML offline, without CDN/service/provider or adjacent runtime dictionary files. Preserve source language and finalized history; incompatible prior state is explicit, not silently rewritten. Document chat-versus-HTML interactions, reload after publication, saved-answer/render-failure recovery and desktop-only support.
 - Verification gates: V-RELEASE, final relevant card/index parity, current official package validation and independent evidence review. CP-12/13/14 excluded from local prerequisite closure.
 - Risks / approval gates: Preserve pre-existing dirty work and source-owned boundaries. Public research is read-only; sensitive scope, credentials, material cost, external writes, publication and destructive operations follow actual authorization. Selected caps and ranking quality are not yet measured.
 - Complexity: M

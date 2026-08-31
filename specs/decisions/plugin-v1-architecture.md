@@ -4,7 +4,7 @@ Decision date: 2026-08-30; amended by owner decision 2026-08-31. Owner: Catalog 
 
 ## Decision And Scope
 
-Owner revision: 2026-08-31. SQLite FTS5/BM25 is selected for local catalog retrieval. The product optimizes time to a useful open-source integration or modernization plan. Relevant project reads are allowed within existing permissions; the former host-wide source-isolation requirement is superseded, not technically proven. Repository activity and evidence observation are separate; the former 30-day snapshot rejection is withdrawn. CP-01/02 remain completed documentation records; CP-03-CP-16 remain planned, with CP-12-CP-14 deferred. This revision changes plans and contracts, not runtime or permissions.
+Owner revision: 2026-08-31. SQLite FTS5/BM25 is selected for local catalog retrieval. The product optimizes time to a useful open-source integration or modernization plan. Relevant project reads are allowed within existing permissions; the former host-wide source-isolation requirement is superseded, not technically proven. Repository activity and evidence observation are separate; the former 30-day snapshot rejection is withdrawn. CP-01/02 remain completed documentation records. CP-03 local schemas, policies and fixtures now exist; acceptance is partially verified pending standards validation and the CP-04 compatibility join. CP-04-CP-16 remain planned, with CP-12-CP-14 deferred. Runtime and permissions are unchanged.
 
 The selected package is a Codex skill, trusted local Python scripts, catalog cards, a read-only SQLite FTS5 index, and project-local artifacts. No Cloudflare, server database, remote MCP, embedding API/model download, vector extension, Docker, daemon, OAuth or scheduler is required. Codex supplies the conversational model under its own account/data policy; local scripts do not imply local model inference or zero Codex cost.
 
@@ -43,7 +43,7 @@ Local marketplace installation and fresh-session testing are CP-16 work, not imp
 
 ## Exact Future File Ownership
 
-All paths below are future files relative to this implementation repository. Builders own implementation; the Quality Evaluator owns named tests/fixtures; the Curator owns research evidence. Sequential handoffs preserve these boundaries. No file in this registry is created merely by this ADR.
+Paths are relative to this implementation repository. CP-03 contracts/tests now exist with partial verification; downstream implementation paths remain future work. Builders own implementation; the Quality Evaluator owns named tests/fixtures; the Curator owns research evidence. Sequential handoffs preserve these boundaries. A registry entry alone is not implementation evidence.
 
 | Task | Implementation / source outputs | Evaluator-owned checks |
 | --- | --- | --- |
@@ -52,7 +52,7 @@ All paths below are future files relative to this implementation repository. Bui
 | CP-07 | `plugins/myai-stackguide/.codex-plugin/plugin.json`; `skills/myai-stackguide/SKILL.md`; `scripts/intake.py`, `state_store.py`, `sanitize.py`; `assets/question-bank.json` under that plugin root | `tests/test_plugin_intake.py`, `tests/test_plugin_state.py` |
 | CP-08 | Plugin `scripts/scanner.py`, `context.py` | `tests/test_plugin_scanner.py`, synthetic `tests/fixtures/plugin_scanner/` |
 | CP-09 | Plugin `scripts/retrieval.py`, `context_pack.py`, `matcher.py` | `tests/test_plugin_retrieval.py`, `tests/test_plugin_matching.py` |
-| CP-10 | Plugin `scripts/render_report.py`, `assets/status-template.html` | `tests/test_plugin_artifact.py` |
+| CP-10 | Plugin `scripts/render_report.py`, `assets/status-template.html`; planned R15 `assets/locales/ru.json`, `assets/locales/en.json` | `tests/test_plugin_artifact.py` |
 
 CP-07 state helpers are shared; no parallel state implementation. CP-06 derives public cards/index from source-owned inputs, preserving v5 and existing generated outputs unless a separately assigned source change requires regeneration. Browser-local enrichment must not be mistaken for persisted source metadata. Research facts need per-field provenance and observation dates in source-owned evidence before normalization into `data/plugin_catalog_metadata.json`.
 
@@ -93,6 +93,16 @@ No automatic retention period, cleanup, deletion, hidden backups outside the out
 
 The entire output root, including recovery/partial/temporary files, is capped at 256 MiB and 128 file entries; account for prospective peak bytes before a write, not just committed history. Use at most four named pending slots (each JSON slot at most 2 MiB, each HTML slot at most 5 MiB) and one `state.damaged.json` slot at most 2 MiB. Reuse only positively identified plugin-owned pending slots; never append randomly named retry debris. Existing damaged content is not overwritten to make room for another failure: stop with an integrity/storage conflict. Oversized, unrecognized or unbounded existing output is not loaded or auto-cleaned; retain it and ask for a separate owner recovery decision. CP-07 must test repeated interrupted writes exhausting these limits without growth, data loss or automatic pruning. Exact slot names/ownership markers are CP-03 contracts.
 
+## Planned Session Presentation And RU-EN Addendum
+
+Owner revision 2026-08-31 selects one session HTML with eight navigable views and RU-EN localization. The [workspace design](../../docs/plan/plugin-v1-session-workspace-design.md) owns the detailed state/source mapping and language contract. It retains `state.json` as sole domain truth and the same offline `status.html` path; the browser owns only presentation choices and cannot write answers or start execution.
+
+The detailed desktop/laptop composition is owner-approved; mobile is excluded. The [commit/publication lifecycle](../../docs/plan/plugin-v1-session-workspace-design.md#commit-and-html-publication-lifecycle) applies from the first saved session state, after each answer/phase and on finalization. CP-07 owns one shared orchestration boundary; CP-10 supplies its renderer and CP-08/09 use the same writer. Report saved versus published run/revision in the operation outcome; do not create another domain store. Reuse the existing lock/revision protocol above to reject obsolete publication. A failed render preserves committed state and retries rendering only; Codex reports the failure because an old standalone HTML cannot inspect newer state. Normal use does not require a second manual render command, server or file polling.
+
+R15 plans embedded static RU/EN dictionaries plus revision-bound translated narrative over one canonical result. Language switching is local and preserves facts, constraints, roles, source IDs and technical literals; it performs no model/retrieval/network call or implicit state save. Source-language fallback is explicit. Use fragment/default-locale selection without requiring file-origin browser storage. Original source language and evidence remain recoverable. Both languages count against existing state/HTML limits; the evidence-pack budget is not doubled.
+
+CP-03 must first define the planned `specs/artifact/localized-presentation.schema.json` and affected C1/C3/C5/C6 joins; these additions are not among the twenty existing schemas. CP-07/10 implement the shared-writer/default-locale and template/dictionary paths; CP-04/11/15/16 verify meaning, size, browser states and packaging. No schema, renderer, translation or migration runs in this documentation amendment. Existing completed history and incompatible old state must not be silently rewritten.
+
 ## SQLite FTS5 Retrieval And Context Budget
 
 The retrieval unit is a repository solution card, with one canonical repository ID and explicit aliases. Index name, description, topics, short category labels, task/use-case signals, adoption/integration surfaces and advisory facts that actually exist. Keep structured dates, license, deployment, status and provenance in ordinary SQLite columns/tables. Do not index repeated long category descriptions as if they were repository evidence, and do not chunk arbitrary JSON or ingest all upstream source code.
@@ -119,4 +129,113 @@ There is no maximum snapshot age that automatically rejects a candidate. Old obs
 
 FTS5 limits catalog context growth without adding a service or embedding dependency. It will miss vocabulary and cross-language matches unless query policy/data coverage helps; measure this before adding optional vectors. `sqlite-vec`, LanceDB, Qdrant, GraphRAG and embedding/reranker models are not V1 prerequisites. Any future alternative must outperform this versioned baseline on the same representative cases with acceptable installation, latency, memory and maintenance costs.
 
-This revision is documentation only. Preserve the pre-existing CP-01/02 work and historical source bodies. Later runtime rollback uses the previous compatible package/index and valid user state; incompatible state is not rewritten by an older plugin. No automatic deletion, catalog-wide context fallback, global permission change or remote activation is part of recovery.
+The CP-02 decision was documentation only. CP-03 now adds the local contracts below, with partial verification; no runtime is introduced. Preserve CP-01/02 records and historical source bodies. Later runtime rollback uses the previous compatible package/index and valid user state; incompatible state is not rewritten by an older plugin. No automatic deletion, catalog-wide context fallback, global permission change or remote activation is part of recovery.
+
+## CP-03 Local Contract Implementation
+
+Contract version `1.0.0` uses [JSON Schema Draft 2020-12](https://json-schema.org/draft/2020-12/json-schema-core).
+All twenty local C1-C6/C9 schemas and their [linked positive examples](../../tests/fixtures/plugin_contracts.json)
+are present. Repository names, index version and index hashes in those fixtures
+are explicitly synthetic; no scan, upstream verification, SQLite query or plugin
+installation occurred. Actual generation remains CP-06.
+
+Schemas use reserved `.invalid` `$id` values and an offline reference registry,
+never schema-network retrieval. Reject unknown properties/versions, malformed
+dates/UUIDs and incompatible pins. Enable format assertions explicitly;
+[python-jsonschema documents that formats are opt-in](https://python-jsonschema.readthedocs.io/en/stable/validate/).
+This validator is a development tool, not a plugin runtime dependency.
+Standard JSON Schema does not enforce the custom `x-invariants` or
+`x-max-utf8-bytes` annotations. CP-03 tests semantic examples and traverses nested
+byte budgets explicitly. CP-06--CP-10 must enforce relevant checks in their own
+runtime; loading these files alone is insufficient.
+
+### Concrete input allocation
+
+| Input controlled by the plugin | Maximum compact UTF-8 bytes |
+| --- | ---: |
+| Full Project Context Brief, including structured observations | 16,384 |
+| Additional transient targeted source context | 16,384 |
+| Entire evidence pack, including provenance/exclusions | 49,152 |
+| Recommendation request, including structured query | 8,192 |
+| Sum of the four allocations | 90,112 (88 KiB) |
+
+Count actual UTF-8 bytes of sorted-key compact JSON with `ensure_ascii=False`
+and `allow_nan=False`, not a model-provided byte count. Smaller request caps also
+apply. Each card is at most 12 KiB; twelve maximum-sized cards do not all fit in
+48 KiB. Preserve provenance and report truncation/exclusion rather than passing
+incomplete content as complete. These limits do not include the host's system
+instructions, existing chat, tool schemas or generated answer; CP-11/15 must
+account for that additional context. Bytes are not tokens. All limits remain
+uncalibrated initial choices.
+
+Targeted reads request at most eight relative paths, consume at most 256 KiB of
+source bytes and deliver at most 16 KiB of transient context. They share scanner
+root, exclusions, mode counters and deadlines; there is no independent budget
+reset. Persist selection references/minimized findings, not source excerpts.
+Paths use `/` without drive letters, parent/dot segments, ADS, control characters,
+Windows device names or trailing dots/spaces. Never expand environment variables,
+`~`, wildcards or shell syntax. Lexical examples do not prove final-handle
+containment, link/reparse rejection or race safety; CP-08 owns that evidence.
+
+### Deterministic retrieval policy
+
+The [policy](../retrieval/retrieval-policy.json) allows at most three variants
+of eight literal terms, each at most 64 characters. Normalize both indexed text
+and query with NFKC, casefolding and versioned aliases. Replace longest matching
+alias tokens/phrases on boundaries, never arbitrary substrings. Quote each term,
+join with fixed `OR`, and bind MATCH as a value. The model supplies no SQL, field
+names, wildcards, prefix operators or raw MATCH grammar.
+
+Before each variant allocate `ceil(remaining_hits / remaining_variants)` from
+the single total hit budget. Unused capacity passes to the next variant; fetched
+duplicates still consume it. No retry/broadening resets counters. Within a
+variant sort BM25 ascending, then canonical ID. Keep each canonical ID's best
+position for fusion while retaining the full fetched-hit count. Fuse with
+`sum(1 / (60 + rank))`, sort descending, then canonical ID ascending. Raw BM25
+across variants is not compared as a fit score or probability.
+
+Compact results contain IDs, rank/RRF, per-variant ranks/BM25, matched fields and
+missing facts, not sixty detailed cards. Pack records contain a bounded full
+card, rank/score/matched fields and request-specific eligibility. Select primary
+eligible records first, then useful references in RRF order. Skip blocked or
+oversized cards with reasons. Every candidate is included or explicitly excluded.
+CP-04 evaluates relevance, exclusions, diversity and useful options surviving
+the caps; this policy does not itself prove optimal selection.
+
+Successful results and genuine no-match require compatible non-null index pins.
+When a manifest cannot be loaded, an explicit failure may carry `pins=null`
+through result, pack and memo; never invent hashes. Missing FTS5/index,
+corrupt/incompatible index, invalid query, cancellation and valid no-match remain
+distinct. Saved context stays usable. No full-catalog fallback or automatic index
+build is allowed.
+
+### Version, state and integration relationships
+
+Artifact pins hash exact source/card/index/policy/taxonomy file bytes.
+`query_sha256` hashes the canonical structured query. CP-06 emits and pins actual
+files; CP-09 checks integrity and extracts cards from that frozen source, not
+model-rewritten facts. Logical index reproducibility is distinct from SQLite
+file byte identity across versions. Synthetic hashes are not release evidence.
+
+Nested run/request/query/pack IDs, Brief revisions and non-null pins agree.
+Corrections increment the Brief version, record expected state revision and
+invalidate selection/request/retrieval/pack/memo. They do not rewrite observed
+facts as if rescanned. Finalized runs are immutable; a new run records its
+predecessor. HTML may lag but never lead committed state. Exact file, lock,
+pending-slot and retention rules are in [state `$defs.storagePolicy`](../artifact/project-artifact-state.schema.json).
+CP-07 must prove the actual filesystem protocol; example-object validation does
+not establish atomic saves.
+
+[Card/taxonomy rules](../catalog/taxonomy-rules.md) define source mapping, dates,
+provenance and independent catalog/evidence/eligibility statuses. No thirty-day
+gate exists. Unknown mandatory facts permit conditional guidance with concrete
+verification; sourced contradictory constraints prevent adoption for that
+request. Compatibility statements are source-supported exact values, not an
+implemented version solver or execution proof.
+
+Integration plans contain goal, integration surface, affected components,
+prerequisites, steps, first useful validation, risks, rollback, unresolved
+questions and coding handoff. Proposed commands remain `not_executed`, and the
+plan is `not_started`; neither grants permissions. An explicit user coding
+request can authorize its own scoped workflow without blanket refusal, while
+installation, sensitive-data, destructive and external-action boundaries remain.

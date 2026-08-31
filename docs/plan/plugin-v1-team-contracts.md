@@ -8,7 +8,7 @@ Scope: development-team guidance, revised 2026-08-31 for the owner-selected loca
 - Legacy account taxonomy: `data/categories.json` and `scripts/build_catalog.py`; legacy unified Markdown has its separate dated research inputs. Do not use either to replace current v5 identities, metadata, or taxonomy.
 - Product direction: `docs/plan/2026-08-30-codex-plugin-v1-implementation-plan.md`; active ownership and approved slice: `PLAN.md` and its linked task packet.
 - Product background: `docs/PRODUCT_REQUIREMENTS.md`, `docs/V1_ROADMAP.md`, `docs/MYAI_STACKGUIDE_PRODUCT_CONCEPT.md`, `docs/MYAI_STACKGUIDE_CONTEXT_SCANNER.md`. Hosted-first detail is historical where marked.
-- Planned local C1-C6/C9 specs remain missing prerequisites until accepted/created; existing CP-02 ADRs are design evidence. Remote C4/C7 belongs to deferred CP-12 and does not block local CP-03. Never claim to have read a proposed schema.
+- Local C1-C6/C9 specs and linked fixtures are present from CP-03, with partial verification pending standards validation and CP-04 compatibility; existing CP-02 ADRs are design evidence. Remote C4/C7 belongs to deferred CP-12 and does not block local CP-03. Never claim to have read a proposed schema.
 
 ## Implementation Loop And Handoff
 
@@ -26,10 +26,10 @@ Test ownership is explicit, not automatic: Quality Evaluator owns acceptance/eva
 Keep three axes independent:
 
 - `catalog_status`: `candidate` is not `accepted`; only a separate curator decision can assign acceptance.
-- Evidence stage: `discovered_live`, `identity_validated`, `machine_evidence_complete`, or rejected evidence as defined by local CP-03 and, for live/ledger events, deferred CP-12.
+- Evidence stage: local `baseline`, `identity_validated`, or `advisory_evidence_complete` as defined by CP-03. Remote `discovered_live` / `machine_evidence_complete` and ledger rejection semantics remain deferred CP-12 work; do not map them automatically.
 - `recommendation_eligibility`: `primary_eligible`, `reference_only`, or `blocked`; a request-specific recommendation role is another decision.
 
-Legacy research labels such as `normalized_candidate` and `verified_catalog_entry` describe historical workflow, not automatic mappings to the new enums. CP-03 owns an explicit compatibility mapping and must reject ambiguous promotion.
+Legacy research labels such as `normalized_candidate` and `verified_catalog_entry` describe historical workflow, not automatic mappings to the new enums. CP-03 records the explicit mapping in [taxonomy rules](../../specs/catalog/taxonomy-rules.md); ambiguous promotion is rejected.
 
 A separately authorized own-backend candidate overlay may append public candidate evidence after minimum gates without curator acceptance. It must not silently mutate the frozen curated snapshot. Pin `catalog_snapshot_id` and `candidate_overlay_version`; preserve canonical identity on dedupe. Retractions and invalidation use new events, not hidden history edits. Compaction is not curator approval and its scheduler is separately activated.
 

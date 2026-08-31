@@ -1,0 +1,548 @@
+{
+  "schema_version": "1.0.0",
+  "taxonomy_id": "catalog-v5-local-view",
+  "source_ref": "data/catalog_manifest.json",
+  "source_sha256": "f88f6e2648fd94828281b0887e8de215b89ba4c97b6c52ef00800219257f512b",
+  "source_snapshot": "2026-08-12",
+  "categories": [
+    {
+      "id": "coding_agents_devex",
+      "label": "Coding Agents & Developer Experience",
+      "layer": "AI Engineering",
+      "parent_id": null,
+      "aliases": []
+    },
+    {
+      "id": "developer_tools_cli_general",
+      "label": "Developer Tools & CLI",
+      "layer": "AI Engineering",
+      "parent_id": null,
+      "aliases": []
+    },
+    {
+      "id": "evals_benchmarks",
+      "label": "Evals & Benchmarks",
+      "layer": "AI Engineering",
+      "parent_id": null,
+      "aliases": []
+    },
+    {
+      "id": "evals_observability_promptops",
+      "label": "Evals, Observability & Prompt Ops",
+      "layer": "AI Engineering",
+      "parent_id": null,
+      "aliases": []
+    },
+    {
+      "id": "market_research_competitive_intel",
+      "label": "Market Research & Competitive Intelligence",
+      "layer": "AI Engineering",
+      "parent_id": null,
+      "aliases": []
+    },
+    {
+      "id": "observability_monitoring",
+      "label": "Observability, Monitoring & Telemetry",
+      "layer": "AI Engineering",
+      "parent_id": null,
+      "aliases": []
+    },
+    {
+      "id": "observability_llmops",
+      "label": "Observability, Tracing & LLMOps",
+      "layer": "AI Engineering",
+      "parent_id": null,
+      "aliases": []
+    },
+    {
+      "id": "prompt_context_engineering",
+      "label": "Prompt & Context Engineering",
+      "layer": "AI Engineering",
+      "parent_id": null,
+      "aliases": []
+    },
+    {
+      "id": "research_papers_science",
+      "label": "Research, Papers & Science",
+      "layer": "AI Engineering",
+      "parent_id": null,
+      "aliases": []
+    },
+    {
+      "id": "testing_qa",
+      "label": "Testing, QA & Performance",
+      "layer": "AI Engineering",
+      "parent_id": null,
+      "aliases": []
+    },
+    {
+      "id": "agent_protocols_interop",
+      "label": "Agent Protocols & Interoperability",
+      "layer": "Agents",
+      "parent_id": null,
+      "aliases": []
+    },
+    {
+      "id": "agent_runtime_orchestration",
+      "label": "Agent Runtime & Orchestration",
+      "layer": "Agents",
+      "parent_id": null,
+      "aliases": []
+    },
+    {
+      "id": "automation_workflows_nocode",
+      "label": "Automation, Workflows & No-code",
+      "layer": "Agents",
+      "parent_id": null,
+      "aliases": []
+    },
+    {
+      "id": "browser_computer_use",
+      "label": "Browser & Computer Use",
+      "layer": "Agents",
+      "parent_id": null,
+      "aliases": []
+    },
+    {
+      "id": "mcp_integrations",
+      "label": "MCP & Tool Integrations",
+      "layer": "Agents",
+      "parent_id": null,
+      "aliases": []
+    },
+    {
+      "id": "multi_agent_frameworks",
+      "label": "Multi-Agent Frameworks",
+      "layer": "Agents",
+      "parent_id": null,
+      "aliases": []
+    },
+    {
+      "id": "sandboxed_code_execution",
+      "label": "Sandboxed Code Execution",
+      "layer": "Agents",
+      "parent_id": null,
+      "aliases": []
+    },
+    {
+      "id": "workflow_state_machines_durable_agents",
+      "label": "Workflow State Machines & Durable Agents",
+      "layer": "Agents",
+      "parent_id": null,
+      "aliases": []
+    },
+    {
+      "id": "ai_application_ui",
+      "label": "AI Application UI & Chat UI",
+      "layer": "Application Development",
+      "parent_id": null,
+      "aliases": []
+    },
+    {
+      "id": "email_notifications",
+      "label": "Email, Notifications & Delivery",
+      "layer": "Application Development",
+      "parent_id": null,
+      "aliases": []
+    },
+    {
+      "id": "files_media_storage",
+      "label": "Files, Media & Asset Processing",
+      "layer": "Application Development",
+      "parent_id": null,
+      "aliases": []
+    },
+    {
+      "id": "frontend_frameworks_ui",
+      "label": "Frontend Frameworks & UI Components",
+      "layer": "Application Development",
+      "parent_id": null,
+      "aliases": []
+    },
+    {
+      "id": "frontend_ui_desktop_browser",
+      "label": "Frontend, UI, Desktop & Browser Automation",
+      "layer": "Application Development",
+      "parent_id": null,
+      "aliases": []
+    },
+    {
+      "id": "low_code_ai_builders",
+      "label": "Low-code / No-code AI Builders",
+      "layer": "Application Development",
+      "parent_id": null,
+      "aliases": []
+    },
+    {
+      "id": "mobile_desktop_frameworks",
+      "label": "Mobile & Desktop App Frameworks",
+      "layer": "Application Development",
+      "parent_id": null,
+      "aliases": []
+    },
+    {
+      "id": "accounting_finance_erp",
+      "label": "Accounting, Finance & ERP",
+      "layer": "Business OSS",
+      "parent_id": null,
+      "aliases": []
+    },
+    {
+      "id": "analytics_bi_reporting",
+      "label": "Analytics, BI & Reporting",
+      "layer": "Business OSS",
+      "parent_id": null,
+      "aliases": []
+    },
+    {
+      "id": "cms_content_knowledge",
+      "label": "CMS, Publishing & Knowledge Apps",
+      "layer": "Business OSS",
+      "parent_id": null,
+      "aliases": []
+    },
+    {
+      "id": "collaboration_knowledge",
+      "label": "Collaboration & Knowledge Management",
+      "layer": "Business OSS",
+      "parent_id": null,
+      "aliases": []
+    },
+    {
+      "id": "communications_personal_ops",
+      "label": "Communications & Personal Ops",
+      "layer": "Business OSS",
+      "parent_id": null,
+      "aliases": []
+    },
+    {
+      "id": "content_social_community",
+      "label": "Content, Social & Community",
+      "layer": "Business OSS",
+      "parent_id": null,
+      "aliases": []
+    },
+    {
+      "id": "customer_support_success",
+      "label": "Customer Support & Success",
+      "layer": "Business OSS",
+      "parent_id": null,
+      "aliases": []
+    },
+    {
+      "id": "design_brand_uiux",
+      "label": "Design, Brand & UI/UX",
+      "layer": "Business OSS",
+      "parent_id": null,
+      "aliases": []
+    },
+    {
+      "id": "ecommerce_payments_revenue",
+      "label": "E-commerce, Payments & Revenue",
+      "layer": "Business OSS",
+      "parent_id": null,
+      "aliases": []
+    },
+    {
+      "id": "fundraising_investor_relations",
+      "label": "Fundraising, Investor Relations & Startup Ops",
+      "layer": "Business OSS",
+      "parent_id": null,
+      "aliases": []
+    },
+    {
+      "id": "hr_recruiting_people_ops",
+      "label": "HR, Recruiting & People Ops",
+      "layer": "Business OSS",
+      "parent_id": null,
+      "aliases": []
+    },
+    {
+      "id": "legal_contracts_compliance",
+      "label": "Legal, Contracts & Compliance",
+      "layer": "Business OSS",
+      "parent_id": null,
+      "aliases": []
+    },
+    {
+      "id": "marketing_growth_seo",
+      "label": "Marketing, Growth & SEO",
+      "layer": "Business OSS",
+      "parent_id": null,
+      "aliases": []
+    },
+    {
+      "id": "operations_project_management",
+      "label": "Operations, Project Management & Internal Tools",
+      "layer": "Business OSS",
+      "parent_id": null,
+      "aliases": []
+    },
+    {
+      "id": "product_management_feedback",
+      "label": "Product Management, Roadmaps & Feedback",
+      "layer": "Business OSS",
+      "parent_id": null,
+      "aliases": []
+    },
+    {
+      "id": "sales_crm_lead_generation",
+      "label": "Sales, CRM & Lead Generation",
+      "layer": "Business OSS",
+      "parent_id": null,
+      "aliases": []
+    },
+    {
+      "id": "data_ingestion_etl_cdc",
+      "label": "Data Ingestion, ETL & CDC",
+      "layer": "Data & Knowledge",
+      "parent_id": null,
+      "aliases": []
+    },
+    {
+      "id": "databases_storage_caching",
+      "label": "Databases, Storage & Caching",
+      "layer": "Data & Knowledge",
+      "parent_id": null,
+      "aliases": []
+    },
+    {
+      "id": "datasets_synthetic_labeling",
+      "label": "Datasets, Synthetic Data & Labeling",
+      "layer": "Data & Knowledge",
+      "parent_id": null,
+      "aliases": []
+    },
+    {
+      "id": "document_ai_ocr_parsing",
+      "label": "Document AI, OCR & Parsing",
+      "layer": "Data & Knowledge",
+      "parent_id": null,
+      "aliases": []
+    },
+    {
+      "id": "knowledge_graphs",
+      "label": "Knowledge Graphs",
+      "layer": "Data & Knowledge",
+      "parent_id": null,
+      "aliases": []
+    },
+    {
+      "id": "memory_context_systems",
+      "label": "Memory & Context Systems",
+      "layer": "Data & Knowledge",
+      "parent_id": null,
+      "aliases": []
+    },
+    {
+      "id": "rag_knowledge_apps",
+      "label": "RAG Frameworks & Knowledge Apps",
+      "layer": "Data & Knowledge",
+      "parent_id": null,
+      "aliases": []
+    },
+    {
+      "id": "search_hybrid_retrieval",
+      "label": "Search & Hybrid Retrieval",
+      "layer": "Data & Knowledge",
+      "parent_id": null,
+      "aliases": []
+    },
+    {
+      "id": "vector_databases_search",
+      "label": "Vector Databases & Vector Search",
+      "layer": "Data & Knowledge",
+      "parent_id": null,
+      "aliases": []
+    },
+    {
+      "id": "web_crawling_data_ingestion",
+      "label": "Web Crawling & Data Ingestion",
+      "layer": "Data & Knowledge",
+      "parent_id": null,
+      "aliases": []
+    },
+    {
+      "id": "api_graphql_rpc",
+      "label": "APIs, GraphQL, RPC & Schemas",
+      "layer": "Infrastructure",
+      "parent_id": null,
+      "aliases": []
+    },
+    {
+      "id": "auth_identity_access",
+      "label": "Authentication, Identity & Access",
+      "layer": "Infrastructure",
+      "parent_id": null,
+      "aliases": []
+    },
+    {
+      "id": "backend_baas_api",
+      "label": "Backend, BaaS & API Platforms",
+      "layer": "Infrastructure",
+      "parent_id": null,
+      "aliases": []
+    },
+    {
+      "id": "ci_cd_release",
+      "label": "CI/CD, Release & Delivery",
+      "layer": "Infrastructure",
+      "parent_id": null,
+      "aliases": []
+    },
+    {
+      "id": "deployment_containers_paas",
+      "label": "Deployment, Containers & PaaS",
+      "layer": "Infrastructure",
+      "parent_id": null,
+      "aliases": []
+    },
+    {
+      "id": "feature_flags_config",
+      "label": "Feature Flags & Configuration",
+      "layer": "Infrastructure",
+      "parent_id": null,
+      "aliases": []
+    },
+    {
+      "id": "mlops_tracking_registry",
+      "label": "MLOps, Experiment Tracking & Registry",
+      "layer": "Infrastructure",
+      "parent_id": null,
+      "aliases": []
+    },
+    {
+      "id": "orm_data_access",
+      "label": "ORM, Query Builders & Data Access",
+      "layer": "Infrastructure",
+      "parent_id": null,
+      "aliases": []
+    },
+    {
+      "id": "queues_streaming_messaging",
+      "label": "Queues, Streaming & Messaging",
+      "layer": "Infrastructure",
+      "parent_id": null,
+      "aliases": []
+    },
+    {
+      "id": "distributed_training_acceleration",
+      "label": "Distributed Training & Acceleration",
+      "layer": "Models & Runtime",
+      "parent_id": null,
+      "aliases": []
+    },
+    {
+      "id": "embeddings_reranking",
+      "label": "Embeddings & Reranking",
+      "layer": "Models & Runtime",
+      "parent_id": null,
+      "aliases": []
+    },
+    {
+      "id": "foundation_models",
+      "label": "Foundation Model Implementations",
+      "layer": "Models & Runtime",
+      "parent_id": null,
+      "aliases": []
+    },
+    {
+      "id": "inference_model_serving",
+      "label": "Inference Engines & Model Serving",
+      "layer": "Models & Runtime",
+      "parent_id": null,
+      "aliases": []
+    },
+    {
+      "id": "llm_gateways_routing_caching",
+      "label": "LLM Gateways, Routing & Caching",
+      "layer": "Models & Runtime",
+      "parent_id": null,
+      "aliases": []
+    },
+    {
+      "id": "training_finetuning_alignment",
+      "label": "Training, Fine-tuning & Alignment",
+      "layer": "Models & Runtime",
+      "parent_id": null,
+      "aliases": []
+    },
+    {
+      "id": "edge_on_device_ai",
+      "label": "Edge & On-device AI",
+      "layer": "Multimodal",
+      "parent_id": null,
+      "aliases": []
+    },
+    {
+      "id": "image_video_generation",
+      "label": "Image & Video Generation",
+      "layer": "Multimodal",
+      "parent_id": null,
+      "aliases": []
+    },
+    {
+      "id": "speech_voice_audio",
+      "label": "Speech, Voice & Audio AI",
+      "layer": "Multimodal",
+      "parent_id": null,
+      "aliases": []
+    },
+    {
+      "id": "vision_multimodal",
+      "label": "Vision & Multimodal AI",
+      "layer": "Multimodal",
+      "parent_id": null,
+      "aliases": []
+    },
+    {
+      "id": "uncategorized_review",
+      "label": "Uncategorized / Needs Review",
+      "layer": "Other",
+      "parent_id": null,
+      "aliases": []
+    },
+    {
+      "id": "learning_reference_resources",
+      "label": "Learning, Research & Curated Lists",
+      "layer": "Research & Reference",
+      "parent_id": null,
+      "aliases": []
+    },
+    {
+      "id": "research_agents_deep_research",
+      "label": "Research Agents & Deep Research",
+      "layer": "Research & Reference",
+      "parent_id": null,
+      "aliases": []
+    },
+    {
+      "id": "robotics_embodied_ai",
+      "label": "Robotics & Embodied AI",
+      "layer": "Research & Reference",
+      "parent_id": null,
+      "aliases": []
+    },
+    {
+      "id": "ai_security_guardrails_redteam",
+      "label": "AI Security, Guardrails & Red Teaming",
+      "layer": "Security & Governance",
+      "parent_id": null,
+      "aliases": []
+    },
+    {
+      "id": "governance_policy_compliance",
+      "label": "Governance, Policy & Compliance",
+      "layer": "Security & Governance",
+      "parent_id": null,
+      "aliases": []
+    },
+    {
+      "id": "supply_chain_devsecops",
+      "label": "Supply-chain Security & DevSecOps",
+      "layer": "Security & Governance",
+      "parent_id": null,
+      "aliases": []
+    }
+  ]
+}

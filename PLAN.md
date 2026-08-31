@@ -4,23 +4,43 @@ Active Product-Agent OS execution plan. [Detailed CP plan](docs/plan/2026-08-30-
 
 ## Lifecycle
 
-Owner revision: 2026-08-31. SQLite FTS5/BM25 is selected for local catalog retrieval. The product optimizes time to a useful open-source integration or modernization plan. Relevant project reads are allowed within existing permissions; the former host-wide source-isolation requirement is superseded, not technically proven. Repository activity and evidence observation are separate; the former 30-day snapshot rejection is withdrawn. CP-01/02 remain completed documentation records; CP-03-CP-16 remain planned, with CP-12-CP-14 deferred. This revision changes plans and contracts, not runtime or permissions.
+Owner revision: 2026-08-31. SQLite FTS5/BM25 is selected for local catalog retrieval. The product optimizes time to a useful open-source integration or modernization plan. Relevant project reads are allowed within existing permissions; the former host-wide source-isolation requirement is superseded, not technically proven. Repository activity and evidence observation are separate; the former 30-day snapshot rejection is withdrawn. CP-01/02 remain completed documentation records. CP-03 local schemas, policies and fixtures now exist; acceptance is partially verified pending standards validation and the CP-04 compatibility join. CP-04-CP-16 remain planned, with CP-12-CP-14 deferred. Runtime and permissions are unchanged.
 
-State: `partially_verified` for the product; the revised implementation plan is `proposal_staged` until contracts, eval design and loaded behavior are ready. Existing static/architectural evidence is not runtime or recommendation-quality evidence. Remote work remains dormant. Preserve the pre-existing uncommitted CP-01/02 documentation/ADRs.
+State: `partially_verified` for the product; the detailed session design and implementation scope are `owner_accepted`, while runtime dispatch remains gated by contracts, eval design and loaded behavior. Existing static/architectural evidence is not runtime or recommendation-quality evidence. Remote work remains dormant. The CP-03 starting worktree was clean; preserve committed CP-01/02 records and unrelated work.
 
 ## Active Dependency Order
 
 1. CP-01/02 documentation is implemented and now amended to the owner's FTS5/context/activity/integration decisions.
 2. CP-03 defines complete local C1-C6/C9; CP-04 prepares C8 independently with a compatibility join; CP-05 aligns existing roles/skills/behavior cases before runtime dispatch.
 3. CP-06 persists public metadata and builds canonical cards plus a bundled FTS5 index. CP-07 creates local intake/state and trusted runtime/FTS5 preflight after its contracts/readiness.
-4. CP-08 bounded scan/targeted context, CP-09 FTS5/evidence pack and CP-10 integration report use disjoint owned files and shared accepted contracts/state.
+4. CP-10 starts the session shell after CP-03/05/07, then implements A-D in order: shell/RU-EN, views 1-4, views 5-7, History/recovery. CP-08 bounded scan/context and CP-09 FTS5/evidence pack supply their owned data; all phases use the same commit/publication boundary. The renderer can start with accepted fixtures before real recommendations exist.
 5. CP-11 proves one useful local 1/1 case through the actual FTS5 route, then negatives and separately labeled 2,000/10,000 synthetic scaling.
 6. CP-15 depends on CP-04, CP-10, CP-11: independent local retrieval/privacy/UI/integration-usefulness acceptance.
 7. CP-16 depends on CP-01, CP-05, CP-06, CP-15: local package/index/fresh-session/upgrade/rollback; publication separately authorized.
 
 CP-12-CP-14 are an optional remote branch after CP-11, requiring a new scope/architecture decision and remote C4/C7 contracts. They are absent from CP-15/16's transitive dependencies. The detailed graph and reciprocal Blocks fields are authoritative; old phase numbering and historical matrices below cannot add remote prerequisites.
 
-### Current Plan-Revision Boundary
+### Session Workspace Depth And RU-EN Amendment
+
+- Owner decision: the detailed eight-view design and RU-EN direction are accepted for implementation planning. Target desktop PCs and laptops only; mobile adaptation is explicitly excluded. [Workspace design](docs/plan/plugin-v1-session-workspace-design.md) owns the subsection inventory, source mapping, localization contract and desktop/state acceptance; its [approved implementation sequence](docs/plan/plugin-v1-session-workspace-design.md#approved-implementation-sequence) defines the CP-10 checkpoints.
+- R15 is mapped identically in REQUIREMENTS, active PRD and the detailed CP plan. It separates offline UI/narrative localization from existing multilingual lexical retrieval. Display-language changes preserve the canonical result and perform no scan/model/retrieval call.
+- CP-03 adds the planned locale/presentation contract and missing structured view mappings before consumers implement them; CP-04/05 cover meaning and host behavior; CP-07 persists locale/revision through the shared writer; CP-09 preserves captured retrieval; CP-10 builds the eight-view renderer and bundled RU/EN dictionaries; CP-11/15/16 verify the bilingual local flow and packaging. The 16-task dependency graph is unchanged.
+- Publish the same `docs/myai-stackguide/status.html` from the first committed session state and after each successful answer/phase/correction/finalization. CP-07 owns commit/publication orchestration, CP-10 owns rendering and CP-11 joins the actual route. Failed rendering preserves saved answers and reports the saved-versus-published revision to Codex; opened HTML remains a reloadable snapshot.
+- Current scope is the implementation-plan update only. Primary is the sole writer/reviewer, applying maintain-control-plane; preserve the existing CP-03 dirty work, all schemas/tests and protected configuration. No HTML/runtime/localization implementation, new image generation, installation, Git operation or external activation occurs.
+- Verification: focused task/control-plane checks, identical R01-R15 mappings, preserved original completion reports and non-owned bytes, document links/UTF-8/whitespace, and semantic self-review. Concept approval is complete; working localization, language parity and rendered usefulness require future CP-10/11/15 evidence.
+- Rollback: reverse only this amendment and its design document against the saved starting bytes; do not undo earlier changes. CP-03 remains partially verified, with the R15 addendum explicitly pending.
+
+### Current CP-03 Execution Boundary
+
+- Assignment: implement local C1-C6/C9 using the exact registry in the detailed plan. Twenty Draft 2020-12 schemas, source-aligned taxonomy, scan/retrieval policies, linked examples and contract tests are present.
+- Ownership: primary acts sequentially as Catalog Architect, Quality Evaluator and Docs Maintainer, with explicit self-review; no subagent dispatch or protected role/skill/config edit. Applied context/catalog contracts, boundary/eval review and control-plane skills.
+- Scope: registered specs and `tests/test_plugin_contracts.py` / `tests/fixtures/plugin_contracts.json`, plus active documentation and append-only RUNLOG. Public catalog source, builders, generated outputs and Git history remain unchanged.
+- Evidence: 19 semantic contract tests and 11 existing control-plane tests pass. Full V-CONTRACT currently reports a missing development-only `jsonschema` dependency; it is not a passing or skipped gate. Temporary installation permission has been requested, not assumed.
+- Acceptance: `partially_verified`; C8 is still absent. CP-04 must join its captured-result schemas/scorer to C9 before either contract set is accepted for downstream runtime. No remote C4/C7 prerequisite is introduced.
+- Non-goals: index/scanner/plugin/report runtime, installation, model evaluation, cloud services, permissions or user-project changes. Synthetic fixtures prove contract behavior only.
+- Rollback: reverse only the CP-03 owned additions and documentation diff against the saved starting bytes; do not reset Git or alter existing source/history. Next action is the CP-03 presentation/view/publication contract addendum and existing standards-validation gap, then CP-04 compatibility and CP-05 behavior alignment before runtime dispatch.
+
+### Prior Plan-Revision Boundary (historical scope)
 
 - Objective: revise the entire plan and active requirements for selected SQLite FTS5 and the owner's context/activity/integration requirements; no CP-03 runtime/schema work begins here.
 - Ownership: primary is the sole document writer, applying product/context/catalog/control-plane skills and explicit self-review. No agent/skill/model configuration is changed. Future delegation still needs fresh-context packets and disjoint ownership.
@@ -114,8 +134,8 @@ The CP-S and V1-S rows below retain historical traceability. New execution uses 
 | Repository skill discovery | `present_verified` | Product Planner | Canonical `.agents/skills` location, no path pinning, and contract test from the remediation run |
 | GPT-5.6 role policy | `configured_not_behaviorally_verified` | Quality Evaluator | Static model mapping and eval specs; no fresh-context model comparison yet |
 | Fresh-context handoff | `proposal_staged` | Product Planner | `.codex/artifact-templates/agent-task-packet.md` and completed packet per task |
-| Repository contracts | `applicable_missing` | Catalog Architect | CP-03 local C1-C6/C9 schemas/fixtures; remote C4/C7 owned by deferred CP-12; V1-S rows historical |
-| SQLite FTS5 and activity/integration contracts | `design_selected_not_implemented` | Catalog Architect + Quality Evaluator | CP-03/04/06/09/11/15; bounded evidence, source/index pins and usefulness |
+| Repository contracts | `partially_verified` | Catalog Architect | CP-03 local C1-C6/C9 present; standards validation and CP-04 join remain; remote C4/C7 deferred |
+| SQLite FTS5 and activity/integration contracts | `partially_verified` | Catalog Architect + Quality Evaluator | CP-03 shapes/examples present; CP-04/06/09/11/15 supply compatibility, runtime and usefulness evidence |
 | Recommendation eval contract | `applicable_missing` | Quality Evaluator | CP-04 runner/corpus and human rubric; offline team grader is separate |
 | MCP permission review | `deferred` | Project Owner | New extension decision and CP-12/14 remote contracts/activation; not a local-release gate |
 | Hosted runtime evidence | `not_applicable` | Project Owner | Not applicable to the current contract-definition slice |

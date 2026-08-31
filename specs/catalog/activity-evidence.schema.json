@@ -1,0 +1,317 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://myai-stackguide.invalid/contracts/v1/catalog/activity-evidence.schema.json",
+  "title": "Repository activity independent from observation age",
+  "description": "Local CP-03 v1 contract. This schema does not execute or authorize side effects.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "createdAt",
+    "pushedAt",
+    "lastCommitAt",
+    "lastReleaseAt",
+    "lastCommitSha",
+    "lastCommitBranch",
+    "observations"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "createdAt": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 32,
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,6})?Z$",
+          "format": "date-time"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "pushedAt": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 32,
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,6})?Z$",
+          "format": "date-time"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "lastCommitAt": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 32,
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,6})?Z$",
+          "format": "date-time"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "lastReleaseAt": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 32,
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,6})?Z$",
+          "format": "date-time"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "lastCommitSha": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 40,
+          "maxLength": 40,
+          "pattern": "^[a-f0-9]{40}$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "lastCommitBranch": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 120
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "observations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "field",
+          "source_field",
+          "observedAt",
+          "evidence_ref"
+        ],
+        "properties": {
+          "field": {
+            "enum": [
+              "createdAt",
+              "pushedAt",
+              "lastCommitAt",
+              "lastReleaseAt"
+            ]
+          },
+          "source_field": {
+            "enum": [
+              "repository_created_at",
+              "repository_pushed_at",
+              "commit_committed_date",
+              "release_published_at"
+            ]
+          },
+          "observedAt": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 32,
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,6})?Z$",
+            "format": "date-time"
+          },
+          "evidence_ref": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 80,
+            "pattern": "^ev-[a-z0-9][a-z0-9_-]*$"
+          }
+        }
+      },
+      "maxItems": 4,
+      "minItems": 0
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "createdAt": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "createdAt"
+        ]
+      },
+      "then": {
+        "properties": {
+          "observations": {
+            "contains": {
+              "properties": {
+                "field": {
+                  "const": "createdAt"
+                }
+              },
+              "required": [
+                "field"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "pushedAt": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "pushedAt"
+        ]
+      },
+      "then": {
+        "properties": {
+          "observations": {
+            "contains": {
+              "properties": {
+                "field": {
+                  "const": "pushedAt"
+                }
+              },
+              "required": [
+                "field"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "lastCommitAt": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "lastCommitAt"
+        ]
+      },
+      "then": {
+        "properties": {
+          "observations": {
+            "contains": {
+              "properties": {
+                "field": {
+                  "const": "lastCommitAt"
+                }
+              },
+              "required": [
+                "field"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "lastReleaseAt": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "lastReleaseAt"
+        ]
+      },
+      "then": {
+        "properties": {
+          "observations": {
+            "contains": {
+              "properties": {
+                "field": {
+                  "const": "lastReleaseAt"
+                }
+              },
+              "required": [
+                "field"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "lastCommitAt": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "lastCommitAt"
+        ]
+      },
+      "then": {
+        "properties": {
+          "lastCommitSha": {
+            "type": "string",
+            "minLength": 40,
+            "maxLength": 40,
+            "pattern": "^[a-f0-9]{40}$"
+          },
+          "lastCommitBranch": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 120
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "lastCommitAt": {
+            "type": "null"
+          }
+        },
+        "required": [
+          "lastCommitAt"
+        ]
+      },
+      "then": {
+        "properties": {
+          "lastCommitSha": {
+            "type": "null"
+          },
+          "lastCommitBranch": {
+            "type": "null"
+          }
+        }
+      }
+    }
+  ],
+  "x-invariants": [
+    "At most one observation per non-null activity field, with exactly matching source_field; all evidence references resolve in the repository card.",
+    "Unknown activity is null with no fabricated observation. pushedAt is never copied into lastCommitAt. No maximum snapshot/observation age is a recommendation gate."
+  ]
+}

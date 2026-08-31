@@ -1,0 +1,146 @@
+{
+  "schema_version": "1.0.0",
+  "evidence_ceiling": "Lexical policy examples only; Windows final-handle containment, file identity, race handling and no-execution remain CP-08 runtime gates.",
+  "cases": [
+    {
+      "path": "pyproject.toml",
+      "allowed": true,
+      "reason": "eligible"
+    },
+    {
+      "path": "src/search.py",
+      "allowed": true,
+      "reason": "eligible"
+    },
+    {
+      "path": "docs/architecture.md",
+      "allowed": true,
+      "reason": "eligible"
+    },
+    {
+      "path": ".env",
+      "allowed": false,
+      "reason": "sensitive"
+    },
+    {
+      "path": ".env.example",
+      "allowed": false,
+      "reason": "sensitive"
+    },
+    {
+      "path": "src/credentials.json",
+      "allowed": false,
+      "reason": "sensitive"
+    },
+    {
+      "path": "logs/debug.txt",
+      "allowed": false,
+      "reason": "excluded_segment"
+    },
+    {
+      "path": "exports/records.json",
+      "allowed": false,
+      "reason": "excluded_segment"
+    },
+    {
+      "path": "node_modules/pkg/index.js",
+      "allowed": false,
+      "reason": "excluded_segment"
+    },
+    {
+      "path": ".git/config",
+      "allowed": false,
+      "reason": "excluded_segment"
+    },
+    {
+      "path": ".codex/config.toml",
+      "allowed": false,
+      "reason": "excluded_segment"
+    },
+    {
+      "path": "docs/myai-stackguide/state.json",
+      "allowed": false,
+      "reason": "plugin_output"
+    },
+    {
+      "path": "docs/MyAI-StackGuide/runs/a.json",
+      "allowed": false,
+      "reason": "plugin_output"
+    },
+    {
+      "path": "DB.sqlite3",
+      "allowed": false,
+      "reason": "sensitive"
+    },
+    {
+      "path": "../outside.py",
+      "allowed": false,
+      "reason": "unsafe_path"
+    },
+    {
+      "path": "src/../../outside.py",
+      "allowed": false,
+      "reason": "unsafe_path"
+    },
+    {
+      "path": "C:/outside.py",
+      "allowed": false,
+      "reason": "unsafe_path"
+    },
+    {
+      "path": "//server/share/a.py",
+      "allowed": false,
+      "reason": "unsafe_path"
+    },
+    {
+      "path": "src/main.py:stream",
+      "allowed": false,
+      "reason": "unsafe_path"
+    },
+    {
+      "path": "src//main.py",
+      "allowed": false,
+      "reason": "unsafe_path"
+    },
+    {
+      "path": "src/CON.py",
+      "allowed": false,
+      "reason": "unsafe_path"
+    },
+    {
+      "path": "src/LPT1.txt",
+      "allowed": false,
+      "reason": "unsafe_path"
+    },
+    {
+      "path": "src/file.py.",
+      "allowed": false,
+      "reason": "unsafe_path"
+    },
+    {
+      "path": "src/file.py ",
+      "allowed": false,
+      "reason": "unsafe_path"
+    },
+    {
+      "path": "src\\main.py",
+      "allowed": false,
+      "reason": "unsafe_path"
+    },
+    {
+      "path": "images/icon.png",
+      "allowed": false,
+      "reason": "unsupported"
+    }
+  ],
+  "required_runtime_rejections": [
+    "symlink",
+    "junction",
+    "reparse_point",
+    "multiple_hardlinks",
+    "ADS",
+    "final_handle_outside_selected_root",
+    "file_identity_changed_during_read",
+    "secret_content_in_eligible_file"
+  ]
+}

@@ -1,0 +1,197 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://myai-stackguide.invalid/contracts/v1/context/project-context-brief.schema.json",
+  "title": "Correctable Project Context Brief",
+  "description": "Local CP-03 v1 contract. This schema does not execute or authorize side effects.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "run_id",
+    "brief_id",
+    "brief_version",
+    "goal",
+    "decision",
+    "project_stage",
+    "success_criterion",
+    "constraints",
+    "observations",
+    "assumptions",
+    "user_corrections",
+    "context_status",
+    "updated_at"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "run_id": {
+      "$ref": "https://myai-stackguide.invalid/contracts/v1/context/sanitized-project-summary.schema.json#/$defs/uuid"
+    },
+    "brief_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]*$"
+    },
+    "brief_version": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 1000000
+    },
+    "goal": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1000
+    },
+    "decision": {
+      "enum": [
+        "build",
+        "replace",
+        "compare",
+        "learn",
+        "evaluate"
+      ]
+    },
+    "project_stage": {
+      "enum": [
+        "idea",
+        "empty",
+        "prototype",
+        "product",
+        "unknown"
+      ]
+    },
+    "success_criterion": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 700
+    },
+    "constraints": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "languages",
+        "deployment",
+        "allowed_licenses",
+        "compatibility",
+        "require_no_server",
+        "mandatory_fields"
+      ],
+      "properties": {
+        "languages": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64
+          },
+          "maxItems": 8,
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "deployment": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "local",
+              "self_hosted",
+              "cloud"
+            ]
+          },
+          "maxItems": 3,
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "allowed_licenses": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 80
+          },
+          "maxItems": 12,
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "compatibility": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 160
+          },
+          "maxItems": 12,
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "require_no_server": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "mandatory_fields": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "license",
+              "deployment",
+              "language",
+              "compatibility",
+              "no_server"
+            ]
+          },
+          "maxItems": 5,
+          "minItems": 0,
+          "uniqueItems": true
+        }
+      }
+    },
+    "observations": {
+      "$ref": "https://myai-stackguide.invalid/contracts/v1/context/sanitized-project-summary.schema.json"
+    },
+    "assumptions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 400
+      },
+      "maxItems": 12,
+      "minItems": 0,
+      "uniqueItems": true
+    },
+    "user_corrections": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 128,
+        "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]*$"
+      },
+      "maxItems": 20,
+      "minItems": 0,
+      "uniqueItems": true
+    },
+    "context_status": {
+      "enum": [
+        "preliminary",
+        "reviewed",
+        "partial"
+      ]
+    },
+    "updated_at": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32,
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,6})?Z$",
+      "format": "date-time"
+    }
+  },
+  "x-max-utf8-bytes": 16384
+}

@@ -1,0 +1,126 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://myai-stackguide.invalid/contracts/v1/intake/interview-answer.schema.json",
+  "title": "Sanitized interview answer",
+  "description": "Local CP-03 v1 contract. This schema does not execute or authorize side effects.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "run_id",
+    "answer_id",
+    "question_id",
+    "ordinal",
+    "answer_revision",
+    "expected_state_revision",
+    "status",
+    "sanitized_value",
+    "redaction_applied",
+    "recorded_at"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "run_id": {
+      "$ref": "https://myai-stackguide.invalid/contracts/v1/context/sanitized-project-summary.schema.json#/$defs/uuid"
+    },
+    "answer_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]*$"
+    },
+    "question_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64,
+      "pattern": "^[a-z][a-z0-9_]*$"
+    },
+    "ordinal": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 10
+    },
+    "answer_revision": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 10000
+    },
+    "expected_state_revision": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "status": {
+      "enum": [
+        "answered",
+        "skipped"
+      ]
+    },
+    "sanitized_value": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 2000
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "redaction_applied": {
+      "type": "boolean"
+    },
+    "recorded_at": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32,
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,6})?Z$",
+      "format": "date-time"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "skipped"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "then": {
+        "properties": {
+          "sanitized_value": {
+            "type": "null"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "answered"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "then": {
+        "properties": {
+          "sanitized_value": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000
+          }
+        }
+      }
+    }
+  ]
+}

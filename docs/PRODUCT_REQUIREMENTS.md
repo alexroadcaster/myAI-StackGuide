@@ -2,7 +2,7 @@
 
 ## Status
 
-Owner revision: 2026-08-31. SQLite FTS5/BM25 is selected for local catalog retrieval. The product optimizes time to a useful open-source integration or modernization plan. Relevant project reads are allowed within existing permissions; the former host-wide source-isolation requirement is superseded, not technically proven. Repository activity and evidence observation are separate; the former 30-day snapshot rejection is withdrawn. CP-01/02 remain completed documentation records; CP-03-CP-16 remain planned, with CP-12-CP-14 deferred. This revision changes plans and contracts, not runtime or permissions.
+Owner revision: 2026-08-31. SQLite FTS5/BM25 is selected for local catalog retrieval. The product optimizes time to a useful open-source integration or modernization plan. Relevant project reads are allowed within existing permissions; the former host-wide source-isolation requirement is superseded, not technically proven. Repository activity and evidence observation are separate; the former 30-day snapshot rejection is withdrawn. CP-01/02 remain completed documentation records. CP-03 local schemas, policies and fixtures now exist; acceptance is partially verified pending standards validation and the CP-04 compatibility join. CP-04-CP-16 remain planned, with CP-12-CP-14 deferred. Runtime and permissions are unchanged.
 
 This PRD owns active product meaning. [Detailed CP plan](plan/2026-08-30-codex-plugin-v1-implementation-plan.md) owns exact implementation files, owners and gates; [local architecture](../specs/decisions/plugin-v1-architecture.md) owns selected runtime/data-flow decisions. Historical text below remains recoverable and inactive.
 
@@ -28,12 +28,21 @@ myAI-StackGuide helps founders, product owners, engineers and operators build or
 | R12 | Retrieval relevance, bounded context/scale, recommendation usefulness, privacy/provenance, rendered UI, local runtime and rollback evidence before local release. | CP-04, CP-11, CP-15, CP-16 |
 | R13 | Help build or modernize through an actionable integration plan and coding-agent handoff. Recommendations do not execute changes; an explicit implementation request authorizes its own bounded workflow. | CP-01, CP-03, CP-05, CP-07, CP-10, CP-11, CP-15, CP-16 |
 | R14 | Activity/popularity are signals, not proof of operability or fit; missing mandatory facts remain unknown. Prefer useful caveated guidance over unnecessary refusal. | CP-03, CP-04, CP-06, CP-09, CP-15 |
+| R15 | One session HTML supports RU-EN interface and localized narrative, preserving canonical facts, evidence, decisions and technical literals; offline switching performs no retrieval/model call or domain-state write. | CP-03, CP-04, CP-05, CP-07, CP-09, CP-10, CP-11, CP-15, CP-16 |
 
 ## Active Journey And Output
 
 User goal -> up to ten relevant questions -> bounded scan/targeted context -> corrected versioned Brief -> local FTS5 search -> constrained evidence pack -> comparison and integration plan -> local state/offline HTML -> coding-agent handoff when implementation is requested. Empty projects and manual context are valid. Do not force questions or exhaustive review when enough information exists for a useful result.
 
 The report identifies a component and role, evidence-backed fit, alternatives, license/version/deployment unknowns, integration surface, affected components, sequence of work, first validation slice, risks and rollback. Commands/examples may be proposed without executing them or claiming verification. A user request to implement carries its own scope and authority; do not refuse all coding by product policy or repeat approvals already granted. A recommendation alone authorizes no automatic installation or code change.
+
+## Active Session Workspace And Localization
+
+The owner selected a desktop/laptop-only product, with no mobile adaptation. It uses one persistent session HTML with eight views: Goal, Questions, Scan, Context, Options, Compare, Integration and History. The [detailed workspace design](plan/plugin-v1-session-workspace-design.md) defines the decision, subsections, sources and incomplete/error states for each. It deepens existing R02-R14 behavior instead of introducing separate pages/services. The saved report must support both plain-language product decisions and a technical integration handoff.
+
+R15 requires a visible RU-EN switch on every view, translated interface/status/error/accessibility text and paired narrative presentation tied to the same facts, constraints, roles, evidence and revision. Original user/source language and technical literals are preserved; missing translations are explicitly partial. Both core language flows are required for local release. Switching is local presentation only: no scan, retrieval, model/API call, private-data transfer or implicit state mutation. Full details, fallback, storage budgets and CP ownership are in the design document. The detailed visual baseline is owner-approved; working localization and rendered usefulness still require implementation verification.
+
+The HTML must exist from the first committed session state, including unanswered questions and unavailable results, and update at the same path after each saved answer or completed phase. Codex owns user input and state changes; the HTML presents saved progress, evidence and copyable next actions. A publication failure must preserve a saved answer, report the saved-versus-published revision to Codex and allow a render-only retry. An already-open file is a snapshot to reload, not a live monitor. The shared writer/renderer contract and CP-10 A-D checkpoints are specified in the approved design sequence.
 
 ## Active Privacy And Side-Effect Boundaries
 

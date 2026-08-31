@@ -1,0 +1,143 @@
+{
+  "schema_version": "1.0.0",
+  "policy_id": "local-scan-v1",
+  "platform": "windows_local_disk",
+  "source_access": "bounded_relevant_context",
+  "network": false,
+  "execute_project": false,
+  "install_dependencies": false,
+  "modes": {
+    "quick": {
+      "max_files": 50,
+      "max_bytes": 2097152,
+      "max_seconds": 10
+    },
+    "standard": {
+      "max_files": 200,
+      "max_bytes": 10485760,
+      "max_seconds": 30
+    },
+    "deep": {
+      "max_files": 500,
+      "max_bytes": 31457280,
+      "max_seconds": 90
+    }
+  },
+  "topology": {
+    "max_entries": 10000,
+    "max_depth": 12,
+    "max_seconds": 5
+  },
+  "max_file_bytes": 524288,
+  "max_response_bytes": 262144,
+  "targeted_context": {
+    "max_files": 8,
+    "max_read_bytes": 262144,
+    "max_model_context_bytes": 16384,
+    "charge_to_scan_budget": true,
+    "persist_excerpts": false
+  },
+  "allowed_filenames": [
+    "README",
+    "README.md",
+    "README.rst",
+    "package.json",
+    "pyproject.toml",
+    "requirements.txt",
+    "Cargo.toml",
+    "go.mod",
+    "pom.xml",
+    "build.gradle",
+    "Dockerfile",
+    "compose.yaml",
+    "docker-compose.yml",
+    "pnpm-workspace.yaml"
+  ],
+  "allowed_extensions": [
+    ".md",
+    ".rst",
+    ".txt",
+    ".json",
+    ".toml",
+    ".yaml",
+    ".yml",
+    ".py",
+    ".js",
+    ".jsx",
+    ".ts",
+    ".tsx",
+    ".go",
+    ".rs",
+    ".java",
+    ".cs",
+    ".cpp",
+    ".c",
+    ".h",
+    ".sql"
+  ],
+  "denied_segments": [
+    ".git",
+    ".codex",
+    ".agents",
+    ".ssh",
+    ".aws",
+    ".azure",
+    ".kube",
+    ".gnupg",
+    ".venv",
+    "venv",
+    "node_modules",
+    "vendor",
+    "dist",
+    "build",
+    "coverage",
+    "__pycache__",
+    "logs",
+    "dumps",
+    "exports",
+    "secrets",
+    "credentials"
+  ],
+  "denied_filename_globs": [
+    ".env*",
+    "*secret*",
+    "*credential*",
+    "*private*key*",
+    "id_rsa*",
+    "id_ed25519*",
+    "*.pem",
+    "*.key",
+    "*.p12",
+    "*.pfx",
+    "*.keystore",
+    "*.log",
+    "*.dump",
+    "*.sqlite",
+    "*.sqlite3",
+    "*.db",
+    "*customer*export*"
+  ],
+  "excluded_output_root": "docs/myai-stackguide",
+  "reject_links": true,
+  "reject_hardlinks": true,
+  "reject_ads": true,
+  "classification": {
+    "compact_max_eligible_files": 500,
+    "compact_max_manifests": 5,
+    "standard_max_eligible_files": 5000,
+    "standard_max_manifests": 20,
+    "standard_max_service_roots": 20,
+    "monorepo_min_service_roots": 2
+  },
+  "counting": "attempts_and_consumed_bytes_including_failed_reads",
+  "deadline": "monotonic_cooperative",
+  "deny_precedes_allow": true,
+  "precedence": [
+    "incomplete_or_monorepo",
+    "empty",
+    "compact",
+    "standard",
+    "large"
+  ],
+  "policy_limits_calibrated": false
+}

@@ -1,0 +1,164 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://myai-stackguide.invalid/contracts/v1/catalog/candidate-eligibility.schema.json",
+  "title": "Request-specific eligibility independent from catalog status",
+  "description": "Local CP-03 v1 contract. This schema does not execute or authorize side effects.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "repo_id",
+    "query_id",
+    "status",
+    "checks",
+    "reason_codes",
+    "required_verifications"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "repo_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 180,
+      "pattern": "^gh(?:-pending)?:[A-Za-z0-9_.:/-]+$"
+    },
+    "query_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]*$"
+    },
+    "status": {
+      "enum": [
+        "primary_eligible",
+        "reference_only",
+        "blocked"
+      ]
+    },
+    "checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "field",
+          "outcome",
+          "evidence_refs"
+        ],
+        "properties": {
+          "field": {
+            "enum": [
+              "license",
+              "deployment",
+              "language",
+              "compatibility",
+              "no_server",
+              "availability",
+              "archived",
+              "advisory_evidence"
+            ]
+          },
+          "outcome": {
+            "enum": [
+              "pass",
+              "fail",
+              "unknown"
+            ]
+          },
+          "evidence_refs": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80,
+              "pattern": "^ev-[a-z0-9][a-z0-9_-]*$"
+            },
+            "maxItems": 8,
+            "minItems": 0,
+            "uniqueItems": true
+          }
+        }
+      },
+      "maxItems": 8,
+      "minItems": 1
+    },
+    "reason_codes": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "constraint_mismatch",
+          "mandatory_fact_unknown",
+          "archived",
+          "unavailable",
+          "duplicate_identity",
+          "insufficient_evidence",
+          "context_budget",
+          "candidate_budget",
+          "invalid_query",
+          "fts5_unavailable",
+          "index_missing",
+          "index_corrupt",
+          "index_incompatible",
+          "no_hits",
+          "cancelled"
+        ]
+      },
+      "maxItems": 12,
+      "minItems": 0,
+      "uniqueItems": true
+    },
+    "required_verifications": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 400
+      },
+      "maxItems": 12,
+      "minItems": 0,
+      "uniqueItems": true
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "primary_eligible"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "then": {
+        "properties": {
+          "checks": {
+            "items": {
+              "properties": {
+                "outcome": {
+                  "const": "pass"
+                },
+                "evidence_refs": {
+                  "minItems": 1
+                }
+              }
+            }
+          },
+          "reason_codes": {
+            "maxItems": 0
+          },
+          "required_verifications": {
+            "maxItems": 0
+          }
+        }
+      }
+    }
+  ],
+  "x-invariants": [
+    "Checks cover mandatory query fields plus availability, archived and advisory_evidence; duplicates and omitted checks fail.",
+    "primary_eligible requires an available, explicitly unarchived card, traced advisory fields and all mandatory facts satisfied. Unknowns remain references with concrete next checks; archive status alone is not evidence of operability."
+  ]
+}

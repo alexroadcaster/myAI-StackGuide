@@ -6,7 +6,7 @@ Decision date: 2026-08-30; owner amendment: 2026-08-31. Owner: Catalog Architect
 
 The 2026-08-31 owner revision selects SQLite FTS5, relevant context access, activity-aware guidance and an integration handoff. Accept only synchronized design/plan changes: CP-03 local contracts, CP-04 retrieval evals, CP-05 behavior alignment, CP-06 cards/index, CP-09 bounded retrieval, CP-11 local join and independent CP-15/16 acceptance. Remote CP-12-14 do not block local completion. The old CP-02 completion report remains dated evidence, not validation of newly planned behavior.
 
-Current document checks: Product-Agent OS task/control-plane validators, focused existing control-plane tests, dependency/mapping/link/UTF-8/history audit, explicit self-review and protected-file hashes. Results belong in RUNLOG. No schema/runtime/index, new tests or model evaluation is created or executed by this revision. Unchanged source/generated surfaces do not require regeneration.
+Current checks: task/control-plane validators, focused existing control-plane tests, dependency/mapping/link/UTF-8/history audit, explicit self-review and protected-file hashes, plus CP-03 contracts. Results belong in RUNLOG. CP-03 schemas/policies/examples/tests exist with partial verification; full standards validation awaits the development-only validator, and CP-04 owns the compatibility join. No runtime/index or model evaluation was created. Unchanged source/generated surfaces do not require regeneration.
 
 Official packaging/permission evidence was reviewed on 2026-08-30; it does not prove installed behavior. Recheck volatile details in CP-07/16. SQLite design uses the [official FTS5 reference](https://www.sqlite.org/fts5.html); actual runtime capability and indexed quality require separate evidence.
 
@@ -18,7 +18,7 @@ The Quality Evaluator owns test files and acceptance evidence per the detailed C
 
 | Gate / owner | Command or required evidence | Availability |
 | --- | --- | --- |
-| V-CONTRACT / CP-03 Quality Evaluator | `python -B -m unittest discover -s tests -p test_plugin_contracts.py -v` | Future local-schema and negative-fixture suite; remote contracts separately deferred |
+| V-CONTRACT / CP-03 Quality Evaluator | `python -B -m unittest discover -s tests -p test_plugin_contracts.py -v` | Suite present; missing development-only jsonschema blocks full gate; 19 semantic tests pass; CP-04 compatibility pending; remote contracts deferred |
 | V-CATALOG / CP-06 Catalog Pipeline Builder | `python -B -m unittest discover -s tests -p test_plugin_catalog.py -v`; existing `python scripts/build_catalog_html.py --check` if affected source/output warrants it | Adapter tests future; add `test_plugin_search_index.py` for source/index parity, integrity and pins; existing HTML check available |
 | CP-07 Plugin Runtime Builder | `python -B -m unittest discover -s tests -p test_plugin_intake.py -v`; same command with `test_plugin_state.py` | Future |
 | CP-08 Plugin Runtime Builder | `python -B -m unittest discover -s tests -p test_plugin_scanner.py -v` | Future |
@@ -56,6 +56,6 @@ The old host-wide isolation promise is explicitly superseded by the owner, not r
 
 ## Reviewable Outcomes And Rollback
 
-The current documentation outcome maps the owner's decisions through every CP task, requirement and active ADR. CP-03 and CP-04 may be assigned next; CP-05 aligns loaded behavior before runtime work. Runtime, retrieval quality, model usefulness and installation are still unverified. Remote CP-12-14 remain dormant until separately selected.
+CP-03 implements local contracts and executable examples. Finish standards validation and CP-04 compatibility; CP-05 aligns loaded behavior before runtime work. Runtime, retrieval quality, model usefulness and installation remain unverified. Remote CP-12-14 stay dormant until separately selected.
 
 Stop only the failed path, preserve valid state/history and report gaps. Never hide retrieval failure by changing engine or loading the full catalog into the model. Keep the tested previous package/index for rollback; refuse incompatible state rather than overwrite it. No Git reset, automatic deletion, permission weakening or external action is authorized by this registry.
