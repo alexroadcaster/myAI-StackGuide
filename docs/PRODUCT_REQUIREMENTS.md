@@ -2,75 +2,54 @@
 
 ## Status
 
-Active product requirements for the selected plugin-first V1. Requirements describe intended behavior; plugin, scanner, recommendations and MCP runtime are not implemented by CP-01.
+Owner revision: 2026-08-31. SQLite FTS5/BM25 is selected for local catalog retrieval. The product optimizes time to a useful open-source integration or modernization plan. Relevant project reads are allowed within existing permissions; the former host-wide source-isolation requirement is superseded, not technically proven. Repository activity and evidence observation are separate; the former 30-day snapshot rejection is withdrawn. CP-01/02 remain completed documentation records; CP-03-CP-16 remain planned, with CP-12-CP-14 deferred. This revision changes plans and contracts, not runtime or permissions.
 
-V1 entrypoint decision: **Codex plugin + bounded local scanner + remote MCP**, without custom MCP UI.
-
-This PRD owns product meaning and acceptance for R01-R14; the [detailed CP plan](plan/2026-08-30-codex-plugin-v1-implementation-plan.md) owns task contracts and engineering defaults. [REQUIREMENTS.md](../REQUIREMENTS.md) maps execution IDs; [V1 roadmap](V1_ROADMAP.md) owns milestone order. The historical appendix is preserved in full and is not active acceptance. CP-01 applies the owner's accepted direction; runtime, storage, auth, budget and retention choices remain open in CP-02.
+This PRD owns active product meaning. [Detailed CP plan](plan/2026-08-30-codex-plugin-v1-implementation-plan.md) owns exact implementation files, owners and gates; [local architecture](../specs/decisions/plugin-v1-architecture.md) owns selected runtime/data-flow decisions. Historical text below remains recoverable and inactive.
 
 ## Active Product Definition And Users
 
-myAI-StackGuide helps founders/product owners, product managers, engineers and internal operators choose what open-source solution to inspect, compare, adopt, defer or avoid for a goal and local project. An idea or empty workspace is a valid input. Non-technical owners remain the primary ICP; their outcome is a plain-language decision they can discuss with an engineer, not a requirement to connect GitHub.
-
-The entrypoint is a Codex plugin combining a skill, local scripts and remote MCP, without custom MCP UI. The workflow ends with a saved Project Context Brief and Decision Report in local offline HTML. The report includes project understanding, constraints, category path, role-based shortlist, fit reasons, comparison, avoid/defer guidance, reading path, evidence, caveats and the next human decision. A justified no-match is valid.
-
-The product does not install recommended software, modify the analyzed project's source, execute its scripts/tests/build, perform Git operations, or deploy it. A subsequent implementation workflow needs separate authorization. Writing the plugin's own local artifacts and authorized public candidate metadata is distinct from the read-only scanner.
+myAI-StackGuide helps founders, product owners, engineers and operators build or modernize solutions faster through appropriate open-source integration. It works as a Codex plugin from the user's project, combining a useful context Brief, local catalog retrieval and an actionable Decision Report. The goal is a short path to a working validation slice; actual time saved and integration success remain unmeasured product hypotheses.
 
 ## Active Plugin V1 Requirements
 
-The IDs and task mappings below preserve R01-R14 from the owner-provided plugin direction. All acceptance checks remain future product evidence; documentation reconciliation does not pass them.
-
-| ID | Required behavior and acceptance | Tasks |
+| ID | Requirement | Tasks |
 | --- | --- | --- |
-| R01 | Public Codex plugin: skill + local scripts + remote MCP; no hosted project-acquisition app or custom MCP UI. Packaging/support prerequisites require CP-02 verification and CP-16 clean-install evidence. | CP-01, CP-02, CP-07, CP-16 |
-| R02 | Ask 1-10 adaptive questions only when the answer changes scope, eligibility or decision. Reuse answers, persist sanitized state after each answer, support resume/corrections and truthful progress. At the limit proceed with explicit assumptions or `clarification_required`, never invented answers. | CP-03, CP-07, CP-11 |
-| R03 | Support idea/empty, compact, standard and large/monorepo contexts with progressive bounded scanning. Empty is valid; exhausted budgets yield `coverage_partial` and visible uninspected areas. CP-02 closes unresolved budget and precedence rules. | CP-02, CP-03, CP-08 |
-| R04 | Raw source stays inside the local scanner/sanitizer. The model receives sanitized structures only; MCP receives a minimal allowlisted DiscoveryQuery. No source-reading agent bypass, raw excerpts, full Brief, answers, local absolute paths or private project identifiers enter MCP/ledger. | CP-03, CP-08, CP-12, CP-15 |
-| R05 | Version and separate facts, inferences, assumptions, corrections, gaps and evidence references. Corrections preserve evidence history and invalidate dependent recommendations. | CP-03, CP-07, CP-08, CP-10 |
-| R06 | After a preliminary Brief, run local catalog and bounded public GitHub discovery lanes in parallel when authorized. Auth/consent refusal, unavailable discovery or rate limits produce explicit catalog-only fallback; no silent live-success claim. | CP-09, CP-12, CP-13, CP-14 |
-| R07 | Dedupe by canonical identity, apply hard constraints, retain reason codes and roles, and show source/freshness badges. Unknown mandatory constraints do not satisfy a match; each primary candidate needs traceable fit and evidence. | CP-03, CP-06, CP-09, CP-13 |
-| R08 | Automatically append eligible public candidates only within an authorized overlay workflow. Keep `catalog_status`, evidence stage and `recommendation_eligibility` separate; machine evidence never assigns curator `accepted`. | CP-03, CP-12, CP-15 |
-| R09 | Require auth/authz, per-user limits, audit, idempotency, bounded retries and public-provenance validation for own-backend writes; no anonymous mutation. Credentials stay outside project artifacts. Exact mechanisms remain CP-02 decisions. | CP-02, CP-12, CP-14, CP-15 |
-| R10 | Atomically persist `docs/myai-stackguide/state.json` after answers and phases. Generate deterministic offline `status.html`; finalized `runs/{run_id}.json` snapshots are immutable. Support safe crash recovery, version history and concurrent-run protection. | CP-03, CP-07, CP-10, CP-11 |
-| R11 | Pin `catalog_snapshot_id` plus `candidate_overlay_version`. Compact after 100 new candidates or 24 hours; scheduler activation is separate. Replay, retention, concurrent updates and retractions require CP-02/03 contracts. | CP-03, CP-12, CP-13, CP-16 |
-| R12 | Require recommendation evals, privacy/provenance gates, rendered browser QA, actual runtime evidence, rollback and owner acceptance before release. Prove one useful local synthetic case before expanding; preserve separate evidence levels. | CP-04, CP-11, CP-14, CP-15, CP-16 |
-| R13 | End with a Decision Report and next human decision. Installation, source modification, Git, deployment/publication and external writes require distinct authorization; the authorized candidate-overlay exception is narrowly defined below. | CP-01, CP-07, CP-14, CP-16 |
-| R14 | Popularity, legacy scores, incomplete metadata and static checks do not prove fit, security, legal/procurement suitability or production readiness. Show unknowns and caveats rather than promoting them into verified facts. | CP-06, CP-09, CP-15 |
+| R01 | Codex plugin with local Python scripts, bundled catalog and SQLite FTS5 index; no hosted app, service, custom MCP UI or remote prerequisite. | CP-01, CP-02, CP-07, CP-16 |
+| R02 | 1-10 adaptive questions, early useful result, resume/corrections, persistence after each answer and truthful progress. | CP-03, CP-07, CP-11 |
+| R03 | Idea/empty, compact, standard and large/monorepo contexts; bounded progressive scanning with explicit coverage gaps. | CP-02, CP-03, CP-08 |
+| R04 | Relevant project context may be read under user/host permissions; minimize persisted context, exclude secrets, and do not promise host-wide source isolation. No private context in public catalog/index or future MCP. | CP-02, CP-03, CP-05, CP-08, CP-15 |
+| R05 | Versioned facts, inferences, assumptions, corrections, gaps and evidence references; corrections invalidate dependent retrieval and recommendations. | CP-03, CP-07, CP-08, CP-10 |
+| R06 | Local lexical RAG: structured query -> SQLite FTS5/BM25 -> bounded evidence pack -> Codex comparison. Never load the entire catalog into model context; remote discovery is deferred. | CP-03, CP-04, CP-06, CP-09, CP-11 |
+| R07 | Canonical dedupe, task-specific constraints/reasons/roles; distinguish creation, last push, verified last commit/release and observation dates. No blanket snapshot-age rejection. | CP-03, CP-06, CP-09, CP-10 |
+| R08 | Separate catalog status, machine evidence and recommendation eligibility; curator-only acceptance. Automatic public candidate overlay is a deferred extension. | CP-03, CP-06, CP-09, CP-12, CP-13 |
+| R09 | No service credentials/auth or shared writes in local V1. Future remote auth, consent, idempotency, quotas and audit require an explicit extension decision. | CP-02, CP-12, CP-14 |
+| R10 | Atomic minimized state, offline HTML, immutable finalized runs, safe concurrency, recovery and version history. | CP-03, CP-07, CP-10, CP-11 |
+| R11 | Pin catalog, index, schema and retrieval-policy versions/hashes; reproduce candidate selection and reject mismatches. Remote overlay/compaction remains deferred. | CP-03, CP-06, CP-09, CP-11, CP-13, CP-16 |
+| R12 | Retrieval relevance, bounded context/scale, recommendation usefulness, privacy/provenance, rendered UI, local runtime and rollback evidence before local release. | CP-04, CP-11, CP-15, CP-16 |
+| R13 | Help build or modernize through an actionable integration plan and coding-agent handoff. Recommendations do not execute changes; an explicit implementation request authorizes its own bounded workflow. | CP-01, CP-03, CP-05, CP-07, CP-10, CP-11, CP-15, CP-16 |
+| R14 | Activity/popularity are signals, not proof of operability or fit; missing mandatory facts remain unknown. Prefer useful caveated guidance over unnecessary refusal. | CP-03, CP-04, CP-06, CP-09, CP-15 |
 
 ## Active Journey And Output
 
-1. Start or resume the plugin in a selected local project, or describe an idea; establish goal, stage, constraints and adoption mode through adaptive intake.
-2. Before file access, disclose scan scope, exclusions, local persistence, model-facing sanitization and the separate MCP transmission boundary. Warn users not to type secrets into Codex chat.
-3. Run only the authorized bounded scanner; show coverage, exclusions, cancellation or missing context honestly. Do not run project commands.
-4. Build a preliminary Brief from sanitized observations and answers. Let the user correct it; version changes invalidate dependent results, including any provisional matching.
-5. Match the pinned catalog; in the authorized mixed mode also discover public GitHub candidates using minimal queries. Merge/dedupe evidence without overwriting snapshot provenance or assigning curator acceptance.
-6. Save the current state and offline report with comparisons, avoid/defer reasons, reading paths, source/freshness badges, ingestion status, limitations and next decision. Resume interrupted work from the last valid state; preserve finalized run history.
+User goal -> up to ten relevant questions -> bounded scan/targeted context -> corrected versioned Brief -> local FTS5 search -> constrained evidence pack -> comparison and integration plan -> local state/offline HTML -> coding-agent handoff when implementation is requested. Empty projects and manual context are valid. Do not force questions or exhaustive review when enough information exists for a useful result.
 
-Progress is `Intake -> Scan -> Context Review -> Matching -> Report`, with question number, last saved and next action. Progress is not confidence. No hosted decision board or Markdown export is required for plugin V1; the former memo/Integration Blueprint terminology does not authorize implementation.
+The report identifies a component and role, evidence-backed fit, alternatives, license/version/deployment unknowns, integration surface, affected components, sequence of work, first validation slice, risks and rollback. Commands/examples may be proposed without executing them or claiming verification. A user request to implement carries its own scope and authority; do not refuse all coding by product policy or repeat approvals already granted. A recommendation alone authorizes no automatic installation or code change.
 
 ## Active Privacy And Side-Effect Boundaries
 
-| Surface | Allowed data/action | Excluded or gated |
-| --- | --- | --- |
-| Scanner | Read allowlisted local project scope; emit sanitized facts and evidence references | No secrets, credential files, dumps, production logs, customer exports, dependency/build folders, project subprocesses, dependency installation, network or path/junction escape |
-| Codex/model | Sanitized structures and user-entered chat; distinguish facts from inference | No agent bypass to raw source. Text already typed into chat cannot be made retroactively untransmitted; redact secret-like answers before persistence and MCP use |
-| Plugin artifacts | Write only `docs/myai-stackguide/` in the selected project; state, offline HTML and finalized run snapshots | No source changes, raw-source storage, raw conversations, secrets or MCP credentials; atomicity and concurrency must be tested |
-| GitHub discovery | Read public repository evidence through the bounded MCP query contract | No GitHub writes or private-project acquisition. Initial plan budget: 3-5 sanitized queries and at most 20 normalized candidates/run |
-| Candidate backend | Append public candidate metadata after gates, auth and explicit consent or bounded standing policy | `candidate_batch_upsert` is an external write, not read-only. No full Brief, answers, private content, project identifiers, raw excerpts or absolute local paths; no private-data contribution exception |
+R04 no longer promises scanner-only source isolation. Relevant project reads/excerpts may inform Codex under existing user/host permissions, with sensitive exclusions and bounded scope. The scanner remains read-only, non-executing and local; it does not run project tests/builds or install dependencies. Do not bypass failed safety checks through another tool.
 
-MCP tools are `catalog_delta_get`, `github_discover`, `candidate_batch_upsert` and `candidate_status_get`. CP-03 owns their typed input/output/errors, limits and annotations; CP-02 owns auth/consent/credential/retention decisions. Declining auth or transmission preserves a visible catalog-only path. Failed candidate upload is visible but does not block delivery of the local report. Disclosure of permitted local scan data to the model is a separate boundary from reading it locally; a scan approval does not authorize raw-source transmission.
-
-Snapshot metadata, live GitHub evidence, machine inference, recommendation roles and curator decisions must remain distinguishable. Policy wording is a requirement, not proof of technical enforcement.
+Persist minimized findings, sanitized answers and safe references under `docs/myai-stackguide/`, never full source, raw chat, secrets or customer exports. The public catalog/index contains no user context. Codex data handling remains the host's; local scripts/artifacts do not mean an offline model or a no-transmission guarantee. No new service, credential, upload or telemetry is introduced. Public/remote/private access and destructive/costly actions retain their actual approval boundaries. See [permissions](../specs/decisions/plugin-v1-permissions.md).
 
 ## Active Catalog And Quality Baseline
 
-The current source is `data/catalog_manifest.json`, snapshot 2026-08-12: 1,142 repositories and 77 categories. These are snapshot counts, not current GitHub checks or a count of primary-eligible solutions. Preserve the manifest and template. CP-03 defines advisory contracts and explicit unknowns; CP-06 adapts the catalog without mapping legacy scores to fit or automatically promoting candidates.
+The current source snapshot is dated 2026-08-12 with 1,142 repositories/77 categories; planned 2,000+ scale is not current inventory. CP-06 persists available metadata and provenance before index build; browser-only enrichment is not a reproducible source. Missing fields stay unknown. Index one normalized canonical repository card, with concise category/use-case signals, not repeated category prose or arbitrary JSON chunks.
 
-The old 1,000-repository, 60-90-category and 100-200 enriched-pool targets are historical planning context, not additional plugin release gates. One evidence-qualified seed is sufficient for the first local semantic case; broader quality/coverage still needs CP-04/15 evidence.
+SQLite FTS5/BM25 is selected. The local `catalog_only` source uses `sqlite_fts5`; no vectors/embedding models/database service required. Retrieve at most 60 candidates across query variants, deliver at most 12 cards and 48 KiB UTF-8 evidence including provenance; these uncalibrated ceilings are not token or quality promises. CP-03 allocates Brief and retrieval budgets; CP-04 validates RU/EN/aliases, retrieval relevance and integration usefulness. Missing index/FTS5 is an explicit failure, not silent full-catalog context loading.
 
-Desired business outcome: reduce research effort and improve adoption decisions. Primary product metric: share of target-user Decision Reports judged useful for the next decision. Supporting indicators: time from plugin intake to first Brief/report, primary evidence completeness, shortlist relevance, avoid/defer usefulness and advisory coverage. Counter-metrics: incorrect recommendations, stale evidence, correction rate and privacy violations. Targets, telemetry and measured gains are not invented here; CP-04 owns operational evaluation and human calibration.
+Dates distinguish creation, push, verified commit/release, observation and snapshot/index build. No blanket snapshot expiry rejects recommendations. Activity helps triage; it does not prove a repository works, fits or is secure. Show dated facts, gaps and the next verification step. A baseline-valid sparse card can be retrieved without qualifying for unconditional primary adoption. Curator acceptance is separate from evidence and role assignment.
 
-Release acceptance follows CP-11 (local semantic case), CP-14 (authorized live integration), CP-15 (privacy/auth/evals/browser and owner review) and CP-16 (package/rollback/publication gate). Existing rubric thresholds remain in [EVALS.md](../EVALS.md) and the CP plan: at least 16/20, no critical dimension below 1, zero critical failures, and evidence for every primary recommendation. CP-04 must calibrate them; no quality pass is claimed.
+Local release requires CP-11 intended-route evidence, CP-15 independent relevance/privacy/UI/usefulness acceptance and CP-16 installed package/index compatibility/rollback. Remote CP-12-14, auth, shared ledger and scheduler are deferred, not release prerequisites. Evals retain the 16/20 rubric plus zero critical failures, with revised authorized-context/integration behavior and independently measured retrieval metrics. No runtime, recommendation-quality or release success is claimed by this PRD.
 
 ## Legacy Requirement Disposition
 
@@ -83,12 +62,12 @@ Release acceptance follows CP-11 (local semantic case), CP-14 (authorized live i
 | FR5 Brief | R05, R10 | Retain plain-language facts/inferences/corrections; add versions and invalidation |
 | FR6 post-scan interview | R02, R05 | Replace fixed post-scan ordering with adaptive intake, persistence and resume |
 | FR7 catalog | R07, R08, R11, R14 | Preserve v5; define advisory eligibility separately; old quantity targets do not prove fit |
-| FR8 matching | R06, R07, R14 | Retain context, role and caveat goals; add mixed lanes, strict unknowns and explicit no-match |
+| FR8 matching | R06, R07, R14 | Retain context, role and caveat goals; add local SQLite FTS5, bounded evidence, explicit unknowns and useful conditional guidance; mixed retrieval deferred |
 | FR9 comparison | R07, R10, R13 | Retain decision-relevant trade-offs in offline report; old 2-5 workbench limit is not a new UI requirement |
 | FR10 avoid/defer | R07, R13, R14 | Retain reasons and conditions for revisiting |
-| FR11 reading path | R07, R13 | Retain inspection guidance, without implementation commands |
+| FR11 reading path | R07, R13 | Expand into a sourced integration plan, proposed validation commands and coding-agent handoff; no execution implied |
 | FR12 memo/boards/export | R10, R13 | Replace hosted boards/Markdown export with local state, HTML Decision Report and immutable runs |
-| FR13 freshness | R06, R07, R11, R14 | Replace shortlist-only live checking with bounded discovery; preserve snapshot/live distinction |
+| FR13 freshness | R06, R07, R11, R14 | Use persisted creation/push/verified commit/release/observation facts; no blanket snapshot TTL; live extension deferred |
 | FR14 curator queue | R08, R09 | Retain auditable curator-only acceptance; dedicated queue UI deferred; candidate overlay is not curator approval |
 | FR15 evals | R12 | Retain persona/negative/regression goals; CP-04/15 own corpus and human usefulness acceptance |
 
@@ -97,10 +76,10 @@ Release acceptance follows CP-11 (local semantic case), CP-14 (authorized live i
 | Product definition, problem, ICP, JTBD and goals | Retain decision-support intent/users; replace mandatory GitHub connection with local project or idea |
 | Scope and core journey | Replace with active R01-R14/journey above; standalone CLI, archive/doc upload, SDK/widget, hosted boards and general catalog API remain deferred |
 | Data requirements | Carry baseline/advisory/provenance intent into CP-03/06; preserve current source IDs/unknowns; do not treat historical field lists as accepted schemas |
-| Privacy/security and UX | Use active boundary table, including local writes and restricted public overlay; historical private-contribution and raw-storage exceptions are superseded |
-| Success metrics and beta criteria | Use plugin intake/Brief/report timing, useful decisions and CP-11/14/15/16 evidence; no hosted release checklist |
+| Privacy/security and UX | Use active revised R04/R13 boundaries, local minimized writes and deferred public overlay; historical private-contribution and raw-storage exceptions are superseded |
+| Success metrics and beta criteria | Use time to useful integration guidance, retrieval quality and local CP-11/15/16 evidence; CP-14 is extension-only |
 | Non-functional requirements | Retain observable progress, bounded deterministic scanning, graceful failure and versioned evidence. Pinned replay does not promise identical model text |
-| Assumptions/open questions/source notes | Resolve entrypoint/scope through this PRD; route runtime/OS/backend/auth/consent/retention/budgets/replay choices to CP-02, schemas to CP-03, calibration to CP-04 |
+| Assumptions/open questions/source notes | Resolve entrypoint/scope through this PRD; local runtime/FTS5/context/activity design is selected in CP-02; local schemas CP-03, calibration CP-04, remote choices deferred CP-12 |
 
 ## Historical Hosted-First PRD — Not Active Acceptance
 

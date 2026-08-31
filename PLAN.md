@@ -1,28 +1,51 @@
 # PLAN.md
 
-Active Product-Agent OS plan for myAI-StackGuide. Detailed product milestones remain in `docs/V1_ROADMAP.md`; this file owns the current execution order and gates.
+Active Product-Agent OS execution plan. [Detailed CP plan](docs/plan/2026-08-30-codex-plugin-v1-implementation-plan.md) owns exact CP-01-CP-16 scopes/files/gates; [PRD](docs/PRODUCT_REQUIREMENTS.md#active-plugin-v1-requirements) and [roadmap](docs/V1_ROADMAP.md#active-plugin-v1-milestones) own product requirements/phases.
 
 ## Lifecycle
 
-- Current state: `partially_verified` after local agent-team remediation. Static contracts and offline grader checks pass; fresh-session loading, behavioral runs, and product CP-02/03 gates remain open. The historical `team_ready` did not apply to plugin-first runtime.
-- Entry evidence: V1 PRD and roadmap exist; current requirements are mapped in `REQUIREMENTS.md`.
-- Build boundary: no hosted app, provider activation, or live GitHub access is authorized by this plan.
-- Remediation exit: AR-01 through AR-06 have scoped changes, current local checks, self-review, and a RUNLOG handoff. Product exit remains the separately accepted CP plan, not the historical six-contract slice.
-- CP-01: `implemented` with documentation checks and independent review; the owner's instruction authorized this scope. No additional product or architecture decision was needed. The next unexecuted task is CP-02.
-- Stop condition: missing ownership, overlapping write scopes, unverified source claims, secret-bearing data, failed checks, or required external approval.
+Owner revision: 2026-08-31. SQLite FTS5/BM25 is selected for local catalog retrieval. The product optimizes time to a useful open-source integration or modernization plan. Relevant project reads are allowed within existing permissions; the former host-wide source-isolation requirement is superseded, not technically proven. Repository activity and evidence observation are separate; the former 30-day snapshot rejection is withdrawn. CP-01/02 remain completed documentation records; CP-03-CP-16 remain planned, with CP-12-CP-14 deferred. This revision changes plans and contracts, not runtime or permissions.
+
+State: `partially_verified` for the product; the revised implementation plan is `proposal_staged` until contracts, eval design and loaded behavior are ready. Existing static/architectural evidence is not runtime or recommendation-quality evidence. Remote work remains dormant. Preserve the pre-existing uncommitted CP-01/02 documentation/ADRs.
 
 ## Active Dependency Order
 
-Completed local preparation: [Agent Team Audit Remediation](docs/plan/2026-08-30-agent-team-remediation-plan.md), AR-01 through AR-06. CP-01 is the owner-authorized documentation reconciliation; its result and checks are recorded in the [detailed CP plan](docs/plan/2026-08-30-codex-plugin-v1-implementation-plan.md#task-cp-01) and RUNLOG. Product requirements are [R01-R14 in the PRD](docs/PRODUCT_REQUIREMENTS.md#active-plugin-v1-requirements); phases are in the [active roadmap](docs/V1_ROADMAP.md#active-plugin-v1-milestones).
+1. CP-01/02 documentation is implemented and now amended to the owner's FTS5/context/activity/integration decisions.
+2. CP-03 defines complete local C1-C6/C9; CP-04 prepares C8 independently with a compatibility join; CP-05 aligns existing roles/skills/behavior cases before runtime dispatch.
+3. CP-06 persists public metadata and builds canonical cards plus a bundled FTS5 index. CP-07 creates local intake/state and trusted runtime/FTS5 preflight after its contracts/readiness.
+4. CP-08 bounded scan/targeted context, CP-09 FTS5/evidence pack and CP-10 integration report use disjoint owned files and shared accepted contracts/state.
+5. CP-11 proves one useful local 1/1 case through the actual FTS5 route, then negatives and separately labeled 2,000/10,000 synthetic scaling.
+6. CP-15 depends on CP-04, CP-10, CP-11: independent local retrieval/privacy/UI/integration-usefulness acceptance.
+7. CP-16 depends on CP-01, CP-05, CP-06, CP-15: local package/index/fresh-session/upgrade/rollback; publication separately authorized.
 
-1. CP-01: align requirements, history, scope and acceptance; documentation only.
-2. CP-02: accept architecture, runtime and permission decisions. CP-04 eval-contract preparation can follow CP-01 independently, with CP-03 compatibility review before acceptance.
-3. CP-03: accept schemas; CP-05: complete builder readiness after CP-01/02, preserving already-authored roles. Runtime dispatch also requires applicable CP-03 contracts and actual loading/routing evidence.
-4. CP-06-CP-11: implement and verify the local vertical slice under separate assignments; prove one useful synthetic case first, without MCP.
-5. CP-12-CP-14: local mock-first backend and mixed retrieval after CP-11, then separately authorized test-environment integration.
-6. CP-15-CP-16: independent verification, owner acceptance and release packaging; publication/deployment require their own authorization.
+CP-12-CP-14 are an optional remote branch after CP-11, requiring a new scope/architecture decision and remote C4/C7 contracts. They are absent from CP-15/16's transitive dependencies. The detailed graph and reciprocal Blocks fields are authoritative; old phase numbering and historical matrices below cannot add remote prerequisites.
 
-CP-01 does not authorize the later tasks. The detailed task dependency graph governs over this phase summary. The historical sequence and matrix below are not a competing dispatch queue.
+### Current Plan-Revision Boundary
+
+- Objective: revise the entire plan and active requirements for selected SQLite FTS5 and the owner's context/activity/integration requirements; no CP-03 runtime/schema work begins here.
+- Ownership: primary is the sole document writer, applying product/context/catalog/control-plane skills and explicit self-review. No agent/skill/model configuration is changed. Future delegation still needs fresh-context packets and disjoint ownership.
+- Editable scope: PLAN, REQUIREMENTS, README, TEST, EVALS, append-only RUNLOG, active PRD/roadmap/product/scanner/module summaries, detailed CP plan, source team-contract prose, and the three CP-02 ADRs.
+- Non-goals: catalog/generator/generated output changes; runtime/index/schemas; actual tests/eval JSON; protected .agents/.codex files; installs, permissions, credentials, model calls, Git history or external effects.
+- Gates: task/control-plane validators, focused existing contracts, R mappings/16-task acyclic and reciprocal dependency audit, local-release independence, links/UTF-8, five unchanged historical bodies, unchanged original CP-01/02 reports and protected-file hashes, whitespace and semantic self-review.
+- Rollback: restore only this revision's differences against the preserved starting document bytes; do not undo earlier CP-01/02 changes. Runtime rollback is not needed because no runtime is changed.
+- Evidence ceiling: plan changes do not implement FTS5, improve measured retrieval or validate new agent behavior. CP-05 must align the existing stricter definitions/fixtures before runtime dispatch. R04's old host-isolation blocker is superseded by the owner, not a technical guarantee now claimed to pass.
+
+### Historical CP-01/02 Execution Boundaries
+
+The following records preserve the original assignment scopes. Their scanner-only/R04 requirements, old mappings and edit prohibitions do not override the current owner-authorized revision.
+
+<details>
+<summary>Original documentation-run boundaries (2026-08-30)</summary>
+
+### CP-02 Local Execution Boundary
+
+- Owner direction: continue as an ordinary plugin working locally from the user's project; no Cloudflare, remote database/server auth or service deployment. The original mixed-retrieval requirements remain traceable future work.
+- Primary acts as Catalog Architect, then Product Planner/Docs Maintainer; bounded read-only boundary audit and independent final review use fresh-context packets. Primary is the sole writer; preserve unrelated dirty changes. The starting worktree was clean.
+- Editable scope: the three [architecture](specs/decisions/plugin-v1-architecture.md), [permissions](specs/decisions/plugin-v1-permissions.md) and [verification](specs/decisions/plugin-v1-verification.md) ADRs, this plan, REQUIREMENTS, README, active PRD/roadmap/product/scanner/architecture summaries, detailed CP-02/status/registry references, and append-only RUNLOG.
+- Non-goals: runtime/schema/test implementation, catalog or generator changes, agent/skill/config edits, installation, host permission changes, credentials, providers, Git history or external actions. Existing CP-03-CP-16 task bodies remain future full-scope records; applicability is explicitly qualified in the detailed plan.
+- Gates: current official package/permission evidence, task/control-plane validation, focused existing contracts, local references/UTF-8, unchanged R-to-task mappings/history/protected surfaces and independent review. Numerical defaults are selected engineering caps, not measured performance.
+- Evidence ceiling: local design documentation can complete without remote service decisions; full product privacy acceptance cannot. `R04_host_isolation_unresolved` prevents sensitive-project use or a host-wide no-source-transmission promise; subsequent local work uses synthetic fixtures until that gate is resolved.
+- Rollback: reverse only this documentation slice; no runtime/catalog rollback or permission change is needed. Next assigned work may cover local CP-03 and CP-05, without claiming deferred remote contracts or runtime readiness complete.
 
 ### CP-01 Execution Boundary
 
@@ -34,6 +57,8 @@ CP-01 does not authorize the later tasks. The detailed task dependency graph gov
 - Verification: V-DOC, local links/anchors and UTF-8, requirement coverage and dependency DAG, historical-text preservation, targeted control-plane contracts, protected-surface diff, and independent semantic review. No new product tests or model evaluation are required for this documentation slice.
 - Runtime evidence: the current session exposes the project instructions and requested skills; their files and team contracts were read before explicit delegation. This does not prove automatic named-agent loading, implicit skill selection, model suitability or CP-05 promotion.
 - Rollback: review and reverse only CP-01 document changes against the starting worktree; preserve any unrelated edits. No runtime rollback or catalog regeneration is needed.
+
+</details>
 
 ### Historical Contract-Definition Sequence
 
@@ -89,9 +114,10 @@ The CP-S and V1-S rows below retain historical traceability. New execution uses 
 | Repository skill discovery | `present_verified` | Product Planner | Canonical `.agents/skills` location, no path pinning, and contract test from the remediation run |
 | GPT-5.6 role policy | `configured_not_behaviorally_verified` | Quality Evaluator | Static model mapping and eval specs; no fresh-context model comparison yet |
 | Fresh-context handoff | `proposal_staged` | Product Planner | `.codex/artifact-templates/agent-task-packet.md` and completed packet per task |
-| Repository contracts | `applicable_missing` | Catalog Architect | CP-03 schemas/fixtures; V1-S1-V1-S5 remain historical references |
+| Repository contracts | `applicable_missing` | Catalog Architect | CP-03 local C1-C6/C9 schemas/fixtures; remote C4/C7 owned by deferred CP-12; V1-S rows historical |
+| SQLite FTS5 and activity/integration contracts | `design_selected_not_implemented` | Catalog Architect + Quality Evaluator | CP-03/04/06/09/11/15; bounded evidence, source/index pins and usefulness |
 | Recommendation eval contract | `applicable_missing` | Quality Evaluator | CP-04 runner/corpus and human rubric; offline team grader is separate |
-| MCP permission review | `approval_required` | Project Owner | CP-02/03 read/write/auth contracts and CP-14 bounded activation decision |
+| MCP permission review | `deferred` | Project Owner | New extension decision and CP-12/14 remote contracts/activation; not a local-release gate |
 | Hosted runtime evidence | `not_applicable` | Project Owner | Not applicable to the current contract-definition slice |
 | FSD structure | `not_applicable` | Catalog Architect | No application UI structure exists yet |
 | Production telemetry | `not_applicable` | Product Planner | Not part of CP-01; collection requires an explicit privacy/consent design |

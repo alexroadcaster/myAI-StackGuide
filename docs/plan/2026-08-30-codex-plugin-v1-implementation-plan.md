@@ -1,251 +1,188 @@
 # myAI-StackGuide — Codex Plugin V1 Implementation Plan
 
-Planning date: 2026-08-30. Timezone: `Europe/Moscow`.
+Planning date: 2026-08-30; owner revision: 2026-08-31. Timezone: `Europe/Moscow`.
 
-Document status: `proposal_staged` for remaining product work. The owner authorized CP-01 documentation implementation with agents and skills; its current result is recorded in that task block and RUNLOG. CP-02 through CP-16 remain `planned`; this document does not activate the plugin, MCP or publication.
-
-Team-audit remediation was subsequently authorized in [Agent Team Audit Remediation](2026-08-30-agent-team-remediation-plan.md). That bounded slice updates source routing, instructions, builder definitions, and offline team checks. It does not close the CP tasks or authorize product runtime. Active shared execution contracts are in [Plugin V1 Team Execution Contracts](plugin-v1-team-contracts.md).
+Document status: selected local direction; detailed implementation remains `proposal_staged` pending CP-03 contracts, CP-04 evaluation design and CP-05 behavior alignment. CP-01/02 are implemented documentation; CP-03-CP-16 remain planned. No product runtime, index, remote integration or publication is activated by this revision.
 
 ## 1. Goal, Sources, And Boundaries
 
-V1 goal: help users choose a suitable open-source solution based on their goal, project, constraints, and available evidence. The entry point is a Codex plugin; the output is a persisted Project Context Brief and Decision Report in local HTML.
+Owner revision: 2026-08-31. SQLite FTS5/BM25 is selected for local catalog retrieval. The product optimizes time to a useful open-source integration or modernization plan. Relevant project reads are allowed within existing permissions; the former host-wide source-isolation requirement is superseded, not technically proven. Repository activity and evidence observation are separate; the former 30-day snapshot rejection is withdrawn. CP-01/02 remain completed documentation records; CP-03-CP-16 remain planned, with CP-12-CP-14 deferred. This revision changes plans and contracts, not runtime or permissions.
 
-Source: the user-provided “Codex Plugin V1 for myAI-StackGuide” text (title translated into English), SHA-256 `A456F4C4CD7A22709D844ADC52276F40874F0D93232D58F3198E005BE12C9DB5`. This document translates its requirements into tasks, ownership, and gates; new engineering proposals are explicitly identified below.
+Goal: help users build or modernize their solutions faster by selecting suitable OSS components and handing off a concrete integration plan grounded in their project. The saved output is a Project Context Brief plus an offline Decision Report with comparison, integration steps, a first useful validation slice and rollback. Measured speed/quality improvements are hypotheses until evaluated.
 
-Local baseline verified when the plan was prepared:
+The [active PRD](../PRODUCT_REQUIREMENTS.md#active-plugin-v1-requirements) owns product meaning; this plan owns task scope and dependencies. [Root PLAN](../../PLAN.md), [team contracts](plugin-v1-team-contracts.md), and the [architecture](../../specs/decisions/plugin-v1-architecture.md), [permissions](../../specs/decisions/plugin-v1-permissions.md), [verification](../../specs/decisions/plugin-v1-verification.md) ADRs are synchronized to the owner revision. The earlier source plan SHA-256 `A456F4C4CD7A22709D844ADC52276F40874F0D93232D58F3198E005BE12C9DB5` is historical input, not an override of later owner decisions.
 
-- `README.md`, `docs/METHODOLOGY.md`, `docs/RELEASE_PROCESS.md`, `PLAN.md`, `EVALS.md`, `.codex/TEAM.md`, `.codex/config.toml`, and the seven existing `.codex/agents/*.toml` files.
-- The catalog source of truth is `data/catalog_manifest.json`; its contract is `data/catalog_manifest.schema.json`; the HTML shell is `templates/unified_catalog.html`. `docs/UNIFIED_CATALOG.html` is generated output.
-- Manifest: `schemaVersion=5.0-full-refresh`, snapshot `2026-08-12`, 1,142 repository records, 77 categories. This is a local snapshot, not evidence of current GitHub metadata as of the planning date.
-- The existing `PLAN.md` contains V1-S1–V1-S7; the `specs/` directory does not yet exist. The previous `team_ready` status applies to the earlier static slice and does not establish readiness of the new plugin team.
-- `EVALS.md` already defines ten rubric dimensions, but the executable recommendation evaluator is marked `applicable_missing`.
+Current catalog source is `data/catalog_manifest.json`, schema `data/catalog_manifest.schema.json`, shell `templates/unified_catalog.html`; `docs/UNIFIED_CATALOG.html` is generated. The inspected snapshot is 2026-08-12 with 1,142 repositories and 77 categories. A 2,000+ future catalog is a scaling requirement, not a claim that the current source contains that many. Existing browser enrichment is not reliably persisted source evidence; CP-06 must close that input gap before indexing claims about activity. Unknown facts must not be invented.
 
-Direction reconciliation: CP-01 replaces the active hosted journey with the plugin direction in the PRD, roadmap and root control plane while retaining historical requirements and mappings. The active [PRD](../PRODUCT_REQUIREMENTS.md#active-plugin-v1-requirements) owns product acceptance; this plan owns execution contracts. Scope alignment does not close CP-02 architecture choices.
+No hosted app, Cloudflare, remote database/auth/MCP, embedding API/model, vector extension, Docker, daemon or scheduler is needed for the local route. Public read-only research remains possible when requested; it does not create a plugin network dependency. CP-12-CP-14 are a future extension requiring a new scope/architecture decision. Local CP-15/16 do not depend on them, directly or transitively.
 
-Future implementation scope: intake, scanner, sanitized context, catalog matching, bounded GitHub discovery, a shared candidate ledger, local artifacts, evals, and plugin packaging.
-
-Outside the recommendation workflow: installing recommended products, modifying the analyzed project's source code, running its scripts/tests/build, Git mutations, and deployment. Implementing the selected solution requires a separate, explicitly approved workflow.
-
-Future plugin local writes are limited to `docs/myai-stackguide/` in the selected project. The scanner itself remains read-only. Local scanner access to source files does not authorize sending them to Codex/the model or MCP.
+The scanner remains read-only and does not execute project scripts/builds/installations. Relevant targeted project reads under actual user/host permissions are allowed, with exclusions and minimization. The recommendation flow writes only minimized artifacts under `docs/myai-stackguide/`; no recommendation automatically changes code. An explicit implementation request can authorize a bounded coding workflow using the handoff; existing authorization persists, and external/destructive/credential/cost boundaries still apply.
 
 ## 2. Required V1 Behavior
 
 | ID | Requirement | Tasks |
 | --- | --- | --- |
-| R01 | Public Codex plugin instead of a hosted app; skill + local scripts + remote MCP; no custom MCP UI | CP-01, CP-02, CP-07, CP-16 |
-| R02 | 1–10 adaptive questions, resume, corrections, persistence after every answer, truthful progress | CP-03, CP-07, CP-11 |
-| R03 | Empty project, compact, standard, large/monorepo; bounded progressive scanning | CP-02, CP-03, CP-08 |
-| R04 | Raw source stays with the scanner; the model receives sanitized structures; MCP receives only a minimal DiscoveryQuery | CP-03, CP-08, CP-12, CP-15 |
-| R05 | Facts, inferences, assumptions, corrections, gaps, and evidence references are separate and versioned | CP-03, CP-07, CP-08, CP-10 |
-| R06 | Catalog and GitHub lanes run in parallel after the preliminary Brief; correct catalog-only fallback | CP-09, CP-12, CP-13, CP-14 |
-| R07 | Dedupe, hard filters, reason codes, recommendation roles, and visible source/freshness badges | CP-03, CP-06, CP-09, CP-13 |
-| R08 | Automatic public candidate overlay; machine eligibility separate from curator acceptance | CP-03, CP-12, CP-15 |
-| R09 | Auth, idempotency, per-user limits, audit, bounded retries; no anonymous mutation | CP-02, CP-12, CP-14, CP-15 |
-| R10 | Atomic state, offline HTML, immutable finalized runs, safe version history | CP-03, CP-07, CP-10, CP-11 |
-| R11 | Snapshot compaction: 100 new candidates or 24 hours; pinned snapshot + overlay | CP-03, CP-12, CP-13, CP-16 |
-| R12 | Recommendation evals, privacy/provenance gates, browser QA, runtime evidence, rollback | CP-04, CP-11, CP-14, CP-15, CP-16 |
-| R13 | The workflow ends with a Decision Report; implementation, publication, and external writes require separate boundaries | CP-01, CP-07, CP-14, CP-16 |
-| R14 | Do not present legacy scoring, popularity, or incomplete metadata as evidence of fit | CP-06, CP-09, CP-15 |
+| R01 | Codex plugin with local Python scripts, bundled catalog and SQLite FTS5 index; no hosted app, service, custom MCP UI or remote prerequisite. | CP-01, CP-02, CP-07, CP-16 |
+| R02 | 1-10 adaptive questions, early useful result, resume/corrections, persistence after each answer and truthful progress. | CP-03, CP-07, CP-11 |
+| R03 | Idea/empty, compact, standard and large/monorepo contexts; bounded progressive scanning with explicit coverage gaps. | CP-02, CP-03, CP-08 |
+| R04 | Relevant project context may be read under user/host permissions; minimize persisted context, exclude secrets, and do not promise host-wide source isolation. No private context in public catalog/index or future MCP. | CP-02, CP-03, CP-05, CP-08, CP-15 |
+| R05 | Versioned facts, inferences, assumptions, corrections, gaps and evidence references; corrections invalidate dependent retrieval and recommendations. | CP-03, CP-07, CP-08, CP-10 |
+| R06 | Local lexical RAG: structured query -> SQLite FTS5/BM25 -> bounded evidence pack -> Codex comparison. Never load the entire catalog into model context; remote discovery is deferred. | CP-03, CP-04, CP-06, CP-09, CP-11 |
+| R07 | Canonical dedupe, task-specific constraints/reasons/roles; distinguish creation, last push, verified last commit/release and observation dates. No blanket snapshot-age rejection. | CP-03, CP-06, CP-09, CP-10 |
+| R08 | Separate catalog status, machine evidence and recommendation eligibility; curator-only acceptance. Automatic public candidate overlay is a deferred extension. | CP-03, CP-06, CP-09, CP-12, CP-13 |
+| R09 | No service credentials/auth or shared writes in local V1. Future remote auth, consent, idempotency, quotas and audit require an explicit extension decision. | CP-02, CP-12, CP-14 |
+| R10 | Atomic minimized state, offline HTML, immutable finalized runs, safe concurrency, recovery and version history. | CP-03, CP-07, CP-10, CP-11 |
+| R11 | Pin catalog, index, schema and retrieval-policy versions/hashes; reproduce candidate selection and reject mismatches. Remote overlay/compaction remains deferred. | CP-03, CP-06, CP-09, CP-11, CP-13, CP-16 |
+| R12 | Retrieval relevance, bounded context/scale, recommendation usefulness, privacy/provenance, rendered UI, local runtime and rollback evidence before local release. | CP-04, CP-11, CP-15, CP-16 |
+| R13 | Help build or modernize through an actionable integration plan and coding-agent handoff. Recommendations do not execute changes; an explicit implementation request authorizes its own bounded workflow. | CP-01, CP-03, CP-05, CP-07, CP-10, CP-11, CP-15, CP-16 |
+| R14 | Activity/popularity are signals, not proof of operability or fit; missing mandatory facts remain unknown. Prefer useful caveated guidance over unnecessary refusal. | CP-03, CP-04, CP-06, CP-09, CP-15 |
 
-### Intake And Additional Context
+### Intake And Context
 
-The question bank covers: decision `build/replace/compare/learn/evaluate`; state `idea/empty/prototype/product`; outcome and success criterion; current and target stage; `quick/standard/deep`; stack/platform; privacy/data residency/deployment; license/self-hosting/procurement; team capacity/integration complexity/time horizon; adoption mode `product/library/platform/reference/comparison`.
+Ask 1-10 adaptive questions only when the answer changes a decision: build/replace/compare/learn/evaluate, current/target project stage, outcome, stack/platform, existing solutions, deployment/license/data constraints, integration surface, team capacity and time horizon. Stop early when enough context exists; after ten, proceed with explicit assumptions or a material clarification. Sanitize before persistence. Save after each answer/phase; corrections increment the Brief version and invalidate retrieval/recommendations. Progress is `Intake -> Scan -> Context Review -> Matching -> Report`, saved revision and next action; progress is not confidence.
 
-Ask a question only if the answer changes scope, eligibility, or the decision. Do not fill unknowns with guesses. After the tenth question, proceed with explicit assumptions or return `clarification_required`. Correcting an answer creates a new Brief version and invalidates dependent recommendations. Redact secret-like answers before persistence; state records `redaction_applied`, not the original value.
+Use topology -> high-signal scan -> selected relevant context -> normalization -> correction. Empty projects are valid; partial enumeration is not an empty project. The architecture ADR retains exact quick/standard/deep, topology, time, file/byte and response caps. Scanner output is structured; permitted targeted source excerpts may inform the host transiently, but raw project files/conversations do not become persisted state or public search data. Context selection is purpose-bound and source-referenced, with gaps rather than unrestricted retries.
 
-Privacy clarification: text the user has already entered in Codex chat cannot retroactively become “never transmitted to the model.” The plugin must therefore warn users not to enter secrets; the sanitizer protects subsequent persistence and MCP payloads. The strict raw-source boundary applies to scanner file access and prohibits agents from bypassing it by reading source files directly.
+### Local Retrieval, Evidence And Integration
 
-Additional useful fields: existing solutions and reasons for replacement, required integrations and versions, decision owner, team operational skills, acceptable costs, and migration risks. These are optional: do not turn them into a mandatory lengthy questionnaire or request personal data.
+`source_mode=catalog_only` and `retrieval_engine=sqlite_fts5` are distinct selectors. Source-owned normalized repository cards become an immutable bundled FTS5 index. `unicode61`, weighted BM25, versioned RU/EN/technology aliases and a compiled bounded query are the first baseline. Parameterize SQL and separately escape/limit FTS query syntax. No raw SQL from model text, arbitrary JSON chunking, full-catalog prompt, embeddings or implicit model/API call for retrieval.
 
-Progress: `Intake → Scan → Context Review → Matching → Report`, question number, last saved, and next action. `product_understanding`, `technical_stack`, and `recommendation_readiness` must use defined criteria; progress is not confidence and must not imply unsupported precision.
+Selected initial ceilings: 60 retrieved candidates across query variants, 12 detailed cards, 48 KiB UTF-8 for the entire evidence pack. These are uncalibrated engineering limits, not measured token/performance targets. CP-03 defines the total Brief/retrieval model-input budget and field limits; CP-04 calibrates without hidden cap increases. Dedupe and mandatory constraints conserve card budget; bounded query broadening cannot reset caps. Pack includes evidence references, missing facts, matched fields, exclusions, activity observations, scores/ranks and truncation reasons. Relevance score is not fit probability.
 
-### Scanner
+Keep `createdAt`, `pushedAt`, verified `lastCommitAt` plus SHA/branch, optional `lastReleaseAt`, `observedAt`, snapshot date and index build date semantically separate. No 30-day or other blanket snapshot-age rejection. Old observations trigger uncertainty or targeted verification of volatile facts, not a claim that a repository is dead. Recent commits do not prove working code, security or compatibility. Unknown mandatory facts bar an unconditional primary adoption claim, while useful references and conditional next checks remain possible.
 
-Provided design defaults, not yet calibrated against runtime evidence:
+Identity uses stable repository ID and canonical aliases/redirects. Preserve `catalog_status`, evidence stage, eligibility and request-specific role separately. Roles: `primary_candidate`, `supporting_tool`, `reference_only`, `compare_against`, `avoid_for_now`. No machine process assigns curator `accepted`. Archived/unavailable candidates may remain references with explicit caveats. Index failure is not no-match: emit typed unavailable/incompatible reasons without silent fallback.
 
-| Mode | Condition |
-| --- | --- |
-| `idea_or_empty` | No scan-eligible files; this is a valid outcome, not a scanner failure |
-| `compact` | At most 500 eligible files and five manifests |
-| `standard` | At most 5,000 eligible files and twenty manifests/service roots |
-| `large_or_monorepo` | A standard threshold is exceeded, a monorepo is detected, or a budget is reached |
+The report explains what to integrate, why it fits, affected components, supported version/license evidence, adapters/configuration/migration needs, a small validation experiment, risks, rollback and unresolved facts. Commands/examples may be proposed with their prerequisites; they are not executed or declared tested merely because they appear in the report. The coding-agent handoff carries the user's goal, approved scope, source references, first implementation slice, acceptance and stop conditions. It is an actionable artifact, not automatic installation authority.
 
-Sequence: topology → high-signal → goal-targeted → normalization → user correction. Standard budget: 200 files read and 10 MiB of text; deep expansion: up to an additional 300 files and 20 MiB. At the limit, report `coverage_partial`, uninspected areas, and the corresponding confidence reduction.
+### Local Artifact And Deferred Extension
 
-CP-02 must define monorepo detection precedence over compact, the manifests/service-roots counting rule, quick budget, topology enumeration/time/depth limits, and maximum individual file size. Without these decisions, the modes are not fully specified. Allowlist-first access, sensitive exclusions, canonical path containment, and symlink/junction escape protection are mandatory; no project subprocesses, dependency installation, or network access.
+`state.json` is sole current state; `status.html` is a deterministic escaped offline projection; finalized `runs/{run_id}.json` is immutable. Preserve the CP-02 lock/revision/atomicity/recovery and retention caps. Record catalog/index/policy/schema pins, source mode/engine and evidence-pack counts/bytes. A correction invalidates stale packs and reports. A frozen retrieval result can be replayed; identical LLM wording is not guaranteed.
 
-### Matching And Candidate Lifecycle
+HTML contains outcome, context/coverage/gaps, shortlist/roles/evidence/activity, comparison, integration plan/handoff, risks, versions and history. No CDN, telemetry or automatic fetch. It must remain useful offline and pass rendered QA. No user context is stored in the public SQLite index or shared globally.
 
-Catalog retrieval uses category paths/task archetypes; hard constraints include stage, complexity, deployment, license, sensitivity, and adoption. `unknown` for a mandatory constraint is not a match. Output roles: `primary_candidate`, `supporting_tool`, `reference_only`, `compare_against`, `avoid_for_now`; an evidence-backed “no suitable solution” outcome is valid.
-
-GitHub discovery: 3–5 sanitized queries, at most 20 normalized candidates/run. Identity, redirects, archive state, README, license, releases, and activity are stored as separate, dated live evidence. Failure/rate limiting produces `live_discovery_unavailable`; the catalog lane continues. Publishing a candidate is not a prerequisite for delivering the user's report.
-
-Dedupe: GitHub repository ID, canonical owner/name, redirects, and aliases. Preserve the catalog identity on a match; live evidence must not overwrite prior facts without provenance. Stars are a triage signal, not fit. Badges show `catalog_snapshot`, `github_live`, `machine_inference`, eligibility, and freshness.
-
-Do not collapse three independent concepts into one enum:
-
-- `catalog_status`: includes `candidate` and `accepted`; `accepted` requires a separate curator decision.
-- Evidence stage: `discovered_live → identity_validated → machine_evidence_complete`, with possible rejection.
-- `recommendation_eligibility`: `primary_eligible`, `reference_only`, `blocked`; the `primary_candidate` role is assigned in relation to a specific request.
-
-Minimum candidate gates: canonical identity/URL, provenance/timestamp, dedupe/redirects, availability/archive state, baseline metadata with explicit unknowns, category proposal/reason, and rejection of unsafe/malformed content. `primary_eligible` additionally requires a complete advisory contract, traceable fit, best_for/avoid_if, adoption/stage/complexity/integration/deployment/caveats, freshness, no policy contradiction, and deterministic checks. No machine gate assigns `accepted` or proves security/production readiness.
-
-The append-only ledger creates a versioned overlay over an immutable snapshot. Compaction occurs after 100 new candidates or 24 hours; the scheduler requires separate activation. Report pin: `catalog_snapshot_id` + `candidate_overlay_version`. CP-02/CP-03 define pinned-version replay, retention, concurrent writes, and invalidation/retraction through new events rather than hidden history changes.
-
-### Local User Artifact
-
-`docs/myai-stackguide/state.json` is the sole current source of truth; `status.html` is a deterministic offline projection without a CDN; `runs/{run_id}.json` is an immutable snapshot of a completed run or an explicitly finalized incomplete run. Writes are atomic after each answer and completed phase; no raw source, secrets, or MCP credentials. A concurrent run must not overwrite another run's state.
-
-HTML sections: overview/goal/stage/progress; answers/assumptions; scan scope/coverage/exclusions/complexity; facts/inferences/corrections/gaps; stack/architecture; mixed recommendations; comparison/avoid/defer/reading path; ingestion status; evidence hierarchy/risks/forbidden claims; run history/version IDs. Details use progressive disclosure; the first screen supports a decision.
-
-References from the original planning: `2026-05-20-mypartners-architecture-db-stack-flow-status.html` and `2026-08-24-mypartners-independent-architecture-audit.html`. Their historical evidence state is source-only inspection, not visual acceptance. This plan neither uses their private content as fixtures nor authorizes transferring data from another project. Rendered QA of the new artifact remains mandatory; bypassing browser restrictions is prohibited.
+The deferred extension may add bounded GitHub discovery (original design: 3-5 public-safe queries and up to 20 normalized candidates/run), authenticated candidate ledger, overlay sync and compaction (original proposal: 100 candidates or 24 hours). These are retained proposals to revalidate in CP-12-14, not local requirements or accepted service choices. Remote C4/C7, consent/auth/retries/retention/commands and index-update compatibility must be accepted before activation. Candidate publication is never needed to deliver the local report.
 
 ## 3. Architecture And Contracts
 
 ```mermaid
 flowchart LR
-    U[User in Codex] --> I[Intake skill]
-    P[Selected project files] --> S[Local scanner + sanitizer]
-    I --> B[Versioned sanitized Brief]
+    U[User goal and constraints] --> B[Versioned Project Context Brief]
+    P[Selected project] --> S[Bounded scanner and relevant context reads]
     S --> B
-    B --> C[Local catalog matcher]
-    B --> Q[Allowlisted DiscoveryQuery]
-    Q --> M[Authenticated MCP]
-    M --> G[Public GitHub read-only retrieval]
-    G --> L[Candidate gates + ledger overlay]
-    L --> M
-    C --> R[Merge + reason codes]
-    M --> R
-    R --> A[Local state + offline HTML + run snapshot]
+    C[Public source-owned catalog and evidence] --> A[Build normalized cards]
+    A --> I[Bundled read-only SQLite FTS5 index]
+    B --> Q[Structured query and aliases]
+    Q --> R[BM25 retrieval and dedupe]
+    I --> R
+    R --> F[Constraints and bounded evidence pack]
+    F --> M[Codex comparison and integration plan]
+    B --> M
+    M --> O[Local state and offline report]
+    O --> H[Coding-agent handoff on user request]
 ```
 
-MCP boundary: raw files, excerpts, absolute local paths, the full Brief, and user answers are not accepted. Credentials remain outside project artifacts. `github_discover` is public read-only retrieval; `candidate_batch_upsert` is an external write to our backend, not a read-only operation. Automatic upload is allowed only within an explicitly agreed public-metadata transmission mode; consent/managed policy must support refusal and catalog-only fallback.
+The diagram shows planned plugin data flow, not host-wide isolation. SQLite contains public derived catalog data, while user state remains project-local JSON/HTML. The index is read-only at runtime, packaged at build time, and hash/version checked. Missing FTS5/corrupt/mismatched index returns a visible error, without index build, dependency download or a whole-catalog fallback. The actual Python/SQLite build and tested package bytes must be recorded.
 
-Planned packaging: `plugins/myai-stackguide/.codex-plugin/plugin.json`, `skills/myai-stackguide/SKILL.md`, `scripts/`, `myai-stackguide.app.json`, `assets/`. CP-02 verifies the exact manifest/connection contract against current official documentation; this document does not establish that verification. Links supplied in the user specification: [Plugin architecture](https://developers.openai.com/plugins/concepts/plugins), [Package your plugin](https://developers.openai.com/plugins/build/plugins). They were not rechecked while saving the plan.
+Package layout: `plugins/myai-stackguide/.codex-plugin/plugin.json`, `skills/myai-stackguide/SKILL.md`, `scripts/`, `assets/`. Omit `.app.json`, `.mcp.json`, connection entries and hooks in local V1. CP-07/16 recheck current official packaging and verify installed/cache identity; files existing do not prove activation. Runtime remains the selected trusted Windows CPython standard-library path from the ADR, with an explicit FTS5 capability preflight.
 
-Future schema-file registry; these are currently proposed artifacts:
+Future schema/artifact registry; these paths are owned outputs, not files claimed to exist:
 
-- C1 intake: `specs/intake/intake-state.schema.json`, `specs/intake/interview-answer.schema.json`.
-- C2 scanner: `specs/scanner/scan-policy.schema.json`, `specs/scanner/scan-policy.yaml`, `specs/scanner/scan-manifest.schema.json`, `specs/scanner/scan-report.schema.json`, `specs/scanner/exclusion-cases.json`.
-- C3 context: `specs/context/sanitized-project-summary.schema.json`, `specs/context/project-context-brief.schema.json`, `specs/context/user-corrections.schema.json`.
-- C4 catalog: `specs/catalog/repository-card.schema.json`, `specs/catalog/live-evidence-record.schema.json`, `specs/catalog/discovery-candidate.schema.json`, `specs/catalog/candidate-ledger-event.schema.json`, `specs/catalog/candidate-eligibility.schema.json`, `specs/catalog/taxonomy.yaml`, `specs/catalog/taxonomy-rules.md`.
-- C5 recommendation: `specs/recommendation/recommendation-request.schema.json`, `specs/recommendation/recommendation-memo.schema.json`.
-- C6 artifact: `specs/artifact/project-artifact-state.schema.json`.
-- C7 MCP: `specs/mcp/discovery-query.schema.json`, `specs/mcp/tool-contracts.json` with input/output/error/auth/side-effect contracts for all four tools.
-- C8 evals: `evals/scenario.schema.json`, `evals/result.schema.json`, `evals/plugin-v1/cases.json`, `evals/plugin-v1/rubric.json`.
+- C1 intake / CP-03: `specs/intake/intake-state.schema.json`, `specs/intake/interview-answer.schema.json`.
+- C2 scanner / CP-03: `specs/scanner/scan-policy.schema.json`, `scan-policy.yaml`, `scan-manifest.schema.json`, `scan-report.schema.json`, `exclusion-cases.json` under `specs/scanner/`.
+- C3 context / CP-03: `specs/context/sanitized-project-summary.schema.json`, `project-context-brief.schema.json`, `user-corrections.schema.json`, `context-selection.schema.json` under `specs/context/`.
+- C4 local catalog / CP-03: `specs/catalog/repository-card.schema.json`, `activity-evidence.schema.json`, `candidate-eligibility.schema.json`, `taxonomy.yaml`, `taxonomy-rules.md` under `specs/catalog/`. Include per-field provenance/observation, activity-date semantics and aliases; baseline unknowns remain representable.
+- C5 recommendation / CP-03: `specs/recommendation/recommendation-request.schema.json`, `recommendation-memo.schema.json`, `integration-plan.schema.json` under `specs/recommendation/`.
+- C6 artifact / CP-03: `specs/artifact/project-artifact-state.schema.json` including context/catalog/index/policy pins and correction invalidation.
+- C7 remote MCP / deferred CP-12: `specs/mcp/discovery-query.schema.json`, `specs/mcp/tool-contracts.json`; deferred remote C4: `specs/catalog/live-evidence-record.schema.json`, `discovery-candidate.schema.json`, `candidate-ledger-event.schema.json` under `specs/catalog/`. Architect defines these before backend implementation; CP-13 consumes them. Not part of local CP-03 acceptance.
+- C8 evaluation / CP-04: `evals/scenario.schema.json`, `evals/result.schema.json`, `evals/plugin-v1/cases.json`, `evals/plugin-v1/rubric.json`, `evals/plugin-v1/runner-contract.md`; offline scoring harness `evals/plugin-v1/evaluate_retrieval.py`, `tests/test_plugin_retrieval_eval.py`, `tests/fixtures/plugin_retrieval_eval.json`.
+- C9 retrieval / CP-03: `specs/retrieval/catalog-query.schema.json`, `retrieval-result.schema.json`, `evidence-pack.schema.json`, `index-manifest.schema.json`, `retrieval-policy.json` under `specs/retrieval/`. Policy owns query grammar, field weights/aliases, multi-query rank fusion, caps, rejection reasons and version compatibility; CP-06 packages it, CP-09 consumes it.
 
-MCP tools: `catalog_delta_get(snapshot_id, overlay_version)`, `github_discover(discovery_query)`, `candidate_batch_upsert(discovery_batch, idempotency_key)`, `candidate_status_get(candidate_ids)`. CP-03 defines bounded pagination/delta size, expiry/conflict, error enums, and version compatibility. Upsert revalidates public provenance on the backend; client-supplied fields are not trusted.
+Local CP-03 is complete when C1-C6/C9 and their fixtures are accepted. C8 belongs to CP-04; the C7/remote-C4 extension is explicitly transferred to CP-12, not left as an unclosable CP-03 remainder.
 
 ## 4. Team, Skills, And Execution Order
 
-Existing agents were verified against `.codex/agents/`. This table assigns responsibility but does not dispatch anyone.
+The existing nine roles are retained, including already-authored `plugin_runtime_builder` and `mcp_backend_builder`; no need to recreate them. Ownership: Product Planner owns requirements/plan; Catalog Architect owns schemas/ADRs; Curator owns public research evidence; Pipeline Builder owns normalized cards/index/builders; Plugin Runtime Builder owns local runtime/report; Quality Evaluator owns tests/eval acceptance; Docs Maintainer records approved facts; Evidence Reviewer is read-only; MCP Backend Builder stays dormant locally. Configured model/effort defaults are unchanged and not promoted by static checks.
 
-| Agent | Status / baseline | Responsibility | Primary skills |
-| --- | --- | --- | --- |
-| `product_planner` | Existing; `gpt-5.6-sol/high` | Scope, requirement mapping, gates | `shape-product-slice`, `design-recommendation-evals`, `maintain-control-plane` |
-| `catalog_architect` | Existing; `gpt-5.6-sol/high` | Contracts, ADRs, trust boundaries | `design-catalog-contracts`, `design-context-contracts`, `audit-readonly-boundaries` |
-| `github_research_curator` | Existing; `gpt-5.6-terra/medium` | Public evidence and category proposals; no canonical promotion | `research-github-candidates`, `curate-catalog-taxonomy`, `review-advisory-evidence` |
-| `catalog_pipeline_builder` | Existing; `gpt-5.6-sol/high` | Source-owned adapter/bundle, reproducible pipeline | `evolve-catalog-pipeline`, `verify-generated-parity`, `design-catalog-contracts` |
-| `quality_evaluator` | Existing; `gpt-5.6-sol/high` | Tests/evals and evidence; no implementation fixes | `design-recommendation-evals`, `verify-generated-parity`, `audit-readonly-boundaries` |
-| `evidence_reviewer` | Existing, read-only; `gpt-5.6-sol/high` | Independent provenance/privacy/claims review; findings only | `review-advisory-evidence`, `audit-readonly-boundaries`, `verify-generated-parity` |
-| `docs_maintainer` | Existing; `gpt-5.6-terra/medium` | Curated docs/RUNLOG after approved facts are handed off | `maintain-control-plane`, `review-advisory-evidence` |
-| `plugin_runtime_builder` | Proposed, absent | Plugin local runtime/HTML only | Proposed `build-stackguide-plugin`; existing `design-context-contracts` |
-| `mcp_backend_builder` | Proposed, absent | MCP backend/ledger only | Proposed `build-stackguide-mcp`; existing `design-catalog-contracts`, `audit-readonly-boundaries` |
-| Primary orchestrator | Lead of the current workflow, not a new TOML agent | Handoff acceptance, approvals, sequential transfers, release coordination | Product-Agent OS `implementation-planner`, `agent-team-designer` |
+Use the smallest relevant skill set: `shape-product-slice`, `design-context-contracts`, `design-catalog-contracts`, `evolve-catalog-pipeline`, `build-stackguide-plugin`, `design-recommendation-evals`, `review-advisory-evidence`, `verify-generated-parity`, `maintain-control-plane` according to the task. `build-stackguide-mcp` applies only to the deferred extension. Before any delegation, read `.codex/TEAM.md` and send a completed fresh-context `.codex/artifact-templates/agent-task-packet.md`; no raw-history-only handoff. One owner writes each mutable source; tests/evidence/index assets pass sequentially.
 
-The two builder definitions and project skills are now authored under the separately approved team-audit remediation. They remain execution-gated by CP-02/03, full task packets, fresh-session loading, and behavioral evidence; role existence does not close CP-05. The baseline for new roles must be evaluated on representative cases; no model/effort or permission defaults change without the required review. Static validation does not prove routing quality or model suitability.
+CP-05 must realign the existing agent/skill/eval contracts that still encode scanner-only source access or blanket coding refusal. This documentation revision does not edit protected `.codex/` or `.agents/` files, nor behavioral JSON fixtures. Their static pass is not evidence of revised behavior. Verify loaded instructions in a fresh session before runtime dispatch; do not alter host permissions or model policy just to remove a mismatch.
 
-The current configured limit is three concurrent threads/session. This plan does not increase it. Default to one writer; use minimal fan-out only for independent read-only review or disjoint tests. Shared schemas, source data, generated catalog, and root control docs require sequential handoffs.
+Execution order: CP-03 local schemas and CP-04 eval contract can proceed independently with a final compatibility join; CP-05 readiness is another bounded preparation. CP-06 builds source/card/index assets; CP-07 establishes local intake/state; CP-08 scanner, CP-09 retrieval and CP-10 renderer use disjoint implementation files after their dependencies. CP-11 joins one useful local scenario first; CP-15 independently verifies local acceptance; CP-16 packages the local product. CP-12-14 never lie on this local critical path.
 
-| Stage | Tasks | Exit gate |
+## 5. Decision And Readiness Registry
+
+| Decision / gate | Status | Owner / next evidence |
 | --- | --- | --- |
-| P1 — Contract reset | CP-01–CP-05 | Scope agreed, ADRs closed, schema/eval contracts accepted, roles ready for dispatch |
-| P2 — Local vertical | CP-06–CP-11 | One useful synthetic end-to-end case, then targeted edge cases; no MCP |
-| P3 — Mixed retrieval | CP-12–CP-14 | Mock-first integration, then separately authorized test-environment runtime |
-| P4 — Private verification | CP-15 | Privacy/auth/abuse/eval/browser evidence and owner acceptance |
-| P5 — Public alpha | CP-16 | Package/release/rollback gates; publication requires separate authorization |
-
-Prove a `1/1` semantic slice on a local fixture first. Do not compensate for its failure by expanding the team, fixtures, or repeated full-suite runs. Start backend implementation after P2; research/contract review may happen earlier without runtime/network mutations.
-
-### Fresh-Context Handoff
-
-Before each future dispatch, prepare a packet using `.codex/artifact-templates/agent-task-packet.md`: task/lifecycle/goal, sources, facts/assumptions, requirement IDs, owned and forbidden files, exact input versions, acceptance, commands, expected evidence, approval scope, rollback, stop condition, and next owner. Raw conversation is not a handoff.
-
-The agent returns distilled findings, touched/proposed files, commands/exit codes, evidence references, supported/unsupported claims, gaps, actual model/skills, and the next step. On overlap, a failed mandatory gate, an unknown permission boundary, or expanded private-data scope, stop and hand off to the primary orchestrator. The Evidence Reviewer does not edit the code under review; after fixes, rerun only the affected check, followed by one final gate.
-
-## 5. Open Decisions And Plan Readiness
-
-| Decision / gate | Status | Repair task / closure criterion |
-| --- | --- | --- |
-| Product reset and old-ID migration | `implemented` | CP-01: active PRD/roadmap, preserved history, old-to-new mapping, documentation checks and independent review; RUNLOG records evidence |
-| Runtime/local packaging | `applicable_missing` | CP-02: supported OS/runtime, installation prerequisites, commands; Python local scripts below are a proposal, not an accepted platform requirement |
-| Backend/storage/hosting, schema migration | `applicable_missing` | CP-02: one selected option, costs, rollback, test runner, and exact backend-owned paths |
-| MCP auth/provider/session expiry, credentials | `applicable_missing` | CP-02: auth ADR without OAuth activation or secret use |
-| Rate/retry/time budgets, quick scan, topology cap | `applicable_missing` | CP-02: numeric limits and observable stop conditions |
-| Retention/deletion/audit/data residency, public upload consent | `applicable_missing` | CP-02: minimization, retention period, access control, and consent UI/text; no project identifier in the public ledger |
-| Schema/domain/API/compatibility gates | `proposal_staged` | CP-03: positive/negative fixtures, field ownership, version migrations |
-| Eval runner/critical dimensions | `applicable_missing` | CP-04: executable runner contract, rubric and held-out baseline |
-| New agent/skill contracts | `present_unverified` | CP-05: definitions authored through team remediation; fresh-session loading and bounded routing evidence still required |
-| HTML frontend gate | `proposal_staged` | CP-10/CP-15: offline behavior, escaping, accessibility, rendered QA |
-| Hosted frontend / repository picker | `not_applicable` | Excluded from plugin-first V1 |
-| Live GitHub credentials, shared writes, deployments | `approval_required` | CP-14: specific destination/data/cost/time/side-effect limits |
-| Public release / scheduler | `approval_required` | CP-16: separate authorization for the selected external actions |
-
-Plan-quality verdict: `proposal_staged`, not `plan_ready`. Structural matrix validation may pass with these gaps, but it does not close them. Runtime tasks await upstream gates; time estimates below are preliminary ranges of active engineering effort, not delivery commitments or model-cost estimates. They exclude waiting for decisions, auth/deployment approvals, and external services.
+| Local plugin; SQLite FTS5/BM25; no vector/provider/server dependency | `design_selected` | CP-03/06/09 implement and validate contracts/index/retrieval |
+| Relevant project context; no strict host-isolation promise | `owner_revised` | CP-03/05/08/15 verify minimization, exclusions, authorized scope and useful reads |
+| Activity/observation dates; no blanket snapshot TTL | `owner_revised` | CP-03 semantics, CP-06 source persistence/coverage, CP-09/15 activity cases |
+| Actionable integration plan and coding handoff | `design_selected` | CP-03/10/11/15 contract, implementation and human usefulness |
+| Contracts and retrieval budgets | `applicable_missing` | CP-03 local C1-C6/C9 and fixtures; selected ceilings need encoding |
+| Quality corpus, runner and calibration | `applicable_missing` | CP-04 freezes relevance judgments, runner, thresholds and human rubric |
+| Loaded agent/skill behavior | `present_unverified` | CP-05 alignment plus fresh-session evidence; no implicit promotion |
+| Runtime/index/UI/install | `not_implemented` | CP-06-11, CP-15/16; planning is not product acceptance |
+| Remote tools/auth/backend/scheduler | `deferred` | New extension decision and CP-12-14; no local-release block |
+| Publication / external actions | `approval_required` | Exact destination/action only after a reviewable package exists |
 
 ## 6. Verification Registry
 
-Commands in this section are planned unless explicitly stated otherwise. Listing them does not mean they have run or that future files already exist.
+All future commands require their named test/runner files to exist; a zero-test discovery is not a pass. Current documentation checks and actual results are recorded in RUNLOG.
 
-- V-DOC: Product-Agent OS validator `scripts/validate_task_matrix.py` with this file's path; additionally check unique task IDs, dependency DAG, requirements coverage, references, UTF-8, and whitespace. Validates the plan only.
-- V-CONTRACT: proposed `python -m unittest discover -s tests -p "test_plugin_contracts.py"`; CP-03 creates the tests and records runtime prerequisites in CP-02.
-- V-CATALOG: existing `python scripts/build_catalog_html.py --check` and `python -m unittest discover -s tests -p "test_catalog_v5_pipeline.py"`; CP-06 creates adapter-specific checks. Do not regenerate the catalog without source changes.
-- V-LOCAL: proposed `python -m unittest discover -s tests -p "test_plugin_*.py"`; start with one case using the exact command registered by CP-11, then run a targeted subset.
-- V-EVAL: `command_gap` until CP-04; that task must define the runner command, case version, input/output schema, raw-data policy, and thresholds before the first model run. Synthetic contract tests are not recommendation evals.
-- V-MCP: `command_gap` until CP-02/CP-12; exact lint/type/unit/integration/migration commands for the chosen backend stack are required, not an invented npm/Python workflow.
-- V-LIVE: CP-14 records the exact approved invocation, request limits, environment/endpoint, IDs/timestamps, and sanitized trace in advance. Do not substitute a mock/fallback for the live path.
-- V-UI: offline rendered review, escaping/unsafe URL cases, keyboard/accessibility, responsiveness/overflow, browser console, and no third-party requests. Source-only HTML inspection is insufficient.
-- V-RELEASE: package install/run in an isolated authorized test workspace, auth expiry, upgrade/downgrade, service disable, and previous-snapshot fallback. Publication is separate.
+- V-DOC: Product-Agent OS task/control-plane validators, focused existing `test_codex_contracts.py`, R01-R14/FR1-FR15 mapping, unique 16-task DAG and reciprocal Blocks, links/UTF-8/history/protected-file audit, whitespace and semantic self-review.
+- V-CONTRACT / CP-03: `python -B -m unittest discover -s tests -p test_plugin_contracts.py -v`; local C1-C6/C9 fixtures, bounded query/context, activity/unknown semantics and handoff. No remote-contract prerequisite.
+- V-CATALOG / CP-06: future `test_plugin_catalog.py` and `test_plugin_search_index.py`; normalized source/card/index/policy parity and hashes, dedupe/coverage/integrity. Run existing catalog HTML parity only if its source/output changes.
+- V-RETRIEVAL / CP-09: future `test_plugin_retrieval.py` and `test_plugin_matching.py`; actual FTS5, query grammar, RU/EN/aliases, stable ordering/constraints/caps, no-hit versus unavailable, read-only and mismatch cases.
+- V-LOCAL / CP-11: register one exact useful semantic-case command, then affected edges, then final `python -B -m unittest discover -s tests -p "test_plugin_*.py" -v`. Record intended `sqlite_fts5` route and prevent fallback/mock masking.
+- V-EVAL / CP-04/15: future offline scorer `evals/plugin-v1/evaluate_retrieval.py` consumes validated captured C9 results and frozen C8 judgments; CP-04 creates it and accepts its exact CLI/input/output contract. `command_gap` remains until then. Register the held-out cases, lexical baseline, Recall@k/nDCG@k, exclusion errors and human integration-usefulness rubric. Same-case comparisons; no quality gain inferred from FTS5 availability. Synthetic 2,000/10,000-row scaling is separate from actual catalog relevance and real size.
+- V-UI / CP-10/15: rendered offline report, links/escaping, injection, keyboard/accessibility, responsive overflow, console and zero third-party requests.
+- V-RELEASE / CP-16: authorized clean install/fresh-session identity, actual Python/FTS5 preflight, package/index/policy hashes, read-only query, upgrade/downgrade/disable, previous compatible package and preserved history. Local gate excludes auth expiry/scheduler/live service tests.
+- V-MCP / V-LIVE: deferred CP-12/14 only; future exact endpoint, auth/data/cost/action scope, commands and observed traces. They are not marked passed and do not block local release.
 
-Recommendation promotion: at least 16/20 across the ten dimensions in the current `EVALS.md`; no critical dimension below 1; zero privacy, permission, provenance, or unsupported-readiness failures; 100% of primary recommendations have visible source/evidence/freshness/caveats; zero machine→accepted transitions. CP-04 explicitly marks critical dimensions and aggregation rules; a total score does not replace human usefulness review.
+Recommendation threshold remains at least 16/20 with no critical dimension below 1, no critical privacy/permission/provenance/unsupported-readiness failure, and full visible evidence/uncertainty for primary recommendations. CP-04 updates critical behavior to authorized context and actionable integration handoff, calibrates examples and aggregation, and freezes retrieval thresholds before quality runs. A score is not a substitute for human usefulness or technical runtime evidence.
 
-Shared rollback/stop rules: preserve the last working local artifact and previous catalog snapshot; do not delete ledger history; an external write failure must not block the local report. No `git reset`, automatic deletion of user files, or hidden retry loops. On backend problems, disable discovery/upload through the intended selector and show the fallback and its reason. Owner consent is not runtime proof.
+Rollback preserves the previous compatible package/index and valid user state/history. No Git reset, automatic data deletion, silent fallback or external activation. Future remote failure must leave the local route usable, with visible provenance and failure reasons.
 
 ## 7. Detailed Task Matrix
 
+The task contracts below are amended to the 2026-08-31 local scope. CP-01/02 completion reports are preserved historical evidence for their original documentation runs; the amendment does not retroactively claim new tests or implementation. Remaining completion reports explicitly record planning only.
+
 ### Task `CP-01`
 
-- Task: CP-01 — reconcile plugin-first requirements with the existing control plane
+- Task: CP-01 — reconcile product requirements and integration-oriented scope
 - Status: implemented
 - Schema version: task_matrix_plan_v1
 - Timezone: Europe/Moscow
-- Plan trigger: The user-provided Codex Plugin V1 replaces the hosted V1 journey.
+- Plan trigger: Owner revision 2026-08-31: local SQLite FTS5, relevant context, activity-aware evidence and actionable OSS integration. This task remains within the local product path.
 - Validator target: detailed task blocks
 - Date and time of task implementation: 30-08-2026 21:27
 - Depends on: none
 - Blocks: CP-02, CP-03, CP-04, CP-05, CP-16
-- Source: User-provided plan; R01–R14; current REQUIREMENTS.md and PLAN.md.
-- Short description: Record scope, non-goals, acceptance, and old-to-new mapping.
-- Technical value: One aligned contract instead of competing hosted/plugin paths.
-- Product value: A clear Codex entry point and a report without unauthorized implementation.
-- Scope: product_planner owns REQUIREMENTS.md and PLAN.md; docs_maintainer then sequentially updates README.md, docs/PRODUCT_REQUIREMENTS.md, docs/V1_ROADMAP.md, docs/MYAI_STACKGUIDE_PRODUCT_CONCEPT.md, docs/MYAI_STACKGUIDE_CONTEXT_SCANNER.md, docs/MYAI_STACKGUIDE_MODULE_ARCHITECTURE.md, and RUNLOG.md using approved decisions. The primary also updates this file's CP-01 record and status references; other task contracts remain unchanged.
-- Non-goals: Code, agent configs, generated catalog, external actions.
-- Expected result: Requirement IDs and milestones are aligned; previous records are preserved as historical/superseded.
-- Acceptance criteria: All R01–R14 map to tasks; advisory-only behavior and upload consent are consistent with a read-only scanner; the owner accepts the scope.
-- Verification gates: V-DOC; focused cross-document contradiction review.
-- Risks / approval gates: Do not carry the previous team_ready status over to the new runtime; return semantic scope expansion to the owner.
+- Source: Owner decisions 2026-08-31; active PRD R01, R13; accepted CP-02 ADRs and Section 3 registries.
+- Short description: Keep plugin-first requirements, owner revisions and historical mappings aligned.
+- Technical value: One active local architecture and requirement-to-task mapping.
+- Product value: A direct path from project goal to useful OSS integration guidance.
+- Scope: Product Planner owns REQUIREMENTS.md and PLAN.md; sequential Docs Maintainer owns README.md, active PRD/roadmap/product/scanner/architecture summaries and RUNLOG.md; primary owns the detailed task-plan amendment. Preserve historical sources.
+- Non-goals: Unassigned files, model/permission changes, Git history, automatic installs, private-data disclosure or external activation. No remote architecture/runtime or vector/embedding dependency.
+- Expected result: R01-R14 and legacy mappings reflect local FTS5, relevant context, activity evidence and integration handoff.
+- Acceptance criteria: All active documents agree on owner decisions, source ownership, permission boundaries and the local dependency path; historical requirements remain explicitly inactive.
+- Verification gates: V-DOC and cross-document semantic review; current amendment evidence is separate from the original completion report.
+- Risks / approval gates: Preserve pre-existing dirty work and source-owned boundaries. Public research is read-only; sensitive scope, credentials, material cost, external writes, publication and destructive operations follow actual authorization. Selected caps and ranking quality are not yet measured.
 - Complexity: M
 - Estimated execution time: 2–4 active hours; preliminary.
 - Agents: Owner product_planner; sequential docs_maintainer; reviewer evidence_reviewer.
 - Skills: shape-product-slice; maintain-control-plane; review-advisory-evidence.
-- Output artifacts: The listed curated docs; requirement mapping and decisions in PLAN.md.
+- Output artifacts: Product Planner owns REQUIREMENTS.md and PLAN.md; sequential Docs Maintainer owns README.md, active PRD/roadmap/product/scanner/architecture summaries and RUNLOG.md; primary owns the detailed task-plan amendment. Preserve historical sources.
 - Evidence owner: product_planner; evidence_reviewer returns findings without editing documents.
 - Docs update path: RUNLOG.md after approved facts are handed off to docs_maintainer.
-- Rollback: Preserve the original baseline and undo only this slice's changes after review; no Git history mutations.
-- Stop conditions: Unresolved product conflict or ownership overlap.
-- Next step: CP-02; then independent contract/eval work with sequential writes to shared files.
+- Rollback: Undo only owned changes; preserve prior valid state, finalized history and compatible package/index. No automatic deletion, Git reset, permission weakening or silent retrieval fallback.
+- Stop conditions: Unexpected sensitive data or side effects, ownership overlap, incompatible accepted contract, unsafe containment, failed mandatory evidence or missing required external authorization. Routine relevant reads are not failures; report useful partial results when safe.
+- Next step: CP-03, CP-04 and CP-05 preparation under explicit assignments; do not execute downstream runtime from this plan edit.
 
 #### Completion report
+
+Historical report for the original 2026-08-30 documentation run, preserved verbatim below. Its old R04/staleness/scope wording and verification claims do not govern the amended contract above or validate this revision.
+
 
 - status: implemented
 - what was done: Reconciled active plugin-first requirements, journey, boundaries and milestones; mapped R01-R14, FR1-FR15, cross-cutting legacy sections and historical milestones/V1X rows. Historical source bodies remain preserved, explicitly inactive.
@@ -259,660 +196,663 @@ Shared rollback/stop rules: preserve the last working local artifact and previou
 
 ### Task `CP-02`
 
-- Task: CP-02 — accept architecture, runtime, and permission ADRs
-- Status: planned
+- Task: CP-02 — define local plugin and SQLite FTS5 architecture ADRs
+- Status: implemented
 - Schema version: task_matrix_plan_v1
 - Timezone: Europe/Moscow
-- Plan trigger: Runtime/backend/privacy decisions must be closed before executable implementation.
+- Plan trigger: Owner revision 2026-08-31: local SQLite FTS5, relevant context, activity-aware evidence and actionable OSS integration. This task remains within the local product path.
 - Validator target: detailed task blocks
-- Date and time of task implementation: pending_execution_timestamp
+- Date and time of task implementation: 30-08-2026 21:57
 - Depends on: CP-01
 - Blocks: CP-03, CP-05, CP-07, CP-08, CP-12, CP-14
-- Source: Sections 2–5; R01, R03, R04, R09, R11, R13.
-- Short description: Close every applicable_missing item in the decision registry with owners and checks.
-- Technical value: Unambiguous runtime, auth, storage, budgets, and trust boundaries.
-- Product value: Predictable availability, costs, and privacy commitments.
-- Scope: specs/decisions/plugin-v1-architecture.md; specs/decisions/plugin-v1-permissions.md; specs/decisions/plugin-v1-verification.md; update the proposed file/command registry through product_planner.
-- Non-goals: Deployment, credentials, OAuth activation, runtime installation.
-- Expected result: Accepted ADRs; local Python or another explicit runtime; selected backend stack and storage; exact commands/paths; retention and consent policy.
-- Acceptance criteria: No unknown auth/rate/quick/topology budgets; archive/stale eligibility policy, pinned replay, crash/concurrency handling, supported OS, and credential storage are defined; the official plugin contract is rechecked as of implementation.
-- Verification gates: Architecture self-review + independent audit-readonly-boundaries; current official documentation evidence; V-MCP command gap closed.
-- Risks / approval gates: Hosting/cost/data residency/auth choices require an owner decision; documentation retrieval does not authorize deployment.
+- Source: Owner decisions 2026-08-31; active PRD R01, R03, R04, R09; accepted CP-02 ADRs and Section 3 registries.
+- Short description: Amend local architecture, context/privacy, repository activity and verification decisions.
+- Technical value: A bounded read-only public search index, exact version pins and local failure/recovery design.
+- Product value: Scalable local guidance without a service dependency or an unnecessary source-isolation blocker.
+- Scope: Catalog Architect owns specs/decisions/plugin-v1-architecture.md, plugin-v1-permissions.md and plugin-v1-verification.md; Product Planner/Docs Maintainer sequentially align active control/product docs and RUNLOG.md.
+- Non-goals: Unassigned files, model/permission changes, Git history, automatic installs, private-data disclosure or external activation. No remote architecture/runtime or vector/embedding dependency.
+- Expected result: Selected FTS5/BM25, package/index ownership, runtime preflight, caps, activity semantics and R04/R13 revision; remote architecture deferred.
+- Acceptance criteria: No blanket snapshot-age rejection, no host-wide isolation claim; source mode versus retrieval engine separated; state/recovery caps preserved; local CP-03 and CP-15/16 can complete without remote tasks.
+- Verification gates: V-DOC, architecture/permission self-review and focused existing contracts; runtime remains unverified.
+- Risks / approval gates: Preserve pre-existing dirty work and source-owned boundaries. Public research is read-only; sensitive scope, credentials, material cost, external writes, publication and destructive operations follow actual authorization. Selected caps and ranking quality are not yet measured.
 - Complexity: L
 - Estimated execution time: 4–8 active hours; excludes waiting for decisions.
-- Agents: Owner catalog_architect; reviewer evidence_reviewer; decisions accepted by product owner.
-- Skills: design-context-contracts; design-catalog-contracts; audit-readonly-boundaries; openai-docs for future verification of Codex API/package claims.
-- Output artifacts: Three ADRs and an agreed verification/file registry.
+- Agents: Primary Catalog Architect then Product Planner/Docs Maintainer; explicit self-review for this amendment. Original independent reviews remain dated CP-02 evidence.
+- Skills: design-context-contracts; design-catalog-contracts; audit-readonly-boundaries; openai-docs; maintain-control-plane; independent review-advisory-evidence.
+- Output artifacts: Catalog Architect owns specs/decisions/plugin-v1-architecture.md, plugin-v1-permissions.md and plugin-v1-verification.md; Product Planner/Docs Maintainer sequentially align active control/product docs and RUNLOG.md.
 - Evidence owner: catalog_architect; independent findings from evidence_reviewer.
 - Docs update path: PLAN.md through product_planner; RUNLOG.md through docs_maintainer.
-- Rollback: Preserve the bundled-catalog-only design until ADR acceptance; do not change runtime.
-- Stop conditions: Selecting a backend or disclosure mode requires a material unsupported assumption.
-- Next step: CP-03 and CP-05 after ADR acceptance.
+- Rollback: Undo only owned changes; preserve prior valid state, finalized history and compatible package/index. No automatic deletion, Git reset, permission weakening or silent retrieval fallback.
+- Stop conditions: Unexpected sensitive data or side effects, ownership overlap, incompatible accepted contract, unsafe containment, failed mandatory evidence or missing required external authorization. Routine relevant reads are not failures; report useful partial results when safe.
+- Next step: CP-03 local C1-C6/C9, CP-04 evals and CP-05 alignment. No server or embeddings decision needed.
 
 #### Completion report
 
-- status: planned
-- what was done: ADRs have not yet been prepared.
-- files touched / work locations: This plan file only.
-- technical value delivered: Not claimed.
-- product value delivered: Not claimed.
-- actual implementation date and time: pending_execution_timestamp
-- verification evidence: Runtime and the official package contract were not verified in this slice.
-- residual risks: Backend, auth, and some scan budgets remain open.
-- follow-up: Agree on ADRs without activating integrations.
+Historical report for the original 2026-08-30 documentation run, preserved verbatim below. Its old R04/staleness/scope wording and verification claims do not govern the amended contract above or validate this revision.
+
+
+- status: implemented
+- what was done: Three local ADRs and active-scope reconciliation completed; official package/permission sources checked; document gates passed; two P2 reviewer findings fixed and independently rechecked.
+- files touched / work locations: Three ADRs, active control/product docs and this plan; exact scope in PLAN.md.
+- technical value delivered: Local package/runtime, caps, state and verification decisions documented; no runtime claim.
+- product value delivered: No server prerequisite for the local path; disclosure and R04 gap explicit.
+- actual implementation date and time: 30-08-2026 21:57
+- verification evidence: Official sources, task/control validators, 11 existing control-plane tests, links/UTF-8/mapping/DAG/history/protected-diff audit and independent boundary/final review; exact commands/results in RUNLOG. Runtime not run.
+- residual risks: R04 host isolation unresolved; runtime, schemas, compatibility, privacy enforcement, evals and install remain unverified; remote choices deferred.
+- follow-up: Local CP-03 contracts and CP-05 readiness under separate assignments; R04 sensitive-use gate and remote scope/command gaps remain explicit. No integration activation.
 
 ### Task `CP-03`
 
-- Task: CP-03 — define schemas and public contracts
+- Task: CP-03 — define complete local context, catalog, retrieval and integration contracts
 - Status: planned
 - Schema version: task_matrix_plan_v1
 - Timezone: Europe/Moscow
-- Plan trigger: Runtime must use source-owned versioned contracts.
+- Plan trigger: Owner revision 2026-08-31: local SQLite FTS5, relevant context, activity-aware evidence and actionable OSS integration. This task remains within the local product path.
 - Validator target: detailed task blocks
 - Date and time of task implementation: pending_execution_timestamp
 - Depends on: CP-01, CP-02
 - Blocks: CP-06, CP-07, CP-08, CP-09, CP-10, CP-11, CP-12, CP-13
-- Source: R02–R11; registry C1–C7; previous V1-S1–V1-S5.
-- Short description: Define intake/context/catalog/MCP/artifact contracts and strict state transitions.
-- Technical value: Testable boundaries between scanner, model, matcher, and backend.
-- Product value: Explainable recommendations and safe result recovery.
-- Scope: catalog_architect owns every exact file in C1–C7; quality_evaluator subsequently owns tests/test_plugin_contracts.py and tests/fixtures/plugin_contracts.json.
-- Non-goals: Runtime handlers, source catalog changes, real user fixtures.
-- Expected result: Versioned JSON Schema, positive/negative fixtures, field provenance, and migration policy; minimal DiscoveryQuery; catalog status separate from eligibility.
-- Acceptance criteria: Unknown/additional sensitive fields are rejected; correction invalidation, artifact concurrency, run finalization, and pinned versions are defined; all four MCP tools have errors/auth/limits/side effects; examples pass schema validation.
-- Verification gates: V-CONTRACT; adversarial payload review; schema change review before builder handoff.
-- Risks / approval gates: Do not expand MCP input to the full Brief; shared schemas have one writer.
+- Source: Owner decisions 2026-08-31; active PRD R02, R03, R04, R05, R06, R07, R08, R10, R11, R13, R14; accepted CP-02 ADRs and Section 3 registries.
+- Short description: Accept local C1-C6 plus C9 with bounded interfaces, versions and representative fixtures.
+- Technical value: Stable query/card/index/pack/state contracts prevent context growth and source/version confusion.
+- Product value: Candidates can become actionable integration plans with visible gaps rather than blanket refusal.
+- Scope: Catalog Architect owns exact local C1-C6 and C9 paths in Section 3. Quality Evaluator owns tests/test_plugin_contracts.py and tests/fixtures/plugin_contracts.json. Include field provenance, activity semantics, context-selection budgets, integration-plan fields, index manifest, query grammar/aliases and total Brief/evidence input allocation.
+- Non-goals: Unassigned files, model/permission changes, Git history, automatic installs, private-data disclosure or external activation. No remote architecture/runtime or vector/embedding dependency.
+- Expected result: Versioned accepted schemas/policy and positive/negative/edge fixtures; local CP-03 fully closable. Remote C4/C7 ownership transferred to deferred CP-12 before its backend implementation.
+- Acceptance criteria: Represent unknown dates/license/compatibility without fabricated values; distinguish push from commit and observation; reject private fields in public index, unsafe query grammar/unbounded context and silent pin mismatch. Permit bounded relevant reads and non-executed integration steps. Specify invalidation, errors and compatibility; keep source/card identity stable.
+- Verification gates: V-CONTRACT and V-DOC; CP-04 compatibility review before either contract set is accepted; no index implementation or model-quality claim.
+- Risks / approval gates: Preserve pre-existing dirty work and source-owned boundaries. Public research is read-only; sensitive scope, credentials, material cost, external writes, publication and destructive operations follow actual authorization. Selected caps and ranking quality are not yet measured.
 - Complexity: L
-- Estimated execution time: 8–16 active hours; preliminary.
+- Estimated execution time: Re-estimate at dispatch from accepted inputs and the first bounded slice; earlier ranges are superseded by the changed FTS5/context/integration scope. No delivery commitment or provider-cost estimate.
 - Agents: Owner catalog_architect; sequential test owner quality_evaluator; reviewer evidence_reviewer.
 - Skills: design-context-contracts; design-catalog-contracts; audit-readonly-boundaries; design-recommendation-evals.
-- Output artifacts: C1–C7; tests/test_plugin_contracts.py; tests/fixtures/plugin_contracts.json.
+- Output artifacts: Catalog Architect owns exact local C1-C6 and C9 paths in Section 3. Quality Evaluator owns tests/test_plugin_contracts.py and tests/fixtures/plugin_contracts.json. Include field provenance, activity semantics, context-selection budgets, integration-plan fields, index manifest, query grammar/aliases and total Brief/evidence input allocation.
 - Evidence owner: quality_evaluator retains test evidence; the architect owns contract acceptance.
-- Docs update path: TEST.md, PLAN.md, and RUNLOG.md through their respective owners.
-- Rollback: Versioned schema baseline; incompatible changes are not promoted to consumers.
-- Stop conditions: Undefined ownership/provenance/status semantics or a failed negative fixture.
-- Next step: CP-06–CP-10 after schema acceptance; no concurrent editing of shared contracts.
+- Docs update path: Product Planner updates PLAN.md/task status; Quality Evaluator records TEST.md/EVALS.md evidence; Docs Maintainer appends RUNLOG.md after handoff. No unsupported completion claim.
+- Rollback: Undo only owned changes; preserve prior valid state, finalized history and compatible package/index. No automatic deletion, Git reset, permission weakening or silent retrieval fallback.
+- Stop conditions: Unexpected sensitive data or side effects, ownership overlap, incompatible accepted contract, unsafe containment, failed mandatory evidence or missing required external authorization. Routine relevant reads are not failures; report useful partial results when safe.
+- Next step: CP-06 normalization/index build and CP-07 local skeleton after CP-05; CP-04 can prepare independently.
 
 #### Completion report
 
 - status: planned
-- what was done: Contracts are listed but have not been created.
-- files touched / work locations: This plan file only.
-- technical value delivered: Not claimed.
-- product value delivered: Not claimed.
+- what was done: Task contract and dependencies revised on 2026-08-31; no task implementation executed by this plan revision.
+- files touched / work locations: Planning/control/ADR documentation only; future owned outputs are listed above.
+- technical value delivered: Implementation benefit not claimed; planned result is Stable query/card/index/pack/state contracts prevent context growth and source/version confusion.
+- product value delivered: User outcome not measured; planned result is Candidates can become actionable integration plans with visible gaps rather than blanket refusal.
 - actual implementation date and time: pending_execution_timestamp
-- verification evidence: Future schema tests have not run.
-- residual risks: The schemas directory is absent from the current baseline.
-- follow-up: Close CP-02 first.
+- verification evidence: Current documentation checks belong in RUNLOG.md; no task-specific runtime, schema, index, model or release pass claimed.
+- residual risks: Upstream acceptance and task-specific evidence remain open. Remote extension and vectors are not prerequisites.
+- follow-up: CP-06 normalization/index build and CP-07 local skeleton after CP-05; CP-04 can prepare independently.
 
 ### Task `CP-04`
 
-- Task: CP-04 — prepare the eval baseline and acceptance corpus
+- Task: CP-04 — define retrieval and integration-usefulness evaluation contracts
 - Status: planned
 - Schema version: task_matrix_plan_v1
 - Timezone: Europe/Moscow
-- Plan trigger: Schema/unit checks do not prove product quality.
+- Plan trigger: Owner revision 2026-08-31: local SQLite FTS5, relevant context, activity-aware evidence and actionable OSS integration. This task remains within the local product path.
 - Validator target: detailed task blocks
 - Date and time of task implementation: pending_execution_timestamp
 - Depends on: CP-01
 - Blocks: CP-11, CP-15
-- Source: EVALS.md; R02–R14; user-provided thresholds.
-- Short description: Create versioned cases/rubric and an executable eval runner specification.
-- Technical value: Repeatable baseline/candidate evaluation with negative scenarios.
-- Product value: Evaluate decision usefulness rather than the number of repositories found.
-- Scope: EVALS.md, TEST.md, C8, evals/plugin-v1/runner-contract.md; record the actual runner path/command here before execution and align them with CP-02.
-- Non-goals: Paid model runs, private corpus collection, changing the promotion threshold to obtain a pass.
-- Expected result: Existing persona cases plus greenfield, compact, monorepo, contradictory-intake, noise, duplicate, archived, malicious-metadata, and auto-promotion; typical, edge, adversarial, and regression groups.
-- Acceptance criteria: Formalize 16/20 and critical minimum 1; name critical dimensions; privacy/provenance/permission/readiness failures override the score; check 100% primary evidence; calibrate the human rubric; separate baseline/held-out cases.
-- Verification gates: C8 schema checks after CP-03 compatibility review; deterministic rubric fixtures; close the V-EVAL command gap before model execution.
-- Risks / approval gates: Model/API cost and private data require separate boundaries; do not hide missing runtime cases behind synthetic scores.
+- Source: Owner decisions 2026-08-31; active PRD R06, R12, R14; accepted CP-02 ADRs and Section 3 registries.
+- Short description: Freeze representative cases, lexical baseline, relevance judgments, metrics and executable runner contract.
+- Technical value: Separate search recall/ranking, deterministic safety, scaling and generated recommendation quality.
+- Product value: Evaluate time to a useful next integration step, not only a plausible shortlist.
+- Scope: Quality Evaluator owns TEST.md, EVALS.md, C8 exact files, evals/plugin-v1/runner-contract.md; Product Planner calibrates usefulness. Quality Evaluator also owns evals/plugin-v1/evaluate_retrieval.py, tests/test_plugin_retrieval_eval.py and tests/fixtures/plugin_retrieval_eval.json: an offline scorer for captured C9 retrieval results against frozen judgments, independent of the unfinished plugin and without model/provider calls. Runner contract defines validated input/output files, replay pins and command before a quality run. Align with accepted CP-03 C3-C6/C9 at the compatibility join.
+- Non-goals: Unassigned files, model/permission changes, Git history, automatic installs, private-data disclosure or external activation. No remote architecture/runtime or vector/embedding dependency.
+- Expected result: Versioned typical/edge/adversarial/regression and held-out corpus with RU/EN, technology aliases, replacement/integration intent, incomplete metadata, old stable versus newly active repositories, zero-hit/index failures and context limits.
+- Acceptance criteria: Predeclare Recall@k/nDCG@k, wrong-exclusion and hard-constraint checks, total context bytes/token measurement method, latency/memory methodology and thresholds before running. Keep initial 60/12/48-KiB caps explicit. Preserve 16/20 rubric and zero critical failures; calibrate authorized reads/handoff instead of blanket coding refusal. Label 2,000/10,000 synthetic scaling separately; no vectors/model provider dependency for lexical eval.
+- Verification gates: V-DOC, C8 fixtures, runner-contract review and python -B -m unittest discover -s tests -p test_plugin_retrieval_eval.py -v. Tiny known-result fixtures verify metric computation/error handling; human calibration and actual CP-11 captures are required before a product quality verdict.
+- Risks / approval gates: Preserve pre-existing dirty work and source-owned boundaries. Public research is read-only; sensitive scope, credentials, material cost, external writes, publication and destructive operations follow actual authorization. Selected caps and ranking quality are not yet measured.
 - Complexity: M
-- Estimated execution time: 4–8 active hours; excludes model execution.
+- Estimated execution time: Re-estimate at dispatch from accepted inputs and the first bounded slice; earlier ranges are superseded by the changed FTS5/context/integration scope. No delivery commitment or provider-cost estimate.
 - Agents: Owner quality_evaluator; product usefulness reviewer product_planner; independent claims reviewer evidence_reviewer.
 - Skills: design-recommendation-evals; review-advisory-evidence; audit-readonly-boundaries.
-- Output artifacts: C8, evals/plugin-v1/runner-contract.md, TEST.md, EVALS.md.
+- Output artifacts: Quality Evaluator owns TEST.md, EVALS.md, C8 exact files, evals/plugin-v1/runner-contract.md; Product Planner calibrates usefulness. Quality Evaluator also owns evals/plugin-v1/evaluate_retrieval.py, tests/test_plugin_retrieval_eval.py and tests/fixtures/plugin_retrieval_eval.json: an offline scorer for captured C9 retrieval results against frozen judgments, independent of the unfinished plugin and without model/provider calls. Runner contract defines validated input/output files, replay pins and command before a quality run. Align with accepted CP-03 C3-C6/C9 at the compatibility join.
 - Evidence owner: quality_evaluator; product_planner accepts usefulness criteria.
-- Docs update path: EVALS.md and TEST.md; RUNLOG.md through docs_maintainer.
-- Rollback: Preserve the original rubric and case versions; new results do not replace the baseline without a trace.
-- Stop conditions: Unclear critical failures, runner command, or source of expected answers.
-- Next step: CP-11 local gate; then CP-15 paired evals.
+- Docs update path: Product Planner updates PLAN.md/task status; Quality Evaluator records TEST.md/EVALS.md evidence; Docs Maintainer appends RUNLOG.md after handoff. No unsupported completion claim.
+- Rollback: Undo only owned changes; preserve prior valid state, finalized history and compatible package/index. No automatic deletion, Git reset, permission weakening or silent retrieval fallback.
+- Stop conditions: Unexpected sensitive data or side effects, ownership overlap, incompatible accepted contract, unsafe containment, failed mandatory evidence or missing required external authorization. Routine relevant reads are not failures; report useful partial results when safe.
+- Next step: CP-11 local semantic join, then CP-15 held-out acceptance; CP-05 aligns team behavior cases separately.
 
 #### Completion report
 
 - status: planned
-- what was done: Eval work has not started.
-- files touched / work locations: This plan file only.
-- technical value delivered: Not claimed.
-- product value delivered: Not claimed.
+- what was done: Task contract and dependencies revised on 2026-08-31; no task implementation executed by this plan revision.
+- files touched / work locations: Planning/control/ADR documentation only; future owned outputs are listed above.
+- technical value delivered: Implementation benefit not claimed; planned result is Separate search recall/ranking, deterministic safety, scaling and generated recommendation quality.
+- product value delivered: User outcome not measured; planned result is Evaluate time to a useful next integration step, not only a plausible shortlist.
 - actual implementation date and time: pending_execution_timestamp
-- verification evidence: Neither baseline nor candidate model runs have been performed.
-- residual risks: The current evaluator is applicable_missing.
-- follow-up: Freeze the runner and corpus before scoring.
+- verification evidence: Current documentation checks belong in RUNLOG.md; no task-specific runtime, schema, index, model or release pass claimed.
+- residual risks: Upstream acceptance and task-specific evidence remain open. Remote extension and vectors are not prerequisites.
+- follow-up: CP-11 local semantic join, then CP-15 held-out acceptance; CP-05 aligns team behavior cases separately.
 
 ### Task `CP-05`
 
-- Task: CP-05 — prepare the missing builder roles and skills
+- Task: CP-05 — align existing agents, skills and behavior cases with local FTS5 scope
 - Status: planned
 - Schema version: task_matrix_plan_v1
 - Timezone: Europe/Moscow
-- Plan trigger: The original seven-agent team did not own plugin runtime or MCP backend implementation. Two builder definitions were authored during team remediation, but execution and behavioral gates remain open.
+- Plan trigger: Owner revision 2026-08-31: local SQLite FTS5, relevant context, activity-aware evidence and actionable OSS integration. This task remains within the local product path.
 - Validator target: detailed task blocks
 - Date and time of task implementation: pending_execution_timestamp
 - Depends on: CP-01, CP-02
 - Blocks: CP-07, CP-08, CP-09, CP-10, CP-12, CP-13, CP-16
-- Source: .codex/TEAM.md; existing agent TOMLs; Product-Agent OS team contract.
-- Short description: Add scoped contracts only after explicit authorization for durable configuration changes.
-- Technical value: Builders declare narrow task ownership; actual inherited runtime permissions must be inspected separately and are not constrained by ownership prose alone.
-- Product value: Predictable ownership, coordination cost, and stop behavior.
-- Scope: The primary orchestrator owns .codex/agents/plugin-runtime-builder.toml, .codex/agents/mcp-backend-builder.toml, .agents/skills/build-stackguide-plugin/SKILL.md, .agents/skills/build-stackguide-mcp/SKILL.md, and .codex/TEAM.md; quality_evaluator separately owns tests/test_codex_contracts.py, evals/agents/agent-routing-cases.json, evals/skills/skill-activation-cases.json, and evals/agents/team-behavior-cases.json. Preserve the already-authored remediation changes; do not recreate them.
-- Non-goals: Changing sandbox/approvals, automatic dispatch, increasing concurrency, creating an MCP service.
-- Expected result: Two roles that exist after task execution, with ownership/inputs/outputs/stops/model policy; two narrow skill contracts; routing evidence separate from static validity.
-- Acceptance criteria: No ownership overlap across schemas/source catalog/root docs; fresh-context packets mandatory; model baseline accepted; configuration validation and bounded routing cases have no critical failures.
-- Verification gates: Product-Agent OS validate_agents.py; tests/test_codex_contracts.py targeted checks; versioned agent-routing/skill-activation cases with an explicit evidence ceiling.
-- Risks / approval gates: Durable definitions now exist, but runtime tasks still require accepted CP-02/03 inputs and fresh-context evidence. Do not infer dispatch or model suitability from static checks.
+- Source: Owner decisions 2026-08-31; active PRD R04, R13; accepted CP-02 ADRs and Section 3 registries.
+- Short description: Update existing readiness contracts rather than recreate already-authored builder roles.
+- Technical value: Loaded instructions no longer conflict with authorized context access, retrieval or integration handoff.
+- Product value: Avoid needless refusals, repeated approvals and remote setup detours.
+- Scope: Product Planner owns scoped existing .codex/agents/plugin-runtime-builder.toml, .codex/TEAM.md and other role references identified in the accepted task packet; local skills .agents/skills/build-stackguide-plugin/SKILL.md, design-context-contracts/SKILL.md, design-recommendation-evals/SKILL.md, audit-readonly-boundaries/SKILL.md and review-advisory-evidence/SKILL.md as needed. Quality Evaluator owns tests/test_codex_contracts.py, evals/agents/agent-routing-cases.json, evals/agents/team-behavior-cases.json and evals/skills/skill-activation-cases.json. Resolve exact further files before edits; protected-directory writes require applicable permission, not policy weakening.
+- Non-goals: Unassigned files, model/permission changes, Git history, automatic installs, private-data disclosure or external activation. No remote architecture/runtime or vector/embedding dependency.
+- Expected result: Local builder/architect/reviewer routes apply revised R04/R13, FTS5/index boundaries and unknown/activity policy; backend role dormant. Explicit fresh-session evidence for changed contracts.
+- Acceptance criteria: Remove scanner-only host-source prohibitions and automatic refusal of requested coding handoff while preserving exclusions, no automatic installs, public/private separation and actual approval boundaries. FTS5 is default and no provider/server is introduced. Targeted static checks plus representative direct/indirect/incomplete/adversarial behavior traces; no model/effort promotion without existing comparison requirements.
+- Verification gates: V-DOC, relevant agent/skill validators and focused control-plane checks; fresh-session loading/routing before runtime dispatch. Old static passes are not revised-behavior proof.
+- Risks / approval gates: Preserve pre-existing dirty work and source-owned boundaries. Public research is read-only; sensitive scope, credentials, material cost, external writes, publication and destructive operations follow actual authorization. Selected caps and ranking quality are not yet measured.
 - Complexity: M
-- Estimated execution time: 3–6 active hours; routing runs separate.
+- Estimated execution time: Re-estimate at dispatch from accepted inputs and the first bounded slice; earlier ranges are superseded by the changed FTS5/context/integration scope. No delivery commitment or provider-cost estimate.
 - Agents: Owner primary orchestrator; reviewer evidence_reviewer; eval owner quality_evaluator.
-- Skills: product-agent-os:agent-team-designer; skill-creator; design-recommendation-evals.
-- Output artifacts: Two TOMLs, two SKILL.md files, updated TEAM.md; evals/agents/agent-routing-cases.json and evals/skills/skill-activation-cases.json owned by quality_evaluator.
+- Skills: shape-product-slice; maintain-control-plane; design-recommendation-evals; applicable skill-creator for assigned durable skill changes; openai-docs for fresh loading evidence.
+- Output artifacts: Product Planner owns scoped existing .codex/agents/plugin-runtime-builder.toml, .codex/TEAM.md and other role references identified in the accepted task packet; local skills .agents/skills/build-stackguide-plugin/SKILL.md, design-context-contracts/SKILL.md, design-recommendation-evals/SKILL.md, audit-readonly-boundaries/SKILL.md and review-advisory-evidence/SKILL.md as needed. Quality Evaluator owns tests/test_codex_contracts.py, evals/agents/agent-routing-cases.json, evals/agents/team-behavior-cases.json and evals/skills/skill-activation-cases.json. Resolve exact further files before edits; protected-directory writes require applicable permission, not policy weakening.
 - Evidence owner: quality_evaluator for static/routing evidence; primary orchestrator for the accepted team packet.
-- Docs update path: PLAN.md and RUNLOG.md through sequential handoff.
-- Rollback: Do not activate new roles on failure; retain existing configs as the working baseline.
-- Stop conditions: Unclear model policy, file ownership, or permissions; a new skill expands scope.
-- Next step: Hand off fresh bounded packets for CP-07 and CP-12 only after their upstream gates.
+- Docs update path: Product Planner updates PLAN.md/task status; Quality Evaluator records TEST.md/EVALS.md evidence; Docs Maintainer appends RUNLOG.md after handoff. No unsupported completion claim.
+- Rollback: Undo only owned changes; preserve prior valid state, finalized history and compatible package/index. No automatic deletion, Git reset, permission weakening or silent retrieval fallback.
+- Stop conditions: Unexpected sensitive data or side effects, ownership overlap, incompatible accepted contract, unsafe containment, failed mandatory evidence or missing required external authorization. Routine relevant reads are not failures; report useful partial results when safe.
+- Next step: Dispatch local CP-07/08/09/10 only after applicable CP-03 contracts and readiness checks; keep CP-12 dormant.
 
 #### Completion report
 
 - status: planned
-- what was done: Stack-neutral role/skill definitions and offline checks were authored in the approved team-remediation slice; full CP-05 acceptance remains pending.
-- files touched / work locations: Team definitions and skills are recorded in the linked remediation plan; project model/permission defaults remain unchanged.
-- technical value delivered: Not claimed.
-- product value delivered: Not claimed.
+- what was done: Task contract and dependencies revised on 2026-08-31; no task implementation executed by this plan revision.
+- files touched / work locations: Planning/control/ADR documentation only; future owned outputs are listed above.
+- technical value delivered: Implementation benefit not claimed; planned result is Loaded instructions no longer conflict with authorized context access, retrieval or integration handoff.
+- product value delivered: User outcome not measured; planned result is Avoid needless refusals, repeated approvals and remote setup detours.
 - actual implementation date and time: pending_execution_timestamp
-- verification evidence: No new agent/skill routing runs.
-- residual risks: No accepted builder runtime contract.
-- follow-up: Await CP-02 and implementation authorization.
+- verification evidence: Current documentation checks belong in RUNLOG.md; no task-specific runtime, schema, index, model or release pass claimed.
+- residual risks: Upstream acceptance and task-specific evidence remain open. Remote extension and vectors are not prerequisites.
+- follow-up: Dispatch local CP-07/08/09/10 only after applicable CP-03 contracts and readiness checks; keep CP-12 dormant.
 
 ### Task `CP-06`
 
-- Task: CP-06 — adapt the catalog to the advisory contract
+- Task: CP-06 — persist catalog metadata and build normalized cards plus FTS5 bundle
 - Status: planned
 - Schema version: task_matrix_plan_v1
 - Timezone: Europe/Moscow
-- Plan trigger: Legacy metadata and scoring are not equivalent to context-aware recommendation data.
+- Plan trigger: Owner revision 2026-08-31: local SQLite FTS5, relevant context, activity-aware evidence and actionable OSS integration. This task remains within the local product path.
 - Validator target: detailed task blocks
 - Date and time of task implementation: pending_execution_timestamp
 - Depends on: CP-03
 - Blocks: CP-09, CP-11, CP-16
-- Source: R07, R14; data/catalog_manifest.json; C4; docs/METHODOLOGY.md.
-- Short description: Create a source-first compatibility adapter and a minimal evidence-backed seed for the local vertical.
-- Technical value: Avoids a destructive v5 migration and invented advisory fields.
-- Product value: Users see the current catalog's limitations and the basis for fit.
-- Scope: catalog_pipeline_builder owns scripts/build_plugin_catalog.py, data/plugin_advisory_seed.json, and plugins/myai-stackguide/assets/catalog.snapshot.json; the curator writes only research/plugin-v1-advisory-evidence.json; quality_evaluator owns tests/test_plugin_catalog.py.
-- Non-goals: Reassessing all 1,142 records, changing the canonical v5 manifest or generated HTML.
-- Expected result: Deterministic bundle with snapshot/provenance/unknown; best_for/avoid_if/adoption/stage/complexity/integration fields derive only from scoped evidence, traceable inference, or explicit unknown.
-- Acceptance criteria: No automatic accepted or legacyScore→fit mapping; preserve known IDs/status; insufficient evidence does not grant primary eligibility; one relevant seed is enough for the first semantic slice.
-- Verification gates: V-CATALOG and tests/test_plugin_catalog.py; byte-stable v5 source/output hashes when no changes are intended.
-- Risks / approval gates: Curator research is public read-only; candidates do not receive canonical acceptance; current metadata claims require dated verification.
+- Source: Owner decisions 2026-08-31; active PRD R06, R07, R08, R11, R14; accepted CP-02 ADRs and Section 3 registries.
+- Short description: Create the reproducible public-data adapter and immutable search assets without changing canonical v5 by side effect.
+- Technical value: Source-owned activity/provenance and canonical dedupe feed a verifiable read-only index.
+- Product value: Useful search scales beyond 2,000 entries without requiring all cards to be exhaustively curated first.
+- Scope: Pipeline Builder owns scripts/build_plugin_catalog.py, scripts/build_plugin_search_index.py, data/plugin_advisory_seed.json, data/plugin_catalog_metadata.json, plugins/myai-stackguide/assets/catalog.snapshot.json, catalog.search.sqlite, catalog.search-manifest.json and retrieval-policy.json under that assets directory. Curator owns research/plugin-v1-advisory-evidence.json. Quality Evaluator owns tests/test_plugin_catalog.py and tests/test_plugin_search_index.py; sequential handoffs for shared sources/assets.
+- Non-goals: Unassigned files, model/permission changes, Git history, automatic installs, private-data disclosure or external activation. No remote architecture/runtime or vector/embedding dependency.
+- Expected result: Normalized public cards with actual field-coverage report, sourced activity facts/unknowns and aliases; reproducible logical FTS5 index, version manifest and frozen actual bytes/hash. Query policy derives from CP-03 C9, never a separate duplicate source.
+- Acceptance criteria: Do not rely on browser localStorage/fetched objects as persisted metadata. Keep created/push/verified commit/release/observed dates separate with per-field sources; no stamp-all-current after partial refresh. Map all baseline-valid cards to retrieval or explicit rejection, but require mandatory evidence only for primary adoption claims. Test dedupe, sparse cards, index integrity/source parity/pins and one useful search. No user context in bundle; no API/embedding/model download. Real catalog size and synthetic capacity remain distinct.
+- Verification gates: V-CATALOG; logical build reproducibility, index hash/integrity and coverage checks; current HTML parity only if existing source/generator/output changes.
+- Risks / approval gates: Preserve pre-existing dirty work and source-owned boundaries. Public research is read-only; sensitive scope, credentials, material cost, external writes, publication and destructive operations follow actual authorization. Selected caps and ranking quality are not yet measured.
 - Complexity: M
-- Estimated execution time: 4–8 active hours; excludes whole-catalog enrichment.
+- Estimated execution time: Re-estimate at dispatch from accepted inputs and the first bounded slice; earlier ranges are superseded by the changed FTS5/context/integration scope. No delivery commitment or provider-cost estimate.
 - Agents: Owner catalog_pipeline_builder; upstream github_research_curator; tests quality_evaluator; reviewer evidence_reviewer.
 - Skills: evolve-catalog-pipeline; design-catalog-contracts; research-github-candidates; review-advisory-evidence; verify-generated-parity.
-- Output artifacts: Adapter, separate seed evidence, bundled snapshot, and targeted tests.
+- Output artifacts: Pipeline Builder owns scripts/build_plugin_catalog.py, scripts/build_plugin_search_index.py, data/plugin_advisory_seed.json, data/plugin_catalog_metadata.json, plugins/myai-stackguide/assets/catalog.snapshot.json, catalog.search.sqlite, catalog.search-manifest.json and retrieval-policy.json under that assets directory. Curator owns research/plugin-v1-advisory-evidence.json. Quality Evaluator owns tests/test_plugin_catalog.py and tests/test_plugin_search_index.py; sequential handoffs for shared sources/assets.
 - Evidence owner: catalog_pipeline_builder for parity; curator for public evidence; quality_evaluator for checks.
-- Docs update path: docs/METHODOLOGY.md and RUNLOG.md through docs_maintainer.
-- Rollback: Restore the previous plugin bundle version; leave canonical v5 unchanged.
-- Stop conditions: Unsupported advisory facts are needed, or legacy source mutation exceeds scope.
-- Next step: CP-09 catalog matcher.
+- Docs update path: Product Planner updates PLAN.md/task status; Quality Evaluator records TEST.md/EVALS.md evidence; Docs Maintainer appends RUNLOG.md after handoff. No unsupported completion claim.
+- Rollback: Undo only owned changes; preserve prior valid state, finalized history and compatible package/index. No automatic deletion, Git reset, permission weakening or silent retrieval fallback.
+- Stop conditions: Unexpected sensitive data or side effects, ownership overlap, incompatible accepted contract, unsafe containment, failed mandatory evidence or missing required external authorization. Routine relevant reads are not failures; report useful partial results when safe.
+- Next step: CP-09 consumes the frozen cards/index/policy after CP-07. Public evidence collection must stay within its assigned read-only scope; incomplete coverage is reported, not fabricated.
 
 #### Completion report
 
 - status: planned
-- what was done: No adapter implementation or enrichment has been performed.
-- files touched / work locations: This plan file only.
-- technical value delivered: Not claimed.
-- product value delivered: Not claimed.
+- what was done: Task contract and dependencies revised on 2026-08-31; no task implementation executed by this plan revision.
+- files touched / work locations: Planning/control/ADR documentation only; future owned outputs are listed above.
+- technical value delivered: Implementation benefit not claimed; planned result is Source-owned activity/provenance and canonical dedupe feed a verifiable read-only index.
+- product value delivered: User outcome not measured; planned result is Useful search scales beyond 2,000 entries without requiring all cards to be exhaustively curated first.
 - actual implementation date and time: pending_execution_timestamp
-- verification evidence: Parity and targeted tests will run after implementation.
-- residual risks: Advisory-field coverage may be insufficient.
-- follow-up: Start with a minimal seed, not a bulk refresh.
+- verification evidence: Current documentation checks belong in RUNLOG.md; no task-specific runtime, schema, index, model or release pass claimed.
+- residual risks: Upstream acceptance and task-specific evidence remain open. Remote extension and vectors are not prerequisites.
+- follow-up: CP-09 consumes the frozen cards/index/policy after CP-07. Public evidence collection must stay within its assigned read-only scope; incomplete coverage is reported, not fabricated.
 
 ### Task `CP-07`
 
-- Task: CP-07 — implement the plugin shell, intake, and state lifecycle
+- Task: CP-07 — implement local plugin intake, state and runtime preflight
 - Status: planned
 - Schema version: task_matrix_plan_v1
 - Timezone: Europe/Moscow
-- Plan trigger: R01, R02, R05, R10, R13 require a resumable user workflow.
+- Plan trigger: Owner revision 2026-08-31: local SQLite FTS5, relevant context, activity-aware evidence and actionable OSS integration. This task remains within the local product path.
 - Validator target: detailed task blocks
 - Date and time of task implementation: pending_execution_timestamp
 - Depends on: CP-02, CP-03, CP-05
 - Blocks: CP-08, CP-09, CP-10, CP-11, CP-13
-- Source: C1, C3, C6; architecture ADR; intake requirements.
-- Short description: Create a local entry point and atomic sanitized state without MCP activation.
-- Technical value: Stage machine, versioning, and recovery before external service integration.
-- Product value: Users can resume work, correct answers, and understand the next step.
-- Scope: plugins/myai-stackguide/.codex-plugin/plugin.json; skills/myai-stackguide/SKILL.md inside the plugin; scripts/intake.py, scripts/state_store.py, scripts/sanitize.py, and assets/question-bank.json inside the plugin; tests/test_plugin_intake.py and tests/test_plugin_state.py owned by quality_evaluator.
-- Non-goals: MCP connection activation, direct raw project reads by the agent, installation of recommendations.
-- Expected result: Adaptive 1–10 questions; resume/update goal/new run; redaction; atomic save; versioned corrections; safe finalization and concurrent-run protection.
-- Acceptance criteria: Persist after every answer; a crash preserves the last valid state; secret-like content is not saved; user refusal and clarification_required are shown; progress does not present confidence as a completion percentage.
-- Verification gates: Targeted V-LOCAL intake/state tests; schema validation; adversarial skill-boundary check.
-- Risks / approval gates: Python paths remain conditional until CP-02; running the plugin in another project requires a selected root/output scope.
+- Source: Owner decisions 2026-08-31; active PRD R01, R02, R05, R10, R13; accepted CP-02 ADRs and Section 3 registries.
+- Short description: Create the local plugin skeleton, adaptive intake and one authoritative state writer.
+- Technical value: Trusted interpreter and FTS5 capability checks plus revision-safe minimized state.
+- Product value: Start quickly, resume and correct answers without losing progress or requiring login.
+- Scope: Plugin Runtime Builder owns plugins/myai-stackguide/.codex-plugin/plugin.json, skills/myai-stackguide/SKILL.md, scripts/intake.py, state_store.py, sanitize.py and assets/question-bank.json under the plugin root. Quality Evaluator owns tests/test_plugin_intake.py and tests/test_plugin_state.py. No .app.json/.mcp.json/connections/hooks.
+- Non-goals: Unassigned files, model/permission changes, Git history, automatic installs, private-data disclosure or external activation. No remote architecture/runtime or vector/embedding dependency.
+- Expected result: Working local start/answer/resume/correct/finalize transitions and capability preflight; typed prerequisite errors instead of installations. State fields support later retrieval pins and integration handoff without importing unfinished retrieval code.
+- Acceptance criteria: 1-10 adaptive questions and early completion; sanitized save after each answer, correction invalidation, safe version checks; output-root containment, expected-revision locking, atomic save/recovery/immutable history, disk/sharing failure and bounded storage/retry slots from CP-02. No hidden network/project execution, raw chat persistence or public context cache. A recommendation request does not execute integration.
+- Verification gates: Targeted test_plugin_intake.py and test_plugin_state.py; actual runtime capability and no-write-outside-root evidence; V-CONTRACT compatibility.
+- Risks / approval gates: Preserve pre-existing dirty work and source-owned boundaries. Public research is read-only; sensitive scope, credentials, material cost, external writes, publication and destructive operations follow actual authorization. Selected caps and ranking quality are not yet measured.
 - Complexity: L
-- Estimated execution time: 8–16 active hours; preliminary.
+- Estimated execution time: Re-estimate at dispatch from accepted inputs and the first bounded slice; earlier ranges are superseded by the changed FTS5/context/integration scope. No delivery commitment or provider-cost estimate.
 - Agents: Owner proposed plugin_runtime_builder after CP-05; tests quality_evaluator; reviewer evidence_reviewer.
 - Skills: build-stackguide-plugin after CP-05; design-context-contracts; audit-readonly-boundaries.
-- Output artifacts: Plugin shell, intake/state/sanitizer modules, question bank, and tests.
+- Output artifacts: Plugin Runtime Builder owns plugins/myai-stackguide/.codex-plugin/plugin.json, skills/myai-stackguide/SKILL.md, scripts/intake.py, state_store.py, sanitize.py and assets/question-bank.json under the plugin root. Quality Evaluator owns tests/test_plugin_intake.py and tests/test_plugin_state.py. No .app.json/.mcp.json/connections/hooks.
 - Evidence owner: quality_evaluator; sanitized failure traces without raw answers.
-- Docs update path: TEST.md and RUNLOG.md through sequential handoff.
-- Rollback: Disable the new entry point; preserve user state and do not delete runs.
-- Stop conditions: Non-atomic writes, secret persistence, raw-source bypass, or unauthorized schema mutation.
-- Next step: CP-08 scanner and CP-10 renderer on frozen contracts.
+- Docs update path: Product Planner updates PLAN.md/task status; Quality Evaluator records TEST.md/EVALS.md evidence; Docs Maintainer appends RUNLOG.md after handoff. No unsupported completion claim.
+- Rollback: Undo only owned changes; preserve prior valid state, finalized history and compatible package/index. No automatic deletion, Git reset, permission weakening or silent retrieval fallback.
+- Stop conditions: Unexpected sensitive data or side effects, ownership overlap, incompatible accepted contract, unsafe containment, failed mandatory evidence or missing required external authorization. Routine relevant reads are not failures; report useful partial results when safe.
+- Next step: CP-08 scanner, CP-09 retrieval and CP-10 renderer after their own inputs are ready.
 
 #### Completion report
 
 - status: planned
-- what was done: The plugin shell has not been created.
-- files touched / work locations: This plan file only.
-- technical value delivered: Not claimed.
-- product value delivered: Not claimed.
+- what was done: Task contract and dependencies revised on 2026-08-31; no task implementation executed by this plan revision.
+- files touched / work locations: Planning/control/ADR documentation only; future owned outputs are listed above.
+- technical value delivered: Implementation benefit not claimed; planned result is Trusted interpreter and FTS5 capability checks plus revision-safe minimized state.
+- product value delivered: User outcome not measured; planned result is Start quickly, resume and correct answers without losing progress or requiring login.
 - actual implementation date and time: pending_execution_timestamp
-- verification evidence: Intake/state runtime checks have not run.
-- residual risks: Runtime ADRs and new role contracts are required.
-- follow-up: Complete upstream CP-02, CP-03, CP-05.
+- verification evidence: Current documentation checks belong in RUNLOG.md; no task-specific runtime, schema, index, model or release pass claimed.
+- residual risks: Upstream acceptance and task-specific evidence remain open. Remote extension and vectors are not prerequisites.
+- follow-up: CP-08 scanner, CP-09 retrieval and CP-10 renderer after their own inputs are ready.
 
 ### Task `CP-08`
 
-- Task: CP-08 — implement the bounded local scanner and Context Brief
+- Task: CP-08 — implement bounded scanning and relevant project-context selection
 - Status: planned
 - Schema version: task_matrix_plan_v1
 - Timezone: Europe/Moscow
-- Plan trigger: R03–R05 require safe analysis from an empty workspace to a monorepo.
+- Plan trigger: Owner revision 2026-08-31: local SQLite FTS5, relevant context, activity-aware evidence and actionable OSS integration. This task remains within the local product path.
 - Validator target: detailed task blocks
 - Date and time of task implementation: pending_execution_timestamp
 - Depends on: CP-02, CP-03, CP-05, CP-07
 - Blocks: CP-11
-- Source: Scanner defaults; C2/C3; accepted scan policy.
-- Short description: Progressive read-only scanning with bounded topology and evidence-aware normalization.
-- Technical value: Controlled I/O, memory, scope, and leakage surface.
-- Product value: Users can see what was found, what was not inspected, and how this affects recommendations.
-- Scope: plugins/myai-stackguide/scripts/scanner.py and scripts/context.py; quality_evaluator owns tests/test_plugin_scanner.py and tests/fixtures/plugin_scanner/ with synthetic data only.
-- Non-goals: Running project code, installs, network, reading secret values, full-codebase AST analysis.
-- Expected result: Four modes; budgets; ScanManifest/ScanReport/SanitizedProjectSummary/Brief; stable sanitized evidence references; corrections separate from observed facts.
-- Acceptance criteria: Empty is not a failure; monorepo precedence is deterministic; caps yield coverage_partial; symlink/junction escapes and sensitive paths are not read; cancellation returns a truthful incomplete state; stdout/errors do not expose raw files.
-- Verification gates: Targeted V-LOCAL scanner cases: empty/compact/monorepo/weak docs/sensitive/oversize/budget/cancel/encoding/path traversal.
-- Risks / approval gates: Expanding scan roots or deep scope requires a confirmed boundary; do not bypass denied files.
+- Source: Owner decisions 2026-08-31; active PRD R03, R04, R05; accepted CP-02 ADRs and Section 3 registries.
+- Short description: Collect a cheap overview and bounded high-value context for the user goal.
+- Technical value: Explicit coverage, contained reads and source-linked observations without scanning the entire project.
+- Product value: Understand real integration points while avoiding unnecessary isolation requirements.
+- Scope: Plugin Runtime Builder owns plugins/myai-stackguide/scripts/scanner.py and context.py; Quality Evaluator owns tests/test_plugin_scanner.py and synthetic tests/fixtures/plugin_scanner/. Consume C2/C3 and CP-07 state helpers; do not rewrite their contracts during implementation.
+- Non-goals: Unassigned files, model/permission changes, Git history, automatic installs, private-data disclosure or external activation. No remote architecture/runtime or vector/embedding dependency.
+- Expected result: Empty/compact/standard/large/monorepo scans, targeted selection requests and corrected versioned Brief. Structured scanner output and transient relevant excerpts are distinct paths; persisted artifacts contain minimized findings/references.
+- Acceptance criteria: Test exact caps and one-over, monorepo precedence/incomplete traversal, cancellation/encoding/changed files, sensitive exclusions, Windows links/junctions/ADS/hardlinks/path swaps and output redaction. Relevant authorized code reads succeed; disallowed secrets/scope expansions fail. No project import/script/build/install/network. A failed scanner cannot bypass the same containment/exclusion rules via a different tool.
+- Verification gates: Targeted test_plugin_scanner.py plus observed useful authorized context and adversarial no-execution/leakage cases; no host-wide isolation claim.
+- Risks / approval gates: Preserve pre-existing dirty work and source-owned boundaries. Public research is read-only; sensitive scope, credentials, material cost, external writes, publication and destructive operations follow actual authorization. Selected caps and ranking quality are not yet measured.
 - Complexity: L
-- Estimated execution time: 8–16 active hours; preliminary.
+- Estimated execution time: Re-estimate at dispatch from accepted inputs and the first bounded slice; earlier ranges are superseded by the changed FTS5/context/integration scope. No delivery commitment or provider-cost estimate.
 - Agents: Owner proposed plugin_runtime_builder; test owner quality_evaluator; reviewer evidence_reviewer.
 - Skills: build-stackguide-plugin after CP-05; design-context-contracts; audit-readonly-boundaries.
-- Output artifacts: Scanner/context modules; synthetic fixtures; bounded execution traces.
+- Output artifacts: Plugin Runtime Builder owns plugins/myai-stackguide/scripts/scanner.py and context.py; Quality Evaluator owns tests/test_plugin_scanner.py and synthetic tests/fixtures/plugin_scanner/. Consume C2/C3 and CP-07 state helpers; do not rewrite their contracts during implementation.
 - Evidence owner: quality_evaluator; traces contain counts/reason codes, not source text.
-- Docs update path: TEST.md and docs/MYAI_STACKGUIDE_CONTEXT_SCANNER.md through their owners.
-- Rollback: Fall back to intake-only context with explicit missing scan evidence; preserve state.
-- Stop conditions: Root escape, sensitive data in output, unbounded inventory, or project code execution.
-- Next step: CP-11 after CP-09/CP-10.
+- Docs update path: Product Planner updates PLAN.md/task status; Quality Evaluator records TEST.md/EVALS.md evidence; Docs Maintainer appends RUNLOG.md after handoff. No unsupported completion claim.
+- Rollback: Undo only owned changes; preserve prior valid state, finalized history and compatible package/index. No automatic deletion, Git reset, permission weakening or silent retrieval fallback.
+- Stop conditions: Unexpected sensitive data or side effects, ownership overlap, incompatible accepted contract, unsafe containment, failed mandatory evidence or missing required external authorization. Routine relevant reads are not failures; report useful partial results when safe.
+- Next step: CP-11 consumes scanner/Brief with CP-09 retrieval and CP-10 reporting.
 
 #### Completion report
 
 - status: planned
-- what was done: The scanner has not been implemented and no projects have been scanned.
-- files touched / work locations: This plan file only.
-- technical value delivered: Not claimed.
-- product value delivered: Not claimed.
+- what was done: Task contract and dependencies revised on 2026-08-31; no task implementation executed by this plan revision.
+- files touched / work locations: Planning/control/ADR documentation only; future owned outputs are listed above.
+- technical value delivered: Implementation benefit not claimed; planned result is Explicit coverage, contained reads and source-linked observations without scanning the entire project.
+- product value delivered: User outcome not measured; planned result is Understand real integration points while avoiding unnecessary isolation requirements.
 - actual implementation date and time: pending_execution_timestamp
-- verification evidence: No runtime privacy/coverage claims.
-- residual risks: Future OS-specific symlink/junction cases are mandatory.
-- follow-up: Accept the scan policy before reading fixtures.
+- verification evidence: Current documentation checks belong in RUNLOG.md; no task-specific runtime, schema, index, model or release pass claimed.
+- residual risks: Upstream acceptance and task-specific evidence remain open. Remote extension and vectors are not prerequisites.
+- follow-up: CP-11 consumes scanner/Brief with CP-09 retrieval and CP-10 reporting.
 
 ### Task `CP-09`
 
-- Task: CP-09 — implement local catalog matching
+- Task: CP-09 — implement SQLite FTS5 retrieval and bounded recommendation context
 - Status: planned
 - Schema version: task_matrix_plan_v1
 - Timezone: Europe/Moscow
-- Plan trigger: R06, R07, R14 require a useful catalog-only baseline.
+- Plan trigger: Owner revision 2026-08-31: local SQLite FTS5, relevant context, activity-aware evidence and actionable OSS integration. This task remains within the local product path.
 - Validator target: detailed task blocks
 - Date and time of task implementation: pending_execution_timestamp
 - Depends on: CP-03, CP-05, CP-06, CP-07
 - Blocks: CP-11, CP-13
-- Source: C4/C5; bundled catalog; hard-filter and role contracts.
-- Short description: Match categories/archetypes/constraints with reason codes and an explicit no-match outcome.
-- Technical value: Deterministic fallback and verifiable ranking rationale.
-- Product value: The shortlist shows fit, caveats, avoid/defer guidance, and the next choice.
-- Scope: plugins/myai-stackguide/scripts/matcher.py; tests/test_plugin_matching.py owned by quality_evaluator.
-- Non-goals: GitHub calls, a single opaque popularity score, automatic primary status for unknown constraints.
-- Expected result: Role-based RecommendationMemo, constraint exclusions, evidence/freshness, and a reading path; explain insufficient fit.
-- Acceptance criteria: Hard conflicts exclude primary eligibility; unknowns do not become facts; identical input versions reproduce the result; catalog-only mode is explicit; primary references are traceable.
-- Verification gates: Targeted V-LOCAL matching; V-CATALOG input parity; representative human usefulness check.
-- Risks / approval gates: Do not compensate for insufficient coverage with more results; the matcher must not modify the catalog.
+- Source: Owner decisions 2026-08-31; active PRD R06, R07, R08, R11, R14; accepted CP-02 ADRs and Section 3 registries.
+- Short description: Compile structured intent into lexical search, filter/dedupe and pack bounded evidence.
+- Technical value: Catalog size no longer determines model-context size; indexed search remains deterministic and inspectable.
+- Product value: Return relevant reusable components and explicit integration gaps promptly.
+- Scope: Plugin Runtime Builder owns plugins/myai-stackguide/scripts/retrieval.py, context_pack.py and matcher.py. Quality Evaluator owns tests/test_plugin_retrieval.py and tests/test_plugin_matching.py. Consume CP-06 assets and CP-03 policy/contracts; do not edit catalog/evidence/index builders or duplicate CP-07 state code.
+- Non-goals: Unassigned files, model/permission changes, Git history, automatic installs, private-data disclosure or external activation. No remote architecture/runtime or vector/embedding dependency.
+- Expected result: Read-only sqlite_fts5 route with version/hash/integrity validation, bounded compiled queries, weighted BM25, RU/EN/technology aliases, canonical dedupe and task-specific roles/evidence pack.
+- Acceptance criteria: Parameterize SQL and escape FTS grammar; handle malformed/empty/no-hit queries; stable ordering and total 60-candidate/12-card/48-KiB ceilings across query variants. Constraint unknowns produce caveats/next verification, no unconditional fit; snapshot age alone never rejects. Missing FTS5/corrupt/incompatible index returns explicit unavailable/incompatible outcome, never no-match or full-catalog fallback. No writes to index, embeddings, remote calls or hidden query logging.
+- Verification gates: V-RETRIEVAL and targeted matching tests; trace source_mode=catalog_only and retrieval_engine=sqlite_fts5, result counts/bytes and pins. Semantic relevance gains require CP-04/15 evals.
+- Risks / approval gates: Preserve pre-existing dirty work and source-owned boundaries. Public research is read-only; sensitive scope, credentials, material cost, external writes, publication and destructive operations follow actual authorization. Selected caps and ranking quality are not yet measured.
 - Complexity: M
-- Estimated execution time: 4–8 active hours; preliminary.
+- Estimated execution time: Re-estimate at dispatch from accepted inputs and the first bounded slice; earlier ranges are superseded by the changed FTS5/context/integration scope. No delivery commitment or provider-cost estimate.
 - Agents: Owner proposed plugin_runtime_builder; tests quality_evaluator; fit review catalog_architect.
 - Skills: build-stackguide-plugin after CP-05; design-catalog-contracts; design-recommendation-evals.
-- Output artifacts: Matcher, targeted tests, and a sanitized baseline memo.
+- Output artifacts: Plugin Runtime Builder owns plugins/myai-stackguide/scripts/retrieval.py, context_pack.py and matcher.py. Quality Evaluator owns tests/test_plugin_retrieval.py and tests/test_plugin_matching.py. Consume CP-06 assets and CP-03 policy/contracts; do not edit catalog/evidence/index builders or duplicate CP-07 state code.
 - Evidence owner: quality_evaluator; product_planner for usefulness.
-- Docs update path: EVALS.md, TEST.md, and RUNLOG.md through their owners.
-- Rollback: Keep the result reference-only when advisory evidence is insufficient; do not raise eligibility.
-- Stop conditions: Fit relies only on stars/legacyScore, or a primary recommendation lacks evidence.
-- Next step: CP-11 local end-to-end gate.
+- Docs update path: Product Planner updates PLAN.md/task status; Quality Evaluator records TEST.md/EVALS.md evidence; Docs Maintainer appends RUNLOG.md after handoff. No unsupported completion claim.
+- Rollback: Undo only owned changes; preserve prior valid state, finalized history and compatible package/index. No automatic deletion, Git reset, permission weakening or silent retrieval fallback.
+- Stop conditions: Unexpected sensitive data or side effects, ownership overlap, incompatible accepted contract, unsafe containment, failed mandatory evidence or missing required external authorization. Routine relevant reads are not failures; report useful partial results when safe.
+- Next step: CP-11 local join and CP-15 held-out quality; remote merge remains optional CP-13.
 
 #### Completion report
 
 - status: planned
-- what was done: The matching runtime has not been created.
-- files touched / work locations: This plan file only.
-- technical value delivered: Not claimed.
-- product value delivered: Not claimed.
+- what was done: Task contract and dependencies revised on 2026-08-31; no task implementation executed by this plan revision.
+- files touched / work locations: Planning/control/ADR documentation only; future owned outputs are listed above.
+- technical value delivered: Implementation benefit not claimed; planned result is Catalog size no longer determines model-context size; indexed search remains deterministic and inspectable.
+- product value delivered: User outcome not measured; planned result is Return relevant reusable components and explicit integration gaps promptly.
 - actual implementation date and time: pending_execution_timestamp
-- verification evidence: Recommendation quality has not been evaluated.
-- residual risks: Coverage and usefulness depend on CP-06.
-- follow-up: Use one frozen seed for the first case.
+- verification evidence: Current documentation checks belong in RUNLOG.md; no task-specific runtime, schema, index, model or release pass claimed.
+- residual risks: Upstream acceptance and task-specific evidence remain open. Remote extension and vectors are not prerequisites.
+- follow-up: CP-11 local join and CP-15 held-out quality; remote merge remains optional CP-13.
 
 ### Task `CP-10`
 
-- Task: CP-10 — implement offline Project Status HTML
+- Task: CP-10 — render offline decisions with integration plan and coding handoff
 - Status: planned
 - Schema version: task_matrix_plan_v1
 - Timezone: Europe/Moscow
-- Plan trigger: R05, R07, R10 require a human-readable Decision Report.
+- Plan trigger: Owner revision 2026-08-31: local SQLite FTS5, relevant context, activity-aware evidence and actionable OSS integration. This task remains within the local product path.
 - Validator target: detailed task blocks
 - Date and time of task implementation: pending_execution_timestamp
 - Depends on: CP-03, CP-05, CP-07
 - Blocks: CP-11, CP-15
-- Source: Project artifact requirements; C6; source-only reference status.
-- Short description: Deterministic state projection with progressive disclosure and truthful evidence badges.
-- Technical value: One state source, offline rendering, escaping, and safe links.
-- Product value: The first screen answers goal/result/risks/next action; details are available without overload.
-- Scope: plugins/myai-stackguide/scripts/render_report.py and assets/status-template.html; tests/test_plugin_artifact.py owned by quality_evaluator.
-- Non-goals: Custom MCP UI, hosted frontend, CDN, transferring private data from visual references.
-- Expected result: Every artifact-contract section; accessible navigation, offline styles/scripts, relative sanitized references, and immutable run links.
-- Acceptance criteria: The same state produces the same HTML; unsafe markup/URLs do not execute; no external requests; partial/fallback/unknown states are visible; tables do not overlap the interface; history does not present mutable state as an immutable run.
-- Verification gates: Targeted V-LOCAL artifact tests and V-UI on synthetic state; separate owner visual acceptance.
-- Risks / approval gates: Do not bypass browser restrictions; an approved local preview runs only in an authorized environment without exposing private data.
+- Source: Owner decisions 2026-08-31; active PRD R05, R07, R10, R13; accepted CP-02 ADRs and Section 3 registries.
+- Short description: Turn versioned findings into a useful decision and next implementation slice.
+- Technical value: Deterministic escaped projection of committed state, with explicit evidence and invalidation.
+- Product value: Users can hand the result to a coding agent instead of redoing research and planning.
+- Scope: Plugin Runtime Builder owns plugins/myai-stackguide/scripts/render_report.py and plugins/myai-stackguide/assets/status-template.html; Quality Evaluator owns tests/test_plugin_artifact.py and rendered QA evidence. Consume C5/C6 and shared CP-07 writer; do not create another state store.
+- Non-goals: Unassigned files, model/permission changes, Git history, automatic installs, private-data disclosure or external activation. No remote architecture/runtime or vector/embedding dependency.
+- Expected result: Offline report: goal/context/coverage, ranked roles/comparison, actual activity versus observation, evidence/gaps, integration surface/steps, version/license checks, first validation slice, rollback and coding-agent handoff.
+- Acceptance criteria: Report supports build/upgrade/replace outcomes with clear prerequisites and unknowns; proposed code/commands are labeled unexecuted unless actual evidence exists. No automatic install or changes to project code. Escape content and links; no fetch/CDN/analytics; keyboard/responsive/empty/error/partial states; render only current committed revision and visibly recover stale HTML.
+- Verification gates: Targeted test_plugin_artifact.py, V-UI rendered evidence and evidence-to-state parity; first-screen usefulness reviewed by Product Planner.
+- Risks / approval gates: Preserve pre-existing dirty work and source-owned boundaries. Public research is read-only; sensitive scope, credentials, material cost, external writes, publication and destructive operations follow actual authorization. Selected caps and ranking quality are not yet measured.
 - Complexity: M
-- Estimated execution time: 6–12 active hours; preliminary UI effort.
+- Estimated execution time: Re-estimate at dispatch from accepted inputs and the first bounded slice; earlier ranges are superseded by the changed FTS5/context/integration scope. No delivery commitment or provider-cost estimate.
 - Agents: Owner proposed plugin_runtime_builder; tests/rendered QA quality_evaluator; evidence_reviewer for claims.
 - Skills: build-stackguide-plugin after CP-05; review-advisory-evidence; browser:control-in-app-browser only for authorized rendered QA.
-- Output artifacts: Renderer/template, tests, sanitized screenshots, and UI findings.
+- Output artifacts: Plugin Runtime Builder owns plugins/myai-stackguide/scripts/render_report.py and plugins/myai-stackguide/assets/status-template.html; Quality Evaluator owns tests/test_plugin_artifact.py and rendered QA evidence. Consume C5/C6 and shared CP-07 writer; do not create another state store.
 - Evidence owner: quality_evaluator; product owner accepts visual usefulness.
-- Docs update path: TEST.md and RUNLOG.md through their owners.
-- Rollback: Preserve valid state.json and the previous valid HTML; renderer failure must not corrupt state.
-- Stop conditions: XSS/unsafe links, leakage, CDN dependency, or unsupported visual acceptance.
-- Next step: CP-11, followed by expanded CP-15 verification.
+- Docs update path: Product Planner updates PLAN.md/task status; Quality Evaluator records TEST.md/EVALS.md evidence; Docs Maintainer appends RUNLOG.md after handoff. No unsupported completion claim.
+- Rollback: Undo only owned changes; preserve prior valid state, finalized history and compatible package/index. No automatic deletion, Git reset, permission weakening or silent retrieval fallback.
+- Stop conditions: Unexpected sensitive data or side effects, ownership overlap, incompatible accepted contract, unsafe containment, failed mandatory evidence or missing required external authorization. Routine relevant reads are not failures; report useful partial results when safe.
+- Next step: CP-11 joins real retrieval; CP-15 independently reviews local usefulness/privacy/UI.
 
 #### Completion report
 
 - status: planned
-- what was done: No HTML artifact has been created.
-- files touched / work locations: This plan file only.
-- technical value delivered: Not claimed.
-- product value delivered: Not claimed.
+- what was done: Task contract and dependencies revised on 2026-08-31; no task implementation executed by this plan revision.
+- files touched / work locations: Planning/control/ADR documentation only; future owned outputs are listed above.
+- technical value delivered: Implementation benefit not claimed; planned result is Deterministic escaped projection of committed state, with explicit evidence and invalidation.
+- product value delivered: User outcome not measured; planned result is Users can hand the result to a coding agent instead of redoing research and planning.
 - actual implementation date and time: pending_execution_timestamp
-- verification evidence: Browser QA has not been performed.
-- residual risks: References do not replace review of the new rendered artifact.
-- follow-up: Create synthetic state and verify the projection.
+- verification evidence: Current documentation checks belong in RUNLOG.md; no task-specific runtime, schema, index, model or release pass claimed.
+- residual risks: Upstream acceptance and task-specific evidence remain open. Remote extension and vectors are not prerequisites.
+- follow-up: CP-11 joins real retrieval; CP-15 independently reviews local usefulness/privacy/UI.
 
 ### Task `CP-11`
 
-- Task: CP-11 — prove the local semantic vertical slice
+- Task: CP-11 — verify one useful local FTS5-to-integration vertical slice
 - Status: planned
 - Schema version: task_matrix_plan_v1
 - Timezone: Europe/Moscow
-- Plan trigger: P2 gate before backend work and expansion of test infrastructure.
+- Plan trigger: Owner revision 2026-08-31: local SQLite FTS5, relevant context, activity-aware evidence and actionable OSS integration. This task remains within the local product path.
 - Validator target: detailed task blocks
 - Date and time of task implementation: pending_execution_timestamp
 - Depends on: CP-03, CP-04, CP-06, CP-07, CP-08, CP-09, CP-10
 - Blocks: CP-12, CP-13, CP-15
-- Source: R02–R07, R10, R12–R14; acceptance corpus.
-- Short description: Start with one end-to-end case, then a minimal edge/regression set.
-- Technical value: Verify the actual local path and absence of side effects end to end.
-- Product value: The user receives a useful decision, can correct input, and can resume the run.
-- Scope: tests/test_plugin_vertical.py, tests/fixtures/plugin_vertical.json, TEST.md, EVALS.md; return fixes to the respective module owners.
-- Non-goals: MCP/network, model/API cost without authorization, full private-project scanning.
-- Expected result: 1/1 case intake→scan→Brief→catalog→state/HTML; then empty/compact/monorepo/correction/resume/cancel/sensitive/fallback checks.
-- Acceptance criteria: Exact commands and versions are recorded; no raw data in model-facing outputs/artifacts; useful primary recommendation or justified no-match; truthful stage/progress; unchanged v5 catalog.
-- Verification gates: V-CONTRACT, V-CATALOG, targeted V-LOCAL, V-UI; one final broad local gate after focused checks.
-- Risks / approval gates: A synthetic pass is not real Codex routing, live GitHub, a private-data privacy audit, or public readiness.
+- Source: Owner decisions 2026-08-31; active PRD R02, R06, R10, R11, R12, R13; accepted CP-02 ADRs and Section 3 registries.
+- Short description: Join intake, context, public index, bounded evidence and saved integration report.
+- Technical value: Demonstrate intended routing and version/cap integrity without mock or remote masking.
+- Product value: One real build/modernization decision reaches an actionable next step.
+- Scope: Quality Evaluator owns tests/test_plugin_vertical_slice.py, tests/fixtures/plugin_vertical_slice.json, TEST.md and EVALS.md evidence updates; builders repair only assigned implementation files through sequential handoff. Register exact semantic and scaling commands before execution, including a validated captured C9 results file for the CP-04 offline scorer; capture does not execute another model or embedder.
+- Non-goals: Unassigned files, model/permission changes, Git history, automatic installs, private-data disclosure or external activation. No remote architecture/runtime or vector/embedding dependency.
+- Expected result: A named 1/1 useful synthetic project scenario with actual packaged FTS5 query and artifact; then focused edge/regression checks and bounded synthetic 2,000/10,000-row capacity measurements.
+- Acceptance criteria: Record Brief/source/index/policy versions, source_mode=catalog_only, retrieval_engine=sqlite_fts5, query/result counts/bytes, exclusions and integration handoff. Verify corrections/resume, no-match versus index failure, activity unknowns, sparse cards, no network/install/private-index writes, offline renderer and state recovery. Synthetic duplicates used for capacity cannot prove recall or genuine catalog growth; runtime pass cannot prove model quality.
+- Verification gates: V-LOCAL beginning with the registered 1/1 command; V-RETRIEVAL route evidence; affected negatives then one final product test join. V-EVAL is separate.
+- Risks / approval gates: Preserve pre-existing dirty work and source-owned boundaries. Public research is read-only; sensitive scope, credentials, material cost, external writes, publication and destructive operations follow actual authorization. Selected caps and ranking quality are not yet measured.
 - Complexity: M
-- Estimated execution time: 4–8 active hours; fixes assigned separately to their owners.
+- Estimated execution time: Re-estimate at dispatch from accepted inputs and the first bounded slice; earlier ranges are superseded by the changed FTS5/context/integration scope. No delivery commitment or provider-cost estimate.
 - Agents: Owner quality_evaluator; independent evidence_reviewer; usefulness product_planner.
 - Skills: design-recommendation-evals; audit-readonly-boundaries; verify-generated-parity; review-advisory-evidence.
-- Output artifacts: Vertical tests, frozen synthetic inputs, sanitized command/trace evidence, and a P2 verdict.
+- Output artifacts: Quality Evaluator owns tests/test_plugin_vertical_slice.py, tests/fixtures/plugin_vertical_slice.json, TEST.md and EVALS.md evidence updates; builders repair only assigned implementation files through sequential handoff. Register exact semantic and scaling commands before execution, including a validated captured C9 results file for the CP-04 offline scorer; capture does not execute another model or embedder.
 - Evidence owner: quality_evaluator; evidence_reviewer returns independent findings.
-- Docs update path: TEST.md, EVALS.md, RUNLOG.md, and milestone status in PLAN.md through their owners.
-- Rollback: Do not close P2; preserve the baseline and repair the smallest failed slice.
-- Stop conditions: The first case is not useful, leakage, hidden fallback, or repeated unchanged tests without a new hypothesis.
-- Next step: CP-12 only after P2 acceptance.
+- Docs update path: Product Planner updates PLAN.md/task status; Quality Evaluator records TEST.md/EVALS.md evidence; Docs Maintainer appends RUNLOG.md after handoff. No unsupported completion claim.
+- Rollback: Undo only owned changes; preserve prior valid state, finalized history and compatible package/index. No automatic deletion, Git reset, permission weakening or silent retrieval fallback.
+- Stop conditions: Unexpected sensitive data or side effects, ownership overlap, incompatible accepted contract, unsafe containment, failed mandatory evidence or missing required external authorization. Routine relevant reads are not failures; report useful partial results when safe.
+- Next step: CP-15 independent local acceptance; CP-12 only after a separate extension decision.
 
 #### Completion report
 
 - status: planned
-- what was done: The vertical slice has not run.
-- files touched / work locations: This plan file only.
-- technical value delivered: Not claimed.
-- product value delivered: Not claimed.
+- what was done: Task contract and dependencies revised on 2026-08-31; no task implementation executed by this plan revision.
+- files touched / work locations: Planning/control/ADR documentation only; future owned outputs are listed above.
+- technical value delivered: Implementation benefit not claimed; planned result is Demonstrate intended routing and version/cap integrity without mock or remote masking.
+- product value delivered: User outcome not measured; planned result is One real build/modernization decision reaches an actionable next step.
 - actual implementation date and time: pending_execution_timestamp
-- verification evidence: No 1/1 runtime evidence.
-- residual risks: Local and behavioral evidence must still be obtained separately.
-- follow-up: Verify the smallest useful case before expanding the pipeline.
+- verification evidence: Current documentation checks belong in RUNLOG.md; no task-specific runtime, schema, index, model or release pass claimed.
+- residual risks: Upstream acceptance and task-specific evidence remain open. Remote extension and vectors are not prerequisites.
+- follow-up: CP-15 independent local acceptance; CP-12 only after a separate extension decision.
 
 ### Task `CP-12`
 
-- Task: CP-12 — implement the MCP backend and CandidateLedger in local test mode
+- Task: CP-12 — define and build the optional remote discovery/ledger extension
 - Status: planned
 - Schema version: task_matrix_plan_v1
 - Timezone: Europe/Moscow
-- Plan trigger: R06, R08, R09, R11 require a shared candidate overlay with safe writes.
+- Plan trigger: Owner revision 2026-08-31: local SQLite FTS5, relevant context, activity-aware evidence and actionable OSS integration. Remote extension deferred until a new scope decision.
 - Validator target: detailed task blocks
 - Date and time of task implementation: pending_execution_timestamp
 - Depends on: CP-02, CP-03, CP-05, CP-11
 - Blocks: CP-13, CP-14
-- Source: C4/C7; accepted backend/auth/retention ADRs; lifecycle requirements.
-- Short description: Four tools, a mock GitHub adapter, auth checks, append-only ledger, eligibility, and compaction.
-- Technical value: Deterministic identity/idempotency/state machine before external activation.
-- Product value: New public candidates are available through the overlay without appearing as curated accepted entries.
-- Scope: services/catalog_mcp/; CP-02 must record exact files, migrations, and commands before dispatch; quality_evaluator owns the backend test directory established by the same ADR; do not edit the plugin bundle or v5 source.
-- Non-goals: Deployment, credentials, real GitHub calls, shared production writes, scheduler activation.
-- Expected result: Backend validation, scoped auth/rate limits, dedupe, bounded retries, audit minimization, machine gates, append-only events, pinned deltas, and mock-clock compaction at 100/24h.
-- Acceptance criteria: Unauthorized mutation denied; repeating an idempotency key does not duplicate an event; payload conflict detected; malformed/private/unsafe fields rejected; unknowns preserved; curator accepted unavailable to machine paths; pinned replay reproducible; concurrent updates consistent.
-- Verification gates: V-MCP commands after ADR acceptance; unit/contract/auth/migration/replay/compaction tests; malicious metadata, timeout, stale/archive/redirect cases.
-- Risks / approval gates: The client is not a trusted source of public facts; credential use and remote mutation only through CP-14; a missing backend command registry blocks dispatch.
+- Source: Owner decisions 2026-08-31; active PRD R08, R09; accepted CP-02 ADRs and Section 3 registries.
+- Short description: Deferred extension: establish remote contracts and selected backend before mock-first implementation.
+- Technical value: A separately reviewable public-evidence lane with bounded auth/write semantics.
+- Product value: Future fresh discovery can expand coverage without delaying the local user result.
+- Scope: Deferred, not dispatched. Catalog Architect first owns remote C4/C7 exact registry paths plus a new remote amendment to specs/decisions/plugin-v1-architecture.md, plugin-v1-permissions.md and plugin-v1-verification.md. MCP Backend Builder receives exact services/catalog_mcp/ implementation files only after that architecture packet; Quality Evaluator receives exact backend tests/commands then. No invented hosting/provider choice now.
+- Non-goals: Unassigned files, model/permission changes, Git history, automatic installs, private-data disclosure or external activation. No local-release block and no live side effects from a design/mock task.
+- Expected result: Only if separately selected: four bounded MCP tools, public candidate ledger and backend auth/provenance/idempotency/retry/retention contracts. Local CP-03 completion does not imply these exist.
+- Acceptance criteria: New scope decision precedes dispatch; exact endpoint/storage/auth/consent/quotas/cost/commands/rollback are accepted. Define four tool schemas/errors/annotations and preserve curator-only acceptance. Private project context never enters shared data; credential refusal/remote failure preserves local FTS5. Original discovery/compaction numbers are revalidated extension proposals.
+- Verification gates: Deferred V-CONTRACT for remote C4/C7, V-MCP mock-first tests and independent boundary review; V-LIVE separately authorized.
+- Risks / approval gates: Preserve pre-existing dirty work and source-owned boundaries. Public research is read-only; sensitive scope, credentials, material cost, external writes, publication and destructive operations follow actual authorization. Selected caps and ranking quality are not yet measured.
 - Complexity: XL
-- Estimated execution time: 16–32 active hours; refine after stack/storage selection.
+- Estimated execution time: Re-estimate at dispatch from accepted inputs and the first bounded slice; earlier ranges are superseded by the changed FTS5/context/integration scope. No delivery commitment or provider-cost estimate.
 - Agents: Owner proposed mcp_backend_builder; tests quality_evaluator; architecture catalog_architect; reviewer evidence_reviewer.
 - Skills: build-stackguide-mcp after CP-05; design-catalog-contracts; audit-readonly-boundaries; design-recommendation-evals.
-- Output artifacts: Scoped backend source/tests, migration and rollback routines, local mock trace; no deployed endpoints.
+- Output artifacts: Deferred, not dispatched. Catalog Architect first owns remote C4/C7 exact registry paths plus a new remote amendment to specs/decisions/plugin-v1-architecture.md, plugin-v1-permissions.md and plugin-v1-verification.md. MCP Backend Builder receives exact services/catalog_mcp/ implementation files only after that architecture packet; Quality Evaluator receives exact backend tests/commands then. No invented hosting/provider choice now.
 - Evidence owner: quality_evaluator; catalog_architect accepts state/API compatibility.
-- Docs update path: TEST.md, EVALS.md, and RUNLOG.md through their owners; permissions ADR when clarified.
-- Rollback: Previous schema-compatible store snapshot; append-only correction events rather than deleted history; network remains disabled.
-- Stop conditions: Anonymous write, automatic accepted, lost history, secret logging, or unauthorized provider access.
-- Next step: CP-13 mocked mixed integration, then CP-14 approved runtime.
+- Docs update path: Product Planner updates PLAN.md/task status; Quality Evaluator records TEST.md/EVALS.md evidence; Docs Maintainer appends RUNLOG.md after handoff. No unsupported completion claim.
+- Rollback: Undo only owned changes; preserve prior valid state, finalized history and compatible package/index. No automatic deletion, Git reset, permission weakening or silent retrieval fallback.
+- Stop conditions: Unexpected sensitive data or side effects, ownership overlap, incompatible accepted contract, unsafe containment, failed mandatory evidence or missing required external authorization. Routine relevant reads are not failures; report useful partial results when safe.
+- Next step: CP-13 client/index-compatibility integration, then CP-14 authorized live extension check. No local-release dependency.
 
 #### Completion report
 
 - status: planned
-- what was done: The backend has not been created or started.
-- files touched / work locations: This plan file only.
-- technical value delivered: Not claimed.
-- product value delivered: Not claimed.
+- what was done: Task contract and dependencies revised on 2026-08-31; no task implementation executed by this plan revision.
+- files touched / work locations: Planning/control/ADR documentation only; future owned outputs are listed above.
+- technical value delivered: Implementation benefit not claimed; planned result is A separately reviewable public-evidence lane with bounded auth/write semantics.
+- product value delivered: User outcome not measured; planned result is Future fresh discovery can expand coverage without delaying the local user result.
 - actual implementation date and time: pending_execution_timestamp
-- verification evidence: MCP/auth/ledger tests do not exist before implementation.
-- residual risks: Exact backend files/commands depend on CP-02; the task is not dispatch-ready.
-- follow-up: Do not proceed to remote activation on the basis of a mock pass.
+- verification evidence: Current documentation checks belong in RUNLOG.md; no task-specific runtime, schema, index, model or release pass claimed.
+- residual risks: Upstream acceptance and task-specific evidence remain open. Optional remote scope remains deferred and is not a local-release blocker.
+- follow-up: CP-13 client/index-compatibility integration, then CP-14 authorized live extension check. No local-release dependency.
 
 ### Task `CP-13`
 
-- Task: CP-13 — integrate mixed retrieval, dedupe, and catalog sync
+- Task: CP-13 — integrate optional remote evidence with local retrieval safely
 - Status: planned
 - Schema version: task_matrix_plan_v1
 - Timezone: Europe/Moscow
-- Plan trigger: R06–R11 require one result combining catalog entries and live candidates.
+- Plan trigger: Owner revision 2026-08-31: local SQLite FTS5, relevant context, activity-aware evidence and actionable OSS integration. Remote extension deferred until a new scope decision.
 - Validator target: detailed task blocks
 - Date and time of task implementation: pending_execution_timestamp
 - Depends on: CP-03, CP-05, CP-07, CP-09, CP-11, CP-12
-- Blocks: CP-14, CP-15
-- Source: C5/C7; matching contracts; mock MCP backend.
-- Short description: Wire parallel lanes with a bounded query builder, merge, and fallback.
-- Technical value: Independent failures do not corrupt local state or pinned catalog versions.
-- Product value: Users see new alternatives, their source, and current ingestion status.
-- Scope: plugins/myai-stackguide/scripts/discovery_client.py, scripts/merge.py, scripts/catalog_sync.py, and myai-stackguide.app.json; tests/test_plugin_mixed.py owned by quality_evaluator; the CP-06 builder retains bundle-generation ownership.
-- Non-goals: Remote MCP registration, full Brief transmission, implicit shared writes, eligibility-semantics changes.
-- Expected result: 3–5 sanitized queries/max20 candidates; validated delta; stable identity; mixed shortlist; catalog-only selector; candidate upload queued/statused without blocking the report.
-- Acceptance criteria: Preserve catalog identity on duplicates; separate live evidence; auth refusal and network/rate limits produce truthful fallback; candidate upsert failure is visible; snapshot/overlay pin is atomic; credentials never enter state/HTML.
-- Verification gates: Targeted V-LOCAL mixed tests + V-MCP contract fixtures; partial failure/cancel/retry/dedupe/expired version/unsafe response cases.
-- Risks / approval gates: app.json does not activate an external connection before CP-14; validate model-generated queries against the allowlist schema.
+- Blocks: CP-14
+- Source: Owner decisions 2026-08-31; active PRD R08, R11 (deferred extension portions); accepted CP-02 ADRs and Section 3 registries.
+- Short description: Deferred extension: merge dated public evidence without mutating the frozen local baseline.
+- Technical value: Source/version/identity-safe merge and atomic index compatibility on overlay changes.
+- Product value: Live evidence may improve a report while the local path stays available.
+- Scope: Deferred. Plugin Runtime Builder owns plugins/myai-stackguide/scripts/discovery_client.py, merge.py and catalog_sync.py if selected; connection manifest exact format/path accepted before edits. Quality Evaluator owns tests/test_plugin_mixed_retrieval.py; Catalog Architect owns extension compatibility amendments, Pipeline Builder owns any assigned index-builder changes sequentially.
+- Non-goals: Unassigned files, model/permission changes, Git history, automatic installs, private-data disclosure or external activation. No local-release block and no live side effects from a design/mock task.
+- Expected result: Visible source modes, bounded discovery/merge, identity/provenance and snapshot/overlay/index version pairing; no silent overwrite of curated facts.
+- Acceptance criteria: Remote schemas and consent modes accepted first. Rebuild/activate updated local search assets only with bounded atomic version-compatible policy; running readers retain prior valid index. Read-only fallback and upload refusal remain useful. No private fields in remote queries/ledger, no fabricated live/current badge and no machine acceptance.
+- Verification gates: Deferred mixed-retrieval contract/runtime tests; source-mode/fallback traces; index-version mismatch and failed update cases. No live activation without CP-14.
+- Risks / approval gates: Preserve pre-existing dirty work and source-owned boundaries. Public research is read-only; sensitive scope, credentials, material cost, external writes, publication and destructive operations follow actual authorization. Selected caps and ranking quality are not yet measured.
 - Complexity: L
-- Estimated execution time: 8–16 active hours; preliminary.
+- Estimated execution time: Re-estimate at dispatch from accepted inputs and the first bounded slice; earlier ranges are superseded by the changed FTS5/context/integration scope. No delivery commitment or provider-cost estimate.
 - Agents: Owner proposed plugin_runtime_builder; tests quality_evaluator; contract review catalog_architect.
 - Skills: build-stackguide-plugin after CP-05; design-context-contracts; design-catalog-contracts; audit-readonly-boundaries.
-- Output artifacts: MCP client/merge/sync, inactive connection manifest, mocked integration tests.
+- Output artifacts: Deferred. Plugin Runtime Builder owns plugins/myai-stackguide/scripts/discovery_client.py, merge.py and catalog_sync.py if selected; connection manifest exact format/path accepted before edits. Quality Evaluator owns tests/test_plugin_mixed_retrieval.py; Catalog Architect owns extension compatibility amendments, Pipeline Builder owns any assigned index-builder changes sequentially.
 - Evidence owner: quality_evaluator; sanitized outgoing-payload inspection.
-- Docs update path: TEST.md, EVALS.md, and RUNLOG.md through their owners.
-- Rollback: Catalog-only selector; previous compatible snapshot; do not retry pending uploads without a bounded policy.
-- Stop conditions: Private query fields, hidden fallback, a stale overlay replacing pinned data, or downstream contract drift.
-- Next step: CP-14 approval packet and bounded live test.
+- Docs update path: Product Planner updates PLAN.md/task status; Quality Evaluator records TEST.md/EVALS.md evidence; Docs Maintainer appends RUNLOG.md after handoff. No unsupported completion claim.
+- Rollback: Undo only owned changes; preserve prior valid state, finalized history and compatible package/index. No automatic deletion, Git reset, permission weakening or silent retrieval fallback.
+- Stop conditions: Unexpected sensitive data or side effects, ownership overlap, incompatible accepted contract, unsafe containment, failed mandatory evidence or missing required external authorization. Routine relevant reads are not failures; report useful partial results when safe.
+- Next step: CP-14 if authorized; local CP-15/16 do not wait for this extension.
 
 #### Completion report
 
 - status: planned
-- what was done: Mixed integration has not been implemented.
-- files touched / work locations: This plan file only.
-- technical value delivered: Not claimed.
-- product value delivered: Not claimed.
+- what was done: Task contract and dependencies revised on 2026-08-31; no task implementation executed by this plan revision.
+- files touched / work locations: Planning/control/ADR documentation only; future owned outputs are listed above.
+- technical value delivered: Implementation benefit not claimed; planned result is Source/version/identity-safe merge and atomic index compatibility on overlay changes.
+- product value delivered: User outcome not measured; planned result is Live evidence may improve a report while the local path stays available.
 - actual implementation date and time: pending_execution_timestamp
-- verification evidence: Mock and live integration checks have not run.
-- residual risks: Auth/partial-failure behavior has not been proven.
-- follow-up: Mock contract gate first, then a separate live gate.
+- verification evidence: Current documentation checks belong in RUNLOG.md; no task-specific runtime, schema, index, model or release pass claimed.
+- residual risks: Upstream acceptance and task-specific evidence remain open. Optional remote scope remains deferred and is not a local-release blocker.
+- follow-up: CP-14 if authorized; local CP-15/16 do not wait for this extension.
 
 ### Task `CP-14`
 
-- Task: CP-14 — authorize and verify bounded test-environment integration
+- Task: CP-14 — verify the optional remote extension under bounded authorization
 - Status: planned
 - Schema version: task_matrix_plan_v1
 - Timezone: Europe/Moscow
-- Plan trigger: P3 requires the actual MCP/GitHub path, not only mock evidence.
+- Plan trigger: Owner revision 2026-08-31: local SQLite FTS5, relevant context, activity-aware evidence and actionable OSS integration. Remote extension deferred until a new scope decision.
 - Validator target: detailed task blocks
 - Date and time of task implementation: pending_execution_timestamp
 - Depends on: CP-02, CP-12, CP-13
-- Blocks: CP-15, CP-16
-- Source: R04, R06, R08, R09, R12, R13; permissions ADR.
-- Short description: Prepare an approval packet; verify the exact external path after separate authorization.
-- Technical value: Verify auth, transport, upsert, replay, and fallback in a real integration.
-- Product value: Establish what actually works and which data leave the workspace.
-- Scope: catalog_architect owns .codex/reviews/github-mcp-permission-review.md; quality_evaluator owns evals/plugin-v1/live-verification.md; the primary orchestrator coordinates only the approved test environment.
-- Non-goals: Production rollout, anonymous upload, unlimited research, private repository access, plugin publication.
-- Expected result: Approval packet with destination, public fields, credential use, cost/request/time caps, retention, and disable path; then sanitized runtime evidence if authorized.
-- Acceptance criteria: The approved endpoint/auth path is actually invoked; catalog/live/upsert/status paths are distinguishable by trace IDs; inputs are minimal; an actual write is read back and idempotent; live-lane refusal is explicitly tested; fallback does not mask the success scenario.
-- Verification gates: V-LIVE; V-MCP integration; payload/audit review; separate go/no-go evidence verdict.
-- Risks / approval gates: List deployment, OAuth/auth activation, credential use, shared writes, and provider cost separately; without authorization, the packet may be ready but live execution has not started.
+- Blocks: none
+- Source: Owner decisions 2026-08-31; active PRD R09; accepted CP-02 ADRs and Section 3 registries.
+- Short description: Deferred live gate; never a prerequisite for the local SQLite release.
+- Technical value: Observed auth, read/write scope and intended/fallback behavior for the selected service.
+- Product value: A future network feature is enabled only with visible behavior and graceful failure.
+- Scope: Deferred. Primary coordinates exact destination/data/action/cost/time authorization; Evidence Reviewer owns the separately approved .codex/reviews/github-mcp-permission-review.md update subject to permissions; Quality Evaluator owns evals/plugin-v1/live-verification.md and exact approved invocation evidence. No implicit install/deploy/credential use.
+- Non-goals: Unassigned files, model/permission changes, Git history, automatic installs, private-data disclosure or external activation. No local-release block and no live side effects from a design/mock task.
+- Expected result: Authorized live request/response/status traces and sanitized findings for auth expiry, refusal, quota/idempotency, failed writes, rollback and catalog-only fallback.
+- Acceptance criteria: Actual intended service path observed without mock masking; no secrets/private context persisted; each external write within authorization. Local release is unaffected if this optional feature remains unselected. Any later extension release adds its own CP-15/16 supplemental acceptance.
+- Verification gates: Deferred V-LIVE and V-MCP; exact approvals/commands/results, no current pass claimed.
+- Risks / approval gates: Preserve pre-existing dirty work and source-owned boundaries. Public research is read-only; sensitive scope, credentials, material cost, external writes, publication and destructive operations follow actual authorization. Selected caps and ranking quality are not yet measured.
 - Complexity: L
-- Estimated execution time: 4–8 active hours; approvals and provisioning excluded.
+- Estimated execution time: Re-estimate at dispatch from accepted inputs and the first bounded slice; earlier ranges are superseded by the changed FTS5/context/integration scope. No delivery commitment or provider-cost estimate.
 - Agents: Owner primary orchestrator; boundary owner catalog_architect; execution builders only within approved scope; quality_evaluator and read-only evidence_reviewer.
 - Skills: audit-readonly-boundaries; review-advisory-evidence; design-recommendation-evals; build-stackguide-mcp after CP-05.
-- Output artifacts: Permission review, approval reference, sanitized runtime IDs/results, and P3 verdict; no persisted credentials/raw payloads.
+- Output artifacts: Deferred. Primary coordinates exact destination/data/action/cost/time authorization; Evidence Reviewer owns the separately approved .codex/reviews/github-mcp-permission-review.md update subject to permissions; Quality Evaluator owns evals/plugin-v1/live-verification.md and exact approved invocation evidence. No implicit install/deploy/credential use.
 - Evidence owner: quality_evaluator; evidence_reviewer independently checks claims/limits.
-- Docs update path: PLAN.md, TEST.md, RUNLOG.md through their owners.
-- Rollback: Disable remote connection/upload; catalog-only remains available; deleting remote data requires separate scoped consent.
-- Stop conditions: Missing approval, exceeded limit, unknown destination, sensitive disclosure, or production route.
-- Next step: CP-15 after P3 is proven; leave the live gate open if approval is absent.
+- Docs update path: Product Planner updates PLAN.md/task status; Quality Evaluator records TEST.md/EVALS.md evidence; Docs Maintainer appends RUNLOG.md after handoff. No unsupported completion claim.
+- Rollback: Undo only owned changes; preserve prior valid state, finalized history and compatible package/index. No automatic deletion, Git reset, permission weakening or silent retrieval fallback.
+- Stop conditions: Unexpected sensitive data or side effects, ownership overlap, incompatible accepted contract, unsafe containment, failed mandatory evidence or missing required external authorization. Routine relevant reads are not failures; report useful partial results when safe.
+- Next step: If selected, separately schedule extension-specific acceptance/packaging; otherwise leave deferred without blocking local V1.
 
 #### Completion report
 
 - status: planned
-- what was done: Neither approval-packet preparation nor live execution has been performed.
-- files touched / work locations: This plan file only.
-- technical value delivered: Not claimed.
-- product value delivered: Not claimed.
+- what was done: Task contract and dependencies revised on 2026-08-31; no task implementation executed by this plan revision.
+- files touched / work locations: Planning/control/ADR documentation only; future owned outputs are listed above.
+- technical value delivered: Implementation benefit not claimed; planned result is Observed auth, read/write scope and intended/fallback behavior for the selected service.
+- product value delivered: User outcome not measured; planned result is A future network feature is enabled only with visible behavior and graceful failure.
 - actual implementation date and time: pending_execution_timestamp
-- verification evidence: No network/provider/MCP runtime evidence.
-- residual risks: approval_required; the current planning request does not authorize external actions.
-- follow-up: Prepare and agree on the exact live boundary before execution.
+- verification evidence: Current documentation checks belong in RUNLOG.md; no task-specific runtime, schema, index, model or release pass claimed.
+- residual risks: Upstream acceptance and task-specific evidence remain open. Optional remote scope remains deferred and is not a local-release blocker.
+- follow-up: If selected, separately schedule extension-specific acceptance/packaging; otherwise leave deferred without blocking local V1.
 
 ### Task `CP-15`
 
-- Task: CP-15 — perform private verification and independent review
+- Task: CP-15 — independently verify local retrieval, privacy and integration usefulness
 - Status: planned
 - Schema version: task_matrix_plan_v1
 - Timezone: Europe/Moscow
-- Plan trigger: P4 requires quality, privacy, and artifact UX evidence before public alpha.
+- Plan trigger: Owner revision 2026-08-31: local SQLite FTS5, relevant context, activity-aware evidence and actionable OSS integration. This task remains within the local product path.
 - Validator target: detailed task blocks
 - Date and time of task implementation: pending_execution_timestamp
-- Depends on: CP-04, CP-10, CP-11, CP-13, CP-14
+- Depends on: CP-04, CP-10, CP-11
 - Blocks: CP-16
-- Source: R02–R14; frozen eval cases; current runtime candidate.
-- Short description: Run representative/edge/adversarial/regression checks with independent evaluation.
-- Technical value: Prove the intended path, isolation, recovery, and side-effect boundaries.
-- Product value: The report is useful, truthful, and understandable across project types.
-- Scope: quality_evaluator owns evals/plugin-v1/private-verification.md, TEST.md, EVALS.md; evidence_reviewer returns findings only; private fixtures remain outside tracked artifacts and require separate consent from their owner.
-- Non-goals: Calling a synthetic corpus a private pilot, hiding failed cases, security certification, or production-readiness claims.
-- Expected result: Baseline/candidate traces, privacy/auth/abuse checks, browser QA, owner usefulness acceptance, residual risks, and a P4 verdict.
-- Acceptance criteria: Section 6 thresholds met; zero critical failures; 100% primary evidence; no machine accepted; empty/large/contradictory/noise/stale/malicious/cancel cases; browser accessibility/offline/overflow; auth expiry and per-user isolation.
-- Verification gates: V-EVAL, V-UI, targeted V-LOCAL/V-MCP/V-LIVE for affected surfaces; current independent review after fixes.
-- Risks / approval gates: Model cost and private source require explicit bounded authorization; retain sanitized results only; missing permission means an unmet gate, not a pass.
+- Source: Owner decisions 2026-08-31; active PRD R04, R12, R13, R14; accepted CP-02 ADRs and Section 3 registries.
+- Short description: Accept the local product against held-out cases, permitted context and rendered output.
+- Technical value: Independent evidence separates FTS5 behavior, model quality, minimization and package limitations.
+- Product value: A useful integration plan is understandable, evidence-grounded and actionable.
+- Scope: Quality Evaluator owns evals/plugin-v1/private-verification.md (retained path; local acceptance report), TEST.md and EVALS.md evidence; Evidence Reviewer reviews read-only, Product Planner owns human usefulness and user acceptance. Use synthetic/public fixtures by default; actual private-project access requires its applicable authorization, not a blanket host-isolation promise.
+- Non-goals: Unassigned files, model/permission changes, Git history, automatic installs, private-data disclosure or external activation. No remote architecture/runtime or vector/embedding dependency.
+- Expected result: Local pass/fail/gaps for retrieval/constraints/caps, activity semantics, human 16/20 rubric, authorized context/no secrets, offline browser behavior and handoff quality; remote gates explicitly not applicable.
+- Acceptance criteria: Use CP-04 frozen cases/runner/judgments and actual CP-11 FTS5 route. Inspect RU/EN/aliases, mature-old versus active-incompatible cases, missing facts/no-match, integration prerequisites and rollback. Permit useful ordinary source reads and proposed implementation steps; reject unauthorized execution/disclosure and unsupported operability claims. No CP-12/13/14 dependency. Record model/provider authority and evidence separately if a model run is needed.
+- Verification gates: V-EVAL, V-RETRIEVAL evidence review, V-UI and independent privacy/provenance/usefulness review. Local synthetic evidence does not establish private-project safety universally or external release readiness.
+- Risks / approval gates: Preserve pre-existing dirty work and source-owned boundaries. Public research is read-only; sensitive scope, credentials, material cost, external writes, publication and destructive operations follow actual authorization. Selected caps and ranking quality are not yet measured.
 - Complexity: L
-- Estimated execution time: 8–16 active hours; fixes and external waiting separate.
+- Estimated execution time: Re-estimate at dispatch from accepted inputs and the first bounded slice; earlier ranges are superseded by the changed FTS5/context/integration scope. No delivery commitment or provider-cost estimate.
 - Agents: Owner quality_evaluator; independent evidence_reviewer; product acceptance product_planner and product owner; fixes only by the original builders.
 - Skills: design-recommendation-evals; audit-readonly-boundaries; review-advisory-evidence; verify-generated-parity; browser:control-in-app-browser for authorized QA.
-- Output artifacts: Versioned eval results, sanitized traces/screenshots, review findings, owner verdict, and gap list.
+- Output artifacts: Quality Evaluator owns evals/plugin-v1/private-verification.md (retained path; local acceptance report), TEST.md and EVALS.md evidence; Evidence Reviewer reviews read-only, Product Planner owns human usefulness and user acceptance. Use synthetic/public fixtures by default; actual private-project access requires its applicable authorization, not a blanket host-isolation promise.
 - Evidence owner: quality_evaluator; evidence_reviewer is independent of implementation owners.
-- Docs update path: TEST.md, EVALS.md, PLAN.md, and RUNLOG.md through their owners.
-- Rollback: No-go on a critical failure; return to the last verified candidate or catalog-only mode; do not delete user runs.
-- Stop conditions: Privacy failure, unsupported readiness, unapproved cost/data scope, or a false live/visual pass.
-- Next step: CP-16 only after every mandatory P4 gate and owner acceptance.
+- Docs update path: Product Planner updates PLAN.md/task status; Quality Evaluator records TEST.md/EVALS.md evidence; Docs Maintainer appends RUNLOG.md after handoff. No unsupported completion claim.
+- Rollback: Undo only owned changes; preserve prior valid state, finalized history and compatible package/index. No automatic deletion, Git reset, permission weakening or silent retrieval fallback.
+- Stop conditions: Unexpected sensitive data or side effects, ownership overlap, incompatible accepted contract, unsafe containment, failed mandatory evidence or missing required external authorization. Routine relevant reads are not failures; report useful partial results when safe.
+- Next step: CP-16 local packaging after accepted outcomes; optional remote supplemental verification only if later selected.
 
 #### Completion report
 
 - status: planned
-- what was done: Private verification and independent review have not started.
-- files touched / work locations: This plan file only.
-- technical value delivered: Not claimed.
-- product value delivered: Not claimed.
+- what was done: Task contract and dependencies revised on 2026-08-31; no task implementation executed by this plan revision.
+- files touched / work locations: Planning/control/ADR documentation only; future owned outputs are listed above.
+- technical value delivered: Implementation benefit not claimed; planned result is Independent evidence separates FTS5 behavior, model quality, minimization and package limitations.
+- product value delivered: User outcome not measured; planned result is A useful integration plan is understandable, evidence-grounded and actionable.
 - actual implementation date and time: pending_execution_timestamp
-- verification evidence: No eval score, private pilot, or rendered acceptance.
-- residual risks: Public readiness has not been established.
-- follow-up: Freeze the candidate/cases and approvals before verification.
+- verification evidence: Current documentation checks belong in RUNLOG.md; no task-specific runtime, schema, index, model or release pass claimed.
+- residual risks: Upstream acceptance and task-specific evidence remain open. Remote extension and vectors are not prerequisites.
+- follow-up: CP-16 local packaging after accepted outcomes; optional remote supplemental verification only if later selected.
 
 ### Task `CP-16`
 
-- Task: CP-16 — prepare the release package and separately authorized public alpha
+- Task: CP-16 — prepare and verify the local FTS5 plugin release package
 - Status: planned
 - Schema version: task_matrix_plan_v1
 - Timezone: Europe/Moscow
-- Plan trigger: P5 proceeds only after contract/privacy/eval/browser/runtime gates.
+- Plan trigger: Owner revision 2026-08-31: local SQLite FTS5, relevant context, activity-aware evidence and actionable OSS integration. This task remains within the local product path.
 - Validator target: detailed task blocks
 - Date and time of task implementation: pending_execution_timestamp
-- Depends on: CP-01, CP-05, CP-06, CP-14, CP-15
+- Depends on: CP-01, CP-05, CP-06, CP-15
 - Blocks: none
-- Source: R01, R09–R13; docs/RELEASE_PROCESS.md; P4 evidence.
-- Short description: Freeze the release manifest, instructions, compatibility, support, and rollback; publication is a separate substep.
-- Technical value: Reproducible package and controlled disabling of remote capabilities.
-- Product value: Users understand prerequisites, data transmission, limitations, and support.
-- Scope: docs_maintainer owns README.md, docs/RELEASE_PROCESS.md, docs/PLUGIN_V1_USER_GUIDE.md, docs/PLUGIN_V1_PRIVACY.md, docs/PLUGIN_V1_RELEASE_CHECKLIST.md, RUNLOG.md; builders make only approved version/packaging changes in their owned files; the orchestrator owns release coordination.
-- Non-goals: Automatic Git commits/tags/push, public rollout, or scheduler activation without separate authorization.
-- Expected result: Frozen artifact hashes/versions, installation/resume/revoke/disable guide, evidence ceiling, known gaps, release go/no-go; list 24h compaction activation separately.
-- Acceptance criteria: V-RELEASE passed in supported environments; previous-version and snapshot fallback verified; no secrets/private artifacts; owner accepts the release; exact publish/deploy destination and cost scope confirmed before external actions.
-- Verification gates: V-CATALOG final parity; package validation against the current official contract; V-RELEASE; final independent evidence review; approved post-release smoke without scope expansion.
-- Risks / approval gates: Package readiness is not publication; deployment, public listing, credential activation, shared writes, and the recurring scheduler have separate approval boundaries.
+- Source: Owner decisions 2026-08-31; active PRD R01, R11, R12, R13; accepted CP-02 ADRs and Section 3 registries.
+- Short description: Freeze the tested local package/index and user instructions; publication remains separate.
+- Technical value: Reproducible package identity, runtime compatibility and a verified prior-version rollback.
+- Product value: Users can start from their project without server accounts or embedding setup.
+- Scope: Docs Maintainer owns README.md, docs/RELEASE_PROCESS.md, docs/PLUGIN_V1_USER_GUIDE.md, docs/PLUGIN_V1_PRIVACY.md, docs/PLUGIN_V1_RELEASE_CHECKLIST.md and RUNLOG.md. Plugin/Pipeline Builders make only assigned version/package/index changes in their owned files; Quality Evaluator owns install/upgrade/rollback evidence; primary coordinates freeze and external authorization.
+- Non-goals: Unassigned files, model/permission changes, Git history, automatic installs, private-data disclosure or external activation. No remote architecture/runtime or vector/embedding dependency.
+- Expected result: Frozen package/source/card/index/policy hashes and versions, prerequisites, clean install/resume/disable guide, privacy limitations, useful integration handoff and release go/no-go. Remote auth/overlay/scheduler absent, not failing local gates.
+- Acceptance criteria: Actual supported Windows/Python/FTS5 preflight, installed/cache identity, read-only query, no network/download, state compatibility and previous-package/index rollback verified in an authorized synthetic workspace. No private artifacts or secrets in package. Owner accepts local scope/evidence; publication needs exact separate authorization and is not required to label local package-ready.
+- Verification gates: V-RELEASE, final relevant card/index parity, current official package validation and independent evidence review. CP-12/13/14 excluded from local prerequisite closure.
+- Risks / approval gates: Preserve pre-existing dirty work and source-owned boundaries. Public research is read-only; sensitive scope, credentials, material cost, external writes, publication and destructive operations follow actual authorization. Selected caps and ranking quality are not yet measured.
 - Complexity: M
-- Estimated execution time: 4–8 active hours; publication/platform review and approval waiting excluded.
-- Agents: Owner primary orchestrator; documentation docs_maintainer; package plugin_runtime_builder; service mcp_backend_builder; gates quality_evaluator; reviewer evidence_reviewer.
-- Skills: maintain-control-plane; review-advisory-evidence; verify-generated-parity; build-stackguide-plugin and build-stackguide-mcp after CP-05; openai-docs for current packaging requirements.
-- Output artifacts: Release/user/privacy/checklist docs, immutable package manifest, explicit release state, and rollback evidence.
+- Estimated execution time: Re-estimate at dispatch from accepted inputs and the first bounded slice; earlier ranges are superseded by the changed FTS5/context/integration scope. No delivery commitment or provider-cost estimate.
+- Agents: Primary orchestrator; plugin_runtime_builder and catalog_pipeline_builder for owned package files; quality_evaluator; read-only evidence_reviewer; sequential docs_maintainer. No backend role required locally.
+- Skills: maintain-control-plane; review-advisory-evidence; verify-generated-parity; build-stackguide-plugin; openai-docs for current packaging.
+- Output artifacts: Docs Maintainer owns README.md, docs/RELEASE_PROCESS.md, docs/PLUGIN_V1_USER_GUIDE.md, docs/PLUGIN_V1_PRIVACY.md, docs/PLUGIN_V1_RELEASE_CHECKLIST.md and RUNLOG.md. Plugin/Pipeline Builders make only assigned version/package/index changes in their owned files; Quality Evaluator owns install/upgrade/rollback evidence; primary coordinates freeze and external authorization.
 - Evidence owner: quality_evaluator for gates; orchestrator for approval/publication receipt; docs_maintainer only records evidence.
-- Docs update path: README.md, release docs, PLAN.md, TEST.md, EVALS.md, RUNLOG.md strictly according to ownership.
-- Rollback: Disable remote capabilities/scheduler; use the previous compatible plugin/snapshot; preserve user artifacts and ledger history; irreversible cleanup requires separate authorization.
-- Stop conditions: Any mandatory gate remains open, approval is absent, the package changed after freeze, or rollback is unverified.
-- Next step: Close P5 only with actual approved release evidence; otherwise retain package-ready/publication-pending with an owner and reason.
+- Docs update path: Product Planner updates PLAN.md/task status; Quality Evaluator records TEST.md/EVALS.md evidence; Docs Maintainer appends RUNLOG.md after handoff. No unsupported completion claim.
+- Rollback: Undo only owned changes; preserve prior valid state, finalized history and compatible package/index. No automatic deletion, Git reset, permission weakening or silent retrieval fallback.
+- Stop conditions: Unexpected sensitive data or side effects, ownership overlap, incompatible accepted contract, unsafe containment, failed mandatory evidence or missing required external authorization. Routine relevant reads are not failures; report useful partial results when safe.
+- Next step: Report package-ready/publication-pending when applicable; publish only on explicit request. Do not activate remote extensions or a scheduler.
 
 #### Completion report
 
 - status: planned
-- what was done: No release has been prepared or published.
-- files touched / work locations: This plan file only.
-- technical value delivered: Not claimed.
-- product value delivered: Not claimed.
+- what was done: Task contract and dependencies revised on 2026-08-31; no task implementation executed by this plan revision.
+- files touched / work locations: Planning/control/ADR documentation only; future owned outputs are listed above.
+- technical value delivered: Implementation benefit not claimed; planned result is Reproducible package identity, runtime compatibility and a verified prior-version rollback.
+- product value delivered: User outcome not measured; planned result is Users can start from their project without server accounts or embedding setup.
 - actual implementation date and time: pending_execution_timestamp
-- verification evidence: No package/install/deploy/publication evidence.
-- residual risks: All public-alpha gates remain future work.
-- follow-up: Do not treat the saved plan as release authorization.
+- verification evidence: Current documentation checks belong in RUNLOG.md; no task-specific runtime, schema, index, model or release pass claimed.
+- residual risks: Upstream acceptance and task-specific evidence remain open. Remote extension and vectors are not prerequisites.
+- follow-up: Report package-ready/publication-pending when applicable; publish only on explicit request. Do not activate remote extensions or a scheduler.

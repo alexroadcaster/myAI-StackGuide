@@ -1,29 +1,24 @@
 # myAI-StackGuide Product Concept
 
-Current product meaning is defined by the [active PRD](PRODUCT_REQUIREMENTS.md#active-plugin-v1-requirements), with execution in the [CP plan](plan/2026-08-30-codex-plugin-v1-implementation-plan.md). This active summary supersedes the historical concept below; it does not implement or activate a product.
+Active owner revision: 2026-08-31. [PRD](PRODUCT_REQUIREMENTS.md#active-plugin-v1-requirements) and [CP plan](plan/2026-08-30-codex-plugin-v1-implementation-plan.md) supersede the historical concept below.
 
 ## Active Plugin V1 Concept
 
-myAI-StackGuide is a context-aware open-source guide for founders, product owners, engineers and operators. It turns a goal and local project evidence into a decision about what to inspect, compare, adopt, defer or avoid. Its value hypothesis is useful, explainable choices with less research effort; no measured improvement is claimed.
+Help a user build or modernize their own solution faster by integrating suitable open-source components. A useful outcome is a decision plus the smallest practical integration/validation plan, with sources, alternatives, gaps and rollback. The plugin works locally from the user's project; Codex supplies the model.
 
-The selected entrypoint is a Codex plugin, combining a skill, bounded local scanner/scripts and remote MCP without custom MCP UI. An idea or empty project is valid. Adaptive intake asks 1-10 relevant questions; sanitized answers and phase results persist locally. A versioned Project Context Brief separates facts, inferences, assumptions, corrections, gaps and evidence. Corrections invalidate dependent recommendations.
+The catalog is a source-owned decision map, not an entire prompt. SQLite FTS5/BM25 retrieves a bounded set of normalized repository cards; constraints and provenance produce an evidence pack for comparison and an actionable coding-agent handoff. The baseline has no embeddings, vector database, server or additional provider account. Multilingual/semantic gaps are measured against the selected lexical baseline before considering extra machinery.
 
-After a preliminary Brief, catalog and authorized public GitHub discovery lanes can run in parallel. Hard constraints, canonical identity and evidence determine eligibility; unknown mandatory fields and popularity cannot establish fit. The final Decision Report presents roles, reasons, comparison, avoid/defer, reading path, provenance, caveats and a next human decision. A justified no-match is useful output.
+Relevant source context may be read within existing permissions, while scanner discovery stays bounded and non-executing. Save minimized summaries and safe references, not a copy of the project. Creation/last-push/verified-commit and observation dates inform repository assessment; no snapshot-age cutoff substitutes for actual activity or compatibility evidence.
 
 ## Active Boundaries And Deferred Features
 
-- The scanner is read-only: no project execution, installs, secrets, sensitive-path exceptions, raw-source persistence or network. Raw source remains inside scanner/sanitizer; the model receives sanitized structures and cannot bypass the scanner.
-- The plugin may write only its own `docs/myai-stackguide/` state, offline HTML and finalized run snapshots. It does not edit analyzed source, install recommendations, perform Git operations or deploy projects.
-- Remote MCP receives a minimal DiscoveryQuery, not the full Brief, answers, private project content, excerpts, absolute paths or project identifiers. User-entered chat cannot retroactively be made untransmitted; warn against secrets and sanitize before persistence.
-- GitHub retrieval is read-only. `candidate_batch_upsert` is a distinct own-backend external write of public candidate metadata, requiring auth and explicit consent or a bounded standing policy. Refusal/unavailability preserves catalog-only results; failed upload cannot block the report.
-- Preserve the immutable catalog snapshot plus versioned overlay. Keep `catalog_status`, evidence stage and `recommendation_eligibility` separate; machine evidence never grants curator `accepted`.
-- Hosted app/OAuth project acquisition, archive upload, standalone CLI, SDK/widget, hosted boards, general catalog API and watchlists are deferred. An Integration Blueprint is historical terminology, not an extra implementation stage.
+The report can propose steps, commands, adapters, affected components and a first implementation slice. A recommendation request does not execute them. An explicit implementation request can continue through the coding workflow under its own scope; blanket refusal is not the product goal. Secrets, unauthorized access/disclosure, unrequested installs and destructive/external operations remain bounded.
 
-The historical no-local-files rule is replaced by the bounded artifact exception; historical private-contribution, broad MCP resource and quantity/pool requirements are superseded by R01-R14. Snapshot size is not recommendation quality. CP-02 owns runtime/backend/auth/retention/budgets, CP-03 owns schemas, and CP-04/15 own measured recommendation quality.
+Local private state and public catalog index are separate. No new upload, telemetry, host permission change or host-wide isolation claim. Remote discovery/ledger/auth/overlay/scheduler (CP-12-14) are deferred and do not block local acceptance/release (CP-15/16). Product runtime, measured relevance and integration speed are not yet verified.
 
 ## Historical Product Concept — Not Active Requirements
 
-All text below, including earlier strict boundaries, feature ideas, V1 scope, retrieval architecture, quotas and example behavior, is preserved background. Product intent is retained only through the active PRD mappings; these sections cannot grant additional permissions or add release requirements.
+The original concept, including advisory-only/scanner-only and semantic-retrieval proposals, is retained as history and does not override the owner revision.
 
 <details>
 <summary>Preserved historical product concept</summary>

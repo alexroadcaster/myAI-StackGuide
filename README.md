@@ -4,9 +4,9 @@
 
 myAI-StackGuide is a myAI Labs project that helps founders, product teams, engineers, and operators understand which open-source solutions are relevant to their specific project, why they fit, what should be compared, and what should be avoided or deferred.
 
-The selected V1 is a Codex plugin combining a curated repository catalog, a bounded local read-only scanner, adaptive intake and a remote MCP discovery backend. It starts from an idea or local project and ends with a saved Project Context Brief and offline **Decision Report** to discuss before adopting or integrating anything.
+The selected path is a Codex plugin working locally from the user's project: adaptive intake, bounded relevant context, a curated catalog and **SQLite FTS5/BM25 retrieval**. It helps users build or modernize solutions through OSS integration, ending with a saved Project Context Brief, offline **Decision Report**, actionable integration plan and coding-agent handoff. Remote MCP/discovery and a shared backend are deferred, not installation/runtime/release prerequisites.
 
-**Current status:** the catalog and reproducible pipeline exist; agent/skill definitions and offline team checks are present. CP-01 aligns the plugin-first product documentation. Product schemas, scanner, intake/recommendation runtime and MCP backend remain planned; documentation and static checks do not make them operational.
+**Current status:** the catalog and reproducible pipeline exist; agent/skill definitions and offline team checks are present. CP-01/02 documentation and [local ADRs](specs/decisions/plugin-v1-architecture.md) are amended to the owner's 2026-08-31 decisions. Schemas, FTS5 index, scanner and recommendation runtime remain planned; the plugin is not installed or operational. Relevant authorized project context is allowed; [privacy boundaries](specs/decisions/plugin-v1-permissions.md#context-access-and-product-privacy) retain minimization and sensitive exclusions without a host-wide isolation promise.
 
 ## Why This Project Exists
 
@@ -49,32 +49,34 @@ The planned scanner will inspect an authorized project in read-only mode and bui
 - visible capabilities, maturity signals, and possible gaps;
 - observed facts, inferences, confidence, and missing context.
 
-The scanner is context acquisition—not a coding agent. It must not edit files, execute project code, install dependencies, create pull requests, or collect secrets.
+Scanner operations do not edit files, execute project code, install dependencies, create pull requests or collect secrets. Targeted relevant source reads under existing permissions can complement the structured overview; they are minimized rather than copied into persistent artifacts.
 
 ### 3. Decision Workflow
 
-The guide combines the corrected Project Context Brief with a short interview about the user’s goal, stage, constraints, and preferred adoption mode. It then maps the project to category paths and repository candidates.
+The guide combines the corrected Project Context Brief with a short interview about the user’s goal, stage, constraints, and preferred adoption mode. It then uses local SQLite FTS5/BM25 to retrieve a bounded set of repository cards, applies constraints and builds an evidence pack for comparison. It never needs the full catalog in model context.
 
-The target output is an offline Decision Report with evidence, caveats and a next human decision. The older memo/Integration Blueprint names are retained in historical documents; they do not add an implementation stage.
+The target output is an offline Decision Report with evidence, alternatives, integration steps, affected components, a first validation slice and rollback. It provides an actionable coding-agent handoff. A recommendation does not execute changes; a user implementation request authorizes its own bounded workflow.
 
 ## Intended User Journey
 
 ```mermaid
 flowchart LR
-    A[Codex plugin: idea or local project] --> B[Adaptive intake and scan disclosure]
-    B --> C[Bounded local scanner and sanitizer]
-    B --> D[Versioned Project Context Brief]
-    C --> D
-    D --> E[Local catalog matching]
-    D --> F[Authorized minimal-query public GitHub discovery]
-    E --> G[Merge, dedupe, constraints and evidence]
-    F --> G
-    F -. refused or unavailable: catalog-only .-> G
-    G --> H[Offline Decision Report and local state]
-    H --> I[Human adoption decision]
+    U[User goal and constraints] --> B[Versioned Project Context Brief]
+    P[Selected project] --> S[Bounded scanner and relevant context reads]
+    S --> B
+    C[Public source-owned catalog and evidence] --> A[Build normalized cards]
+    A --> I[Bundled read-only SQLite FTS5 index]
+    B --> Q[Structured query and aliases]
+    Q --> R[BM25 retrieval and dedupe]
+    I --> R
+    R --> F[Constraints and bounded evidence pack]
+    F --> M[Codex comparison and integration plan]
+    B --> M
+    M --> O[Local state and offline report]
+    O --> H[Coding-agent handoff on user request]
 ```
 
-This is the intended workflow, not runtime evidence. The catalog and authorized discovery lanes can run in parallel after a preliminary Brief; corrections invalidate dependent results. The user remains the decision owner. Code changes, recommended installations, integration, Git operations and deployment require a separate workflow. The plugin's bounded local artifact writes and separately authorized public candidate uploads are described below; neither is a scanner write.
+This is planned architecture, not runtime evidence. `source_mode=catalog_only` uses `retrieval_engine=sqlite_fts5`; corrections invalidate dependent packs/recommendations. Relevant source may inform Codex under its own permissions/settings; local does not mean offline inference. The public index contains no user project context. Integration execution follows a user coding request; external/destructive/credential/cost boundaries remain in force.
 
 ## What The User Receives
 
@@ -88,8 +90,8 @@ A complete recommendation flow is designed to produce:
 6. **Compare view** — the trade-offs that matter before choosing.
 7. **Avoid/defer guidance** — attractive options that are premature or mismatched, plus conditions for revisiting them.
 8. **Reading path** — what to inspect first in documentation, examples, deployment guides, releases, issues, and licenses.
-9. **Evidence and caveats** — provenance, snapshot date, freshness, confidence, and unverified assumptions.
-10. **Next human decision** — the choice that should be made before implementation begins.
+9. **Evidence and caveats** — provenance, creation/push/verified-commit versus observation dates, gaps and unverified assumptions; no automatic rejection just because a snapshot is old.
+10. **Integration plan and handoff** — affected components, steps, version/license prerequisites, first validation slice, unresolved decisions and rollback for a coding agent.
 
 ## Who It Is For
 
@@ -117,14 +119,16 @@ The repository deliberately separates implemented evidence from product intent.
 |---|---|
 | Interactive catalog | Available as a self-contained HTML artifact. |
 | Catalog snapshot | Source-owned and reproducible from manifest + template. |
-| Repository count | 1,142 canonical repository records. |
+| Repository count | 1,142 source records; canonical alias deduplication is part of the planned plugin adapter. |
 | Taxonomy | 77 categories and 1,290 category placements in the current HTML snapshot. |
 | Catalog status groups | 314 accepted, 813 candidate, and 15 reference/benchmark records. |
 | Stack guidance | 10 stack recipes and 10 compatibility edges in the current manifest. |
 | Product concept, PRD, and roadmap | Present as source-controlled planning artifacts. |
 | Project-scoped skills and agents | Structurally configured and statically tested. |
 | Read-only scanner | Planned; no production scanner runtime is committed. |
-| Codex plugin and remote MCP backend | Accepted V1 direction; team contracts updated and locally checked, runtime not implemented or activated. |
+| Local Codex plugin | Selected local direction; CP-02 amended for FTS5, runtime not implemented or activated. |
+| SQLite FTS5 retrieval | Selected lexical baseline; index/card/query/eval work planned in CP-03/04/06/09/11/15. No embeddings or server needed. |
+| Remote MCP and shared candidate backend | Deferred future extension; no service, hosting, storage or auth selected for the local path. |
 | Hosted web app and project GitHub OAuth | Earlier entrypoint proposal; superseded for V1 by local plugin-first context acquisition. |
 | Recommendation engine and interview runtime | Planned; contracts and eval cases are still being defined. |
 | MCP server / Agents SDK | MCP is planned; no runtime is activated. An Agents SDK application is not required by the selected plugin architecture. |
@@ -158,55 +162,41 @@ Canonical current HTML data lives in [data/catalog_manifest.json](data/catalog_m
 
 Catalog metadata is a snapshot. Repository stars, activity, license metadata, ownership, and archive status may change. Current claims require a fresh source-backed check; discovery metadata must not be presented as security, legal, procurement, or production-readiness evidence.
 
-## Privacy And Advisory Boundaries
+## Privacy And Integration Boundaries
 
-The planned product follows these default rules:
+The owner prioritizes useful integration guidance while retaining actual permission and data safeguards:
 
-- local project scanning and public GitHub retrieval are read-only and least-privilege;
-- the user sees scan scope, exclusions, retention, and transmission rules before scanning;
-- allowlisted files and metadata are preferred over broad source ingestion;
-- secrets, credentials, keys, dumps, customer exports, raw user messages, logs, dependency folders, and build outputs are excluded by default;
-- raw project source stops at the scanner/sanitizer boundary;
-- the model receives sanitized structures and evidence references; agents must not bypass the scanner to read raw source;
-- MCP receives a minimal DiscoveryQuery and public candidate metadata, never the full Brief, answers, excerpts, absolute paths or private project identifiers; no private-data contribution exception applies;
-- warn users not to type secrets into Codex chat; already-entered chat cannot retroactively become untransmitted, and secret-like answers must be sanitized before persistence;
-- plugin output writes are limited to `docs/myai-stackguide/`: atomic `state.json`, offline `status.html` and immutable finalized `runs/{run_id}.json`;
-- `candidate_batch_upsert` is an own-backend external write requiring auth and explicit consent or bounded standing policy; machine candidates never acquire curator `accepted` automatically;
-- refusal of auth/transmission or unavailable discovery produces visible catalog-only fallback; failed candidate upload does not block delivery of the local report;
-- recommendations are advisory and do not constitute security, legal, license, compliance, procurement, or production approval.
+- relevant project context may be read under the user's existing host permissions; the scanner remains bounded, read-only and non-executing;
+- secrets, credentials, dumps, customer exports and unsafe paths stay excluded; do not bypass exclusions through a different tool;
+- save minimized findings, sanitized answers and safe references, not whole source files or raw chat; local artifacts may still contain confidential context;
+- the public catalog/SQLite index contains no project files, user answers or queries; no remote service, upload, telemetry or extra provider account is added;
+- output writes remain under `docs/myai-stackguide/`: atomic state, offline HTML and immutable finalized runs, with bounded recovery/history and no automatic deletion;
+- Codex may process relevant context under its own settings; this plugin does not promise host-wide isolation or offline model inference;
+- a report can propose integration steps and commands without executing or claiming to have tested them; explicit implementation requests can continue through the coding workflow without blanket refusal;
+- future MCP receives only a minimal public-safe query/evidence; own-backend writes need their own scope/auth/consent, and machine eligibility never grants curator acceptance;
+- repository activity and popularity do not constitute security, compatibility, legal, procurement or production approval.
 
 ## Architecture Direction
 
-The product is being designed around clear trust boundaries:
+1. Source-owned public metadata and evidence become canonical solution cards and a versioned bundled FTS5 index; browser-only enrichment is not persisted source proof.
+2. Intake, bounded scanning and relevant authorized reads produce a corrected Brief with facts/inferences/gaps.
+3. Structured queries, weighted BM25 and RU/EN/technology aliases retrieve at most 60 candidates; constraints/dedupe produce at most 12 detailed cards and a 48-KiB evidence pack. These are initial engineering ceilings pending evaluation, not measured performance.
+4. Codex compares the bounded evidence and prepares a useful integration plan/handoff; state and offline HTML remain local JSON/artifacts, separate from the read-only public index.
+5. Source/index/policy pins prevent mismatch; missing/corrupt index is visible, never a full-catalog prompt fallback. Activity and observation dates stay separate; there is no blanket snapshot TTL.
 
-1. **Context access** — authorized local project scanning through the Codex plugin; public GitHub discovery uses a separate sanitized MCP query boundary.
-2. **Scanner and sanitizer** — deterministic inventory, exclusions, facts, evidence references, and confidence.
-3. **Project Context Brief** — user-readable understanding that can be corrected before matching.
-4. **Matching and discovery** — pinned local catalog plus authorized bounded public GitHub evidence, hard constraints, dedupe, separate snapshot/live provenance and explicit fallback.
-5. **Advisory response** — Decision Report, comparison, avoid/defer, reading path, evidence and next decision; local persistence and version history.
-
-Detailed documents:
-
-- [Product concept](docs/MYAI_STACKGUIDE_PRODUCT_CONCEPT.md)
-- [Context scanner](docs/MYAI_STACKGUIDE_CONTEXT_SCANNER.md)
-- [Module architecture](docs/MYAI_STACKGUIDE_MODULE_ARCHITECTURE.md)
-- [Product requirements](docs/PRODUCT_REQUIREMENTS.md)
-- [V1 roadmap](docs/V1_ROADMAP.md)
+Detailed documents: [product concept](docs/MYAI_STACKGUIDE_PRODUCT_CONCEPT.md), [scanner](docs/MYAI_STACKGUIDE_CONTEXT_SCANNER.md), [module architecture](docs/MYAI_STACKGUIDE_MODULE_ARCHITECTURE.md), [PRD](docs/PRODUCT_REQUIREMENTS.md), [roadmap](docs/V1_ROADMAP.md) and [selected ADR](specs/decisions/plugin-v1-architecture.md).
 
 ## Development Priorities
 
-The active [PRD](docs/PRODUCT_REQUIREMENTS.md#active-plugin-v1-requirements) defines R01-R14; the [roadmap](docs/V1_ROADMAP.md#active-plugin-v1-milestones) and [CP plan](docs/plan/2026-08-30-codex-plugin-v1-implementation-plan.md) define delivery gates. Local agent-team remediation is implemented. CP-01 reconciles the documentation; runtime/auth/storage decisions and measured builder readiness remain open.
+The [PRD](docs/PRODUCT_REQUIREMENTS.md#active-plugin-v1-requirements) and [CP plan](docs/plan/2026-08-30-codex-plugin-v1-implementation-plan.md) reflect the 2026-08-31 owner decisions:
 
-The active dependency order is:
+1. CP-01/02: completed documentation, amended for local FTS5/context/activity/integration.
+2. CP-03/04/05: local contracts, relevance/usefulness evaluation design and existing agent/skill alignment before runtime dispatch.
+3. CP-06/07: persist catalog metadata, build cards/index, then local intake/state/preflight.
+4. CP-08/09/10/11: context, bounded retrieval and integration report; one useful actual FTS5 slice, then negatives/scaling.
+5. CP-15/16: independent local acceptance and package/index/fresh-session/rollback evidence. Publication requires separate authorization.
 
-1. CP-01: reconcile scope, requirements, historical mappings and acceptance.
-2. CP-02: accept runtime, auth, storage, privacy and budget decisions; CP-04 eval preparation can follow CP-01 independently.
-3. CP-03/05: accept schemas and complete builder readiness, preserving already-authored roles.
-4. CP-06-CP-11: build the local plugin/report vertical slice and prove one useful synthetic case before broader cases.
-5. CP-12-CP-14: mock-first backend and mixed retrieval, then separately authorized test-environment verification.
-6. CP-15-CP-16: independent quality/privacy/browser review and release package; publication, deployment and scheduling need separate authorization.
-
-See [REQUIREMENTS.md](REQUIREMENTS.md), [PLAN.md](PLAN.md), [TEST.md](TEST.md), and [EVALS.md](EVALS.md) for the current execution state and evidence gates.
+CP-12-CP-14 are an optional remote extension and do not block the local release. No mandatory vectors, embedding model or service setup. See [REQUIREMENTS](REQUIREMENTS.md), [PLAN](PLAN.md), [TEST](TEST.md) and [EVALS](EVALS.md) for scopes and evidence ceilings.
 
 ## Build And Verify
 

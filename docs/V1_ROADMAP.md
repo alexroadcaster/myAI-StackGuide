@@ -2,37 +2,30 @@
 
 ## Roadmap Goal
 
-Build the first full product version of myAI-StackGuide around one primary entrypoint:
-
-> Codex plugin + bounded local scanner + remote MCP.
-
-This roadmap owns the active phases below; the [CP plan](plan/2026-08-30-codex-plugin-v1-implementation-plan.md) owns exact dependencies/outputs and [PLAN.md](../PLAN.md) owns the current assignment. [Active PRD](PRODUCT_REQUIREMENTS.md#active-plugin-v1-requirements) owns R01-R14. AR remediation is completed local preparation. CP-01 is authorized documentation reconciliation; later product tasks and external actions are not authorized by this roadmap.
-
-V1 starts from an idea or selected local workspace and ends with a saved Project Context Brief and offline Decision Report. No hosted account, GitHub project connection, standalone CLI or SDK is a prerequisite. The existing catalog snapshot is preserved, not refreshed or promoted by this plan.
+Deliver a local Codex plugin that turns a user goal and project context into a useful OSS integration or modernization plan. Owner revision 2026-08-31 selects SQLite FTS5 and removes the strict host-isolation and snapshot-age blockers. Runtime remains unimplemented. [PRD](PRODUCT_REQUIREMENTS.md#active-plugin-v1-requirements) defines meaning; [detailed plan](plan/2026-08-30-codex-plugin-v1-implementation-plan.md) defines the dependency graph.
 
 ## Active Plugin V1 Milestones
 
-| Phase | Tasks | Intended result / exit gate | Current evidence boundary |
-| --- | --- | --- | --- |
-| P1 — Contract reset | CP-01-CP-05 | Reconciled scope; accepted runtime/auth/retention ADRs; schemas, eval contracts and builder readiness | CP-01 documentation only; CP-02/03/04 and full CP-05 acceptance remain open |
-| P2 — Local vertical | CP-06-CP-11 | Adapted catalog, adaptive intake, bounded scanner, versioned Brief, matching and offline report; one useful synthetic end-to-end case first, then edges | Planned; no MCP or live provider evidence inferred |
-| P3 — Mixed retrieval | CP-12-CP-14 | Local mock-first MCP/ledger after CP-11; merged catalog/public GitHub lanes; separately authorized test-environment activation and fallback evidence | Planned; no deployment, credentials or backend writes authorized here |
-| P4 — Private verification | CP-15 | Privacy/auth/abuse/evals/browser evidence and human usefulness acceptance | Planned; the phase name grants no access to private source or customer data |
-| P5 — Public alpha | CP-16 | Versioned package, supported-environment installation, snapshot/previous-version rollback, owner release acceptance | Planned; publication and scheduler activation need separate authorization |
+| Phase | Tasks | Exit evidence / status |
+| --- | --- | --- |
+| P0: direction and design | CP-01, CP-02 | Documentation implemented, amended to FTS5/relevant context/activity/integration; no runtime proof |
+| P1: local contracts and readiness | CP-03, CP-04, CP-05 | Local C1-C6/C9, compatible C8 eval contract and aligned fresh-session agent/skill behavior; planned |
+| P2: local useful vertical slice | CP-06-CP-11 | Persist public metadata/cards, build index, intake/state, bounded context, FTS5/evidence pack and integration report; actual 1/1 route then targeted negatives/scaling; planned |
+| P3: optional remote extension | CP-12-CP-14 | Deferred pending a separate service/auth/consent/architecture decision; no local P4/P5 dependency |
+| P4: independent local acceptance | CP-15 | Depends on CP-04, CP-10, CP-11; held-out retrieval, privacy, rendered UI and integration usefulness; planned |
+| P5: local package and release decision | CP-16 | Depends on CP-01, CP-05, CP-06, CP-15; actual package/index/runtime/fresh-session/rollback evidence; publication separately authorized |
 
-Dependency rules: CP-02 follows CP-01; CP-04 preparation can also follow CP-01 and needs CP-03 compatibility before acceptance. CP-03 follows CP-01/02. CP-05 readiness follows CP-01/02 and must not recreate existing role definitions. CP-06-CP-10 use their exact upstream gates; CP-11 joins the local path. Backend implementation begins after CP-11, not in parallel with an unproven local vertical slice.
-
-At runtime, local catalog and authorized public GitHub discovery can run in parallel after a preliminary Brief. Refused auth/consent or unavailable discovery yields visible catalog-only fallback. Candidate upload failure does not block a report. Neither machine eligibility nor overlay compaction grants curator acceptance.
+Execution path is P0 -> P1 -> P2 -> P4 -> P5. Phase numbering retains historical IDs; P3 is a side extension, not a skipped mandatory step. Later inclusion of remote features requires their own supplemental P4/P5 evidence without rewriting the local release's historical result.
 
 ## Active Acceptance And Scope Control
 
-- Keep the read-only scanner, mandatory sensitive-source exclusions, raw-source/model/MCP boundary, explicit local-output scope and candidate-write consent/auth boundary.
-- Preserve versioned facts, user corrections, dependent-result invalidation, atomic state, offline HTML and immutable finalized runs.
-- Require traceable primary evidence, hard-constraint filtering, visible unknowns/fallback, comparison/avoid/defer/reading path and the next human decision. Do not substitute stars or a repository quota for usefulness.
-- Use the CP-04 rubric and CP-11/14/15/16 gates. Neither a plan, static team checks nor a generated catalog is a product-quality pass.
-- Preserve the pinned snapshot and overlay versions; rollback and retraction behavior remains subject to CP-02/03. Catalog-only operation is an intended refusal/failure path and the P2 baseline, not evidence that the mixed path works.
-- Historical 1,000-repository, 60-90-category and 100-200 high-confidence targets do not add active release gates. Hosted boards, archive/doc uploads, standalone CLI, SDK/widget, general catalog API, hosted curator UI and watchlists are deferred alternatives.
-- CP-02 owns operating targets, runtime/OS/backend/auth/retention/budgets; CP-03 owns schemas; CP-04 owns runner/corpus/calibration. Do not select them through roadmap wording.
+- FTS5/BM25 is the baseline, not an option awaiting another choice. No mandatory vectors, embeddings, service, provider key or Cloudflare work.
+- CP-03 owns complete local contracts including retrieval and integration handoff. Remote C4/C7 move to CP-12; they do not prevent local CP-03 completion.
+- CP-06 must persist available activity metadata and report coverage, preserve unknowns/canonical identity, and build a public-only versioned read-only index. Do not wait for exhaustive enrichment of every repository before a useful slice.
+- CP-09 must keep candidate/model-input budgets fixed and report retrieval failure separately from no-match. CP-04/11/15 measure multilingual relevance and 2,000/10,000 synthetic scaling without treating synthetic rows as real inventory.
+- Relevant authorized source context is allowed; secrets, needless persistence, execution during scanning and unauthorized external disclosure remain prohibited. The report carries an actionable integration plan; executing it requires a user implementation request.
+- CP-15 reviews the local product; CP-16 verifies clean install, FTS5/index compatibility, read-only search, state preservation and rollback. Neither waits for live auth/ledger/scheduler.
+- No new runtime, source refresh, agent-definition edit, model call, installation, Git action or publication is authorized by this planning revision. Estimates in the detailed plan are preliminary and must be rechecked per assigned slice.
 
 ## Historical Milestone Mapping
 
@@ -41,15 +34,15 @@ At runtime, local catalog and authorized public GitHub discovery can run in para
 | Milestone 0: product baseline | CP-01, CP-02 | Replace hosted scope with accepted plugin direction |
 | Milestone 1: catalog foundation | CP-03, CP-06 | Preserve current v5; formalize contracts without imposing old expansion quotas |
 | Milestone 2: advisory metadata/curation | CP-03, CP-06, CP-12 | Retain evidence/eligibility, separate public candidate overlay from curator acceptance |
-| Milestone 3: hosted shell/GitHub connection | CP-02, CP-07, CP-16 | Superseded by plugin intake/package and separate backend auth; hosted app deferred |
+| Milestone 3: hosted shell/GitHub connection | CP-02, CP-07, CP-16 | Superseded by local plugin intake/package; backend auth and hosted app deferred |
 | Milestone 4: scanner | CP-03, CP-08 | Retain read-only purpose; add local bounded modes and strict exclusions |
 | Milestone 5: Brief/interview | CP-03, CP-07, CP-08, CP-11 | Adaptive intake, correction/resume/versioning replace post-scan-only ordering |
-| Milestone 6: recommendations | CP-09, CP-13 | Local matching first, then mixed retrieval with visible fallback |
+| Milestone 6: recommendations | CP-09, CP-13 | Local SQLite FTS5 and bounded evidence first; CP-13 is an optional later extension |
 | Milestone 7: workbench/memo | CP-10, CP-11 | Offline HTML/state/run history replace hosted boards and required Markdown export |
-| Milestone 8: freshness | CP-12, CP-13, CP-14 | Bounded discovery/overlay replace shortlist-only verification; provenance retained |
+| Milestone 8: freshness | CP-03, CP-06, CP-09, CP-15 | Persisted activity/observation and provenance; no blanket snapshot TTL; CP-12-14 live discovery deferred |
 | Milestone 9: beta quality | CP-04, CP-15, CP-16 | Separate eval design, observed quality and authorized public alpha release |
 
-The old post-V1 list, dependency order, beta checklist, rollback cuts and immediate slice below are historical too. Local plugin scripts and the four-tool remote MCP are active V1 work; they must not be deferred merely because the earlier list excluded local CLI/MCP.
+The old post-V1 list, dependency order, beta checklist, rollback cuts and immediate slice below are historical too. Local plugin scripts remain active work. The four-tool remote MCP is preserved as a future requirement and deferred by the owner's current local-project direction, not selected as a prerequisite by the earlier CLI/MCP list.
 
 ## Historical Hosted-First Roadmap — Not An Execution Queue
 

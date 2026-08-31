@@ -1,6 +1,6 @@
 # Plugin V1 Team Execution Contracts
 
-Scope: development-team guidance for the accepted plugin-first plan. These contracts do not implement runtime enforcement or grant access. Read the active CP task and accepted architecture decisions before using a section below. Paths are relative to the repository root.
+Scope: development-team guidance, revised 2026-08-31 for the owner-selected local SQLite FTS5, relevant-context, activity-evidence and integration-handoff plan. These contracts do not implement runtime enforcement or grant access. Read the active CP task and accepted architecture decisions before using a section below. Paths are relative to the repository root.
 
 ## Source Routing
 
@@ -8,7 +8,7 @@ Scope: development-team guidance for the accepted plugin-first plan. These contr
 - Legacy account taxonomy: `data/categories.json` and `scripts/build_catalog.py`; legacy unified Markdown has its separate dated research inputs. Do not use either to replace current v5 identities, metadata, or taxonomy.
 - Product direction: `docs/plan/2026-08-30-codex-plugin-v1-implementation-plan.md`; active ownership and approved slice: `PLAN.md` and its linked task packet.
 - Product background: `docs/PRODUCT_REQUIREMENTS.md`, `docs/V1_ROADMAP.md`, `docs/MYAI_STACKGUIDE_PRODUCT_CONCEPT.md`, `docs/MYAI_STACKGUIDE_CONTEXT_SCANNER.md`. Hosted-first detail is historical where marked.
-- Planned `specs/**` files are missing prerequisites until accepted and created; never claim to have read a proposed schema.
+- Planned local C1-C6/C9 specs remain missing prerequisites until accepted/created; existing CP-02 ADRs are design evidence. Remote C4/C7 belongs to deferred CP-12 and does not block local CP-03. Never claim to have read a proposed schema.
 
 ## Implementation Loop And Handoff
 
@@ -26,7 +26,7 @@ Test ownership is explicit, not automatic: Quality Evaluator owns acceptance/eva
 Keep three axes independent:
 
 - `catalog_status`: `candidate` is not `accepted`; only a separate curator decision can assign acceptance.
-- Evidence stage: `discovered_live`, `identity_validated`, `machine_evidence_complete`, or rejected evidence as defined by CP-03.
+- Evidence stage: `discovered_live`, `identity_validated`, `machine_evidence_complete`, or rejected evidence as defined by local CP-03 and, for live/ledger events, deferred CP-12.
 - `recommendation_eligibility`: `primary_eligible`, `reference_only`, or `blocked`; a request-specific recommendation role is another decision.
 
 Legacy research labels such as `normalized_candidate` and `verified_catalog_entry` describe historical workflow, not automatic mappings to the new enums. CP-03 owns an explicit compatibility mapping and must reject ambiguous promotion.
@@ -41,7 +41,7 @@ CP-03/07 own typed state and transition contracts; this document does not invent
 - Persist sanitized state atomically after each answer and completed phase. A correction preserves observed facts, increments the relevant version, and invalidates dependent recommendations. Resume must validate schema/run/version compatibility.
 - Keep observed facts, inferences, user corrections, assumptions, missing context, and evidence references separate. Do not infer credentials, permissions, budget approval, or product facts from missing answers.
 - Empty projects are valid. Monorepo precedence, quick/topology/time/depth caps and file-size limits require accepted CP-02 decisions. Standard/deep budgets are in the product plan; cap exhaustion yields partial coverage and truthful confidence.
-- Prevent path traversal, symlink/junction escape, sensitive reads, project subprocesses, and dependency installation. Avoid including raw excerpts, secret values, absolute local paths, or raw user answers in model/tool-facing scanner output.
+- Prevent path traversal, symlink/junction escape, sensitive reads, project subprocesses, and dependency installation. Structured scanner output remains minimized. Separately selected relevant excerpts may inform Codex transiently within actual authorization; persist only minimized findings/safe references, not raw source, secrets or chat. Both paths obey sensitive exclusions and containment.
 - `state.json` is mutable current state; `status.html` is an escaped offline projection; finalized run JSON is immutable. Concurrent runs cannot overwrite each other. Crash/recovery behavior must be tested.
 
 ## Permission And Tool Contract
@@ -50,30 +50,43 @@ CP-03/07 own typed state and transition contracts; this document does not invent
 | --- | --- | --- |
 | Development team | Read/edit assigned repository files under active permissions | Loaded instructions, exact task ownership, local checks; this is distinct from product scanner access |
 | Product scanner | Read only approved project scope and emit sanitized structures | Canonical containment, sensitive exclusions, bounded I/O, negative tests, cancellation and error-output inspection |
-| Product model | Consume sanitized context; no direct raw-source bypass | Selected runtime/tool surface and an adversarial bypass test; prompt wording alone is not enforcement |
+| Product model | Consume the Brief, bounded public evidence and relevant authorized project context | Useful-read and sensitive-exclusion traces; no full-project ingestion/persistence or host-wide isolation claim |
+| Local retrieval | Read bundled public SQLite FTS5 with a compiled bounded query | Actual FTS5 route, source/index/policy pins, read-only open, caps and explicit no-hit versus failure |
 | `catalog_delta_get` | Read bounded snapshot/overlay deltas | Version pins, pagination, compatibility, expiry and malformed-input tests |
 | `github_discover` | Read public GitHub evidence from minimal sanitized DiscoveryQuery | Query/candidate caps, provenance, no private project fields, rate-limit fallback |
 | `candidate_batch_upsert` | Authorized public-metadata write to our backend | Per-request auth/authz, consent or bounded standing policy, backend provenance validation, idempotency and concurrency tests |
 | `candidate_status_get` | Read permitted candidate status | Authorization where applicable, bounded IDs/results, no cross-user information leak |
 
-The GitHub retrieval surface has no GitHub write tools. The own-backend write is not read-only and must have accurate MCP annotations. Every tool needs input/output schemas, typed errors, bounded results, and server-side validation. Tool annotations, role ownership prose, and skills are not authorization enforcement. Inherited tools/permissions must be reviewed rather than assumed absent.
+The four remote rows above are deferred CP-12-14 extension contracts; none is required for local CP-15/16. The GitHub retrieval surface has no GitHub write tools. The own-backend write is not read-only and must have accurate MCP annotations. Every tool needs input/output schemas, typed errors, bounded results, and server-side validation. Tool annotations, role ownership prose, and skills are not authorization enforcement. Inherited tools/permissions must be reviewed rather than assumed absent.
 
 Auth refusal, missing consent, network failure, and ingestion failure must preserve a visible catalog-only path; a failed upsert must not prevent delivering the local report. Credentials stay outside project artifacts. No raw Brief, answers, excerpts, absolute paths, or project identifiers enter the public candidate ledger.
+
+## Local Retrieval And Integration Contracts
+
+CP-06 persists source-owned public metadata rather than relying on browser enrichment, preserves unknowns and canonical aliases, and builds frozen public cards/index/manifest. CP-09 opens the index read-only, validates pins, compiles/escapes structured queries and enforces the CP-03 60-candidate/12-card/48-KiB ceilings across variants. Model context never receives the whole catalog; public index never receives user context. Actual SQLite support and query route require evidence; a prose/static pass is not activation.
+
+Creation, push, verified commit/release, observation and build dates are separate. No snapshot TTL automatically rejects useful candidates. Missing mandatory adoption facts remain unknown and trigger concrete checks, while baseline-valid cards can still be retrieved. Activity/popularity alone does not prove operability or fit. Catalog status, eligibility and role remain independent.
+
+Report output includes integration surface, affected components, steps/prerequisites, first validation, rollback and a coding-agent handoff. Proposed commands are allowed but not automatically executed or claimed tested. A user implementation request can authorize ordinary scoped coding; do not repeat permissions or refuse merely because the workflow began as a recommendation. Secret/install/external/destructive/cost boundaries remain in force.
+
+Existing protected role/skill definitions and behavior fixtures still need CP-05 realignment for revised R04/R13. This document neither changes them nor proves they are loaded. Before downstream runtime dispatch, accept the exact changed-file packet, complete required file permissions, version the cases and verify fresh-session behavior. No model/host permission changes are authorized to bypass a mismatch.
 
 ## Methodology And Decision Gates
 
 | Gate | Owner | Required contract / evidence | Product task |
 | --- | --- | --- | --- |
 | Acceptance-first | Product Planner + Quality Evaluator | Requirement -> scenario -> check -> evidence owner; negative cases and non-goals | CP-01/04 |
-| Runtime and packaging | Catalog Architect | Supported OS/runtime, prerequisites, exact paths/commands, plugin manifest/MCP mapping, clean install and fresh-session verification plan | CP-02/16 |
+| Runtime and packaging | Catalog Architect | Supported OS/runtime, prerequisites, exact paths/commands, local manifest/index/FTS5 compatibility; remote wiring deferred, clean install and fresh-session verification plan | CP-02/16 |
 | Domain/API | Catalog Architect | Identity/lifecycle invariants, consumers, versions, errors, permission matrix; focused domain modeling, not forced full DDD | CP-02/03 |
-| Scanner privacy | Catalog Architect + Plugin Runtime Builder | Data flow/threat cases and technically testable raw-source boundary; no prompt-only guarantee | CP-02/08 |
+| Scanner privacy | Catalog Architect + Plugin Runtime Builder | Useful relevant-context reads, containment/exclusions, minimized persistence and no scanner execution; no host-isolation promise | CP-02/08 |
+| Local retrieval | Pipeline Builder + Plugin Runtime Builder | Source-owned metadata/cards/index, query grammar/aliases, BM25/dedupe/constraints, total context caps and version pairing | CP-03/06/09 |
+| Integration output | Plugin Runtime Builder + Product Planner | Sourced plan, first validation slice and coding handoff; no automatic execution, no blanket refusal of authorized coding | CP-03/10/11/15 |
 | Local state | Plugin Runtime Builder | Atomic writes, version invalidation, concurrency, interruption/recovery, escaped offline output | CP-07/10 |
-| Backend failure behavior | MCP Backend Builder | Dependency failure matrix, rate/retry/time budgets, auth expiry, idempotency, consistency, migrations and backup/restore | CP-02/12 |
-| Operations | MCP Backend Builder | Health semantics, sanitized observability, latency/availability targets or explicit owner gap, secret handling, disable/rollback runbook | CP-02/12/14 |
+| Backend failure behavior | MCP Backend Builder | Dependency failure matrix, rate/retry/time budgets, auth expiry, idempotency, consistency, migrations and backup/restore | Deferred CP-12 |
+| Operations | MCP Backend Builder | Health semantics, sanitized observability, latency/availability targets or explicit owner gap, secret handling, disable/rollback runbook | Deferred CP-12/14 |
 | Team and AI quality | Quality Evaluator | Versioned cases/results, direct/indirect/incomplete/non-trigger/adversarial checks, trace review, baseline vs one-lower comparison | CP-04/05/15 |
 | UI acceptance | Plugin Runtime Builder + Quality Evaluator | Offline/error/empty/partial states, accessibility, escaping, rendered browser checks | CP-10/15 |
-| Release | Docs Maintainer + Evidence Reviewer | Versioned artifact, compatibility, clean installation evidence, rollback, approval for publication/scheduler | CP-16 |
+| Release | Docs Maintainer + Evidence Reviewer | Local package/index/FTS5 compatibility, clean installation and rollback; no remote prerequisite; publication separately authorized | CP-16 |
 
 Use the existing CP-02/03 artifacts for these gates. Do not generate one template per row or select a backend/framework/provider to make a checklist look complete. Final runtime decisions require accepted ADR evidence.
 

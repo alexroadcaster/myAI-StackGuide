@@ -1,14 +1,31 @@
 # myAI-StackGuide Module Architecture Direction
 
-The active product boundary is defined by [PRD R01-R14](PRODUCT_REQUIREMENTS.md#active-plugin-v1-requirements) and the [CP plan](plan/2026-08-30-codex-plugin-v1-implementation-plan.md). CP-02 owns architecture decisions; this summary does not select a runtime, database, provider, deployment or auth mechanism.
+Owner revision: 2026-08-31; [active plan](plan/2026-08-30-codex-plugin-v1-implementation-plan.md) and [architecture ADR](../specs/decisions/plugin-v1-architecture.md) own implementation scope. Historical architecture below is inactive.
 
 ## Active Plugin V1 Boundary
 
-The intended path is Codex intake + local scanner/sanitizer -> versioned sanitized Brief -> local catalog matching and authorized minimal-query public GitHub discovery -> merged Decision Report -> local state/offline HTML/finalized runs. The two retrieval lanes can operate in parallel after a preliminary Brief. Catalog-only is the intended refusal/failure path and first local verification baseline; it cannot substitute for later proof of mixed retrieval.
+```mermaid
+flowchart LR
+    U[User goal and constraints] --> B[Versioned Project Context Brief]
+    P[Selected project] --> S[Bounded scanner and relevant context reads]
+    S --> B
+    C[Public source-owned catalog and evidence] --> A[Build normalized cards]
+    A --> I[Bundled read-only SQLite FTS5 index]
+    B --> Q[Structured query and aliases]
+    Q --> R[BM25 retrieval and dedupe]
+    I --> R
+    R --> F[Constraints and bounded evidence pack]
+    F --> M[Codex comparison and integration plan]
+    B --> M
+    M --> O[Local state and offline report]
+    O --> H[Coding-agent handoff on user request]
+```
 
-Raw source stops inside the local scanner/sanitizer; neither the model nor MCP may bypass that boundary. MCP receives no full Brief, raw answers, excerpts, absolute paths or private project identifiers. The four tools are `catalog_delta_get`, `github_discover`, `candidate_batch_upsert` and `candidate_status_get`. GitHub retrieval is read-only; the upsert writes public metadata to our own backend only with auth and explicit consent or bounded standing policy. Upload failure does not block the local report.
+Build-time public pipeline: manifest plus source-owned evidence -> normalized canonical cards/metadata -> frozen SQLite FTS5 index and version/hash manifest. Runtime: bounded project context -> structured query -> read-only BM25 retrieval -> dedupe/constraints -> bounded evidence pack -> Codex comparison/integration plan -> project-local JSON/HTML. Public catalog/index and private user state are separate. No service, model download, vectors or provider key is required.
 
-Local plugin writes are limited to `docs/myai-stackguide/`. State is atomic and current, HTML is an offline projection, and finalized run snapshots are immutable. Corrections invalidate dependent recommendations. Snapshot and overlay versions are pinned; machine evidence/eligibility does not assign curator acceptance. No source modification, recommended installation, project execution, Git or deployment is part of recommendation delivery.
+Ownership boundaries: CP-03 local C1-C6/C9 contracts; CP-04 relevance/usefulness evals; CP-05 existing role/skill alignment; CP-06 sources/builders/assets; CP-07 intake/state/preflight; CP-08 scan/targeted context; CP-09 retrieval/pack/matcher; CP-10 renderer/handoff; CP-11 useful local join; CP-15 independent local acceptance; CP-16 package/runtime/index compatibility. Remote C4/C7 and CP-12-14 are deferred and absent from the local release dependency closure.
+
+The model may use relevant source excerpts under actual permissions; the scanner is still bounded/read-only/non-executing. Persist summaries/references, not raw project content. Activity timestamps are separate from observation/index dates and do not alone prove operability. Index failure is explicit, never a silent full-catalog prompt fallback. Reports propose integration work; execution follows the user's coding request and applicable boundaries.
 
 ## Historical V1X Disposition
 
@@ -18,15 +35,15 @@ Local plugin writes are limited to `docs/myai-stackguide/`. State is atomic and 
 | V1X-01 | Superseded by CP-01 plugin-first PRD/roadmap; expanded hosted/adapter V1 is not active |
 | V1X-02 | CP-02/03/04 decision ownership; old retention, quota and telemetry choices are not accepted defaults |
 | V1X-03 | CP-03 contracts and CP-04 eval design; historical V1-S rows are traceability only |
-| V1X-04 | CP-03/06 catalog/advisory contract; current snapshot preserved, no expansion quota |
+| V1X-04 | CP-03/06 cards/activity contracts, persisted metadata and FTS5 index; snapshot preserved, no fabricated expansion quota |
 | V1X-05 | Local scanner boundary in CP-02/03/08 replaces broad source adapters; archive/SDK/resource acquisition deferred |
 | V1X-06 | CP-02 runtime/auth/storage/operations decisions; no implicit modular-monolith or service choice |
 | V1X-07 | CP-05, preserving the two existing plugin/backend builder definitions; no fixed skill quota or runtime-readiness claim |
-| V1X-08 | CP-07/08/09/11 local intake, scan, matching and semantic evidence |
+| V1X-08 | CP-07/08/09/11 local intake, relevant context, bounded FTS5 retrieval and integration handoff |
 | V1X-09 | Hosted flow superseded by CP-07/10/11 local plugin/artifact path |
 | V1X-10 | Archive, standalone CLI, SDK/widget and context-provider MCP modes deferred; remote discovery MCP follows CP-12/14 |
 | V1X-11 | CP-12/13/14 mixed retrieval, overlay and provenance; separate curator acceptance |
-| V1X-12 | CP-04/15/16 quality and release evidence, with separate external authorization |
+| V1X-12 | CP-04/15/16 local quality/release independent of CP-12-14; separate external authorization |
 
 ## Historical Module Architecture Proposal — Not Runtime Evidence
 

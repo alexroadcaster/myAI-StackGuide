@@ -599,3 +599,101 @@ git -c core.excludesfile= status --short
 - CP-02 runtime/OS/backend/storage/auth/consent/retention/budget/operations decisions are next. CP-03 schemas, CP-04 recommendation runner/calibration and full CP-05 routing/model readiness remain open. Future task packets must reference active sections rather than the historical appendices.
 - No plugin/scanner/recommendation/backend runtime, browser flow, security enforcement, provider call, live GitHub/MCP operation, telemetry, deployment, publication, scheduler or Git history action was performed. Catalog parity was not rerun because neither inputs, builders nor generated artifacts changed; protected diff supplies the preservation evidence.
 - Rollback: review and reverse only this documentation diff against the clean starting worktree, preserving any later unrelated edits. No runtime rollback is required.
+
+## 2026-08-30 — CP-02 Local Plugin Architecture
+
+### Authorization, Scope And Ownership
+
+- The owner authorized CP-02 with agents and skills, stopped an unnecessary Cloudflare direction, then explicitly chose an ordinary plugin working locally from the user's project. Earlier infrastructure exploration was read-only; no service, credentials, deployment or file changes resulted from it. This slice records the corrected local design, not runtime implementation.
+- Starting worktree: clean. Primary acted as Catalog Architect, then Product Planner/Docs Maintainer, with one writer for shared docs. `/root/cp02_local_review_prep` audited boundaries and `/root/cp02_local_final_review` independently reviewed the drafted changes; both were read-only with fresh-context packets and `gpt-5.6-sol/high` per TEAM. This is explicit delegation evidence, not CP-05 automatic routing/model suitability evidence.
+- Skills used: `design-context-contracts`, `design-catalog-contracts`, `audit-readonly-boundaries`, `openai-docs`, `maintain-control-plane`; reviewer also used `review-advisory-evidence`.
+- Changed scope: three new ADRs under `specs/decisions/`, plus PLAN, REQUIREMENTS, README, active PRD/roadmap/product/scanner/architecture summaries, the detailed CP plan's CP-02/shared registries, and this appended log. No runtime, schemas, tests, EVALS/TEST policy, catalog, builders, generated outputs, agent/skill/config files, marketplace or Git history changed.
+
+### Decisions And Evidence
+
+- [Architecture](specs/decisions/plugin-v1-architecture.md): skill + standard-library Python scripts + bundled catalog + project-local state/offline report; Windows local disk/CPython 3.14.x is the initial implementation target. The available development Python reported 3.14.6; no plugin/OS compatibility claim follows. `catalog_only` is normal operation, not a remote failure. No cloud provider, database, server auth, MCP wiring, hook, daemon or extra model API is selected.
+- [Permissions](specs/decisions/plugin-v1-permissions.md): preserve strict scanner sanitation/no bypass as requirements, distinguish plugin controls from host capabilities, retain `R04_host_isolation_unresolved`, and stop sensitive-project/host-wide privacy acceptance until resolution. No prompt-only technical guarantee or weaker owner acceptance is inferred.
+- [Verification](specs/decisions/plugin-v1-verification.md): exact future local file/command ownership, local-schema subset, synthetic 1/1 first, then focused failure cases; runtime and missing commands remain labeled future/unavailable. Builders and Quality Evaluator retain their distinct source/test ownership.
+- Selected uncalibrated defaults cover quick/standard/deep reads, topology entries/depth/time, per-file/output sizes, classification precedence, state revisions/locking/recovery, bounded temporary/diagnostic storage, snapshot pinning and stale/archive eligibility. No measured performance, quality, support or privacy pass is claimed.
+- R01-R14 text/task mappings remain traceable. Remote R01/R06 parts, R08/R09 and R11 overlay/compaction are deferred for the current local direction. CP-12-CP-14 require a new scope/architecture decision before dispatch; V-MCP is not applicable locally, not passed. Public read-only research is not prohibited in principle or activated by this task.
+- Official OpenAI package/skill/permissions/security documentation was retrieved on 2026-08-30; relevant links are recorded beside ADR claims. It supports a skills-only package and the separation of host permissions from workflow instructions. Python command-line/filesystem references were also checked. Source evidence does not establish installed behavior. No private project data, account resources or credentials were accessed for these decisions.
+
+### Verification Commands And Observations
+
+Executed from the implementation repository:
+
+```powershell
+python -B 'C:/Users/user/.codex/plugins/cache/personal-product-agent-plugins/product-agent-os/0.1.0/scripts/validate_task_matrix.py' 'docs/plan/2026-08-30-codex-plugin-v1-implementation-plan.md'
+python -B 'C:/Users/user/.codex/plugins/cache/personal-product-agent-plugins/product-agent-os/0.1.0/scripts/validate_control_plane.py' .
+python -B -m unittest discover -s tests -p test_codex_contracts.py -v
+git -c core.safecrlf=false diff --check
+git -c core.excludesfile= -c core.safecrlf=false diff --stat
+```
+
+- Task/control-plane validators returned `ok: true`, no errors/missing files, exit 0. Existing focused control-plane suite passed all 11 tests, exit 0. No new product tests or broad unchanged suite run was needed.
+- Read-only inline Python (`python -B -`, single-quoted PowerShell here-string) compared current documents to `git show HEAD:<path>`: all 14 R-to-task mappings preserved across CP plan/PRD/registry; 16-task DAG valid; all 15 task blocks other than CP-02 unchanged; five historical bodies plus the old root-plan sequence retained after newline normalization. New ADRs are English/UTF-8 without replacement characters; active local links/anchors resolve. Scope audit allows only ten tracked documents and exactly three new ADRs; previous RUNLOG bytes/text remain append-only after newline normalization.
+- Final document/status audit after completion-report updates passed: 70 active local links/anchors, ten tracked documents, exactly three new ADRs, and all preservation/DAG/mapping assertions. Final task/control-plane validators again returned `ok: true`, exit 0; whitespace check passed. No rerun of unchanged product/runtime suites is represented as new behavior evidence. Catalog parity/browser/model/runtime checks were not run because those surfaces were not implemented or changed.
+
+### Review Findings And Corrections
+
+- Boundary audit identified the R04 host-isolation limitation and remote-scope conflict. Both are explicit in the ADRs and active navigation; no cloud alternative was imposed and no privacy waiver recorded.
+- Final reviewer found two P2 items: an active roadmap sentence still prohibited deferring remote MCP, and temporary/damaged files lacked aggregate storage limits. Corrected the active sentence while preserving history; added bounded pending/damaged slots plus total byte/entry caps, fail-closed behavior and a future repeated-interruption test gate. Also separated local/remote V-RELEASE checks. No P0/P1 was reported in the drafted design review.
+- Self-review clarified test/research file ownership and corrected an old remote prerequisite in the root goal. An initial combined patch failed because its exact source line omitted the word `offline`; no partial edit was applied, and the corrected patches succeeded. A read-only `rg` call used a Windows literal glob operand and returned error 123; directory-based search replaced it. These were editing/inspection errors, not failed product tests or reasons to alter permissions.
+- Git emitted nonfatal LF-to-CRLF notices on diff inspection; no persistent Git configuration changed. Independent correction review confirmed both P2 findings resolved with no new finding in the correction scope. CP-02's synchronized task/completion statuses are `implemented` with timestamp `30-08-2026 21:57`; this status covers documentation only.
+
+### Evidence Ceiling, Rollback And Next Task
+
+- CP-02 completion is local design/documentation implementation only. Product state remains `partially_verified`; R04 host isolation, schema contracts, runtime behavior, Windows path-race containment, clean install, calibration, recommendation quality and release acceptance remain open. Remote design/activation is deferred rather than silently satisfied.
+- Next: local CP-03 schemas/negative fixtures and CP-05 local builder readiness under their own assignments. Do not label the remote portions of CP-03/05 complete from a local subset. Synthetic local work may proceed without private inputs; sensitive-project use and host-wide privacy promises remain gated by R04 resolution.
+- Rollback is reversal of this task's documentation diff only, preserving unrelated future changes. No runtime/service rollback, deletion, permission change, package installation, credential use, Git action, publication or deployment occurred.
+
+
+## 2026-08-31 — Owner Revision: Local SQLite FTS5 And Integration-Oriented Plan
+
+### Authorization And Scope
+
+- Owner selected SQLite FTS5 and requested revision of the entire plan against the new requirements/RAG direction. Earlier owner clarifications prioritize fast OSS integration/modernization, allow useful relevant project context rather than strict host-wide isolation, and reject snapshot-age substitution for actual repository activity.
+- Primary was the sole documentation writer, using shape-product-slice, design-context-contracts, design-catalog-contracts and maintain-control-plane, with explicit semantic self-review. No new agents were dispatched or model/effort defaults changed. Prior independent CP-01/02 reviews remain dated evidence for those runs, not a new review of this amendment.
+- Starting worktree already contained uncommitted CP-01/02 documentation and the three ADRs. Preserved original document bytes before editing. Revised 16 documents: PLAN, REQUIREMENTS, README, TEST, EVALS, this append-only RUNLOG, five active PRD/roadmap/product/scanner/module summaries, the detailed CP plan, source team-contract prose and three CP-02 ADRs. Historical source bodies and original completion reports remain intact after newline normalization.
+- No runtime, schema, product index, evaluator implementation, catalog/source/generated output, tests/behavioral JSON, protected .agents/.codex definitions, credentials, installation, Git history or external service action changed. Task-only backup/edit/audit helpers were moved from .codex-tmp to the user's normal temporary directory; no user files were deleted or overwritten during that move.
+
+### Decisions Carried Through The Plan
+
+- SQLite FTS5/BM25 is the selected lexical RAG baseline, with source_mode=catalog_only and retrieval_engine=sqlite_fts5. Public cards/index are derived and bundled read-only; private user state remains project-local JSON/HTML. No cloud, server, vector extension, embedder/model download or provider key is a prerequisite.
+- CP-03 now owns complete local C1-C6/C9: relevant-context selection, activity/evidence fields, query/result/evidence-pack/index/policy contracts and integration handoff. C8 stays with CP-04; remote C4/C7 explicitly moves to deferred CP-12 before backend work. Local CP-03 can close without pretending remote contracts are implemented.
+- CP-04 owns versioned retrieval/usefulness cases and an offline captured-result scorer at evals/plugin-v1/evaluate_retrieval.py with named evaluator-owned metric fixtures/tests. This future scorer stays within the existing evaluator's evals/** ownership and does not import unfinished plugin code or call a model/provider. Exact CLI and validated output contract must be accepted during CP-04; no scorer exists from this planning change.
+- CP-05 must align existing role/skill/behavior cases with revised R04/R13 before runtime dispatch. Current protected definitions still contain scanner-only source and blanket-refusal expectations; a static pass does not validate the new behavior. No host permission or model policy is weakened to bypass that work.
+- CP-06 persists available public metadata/provenance, reports unknowns/coverage, canonicalizes aliases and builds cards plus catalog.search.sqlite/search manifest/policy assets. Browser-local enrichment is not source persistence. CP-09 compiles/escapes bounded queries, ranks/dedupes/applies constraints, opens the index read-only and creates the evidence pack.
+- Initial uncalibrated ceilings: 60 retrieved candidates across variants, 12 detailed cards and 48 KiB UTF-8 for the complete evidence pack, including provenance. CP-03 defines Brief/targeted-context allocation; CP-04 calibrates relevance and size rather than equating bytes with exact tokens. Failed/missing/incompatible FTS5/index is explicit, never successful no-match or a whole-catalog prompt fallback.
+- Creation, push, verified commit plus SHA/branch, release, observation, snapshot and build dates are distinct. The former 30-day snapshot rejection is withdrawn. Activity is useful triage, not proof a repository works, is compatible or secure; missing mandatory adoption facts trigger caveats/next checks rather than fabricated fit or blanket retrieval refusal.
+- CP-10/11/15 accept an actionable integration plan: affected components, version/license/prerequisite evidence, first validation slice, risks, rollback and coding-agent handoff. Proposed commands are not automatically executed or claimed tested. A user implementation request carries its own scoped authorization; recommendations alone do not install or change code.
+- Corrected actual graph, not just phase prose: CP-15 depends on CP-04/10/11; CP-16 on CP-01/05/06/15. Their transitive dependencies exclude CP-12/13/14. Remote discovery/auth/ledger/overlay/scheduler is an optional future extension requiring a new scope decision; local release does not wait for it.
+- All 16 task contracts, acceptance/gates/ownership/rollback and reciprocal Blocks were reconciled. R01-R14 IDs remain stable with explicitly revised wording/mappings; FR1-FR15 and historical milestones remain mapped. Prior future-task time ranges are superseded and require re-estimation for the revised scope. CP-01/02 retain documentation status; CP-03-16 remain planned.
+
+### Current Verification And Corrections
+
+Executed from this repository:
+
+```powershell
+python -B 'C:/Users/user/.codex/plugins/cache/personal-product-agent-plugins/product-agent-os/0.1.0/scripts/validate_task_matrix.py' 'docs/plan/2026-08-30-codex-plugin-v1-implementation-plan.md'
+python -B 'C:/Users/user/.codex/plugins/cache/personal-product-agent-plugins/product-agent-os/0.1.0/scripts/validate_control_plane.py' .
+python -B -m unittest discover -s tests -p test_codex_contracts.py -v
+python -B '.codex-tmp/fts5-plan-revision-20260831/audit.py'
+git -c core.safecrlf=false diff --check
+```
+
+- Task and control-plane validators: ok=true, no errors/missing files, exit 0; repeated after material plan refinements. Existing control-plane tests: 11 passed, exit 0. These are documentation/configuration checks, not product retrieval or model evaluation.
+- Task-local audit: 16 unique acyclic tasks, reciprocal dependencies/Blocks, 14 identical active requirement rows across three sources, 15 FR mappings, 54 active local links/anchors, five preserved historical bodies and two preserved original completion reports. Both local acceptance/release dependency closures exclude all three remote tasks.
+- Protected-file hash check: all 83 pre-existing source/data/generated/test/eval/agent/skill/config/instruction files retain their initial SHA-256. RUNLOG prior bytes remain unchanged. UTF-8/active English and whitespace checks passed. No catalog regeneration or broad unchanged pipeline/browser/runtime/model suite was run.
+- Self-review corrected an empty CP-13 requirement reference, gave the offline scorer exact allowed ownership, removed obsolete future-task effort estimates, and made CP-11's exact intended source/engine selectors explicit. The first custom audit failed on the missing literal sqlite_fts5 in CP-11's task body; that contract was made explicit and the audit passed without weakening the check.
+- One read-only rg invocation used a Windows glob as a literal path and returned error 123; corrected to directory plus --glob. Nonfatal Git LF/CRLF notices did not change persistent Git settings. GitHub's old objects anchors redirected to the reference landing page; verified the current repos and commits pages instead.
+- Fresh public primary-source checks confirmed FTS5 BM25 ordering, unicode61/query behavior and GitHub push/commit date semantics: [SQLite FTS5](https://www.sqlite.org/fts5.html), [Repository fields](https://docs.github.com/en/graphql/reference/repos#repository), [Commit fields](https://docs.github.com/en/graphql/reference/commits#commit). No GitHub repository metadata refresh or installation was performed.
+- Retained task-local backup/audit location: $env:TEMP/stackguide-fts5-plan-revision-20260831-01a053d9. The moved audit can be rerun from this repository with python -B (Join-Path $env:TEMP 'stackguide-fts5-plan-revision-20260831-01a053d9/audit.py'); it reads the preserved baseline beside itself and writes only a temporary audit result. The earlier edit helpers are archival task artifacts, not product tools.
+
+### Evidence Ceiling And Handoff
+
+- Documentation revision is complete; selected design is not implemented FTS5/RAG, measured relevance, safe private-project behavior, installed plugin or release readiness. There is no new performance/quality result. The old host-isolation requirement is superseded by owner decision, not technically proven.
+- Next implementation entry: CP-03 local C1-C6/C9; CP-04 may prepare compatible eval/scorer contracts independently, and CP-05 aligns loaded behavior before local runtime tasks. No additional cloud/vector decision is needed to start those bounded assignments.
+- Rollback uses this revision's preserved starting document bytes/diff and keeps the owner's pre-existing CP-01/02 work. No runtime/service rollback, automatic deletion, publication or permission change is needed.
+
+Documentation closeout recorded at 2026-08-31 08:09:38 Europe/Moscow.
