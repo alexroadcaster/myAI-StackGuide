@@ -72,3 +72,17 @@ Use this fresh-context handoff before every subagent or parallel worker. Do not 
 - Residual risks:
 - Stop reason:
 - Recommended next role and task:
+
+## Conditional Local Plugin Join
+
+Complete only fields relevant to the assigned seam; omit irrelevant rows instead of creating placeholder obligations.
+
+- Accepted local CP-02/03 source versions, or separately accepted CP-12 extension decision:
+- Exact writer/renderer/index owner and sequential handoff:
+- Canonical state/content/presentation and source/index/policy identities:
+- Partial/legacy state and saved-versus-published acceptance scenario:
+- Locale coverage and no-call display-switch boundary:
+- Versioned local or deferred case file/hash and required synthetic/public fixtures:
+- Existing authorized context scope, exclusions, persistence and side-effect limits:
+
+Do not disclose expected routing or reviewer checks in an evaluated fresh-context request. Keep the evaluation oracle in the separate reviewer packet.

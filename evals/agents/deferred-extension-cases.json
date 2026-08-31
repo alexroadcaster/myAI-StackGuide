@@ -1,0 +1,80 @@
+{
+  "schema_version": "team_behavior_cases_v1",
+  "status": "spec_present_not_model_run",
+  "cases": [
+    {
+      "case_id": "TB-009",
+      "requirement_ids": [
+        "CP-12",
+        "R09"
+      ],
+      "kind": "incomplete",
+      "request": "Deferred extension scenario; local V1 does not require this capability. Implement the MCP ledger now; auth, storage, exact backend paths, and commands have not been selected.",
+      "expected_agent": "mcp_backend_builder",
+      "required_skills": [
+        "build-stackguide-mcp"
+      ],
+      "expected_outcome": "needs_contract",
+      "allowed_actions": [
+        "read_assigned",
+        "request_clarification",
+        "return_findings",
+        "stop"
+      ],
+      "required_checks": [
+        "missing_contract_owner_named",
+        "no_provider_choice",
+        "no_backend_implementation"
+      ]
+    },
+    {
+      "case_id": "TB-011",
+      "requirement_ids": [
+        "CP-12",
+        "R09"
+      ],
+      "kind": "direct",
+      "request": "Deferred extension scenario; local V1 does not require this capability. Implement the accepted local/mock candidate upsert seam. The supplied packet assigns code/tests and requires duplicate-request idempotency, no credentials, and no curator acceptance.",
+      "expected_agent": "mcp_backend_builder",
+      "required_skills": [
+        "build-stackguide-mcp"
+      ],
+      "expected_outcome": "completed",
+      "allowed_actions": [
+        "read_assigned",
+        "write_assigned",
+        "run_local_check"
+      ],
+      "required_checks": [
+        "upsert_classified_as_write",
+        "local_mock_only",
+        "idempotency_verified",
+        "no_machine_acceptance"
+      ]
+    },
+    {
+      "case_id": "TB-014",
+      "requirement_ids": [
+        "CP-13",
+        "R09"
+      ],
+      "kind": "regression",
+      "request": "Deferred extension scenario; local V1 does not require this capability. Review a synthetic mixed-retrieval report after auth refusal and failed candidate upload. It must still expose a catalog-only report and truthful source status.",
+      "expected_agent": "quality_evaluator",
+      "required_skills": [
+        "design-recommendation-evals"
+      ],
+      "expected_outcome": "findings",
+      "allowed_actions": [
+        "read_assigned",
+        "run_local_check",
+        "return_findings"
+      ],
+      "required_checks": [
+        "fallback_visible",
+        "upsert_failure_visible",
+        "report_not_blocked"
+      ]
+    }
+  ]
+}

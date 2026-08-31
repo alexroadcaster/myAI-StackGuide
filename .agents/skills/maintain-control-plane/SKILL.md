@@ -1,23 +1,19 @@
 ---
 name: maintain-control-plane
-description: Keep myAI-StackGuide AGENTS, requirements, plan, tests, evals, RUNLOG, ownership, and source-backed documentation aligned after a slice. Use for lifecycle transitions, handoff closure, evidence recording, scope changes, or drift repair; do not use it to invent evidence or change product meaning independently.
+description: Align requirements, tasks, roles/skills, cases and evidence after accepted changes. Use for status/ownership drift repair; not new product decisions or invented completion.
 ---
 
 # Maintain Control Plane
 
 ## Workflow
 
-1. Read `AGENTS.md`, `REQUIREMENTS.md`, `PLAN.md`, `TEST.md`, `EVALS.md`, `RUNLOG.md`, and the completed handoff.
-2. Preserve the PRD as product source, roadmap as milestone source, plan as active sequence, and RUNLOG as observed evidence.
-3. Update requirement IDs, task status, ownership, docs path, verification evidence, unsupported claims, accepted gaps, and next role together.
-4. Keep active plans compact; do not copy raw logs, raw conversation history, secrets, private data, or volatile routing into durable instructions.
-5. Do not convert proposed, inspection-only, or failed evidence into implemented, verified, or ready status.
-6. Validate links, placeholders, whitespace, agent files, skills, and control-plane completeness.
+1. Read AGENTS.md, REQUIREMENTS.md, PLAN.md, TEST.md, EVALS.md, RUNLOG.md and the relevant [team contracts](../../../docs/plan/plugin-v1-team-contracts.md).
+2. Trace requirement -> task -> exact owner/skill -> case -> evidence. Preserve PRD and roadmap authority and current versus deferred local/remote scope.
+3. Repair active summaries while preserving dated completion reports and append-only RUNLOG history. English control documents do not prohibit RU/EN product content.
+4. Distinguish accepted contracts, implemented source, static checks, loaded behavior, runtime/browser results and human usefulness. Never promote one into another.
+5. Treat authorized local artifact generation separately from external publication. Record protected-file permission failures without weakening rules or hiding incomplete implementation.
+6. Validate references, UTF-8, requirement maps, ownership, cases and focused checks. Stop only the unsupported claim or unsafe action; provide useful partial results.
 
 ## Output
 
-Return files touched, lifecycle state, current evidence, unsupported claims, accepted gaps, approval requirements, risks, and next role.
-
-## Stop Conditions
-
-Stop when product meaning changes without owner review, evidence is stale or missing, ownership overlaps, publication is requested, or external activation is implied.
+Return exact owned files or findings, requirement/contract mapping, observed checks and failures, evidence limits, rollback, risks and next owner. Stop on unsafe data, missing applicable acceptance, ownership conflict or action outside existing authorization; do not invent evidence.

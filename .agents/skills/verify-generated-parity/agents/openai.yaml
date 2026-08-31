@@ -1,4 +1,4 @@
 interface:
   display_name: "Verify Generated Parity"
-  short_description: "Check generated catalog consistency and drift"
-  default_prompt: "Use $verify-generated-parity to verify catalog outputs against their source builders."
+  short_description: "Verify catalog, index and session projection parity"
+  default_prompt: "Use $verify-generated-parity for the assigned scope: verify catalog, index and session projection parity. Apply the accepted local/deferred contracts and report evidence limits."

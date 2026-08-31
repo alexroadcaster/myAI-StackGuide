@@ -29,3 +29,7 @@ For every named role, compare the configured baseline with one reasoning level l
 - latency, tokens, cache behavior, and cost when available;
 - edge, negative, and regression cases;
 - explicit owner decision for any durable promotion.
+
+## Instruction-Only Changes
+
+Changed durable instructions still require representative fresh-context behavior checks. Repeating a baseline-versus-one-lower model comparison is required before changing a durable model/effort default, not after every documentation-only edit. Preserve the configured baseline during CP-05; no model suitability or promotion claim follows from static tests.

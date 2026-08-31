@@ -1,23 +1,19 @@
 ---
 name: verify-generated-parity
-description: Verify myAI-StackGuide generated Markdown, HTML, JSON, CSV, and category outputs against source builders and invariants. Use after source or generator changes, during review, or before release claims; do not use it to repair failures without implementation ownership.
+description: Verify source-to-output parity for catalog, bundled public index or session HTML projection. Use after assigned generation changes; static parity does not prove browser or search quality.
 ---
 
 # Verify Generated Parity
 
 ## Workflow
 
-1. Identify the source files, builders, and generated consumers affected by the slice.
-2. Prefer in-memory parity checks when the task does not authorize writing generated files.
-3. Run the smallest relevant syntax, schema, count, identity, ordering, and payload checks.
-4. Inspect the diff for unrelated rewrites, stale titles, encoding damage, duplicate identities, and missing provenance.
-5. Report exact command, exit code, observed result, skipped checks, and whether evidence is static or runtime.
-6. Do not repair failures unless implementation ownership is explicitly reassigned.
+1. Read PLAN.md, the owning sources/builders and relevant [team contracts](../../../docs/plan/plugin-v1-team-contracts.md).
+2. Select the affected family: current or legacy catalog outputs, CP-06 public cards/index/manifest, or CP-10 session projection. Do not regenerate unrelated surfaces.
+3. Check reproducible logical content, canonical IDs and provenance. Use exact package hashes for distribution integrity, not SQLite semantic equivalence.
+4. For session projection use specs/artifact/session-workspace-contract.md: canonical/source bindings, partial/null sources, saved/published revisions and RU/EN coverage. Do not edit state or translate facts during verification.
+5. Inspect changed-source parity, escaping and size constraints with read-only checks where available. Browser behavior, language meaning and retrieval relevance require separate evidence.
+6. Report exact commands, versions, mismatches, evidence ceiling and owning source correction; never repair generated output alone.
 
 ## Output
 
-Return checks run, expected and observed results, parity verdict, files inspected, unsupported claims, residual risks, and next role.
-
-## Stop Conditions
-
-Stop on missing builder ownership, generated/source disagreement, encoding corruption, unexpected destructive rewrite, or a check requiring unapproved external access.
+Return exact owned files or findings, requirement/contract mapping, observed checks and failures, evidence limits, rollback, risks and next owner. Stop on unsafe data, missing applicable acceptance, ownership conflict or action outside existing authorization; do not invent evidence.

@@ -1,23 +1,19 @@
 ---
 name: evolve-catalog-pipeline
-description: Implement focused source-first changes to the myAI-StackGuide catalog generators and data flow. Use for assigned script, normalization, scoring, classification, ingestion, or generated-output changes after contract acceptance; do not use it for unassigned taxonomy or product-scope changes.
+description: Implement assigned source-first catalog, public-card or bundled SQLite index generation. Use for owned builders; not user-state storage, runtime search or policy calibration.
 ---
 
 # Evolve Catalog Pipeline
 
 ## Workflow
 
-1. Read the accepted requirement, schema, task packet, target builders, source files, and existing dirty diff.
-2. Own only the exact assigned files and preserve unrelated user changes.
-3. Change source data or builder logic before generated outputs; do not hand-edit generated catalog artifacts.
-4. Preserve provenance, stable identity, deterministic ordering, UTF-8 text, and snapshot boundaries.
-5. Run syntax checks, targeted tests, regeneration when authorized by the task, generated parity, and diff inspection.
-6. Record commands, observed outputs, unexpected diffs, residual risks, and docs impact in the handoff.
+1. Read PLAN.md, data/catalog_manifest.json, relevant source builders and [team contracts](../../../docs/plan/plugin-v1-team-contracts.md).
+2. For CP-06 read accepted C9 contracts and specs/retrieval/retrieval-policy.json. Freeze exact scripts, public source files, package outputs and tests before editing.
+3. Preserve source-owned identities, aliases, dates, unknowns and provenance; browser enrichment cannot substitute for persisted public facts.
+4. Generate public cards/index/manifest without user context, runtime query logging, embeddings or automatic startup rebuild. Derive policy from the accepted source, not a parallel constant set.
+5. Check logical row/query parity independently of package-byte hashes. Keep taxonomy/current/legacy pipelines distinct and regenerate only assigned outputs sequentially.
+6. Run focused positive/negative checks and inspect the diff; report actual evidence and hand off runtime retrieval to its owner.
 
 ## Output
 
-Return files touched, implementation summary, commands and exit codes, generated changes, evidence, unsupported claims, rollback, and next role.
-
-## Stop Conditions
-
-Stop on missing acceptance criteria, ownership conflict, unexpected broad diff, destructive action, schema ambiguity, or a required external/provider operation.
+Return exact owned files or findings, requirement/contract mapping, observed checks and failures, evidence limits, rollback, risks and next owner. Stop on unsafe data, missing applicable acceptance, ownership conflict or action outside existing authorization; do not invent evidence.

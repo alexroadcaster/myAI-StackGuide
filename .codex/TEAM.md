@@ -4,7 +4,7 @@ Project-scoped team design for the current Product-Agent OS lifecycle. Codex loa
 
 ## Team
 
-Read `docs/plan/plugin-v1-team-contracts.md` for current sources, implementation loops, state/candidate boundaries, and methodology gates. The active task packet selects the relevant sections; it must not depend on raw conversation history. Builder definitions are preparation only until CP-02/03 and routing gates close.
+Read `docs/plan/plugin-v1-team-contracts.md` for current sources, implementation loops, state/candidate boundaries, and methodology gates. The active task packet selects the relevant sections; it must not depend on raw conversation history. Resolve applicable accepted CP-02/03 contracts and current fresh-session routing evidence before dispatch; role existence alone is not readiness.
 
 | Agent | Primary responsibility | Write ownership | Assigned project skills |
 | --- | --- | --- | --- |
@@ -16,7 +16,19 @@ Read `docs/plan/plugin-v1-team-contracts.md` for current sources, implementation
 | `evidence_reviewer` | Independent claim, provenance, permission, and regression review | Read-only | `review-advisory-evidence`, `audit-readonly-boundaries`, `verify-generated-parity` |
 | `docs_maintainer` | RUNLOG, source-backed docs, decision trace, and handoff closure | `RUNLOG.md` and explicitly assigned curated docs; not product requirements meaning | `maintain-control-plane`, `review-advisory-evidence`, `curate-catalog-taxonomy` |
 | `plugin_runtime_builder` | Local plugin intake, scanner, state, matching, and offline report | Exact assigned files under `plugins/myai-stackguide/`; unit tests only by explicit packet assignment | `build-stackguide-plugin`, `design-context-contracts`, `audit-readonly-boundaries` |
-| `mcp_backend_builder` | Own-backend MCP tools and candidate ledger | Exact backend and test paths accepted in CP-02; never the plugin bundle or current catalog | `build-stackguide-mcp`, `design-catalog-contracts`, `audit-readonly-boundaries`, `design-recommendation-evals` |
+| `mcp_backend_builder` | Own-backend MCP tools and candidate ledger | Exact backend and test paths separately accepted in CP-12; never the plugin bundle or current catalog | `build-stackguide-mcp`, `design-catalog-contracts`, `audit-readonly-boundaries`, `design-recommendation-evals` |
+
+## Local Ownership Joins
+
+| Slice | Implementation owner | Consumer / evidence owner |
+| --- | --- | --- |
+| CP-06 public metadata/cards/FTS5 index/manifest | Catalog Pipeline Builder | CP-09 consumer; Quality Evaluator verifies logical/package parity |
+| CP-07 state commit/publication | Plugin Runtime Builder, one writer | CP-08/09 supply data; CP-10 supplies renderer |
+| CP-08/09 scanner/context/retrieval | Exact assigned Plugin Runtime Builder seam | C9 capture scorer and session state consumers |
+| CP-10 A-D desktop session/RU-EN | Plugin Runtime Builder renderer/template | Quality Evaluator checks recovery/browser/meaning; Product Planner checks useful decisions |
+| CP-11/15/16 acceptance/package | Assigned builder plus Quality Evaluator | Evidence Reviewer audits; Docs Maintainer records results |
+
+Primary owns explicitly assigned durable Codex remediation. Product Planner owns requirements/sequence/acceptance, not automatic permission or configuration changes. Catalog Architect may amend exact assigned existing schemas as well as create new ones. Handoffs for shared state, schemas or generated surfaces are sequential.
 
 ## Methodology Ownership
 
@@ -62,10 +74,10 @@ Before a subagent starts, copy and complete `.codex/artifact-templates/agent-tas
 
 - Ownership or expected evidence is missing.
 - Another worker owns the same file, schema, source, generated artifact, or release surface.
-- The task needs credentials, private data, external writes, MCP activation, hooks, automation, deployment, Git history changes, or provider calls without explicit approval.
-- A source claim cannot be verified or is stale enough to change the decision.
+- The task needs credentials, unapproved sensitive scope, external writes, MCP activation, hooks, automation, deployment, Git history changes, or provider calls outside existing authorization. Relevant authorized reads follow the project exclusions and minimized persistence contract.
+- Stop an unsupported claim when evidence is missing or materially stale; retain useful partial findings and explicit next checks. Snapshot age alone does not reject a repository.
 - A command fails outside the declared expected-RED assertion, or an in-scope repair would require changing acceptance, shared ownership, permissions, or another owner's files. The assigned owner may fix ordinary local failures and rerun the targeted check; never treat an unexpected environment/import failure as expected RED.
-- Sensitive content would enter prompts, fixtures, docs, logs, or public catalog data.
+- Secrets or unnecessary sensitive content would enter model context, fixtures, docs, logs or public catalog data; raw project/chat persistence remains forbidden.
 - The worker would need raw conversation history instead of a fresh-context packet.
 
 ## Model And Reasoning Policy

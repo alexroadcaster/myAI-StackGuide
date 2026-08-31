@@ -35,3 +35,7 @@ Use this artifact before behavior changes. It links requirements to observable b
 
 - Keep scenarios declarative; do not use UI selectors, database internals, function names, or test harness implementation as the business outcome.
 - Stop before implementation when a behavior-changing requirement has no scenario, check, evidence owner, or explicit accepted gap.
+
+## Optional Session Publication Scenario
+
+When the slice changes state or HTML, name the saved revision, visible publication revision, render failure/retry/obsolete-render outcome and the canonical result expected in both languages. Use the accepted workspace contract; do not invent a second writer or require irrelevant UI checks for other tasks.

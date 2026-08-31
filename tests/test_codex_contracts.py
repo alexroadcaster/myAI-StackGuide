@@ -148,6 +148,32 @@ class CodexContractTests(unittest.TestCase):
         for path in paths:
             self.assertNotRegex(path.read_text(encoding="utf-8"), r"[\u0400-\u04ff\ufffd]", str(path))
 
+    def test_local_and_deferred_case_sets_are_disjoint_and_resolvable(self):
+        local = json.loads((ROOT / "evals/agents/team-behavior-cases.json").read_text(encoding="utf-8"))["cases"]
+        deferred = json.loads((ROOT / "evals/agents/deferred-extension-cases.json").read_text(encoding="utf-8"))["cases"]
+        local_ids = {case["case_id"] for case in local}
+        deferred_ids = {case["case_id"] for case in deferred}
+        self.assertFalse(local_ids & deferred_ids)
+        self.assertEqual(deferred_ids, {"TB-009", "TB-011", "TB-014"})
+        self.assertTrue({f"TB-{i:03}" for i in range(15, 23)} <= local_ids)
+        self.assertFalse(any(set(case["requirement_ids"]) & {"CP-12", "CP-13", "CP-14"} for case in local))
+        agents = {load_agent(path)["name"] for path in AGENT_DIR.glob("*.toml")}
+        skills = {path.name for path in SKILL_DIR.iterdir() if path.is_dir()}
+        for case in deferred:
+            self.assertIn(case["expected_agent"], agents)
+            self.assertTrue(set(case["required_skills"]) <= skills)
+            self.assertTrue(set(case["requirement_ids"]) & {"CP-12", "CP-13"})
+
+    def test_discovery_metadata_has_bounded_descriptions_and_explicit_prompts(self):
+        for path in SKILL_DIR.glob("*/agents/openai.yaml"):
+            text = path.read_text(encoding="utf-8")
+            description = re.search(r'^\s*short_description:\s*"([^"\n]+)"', text, re.MULTILINE)
+            prompt = re.search(r'^\s*default_prompt:\s*"([^"\n]+)"', text, re.MULTILINE)
+            self.assertIsNotNone(description, str(path))
+            self.assertIsNotNone(prompt, str(path))
+            self.assertTrue(25 <= len(description.group(1)) <= 64, str(path))
+            self.assertIn(f"${path.parent.parent.name}", prompt.group(1))
+
     def test_reviewer_remains_read_only(self):
         reviewer = load_agent(AGENT_DIR / "evidence-reviewer.toml")
         self.assertEqual(reviewer["sandbox_mode"], "read-only")

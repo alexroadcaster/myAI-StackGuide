@@ -2,6 +2,8 @@
 
 Active owner revision: 2026-08-31. [PRD](PRODUCT_REQUIREMENTS.md#active-plugin-v1-requirements) and [CP plan](plan/2026-08-30-codex-plugin-v1-implementation-plan.md) supersede the historical concept below.
 
+The accepted session experience uses one project-local HTML throughout intake, scan, comparison and integration, with eight desktop views and RU/EN presentation of one canonical result. Codex owns inputs/actions; the artifact displays saved state and useful next decisions. The [workspace design](plan/plugin-v1-session-workspace-design.md) and [contract](../specs/artifact/session-workspace-contract.md) own details; runtime is still planned.
+
 ## Active Plugin V1 Concept
 
 Help a user build or modernize their own solution faster by integrating suitable open-source components. A useful outcome is a decision plus the smallest practical integration/validation plan, with sources, alternatives, gaps and rollback. The plugin works locally from the user's project; Codex supplies the model.

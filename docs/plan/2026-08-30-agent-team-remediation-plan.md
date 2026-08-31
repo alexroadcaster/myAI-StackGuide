@@ -1,5 +1,7 @@
 # Agent Team Audit Remediation
 
+Historical remediation record. Current local FTS5/session/localization instruction work is CP-05 in [the active plan](2026-08-30-codex-plugin-v1-implementation-plan.md) and [full audit](2026-08-31-cp05-control-plane-audit.md). Original task reports below remain dated evidence.
+
 Date: 2026-08-30. Status: `implemented` for scoped local remediation; behavioral and product readiness remain unverified.
 
 The owner approved the preceding team audit and requested a task list and implementation. This authorizes repository-local control-plane, agent/skill, test, and offline eval-tooling changes. It does not authorize product runtime implementation, external skill installation, provider calls, credentials, MCP activation, deployment, publication, Git history changes, or permission changes.

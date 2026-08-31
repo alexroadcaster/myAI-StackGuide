@@ -1,23 +1,19 @@
 ---
 name: design-context-contracts
-description: Define safe scanner, Project Context Brief, interview, and recommendation memo contracts for myAI-StackGuide. Use for context acquisition, fact and inference separation, confidence, corrections, evidence, or advisory schemas; do not use it to scan private data or implement live collection.
+description: Design or amend accepted scanner, interview, Brief, integration and session presentation contracts. Use for canonical mappings and compatibility, not renderer implementation.
 ---
 
 # Design Context Contracts
 
 ## Workflow
 
-1. Read `docs/MYAI_STACKGUIDE_CONTEXT_SCANNER.md`, `docs/MYAI_STACKGUIDE_PRODUCT_CONCEPT.md`, `docs/PRODUCT_REQUIREMENTS.md`, and current control-plane requirements from the repository root. Read Intake, Context, And Local State in [Team contracts](../../../docs/plan/plugin-v1-team-contracts.md).
-2. Keep raw scan data, sanitized summaries, user corrections, catalog evidence, and final memo as distinct data classes.
-3. Model observed facts separately from inferences, confidence, missing context, evidence references, and user corrections.
-4. Preserve allowlist-first scanning, no code execution, no dependency installation, redaction, deletion, and retention boundaries.
-5. Require the memo to include category path, candidate roles, reasons, avoid/defer, comparison, reading path, caveats, evidence, and next human decision.
-6. Add positive, low-context, contradictory-evidence, and sensitive-source fixtures. Cover early intake completion, the 10-question cap, correction invalidation, version-safe resume, empty projects, partial scan coverage, cancellation, atomic writes, and concurrent-run isolation. Do not invent unresolved CP-02 scan caps or final CP-03 state enums.
+1. Read PLAN.md, REQUIREMENTS.md, specs/artifact/session-workspace-contract.md and relevant [team contracts](../../../docs/plan/plugin-v1-team-contracts.md).
+2. Map questions and saved answers, scan-before-Brief, sourced audience/workflow/constraints, comparison, avoid/defer and structured integration steps to canonical state or explicit unknowns.
+3. Separate observed facts, user corrections, inferences and evidence. Bound authorized context reads and minimized persistence; do not promise host-wide isolation.
+4. Specify content/storage/presentation revisions, dependency invalidation, source-hash/evidence/literal bindings, partial translation fallback and immutable legacy history. Preserve accepted caps rather than reopen selected values.
+5. Join CP-07 single-writer publication outcomes to CP-10 partial-state rendering. Saved answers survive render failure; obsolete renders cannot publish.
+6. Assign exact shared-schema ownership and positive/negative legacy/current fixtures before sequential consumer handoff.
 
 ## Output
 
-Return schema proposal, invariants, failure modes, privacy boundary, fixtures, checks, evidence owner, and next role.
-
-## Stop Conditions
-
-Stop when private-data handling is ambiguous, an inference can masquerade as fact, evidence cannot be traced, or the output crosses into implementation ownership.
+Return exact owned files or findings, requirement/contract mapping, observed checks and failures, evidence limits, rollback, risks and next owner. Stop on unsafe data, missing applicable acceptance, ownership conflict or action outside existing authorization; do not invent evidence.

@@ -14,6 +14,10 @@ description: Frame a bounded myAI-StackGuide product slice with users, value, no
 5. Keep external activation, deployment, Git history, and provider access behind explicit approval.
 6. Hand architecture work to `catalog_architect` and eval design to `quality_evaluator`.
 
+## Local Product Alignment
+
+Measure a useful integration/modernization decision and its first validation; repository counts and UI density are diagnostics, not product success. Requested scoped coding may be handed off within existing authority; proposed commands are not automatically executed.
+
 ## Output
 
 Return requirement IDs, exact artifacts, acceptance criteria, metrics, counter-metrics, risks, open decisions, and next role.

@@ -25,6 +25,13 @@ The workspace parent directory also contains one-off GitHub account research art
 
 Do not hand-edit generated catalog outputs unless the task is explicitly editorial and the generation impact is understood. Prefer changing source data or scripts, then regenerating. Keep `README.md` product-facing and intentional; `scripts/build_catalog.py` must not overwrite it.
 
+## Local Plugin Contract Routing
+
+- Read the accepted task and `docs/plan/plugin-v1-team-contracts.md`; state/rendering work also reads `specs/artifact/session-workspace-contract.md` and the linked eight-view design. Retrieval work reads `specs/retrieval/retrieval-policy.json` and assigned C9 contracts. Do not duplicate policy constants in instructions.
+- Keep the public bundled SQLite FTS5 index separate from private canonical JSON session state. Codex owns answers, scanning and composition; the one offline desktop HTML displays validated state and copyable next actions.
+- CP-07 owns the single state writer/publication boundary; CP-10 owns rendering and RU/EN presentation. Local generation within an authorized task is not external publication. English control documents do not prohibit RU/EN product content.
+- Development agents/skills are not the shipped plugin runtime. CP-12-14 backend/MCP work is deferred and is not a local release prerequisite. Resolve already accepted contracts before declaring them missing.
+
 ## Build And Verification Commands
 
 Run commands from this directory.
@@ -55,7 +62,7 @@ python -c "import sys; from pathlib import Path; sys.dont_write_bytecode=True; r
 - Public GitHub stars and freshness are triage signals only. They are not endorsements, production-readiness claims, security reviews, or code-quality ratings.
 - Treat HTML-scraped business/product data as lower-confidence than GitHub API data unless it has been enriched and rechecked.
 - Add or keep notes about source type, freshness, and verification status when extending the schema.
-- Do not store secrets, tokens, private repository data, customer data, or credentials in prompts, fixtures, docs, examples, CSV, JSON, or logs.
+- Do not disclose or persist secrets, credentials, unrelated private data or unnecessary customer information. Relevant task-authorized project context may inform Codex transiently within containment, exclusions and budgets; persist only minimized findings and sanitized answers. Do not archive raw source/chat in state or HTML or send private context to public catalog/index/remote evidence stores.
 
 ## Change Workflow
 

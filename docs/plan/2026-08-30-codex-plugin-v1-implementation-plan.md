@@ -2,11 +2,11 @@
 
 Planning date: 2026-08-30; owner revision: 2026-08-31. Timezone: `Europe/Moscow`.
 
-Document status: the detailed eight-view desktop/laptop design and RU-EN implementation scope are `owner_accepted`; runtime dispatch still requires CP-03 contracts, CP-04 evaluation design and CP-05 behavior alignment. CP-01/02 are implemented documentation; CP-03 addendum and bounded CP-04 C8/scorer files are present with partial verification; CP-04 quality calibration and CP-05-CP-16 remain planned. No product runtime, index, remote integration or publication is activated by this revision.
+Document status: the detailed eight-view desktop/laptop design and RU-EN implementation scope are `owner_accepted`; runtime dispatch still requires CP-03 contracts, CP-04 evaluation design and CP-05 behavior alignment. CP-01/02 are implemented documentation; CP-03 addendum and bounded CP-04 C8/scorer compatibility are contract-verified; CP-04 quality calibration remains open, CP-05 source alignment is implemented/static-verified with fresh-session acceptance pending, and later runtime tasks remain planned. No product runtime, index, remote integration or publication is activated by this revision.
 
 ## 1. Goal, Sources, And Boundaries
 
-Owner revision: 2026-08-31. SQLite FTS5/BM25 is selected for local catalog retrieval. The product optimizes time to a useful open-source integration or modernization plan. Relevant project reads are allowed within existing permissions; the former host-wide source-isolation requirement is superseded, not technically proven. Repository activity and evidence observation are separate; the former 30-day snapshot rejection is withdrawn. CP-01/02 remain completed documentation records. CP-03 is implemented and verified at contract level: 22 local schemas, the presentation/publication addendum and linked fixtures pass all 46 checks. The bounded CP-04 C8/C9 join passes all 27 checks and both scorer CLI gates; synthetic compatibility is accepted, while quality corpus/baseline/thresholds and human calibration remain open. CP-05-CP-16 remain planned, with CP-12-CP-14 deferred. Runtime and permissions are unchanged.
+Owner revision: 2026-08-31. SQLite FTS5/BM25 is selected for local catalog retrieval. The product optimizes time to a useful open-source integration or modernization plan. Relevant project reads are allowed within existing permissions; the former host-wide source-isolation requirement is superseded, not technically proven. Repository activity and evidence observation are separate; the former 30-day snapshot rejection is withdrawn. CP-01/02 remain completed documentation records. CP-03 is implemented and verified at contract level: 22 local schemas, the presentation/publication addendum and linked fixtures pass all 46 checks. The bounded CP-04 C8/C9 join passes all 27 checks and both scorer CLI gates; synthetic compatibility is accepted, while quality corpus/baseline/thresholds and human calibration remain open. CP-05 source alignment is implemented and statically verified; fresh-session behavioral acceptance remains pending; CP-06-CP-16 remain planned, with CP-12-CP-14 deferred. Runtime and permissions are unchanged.
 
 Goal: help users build or modernize their solutions faster by selecting suitable OSS components and handing off a concrete integration plan grounded in their project. The saved output is a Project Context Brief plus an offline Decision Report with comparison, integration steps, a first useful validation slice and rollback. Measured speed/quality improvements are hypotheses until evaluated.
 
@@ -366,6 +366,8 @@ The preceding Completion report is preserved first-pass history. This report rec
 
 - Current compatibility evidence: Both C8 schemas and scorer pass all 27 tests; both CLI gates pass for four synthetic captures. Independent review repeated the full suite. Full Draft/envelope/nested-byte/scorer compatibility is accepted; held-out corpus, baseline, human calibration and quality thresholds remain open. The Completion report below preserves the original planning record.
 
+- Audit follow-up: use provenance-backed real public catalog judgments alongside synthetic private-project contexts; map logical quality requirements to C8 envelopes/artifacts without adding unsupported schema keys. The four compatibility captures remain unchanged; actual baseline/held-out/RU-EN/usefulness calibration stays open.
+
 #### Completion report
 
 - status: planned
@@ -394,36 +396,36 @@ The preceding Completion report is preserved planning history. This report recor
 
 ### Task `CP-05`
 
-- Task: CP-05 — align existing agents, skills and behavior cases with local FTS5 scope
-- Status: planned
+- Task: CP-05 — align local FTS5, session HTML, localization and integration instructions
+- Status: in_progress
 - Schema version: task_matrix_plan_v1
 - Timezone: Europe/Moscow
 - Plan trigger: Owner revision 2026-08-31: local SQLite FTS5, relevant context, activity-aware evidence and actionable OSS integration. This task remains within the local product path.
 - Validator target: detailed task blocks
-- Date and time of task implementation: pending_execution_timestamp
+- Date and time of task implementation: 2026-08-31; source applied/static-verified, fresh-session acceptance pending
 - Depends on: CP-01, CP-02
 - Blocks: CP-07, CP-08, CP-09, CP-10, CP-12, CP-13, CP-16
 - Source: Owner decisions 2026-08-31; active PRD R04, R13; accepted CP-02 ADRs and Section 3 registries. R15 session workspace/localization amendment and linked design addendum.
-- Short description: Update existing readiness contracts rather than recreate already-authored builder roles.
+- Short description: Preserve the complete audit, reconcile the task and implement existing instruction/case alignment in CP-05-A/B/C; do not create extra CP tasks or specialist agents.
 - Technical value: Loaded instructions no longer conflict with authorized context access, retrieval or integration handoff.
 - Product value: Avoid needless refusals, repeated approvals and remote setup detours.
-- Scope: Product Planner owns scoped existing .codex/agents/plugin-runtime-builder.toml, .codex/TEAM.md and other role references identified in the accepted task packet; local skills .agents/skills/build-stackguide-plugin/SKILL.md, design-context-contracts/SKILL.md, design-recommendation-evals/SKILL.md, audit-readonly-boundaries/SKILL.md and review-advisory-evidence/SKILL.md as needed. Quality Evaluator owns tests/test_codex_contracts.py, evals/agents/agent-routing-cases.json, evals/agents/team-behavior-cases.json and evals/skills/skill-activation-cases.json. Resolve exact further files before edits; protected-directory writes require applicable permission, not policy weakening.
+- Scope: Primary owns the exact role/skill/Codex/root-doc disposition registry in docs/plan/2026-08-31-cp05-control-plane-audit.md; nine existing agents, thirteen SKILL.md, eleven agents/openai.yaml, TEAM/workflow/promotion/model-policy notes and two templates. Quality evidence work includes tests/test_codex_contracts.py, tests/test_agent_eval_grader.py, evals/agents/agent-routing-cases.json, team-behavior-cases.json, deferred-extension-cases.json and evals/skills/skill-activation-cases.json. One sequential writer applies this assignment; protected writes require actual permission.
 - Non-goals: Unassigned files, model/permission changes, Git history, automatic installs, private-data disclosure or external activation. No remote architecture/runtime or vector/embedding dependency.
-- Expected result: Local builder/architect/reviewer routes apply revised R04/R13, FTS5/index boundaries and unknown/activity policy; backend role dormant. Explicit fresh-session evidence for changed contracts.
-- Acceptance criteria: Remove scanner-only host-source prohibitions and automatic refusal of requested coding handoff while preserving exclusions, no automatic installs, public/private separation and actual approval boundaries. FTS5 is default and no provider/server is introduced. Targeted static checks plus representative direct/indirect/incomplete/adversarial behavior traces; no model/effort promotion without existing comparison requirements.
-- Session workspace / R15 (planned): Align assigned host question/composition/handoff behavior with one canonical result and paired RU/EN presentation. No separate translation provider, automatic language-triggered retrieval or protected-definition edit is authorized by this plan.
+- Expected result: Existing local roles/skills consume accepted contracts, permit bounded context, keep public SQLite and private state separate, share one writer/renderer, produce one canonical bilingual result and useful handoff. Backend remains dormant.
+- Acceptance criteria: Static structure/source links and versioned local/deferred cases pass; all modified instruction behavior needs representative fresh-session traces. Cover authorized reads with exclusions, index errors, partial HTML, publication failure, locale switching, correction invalidation, useful coding handoff and activity unknowns. Preserve model/effort/permission defaults and existing comparison requirements before any future model change.
+- Session workspace / R15 (planned): Owner-authorized CP-05 alignment covers all eight views from first partial state, source-bound RU/EN presentation, no-call display switching, immutable history and saved/published recovery. No translation provider or runtime is introduced.
 - Verification gates: V-DOC, relevant agent/skill validators and focused control-plane checks; fresh-session loading/routing before runtime dispatch. Old static passes are not revised-behavior proof.
 - Risks / approval gates: Preserve pre-existing dirty work and source-owned boundaries. Public research is read-only; sensitive scope, credentials, material cost, external writes, publication and destructive operations follow actual authorization. Selected caps and ranking quality are not yet measured.
 - Complexity: M
 - Estimated execution time: Re-estimate at dispatch from accepted inputs and the first bounded slice; earlier ranges are superseded by the changed FTS5/context/integration scope. No delivery commitment or provider-cost estimate.
 - Agents: Owner primary orchestrator; reviewer evidence_reviewer; eval owner quality_evaluator.
 - Skills: shape-product-slice; maintain-control-plane; design-recommendation-evals; applicable skill-creator for assigned durable skill changes; openai-docs for fresh loading evidence.
-- Output artifacts: Product Planner owns scoped existing .codex/agents/plugin-runtime-builder.toml, .codex/TEAM.md and other role references identified in the accepted task packet; local skills .agents/skills/build-stackguide-plugin/SKILL.md, design-context-contracts/SKILL.md, design-recommendation-evals/SKILL.md, audit-readonly-boundaries/SKILL.md and review-advisory-evidence/SKILL.md as needed. Quality Evaluator owns tests/test_codex_contracts.py, evals/agents/agent-routing-cases.json, evals/agents/team-behavior-cases.json and evals/skills/skill-activation-cases.json. Resolve exact further files before edits; protected-directory writes require applicable permission, not policy weakening.
+- Output artifacts: Primary owns the exact role/skill/Codex/root-doc disposition registry in docs/plan/2026-08-31-cp05-control-plane-audit.md; nine existing agents, thirteen SKILL.md, eleven agents/openai.yaml, TEAM/workflow/promotion/model-policy notes and two templates. Quality evidence work includes tests/test_codex_contracts.py, tests/test_agent_eval_grader.py, evals/agents/agent-routing-cases.json, team-behavior-cases.json, deferred-extension-cases.json and evals/skills/skill-activation-cases.json. One sequential writer applies this assignment; protected writes require actual permission.
 - Evidence owner: quality_evaluator for static/routing evidence; primary orchestrator for the accepted team packet.
 - Docs update path: Product Planner updates PLAN.md/task status; Quality Evaluator records TEST.md/EVALS.md evidence; Docs Maintainer appends RUNLOG.md after handoff. No unsupported completion claim.
 - Rollback: Undo only owned changes; preserve prior valid state, finalized history and compatible package/index. No automatic deletion, Git reset, permission weakening or silent retrieval fallback.
 - Stop conditions: Unexpected sensitive data or side effects, ownership overlap, incompatible accepted contract, unsafe containment, failed mandatory evidence or missing required external authorization. Routine relevant reads are not failures; report useful partial results when safe.
-- Next step: Dispatch local CP-07/08/09/10 only after applicable CP-03 contracts and readiness checks; keep CP-12 dormant.
+- Next step: Complete CP-05-C fresh-session loading/behavior before claiming runtime dispatch readiness; finish CP-04 quality design separately. CP-12 remains dormant.
 
 #### Completion report
 
@@ -436,6 +438,20 @@ The preceding Completion report is preserved planning history. This report recor
 - verification evidence: Current documentation checks belong in RUNLOG.md; no task-specific runtime, schema, index, model or release pass claimed.
 - residual risks: Upstream acceptance and task-specific evidence remain open. Remote extension and vectors are not prerequisites.
 - follow-up: Dispatch local CP-07/08/09/10 only after applicable CP-03 contracts and readiness checks; keep CP-12 dormant.
+
+#### CP-05 execution update — 2026-08-31
+
+The original Completion report above is retained as dated planning evidence. This update owns the current implementation status.
+
+- status: in_progress
+- what was done: Full 83-file audit saved; nine roles, thirteen skills, eleven metadata files, shared ownership/contracts/templates, active status and versioned local/deferred cases aligned and applied. All 39 protected-file writes succeeded through the authorized escalation path.
+- files touched / work locations: Exact audit registry; isolated candidate and before-byte snapshot used during preparation. Applied source files and evidence are recorded in RUNLOG.md; temporary copies are not product artifacts.
+- technical value delivered: Applied definitions cover one writer/renderer, bounded public FTS5, relevant authorized context, partial-state HTML and source-bound RU/EN; static checks pass on the actual workspace.
+- product value delivered: Instructions remove unnecessary blanket refusals and remote prerequisites; actual user speed, recommendation quality and browser usefulness are not measured.
+- actual implementation date and time: 31-08-2026; source preparation and static validation, fresh-session acceptance pending
+- verification evidence: Actual workspace control-plane 13/13 and grader 19/19 tests; local/deferred case validation 19/3; Product-Agent OS control-plane/nine-agent/task-matrix validators and diff checks pass. Config/model/sandbox, 65 frozen files, 16 original completion reports and R01-R15/dependencies preserved. See RUNLOG.md for commands and exact limitations.
+- residual risks: Protected-file application is complete. Fresh-session loading and representative observed behavior remain pending; same-session inspection cannot prove them. No observed agent/model, runtime, browser or product-quality result is claimed.
+- follow-up: Start fresh Codex context, verify loaded instruction/case identities and representative traces before runtime dispatch. Do not launch extra agents/provider experiments or enable MCP solely to satisfy a gate. CP-04 quality calibration remains separate.
 
 ### Task `CP-06`
 
@@ -468,6 +484,8 @@ The preceding Completion report is preserved planning history. This report recor
 - Rollback: Undo only owned changes; preserve prior valid state, finalized history and compatible package/index. No automatic deletion, Git reset, permission weakening or silent retrieval fallback.
 - Stop conditions: Unexpected sensitive data or side effects, ownership overlap, incompatible accepted contract, unsafe containment, failed mandatory evidence or missing required external authorization. Routine relevant reads are not failures; report useful partial results when safe.
 - Next step: CP-09 consumes the frozen cards/index/policy after CP-07. Public evidence collection must stay within its assigned read-only scope; incomplete coverage is reported, not fabricated.
+
+- Audit follow-up: clarify generated docs/METHODOLOGY.md through its owner scripts/build_catalog.py so legacy popularity/freshness curation scoring cannot be mistaken for C9 FTS5 ranking. Do not hand-edit generated methodology or retune accepted retrieval policy as part of that clarification.
 
 #### Completion report
 

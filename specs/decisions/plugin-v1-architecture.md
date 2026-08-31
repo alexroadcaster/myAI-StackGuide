@@ -4,7 +4,7 @@ Decision date: 2026-08-30; amended by owner decision 2026-08-31. Owner: Catalog 
 
 ## Decision And Scope
 
-Owner revision: 2026-08-31. SQLite FTS5/BM25 is selected for local catalog retrieval. The product optimizes time to a useful open-source integration or modernization plan. Relevant project reads are allowed within existing permissions; the former host-wide source-isolation requirement is superseded, not technically proven. Repository activity and evidence observation are separate; the former 30-day snapshot rejection is withdrawn. CP-01/02 remain completed documentation records. CP-03 is implemented and verified at contract level: 22 local schemas, the presentation/publication addendum and linked fixtures pass all 46 checks. The bounded CP-04 C8/C9 join passes all 27 checks and both scorer CLI gates; synthetic compatibility is accepted, while quality corpus/baseline/thresholds and human calibration remain open. CP-05-CP-16 remain planned, with CP-12-CP-14 deferred. Runtime and permissions are unchanged.
+Owner revision: 2026-08-31. SQLite FTS5/BM25 is selected for local catalog retrieval. The product optimizes time to a useful open-source integration or modernization plan. Relevant project reads are allowed within existing permissions; the former host-wide source-isolation requirement is superseded, not technically proven. Repository activity and evidence observation are separate; the former 30-day snapshot rejection is withdrawn. CP-01/02 remain completed documentation records. CP-03 is implemented and verified at contract level: 22 local schemas, the presentation/publication addendum and linked fixtures pass all 46 checks. The bounded CP-04 C8/C9 join passes all 27 checks and both scorer CLI gates; synthetic compatibility is accepted, while quality corpus/baseline/thresholds and human calibration remain open. CP-05 source alignment is implemented and statically verified; fresh-session behavioral acceptance remains pending; CP-06-CP-16 remain planned, with CP-12-CP-14 deferred. Runtime and permissions are unchanged.
 
 The selected package is a Codex skill, trusted local Python scripts, catalog cards, a read-only SQLite FTS5 index, and project-local artifacts. No Cloudflare, server database, remote MCP, embedding API/model download, vector extension, Docker, daemon, OAuth or scheduler is required. Codex supplies the conversational model under its own account/data policy; local scripts do not imply local model inference or zero Codex cost.
 
@@ -43,7 +43,7 @@ Local marketplace installation and fresh-session testing are CP-16 work, not imp
 
 ## Exact Future File Ownership
 
-Paths are relative to this implementation repository. CP-03 contracts/tests now exist with partial verification; downstream implementation paths remain future work. Builders own implementation; the Quality Evaluator owns named tests/fixtures; the Curator owns research evidence. Sequential handoffs preserve these boundaries. A registry entry alone is not implementation evidence.
+Paths are relative to this implementation repository. CP-03 contracts/tests are verified at contract level; downstream implementation paths remain future work. Builders own implementation; the Quality Evaluator owns named tests/fixtures; the Curator owns research evidence. Sequential handoffs preserve these boundaries. A registry entry alone is not implementation evidence.
 
 | Task | Implementation / source outputs | Evaluator-owned checks |
 | --- | --- | --- |
@@ -129,12 +129,12 @@ There is no maximum snapshot age that automatically rejects a candidate. Old obs
 
 FTS5 limits catalog context growth without adding a service or embedding dependency. It will miss vocabulary and cross-language matches unless query policy/data coverage helps; measure this before adding optional vectors. `sqlite-vec`, LanceDB, Qdrant, GraphRAG and embedding/reranker models are not V1 prerequisites. Any future alternative must outperform this versioned baseline on the same representative cases with acceptable installation, latency, memory and maintenance costs.
 
-The CP-02 decision was documentation only. CP-03 now adds the local contracts below, with partial verification; no runtime is introduced. Preserve CP-01/02 records and historical source bodies. Later runtime rollback uses the previous compatible package/index and valid user state; incompatible state is not rewritten by an older plugin. No automatic deletion, catalog-wide context fallback, global permission change or remote activation is part of recovery.
+The CP-02 decision was documentation only. CP-03 supplies the verified local contracts below; no runtime is introduced. Preserve CP-01/02 records and historical source bodies. Later runtime rollback uses the previous compatible package/index and valid user state; incompatible state is not rewritten by an older plugin. No automatic deletion, catalog-wide context fallback, global permission change or remote activation is part of recovery.
 
 ## CP-03 Local Contract Implementation
 
-Contract version `1.0.0` uses [JSON Schema Draft 2020-12](https://json-schema.org/draft/2020-12/json-schema-core).
-All twenty local C1-C6/C9 schemas and their [linked positive examples](../../tests/fixtures/plugin_contracts.json)
+C1/C3/C5/C6 new writes use `1.1.0` with the workspace addendum; original `1.0.0` shapes remain read-only compatible. C2/C4/C9 remain `1.0.0`. The contract family uses [JSON Schema Draft 2020-12](https://json-schema.org/draft/2020-12/json-schema-core).
+All 22 local C1-C6/C9 schemas and their [linked positive examples](../../tests/fixtures/plugin_contracts.json)
 are present. Repository names, index version and index hashes in those fixtures
 are explicitly synthetic; no scan, upstream verification, SQLite query or plugin
 installation occurred. Actual generation remains CP-06.

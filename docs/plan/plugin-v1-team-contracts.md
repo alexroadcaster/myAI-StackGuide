@@ -44,6 +44,19 @@ CP-03/07 own typed state and transition contracts; this document does not invent
 - Prevent path traversal, symlink/junction escape, sensitive reads, project subprocesses, and dependency installation. Structured scanner output remains minimized. Separately selected relevant excerpts may inform Codex transiently within actual authorization; persist only minimized findings/safe references, not raw source, secrets or chat. Both paths obey sensitive exclusions and containment.
 - `state.json` is mutable current state; `status.html` is an escaped offline projection; finalized run JSON is immutable. Concurrent runs cannot overwrite each other. Crash/recovery behavior must be tested.
 
+## Session Workspace And Localization
+
+Read [workspace contract](../../specs/artifact/session-workspace-contract.md) for exact fields/revisions and [desktop design](plugin-v1-session-workspace-design.md) for all 49 subsections. The eight views are Goal, Questions, Scan, Context, Options, Compare, Integration and History. This inventory is coverage, not a UI-density success metric.
+
+- Publish one session HTML from the first committed partial state, without waiting for a Brief, scan or recommendation. Null/not-started/unknown/stale/legacy states remain useful. Desktop and laptop only; no mobile adaptation.
+- Codex asks questions, accepts answers/corrections, scans and composes recommendations. HTML displays saved answers/evidence and copyable next actions; it is not a second input store, live scanner, retrieval engine or command runner.
+- CP-07 owns canonical state writes and commit/publication orchestration; CP-10 owns rendering. CP-08/09 feed the same boundary. Keep domain content, storage and presentation revisions distinct. Finalized history is immutable; compatible legacy reads cannot silently upgrade it.
+- Saved state and published HTML can differ after failure. Preserve saved answers and the previous valid HTML; report both revisions and typed errors to Codex. Retry rendering only within accepted bounds, cancel obsolete renders, and never let a stale render replace a newer publication. The opened HTML is a reloadable snapshot, not a live observer.
+- Separate bundled static RU/EN dictionary labels, localized narrative presentation and lexical retrieval aliases. Narrative translations bind to the same canonical field/source hash, evidence, literal values and relevant content revision. Validate bindings before save/render; semantic equivalence still needs human review.
+- Language display switching performs no domain write, scan, retrieval, model or translation-provider call. Missing narrative translation shows the original plus an explicit partial/unavailable notice. Missing static keys fail build. Apply accepted state/HTML/evidence budgets without duplicating translations in the retrieval pack.
+- CP-10 A implements shell/localization; B views 1-4; C views 5-7; D History/recovery. Quality Evaluator owns browser/state/meaning evidence, Product Planner checks useful decisions, Evidence Reviewer audits claim limits. Images and static parity are not runtime acceptance.
+- Integration output names source-supported integration surfaces, affected components, steps/prerequisites, first validation and rollback. Displayed commands are proposals. An explicit ordinary coding request may authorize a bounded implementation handoff without blanket refusal; installs, disclosure, destructive or external actions retain their boundaries.
+
 ## Permission And Tool Contract
 
 | Surface | Allowed intent | Required evidence before runtime acceptance |
@@ -69,7 +82,7 @@ Creation, push, verified commit/release, observation and build dates are separat
 
 Report output includes integration surface, affected components, steps/prerequisites, first validation, rollback and a coding-agent handoff. Proposed commands are allowed but not automatically executed or claimed tested. A user implementation request can authorize ordinary scoped coding; do not repeat permissions or refuse merely because the workflow began as a recommendation. Secret/install/external/destructive/cost boundaries remain in force.
 
-Existing protected role/skill definitions and behavior fixtures still need CP-05 realignment for revised R04/R13. This document neither changes them nor proves they are loaded. Before downstream runtime dispatch, accept the exact changed-file packet, complete required file permissions, version the cases and verify fresh-session behavior. No model/host permission changes are authorized to bypass a mismatch.
+CP-05 owns role/skill and behavior-case alignment for R04/R13/R15 using the exact audit/file registry. Source edits, static checks and fresh-session behavior are separate gates; inspect PLAN.md and RUNLOG.md for current evidence. No model/host permission change may bypass a mismatch. Local readiness cases are separate from deferred CP-12/13 extension cases.
 
 ## Methodology And Decision Gates
 
@@ -86,7 +99,7 @@ Existing protected role/skill definitions and behavior fixtures still need CP-05
 | Operations | MCP Backend Builder | Health semantics, sanitized observability, latency/availability targets or explicit owner gap, secret handling, disable/rollback runbook | Deferred CP-12/14 |
 | Team and AI quality | Quality Evaluator | Versioned cases/results, direct/indirect/incomplete/non-trigger/adversarial checks, trace review, baseline vs one-lower comparison | CP-04/05/15 |
 | UI acceptance | Plugin Runtime Builder + Quality Evaluator | Offline/error/empty/partial states, accessibility, escaping, rendered browser checks | CP-10/15 |
-| Release | Docs Maintainer + Evidence Reviewer | Local package/index/FTS5 compatibility, clean installation and rollback; no remote prerequisite; publication separately authorized | CP-16 |
+| Release | Assigned Builder + Quality Evaluator; Docs Maintainer records and Evidence Reviewer audits | Local package/index/FTS5 compatibility, clean installation and rollback; no remote prerequisite; publication separately authorized | CP-16 |
 
 Use the existing CP-02/03 artifacts for these gates. Do not generate one template per row or select a backend/framework/provider to make a checklist look complete. Final runtime decisions require accepted ADR evidence.
 

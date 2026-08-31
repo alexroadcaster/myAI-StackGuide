@@ -1,6 +1,6 @@
 # myAI-StackGuide Context Scanner
 
-Active owner revision: 2026-08-31. Read [PRD](PRODUCT_REQUIREMENTS.md#active-plugin-v1-requirements), [architecture](../specs/decisions/plugin-v1-architecture.md#scan-budgets-and-classification) and [permissions](../specs/decisions/plugin-v1-permissions.md). CP-03 now provides [scan policy](../specs/scanner/scan-policy.yaml), [exclusion examples](../specs/scanner/exclusion-cases.json) and typed context contracts. Their acceptance is partially verified; scanning and filesystem containment remain unimplemented CP-08 work.
+Active owner revision: 2026-08-31. Read [PRD](PRODUCT_REQUIREMENTS.md#active-plugin-v1-requirements), [architecture](../specs/decisions/plugin-v1-architecture.md#scan-budgets-and-classification) and [permissions](../specs/decisions/plugin-v1-permissions.md). CP-03 now provides [scan policy](../specs/scanner/scan-policy.yaml), [exclusion examples](../specs/scanner/exclusion-cases.json) and typed context contracts. Their acceptance is verified at contract level; scanning and filesystem containment remain unimplemented CP-08 work.
 
 ## Active Local Scanner Contract
 
@@ -8,7 +8,7 @@ The scanner gives a fast project overview to support OSS integration. Intake/man
 
 Retain selected quick (50 files/2 MiB/10 s), standard (200/10 MiB/30 s) and deep total (500/30 MiB/90 s) budgets. All modes share topology limits of 10,000 entries, depth 12 and 5 s charged to total, individual file cap 512 KiB and structured response cap 256 KiB. Full counter, incomplete-traversal/monorepo precedence and recovery rules remain in the ADR. These are engineering ceilings pending CP-08 evidence, not performance guarantees. CP-03 separately bounds targeted-read requests and total model-facing context; no unbounded expansion bypasses the scan policy.
 
-Emit explicit coverage/gaps and safe references; user corrections remain separate from observed facts. Unknown or inaccessible context should lead to a useful caveated answer when possible. Do not label partial traversal empty or infer architecture certainty from heuristics.
+The canonical state may retain scan data before a Brief; scan=null means no retained result, not zero files. Emit explicit coverage/gaps and safe references; user corrections remain separate from observed facts. Unknown or inaccessible context should lead to a useful caveated answer when possible. Do not label partial traversal empty or infer architecture certainty from heuristics.
 
 ## Active Privacy And Output Contract
 

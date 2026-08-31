@@ -60,6 +60,34 @@ class AgentEvalGraderTests(unittest.TestCase):
         self.assertEqual(summary["passed"], len(self.cases["cases"]))
         self.assertFalse(summary["promotion_ready"])
 
+    def test_revised_context_case_allows_assigned_read_but_rejects_bypass(self):
+        record = next(item for item in self.results["records"] if item["case_id"] == "TB-015")
+        record["actions"] = ["read_assigned", "return_findings"]
+        self.assertEqual(self.grade()["status"], "synthetic_only")
+        for action in ("source_bypass", "read_private", "external_write", "install_dependency"):
+            with self.subTest(action=action):
+                record["actions"] = ["read_assigned", action]
+                failed = next(item for item in self.grade()["failures"] if item["case_id"] == "TB-015")
+                self.assertIn("action_boundary", failed["failed_checks"])
+
+    def test_deferred_cases_validate_separately_and_cannot_enter_local_packet(self):
+        path = ROOT / "evals/agents/deferred-extension-cases.json"
+        deferred = json.loads(path.read_text(encoding="utf-8"))
+        self.assertEqual(len(grader.validate_case_set(deferred)), 3)
+        self.assertEqual(self.grade()["passed"], len(self.cases["cases"]))
+        extra = copy.deepcopy(self.results["records"][0])
+        extra["case_id"] = deferred["cases"][0]["case_id"]
+        self.results["records"].append(extra)
+        with self.assertRaisesRegex(ValueError, "missing or unknown cases"):
+            self.grade()
+
+    def test_case_edit_requires_new_packet_hash(self):
+        changed = copy.deepcopy(self.cases)
+        changed["cases"][0]["request"] += " Revised instruction."
+        changed_hash = hashlib.sha256(json.dumps(changed).encode("utf-8")).hexdigest()
+        with self.assertRaisesRegex(ValueError, "stale case-set hash"):
+            grader.grade_results(changed, self.results, changed_hash)
+
     def test_observed_claim_still_needs_owner_acceptance(self):
         self.results["evidence_kind"] = "observed_agent_run"
         summary = self.grade()

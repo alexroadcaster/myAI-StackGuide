@@ -9,7 +9,7 @@ Deliver a local Codex plugin that turns a user goal and project context into a u
 | Phase | Tasks | Exit evidence / status |
 | --- | --- | --- |
 | P0: direction and design | CP-01, CP-02 | Documentation implemented, amended to FTS5/relevant context/activity/integration; no runtime proof |
-| P1: local contracts and readiness | CP-03, CP-04, CP-05 | CP-03 contracts accepted (46/46); bounded C8/C9 compatibility and scorer verified (27/27 plus CLI); CP-04 quality calibration and CP-05 behavior remain open |
+| P1: local contracts and readiness | CP-03, CP-04, CP-05 | CP-03 contracts accepted (46/46); bounded C8/C9 compatibility and scorer verified (27/27 plus CLI); CP-05 instructions applied/static-verified; CP-04 quality calibration and CP-05 fresh-session behavior remain open |
 | P2: local useful vertical slice | CP-06-CP-11 | Persist public metadata/cards, build index, intake/state, bounded context, FTS5/evidence pack and integration report; actual 1/1 route then targeted negatives/scaling; planned |
 | P3: optional remote extension | CP-12-CP-14 | Deferred pending a separate service/auth/consent/architecture decision; no local P4/P5 dependency |
 | P4: independent local acceptance | CP-15 | Depends on CP-04, CP-10, CP-11; held-out retrieval, privacy, rendered UI and integration usefulness; planned |

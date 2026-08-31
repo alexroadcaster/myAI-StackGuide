@@ -27,7 +27,7 @@ Separate UI language parity from independent RU/EN retrieval relevance: switch o
 
 ## Case Format
 
-CP-04 owns active product cases in `evals/plugin-v1/cases.json` and C8 schemas; older `evals/cases/*.json` references are historical. Each future case must contain:
+CP-04 owns active product cases in `evals/plugin-v1/cases.json` and C8 schemas; older `evals/cases/*.json` references are historical. The following are logical quality-case requirements, not extra keys to add to the closed C8 scenario/result envelopes. CP-04 maps them to scenario fields, frozen catalog/query captures and separate judgment/rubric artifacts. Do not break the existing four synthetic captures or schema to copy this checklist:
 
 - `case_id`
 - `requirement_ids`
@@ -123,7 +123,7 @@ Initial ceilings are 60 candidates across query variants, 12 detailed cards and 
 
 Record index build size/time, cold/warm query latency (p50/p95 when sample size supports it), peak-memory method, hardware/runtime and serialized model input. Use actual catalog fixtures for relevance and separately labeled deterministic 2,000/10,000-row synthetic fixtures for scaling. Synthetic repeated cards do not prove semantic coverage, real repository growth or production performance. Inspect representative traces and human integration usefulness; FTS5 availability or speed alone cannot pass V-EVAL.
 
-The former `EVAL-NO-CODE-01` blanket-refusal expectation is superseded by `EVAL-HANDOFF-01`. Existing protected agent/skill JSON cases are not edited in this documentation revision; CP-05 must version and realign them before use as acceptance for the new policy. Do not silently grade revised behavior against incompatible old cases.
+The former `EVAL-NO-CODE-01` blanket-refusal expectation is superseded by `EVAL-HANDOFF-01`. CP-05 versions and realigns team/skill cases for this policy; local and deferred extension corpora are graded separately. Source changes and synthetic grader checks are not observed revised behavior. Do not silently grade revised behavior against incompatible old cases.
 
 ## CP-03 To CP-04 Compatibility Handoff
 
@@ -155,3 +155,7 @@ synthetic judgments; this completes the bounded contract join. This owner-author
 - Eval scorer: `implemented_verified` for synthetic captured-result compatibility; CP-04 owns C8 and `evals/plugin-v1/evaluate_retrieval.py`, with 27 passing tests and four passing CLI captures. It consumes captured C9 results without executing retrieval/models. The actual lexical baseline, held-out judgments, quality thresholds and human calibration remain unimplemented; this is not a product-quality runner or verdict.
 - Human reviewers: Product Planner for usefulness, Catalog Architect for fit contracts, Quality Evaluator for gates, Evidence Reviewer for claims and permissions.
 - Current status: `partially_implemented`; bounded C8 compatibility is accepted, full CP-04 quality work remains open, and no recommendation quality pass is claimed.
+
+## CP-05 Evidence Separation
+
+TB-015-022 cover permitted context, typed index failure, partial HTML, saved/published recovery, no-call RU/EN display, invalidation, useful handoff and activity unknowns. Real public catalog judgments are permitted with provenance; private-project test contexts remain synthetic. Static team checks, C8 compatibility, actual FTS5 relevance, translation meaning, browser behavior and human integration usefulness are separate verdicts. See the [full audit](docs/plan/2026-08-31-cp05-control-plane-audit.md) and .codex/agent-eval-workflow.md.

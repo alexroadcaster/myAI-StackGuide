@@ -2,6 +2,8 @@
 
 Owner revision: 2026-08-31; [active plan](plan/2026-08-30-codex-plugin-v1-implementation-plan.md) and [architecture ADR](../specs/decisions/plugin-v1-architecture.md) own implementation scope. Historical architecture below is inactive.
 
+CP-07 owns the single private JSON state writer and commit/publication boundary. CP-10 renders the same offline desktop HTML from partial state and embeds RU/EN presentation; CP-08/09 supply scan/retrieval data. Codex composes one canonical result. No browser-side state store, live scanner or second recommendation engine is introduced.
+
 ## Active Plugin V1 Boundary
 
 ```mermaid

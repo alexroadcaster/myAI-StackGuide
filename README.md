@@ -8,6 +8,8 @@ The selected path is a Codex plugin working locally from the user's project: ada
 
 **Current status:** the catalog and reproducible pipeline exist; agent/skill definitions and offline team checks are present. CP-01/02 documentation and [local ADRs](specs/decisions/plugin-v1-architecture.md) are amended to the owner's 2026-08-31 decisions. CP-03 includes 22 local schemas, [eight-view/presentation/publication contracts](specs/artifact/session-workspace-contract.md) and [linked examples](tests/fixtures/plugin_contracts.json). CP-03 passes all 46 contract checks. The [C8 captured-result scorer](evals/plugin-v1/runner-contract.md) passes 27 checks and CLI verification of four synthetic captures. Contract acceptance is complete; CP-04 retrieval-quality and human calibration remain open. The validator is isolated in TEMP, not a plugin dependency. FTS5 index, scanner and recommendation runtime remain planned; the plugin is not installed or operational. Relevant authorized project context is allowed; [privacy boundaries](specs/decisions/plugin-v1-permissions.md#context-access-and-product-privacy) retain minimization and sensitive exclusions without a host-wide isolation promise.
 
+The planned session workspace is one offline HTML from the first saved answer, with eight desktop views and RU/EN switching. Codex collects answers and performs operations; HTML displays canonical state, evidence and copyable next actions. CP-07/10 implement persistence/publication and rendering; the approved design is not yet a working plugin.
+
 ## Why This Project Exists
 
 Choosing open-source software is rarely a search problem alone.

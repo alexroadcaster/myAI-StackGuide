@@ -8,7 +8,7 @@ Pick one primary update type before editing:
 
 - Current catalog data update: change `data/catalog_manifest.json` while preserving its schema, provenance, and snapshot boundary.
 - Legacy fork-catalog update: add, remove, or correct rows in `data/source_repos.csv`.
-- Taxonomy update: change categories, patterns, descriptions, or `PRIMARY_OVERRIDES` in `scripts/build_catalog.py`.
+- Current taxonomy update: change source-owned categories/aliases in `data/catalog_manifest.json` and its contract. Legacy fork taxonomy alone uses patterns/descriptions/`PRIMARY_OVERRIDES` in `scripts/build_catalog.py`.
 - Research refresh: regenerate AI/engineering or business/product research snapshots.
 - Artifact release: rebuild Markdown or HTML outputs from their documented source data.
 - UI update: change `templates/unified_catalog.html`; keep data changes in the manifest.
@@ -107,7 +107,7 @@ Append to `RUNLOG.md`:
 
 ## 6. Commit Or Publish
 
-Before committing:
+Commit, staging, push and publication require the corresponding explicit user request; commands below are examples, not standing authorization. Before an authorized commit:
 
 ```powershell
 git -c core.excludesfile= status --short
@@ -124,13 +124,17 @@ git commit -m "docs: add catalog release process"
 For a catalog refresh, prefer:
 
 ```powershell
-git commit -m "data: refresh catalog snapshot"
+git commit -m "chore(catalog): refresh catalog snapshot"
 ```
 
 For an HTML experience change, prefer:
 
 ```powershell
-git commit -m "ui: refine interactive catalog"
+git commit -m "feat(catalog): refine interactive catalog"
 ```
 
 Do not tag or publish a release unless the snapshot date, source artifacts, and verification evidence are recorded in `RUNLOG.md`.
+
+## Local Plugin Release Is Separate
+
+CP-16 owns versioned local package/index/dictionaries, clean installation, fresh-session loading, upgrade and rollback after CP-15 acceptance. This catalog update guide cannot substitute for those checks. Local HTML regeneration is not external publication. Do not add MCP/backend or run every legacy generator merely to release the local plugin.

@@ -4,7 +4,7 @@ Compact execution registry. The [active PRD](docs/PRODUCT_REQUIREMENTS.md#active
 
 ## Lifecycle State
 
-Owner revision: 2026-08-31. SQLite FTS5/BM25 is selected for local catalog retrieval. The product optimizes time to a useful open-source integration or modernization plan. Relevant project reads are allowed within existing permissions; the former host-wide source-isolation requirement is superseded, not technically proven. Repository activity and evidence observation are separate; the former 30-day snapshot rejection is withdrawn. CP-01/02 remain completed documentation records. CP-03 is implemented and verified at contract level: 22 local schemas, the presentation/publication addendum and linked fixtures pass all 46 checks. The bounded CP-04 C8/C9 join passes all 27 checks and both scorer CLI gates; synthetic compatibility is accepted, while quality corpus/baseline/thresholds and human calibration remain open. CP-05-CP-16 remain planned, with CP-12-CP-14 deferred. Runtime and permissions are unchanged.
+Owner revision: 2026-08-31. SQLite FTS5/BM25 is selected for local catalog retrieval. The product optimizes time to a useful open-source integration or modernization plan. Relevant project reads are allowed within existing permissions; the former host-wide source-isolation requirement is superseded, not technically proven. Repository activity and evidence observation are separate; the former 30-day snapshot rejection is withdrawn. CP-01/02 remain completed documentation records. CP-03 is implemented and verified at contract level: 22 local schemas, the presentation/publication addendum and linked fixtures pass all 46 checks. The bounded CP-04 C8/C9 join passes all 27 checks and both scorer CLI gates; synthetic compatibility is accepted, while quality corpus/baseline/thresholds and human calibration remain open. CP-05 source alignment is implemented and statically verified; fresh-session behavioral acceptance remains pending; CP-06-CP-16 remain planned, with CP-12-CP-14 deferred. Runtime and permissions are unchanged.
 
 Product state is `partially_verified`: existing static control-plane/catalog work is not plugin runtime, retrieval quality or release evidence. CP-03 now supplies local schemas/policies/examples, the eight-view presentation/publication addendum and semantic checks. CP-03 passes full standards and semantic gates; CP-04 supplies verified C8/scorer compatibility, with quality calibration still open. No later runtime task is executed.
 
@@ -44,7 +44,7 @@ Acceptance owners: Product Planner owns usefulness and scope; Catalog Architect 
 | V1-EVAL-001 | R12 | Separate team behavior, deterministic product contracts, and recommendation usefulness |
 | V1-GH-001 | R06, R08, R09 | GitHub retrieval stays read-only; own-backend ledger writes have a distinct approval/auth boundary |
 
-CP-02 selects the local design; CP-03 schemas are present with partial verification. Product quality evidence remains future work. Deferred remote contracts move to CP-12 and do not block local acceptance.
+CP-02 selects the local design; CP-03 schemas and presentation/publication joins are verified at contract level. Product quality evidence remains future work. Deferred remote contracts move to CP-12 and do not block local acceptance.
 
 ## Goal
 
@@ -81,11 +81,11 @@ The rows below preserve the earlier contract-definition baseline, including its 
 
 ## Scope
 
-Current assignment: implement and verify the CP-03 contract addendum and bounded CP-04 compatibility join against the owner-approved [session workspace design](docs/plan/plugin-v1-session-workspace-design.md). Publish one HTML from session start through each committed answer/phase; answers and saved decisions remain in Codex, with one canonical state writer. Static UI dictionaries and revision-bound narrative translations are distinct from RU/EN retrieval aliases. The [contract addendum](specs/artifact/session-workspace-contract.md) is implemented and verified: 46 CP-03 checks, 27 C8 checks and scorer CLI gates pass. Runtime is unchanged. Preserve historical completion evidence. Mobile adaptation is excluded; concept approval is complete and rendered implementation acceptance is pending.
+Completed assignment: implement and verify the CP-03 contract addendum and bounded CP-04 compatibility join against the owner-approved [session workspace design](docs/plan/plugin-v1-session-workspace-design.md). Publish one HTML from session start through each committed answer/phase; answers and saved decisions remain in Codex, with one canonical state writer. Static UI dictionaries and revision-bound narrative translations are distinct from RU/EN retrieval aliases. The [contract addendum](specs/artifact/session-workspace-contract.md) is implemented and verified: 46 CP-03 checks, 27 C8 checks and scorer CLI gates pass. Runtime is unchanged. Preserve historical completion evidence. Mobile adaptation is excluded; concept approval is complete and rendered implementation acceptance is pending.
 
-Current owner-authorized work: reconcile the full CP-01-CP-16 plan, active requirements/roadmap/docs, ADRs, TEST/EVALS and team-contract prose to selected FTS5, relevant context, activity evidence and integration output. Preserve original completion evidence, historical bodies and unrelated dirty work; append RUNLOG.
+Current owner-authorized work: save the full [CP-05 audit](docs/plan/2026-08-31-cp05-control-plane-audit.md), reconcile its task and implement scoped existing agent/skill/Codex/eval/control-plane alignment. PLAN.md owns exact outputs and static versus fresh-session gates. Preserve R01-R15, historical evidence and unrelated work; append RUNLOG.
 
-CP-03 authorizes the registered local schemas, policies, fixtures and tests. Out of scope: runtime/index creation, catalog refresh/regeneration, protected .codex/.agents definitions or behavioral JSON edits, installations without permission, host/model/permission changes, Git operations and external activation. Later implementation requires its own assignment; CP-12-14 additionally needs a new remote extension decision.
+The completed CP-03 assignment authorized the registered local schemas, policies, fixtures and tests. Its then-out-of-scope list was: runtime/index creation, catalog refresh/regeneration, protected .codex/.agents definitions or behavioral JSON edits, installations without permission, host/model/permission changes, Git operations and external activation. Later implementation requires its own assignment; CP-12-14 additionally needs a new remote extension decision.
 
 ## Constraints
 
@@ -107,7 +107,7 @@ CP-15 depends only on CP-04/10/11. CP-16 depends only on CP-01/05/06/15. Their t
 ## Open Decisions And Ownership
 
 - Selected, not open: local plugin, SQLite FTS5/BM25, no strict host-wide isolation promise, no blanket snapshot TTL and actionable integration handoff.
-- CP-03 / Catalog Architect: exact local schemas, query grammar/aliases/weights, total context allocation, activity/eligibility semantics and version compatibility.
+- CP-03 / Catalog Architect: these local contracts, grammar/aliases/weights, allocation and activity/compatibility semantics are accepted. Future amendments require assigned consumer review; selected engineering values are not calibrated quality claims.
 - CP-04 / Quality Evaluator + Product Planner: held-out relevance judgments, the offline captured-result scorer evals/plugin-v1/evaluate_retrieval.py and metric fixtures, exact command contract, calibrated thresholds and human rubric. A 16/20 score alone is insufficient.
 - CP-05 / primary + Quality Evaluator: align existing definitions/fixtures and verify fresh-session behavior within file permissions; static passes do not promote behavior.
 - CP-06 / Pipeline Builder + Curator: source-persisted metadata coverage, evidence-qualified seed, canonical dedupe and build/index parity; exhaustive enrichment of all future repositories is not a prerequisite for a useful slice.

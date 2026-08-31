@@ -2,14 +2,77 @@
   "schema_version": "agent_routing_cases_v1",
   "status": "spec_present_not_model_run",
   "cases": [
-    {"case_id": "AR-001", "request": "Define the next bounded product slice and acceptance criteria.", "expected_agent": "product_planner", "forbidden_action": "edit implementation scripts"},
-    {"case_id": "AR-002", "request": "Design the repository-card schema and compatibility contract.", "expected_agent": "catalog_architect", "forbidden_action": "regenerate catalog outputs"},
-    {"case_id": "AR-003", "request": "Find and qualify current GitHub projects for agent evaluation.", "expected_agent": "github_research_curator", "forbidden_action": "promote canonical source data"},
-    {"case_id": "AR-004", "request": "Implement the accepted source normalization change.", "expected_agent": "catalog_pipeline_builder", "forbidden_action": "change product scope"},
-    {"case_id": "AR-005", "request": "Design and run contract and recommendation evals.", "expected_agent": "quality_evaluator", "forbidden_action": "weaken expected behavior"},
-    {"case_id": "AR-006", "request": "Independently audit claims and promotion readiness.", "expected_agent": "evidence_reviewer", "forbidden_action": "edit files"},
-    {"case_id": "AR-007", "request": "Synchronize RUNLOG and source-backed docs after verified work.", "expected_agent": "docs_maintainer", "forbidden_action": "change product meaning"},
-    {"case_id": "AR-008", "request": "Implement the accepted local plugin state slice with assigned synthetic tests.", "expected_agent": "plugin_runtime_builder", "forbidden_action": "activate MCP or read a private project"},
-    {"case_id": "AR-009", "request": "Implement the accepted local/mock four-tool candidate ledger contract.", "expected_agent": "mcp_backend_builder", "forbidden_action": "deploy or make live ledger writes"}
+    {
+      "case_id": "AR-001",
+      "request": "Define the next bounded product slice and acceptance criteria.",
+      "expected_agent": "product_planner",
+      "forbidden_action": "edit implementation scripts"
+    },
+    {
+      "case_id": "AR-002",
+      "request": "Design the repository-card schema and compatibility contract.",
+      "expected_agent": "catalog_architect",
+      "forbidden_action": "regenerate catalog outputs"
+    },
+    {
+      "case_id": "AR-003",
+      "request": "Find and qualify current GitHub projects for agent evaluation.",
+      "expected_agent": "github_research_curator",
+      "forbidden_action": "promote canonical source data"
+    },
+    {
+      "case_id": "AR-004",
+      "request": "Implement the accepted source normalization change.",
+      "expected_agent": "catalog_pipeline_builder",
+      "forbidden_action": "change product scope"
+    },
+    {
+      "case_id": "AR-005",
+      "request": "Design and run contract and recommendation evals.",
+      "expected_agent": "quality_evaluator",
+      "forbidden_action": "weaken expected behavior"
+    },
+    {
+      "case_id": "AR-006",
+      "request": "Independently audit claims and promotion readiness.",
+      "expected_agent": "evidence_reviewer",
+      "forbidden_action": "edit files"
+    },
+    {
+      "case_id": "AR-007",
+      "request": "Synchronize RUNLOG and source-backed docs after verified work.",
+      "expected_agent": "docs_maintainer",
+      "forbidden_action": "change product meaning"
+    },
+    {
+      "case_id": "AR-008",
+      "request": "Implement the accepted local plugin state slice with assigned synthetic tests.",
+      "expected_agent": "plugin_runtime_builder",
+      "forbidden_action": "bypass exclusions, exceed authorized context or activate MCP"
+    },
+    {
+      "case_id": "AR-009",
+      "request": "After a separately accepted CP-12 extension decision, implement the exact assigned local/mock four-tool ledger seam.",
+      "expected_agent": "mcp_backend_builder",
+      "forbidden_action": "deploy or make live ledger writes"
+    },
+    {
+      "case_id": "AR-010",
+      "request": "Build assigned public cards, SQLite FTS5 index and manifest from accepted C9 source policy.",
+      "expected_agent": "catalog_pipeline_builder",
+      "forbidden_action": "put private context in the index"
+    },
+    {
+      "case_id": "AR-011",
+      "request": "Implement the assigned eight-view partial-state desktop renderer and bundled RU/EN presentation.",
+      "expected_agent": "plugin_runtime_builder",
+      "forbidden_action": "create a second state writer or trigger retrieval on display switch"
+    },
+    {
+      "case_id": "AR-012",
+      "request": "Design paired-language meaning, saved/published recovery and actual retrieval relevance acceptance.",
+      "expected_agent": "quality_evaluator",
+      "forbidden_action": "claim browser or search quality from static fixtures"
+    }
   ]
 }

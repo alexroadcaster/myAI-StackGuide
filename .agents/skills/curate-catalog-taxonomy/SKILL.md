@@ -14,6 +14,10 @@ description: Evolve the myAI-StackGuide category system without duplicate concep
 5. Route current taxonomy changes through the manifest contract and its consumers. `PRIMARY_OVERRIDES` and general keyword rules belong only to the legacy builder; they must not overwrite current taxonomy or silently map newer categories.
 6. Stage proposals separately from generator or source-data implementation.
 
+## Local Product Alignment
+
+Keep taxonomy concepts/aliases, multilingual retrieval query aliases and RU/EN interface translations distinct. Do not change semantic category IDs merely to translate the interface.
+
 ## Output
 
 Return category changes, classification rationale, affected repositories, conflicts, coverage impact, verification route, and sequential builder handoff.

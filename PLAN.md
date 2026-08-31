@@ -4,7 +4,7 @@ Active Product-Agent OS execution plan. [Detailed CP plan](docs/plan/2026-08-30-
 
 ## Lifecycle
 
-Owner revision: 2026-08-31. SQLite FTS5/BM25 is selected for local catalog retrieval. The product optimizes time to a useful open-source integration or modernization plan. Relevant project reads are allowed within existing permissions; the former host-wide source-isolation requirement is superseded, not technically proven. Repository activity and evidence observation are separate; the former 30-day snapshot rejection is withdrawn. CP-01/02 remain completed documentation records. CP-03 is implemented and verified at contract level: 22 local schemas, the presentation/publication addendum and linked fixtures pass all 46 checks. The bounded CP-04 C8/C9 join passes all 27 checks and both scorer CLI gates; synthetic compatibility is accepted, while quality corpus/baseline/thresholds and human calibration remain open. CP-05-CP-16 remain planned, with CP-12-CP-14 deferred. Runtime and permissions are unchanged.
+Owner revision: 2026-08-31. SQLite FTS5/BM25 is selected for local catalog retrieval. The product optimizes time to a useful open-source integration or modernization plan. Relevant project reads are allowed within existing permissions; the former host-wide source-isolation requirement is superseded, not technically proven. Repository activity and evidence observation are separate; the former 30-day snapshot rejection is withdrawn. CP-01/02 remain completed documentation records. CP-03 is implemented and verified at contract level: 22 local schemas, the presentation/publication addendum and linked fixtures pass all 46 checks. The bounded CP-04 C8/C9 join passes all 27 checks and both scorer CLI gates; synthetic compatibility is accepted, while quality corpus/baseline/thresholds and human calibration remain open. CP-05 source alignment is implemented and statically verified; fresh-session behavioral acceptance remains pending; CP-06-CP-16 remain planned, with CP-12-CP-14 deferred. Runtime and permissions are unchanged.
 
 State: `partially_verified` for the product; the detailed session design and implementation scope are `owner_accepted`, while runtime dispatch remains gated by contracts, eval design and loaded behavior. Existing static/architectural evidence is not runtime or recommendation-quality evidence. Remote work remains dormant. The CP-03 starting worktree was clean; preserve committed CP-01/02 records and unrelated work.
 
@@ -24,13 +24,27 @@ CP-12-CP-14 are an optional remote branch after CP-11, requiring a new scope/arc
 
 - Owner decision: the detailed eight-view design and RU-EN direction are accepted for implementation planning. Target desktop PCs and laptops only; mobile adaptation is explicitly excluded. [Workspace design](docs/plan/plugin-v1-session-workspace-design.md) owns the subsection inventory, source mapping, localization contract and desktop/state acceptance; its [approved implementation sequence](docs/plan/plugin-v1-session-workspace-design.md#approved-implementation-sequence) defines the CP-10 checkpoints.
 - R15 is mapped identically in REQUIREMENTS, active PRD and the detailed CP plan. It separates offline UI/narrative localization from existing multilingual lexical retrieval. Display-language changes preserve the canonical result and perform no scan/model/retrieval call.
-- CP-03 adds the planned locale/presentation contract and missing structured view mappings before consumers implement them; CP-04/05 cover meaning and host behavior; CP-07 persists locale/revision through the shared writer; CP-09 preserves captured retrieval; CP-10 builds the eight-view renderer and bundled RU/EN dictionaries; CP-11/15/16 verify the bilingual local flow and packaging. The 16-task dependency graph is unchanged.
+- CP-03 defines the accepted locale/presentation contract and structured view mappings for consumers; CP-04/05 cover meaning and host behavior; CP-07 persists locale/revision through the shared writer; CP-09 preserves captured retrieval; CP-10 builds the eight-view renderer and bundled RU/EN dictionaries; CP-11/15/16 verify the bilingual local flow and packaging. The 16-task dependency graph is unchanged.
 - Publish the same `docs/myai-stackguide/status.html` from the first committed session state and after each successful answer/phase/correction/finalization. CP-07 owns commit/publication orchestration, CP-10 owns rendering and CP-11 joins the actual route. Failed rendering preserves saved answers and reports the saved-versus-published revision to Codex; opened HTML remains a reloadable snapshot.
-- The preceding plan update is complete. Current execution is the bounded CP-03 addendum/C8 compatibility assignment below; no HTML runtime, new images, protected configuration, Git operation or external activation is included.
+- The preceding CP-03 addendum/C8 compatibility assignment is complete at contract level. Current execution is CP-05 below; no HTML runtime, new images, model/config changes, Git operation or external activation is included.
 - Verification: focused task/control-plane checks, identical R01-R15 mappings, preserved original completion reports and non-owned bytes, document links/UTF-8/whitespace, and semantic self-review. Concept approval is complete; working localization, language parity and rendered usefulness require future CP-10/11/15 evidence.
 - Rollback: reverse only this amendment and its design document against the saved starting bytes; do not undo earlier changes. The R15 contract addendum is now verified; runtime acceptance remains in CP-07/10/11/15.
 
-### Current CP-03 Execution Boundary
+### Current CP-05 Execution Boundary
+
+Owner request: preserve the full audit in a separate Markdown file, add the remediation to the task list, and implement refined CP-05. The [file-by-file audit](docs/plan/2026-08-31-cp05-control-plane-audit.md) is the exact disposition registry. This request authorizes the scoped instruction/eval/document edits; protected directories still require actual filesystem permission.
+
+| Substep within CP-05 | Owner | Output / gate | Status |
+| --- | --- | --- | --- |
+| CP-05-A audit and task reconciliation | Primary acting as planner/docs maintainer | Complete file registry, priorities, examples, preserved R01-R15 and CP-01-16 dependencies | Complete |
+| CP-05-B source alignment | Primary, sequential writer | Existing nine agents, thirteen skills, eleven metadata files, shared joins/templates and versioned local/deferred cases; static checks | Complete |
+| CP-05-C loading and behavioral acceptance | Primary verifies; trace reviewer/owner accepts | Exact instruction/case hashes, fresh-session discovery and representative behavior; no synthetic promotion | Pending fresh session |
+
+Source changes were applied successfully, including all 39 protected files through the authorized escalation path. Current checks: 13/13 Codex contract tests, 19/19 grader tests, local/deferred corpus validation (19/3), Product-Agent OS control-plane/agent/task validators. These checks do not prove newly loaded behavior. CP-05 stays `in_progress` / `partially_verified` until CP-05-C; no runtime-dispatch promotion is claimed.
+
+No new specialist agent, framework, provider, runtime index or plugin code is needed for CP-05. Preserve all model/effort/sandbox/config bytes, schemas, product fixtures, catalog/generated assets and dated completion reports. Use one writer; explicit semantic self-review is not represented as an independent agent review. Do not run a new model/provider experiment or activate MCP to satisfy a checklist. Rollback restores only CP-05-owned changes after checking for concurrent edits.
+
+### Completed CP-03 Execution Boundary
 
 - Assignment: implement the owner-approved presentation/localization/publication addendum, full standards-schema verification and the bounded CP-04 C8/C9 compatibility join. This is a contract/evaluation-tool slice, not the HTML/plugin runtime or full quality calibration.
 - Ownership: catalog_architect owns assigned artifact/intake/context/recommendation schemas and the workspace source-mapping contract; quality_evaluator owns registered C8 schemas/captured-result scorer and tests, then CP-03 fixtures/tests after schema freeze. Primary owns docs/environment coordination; an independent evidence_reviewer remains read-only. Applied design-context-contracts, design-recommendation-evals, review-advisory-evidence and maintain-control-plane with fresh-context packets.
@@ -111,12 +125,14 @@ The CP-S and V1-S rows below retain historical traceability. New execution uses 
 ## Ownership Boundaries
 
 - Product Planner owns root requirements and active plan. It does not edit implementation scripts or source data.
-- Catalog Architect owns new `specs/**` contracts. It does not edit generated catalog outputs.
+- Catalog Architect owns exact assigned new or existing `specs/**` contracts. It does not edit generated catalog outputs.
 - GitHub Research Curator owns `research/**` proposals and candidate evidence. Changes to `data/source_repos.csv` require a sequential handoff to the Pipeline Builder.
 - Catalog Pipeline Builder owns `scripts/**` and source-first generator changes assigned by an accepted plan. Generated outputs are shared release surfaces and cannot be edited in parallel.
 - Quality Evaluator owns `TEST.md`, `EVALS.md`, `tests/**`, and `evals/**`; it does not repair implementation failures unless explicitly reassigned.
 - Docs & Evidence Maintainer owns `RUNLOG.md`, source-backed documentation updates, and handoff closure. It does not change product meaning without Product Planner review.
 - Evidence Reviewer is read-only and can block promotion; it does not implement fixes.
+
+- Plugin Runtime Builder owns exact assigned local state/publication, retrieval and renderer seams; CP-07 is the single writer and CP-10 the renderer, with sequential joins. Primary owns assigned CP-05 instruction remediation.
 
 ## Verification Strategy
 
