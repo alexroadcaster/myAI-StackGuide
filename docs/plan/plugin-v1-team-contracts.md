@@ -8,7 +8,7 @@ Scope: development-team guidance, revised 2026-08-31 for the owner-selected loca
 - Legacy account taxonomy: `data/categories.json` and `scripts/build_catalog.py`; legacy unified Markdown has its separate dated research inputs. Do not use either to replace current v5 identities, metadata, or taxonomy.
 - Product direction: `docs/plan/2026-08-30-codex-plugin-v1-implementation-plan.md`; active ownership and approved slice: `PLAN.md` and its linked task packet.
 - Product background: `docs/PRODUCT_REQUIREMENTS.md`, `docs/V1_ROADMAP.md`, `docs/MYAI_STACKGUIDE_PRODUCT_CONCEPT.md`, `docs/MYAI_STACKGUIDE_CONTEXT_SCANNER.md`. Hosted-first detail is historical where marked.
-- Local C1-C6/C9 specs and linked fixtures are present from CP-03, with partial verification pending standards validation and CP-04 compatibility; existing CP-02 ADRs are design evidence. Remote C4/C7 belongs to deferred CP-12 and does not block local CP-03. Never claim to have read a proposed schema.
+- Local C1-C6/C9 specs include the CP-03 presentation/publication addendum and linked legacy/current fixtures. Full CP-03 standards/semantic and C8 envelope/scorer compatibility checks pass; CP-04 quality calibration and downstream runtime acceptance remain open. Existing CP-02 ADRs are design evidence. Remote C4/C7 belongs to deferred CP-12 and does not block local CP-03. Never claim to have read a proposed schema.
 
 ## Implementation Loop And Handoff
 

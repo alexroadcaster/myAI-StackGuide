@@ -1,0 +1,235 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "contract_set_sha256",
+    "case_set_id",
+    "corpus_kind",
+    "split",
+    "evidence_owner",
+    "cases",
+    "presentation_cases"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "retrieval_scenarios_v1"
+    },
+    "contract_set_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "case_set_id": {
+      "const": "cp04-c9-synthetic-compatibility-v1"
+    },
+    "corpus_kind": {
+      "const": "synthetic_fixture"
+    },
+    "split": {
+      "const": "grader_contract_not_held_out"
+    },
+    "evidence_owner": {
+      "const": "quality_evaluator"
+    },
+    "cases": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "case_id",
+          "requirement_ids",
+          "persona",
+          "user_goal",
+          "privacy_boundary",
+          "judgment_provenance",
+          "run_id",
+          "query",
+          "index_manifest",
+          "expected_status",
+          "k",
+          "judgments",
+          "accepted_gaps"
+        ],
+        "properties": {
+          "case_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          },
+          "requirement_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80
+            },
+            "minItems": 1,
+            "maxItems": 12
+          },
+          "persona": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 160
+          },
+          "user_goal": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 600
+          },
+          "privacy_boundary": {
+            "const": "synthetic_minimized_no_private_context"
+          },
+          "judgment_provenance": {
+            "const": "independent_synthetic_known_answer"
+          },
+          "run_id": {
+            "$ref": "https://myai-stackguide.invalid/contracts/v1/context/sanitized-project-summary.schema.json#/$defs/uuid"
+          },
+          "query": {
+            "$ref": "https://myai-stackguide.invalid/contracts/v1/retrieval/catalog-query.schema.json"
+          },
+          "index_manifest": {
+            "anyOf": [
+              {
+                "$ref": "https://myai-stackguide.invalid/contracts/v1/retrieval/index-manifest.schema.json"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "expected_status": {
+            "enum": [
+              "ok",
+              "no_match",
+              "retrieval_unavailable",
+              "index_incompatible",
+              "invalid_query",
+              "cancelled"
+            ]
+          },
+          "k": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 60
+          },
+          "judgments": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "repo_id",
+                "grade",
+                "constraint",
+                "rationale"
+              ],
+              "properties": {
+                "repo_id": {
+                  "type": "string",
+                  "pattern": "^gh(?:-pending)?:[A-Za-z0-9_.:/-]+$",
+                  "maxLength": 180
+                },
+                "grade": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 3
+                },
+                "constraint": {
+                  "enum": [
+                    "allowed",
+                    "denied",
+                    "unknown"
+                  ]
+                },
+                "rationale": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 600
+                }
+              }
+            },
+            "minItems": 0,
+            "maxItems": 100
+          },
+          "accepted_gaps": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 600
+            },
+            "minItems": 1,
+            "maxItems": 12
+          }
+        }
+      },
+      "minItems": 1,
+      "maxItems": 100
+    },
+    "presentation_cases": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "case_id",
+          "canonical_case_id",
+          "locales",
+          "preserve",
+          "checks",
+          "status"
+        ],
+        "properties": {
+          "case_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          },
+          "canonical_case_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          },
+          "locales": {
+            "const": [
+              "ru",
+              "en"
+            ]
+          },
+          "preserve": {
+            "const": [
+              "canonical_ids",
+              "constraints",
+              "roles",
+              "evidence_refs",
+              "negation",
+              "uncertainty",
+              "execution_authority"
+            ]
+          },
+          "checks": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 600
+            },
+            "minItems": 1,
+            "maxItems": 12
+          },
+          "status": {
+            "const": "contract_cases_only_human_semantics_pending"
+          }
+        }
+      },
+      "minItems": 1,
+      "maxItems": 20
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://myai-stackguide.invalid/contracts/v1/evals/scenario.schema.json",
+  "title": "C8 synthetic compatibility scenarios referencing actual C9 contracts",
+  "x-max-utf8-bytes": 2097152
+}

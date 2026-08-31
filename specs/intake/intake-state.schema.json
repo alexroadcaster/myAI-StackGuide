@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://myai-stackguide.invalid/contracts/v1/intake/intake-state.schema.json",
   "title": "Bounded resumable interview",
-  "description": "Local CP-03 v1 contract. This schema does not execute or authorize side effects.",
+  "description": "CP-03 local contract. Version 1.0.0 is a retained read-only legacy shape; new writes use 1.1.0. No migration or runtime is implemented.",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -17,7 +17,10 @@
   ],
   "properties": {
     "schema_version": {
-      "const": "1.0.0"
+      "enum": [
+        "1.0.0",
+        "1.1.0"
+      ]
     },
     "run_id": {
       "$ref": "https://myai-stackguide.invalid/contracts/v1/context/sanitized-project-summary.schema.json#/$defs/uuid"
@@ -74,6 +77,87 @@
       "maxItems": 12,
       "minItems": 0,
       "uniqueItems": true
+    },
+    "questions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "question_id",
+          "ordinal",
+          "text",
+          "rationale",
+          "decision_consequence",
+          "answer_examples",
+          "topics"
+        ],
+        "properties": {
+          "question_id": {
+            "type": "string",
+            "maxLength": 64,
+            "pattern": "^[a-z][a-z0-9_]*$"
+          },
+          "ordinal": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 10
+          },
+          "text": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 700
+          },
+          "rationale": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "decision_consequence": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "answer_examples": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 300
+            },
+            "maxItems": 3,
+            "minItems": 0
+          },
+          "topics": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "goal",
+                "deployment",
+                "stack",
+                "license_data",
+                "integration"
+              ]
+            },
+            "maxItems": 5,
+            "minItems": 1
+          }
+        }
+      },
+      "maxItems": 10,
+      "minItems": 0
+    },
+    "completion_reason": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 600
+        },
+        {
+          "type": "null"
+        }
+      ]
     }
   },
   "allOf": [
@@ -98,10 +182,36 @@
           }
         }
       }
+    },
+    {
+      "if": {
+        "properties": {
+          "schema_version": {
+            "const": "1.1.0"
+          }
+        },
+        "required": [
+          "schema_version"
+        ]
+      },
+      "then": {
+        "required": [
+          "questions",
+          "completion_reason"
+        ]
+      },
+      "else": {
+        "properties": {
+          "questions": false,
+          "completion_reason": false
+        }
+      }
     }
   ],
   "x-invariants": [
     "questions_asked equals unique answered/skipped questions plus any pending question; ordinals are contiguous from 1. Corrections replace an answer version without increasing unique question count.",
-    "ready may occur before ten questions; zero questions is valid only for cancellation or existing sufficient explicit context, never fabricated answers."
+    "ready may occur before ten questions; zero questions is valid only for cancellation or existing sufficient explicit context, never fabricated answers.",
+    "Questions are the canonical bounded question ledger, not chat. Question IDs/ordinals join saved answers and pending_question_id exactly; no saved answer exists without its question.",
+    "Topic coverage is derived from answered/skipped/pending question joins, never a completion percentage. ready requires completion_reason; asking requires a pending question unless questions_asked is zero before the first question."
   ]
 }

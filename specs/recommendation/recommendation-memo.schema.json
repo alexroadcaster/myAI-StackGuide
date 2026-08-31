@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://myai-stackguide.invalid/contracts/v1/recommendation/recommendation-memo.schema.json",
   "title": "Decision Report data with grounded integration plan",
-  "description": "Local CP-03 v1 contract. This schema does not execute or authorize side effects.",
+  "description": "CP-03 local contract. Version 1.0.0 is a retained read-only legacy shape; new writes use 1.1.0. No migration or runtime is implemented.",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -27,7 +27,10 @@
   ],
   "properties": {
     "schema_version": {
-      "const": "1.0.0"
+      "enum": [
+        "1.0.0",
+        "1.1.0"
+      ]
     },
     "run_id": {
       "$ref": "https://myai-stackguide.invalid/contracts/v1/context/sanitized-project-summary.schema.json#/$defs/uuid"
@@ -325,6 +328,173 @@
           }
         }
       }
+    },
+    "comparison_details": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "scope",
+            "include_no_change",
+            "cells",
+            "selection_rationale",
+            "strongest_counterargument",
+            "reconsider_when",
+            "next_decision"
+          ],
+          "properties": {
+            "scope": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 600
+            },
+            "include_no_change": {
+              "type": "boolean"
+            },
+            "cells": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "criterion",
+                  "repo_id",
+                  "baseline",
+                  "claim",
+                  "next_check"
+                ],
+                "properties": {
+                  "criterion": {
+                    "enum": [
+                      "capability",
+                      "deployment",
+                      "language_version",
+                      "integration_migration",
+                      "license",
+                      "operating_burden",
+                      "evidence_gap"
+                    ]
+                  },
+                  "repo_id": {
+                    "anyOf": [
+                      {
+                        "$ref": "https://myai-stackguide.invalid/contracts/v1/context/sanitized-project-summary.schema.json#/$defs/repositoryId"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "baseline": {
+                    "type": "boolean"
+                  },
+                  "claim": {
+                    "$ref": "https://myai-stackguide.invalid/contracts/v1/context/project-context-brief.schema.json#/$defs/claim"
+                  },
+                  "next_check": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 400
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  }
+                }
+              },
+              "maxItems": 84,
+              "minItems": 0
+            },
+            "selection_rationale": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 700
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "strongest_counterargument": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 500
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "reconsider_when": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 500
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "next_decision": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 500
+            }
+          }
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "avoid_defer_details": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "repo_id",
+          "rationale",
+          "revisit_when",
+          "evidence_refs"
+        ],
+        "properties": {
+          "repo_id": {
+            "$ref": "https://myai-stackguide.invalid/contracts/v1/context/sanitized-project-summary.schema.json#/$defs/repositoryId"
+          },
+          "rationale": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "revisit_when": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "evidence_refs": {
+            "type": "array",
+            "items": {
+              "$ref": "https://myai-stackguide.invalid/contracts/v1/context/sanitized-project-summary.schema.json#/$defs/evidenceId"
+            },
+            "maxItems": 12,
+            "minItems": 0,
+            "uniqueItems": true
+          }
+        }
+      },
+      "maxItems": 12,
+      "minItems": 0
     }
   },
   "allOf": [
@@ -397,6 +567,58 @@
           }
         }
       }
+    },
+    {
+      "if": {
+        "properties": {
+          "schema_version": {
+            "const": "1.1.0"
+          }
+        },
+        "required": [
+          "schema_version"
+        ]
+      },
+      "then": {
+        "required": [
+          "comparison_details",
+          "avoid_defer_details"
+        ]
+      },
+      "else": {
+        "properties": {
+          "comparison_details": false,
+          "avoid_defer_details": false
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "schema_version": {
+            "const": "1.0.0"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "integration_plan": {
+            "anyOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "schema_version": {
+                    "const": "1.0.0"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
     }
   ],
   "x-max-utf8-bytes": 131072,
@@ -404,6 +626,8 @@
     "primary_candidate is allowed only for matching primary_eligible pack records; conditional guidance cannot disguise unknowns as adopted/verified.",
     "Roles/evidence/selected IDs are request-scoped; report cannot upgrade catalog_status or turn a failed search into successful no-match.",
     "An unavailable manifest may yield pins=null only in an explicit failure. Never invent hashes or use null pins for successful retrieval/no-match.",
-    "Category path IDs are unique current taxonomy keys with explicit relevance reasons; no invented taxonomy hierarchy is implied."
+    "Category path IDs are unique current taxonomy keys with explicit relevance reasons; no invented taxonomy hierarchy is implied.",
+    "Comparison cells are unique (criterion, repo_id/baseline); baseline=true requires repo_id=null and include_no_change=true. Repository cells resolve to pack cards; evidence and answers resolve to canonical project/public evidence.",
+    "Structured comparison and avoid/defer details must agree with retained summary prose. Missing cells mean unknown. Baseline is not a retrieved card; no matrix or browser choice changes eligibility or selected_repo_ids."
   ]
 }

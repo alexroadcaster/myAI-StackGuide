@@ -1,0 +1,337 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://myai-stackguide.invalid/contracts/v1/artifact/localized-presentation.schema.json",
+  "title": "Bounded RU-EN presentation bound to canonical state",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "run_id",
+    "default_locale",
+    "source_locale",
+    "presentation_revision",
+    "source_content_revision",
+    "brief_id",
+    "brief_version",
+    "memo_id",
+    "plan_id",
+    "fields",
+    "coverage"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.1.0"
+    },
+    "run_id": {
+      "$ref": "https://myai-stackguide.invalid/contracts/v1/context/sanitized-project-summary.schema.json#/$defs/uuid"
+    },
+    "default_locale": {
+      "enum": [
+        "ru",
+        "en"
+      ]
+    },
+    "source_locale": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 35,
+      "pattern": "^[a-z]{2,3}(?:-[A-Za-z0-9]{2,8})*$"
+    },
+    "presentation_revision": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 1000000
+    },
+    "source_content_revision": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 1000000
+    },
+    "brief_id": {
+      "anyOf": [
+        {
+          "$ref": "https://myai-stackguide.invalid/contracts/v1/context/sanitized-project-summary.schema.json#/$defs/id"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "brief_version": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1000000
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "memo_id": {
+      "anyOf": [
+        {
+          "$ref": "https://myai-stackguide.invalid/contracts/v1/context/sanitized-project-summary.schema.json#/$defs/id"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "plan_id": {
+      "anyOf": [
+        {
+          "$ref": "https://myai-stackguide.invalid/contracts/v1/context/sanitized-project-summary.schema.json#/$defs/id"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "field_pointer",
+          "source_locale",
+          "source_sha256",
+          "source_content_revision",
+          "evidence_refs",
+          "canonical_literals",
+          "ru",
+          "en"
+        ],
+        "properties": {
+          "field_pointer": {
+            "type": "string",
+            "maxLength": 240,
+            "pattern": "^/(?:intake/questions/[0-9]+/(?:text|rationale|decision_consequence|answer_examples/[0-9]+)|intake/(?:completion_reason|assumptions/[0-9]+|answers/[0-9]+/sanitized_value)|brief/(?:goal|success_criterion|assumptions/[0-9]+)|brief/details/(?:problem|target_user|workflow|current_behavior|target_behavior|baseline|scope)/(?:text|limitation)|brief/details/non_goals/[0-9]+/(?:text|limitation)|brief/details/constraint_notes/[0-9]+/(?:claim/text|claim/limitation|consequence)|brief/details/tensions/[0-9]+/(?:detail|next_decision)|brief/observations/(?:facts/[0-9]+/value|inferences/[0-9]+/statement|gaps/[0-9]+/(?:detail|next_check))|scan/summary/(?:facts/[0-9]+/value|inferences/[0-9]+/statement|gaps/[0-9]+/(?:detail|next_check))|corrections/[0-9]+/sanitized_correction|memo/(?:summary|next_action|comparison/[0-9]+|avoid_defer/[0-9]+|missing_context/[0-9]+|reading_path/[0-9]+/purpose|category_path/[0-9]+/reason)|memo/recommendations/[0-9]+/(?:fit_rationale|caveats/[0-9]+|next_checks/[0-9]+)|memo/comparison_details/(?:scope|selection_rationale|strongest_counterargument|reconsider_when|next_decision|cells/[0-9]+/(?:claim/text|claim/limitation|next_check))|memo/avoid_defer_details/[0-9]+/(?:rationale|revisit_when)|memo/integration_plan/(?:goal|integration_surface|prerequisites/[0-9]+|risks/[0-9]+|rollback/[0-9]+|unresolved_questions/[0-9]+)|memo/integration_plan/steps/[0-9]+/(?:action|prerequisites/[0-9]+|acceptance)|memo/integration_plan/first_validation/(?:goal|success_criterion)|memo/integration_plan/handoff/(?:goal|scope|non_goals/[0-9]+|stop_conditions/[0-9]+)|memo/integration_plan/details/(?:validation_input|expected_behavior|widen_when|diagram/(?:nodes/[0-9]+/label|edges/[0-9]+/label)|prerequisite_checks/[0-9]+/(?:detail|next_check)))$"
+          },
+          "source_locale": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 35,
+            "pattern": "^[a-z]{2,3}(?:-[A-Za-z0-9]{2,8})*$"
+          },
+          "source_sha256": {
+            "$ref": "https://myai-stackguide.invalid/contracts/v1/context/sanitized-project-summary.schema.json#/$defs/sha256"
+          },
+          "source_content_revision": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 1000000
+          },
+          "evidence_refs": {
+            "type": "array",
+            "items": {
+              "$ref": "https://myai-stackguide.invalid/contracts/v1/context/sanitized-project-summary.schema.json#/$defs/evidenceId"
+            },
+            "maxItems": 12,
+            "minItems": 0,
+            "uniqueItems": true
+          },
+          "canonical_literals": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 500
+            },
+            "maxItems": 24,
+            "minItems": 0
+          },
+          "ru": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "text"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "available",
+                  "missing"
+                ]
+              },
+              "text": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 4000
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "status": {
+                      "const": "missing"
+                    }
+                  }
+                },
+                "then": {
+                  "properties": {
+                    "text": {
+                      "type": "null"
+                    }
+                  }
+                },
+                "else": {
+                  "properties": {
+                    "text": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "en": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "text"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "available",
+                  "missing"
+                ]
+              },
+              "text": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 4000
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "status": {
+                      "const": "missing"
+                    }
+                  }
+                },
+                "then": {
+                  "properties": {
+                    "text": {
+                      "type": "null"
+                    }
+                  }
+                },
+                "else": {
+                  "properties": {
+                    "text": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      },
+      "maxItems": 512,
+      "minItems": 0
+    },
+    "coverage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "ru",
+        "en"
+      ],
+      "properties": {
+        "ru": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "required_fields",
+            "available_fields"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "complete",
+                "partial"
+              ]
+            },
+            "required_fields": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4096
+            },
+            "available_fields": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 512
+            }
+          }
+        },
+        "en": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "required_fields",
+            "available_fields"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "complete",
+                "partial"
+              ]
+            },
+            "required_fields": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4096
+            },
+            "available_fields": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 512
+            }
+          }
+        }
+      }
+    }
+  },
+  "x-max-utf8-bytes": 524288,
+  "x-invariants": [
+    "Bind to the current run/content_revision and exact Brief/memo/plan identity, using null when unavailable. presentation_revision changes only when fields/coverage/source metadata changes, not default_locale alone.",
+    "Enumerate every non-null string matching field_pointer allowlist in canonical state. Required count derives from this set, available count from unique validated entries. At most 512 entries are stored; omitted entries mean missing translation with canonical fallback. Never claim complete when any required field lacks available text. Empty early state has zero required fields.",
+    "source_sha256 is SHA-256 of canonical JSON encoding of the resolved source string (UTF-8, ensure_ascii=false, sort_keys=true, compact separators). No external/path lookup or pointer to presentation is allowed. Evidence_refs and canonical_literals are derived from the canonical source/context, not independent translator declarations.",
+    "All entries source_content_revision equals the current content_revision. Rebind unchanged fields without a model call; remove/recompose changed or missing fields before commit. A source-locale ru/en available text equals the original; missing target renders canonical original with source lang and missing notice.",
+    "Translations preserve evidence, roles, negation, uncertainty, mandatory constraints and execution authority. Technical literals and source quotations remain canonical; do not store raw source or add recommendations in translation. Static dictionary completeness and semantic equivalence require separate validation."
+  ],
+  "$defs": {
+    "fieldPointer": {
+      "type": "string",
+      "maxLength": 240,
+      "pattern": "^/(?:intake/questions/[0-9]+/(?:text|rationale|decision_consequence|answer_examples/[0-9]+)|intake/(?:completion_reason|assumptions/[0-9]+|answers/[0-9]+/sanitized_value)|brief/(?:goal|success_criterion|assumptions/[0-9]+)|brief/details/(?:problem|target_user|workflow|current_behavior|target_behavior|baseline|scope)/(?:text|limitation)|brief/details/non_goals/[0-9]+/(?:text|limitation)|brief/details/constraint_notes/[0-9]+/(?:claim/text|claim/limitation|consequence)|brief/details/tensions/[0-9]+/(?:detail|next_decision)|brief/observations/(?:facts/[0-9]+/value|inferences/[0-9]+/statement|gaps/[0-9]+/(?:detail|next_check))|scan/summary/(?:facts/[0-9]+/value|inferences/[0-9]+/statement|gaps/[0-9]+/(?:detail|next_check))|corrections/[0-9]+/sanitized_correction|memo/(?:summary|next_action|comparison/[0-9]+|avoid_defer/[0-9]+|missing_context/[0-9]+|reading_path/[0-9]+/purpose|category_path/[0-9]+/reason)|memo/recommendations/[0-9]+/(?:fit_rationale|caveats/[0-9]+|next_checks/[0-9]+)|memo/comparison_details/(?:scope|selection_rationale|strongest_counterargument|reconsider_when|next_decision|cells/[0-9]+/(?:claim/text|claim/limitation|next_check))|memo/avoid_defer_details/[0-9]+/(?:rationale|revisit_when)|memo/integration_plan/(?:goal|integration_surface|prerequisites/[0-9]+|risks/[0-9]+|rollback/[0-9]+|unresolved_questions/[0-9]+)|memo/integration_plan/steps/[0-9]+/(?:action|prerequisites/[0-9]+|acceptance)|memo/integration_plan/first_validation/(?:goal|success_criterion)|memo/integration_plan/handoff/(?:goal|scope|non_goals/[0-9]+|stop_conditions/[0-9]+)|memo/integration_plan/details/(?:validation_input|expected_behavior|widen_when|diagram/(?:nodes/[0-9]+/label|edges/[0-9]+/label)|prerequisite_checks/[0-9]+/(?:detail|next_check)))$"
+    }
+  }
+}

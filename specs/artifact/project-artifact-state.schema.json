@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://myai-stackguide.invalid/contracts/v1/artifact/project-artifact-state.schema.json",
   "title": "Current minimized local state and immutable-finalization contract",
-  "description": "Local CP-03 v1 contract. This schema does not execute or authorize side effects.",
+  "description": "CP-03 local contract. Version 1.0.0 is a retained read-only legacy shape; new writes use 1.1.0. No migration or runtime is implemented.",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -30,7 +30,10 @@
   ],
   "properties": {
     "schema_version": {
-      "const": "1.0.0"
+      "enum": [
+        "1.0.0",
+        "1.1.0"
+      ]
     },
     "owner_marker": {
       "const": "myai-stackguide.state.v1"
@@ -174,7 +177,8 @@
         {
           "type": "null"
         }
-      ]
+      ],
+      "description": "Commit-time observation of a prior successfully published revision for this run, or null. Not the outcome of the render following this commit; never advance it through a post-render/finalization state write."
     },
     "history": {
       "type": "array",
@@ -208,6 +212,24 @@
     },
     "storage_policy_version": {
       "const": "1.0.0"
+    },
+    "content_revision": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 1000000
+    },
+    "presentation": {
+      "$ref": "https://myai-stackguide.invalid/contracts/v1/artifact/localized-presentation.schema.json"
+    },
+    "scan": {
+      "anyOf": [
+        {
+          "$ref": "https://myai-stackguide.invalid/contracts/v1/scanner/scan-report.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
     }
   },
   "$defs": {
@@ -272,13 +294,167 @@
           }
         }
       }
+    },
+    {
+      "if": {
+        "properties": {
+          "schema_version": {
+            "const": "1.1.0"
+          }
+        },
+        "required": [
+          "schema_version"
+        ]
+      },
+      "then": {
+        "required": [
+          "content_revision",
+          "presentation",
+          "scan"
+        ]
+      },
+      "else": {
+        "properties": {
+          "content_revision": false,
+          "presentation": false,
+          "scan": false
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "schema_version": {
+            "const": "1.1.0"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "intake": {
+            "properties": {
+              "schema_version": {
+                "const": "1.1.0"
+              }
+            }
+          },
+          "brief": {
+            "anyOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "schema_version": {
+                    "const": "1.1.0"
+                  }
+                }
+              }
+            ]
+          },
+          "memo": {
+            "anyOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "schema_version": {
+                    "const": "1.1.0"
+                  },
+                  "integration_plan": {
+                    "anyOf": [
+                      {
+                        "type": "null"
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "schema_version": {
+                            "const": "1.1.0"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "schema_version": {
+            "const": "1.0.0"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "intake": {
+            "properties": {
+              "schema_version": {
+                "const": "1.0.0"
+              }
+            }
+          },
+          "brief": {
+            "anyOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "schema_version": {
+                    "const": "1.0.0"
+                  }
+                }
+              }
+            ]
+          },
+          "memo": {
+            "anyOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "schema_version": {
+                    "const": "1.0.0"
+                  }
+                }
+              }
+            ]
+          },
+          "corrections": {
+            "items": {
+              "properties": {
+                "schema_version": {
+                  "const": "1.0.0"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   ],
   "x-max-utf8-bytes": 2097152,
   "x-invariants": [
     "Every nested run/query/pack/request/brief version and pins agrees. Result from an earlier corrected Brief is invalid, never active.",
     "Mutations require expected run/revision under OS-backed lock. Finalized runs are never mutated; a new run records predecessor. Identical final history publication is idempotent, conflicting bytes are an error.",
-    "State save precedes HTML publication; html_revision may lag but never exceed state revision. Runtime must render only the same committed revision.",
-    "Storage protocol is the exact $defs/storagePolicy constant. Validate prospective peak bytes/entries, not only final files; do not delete or overwrite user files to satisfy caps."
+    "State commit precedes HTML publication. html_revision records only a previously verified same-run publication at commit time; in 1.1.0 it is null or strictly less than revision. Publication-result is authoritative for the operation; rendering alone never mutates state or immutable history.",
+    "Storage protocol is the exact $defs/storagePolicy constant. Validate prospective peak bytes/entries, not only final files; do not delete or overwrite user files to satisfy caps.",
+    "New writes require schema_version=1.1.0; retained 1.0.0 is read-only and never silently upgraded. Every non-null affected nested intake/Brief/memo/integration plan uses 1.1.0. Unchanged C2/C4/C9 contracts remain 1.0.0.",
+    "content_revision is <=revision; initial value is 1. Every domain change advances it, while default_locale-only or translation-only saves advance only revision. Brief semantic corrections also advance brief_version and invalidate request/retrieval/pack/memo as applicable.",
+    "scan may exist before a Brief; its run_id agrees and its retained summary is the observation source when a Brief is constructed. A correction never rewrites scan evidence. Canonical Brief additions remain within the existing 16 KiB model allocation.",
+    "History summaries are derived at render time from validated immutable run files, not invented from history pointers; state history remains the bounded ID/revision/status ledger."
   ]
 }

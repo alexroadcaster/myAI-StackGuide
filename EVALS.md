@@ -61,7 +61,7 @@ Agent routing and skill activation specifications live in:
 
 Both are currently `spec_present_not_model_run`. Static schema coverage must not be reported as routing quality or model suitability.
 
-Additional typed team cases are in `evals/agents/team-behavior-cases.json`; offline grading is implemented in `scripts/grade_agent_evals.py`. The packet/trace/exit-code contract is in `.codex/agent-eval-workflow.md`. This tooling does not execute models or grade product recommendations. Synthetic grader tests are not team routing evidence, and the recommendation runner below remains missing.
+Additional typed team cases are in `evals/agents/team-behavior-cases.json`; offline grading is implemented in `scripts/grade_agent_evals.py`. The packet/trace/exit-code contract is in `.codex/agent-eval-workflow.md`. This tooling does not execute models or grade product recommendations. Synthetic grader tests are not team routing evidence, and the bounded C8 captured-result scorer below is verified for synthetic contract compatibility; it is not a product recommendation runner.
 
 | ID | Scenario | Primary risk | Required judgment |
 | --- | --- | --- | --- |
@@ -129,8 +129,7 @@ The former `EVAL-NO-CODE-01` blanket-refusal expectation is superseded by `EVAL-
 
 CP-03 supplies C1-C6/C9 and synthetic linked examples in
 `tests/fixtures/plugin_contracts.json`; these are not retrieval-quality evals.
-A source review against the case requirements above identifies this proposed
-join. C8/scorer files are absent, so bidirectional compatibility remains open.
+The [C8 runner contract](evals/plugin-v1/runner-contract.md), scenario/result schemas and scorer are now present. Four independent synthetic captures cover allowed, no-match, denied and missing-index outcomes. All 27 metric/semantic/standards/envelope checks pass, including CP-03/C8 parity negatives and nested-byte enforcement. Both CLI gates pass; scorer reports synthetic_compatibility_only and promotion_ready=false. Independent review repeated the full suite. The development validator was authorized and installed only in TEMP; see TEST.md.
 
 | C8 need | C9 or related source | CP-04 responsibility |
 | --- | --- | --- |
@@ -146,13 +145,13 @@ join. C8/scorer files are absent, so bidirectional compatibility remains open.
 C9 fixes 60 total fetched hits including duplicates, 12 cards and 48 KiB evidence,
 with a separate 88-KiB sum for controlled Brief/targeted-context/evidence/request
 inputs. Host instructions, prior conversation and output are additional. All
-limits remain uncalibrated. CP-04 must validate its scenario/result formats and
-scorer against these actual schemas/examples and independent judgments before
-either set is accepted for downstream runtime. CP-03 creates no C8 or scorer.
+limits remain uncalibrated. The scenario/result formats and scorer now pass
+compatibility validation against these actual schemas/examples and independent
+synthetic judgments; this completes the bounded contract join. This owner-authorized CP-03 addendum includes the bounded CP-04 C8/scorer join, not all CP-04 held-out calibration.
 
 ## Baseline And Evidence
 
-- Baseline: current static catalog and CP-04-defined frozen lexical/filter baseline. No executable product recommendation/retrieval evaluator is committed yet.
-- Eval runner: `applicable_missing`; CP-04 owns C8 and `evals/plugin-v1/evaluate_retrieval.py`, with `tests/test_plugin_retrieval_eval.py` and `tests/fixtures/plugin_retrieval_eval.json`. This provider-free scorer consumes captured C9 results rather than importing unfinished product code; CP-04 registers its exact CLI/input/output and metric tests before a quality run. Its preparation can run alongside CP-03, with compatibility review before acceptance.
+- Baseline: current static catalog; the actual lexical/filter baseline and held-out judgments remain CP-04 work. A provider-free captured-result scorer exists for synthetic compatibility only; it does not execute retrieval/models or establish product quality.
+- Eval scorer: `implemented_verified` for synthetic captured-result compatibility; CP-04 owns C8 and `evals/plugin-v1/evaluate_retrieval.py`, with 27 passing tests and four passing CLI captures. It consumes captured C9 results without executing retrieval/models. The actual lexical baseline, held-out judgments, quality thresholds and human calibration remain unimplemented; this is not a product-quality runner or verdict.
 - Human reviewers: Product Planner for usefulness, Catalog Architect for fit contracts, Quality Evaluator for gates, Evidence Reviewer for claims and permissions.
-- Current status: `proposal_staged`; no recommendation quality pass is claimed.
+- Current status: `partially_implemented`; bounded C8 compatibility is accepted, full CP-04 quality work remains open, and no recommendation quality pass is claimed.

@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://myai-stackguide.invalid/contracts/v1/context/project-context-brief.schema.json",
   "title": "Correctable Project Context Brief",
-  "description": "Local CP-03 v1 contract. This schema does not execute or authorize side effects.",
+  "description": "CP-03 local contract. Version 1.0.0 is a retained read-only legacy shape; new writes use 1.1.0. No migration or runtime is implemented.",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -23,7 +23,10 @@
   ],
   "properties": {
     "schema_version": {
-      "const": "1.0.0"
+      "enum": [
+        "1.0.0",
+        "1.1.0"
+      ]
     },
     "run_id": {
       "$ref": "https://myai-stackguide.invalid/contracts/v1/context/sanitized-project-summary.schema.json#/$defs/uuid"
@@ -191,7 +194,295 @@
       "maxLength": 32,
       "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,6})?Z$",
       "format": "date-time"
+    },
+    "details": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "problem",
+        "target_user",
+        "workflow",
+        "current_behavior",
+        "target_behavior",
+        "baseline",
+        "scope",
+        "non_goals",
+        "constraint_notes",
+        "tensions"
+      ],
+      "properties": {
+        "problem": {
+          "$ref": "https://myai-stackguide.invalid/contracts/v1/context/project-context-brief.schema.json#/$defs/claim"
+        },
+        "target_user": {
+          "$ref": "https://myai-stackguide.invalid/contracts/v1/context/project-context-brief.schema.json#/$defs/claim"
+        },
+        "workflow": {
+          "$ref": "https://myai-stackguide.invalid/contracts/v1/context/project-context-brief.schema.json#/$defs/claim"
+        },
+        "current_behavior": {
+          "$ref": "https://myai-stackguide.invalid/contracts/v1/context/project-context-brief.schema.json#/$defs/claim"
+        },
+        "target_behavior": {
+          "$ref": "https://myai-stackguide.invalid/contracts/v1/context/project-context-brief.schema.json#/$defs/claim"
+        },
+        "baseline": {
+          "$ref": "https://myai-stackguide.invalid/contracts/v1/context/project-context-brief.schema.json#/$defs/claim"
+        },
+        "scope": {
+          "$ref": "https://myai-stackguide.invalid/contracts/v1/context/project-context-brief.schema.json#/$defs/claim"
+        },
+        "non_goals": {
+          "type": "array",
+          "items": {
+            "$ref": "https://myai-stackguide.invalid/contracts/v1/context/project-context-brief.schema.json#/$defs/claim"
+          },
+          "maxItems": 12,
+          "minItems": 0
+        },
+        "constraint_notes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "constraint_id",
+              "topic",
+              "strength",
+              "constraint_pointer",
+              "claim",
+              "consequence"
+            ],
+            "properties": {
+              "constraint_id": {
+                "$ref": "https://myai-stackguide.invalid/contracts/v1/context/sanitized-project-summary.schema.json#/$defs/id"
+              },
+              "topic": {
+                "enum": [
+                  "stack",
+                  "deployment",
+                  "data",
+                  "license",
+                  "team_capacity",
+                  "time_horizon",
+                  "integration",
+                  "other"
+                ]
+              },
+              "strength": {
+                "enum": [
+                  "hard",
+                  "preference",
+                  "unknown"
+                ]
+              },
+              "constraint_pointer": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "maxLength": 100,
+                    "pattern": "^/brief/constraints/(languages|deployment|allowed_licenses|compatibility|require_no_server|mandatory_fields)$"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "claim": {
+                "$ref": "https://myai-stackguide.invalid/contracts/v1/context/project-context-brief.schema.json#/$defs/claim"
+              },
+              "consequence": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 400
+              }
+            }
+          },
+          "maxItems": 16,
+          "minItems": 0
+        },
+        "tensions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tension_id",
+              "constraint_ids",
+              "detail",
+              "next_decision"
+            ],
+            "properties": {
+              "tension_id": {
+                "$ref": "https://myai-stackguide.invalid/contracts/v1/context/sanitized-project-summary.schema.json#/$defs/id"
+              },
+              "constraint_ids": {
+                "type": "array",
+                "items": {
+                  "$ref": "https://myai-stackguide.invalid/contracts/v1/context/sanitized-project-summary.schema.json#/$defs/id"
+                },
+                "maxItems": 8,
+                "minItems": 1
+              },
+              "detail": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 500
+              },
+              "next_decision": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 400
+              }
+            }
+          },
+          "maxItems": 8,
+          "minItems": 0
+        }
+      }
     }
   },
-  "x-max-utf8-bytes": 16384
+  "x-max-utf8-bytes": 16384,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "schema_version": {
+            "const": "1.1.0"
+          }
+        },
+        "required": [
+          "schema_version"
+        ]
+      },
+      "then": {
+        "required": [
+          "details"
+        ]
+      },
+      "else": {
+        "properties": {
+          "details": false
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "claim": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "text",
+        "kind",
+        "evidence_refs",
+        "answer_ids",
+        "limitation"
+      ],
+      "properties": {
+        "text": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 700
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "kind": {
+          "enum": [
+            "observed",
+            "user_statement",
+            "inference",
+            "unknown"
+          ]
+        },
+        "evidence_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "https://myai-stackguide.invalid/contracts/v1/context/sanitized-project-summary.schema.json#/$defs/evidenceId"
+          },
+          "maxItems": 12,
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "answer_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "https://myai-stackguide.invalid/contracts/v1/context/sanitized-project-summary.schema.json#/$defs/id"
+          },
+          "maxItems": 10,
+          "minItems": 0
+        },
+        "limitation": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 400
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "unknown"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "text": {
+                "type": "null"
+              },
+              "evidence_refs": {
+                "maxItems": 0
+              },
+              "answer_ids": {
+                "maxItems": 0
+              },
+              "limitation": {
+                "type": "string"
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "text": {
+                "type": "string"
+              }
+            },
+            "anyOf": [
+              {
+                "properties": {
+                  "evidence_refs": {
+                    "minItems": 1
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "answer_ids": {
+                    "minItems": 1
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "x-invariants": [
+    "Claim evidence and answer IDs resolve to current project evidence and sanitized intake answers; observed claims require project evidence, user statements require answer evidence, inferences stay labeled. Unknown is not absence proof.",
+    "Constraint notes cannot override machine constraints or their mandatory_fields; a contradiction is an explicit tension pending a user decision. Brief remains <=16 KiB including details; do not substitute presentation for omitted domain evidence."
+  ]
 }

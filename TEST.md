@@ -11,35 +11,25 @@ Verification strategy for the myAI-StackGuide control plane and local SQLite FTS
 
 ## CP-03 Local Contract Checks
 
-Twenty local schemas and linked examples now exist. YAML policy/taxonomy files
-use the JSON-compatible YAML 1.2 subset and require no YAML parser dependency.
-Full standards acceptance uses development-only `jsonschema==4.26.0`, Draft
-2020-12, an offline registry and explicit date/UUID format checks. This must not
-be copied into or automatically installed by the standard-library plugin.
-Installation follows the user's approval boundary.
+Twenty-two local schemas now include the 1.1.0 presentation/publication addendum; the original 20 positive and 17 negative fixture records remain unchanged. Five linked current-version objects cover stored questions/scan, structured Brief, memo/plan and state; two new schema examples cover localization and publication. The [source map](specs/artifact/session-workspace-contract.md) covers 49 subsections and 164 expanded schema paths. C8 adds two schemas and an offline captured-result scorer.
+
+Full contract acceptance passed on 2026-08-31: **46/46 CP-03 tests and 27/27 C8 tests**, without skips. Independent review repeated both full suites and found no remaining P1/P2 in the contract slice. Both scorer CLI gates passed for four synthetic captures; `promotion_ready=false`, `quality_thresholds_calibrated=false` and `verdict=synthetic_compatibility_only` remain explicit.
+
+The owner authorized development-only wheel installation into TEMP. Python 3.14.6 uses `jsonschema==4.26.0`, `attrs==26.1.0`, `jsonschema-specifications==2025.9.1`, `referencing==0.37.0` and `rpds-py==2026.6.3` from `C:/Users/user/AppData/Local/Temp/stackguide-cp03-standards-n_tpu3_c/validator`. Default Python still has no importable jsonschema without this process-local path. No global Python, plugin dependency, profile or package configuration changed. TEMP is disposable: if absent, prepare a separately authorized development environment; never auto-install through the standard-library plugin.
+
+Executed from the repository in child PowerShell processes with this temporary environment (do not persist PYTHONPATH):
 
 ```powershell
+$env:PYTHONPATH = 'C:/Users/user/AppData/Local/Temp/stackguide-cp03-standards-n_tpu3_c/validator'
 python -B -m unittest discover -s tests -p test_plugin_contracts.py -v
+python -B -m unittest discover -s tests -p test_plugin_retrieval_eval.py -v
+python -B evals/plugin-v1/evaluate_retrieval.py --cases evals/plugin-v1/cases.json
+python -B evals/plugin-v1/evaluate_retrieval.py --cases evals/plugin-v1/cases.json --results tests/fixtures/plugin_retrieval_eval.json
 ```
 
-The suite covers twenty positive schema instances, linked examples, seventeen
-negative mutations, unknown-property rejection, count/UTF-8 caps, dates,
-early/ten-question intake, failures, eligibility/provenance, taxonomy parity and
-correction invalidation. Custom byte annotations and cross-document rules need
-explicit checks beyond ordinary JSON Schema. Lexical exclusions are not Windows
-containment tests.
+All commands exited 0. The full gates cover Draft 2020-12 meta-validation, offline references, formats, legacy/current version branches, positive/negative instances, nested byte budgets and complete scorer envelope/CLI checks, including CLI exits 0/1/2 on valid/pass, valid/failing and invalid inputs. The earlier missing-dependency failure remains historical evidence in RUNLOG; it is resolved by the authorized isolated environment, not converted into an expected RED or skip. No schema/test/scorer repairs were needed after installation.
 
-Current status is `partially_verified`: the full command reported missing
-`jsonschema`; no standards pass is claimed. Nineteen semantic tests pass:
-
-```powershell
-python -B -m unittest discover -s tests -p test_plugin_contracts.py -k SemanticContracts -v
-```
-
-This subset is not a replacement for full V-CONTRACT. Missing dependencies fail
-clearly rather than skipping mandatory checks or counting as expected RED.
-CP-04 C8/C9 compatibility remains open. No scanner, SQLite query, model quality,
-atomic save or installed-plugin behavior is proved; exact outcomes are in RUNLOG.
+Byte annotations and cross-document joins require explicit checks beyond JSON Schema. The referenced structurally legal >12 KiB card inside a <48 KiB pack is now a passing C8 byte regression. Synthetic HTML bytes validate a fixture receipt only, not rendering, atomic writes, locks or installed-plugin behavior. YAML policies use the JSON-compatible YAML 1.2 subset; no YAML parser was added. [Validator documentation](https://python-jsonschema.readthedocs.io/en/stable/validate/) and [offline referencing](https://python-jsonschema.readthedocs.io/en/stable/referencing/) distinguish standards/format/reference validation from custom checks. CP-03 is verified at contract level; full CP-04 quality calibration and all runtime/browser/usefulness gates remain open.
 
 ## Planned Session Workspace And RU-EN Checks
 
@@ -48,7 +38,7 @@ R15 and the [workspace design](docs/plan/plugin-v1-session-workspace-design.md) 
 - CP-10 follows A-D checkpoints in the approved design: common shell/RU-EN first, views 1-4, views 5-7, then History/recovery. Use the smallest relevant fixture/browser check per checkpoint and one final complete eight-view review; no repeated concept-approval gate.
 - CP-07 defines and CP-10 binds the commit/publication boundary. CP-11 verifies start -> saved answer -> scan/Brief -> actual FTS5 result -> memo -> correction/invalidation -> resume -> finalization, using one HTML path and explicit committed/published revision identity. No manual second report command is required in the normal flow.
 - Inject saved-state/render failure, first-render failure and a late older render racing a newer revision. Preserve saved answers and existing valid HTML, reject obsolete publication, report typed failure to Codex and retry rendering only. No repeat scan/model/retrieval or silent state rollback; an open old file cannot detect newer state on its own.
-- Validate locale/source-language, presentation revision/coverage and canonical field/evidence links; reject a translated view tied to the wrong Brief/result revision. Existing strict schemas are not changed by the planning task.
+- Validate locale/source-language, presentation revision/coverage and canonical field/evidence links; reject a translated view tied to the wrong Brief/result revision. The current contract addendum is implemented; runtime consumers and browser checks remain future work.
 - Require matching complete RU/EN static UI keys, including unknown/error/status/accessibility/print text. Preserve IDs, paths, URLs, commands, technical terms, timestamps and canonical values.
 - Inspect all eight views in RU/EN on desktop/laptop windows at 1280, 1440 and 1920 CSS pixels; add a narrower desktop window, long text and 200% zoom. Mobile adaptation is out of scope. Verify keyboard/focus, document/passages `lang`, direct evidence labels, print caveats and no overlap.
 - Switch RU -> EN -> RU on one saved captured result: retain candidate IDs/order, evidence, selected view, comparison and disclosure; no scan/retrieval/model/network call or domain-state write.

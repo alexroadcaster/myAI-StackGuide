@@ -1,0 +1,516 @@
+{
+  "schema_version": "retrieval_captures_v1",
+  "case_set_sha256": "723392e59ec4bd8d60b5bb2094eb2d077f3acd460dab841b36a4cf3e66a9cfb3",
+  "evidence_kind": "synthetic_contract_capture",
+  "records": [
+    {
+      "case_id": "C8-C9-ALLOW-01",
+      "retrieval": {
+        "schema_version": "1.0.0",
+        "run_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
+        "query_id": "query-1",
+        "query_sha256": "c08d6b7b1e15bbc414a003d512ab2004bc9fe84502926b9322dbb8b9509c192f",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "pins": {
+          "catalog_snapshot_id": "fixture-catalog-1",
+          "source_sha256": "e29986d6824397baf09d331c6ad367d7a5b60d540fd505d5979cbb2e63d7fdad",
+          "cards_sha256": "39c79dcd18b1591df2cd79dcbafd818238d762d5e7a59c94b572d95e9e78616e",
+          "index_sha256": "608a8e9186cc4d68b9a2fe45bfa4a683f03f08d434e3554410bae6b21087703e",
+          "policy_sha256": "a7a8951b89013332d4ffe747290b2b9b0d5e8e346bb0a86a2005b491c1372fc6",
+          "taxonomy_sha256": "339335cedc0c6fc271982460d13bd09efaa13e0c7ca99abe45ab78c79b6a0c53",
+          "card_schema_version": "1.0.0",
+          "index_format_version": 1,
+          "retrieval_policy_version": "1.0.0",
+          "corpus_kind": "synthetic_fixture"
+        },
+        "status": "ok",
+        "executed_variants": 2,
+        "retrieved_hits": 2,
+        "candidates": [
+          {
+            "repo_id": "gh-pending:stackguide-fixtures/embedded-search",
+            "rank": 1,
+            "rrf_score": 0.03278688524590164,
+            "variant_ranks": [
+              {
+                "variant_id": "q1",
+                "rank": 1,
+                "bm25": -0.8
+              },
+              {
+                "variant_id": "q2",
+                "rank": 1,
+                "bm25": -0.2
+              }
+            ],
+            "matched_fields": [
+              "description",
+              "integration_surface"
+            ],
+            "missing_facts": []
+          }
+        ],
+        "truncated": false,
+        "reason_codes": []
+      },
+      "evidence_pack": {
+        "schema_version": "1.0.0",
+        "run_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
+        "pack_id": "pack-1",
+        "query_id": "query-1",
+        "query_sha256": "c08d6b7b1e15bbc414a003d512ab2004bc9fe84502926b9322dbb8b9509c192f",
+        "brief_version": 1,
+        "pins": {
+          "catalog_snapshot_id": "fixture-catalog-1",
+          "source_sha256": "e29986d6824397baf09d331c6ad367d7a5b60d540fd505d5979cbb2e63d7fdad",
+          "cards_sha256": "39c79dcd18b1591df2cd79dcbafd818238d762d5e7a59c94b572d95e9e78616e",
+          "index_sha256": "608a8e9186cc4d68b9a2fe45bfa4a683f03f08d434e3554410bae6b21087703e",
+          "policy_sha256": "a7a8951b89013332d4ffe747290b2b9b0d5e8e346bb0a86a2005b491c1372fc6",
+          "taxonomy_sha256": "339335cedc0c6fc271982460d13bd09efaa13e0c7ca99abe45ab78c79b6a0c53",
+          "card_schema_version": "1.0.0",
+          "index_format_version": 1,
+          "retrieval_policy_version": "1.0.0",
+          "corpus_kind": "synthetic_fixture"
+        },
+        "status": "ready",
+        "cards": [
+          {
+            "card": {
+              "schema_version": "1.0.0",
+              "repo_id": "gh-pending:stackguide-fixtures/embedded-search",
+              "github_repository_id": null,
+              "full_name": "stackguide-fixtures/embedded-search",
+              "url": "https://github.com/stackguide-fixtures/embedded-search",
+              "aliases": [],
+              "catalog_status": "candidate",
+              "catalog_status_source": "catalog_snapshot",
+              "evidence_stage": "advisory_evidence_complete",
+              "description": "Synthetic embedded search library for contract examples.",
+              "language": "Python",
+              "license": "MIT",
+              "deployment": [
+                "local"
+              ],
+              "requires_server": false,
+              "availability": "available",
+              "archived": false,
+              "primary_category": "coding_agents_devex",
+              "secondary_categories": [],
+              "topics": [
+                "fulltext",
+                "local"
+              ],
+              "use_cases": [
+                "Search local records"
+              ],
+              "best_for": [
+                "Small local Python applications"
+              ],
+              "avoid_if": [
+                "Distributed serving is required"
+              ],
+              "adoption_mode": "library",
+              "project_stages": [
+                "prototype",
+                "product"
+              ],
+              "complexity": "low",
+              "integration_surface": "A small Python adapter around an embedded index.",
+              "compatibility": [
+                "Python >=3.11"
+              ],
+              "caveats": [
+                "Synthetic card. No package was inspected or executed."
+              ],
+              "activity": {
+                "schema_version": "1.0.0",
+                "createdAt": "2018-01-01T00:00:00Z",
+                "pushedAt": "2024-01-01T00:00:00Z",
+                "lastCommitAt": "2023-12-30T00:00:00Z",
+                "lastReleaseAt": null,
+                "lastCommitSha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "lastCommitBranch": "main",
+                "observations": [
+                  {
+                    "field": "createdAt",
+                    "source_field": "repository_created_at",
+                    "observedAt": "2024-01-02T00:00:00Z",
+                    "evidence_ref": "ev-public-activity"
+                  },
+                  {
+                    "field": "pushedAt",
+                    "source_field": "repository_pushed_at",
+                    "observedAt": "2024-01-02T00:00:00Z",
+                    "evidence_ref": "ev-public-activity"
+                  },
+                  {
+                    "field": "lastCommitAt",
+                    "source_field": "commit_committed_date",
+                    "observedAt": "2024-01-02T00:00:00Z",
+                    "evidence_ref": "ev-public-activity"
+                  }
+                ]
+              },
+              "evidence": [
+                {
+                  "evidence_id": "ev-public-fit",
+                  "source_kind": "synthetic_fixture",
+                  "source_ref": "fixture:embedded-search/fit",
+                  "observed_at": "2026-08-31T09:00:00Z",
+                  "verification": "source_reported",
+                  "fields": [
+                    "/license",
+                    "/language",
+                    "/deployment",
+                    "/requires_server",
+                    "/availability",
+                    "/archived",
+                    "/use_cases",
+                    "/best_for",
+                    "/avoid_if",
+                    "/adoption_mode",
+                    "/project_stages",
+                    "/complexity",
+                    "/integration_surface",
+                    "/compatibility",
+                    "/catalog_status"
+                  ]
+                },
+                {
+                  "evidence_id": "ev-public-activity",
+                  "source_kind": "synthetic_fixture",
+                  "source_ref": "fixture:embedded-search/activity",
+                  "observed_at": "2024-01-02T00:00:00Z",
+                  "verification": "source_reported",
+                  "fields": [
+                    "/activity/createdAt",
+                    "/activity/pushedAt",
+                    "/activity/lastCommitAt"
+                  ]
+                }
+              ],
+              "missing_facts": [],
+              "corpus_kind": "synthetic_fixture"
+            },
+            "retrieval_rank": 1,
+            "rrf_score": 0.03278688524590164,
+            "matched_fields": [
+              "description",
+              "integration_surface"
+            ],
+            "eligibility": {
+              "schema_version": "1.0.0",
+              "repo_id": "gh-pending:stackguide-fixtures/embedded-search",
+              "query_id": "query-1",
+              "status": "primary_eligible",
+              "checks": [
+                {
+                  "field": "license",
+                  "outcome": "pass",
+                  "evidence_refs": [
+                    "ev-public-fit"
+                  ]
+                },
+                {
+                  "field": "deployment",
+                  "outcome": "pass",
+                  "evidence_refs": [
+                    "ev-public-fit"
+                  ]
+                },
+                {
+                  "field": "language",
+                  "outcome": "pass",
+                  "evidence_refs": [
+                    "ev-public-fit"
+                  ]
+                },
+                {
+                  "field": "compatibility",
+                  "outcome": "pass",
+                  "evidence_refs": [
+                    "ev-public-fit"
+                  ]
+                },
+                {
+                  "field": "no_server",
+                  "outcome": "pass",
+                  "evidence_refs": [
+                    "ev-public-fit"
+                  ]
+                },
+                {
+                  "field": "availability",
+                  "outcome": "pass",
+                  "evidence_refs": [
+                    "ev-public-fit"
+                  ]
+                },
+                {
+                  "field": "archived",
+                  "outcome": "pass",
+                  "evidence_refs": [
+                    "ev-public-fit"
+                  ]
+                },
+                {
+                  "field": "advisory_evidence",
+                  "outcome": "pass",
+                  "evidence_refs": [
+                    "ev-public-fit"
+                  ]
+                }
+              ],
+              "reason_codes": [],
+              "required_verifications": []
+            }
+          }
+        ],
+        "exclusions": [],
+        "truncated": false,
+        "reason_codes": []
+      },
+      "measurements": {
+        "serialization": "sorted_keys_compact_json_ensure_ascii_false_allow_nan_false",
+        "evidence_pack_bytes": 4267,
+        "brief_bytes": null,
+        "targeted_context_bytes": null,
+        "request_bytes": null,
+        "plugin_input_bytes": null,
+        "latency_ms": null,
+        "latency_method": null,
+        "peak_memory_bytes": null,
+        "memory_method": null,
+        "input_tokens": null,
+        "tokenizer": null
+      }
+    },
+    {
+      "case_id": "C8-C9-NO-MATCH-01",
+      "retrieval": {
+        "schema_version": "1.0.0",
+        "run_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
+        "query_id": "query-no-match",
+        "query_sha256": "4b223eeb7e30d5138c8e513a5f0f9e71abc943db28240ad9fb9e048ddc282fb6",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "pins": {
+          "catalog_snapshot_id": "fixture-catalog-1",
+          "source_sha256": "e29986d6824397baf09d331c6ad367d7a5b60d540fd505d5979cbb2e63d7fdad",
+          "cards_sha256": "39c79dcd18b1591df2cd79dcbafd818238d762d5e7a59c94b572d95e9e78616e",
+          "index_sha256": "608a8e9186cc4d68b9a2fe45bfa4a683f03f08d434e3554410bae6b21087703e",
+          "policy_sha256": "a7a8951b89013332d4ffe747290b2b9b0d5e8e346bb0a86a2005b491c1372fc6",
+          "taxonomy_sha256": "339335cedc0c6fc271982460d13bd09efaa13e0c7ca99abe45ab78c79b6a0c53",
+          "card_schema_version": "1.0.0",
+          "index_format_version": 1,
+          "retrieval_policy_version": "1.0.0",
+          "corpus_kind": "synthetic_fixture"
+        },
+        "status": "no_match",
+        "executed_variants": 1,
+        "retrieved_hits": 0,
+        "candidates": [],
+        "truncated": false,
+        "reason_codes": [
+          "no_hits"
+        ]
+      },
+      "evidence_pack": {
+        "schema_version": "1.0.0",
+        "run_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
+        "pack_id": "pack-1",
+        "query_id": "query-no-match",
+        "query_sha256": "4b223eeb7e30d5138c8e513a5f0f9e71abc943db28240ad9fb9e048ddc282fb6",
+        "brief_version": 1,
+        "pins": {
+          "catalog_snapshot_id": "fixture-catalog-1",
+          "source_sha256": "e29986d6824397baf09d331c6ad367d7a5b60d540fd505d5979cbb2e63d7fdad",
+          "cards_sha256": "39c79dcd18b1591df2cd79dcbafd818238d762d5e7a59c94b572d95e9e78616e",
+          "index_sha256": "608a8e9186cc4d68b9a2fe45bfa4a683f03f08d434e3554410bae6b21087703e",
+          "policy_sha256": "a7a8951b89013332d4ffe747290b2b9b0d5e8e346bb0a86a2005b491c1372fc6",
+          "taxonomy_sha256": "339335cedc0c6fc271982460d13bd09efaa13e0c7ca99abe45ab78c79b6a0c53",
+          "card_schema_version": "1.0.0",
+          "index_format_version": 1,
+          "retrieval_policy_version": "1.0.0",
+          "corpus_kind": "synthetic_fixture"
+        },
+        "status": "no_match",
+        "cards": [],
+        "exclusions": [],
+        "truncated": false,
+        "reason_codes": [
+          "no_hits"
+        ]
+      },
+      "measurements": {
+        "serialization": "sorted_keys_compact_json_ensure_ascii_false_allow_nan_false",
+        "evidence_pack_bytes": 903,
+        "brief_bytes": null,
+        "targeted_context_bytes": null,
+        "request_bytes": null,
+        "plugin_input_bytes": null,
+        "latency_ms": null,
+        "latency_method": null,
+        "peak_memory_bytes": null,
+        "memory_method": null,
+        "input_tokens": null,
+        "tokenizer": null
+      }
+    },
+    {
+      "case_id": "C8-C9-DENIED-01",
+      "retrieval": {
+        "schema_version": "1.0.0",
+        "run_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
+        "query_id": "query-denied",
+        "query_sha256": "ff485d250a2ef0ad20b5947c5b7e32d3b764de5fbd37f5872db98604aac936ef",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "pins": {
+          "catalog_snapshot_id": "fixture-catalog-1",
+          "source_sha256": "e29986d6824397baf09d331c6ad367d7a5b60d540fd505d5979cbb2e63d7fdad",
+          "cards_sha256": "39c79dcd18b1591df2cd79dcbafd818238d762d5e7a59c94b572d95e9e78616e",
+          "index_sha256": "608a8e9186cc4d68b9a2fe45bfa4a683f03f08d434e3554410bae6b21087703e",
+          "policy_sha256": "a7a8951b89013332d4ffe747290b2b9b0d5e8e346bb0a86a2005b491c1372fc6",
+          "taxonomy_sha256": "339335cedc0c6fc271982460d13bd09efaa13e0c7ca99abe45ab78c79b6a0c53",
+          "card_schema_version": "1.0.0",
+          "index_format_version": 1,
+          "retrieval_policy_version": "1.0.0",
+          "corpus_kind": "synthetic_fixture"
+        },
+        "status": "ok",
+        "executed_variants": 2,
+        "retrieved_hits": 2,
+        "candidates": [
+          {
+            "repo_id": "gh-pending:stackguide-fixtures/embedded-search",
+            "rank": 1,
+            "rrf_score": 0.03278688524590164,
+            "variant_ranks": [
+              {
+                "variant_id": "q1",
+                "rank": 1,
+                "bm25": -0.8
+              },
+              {
+                "variant_id": "q2",
+                "rank": 1,
+                "bm25": -0.2
+              }
+            ],
+            "matched_fields": [
+              "description",
+              "integration_surface"
+            ],
+            "missing_facts": []
+          }
+        ],
+        "truncated": false,
+        "reason_codes": []
+      },
+      "evidence_pack": {
+        "schema_version": "1.0.0",
+        "run_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
+        "pack_id": "pack-1",
+        "query_id": "query-denied",
+        "query_sha256": "ff485d250a2ef0ad20b5947c5b7e32d3b764de5fbd37f5872db98604aac936ef",
+        "brief_version": 1,
+        "pins": {
+          "catalog_snapshot_id": "fixture-catalog-1",
+          "source_sha256": "e29986d6824397baf09d331c6ad367d7a5b60d540fd505d5979cbb2e63d7fdad",
+          "cards_sha256": "39c79dcd18b1591df2cd79dcbafd818238d762d5e7a59c94b572d95e9e78616e",
+          "index_sha256": "608a8e9186cc4d68b9a2fe45bfa4a683f03f08d434e3554410bae6b21087703e",
+          "policy_sha256": "a7a8951b89013332d4ffe747290b2b9b0d5e8e346bb0a86a2005b491c1372fc6",
+          "taxonomy_sha256": "339335cedc0c6fc271982460d13bd09efaa13e0c7ca99abe45ab78c79b6a0c53",
+          "card_schema_version": "1.0.0",
+          "index_format_version": 1,
+          "retrieval_policy_version": "1.0.0",
+          "corpus_kind": "synthetic_fixture"
+        },
+        "status": "no_match",
+        "cards": [],
+        "exclusions": [
+          {
+            "repo_id": "gh-pending:stackguide-fixtures/embedded-search",
+            "reason_codes": [
+              "constraint_mismatch"
+            ]
+          }
+        ],
+        "truncated": false,
+        "reason_codes": [
+          "constraint_mismatch"
+        ]
+      },
+      "measurements": {
+        "serialization": "sorted_keys_compact_json_ensure_ascii_false_allow_nan_false",
+        "evidence_pack_bytes": 1012,
+        "brief_bytes": null,
+        "targeted_context_bytes": null,
+        "request_bytes": null,
+        "plugin_input_bytes": null,
+        "latency_ms": null,
+        "latency_method": null,
+        "peak_memory_bytes": null,
+        "memory_method": null,
+        "input_tokens": null,
+        "tokenizer": null
+      }
+    },
+    {
+      "case_id": "C8-C9-INDEX-MISSING-01",
+      "retrieval": {
+        "schema_version": "1.0.0",
+        "run_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
+        "query_id": "query-index-missing",
+        "query_sha256": "2a48e80f5ecbfc20a9897f7490707560f253d864f0d23df94648691b4a4dda9e",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "pins": null,
+        "status": "retrieval_unavailable",
+        "executed_variants": 0,
+        "retrieved_hits": 0,
+        "candidates": [],
+        "truncated": false,
+        "reason_codes": [
+          "index_missing"
+        ]
+      },
+      "evidence_pack": {
+        "schema_version": "1.0.0",
+        "run_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
+        "pack_id": "pack-1",
+        "query_id": "query-index-missing",
+        "query_sha256": "2a48e80f5ecbfc20a9897f7490707560f253d864f0d23df94648691b4a4dda9e",
+        "brief_version": 1,
+        "pins": null,
+        "status": "unavailable",
+        "cards": [],
+        "exclusions": [],
+        "truncated": false,
+        "reason_codes": [
+          "index_missing"
+        ]
+      },
+      "measurements": {
+        "serialization": "sorted_keys_compact_json_ensure_ascii_false_allow_nan_false",
+        "evidence_pack_bytes": 339,
+        "brief_bytes": null,
+        "targeted_context_bytes": null,
+        "request_bytes": null,
+        "plugin_input_bytes": null,
+        "latency_ms": null,
+        "latency_method": null,
+        "peak_memory_bytes": null,
+        "memory_method": null,
+        "input_tokens": null,
+        "tokenizer": null
+      }
+    }
+  ]
+}

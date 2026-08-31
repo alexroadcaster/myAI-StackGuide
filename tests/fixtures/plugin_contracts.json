@@ -1,5 +1,5 @@
 {
-  "fixture_version": "1.0.0",
+  "fixture_version": "plugin_contracts_v1_1_with_legacy_v1",
   "corpus_kind": "synthetic_fixture",
   "evidence_ceiling": "Contract examples only. Names, dates, index version and hashes are synthetic; no GitHub lookup, project scan, SQLite query or installation occurred.",
   "serialization": "sorted_keys_compact_json_ensure_ascii_false_allow_nan_false",
@@ -1887,6 +1887,97 @@
       "html_revision": 2,
       "history": [],
       "storage_policy_version": "1.0.0"
+    },
+    "artifact/localized-presentation.schema.json": {
+      "schema_version": "1.1.0",
+      "run_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
+      "default_locale": "ru",
+      "source_locale": "en",
+      "presentation_revision": 1,
+      "source_content_revision": 1,
+      "brief_id": "brief-1",
+      "brief_version": 1,
+      "memo_id": "memo-1",
+      "plan_id": "plan-1",
+      "fields": [
+        {
+          "field_pointer": "/brief/goal",
+          "source_locale": "en",
+          "source_sha256": "66df00098dea6139b35183a0e6ed0740de26138fc987a7743b8c88f1c35d8693",
+          "source_content_revision": 1,
+          "evidence_refs": [],
+          "canonical_literals": [],
+          "ru": {
+            "status": "available",
+            "text": "Добавить локальный полнотекстовый поиск без сервиса."
+          },
+          "en": {
+            "status": "available",
+            "text": "Add local full-text search without a service."
+          }
+        },
+        {
+          "field_pointer": "/memo/recommendations/0/fit_rationale",
+          "source_locale": "en",
+          "source_sha256": "825146b08ee9f15bb39f946b5a0d563fddaf70156641e91401f2c04f696e6199",
+          "source_content_revision": 1,
+          "evidence_refs": [
+            "ev-public-fit"
+          ],
+          "canonical_literals": [
+            "Python"
+          ],
+          "ru": {
+            "status": "available",
+            "text": "В примере заявлена локальная интеграция с Python и соответствие ограничениям."
+          },
+          "en": {
+            "status": "available",
+            "text": "The fixture declares local Python integration and matching constraints."
+          }
+        }
+      ],
+      "coverage": {
+        "ru": {
+          "status": "partial",
+          "required_fields": 45,
+          "available_fields": 2
+        },
+        "en": {
+          "status": "partial",
+          "required_fields": 45,
+          "available_fields": 2
+        }
+      }
+    },
+    "artifact/publication-result.schema.json": {
+      "schema_version": "1.1.0",
+      "operation_id": "cccccccc-cccc-4ccc-8ccc-cccccccccccc",
+      "operation": "commit_and_publish",
+      "commit_status": "saved",
+      "saved": {
+        "run_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
+        "revision": 3,
+        "content_revision": 1
+      },
+      "current": {
+        "run_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
+        "revision": 3,
+        "content_revision": 1
+      },
+      "published": {
+        "run_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
+        "revision": 3,
+        "content_revision": 1,
+        "presentation_revision": 1,
+        "generated_at": "2026-08-31T09:00:00Z",
+        "html_sha256": "8c2f55175d32f637f7d407973018df613bbea1e9fd72644d07e5a495238958c4"
+      },
+      "publication_status": "current",
+      "failure_reason": null,
+      "render_attempts": 1,
+      "retry": "none",
+      "html_path": "docs/myai-stackguide/status.html"
     }
   },
   "negative": [
@@ -1994,5 +2085,1256 @@
       "pointer": "/updated_at",
       "value": "2026-02-30T10:00:00Z"
     }
-  ]
+  ],
+  "workspace_positive": {
+    "artifact/project-artifact-state.schema.json": {
+      "schema_version": "1.1.0",
+      "owner_marker": "myai-stackguide.state.v1",
+      "run_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
+      "predecessor_run_id": null,
+      "revision": 3,
+      "status": "active",
+      "phase": "report",
+      "created_at": "2026-08-31T09:00:00Z",
+      "updated_at": "2026-08-31T09:00:00Z",
+      "intake": {
+        "schema_version": "1.1.0",
+        "run_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
+        "status": "ready",
+        "questions_asked": 1,
+        "answers": [
+          {
+            "schema_version": "1.0.0",
+            "run_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
+            "answer_id": "answer-goal-1",
+            "question_id": "goal",
+            "ordinal": 1,
+            "answer_revision": 1,
+            "expected_state_revision": 0,
+            "status": "answered",
+            "sanitized_value": "Add local search to a small Python project.",
+            "redaction_applied": false,
+            "recorded_at": "2026-08-31T09:00:00Z"
+          }
+        ],
+        "pending_question_id": null,
+        "next_action": "review_context",
+        "assumptions": [],
+        "questions": [
+          {
+            "question_id": "goal",
+            "ordinal": 1,
+            "text": "What should improve in this project?",
+            "rationale": "The goal determines which candidates need comparison.",
+            "decision_consequence": "Separate local search from unrelated infrastructure.",
+            "answer_examples": [
+              "Add local search."
+            ],
+            "topics": [
+              "goal"
+            ]
+          }
+        ],
+        "completion_reason": "The synthetic goal and reviewed context are sufficient for this bounded comparison."
+      },
+      "brief": {
+        "schema_version": "1.1.0",
+        "run_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
+        "brief_id": "brief-1",
+        "brief_version": 1,
+        "goal": "Add local full-text search without a service.",
+        "decision": "build",
+        "project_stage": "prototype",
+        "success_criterion": "Find a known local record through a small adapter.",
+        "constraints": {
+          "languages": [
+            "Python"
+          ],
+          "deployment": [
+            "local"
+          ],
+          "allowed_licenses": [
+            "MIT"
+          ],
+          "compatibility": [
+            "Python >=3.11"
+          ],
+          "require_no_server": true,
+          "mandatory_fields": [
+            "license",
+            "deployment",
+            "language",
+            "compatibility",
+            "no_server"
+          ]
+        },
+        "observations": {
+          "schema_version": "1.0.0",
+          "run_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
+          "summary_id": "summary-1",
+          "content_class": "minimized_project_context",
+          "coverage": "complete",
+          "facts": [
+            {
+              "fact_id": "fact-python",
+              "kind": "language",
+              "value": "Python",
+              "evidence_refs": [
+                "ev-project-manifest"
+              ]
+            }
+          ],
+          "inferences": [
+            {
+              "inference_id": "inference-small-adapter",
+              "statement": "A narrow adapter may fit the existing project.",
+              "confidence": "medium",
+              "basis_fact_ids": [
+                "fact-python"
+              ]
+            }
+          ],
+          "gaps": [],
+          "evidence": [
+            {
+              "evidence_id": "ev-project-manifest",
+              "kind": "project_manifest",
+              "relative_path": "pyproject.toml",
+              "line_start": 1,
+              "line_end": 8,
+              "answer_id": null,
+              "content_persisted": false
+            }
+          ]
+        },
+        "assumptions": [
+          "The example is synthetic, not an inspected user project."
+        ],
+        "user_corrections": [],
+        "context_status": "reviewed",
+        "updated_at": "2026-08-31T09:00:00Z",
+        "details": {
+          "problem": {
+            "text": "Add local search to a small Python project.",
+            "kind": "user_statement",
+            "evidence_refs": [],
+            "answer_ids": [
+              "answer-goal-1"
+            ],
+            "limitation": "Synthetic user statement, not runtime evidence."
+          },
+          "target_user": {
+            "text": null,
+            "kind": "unknown",
+            "evidence_refs": [],
+            "answer_ids": [],
+            "limitation": "Not yet supplied."
+          },
+          "workflow": {
+            "text": null,
+            "kind": "unknown",
+            "evidence_refs": [],
+            "answer_ids": [],
+            "limitation": "Not yet supplied."
+          },
+          "current_behavior": {
+            "text": null,
+            "kind": "unknown",
+            "evidence_refs": [],
+            "answer_ids": [],
+            "limitation": "Not yet supplied."
+          },
+          "target_behavior": {
+            "text": null,
+            "kind": "unknown",
+            "evidence_refs": [],
+            "answer_ids": [],
+            "limitation": "Not yet supplied."
+          },
+          "baseline": {
+            "text": null,
+            "kind": "unknown",
+            "evidence_refs": [],
+            "answer_ids": [],
+            "limitation": "Not yet supplied."
+          },
+          "scope": {
+            "text": null,
+            "kind": "unknown",
+            "evidence_refs": [],
+            "answer_ids": [],
+            "limitation": "Not yet supplied."
+          },
+          "non_goals": [],
+          "constraint_notes": [],
+          "tensions": []
+        }
+      },
+      "selection": {
+        "schema_version": "1.0.0",
+        "run_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
+        "brief_version": 1,
+        "selection_id": "selection-1",
+        "root_ref": "selected-project",
+        "purpose": "Inspect the adapter interface if needed.",
+        "requested_sources": [
+          {
+            "relative_path": "src/search.py",
+            "line_start": 1,
+            "line_end": 40
+          }
+        ],
+        "max_read_bytes": 262144,
+        "max_model_context_bytes": 16384,
+        "authorization_scope": "existing_user_host_permissions",
+        "content_delivery": "transient_host_context",
+        "persistence": "references_only",
+        "scan_policy_version": "1.0.0",
+        "charge_to_scan_budget": true
+      },
+      "request": {
+        "schema_version": "1.0.0",
+        "run_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
+        "request_id": "request-1",
+        "brief_id": "brief-1",
+        "brief_version": 1,
+        "query": {
+          "schema_version": "1.0.0",
+          "query_id": "query-1",
+          "brief_version": 1,
+          "source_mode": "catalog_only",
+          "retrieval_engine": "sqlite_fts5",
+          "policy_version": "1.0.0",
+          "policy_sha256": "a7a8951b89013332d4ffe747290b2b9b0d5e8e346bb0a86a2005b491c1372fc6",
+          "language": "mixed",
+          "variants": [
+            {
+              "variant_id": "q1",
+              "terms": [
+                "local",
+                "fulltext"
+              ]
+            },
+            {
+              "variant_id": "q2",
+              "terms": [
+                "Python",
+                "search"
+              ]
+            }
+          ],
+          "constraints": {
+            "languages": [
+              "Python"
+            ],
+            "deployment": [
+              "local"
+            ],
+            "allowed_licenses": [
+              "MIT"
+            ],
+            "compatibility": [
+              "Python >=3.11"
+            ],
+            "require_no_server": true,
+            "mandatory_fields": [
+              "license",
+              "deployment",
+              "language",
+              "compatibility",
+              "no_server"
+            ]
+          },
+          "max_candidates": 60,
+          "max_cards": 12,
+          "max_evidence_bytes": 49152
+        },
+        "pack_id": "pack-1",
+        "output_intent": "integration_handoff",
+        "execution_authorized_by_this_request": false,
+        "input_allocation": {
+          "brief_bytes": 16384,
+          "targeted_context_bytes": 16384,
+          "evidence_bytes": 49152,
+          "request_bytes": 8192,
+          "plugin_input_bytes": 90112
+        }
+      },
+      "index_manifest": {
+        "schema_version": "1.0.0",
+        "pins": {
+          "catalog_snapshot_id": "fixture-catalog-1",
+          "source_sha256": "e29986d6824397baf09d331c6ad367d7a5b60d540fd505d5979cbb2e63d7fdad",
+          "cards_sha256": "39c79dcd18b1591df2cd79dcbafd818238d762d5e7a59c94b572d95e9e78616e",
+          "index_sha256": "608a8e9186cc4d68b9a2fe45bfa4a683f03f08d434e3554410bae6b21087703e",
+          "policy_sha256": "a7a8951b89013332d4ffe747290b2b9b0d5e8e346bb0a86a2005b491c1372fc6",
+          "taxonomy_sha256": "339335cedc0c6fc271982460d13bd09efaa13e0c7ca99abe45ab78c79b6a0c53",
+          "card_schema_version": "1.0.0",
+          "index_format_version": 1,
+          "retrieval_policy_version": "1.0.0",
+          "corpus_kind": "synthetic_fixture"
+        },
+        "builder_version": "1.0.0",
+        "sqlite_version": "3.0.0",
+        "built_at": "2026-08-31T09:00:00Z",
+        "source_snapshot_date": "2024-01-02",
+        "row_count": 1,
+        "index_file": "catalog.search.sqlite",
+        "cards_file": "catalog.snapshot.json",
+        "policy_file": "retrieval-policy.json",
+        "contains_project_context": false,
+        "read_only_runtime": true,
+        "logical_rows_sha256": "56b2931b458f00152b9ff406f3275362022d38363c86c0eedb81b06435cff4b2"
+      },
+      "retrieval": {
+        "schema_version": "1.0.0",
+        "run_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
+        "query_id": "query-1",
+        "query_sha256": "c08d6b7b1e15bbc414a003d512ab2004bc9fe84502926b9322dbb8b9509c192f",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "pins": {
+          "catalog_snapshot_id": "fixture-catalog-1",
+          "source_sha256": "e29986d6824397baf09d331c6ad367d7a5b60d540fd505d5979cbb2e63d7fdad",
+          "cards_sha256": "39c79dcd18b1591df2cd79dcbafd818238d762d5e7a59c94b572d95e9e78616e",
+          "index_sha256": "608a8e9186cc4d68b9a2fe45bfa4a683f03f08d434e3554410bae6b21087703e",
+          "policy_sha256": "a7a8951b89013332d4ffe747290b2b9b0d5e8e346bb0a86a2005b491c1372fc6",
+          "taxonomy_sha256": "339335cedc0c6fc271982460d13bd09efaa13e0c7ca99abe45ab78c79b6a0c53",
+          "card_schema_version": "1.0.0",
+          "index_format_version": 1,
+          "retrieval_policy_version": "1.0.0",
+          "corpus_kind": "synthetic_fixture"
+        },
+        "status": "ok",
+        "executed_variants": 2,
+        "retrieved_hits": 2,
+        "candidates": [
+          {
+            "repo_id": "gh-pending:stackguide-fixtures/embedded-search",
+            "rank": 1,
+            "rrf_score": 0.03278688524590164,
+            "variant_ranks": [
+              {
+                "variant_id": "q1",
+                "rank": 1,
+                "bm25": -0.8
+              },
+              {
+                "variant_id": "q2",
+                "rank": 1,
+                "bm25": -0.2
+              }
+            ],
+            "matched_fields": [
+              "description",
+              "integration_surface"
+            ],
+            "missing_facts": []
+          }
+        ],
+        "truncated": false,
+        "reason_codes": []
+      },
+      "evidence_pack": {
+        "schema_version": "1.0.0",
+        "run_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
+        "pack_id": "pack-1",
+        "query_id": "query-1",
+        "query_sha256": "c08d6b7b1e15bbc414a003d512ab2004bc9fe84502926b9322dbb8b9509c192f",
+        "brief_version": 1,
+        "pins": {
+          "catalog_snapshot_id": "fixture-catalog-1",
+          "source_sha256": "e29986d6824397baf09d331c6ad367d7a5b60d540fd505d5979cbb2e63d7fdad",
+          "cards_sha256": "39c79dcd18b1591df2cd79dcbafd818238d762d5e7a59c94b572d95e9e78616e",
+          "index_sha256": "608a8e9186cc4d68b9a2fe45bfa4a683f03f08d434e3554410bae6b21087703e",
+          "policy_sha256": "a7a8951b89013332d4ffe747290b2b9b0d5e8e346bb0a86a2005b491c1372fc6",
+          "taxonomy_sha256": "339335cedc0c6fc271982460d13bd09efaa13e0c7ca99abe45ab78c79b6a0c53",
+          "card_schema_version": "1.0.0",
+          "index_format_version": 1,
+          "retrieval_policy_version": "1.0.0",
+          "corpus_kind": "synthetic_fixture"
+        },
+        "status": "ready",
+        "cards": [
+          {
+            "card": {
+              "schema_version": "1.0.0",
+              "repo_id": "gh-pending:stackguide-fixtures/embedded-search",
+              "github_repository_id": null,
+              "full_name": "stackguide-fixtures/embedded-search",
+              "url": "https://github.com/stackguide-fixtures/embedded-search",
+              "aliases": [],
+              "catalog_status": "candidate",
+              "catalog_status_source": "catalog_snapshot",
+              "evidence_stage": "advisory_evidence_complete",
+              "description": "Synthetic embedded search library for contract examples.",
+              "language": "Python",
+              "license": "MIT",
+              "deployment": [
+                "local"
+              ],
+              "requires_server": false,
+              "availability": "available",
+              "archived": false,
+              "primary_category": "coding_agents_devex",
+              "secondary_categories": [],
+              "topics": [
+                "fulltext",
+                "local"
+              ],
+              "use_cases": [
+                "Search local records"
+              ],
+              "best_for": [
+                "Small local Python applications"
+              ],
+              "avoid_if": [
+                "Distributed serving is required"
+              ],
+              "adoption_mode": "library",
+              "project_stages": [
+                "prototype",
+                "product"
+              ],
+              "complexity": "low",
+              "integration_surface": "A small Python adapter around an embedded index.",
+              "compatibility": [
+                "Python >=3.11"
+              ],
+              "caveats": [
+                "Synthetic card. No package was inspected or executed."
+              ],
+              "activity": {
+                "schema_version": "1.0.0",
+                "createdAt": "2018-01-01T00:00:00Z",
+                "pushedAt": "2024-01-01T00:00:00Z",
+                "lastCommitAt": "2023-12-30T00:00:00Z",
+                "lastReleaseAt": null,
+                "lastCommitSha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "lastCommitBranch": "main",
+                "observations": [
+                  {
+                    "field": "createdAt",
+                    "source_field": "repository_created_at",
+                    "observedAt": "2024-01-02T00:00:00Z",
+                    "evidence_ref": "ev-public-activity"
+                  },
+                  {
+                    "field": "pushedAt",
+                    "source_field": "repository_pushed_at",
+                    "observedAt": "2024-01-02T00:00:00Z",
+                    "evidence_ref": "ev-public-activity"
+                  },
+                  {
+                    "field": "lastCommitAt",
+                    "source_field": "commit_committed_date",
+                    "observedAt": "2024-01-02T00:00:00Z",
+                    "evidence_ref": "ev-public-activity"
+                  }
+                ]
+              },
+              "evidence": [
+                {
+                  "evidence_id": "ev-public-fit",
+                  "source_kind": "synthetic_fixture",
+                  "source_ref": "fixture:embedded-search/fit",
+                  "observed_at": "2026-08-31T09:00:00Z",
+                  "verification": "source_reported",
+                  "fields": [
+                    "/license",
+                    "/language",
+                    "/deployment",
+                    "/requires_server",
+                    "/availability",
+                    "/archived",
+                    "/use_cases",
+                    "/best_for",
+                    "/avoid_if",
+                    "/adoption_mode",
+                    "/project_stages",
+                    "/complexity",
+                    "/integration_surface",
+                    "/compatibility",
+                    "/catalog_status"
+                  ]
+                },
+                {
+                  "evidence_id": "ev-public-activity",
+                  "source_kind": "synthetic_fixture",
+                  "source_ref": "fixture:embedded-search/activity",
+                  "observed_at": "2024-01-02T00:00:00Z",
+                  "verification": "source_reported",
+                  "fields": [
+                    "/activity/createdAt",
+                    "/activity/pushedAt",
+                    "/activity/lastCommitAt"
+                  ]
+                }
+              ],
+              "missing_facts": [],
+              "corpus_kind": "synthetic_fixture"
+            },
+            "retrieval_rank": 1,
+            "rrf_score": 0.03278688524590164,
+            "matched_fields": [
+              "description",
+              "integration_surface"
+            ],
+            "eligibility": {
+              "schema_version": "1.0.0",
+              "repo_id": "gh-pending:stackguide-fixtures/embedded-search",
+              "query_id": "query-1",
+              "status": "primary_eligible",
+              "checks": [
+                {
+                  "field": "license",
+                  "outcome": "pass",
+                  "evidence_refs": [
+                    "ev-public-fit"
+                  ]
+                },
+                {
+                  "field": "deployment",
+                  "outcome": "pass",
+                  "evidence_refs": [
+                    "ev-public-fit"
+                  ]
+                },
+                {
+                  "field": "language",
+                  "outcome": "pass",
+                  "evidence_refs": [
+                    "ev-public-fit"
+                  ]
+                },
+                {
+                  "field": "compatibility",
+                  "outcome": "pass",
+                  "evidence_refs": [
+                    "ev-public-fit"
+                  ]
+                },
+                {
+                  "field": "no_server",
+                  "outcome": "pass",
+                  "evidence_refs": [
+                    "ev-public-fit"
+                  ]
+                },
+                {
+                  "field": "availability",
+                  "outcome": "pass",
+                  "evidence_refs": [
+                    "ev-public-fit"
+                  ]
+                },
+                {
+                  "field": "archived",
+                  "outcome": "pass",
+                  "evidence_refs": [
+                    "ev-public-fit"
+                  ]
+                },
+                {
+                  "field": "advisory_evidence",
+                  "outcome": "pass",
+                  "evidence_refs": [
+                    "ev-public-fit"
+                  ]
+                }
+              ],
+              "reason_codes": [],
+              "required_verifications": []
+            }
+          }
+        ],
+        "exclusions": [],
+        "truncated": false,
+        "reason_codes": []
+      },
+      "memo": {
+        "schema_version": "1.1.0",
+        "run_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
+        "memo_id": "memo-1",
+        "request_id": "request-1",
+        "brief_version": 1,
+        "pack_id": "pack-1",
+        "pins": {
+          "catalog_snapshot_id": "fixture-catalog-1",
+          "source_sha256": "e29986d6824397baf09d331c6ad367d7a5b60d540fd505d5979cbb2e63d7fdad",
+          "cards_sha256": "39c79dcd18b1591df2cd79dcbafd818238d762d5e7a59c94b572d95e9e78616e",
+          "index_sha256": "608a8e9186cc4d68b9a2fe45bfa4a683f03f08d434e3554410bae6b21087703e",
+          "policy_sha256": "a7a8951b89013332d4ffe747290b2b9b0d5e8e346bb0a86a2005b491c1372fc6",
+          "taxonomy_sha256": "339335cedc0c6fc271982460d13bd09efaa13e0c7ca99abe45ab78c79b6a0c53",
+          "card_schema_version": "1.0.0",
+          "index_format_version": 1,
+          "retrieval_policy_version": "1.0.0",
+          "corpus_kind": "synthetic_fixture"
+        },
+        "status": "recommendations",
+        "summary": "Synthetic example of a grounded local integration recommendation.",
+        "recommendations": [
+          {
+            "repo_id": "gh-pending:stackguide-fixtures/embedded-search",
+            "role": "primary_candidate",
+            "fit_rationale": "The fixture declares local Python integration and matching constraints.",
+            "confidence": "medium",
+            "evidence_refs": [
+              "ev-public-fit"
+            ],
+            "caveats": [
+              "No real implementation or operability evidence."
+            ],
+            "next_checks": [
+              "Replace synthetic facts with source-owned public evidence."
+            ]
+          }
+        ],
+        "comparison": [],
+        "avoid_defer": [],
+        "reading_path": [
+          {
+            "evidence_ref": "ev-public-fit",
+            "purpose": "Check the integration surface and constraints."
+          }
+        ],
+        "missing_context": [],
+        "integration_plan": {
+          "schema_version": "1.1.0",
+          "run_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
+          "plan_id": "plan-1",
+          "brief_version": 1,
+          "selected_repo_ids": [
+            "gh-pending:stackguide-fixtures/embedded-search"
+          ],
+          "goal": "Add local full-text search without a service.",
+          "integration_surface": "A small Python adapter around an embedded index.",
+          "affected_components": [
+            "search adapter",
+            "local record loader"
+          ],
+          "prerequisites": [
+            "Confirm upstream API and license before installing anything."
+          ],
+          "steps": [
+            {
+              "step_id": "step-1",
+              "action": "Create an adapter around the selected library after the user requests implementation.",
+              "affected_components": [
+                "search adapter"
+              ],
+              "prerequisites": [
+                "Verify package API against source."
+              ],
+              "proposed_commands": [],
+              "command_status": "not_executed",
+              "acceptance": "An exact known local record is returned by one search."
+            }
+          ],
+          "first_validation": {
+            "goal": "Prove one useful local lookup.",
+            "success_criterion": "Expected record is found without a network call.",
+            "proposed_commands": [],
+            "status": "not_executed"
+          },
+          "risks": [
+            "A synthetic fixture does not establish real API compatibility."
+          ],
+          "rollback": [
+            "Remove the adapter and restore the prior lookup path."
+          ],
+          "unresolved_questions": [
+            "Which real repository will replace this synthetic card?"
+          ],
+          "evidence_refs": [
+            "ev-public-fit"
+          ],
+          "handoff": {
+            "goal": "Add local full-text search without a service.",
+            "scope": "One adapter and one useful local lookup.",
+            "non_goals": [
+              "Network service",
+              "Permission changes"
+            ],
+            "stop_conditions": [
+              "Missing required source facts",
+              "Unexpected sensitive data or external side effects"
+            ],
+            "execution_authority": "separate_user_implementation_request",
+            "permission_changes": false
+          },
+          "execution_status": "not_started",
+          "details": {
+            "diagram": null,
+            "prerequisite_checks": [],
+            "validation_input": null,
+            "expected_behavior": null,
+            "widen_when": null,
+            "step_dependencies": [
+              {
+                "step_id": "step-1",
+                "depends_on": [],
+                "safe_paths": [],
+                "evidence_refs": []
+              }
+            ]
+          }
+        },
+        "next_action": "Review the plan; implementation requires its own user request.",
+        "evidence_ceiling": "guidance_not_operability_security_or_release_proof",
+        "category_path": [
+          {
+            "category_id": "coding_agents_devex",
+            "reason": "Synthetic example of a catalog category entrypoint; not a real relevance judgment."
+          }
+        ],
+        "comparison_details": null,
+        "avoid_defer_details": []
+      },
+      "corrections": [],
+      "html_revision": 2,
+      "history": [],
+      "storage_policy_version": "1.0.0",
+      "content_revision": 1,
+      "scan": {
+        "schema_version": "1.0.0",
+        "run_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
+        "policy_version": "1.0.0",
+        "mode": "quick",
+        "status": "complete",
+        "classification": "compact",
+        "manifest": {
+          "schema_version": "1.0.0",
+          "run_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
+          "policy_version": "1.0.0",
+          "mode": "quick",
+          "root_ref": "selected-project",
+          "files": [
+            {
+              "relative_path": "pyproject.toml",
+              "size_bytes": 180,
+              "kind": "manifest",
+              "disposition": "read",
+              "evidence_ref": "ev-project-manifest"
+            }
+          ],
+          "counters": {
+            "visited_entries": 3,
+            "file_attempts": 1,
+            "bytes_consumed": 180,
+            "elapsed_ms": 2,
+            "eligible_files": 1,
+            "manifest_count": 1,
+            "service_roots": 1,
+            "workspace_declared": false,
+            "topology_complete": true,
+            "budget_reached": false
+          },
+          "excluded_counts": {
+            "sensitive": 0,
+            "generated": 0,
+            "unsupported": 0,
+            "unsafe_path": 0
+          }
+        },
+        "summary": {
+          "schema_version": "1.0.0",
+          "run_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
+          "summary_id": "summary-1",
+          "content_class": "minimized_project_context",
+          "coverage": "complete",
+          "facts": [
+            {
+              "fact_id": "fact-python",
+              "kind": "language",
+              "value": "Python",
+              "evidence_refs": [
+                "ev-project-manifest"
+              ]
+            }
+          ],
+          "inferences": [
+            {
+              "inference_id": "inference-small-adapter",
+              "statement": "A narrow adapter may fit the existing project.",
+              "confidence": "medium",
+              "basis_fact_ids": [
+                "fact-python"
+              ]
+            }
+          ],
+          "gaps": [],
+          "evidence": [
+            {
+              "evidence_id": "ev-project-manifest",
+              "kind": "project_manifest",
+              "relative_path": "pyproject.toml",
+              "line_start": 1,
+              "line_end": 8,
+              "answer_id": null,
+              "content_persisted": false
+            }
+          ]
+        },
+        "reason_codes": []
+      },
+      "presentation": {
+        "schema_version": "1.1.0",
+        "run_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
+        "default_locale": "ru",
+        "source_locale": "en",
+        "presentation_revision": 1,
+        "source_content_revision": 1,
+        "brief_id": "brief-1",
+        "brief_version": 1,
+        "memo_id": "memo-1",
+        "plan_id": "plan-1",
+        "fields": [
+          {
+            "field_pointer": "/brief/goal",
+            "source_locale": "en",
+            "source_sha256": "66df00098dea6139b35183a0e6ed0740de26138fc987a7743b8c88f1c35d8693",
+            "source_content_revision": 1,
+            "evidence_refs": [],
+            "canonical_literals": [],
+            "ru": {
+              "status": "available",
+              "text": "Добавить локальный полнотекстовый поиск без сервиса."
+            },
+            "en": {
+              "status": "available",
+              "text": "Add local full-text search without a service."
+            }
+          },
+          {
+            "field_pointer": "/memo/recommendations/0/fit_rationale",
+            "source_locale": "en",
+            "source_sha256": "825146b08ee9f15bb39f946b5a0d563fddaf70156641e91401f2c04f696e6199",
+            "source_content_revision": 1,
+            "evidence_refs": [
+              "ev-public-fit"
+            ],
+            "canonical_literals": [
+              "Python"
+            ],
+            "ru": {
+              "status": "available",
+              "text": "В примере заявлена локальная интеграция с Python и соответствие ограничениям."
+            },
+            "en": {
+              "status": "available",
+              "text": "The fixture declares local Python integration and matching constraints."
+            }
+          }
+        ],
+        "coverage": {
+          "ru": {
+            "status": "partial",
+            "required_fields": 45,
+            "available_fields": 2
+          },
+          "en": {
+            "status": "partial",
+            "required_fields": 45,
+            "available_fields": 2
+          }
+        }
+      }
+    },
+    "intake/intake-state.schema.json": {
+      "schema_version": "1.1.0",
+      "run_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
+      "status": "ready",
+      "questions_asked": 1,
+      "answers": [
+        {
+          "schema_version": "1.0.0",
+          "run_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
+          "answer_id": "answer-goal-1",
+          "question_id": "goal",
+          "ordinal": 1,
+          "answer_revision": 1,
+          "expected_state_revision": 0,
+          "status": "answered",
+          "sanitized_value": "Add local search to a small Python project.",
+          "redaction_applied": false,
+          "recorded_at": "2026-08-31T09:00:00Z"
+        }
+      ],
+      "pending_question_id": null,
+      "next_action": "review_context",
+      "assumptions": [],
+      "questions": [
+        {
+          "question_id": "goal",
+          "ordinal": 1,
+          "text": "What should improve in this project?",
+          "rationale": "The goal determines which candidates need comparison.",
+          "decision_consequence": "Separate local search from unrelated infrastructure.",
+          "answer_examples": [
+            "Add local search."
+          ],
+          "topics": [
+            "goal"
+          ]
+        }
+      ],
+      "completion_reason": "The synthetic goal and reviewed context are sufficient for this bounded comparison."
+    },
+    "context/project-context-brief.schema.json": {
+      "schema_version": "1.1.0",
+      "run_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
+      "brief_id": "brief-1",
+      "brief_version": 1,
+      "goal": "Add local full-text search without a service.",
+      "decision": "build",
+      "project_stage": "prototype",
+      "success_criterion": "Find a known local record through a small adapter.",
+      "constraints": {
+        "languages": [
+          "Python"
+        ],
+        "deployment": [
+          "local"
+        ],
+        "allowed_licenses": [
+          "MIT"
+        ],
+        "compatibility": [
+          "Python >=3.11"
+        ],
+        "require_no_server": true,
+        "mandatory_fields": [
+          "license",
+          "deployment",
+          "language",
+          "compatibility",
+          "no_server"
+        ]
+      },
+      "observations": {
+        "schema_version": "1.0.0",
+        "run_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
+        "summary_id": "summary-1",
+        "content_class": "minimized_project_context",
+        "coverage": "complete",
+        "facts": [
+          {
+            "fact_id": "fact-python",
+            "kind": "language",
+            "value": "Python",
+            "evidence_refs": [
+              "ev-project-manifest"
+            ]
+          }
+        ],
+        "inferences": [
+          {
+            "inference_id": "inference-small-adapter",
+            "statement": "A narrow adapter may fit the existing project.",
+            "confidence": "medium",
+            "basis_fact_ids": [
+              "fact-python"
+            ]
+          }
+        ],
+        "gaps": [],
+        "evidence": [
+          {
+            "evidence_id": "ev-project-manifest",
+            "kind": "project_manifest",
+            "relative_path": "pyproject.toml",
+            "line_start": 1,
+            "line_end": 8,
+            "answer_id": null,
+            "content_persisted": false
+          }
+        ]
+      },
+      "assumptions": [
+        "The example is synthetic, not an inspected user project."
+      ],
+      "user_corrections": [],
+      "context_status": "reviewed",
+      "updated_at": "2026-08-31T09:00:00Z",
+      "details": {
+        "problem": {
+          "text": "Add local search to a small Python project.",
+          "kind": "user_statement",
+          "evidence_refs": [],
+          "answer_ids": [
+            "answer-goal-1"
+          ],
+          "limitation": "Synthetic user statement, not runtime evidence."
+        },
+        "target_user": {
+          "text": null,
+          "kind": "unknown",
+          "evidence_refs": [],
+          "answer_ids": [],
+          "limitation": "Not yet supplied."
+        },
+        "workflow": {
+          "text": null,
+          "kind": "unknown",
+          "evidence_refs": [],
+          "answer_ids": [],
+          "limitation": "Not yet supplied."
+        },
+        "current_behavior": {
+          "text": null,
+          "kind": "unknown",
+          "evidence_refs": [],
+          "answer_ids": [],
+          "limitation": "Not yet supplied."
+        },
+        "target_behavior": {
+          "text": null,
+          "kind": "unknown",
+          "evidence_refs": [],
+          "answer_ids": [],
+          "limitation": "Not yet supplied."
+        },
+        "baseline": {
+          "text": null,
+          "kind": "unknown",
+          "evidence_refs": [],
+          "answer_ids": [],
+          "limitation": "Not yet supplied."
+        },
+        "scope": {
+          "text": null,
+          "kind": "unknown",
+          "evidence_refs": [],
+          "answer_ids": [],
+          "limitation": "Not yet supplied."
+        },
+        "non_goals": [],
+        "constraint_notes": [],
+        "tensions": []
+      }
+    },
+    "recommendation/recommendation-memo.schema.json": {
+      "schema_version": "1.1.0",
+      "run_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
+      "memo_id": "memo-1",
+      "request_id": "request-1",
+      "brief_version": 1,
+      "pack_id": "pack-1",
+      "pins": {
+        "catalog_snapshot_id": "fixture-catalog-1",
+        "source_sha256": "e29986d6824397baf09d331c6ad367d7a5b60d540fd505d5979cbb2e63d7fdad",
+        "cards_sha256": "39c79dcd18b1591df2cd79dcbafd818238d762d5e7a59c94b572d95e9e78616e",
+        "index_sha256": "608a8e9186cc4d68b9a2fe45bfa4a683f03f08d434e3554410bae6b21087703e",
+        "policy_sha256": "a7a8951b89013332d4ffe747290b2b9b0d5e8e346bb0a86a2005b491c1372fc6",
+        "taxonomy_sha256": "339335cedc0c6fc271982460d13bd09efaa13e0c7ca99abe45ab78c79b6a0c53",
+        "card_schema_version": "1.0.0",
+        "index_format_version": 1,
+        "retrieval_policy_version": "1.0.0",
+        "corpus_kind": "synthetic_fixture"
+      },
+      "status": "recommendations",
+      "summary": "Synthetic example of a grounded local integration recommendation.",
+      "recommendations": [
+        {
+          "repo_id": "gh-pending:stackguide-fixtures/embedded-search",
+          "role": "primary_candidate",
+          "fit_rationale": "The fixture declares local Python integration and matching constraints.",
+          "confidence": "medium",
+          "evidence_refs": [
+            "ev-public-fit"
+          ],
+          "caveats": [
+            "No real implementation or operability evidence."
+          ],
+          "next_checks": [
+            "Replace synthetic facts with source-owned public evidence."
+          ]
+        }
+      ],
+      "comparison": [],
+      "avoid_defer": [],
+      "reading_path": [
+        {
+          "evidence_ref": "ev-public-fit",
+          "purpose": "Check the integration surface and constraints."
+        }
+      ],
+      "missing_context": [],
+      "integration_plan": {
+        "schema_version": "1.1.0",
+        "run_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
+        "plan_id": "plan-1",
+        "brief_version": 1,
+        "selected_repo_ids": [
+          "gh-pending:stackguide-fixtures/embedded-search"
+        ],
+        "goal": "Add local full-text search without a service.",
+        "integration_surface": "A small Python adapter around an embedded index.",
+        "affected_components": [
+          "search adapter",
+          "local record loader"
+        ],
+        "prerequisites": [
+          "Confirm upstream API and license before installing anything."
+        ],
+        "steps": [
+          {
+            "step_id": "step-1",
+            "action": "Create an adapter around the selected library after the user requests implementation.",
+            "affected_components": [
+              "search adapter"
+            ],
+            "prerequisites": [
+              "Verify package API against source."
+            ],
+            "proposed_commands": [],
+            "command_status": "not_executed",
+            "acceptance": "An exact known local record is returned by one search."
+          }
+        ],
+        "first_validation": {
+          "goal": "Prove one useful local lookup.",
+          "success_criterion": "Expected record is found without a network call.",
+          "proposed_commands": [],
+          "status": "not_executed"
+        },
+        "risks": [
+          "A synthetic fixture does not establish real API compatibility."
+        ],
+        "rollback": [
+          "Remove the adapter and restore the prior lookup path."
+        ],
+        "unresolved_questions": [
+          "Which real repository will replace this synthetic card?"
+        ],
+        "evidence_refs": [
+          "ev-public-fit"
+        ],
+        "handoff": {
+          "goal": "Add local full-text search without a service.",
+          "scope": "One adapter and one useful local lookup.",
+          "non_goals": [
+            "Network service",
+            "Permission changes"
+          ],
+          "stop_conditions": [
+            "Missing required source facts",
+            "Unexpected sensitive data or external side effects"
+          ],
+          "execution_authority": "separate_user_implementation_request",
+          "permission_changes": false
+        },
+        "execution_status": "not_started",
+        "details": {
+          "diagram": null,
+          "prerequisite_checks": [],
+          "validation_input": null,
+          "expected_behavior": null,
+          "widen_when": null,
+          "step_dependencies": [
+            {
+              "step_id": "step-1",
+              "depends_on": [],
+              "safe_paths": [],
+              "evidence_refs": []
+            }
+          ]
+        }
+      },
+      "next_action": "Review the plan; implementation requires its own user request.",
+      "evidence_ceiling": "guidance_not_operability_security_or_release_proof",
+      "category_path": [
+        {
+          "category_id": "coding_agents_devex",
+          "reason": "Synthetic example of a catalog category entrypoint; not a real relevance judgment."
+        }
+      ],
+      "comparison_details": null,
+      "avoid_defer_details": []
+    },
+    "recommendation/integration-plan.schema.json": {
+      "schema_version": "1.1.0",
+      "run_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
+      "plan_id": "plan-1",
+      "brief_version": 1,
+      "selected_repo_ids": [
+        "gh-pending:stackguide-fixtures/embedded-search"
+      ],
+      "goal": "Add local full-text search without a service.",
+      "integration_surface": "A small Python adapter around an embedded index.",
+      "affected_components": [
+        "search adapter",
+        "local record loader"
+      ],
+      "prerequisites": [
+        "Confirm upstream API and license before installing anything."
+      ],
+      "steps": [
+        {
+          "step_id": "step-1",
+          "action": "Create an adapter around the selected library after the user requests implementation.",
+          "affected_components": [
+            "search adapter"
+          ],
+          "prerequisites": [
+            "Verify package API against source."
+          ],
+          "proposed_commands": [],
+          "command_status": "not_executed",
+          "acceptance": "An exact known local record is returned by one search."
+        }
+      ],
+      "first_validation": {
+        "goal": "Prove one useful local lookup.",
+        "success_criterion": "Expected record is found without a network call.",
+        "proposed_commands": [],
+        "status": "not_executed"
+      },
+      "risks": [
+        "A synthetic fixture does not establish real API compatibility."
+      ],
+      "rollback": [
+        "Remove the adapter and restore the prior lookup path."
+      ],
+      "unresolved_questions": [
+        "Which real repository will replace this synthetic card?"
+      ],
+      "evidence_refs": [
+        "ev-public-fit"
+      ],
+      "handoff": {
+        "goal": "Add local full-text search without a service.",
+        "scope": "One adapter and one useful local lookup.",
+        "non_goals": [
+          "Network service",
+          "Permission changes"
+        ],
+        "stop_conditions": [
+          "Missing required source facts",
+          "Unexpected sensitive data or external side effects"
+        ],
+        "execution_authority": "separate_user_implementation_request",
+        "permission_changes": false
+      },
+      "execution_status": "not_started",
+      "details": {
+        "diagram": null,
+        "prerequisite_checks": [],
+        "validation_input": null,
+        "expected_behavior": null,
+        "widen_when": null,
+        "step_dependencies": [
+          {
+            "step_id": "step-1",
+            "depends_on": [],
+            "safe_paths": [],
+            "evidence_refs": []
+          }
+        ]
+      }
+    }
+  },
+  "publication_html_fixture": "<!doctype html><html lang=\"en\"><title>Synthetic publication fixture</title></html>"
 }

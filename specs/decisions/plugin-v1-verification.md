@@ -6,7 +6,7 @@ Decision date: 2026-08-30; owner amendment: 2026-08-31. Owner: Catalog Architect
 
 The 2026-08-31 owner revision selects SQLite FTS5, relevant context access, activity-aware guidance and an integration handoff. Accept only synchronized design/plan changes: CP-03 local contracts, CP-04 retrieval evals, CP-05 behavior alignment, CP-06 cards/index, CP-09 bounded retrieval, CP-11 local join and independent CP-15/16 acceptance. Remote CP-12-14 do not block local completion. The old CP-02 completion report remains dated evidence, not validation of newly planned behavior.
 
-Current checks: task/control-plane validators, focused existing control-plane tests, dependency/mapping/link/UTF-8/history audit, explicit self-review and protected-file hashes, plus CP-03 contracts. Results belong in RUNLOG. CP-03 schemas/policies/examples/tests exist with partial verification; full standards validation awaits the development-only validator, and CP-04 owns the compatibility join. No runtime/index or model evaluation was created. Unchanged source/generated surfaces do not require regeneration.
+Current checks: task/control-plane validators, focused existing control-plane tests, dependency/mapping/link/UTF-8/history audit, explicit self-review and protected-file hashes, plus CP-03 contracts. Results belong in RUNLOG. CP-03 includes 22 local schemas and all 46 tests pass; all 27 C8 checks and both scorer CLI gates pass. Independent review repeated both full suites. The owner-authorized validator is isolated in TEMP; TEST.md records the process-local path and exact commands. CP-04 quality calibration remains open. No runtime/index or model evaluation was created. Unchanged source/generated surfaces do not require regeneration.
 
 Official packaging/permission evidence was reviewed on 2026-08-30; it does not prove installed behavior. Recheck volatile details in CP-07/16. SQLite design uses the [official FTS5 reference](https://www.sqlite.org/fts5.html); actual runtime capability and indexed quality require separate evidence.
 
@@ -18,14 +18,14 @@ The Quality Evaluator owns test files and acceptance evidence per the detailed C
 
 | Gate / owner | Command or required evidence | Availability |
 | --- | --- | --- |
-| V-CONTRACT / CP-03 Quality Evaluator | `python -B -m unittest discover -s tests -p test_plugin_contracts.py -v` | Suite present; missing development-only jsonschema blocks full gate; 19 semantic tests pass; CP-04 compatibility pending; remote contracts deferred |
+| V-CONTRACT / CP-03 Quality Evaluator | `python -B -m unittest discover -s tests -p test_plugin_contracts.py -v` | PASS: 46/46 full CP-03 checks with authorized temporary validator; 27/27 C8 compatibility checks and scorer CLI also pass; see TEST.md; remote contracts deferred |
 | V-CATALOG / CP-06 Catalog Pipeline Builder | `python -B -m unittest discover -s tests -p test_plugin_catalog.py -v`; existing `python scripts/build_catalog_html.py --check` if affected source/output warrants it | Adapter tests future; add `test_plugin_search_index.py` for source/index parity, integrity and pins; existing HTML check available |
 | CP-07 Plugin Runtime Builder | `python -B -m unittest discover -s tests -p test_plugin_intake.py -v`; same command with `test_plugin_state.py` | Future |
 | CP-08 Plugin Runtime Builder | `python -B -m unittest discover -s tests -p test_plugin_scanner.py -v` | Future |
 | CP-09 Plugin Runtime Builder | `python -B -m unittest discover -s tests -p test_plugin_matching.py -v`; same command with `test_plugin_retrieval.py` | Future FTS5/query/cap/ranking tests |
 | CP-10 Plugin Runtime Builder | `python -B -m unittest discover -s tests -p test_plugin_artifact.py -v` | Future, plus rendered offline QA |
 | V-LOCAL / CP-11 Quality Evaluator | First one named semantic case/command registered by CP-11, then affected edges; final join `python -B -m unittest discover -s tests -p "test_plugin_*.py" -v` | Exact 1/1 command remains CP-11-owned, not falsely executable today |
-| V-EVAL / CP-04 Quality Evaluator | Future evals/plugin-v1/evaluate_retrieval.py offline scorer for captured C9 results; test_plugin_retrieval_eval.py verifies known metric fixtures; versioned lexical baseline/RU-EN cases and human integration-usefulness calibration | Scorer/test files planned; exact CLI remains a CP-04 contract. No model/provider runs implied |
+| V-EVAL / CP-04 Quality Evaluator | `python -B -m unittest discover -s tests -p test_plugin_retrieval_eval.py -v`; `python -B evals/plugin-v1/evaluate_retrieval.py --cases evals/plugin-v1/cases.json --results tests/fixtures/plugin_retrieval_eval.json` | PASS: 27/27 and four synthetic captures, synthetic_compatibility_only; actual lexical baseline/RU-EN relevance, thresholds and human usefulness calibration remain open. No model/provider runs |
 | V-MCP / future CP-12 | Backend test/migration commands only after a separately selected remote architecture | `not_applicable_for_local_slice`; remote `command_gap` retained |
 | V-LIVE / future CP-14 | Authorized destination/data/cost/time scope and observed intended/fallback traces | Deferred; no external activation |
 | V-RELEASE / CP-16 | Local package installation in an authorized synthetic workspace, fresh-session skill loading, cache/package/index/policy identity, actual FTS5 support, read-only query, upgrade, disable and previous-version behavior | Not run; no marketplace/global config modification now |
@@ -56,6 +56,6 @@ The old host-wide isolation promise is explicitly superseded by the owner, not r
 
 ## Reviewable Outcomes And Rollback
 
-CP-03 implements local contracts and executable examples. Finish standards validation and CP-04 compatibility; CP-05 aligns loaded behavior before runtime work. Runtime, retrieval quality, model usefulness and installation remain unverified. Remote CP-12-14 stay dormant until separately selected.
+CP-03 implements local contracts including presentation/publication and executable semantic examples. C8/scorer semantic pairing is present; finish standards/envelope/scorer validation with the approved development-only validator. CP-04 calibration and CP-05 behavior alignment remain separate work. Runtime, retrieval quality, model usefulness and installation remain unverified. Remote CP-12-14 stay dormant until separately selected.
 
 Stop only the failed path, preserve valid state/history and report gaps. Never hide retrieval failure by changing engine or loading the full catalog into the model. Keep the tested previous package/index for rollback; refuse incompatible state rather than overwrite it. No Git reset, automatic deletion, permission weakening or external action is authorized by this registry.

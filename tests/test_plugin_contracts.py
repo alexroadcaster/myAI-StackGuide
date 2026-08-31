@@ -74,6 +74,8 @@ def mutate(value, pointer, replacement):
 
 def byte_violations(schema, instance, path=''):
     """Enforce our byte annotation even when a standard $ref validator ignores it."""
+    if not isinstance(schema, dict):
+        return
     if '$ref' in schema:
         location, _, fragment = schema['$ref'].partition('#')
         target = SCHEMAS[location.removeprefix(BASE)]
@@ -90,9 +92,22 @@ def byte_violations(schema, instance, path=''):
     if isinstance(instance, list) and 'items' in schema:
         for index, value in enumerate(instance):
             yield from byte_violations(schema['items'], value, path + '/' + str(index))
-    for branch in schema.get('anyOf', []):
-        if instance is not None:
-            yield from byte_violations(branch, instance, path)
+    def applies(branch):
+        if Draft202012Validator is None:
+            return True  # Conservative byte-only traversal, never standards acceptance.
+        registry = Registry().with_resources((s['$id'], Resource.from_contents(s)) for s in SCHEMAS.values())
+        return Draft202012Validator(branch, registry=registry).is_valid(instance)
+
+    for keyword in ('anyOf', 'oneOf', 'allOf'):
+        for branch in schema.get(keyword, []):
+            if keyword == 'allOf' or applies(branch):
+                yield from byte_violations(branch, instance, path)
+    if 'if' in schema:
+        branches = ('then', 'else') if Draft202012Validator is None else (
+            'then' if applies(schema['if']) else 'else',)
+        for keyword in branches:
+            if keyword in schema:
+                yield from byte_violations(schema[keyword], instance, path)
 
 
 def lexical_path(path):
@@ -324,6 +339,8 @@ def check_retrieval(result, query, index):
 def check_bundle(state):
     require(not list(byte_violations(SCHEMAS['artifact/project-artifact-state.schema.json'], state)),
             'nested serialized byte budget')
+    if state['schema_version'] == '1.1.0':
+        check_workspace(state)
     run = state['run_id']
     for key in ('intake', 'brief', 'selection', 'request', 'retrieval', 'evidence_pack', 'memo'):
         value = state[key]
@@ -430,6 +447,25 @@ def check_transition(before, after, expected_revision):
     require(before['revision'] == expected_revision, 'optimistic revision conflict')
     require(before['status'] == 'active', 'immutable finalized run')
     require(before['run_id'] == after['run_id'] and after['revision'] == before['revision'] + 1, 'state transition revision')
+    if before['schema_version'] == '1.1.0':
+        ignored = {'revision', 'content_revision', 'presentation', 'updated_at', 'html_revision'}
+        domain_before = {key: value for key, value in before.items() if key not in ignored}
+        domain_after = {key: value for key, value in after.items() if key not in ignored}
+        changed = domain_before != domain_after
+        require(after['content_revision'] == before['content_revision'] + int(changed), 'content revision transition')
+        old_p, new_p = before['presentation'], after['presentation']
+        old_fields = {key: value for key, value in old_p.items() if key not in ('default_locale', 'presentation_revision')}
+        new_fields = {key: value for key, value in new_p.items() if key not in ('default_locale', 'presentation_revision')}
+        require(new_p['presentation_revision'] == old_p['presentation_revision'] + int(old_fields != new_fields),
+                'presentation revision transition')
+        if before['brief'] and after['brief']:
+            semantic_before = {key: value for key, value in before['brief'].items() if key not in ('updated_at', 'brief_version')}
+            semantic_after = {key: value for key, value in after['brief'].items() if key not in ('updated_at', 'brief_version')}
+            if semantic_before != semantic_after:
+                require(after['brief']['brief_version'] == before['brief']['brief_version'] + 1,
+                        'semantic Brief correction requires version bump')
+        require(before['scan'] == after['scan'] or not (before['brief'] and after['brief'] and
+                before['brief']['brief_version'] != after['brief']['brief_version']), 'correction rewrites scan evidence')
     if after['brief'] and before['brief'] and after['brief']['brief_version'] != before['brief']['brief_version']:
         require(after['brief']['brief_version'] == before['brief']['brief_version'] + 1, 'brief revision jump')
         require(all(after[key] is None for key in ('selection', 'request', 'retrieval', 'evidence_pack', 'memo')),
@@ -440,6 +476,283 @@ def check_transition(before, after, expected_revision):
                 correction['from_brief_version'] == before['brief']['brief_version'] and
                 correction['to_brief_version'] == after['brief']['brief_version'], 'correction transition pairing')
     check_bundle(after)
+
+
+def narrative_fields(state):
+    pattern = SCHEMAS['artifact/localized-presentation.schema.json']['$defs']['fieldPointer']['pattern']
+
+    def leaves(value, pointer=''):
+        if isinstance(value, dict):
+            for key, item in value.items():
+                if key != 'presentation':
+                    yield from leaves(item, pointer + '/' + key)
+        elif isinstance(value, list):
+            for index, item in enumerate(value):
+                yield from leaves(item, pointer + '/' + str(index))
+        elif isinstance(value, str) and re.fullmatch(pattern, pointer):
+            yield pointer, value
+    return dict(leaves(state))
+
+
+def resolve_pointer(state, pointer):
+    value = state
+    for part in pointer.strip('/').split('/'):
+        value = value[int(part)] if isinstance(value, list) else value[part]
+    return value
+
+
+def canonical_evidence(state):
+    evidence = {}
+    facts = {}
+    summaries = []
+    if state.get('scan'):
+        summaries.append(state['scan']['summary'])
+    if state['brief']:
+        summaries.append(state['brief']['observations'])
+    for summary in summaries:
+        for fact in summary['facts']:
+            require(fact['fact_id'] not in facts or facts[fact['fact_id']] == fact,
+                    'contradictory duplicate observed fact')
+            facts[fact['fact_id']] = fact
+    groups = [summary['evidence'] for summary in summaries]
+    if state['evidence_pack']:
+        groups.extend(entry['card']['evidence'] for entry in state['evidence_pack']['cards'])
+    for group in groups:
+        for item in group:
+            key = item['evidence_id']
+            require(key not in evidence or evidence[key] == item, 'contradictory duplicate evidence')
+            evidence[key] = item
+    return evidence
+
+
+def field_evidence(state, pointer):
+    parts = pointer.strip('/').split('/')
+    for length in range(len(parts) - 1, 0, -1):
+        owner = resolve_pointer(state, '/' + '/'.join(parts[:length]))
+        if isinstance(owner, dict):
+            if 'evidence_refs' in owner:
+                return sorted(set(owner['evidence_refs']))
+            if 'evidence_ref' in owner:
+                return [owner['evidence_ref']] if owner['evidence_ref'] else []
+            if 'basis_fact_ids' in owner:
+                summary = state['scan']['summary'] if pointer.startswith('/scan/') else state['brief']['observations']
+                return sorted({ref for fact in summary['facts'] if fact['fact_id'] in owner['basis_fact_ids']
+                               for ref in fact['evidence_refs']})
+    return []
+
+
+def field_literals(state, text):
+    values = set(re.findall(r'`([^`]+)`', text))
+    narrative = re.sub(r'`[^`]+`', '', text)
+    keys = {'repo_id', 'full_name', 'url', 'relative_path', 'language', 'languages', 'compatibility',
+            'command', 'proposed_commands', 'safe_paths', 'framework', 'frameworks'}
+
+    def occurs(value):
+        prefix = r'(?<!\w)' if value[0].isalnum() or value[0] == '_' else ''
+        suffix = r'(?!\w)' if value[-1].isalnum() or value[-1] == '_' else ''
+        return re.search(prefix + re.escape(value) + suffix, narrative) is not None
+
+    def visit(value, key=''):
+        if isinstance(value, dict):
+            if value.get('kind') in ('language', 'framework', 'storage', 'dependency'):
+                literal = value.get('value')
+                if isinstance(literal, str) and literal and occurs(literal):
+                    values.add(literal)
+            for name, child in value.items():
+                if name != 'presentation':
+                    visit(child, name)
+        elif isinstance(value, list):
+            for child in value:
+                visit(child, key)
+        elif (key in keys or key.endswith('_id') or key.endswith('_ids')) and isinstance(value, str) and value and occurs(value):
+            values.add(value)
+    visit(state)
+    return sorted(values)
+
+
+def check_claim(claim, evidence, answers, allow_public=False):
+    require(set(claim['evidence_refs']) <= evidence.keys(), 'unresolved claim evidence')
+    require(set(claim['answer_ids']) <= answers, 'unresolved or skipped claim answer')
+    if claim['kind'] == 'observed':
+        require(any((evidence[ref].get('kind') in ('project_manifest', 'project_source', 'project_document') and
+                     evidence[ref].get('relative_path') is not None) or
+                    (allow_public and 'source_kind' in evidence[ref]) for ref in claim['evidence_refs']),
+                'observed claim needs project/source evidence')
+    if claim['kind'] == 'user_statement':
+        require(bool(claim['answer_ids']), 'user statement needs saved answer')
+
+
+def check_workspace(state):
+    require(1 <= state['content_revision'] <= state['revision'], 'content revision range')
+    require(state['html_revision'] is None or state['html_revision'] < state['revision'], 'publication cannot mutate current state')
+    for key in ('intake', 'brief', 'memo'):
+        require(state[key] is None or state[key]['schema_version'] == '1.1.0', 'workspace nested version')
+    if state['scan']:
+        require(state['scan']['run_id'] == state['run_id'], 'scan run identity')
+        check_scan(state['scan'])
+    intake = state['intake']
+    questions = intake['questions']
+    unique([item['question_id'] for item in questions], 'question ledger ID')
+    require(len(questions) == intake['questions_asked'] and
+            [item['ordinal'] for item in questions] == list(range(1, len(questions) + 1)), 'question ledger cardinality')
+    ledger = {item['question_id']: item for item in questions}
+    joined = {answer['question_id'] for answer in intake['answers']}
+    if intake['pending_question_id']:
+        require(intake['pending_question_id'] not in joined, 'pending question already answered')
+        joined.add(intake['pending_question_id'])
+    require(joined == ledger.keys(), 'question answer join')
+    require(all(ledger[item['question_id']]['ordinal'] == item['ordinal'] for item in intake['answers']), 'question answer ordinal')
+    require(intake['status'] != 'ready' or bool(intake['completion_reason']), 'ready completion reason')
+    evidence = canonical_evidence(state)
+    answers = {item['answer_id'] for item in intake['answers']
+               if item['status'] == 'answered' and item['sanitized_value'] is not None}
+    brief = state['brief']
+    if brief:
+        details = brief['details']
+        claims = [details[key] for key in ('problem', 'target_user', 'workflow', 'current_behavior',
+                                          'target_behavior', 'baseline', 'scope')]
+        claims.extend(details['non_goals'])
+        claims.extend(item['claim'] for item in details['constraint_notes'])
+        for claim in claims:
+            check_claim(claim, evidence, answers)
+        constraints = {item['constraint_id'] for item in details['constraint_notes']}
+        require(len(constraints) == len(details['constraint_notes']), 'duplicate constraint note')
+        unique([item['tension_id'] for item in details['tensions']], 'tension')
+        for item in details['tensions']:
+            require(set(item['constraint_ids']) <= constraints, 'unresolved tension constraint')
+    memo = state['memo']
+    plan = memo['integration_plan'] if memo else None
+    if memo and memo['comparison_details']:
+        comparison = memo['comparison_details']
+        cells = comparison['cells']
+        unique([(item['criterion'], item['repo_id']) for item in cells], 'comparison cell')
+        packed = {entry['card']['repo_id'] for entry in state['evidence_pack']['cards']}
+        for cell in cells:
+            require((cell['baseline'] and cell['repo_id'] is None and comparison['include_no_change']) or
+                    (not cell['baseline'] and cell['repo_id'] in packed), 'comparison baseline/repository join')
+            check_claim(cell['claim'], evidence, answers, allow_public=True)
+    if plan:
+        require(plan['schema_version'] == '1.1.0', 'integration version')
+        details = plan['details']
+        steps = [step['step_id'] for step in plan['steps']]
+        deps = details['step_dependencies']
+        unique([entry['step_id'] for entry in deps], 'step dependency')
+        require({entry['step_id'] for entry in deps} == set(steps), 'step dependency coverage')
+        for entry in deps:
+            require(set(entry['depends_on']) <= set(steps[:steps.index(entry['step_id'])]), 'forward/cyclic dependency')
+            require(set(entry['evidence_refs']) <= evidence.keys(), 'step evidence')
+            for path in entry['safe_paths']:
+                require(lexical_path(path)[0] and any(evidence[ref].get('relative_path') == path
+                        for ref in entry['evidence_refs']), 'unsupported or unsafe step path')
+        diagram = details['diagram']
+        if diagram:
+            nodes = {node['component_id'] for node in diagram['nodes']}
+            require(len(nodes) == len(diagram['nodes']), 'duplicate diagram node')
+            for node in diagram['nodes']:
+                require(set(node['evidence_refs']) <= evidence.keys(), 'diagram evidence')
+                if node['change'] in ('reuse', 'change'):
+                    require(any(evidence[ref].get('kind') in ('project_manifest', 'project_source', 'project_document') and
+                                evidence[ref].get('relative_path') is not None for ref in node['evidence_refs']),
+                            'reused node lacks project evidence')
+            for edge in diagram['edges']:
+                require(edge['from_component_id'] in nodes and edge['to_component_id'] in nodes, 'unresolved diagram edge')
+        unique([item['check_id'] for item in details['prerequisite_checks']], 'prerequisite')
+        for item in details['prerequisite_checks']:
+            require(set(item['evidence_refs']) <= evidence.keys() and set(item['answer_ids']) <= answers, 'prerequisite provenance')
+            if item['status'] in ('unknown', 'authorization_needed'):
+                require(bool(item['next_check']), 'unknown prerequisite needs next check')
+            else:
+                require(bool(item['evidence_refs'] or item['answer_ids']), 'known prerequisite needs provenance')
+            if item['status'] == 'already_authorized':
+                require(item['kind'] == 'authorization' and bool(item['answer_ids']), 'authorization needs saved scope')
+    presentation = state['presentation']
+    require(presentation['run_id'] == state['run_id'] and
+            presentation['source_content_revision'] == state['content_revision'], 'presentation content identity')
+    expected_identity = {'brief_id': brief['brief_id'] if brief else None,
+                         'brief_version': brief['brief_version'] if brief else None,
+                         'memo_id': memo['memo_id'] if memo else None,
+                         'plan_id': plan['plan_id'] if plan else None}
+    require(all(presentation[key] == value for key, value in expected_identity.items()), 'presentation result identity')
+    fields = narrative_fields(state)
+    unique([entry['field_pointer'] for entry in presentation['fields']], 'localized pointer')
+    for entry in presentation['fields']:
+        pointer = entry['field_pointer']
+        require(pointer in fields, 'unresolved or forbidden narrative pointer')
+        text = fields[pointer]
+        require(entry['source_sha256'] == digest(text) and
+                entry['source_content_revision'] == state['content_revision'], 'stale localized source')
+        require(entry['evidence_refs'] == field_evidence(state, pointer) and
+                set(entry['evidence_refs']) <= evidence.keys(), 'localized evidence derivation')
+        literals = field_literals(state, text)
+        require(entry['canonical_literals'] == literals, 'localized literal derivation')
+        for locale in ('ru', 'en'):
+            value = entry[locale]
+            if value['status'] == 'available':
+                require(all(literal in value['text'] for literal in literals), 'localized technical literal changed')
+                if entry['source_locale'] == locale:
+                    require(value['text'] == text, 'source-language text changed')
+    for locale in ('ru', 'en'):
+        available = sum(entry[locale]['status'] == 'available' for entry in presentation['fields'])
+        require(presentation['coverage'][locale] == {'status': 'complete' if available == len(fields) else 'partial',
+                'required_fields': len(fields), 'available_fields': available}, 'localized coverage mismatch')
+
+
+def rebind_presentation(state):
+    """Fixture builder only: does not translate; keeps unchanged fields and honest partial coverage."""
+    presentation = state['presentation']
+    brief, memo = state['brief'], state['memo']
+    plan = memo['integration_plan'] if memo else None
+    presentation.update(source_content_revision=state['content_revision'],
+                        brief_id=brief['brief_id'] if brief else None,
+                        brief_version=brief['brief_version'] if brief else None,
+                        memo_id=memo['memo_id'] if memo else None, plan_id=plan['plan_id'] if plan else None)
+    fields = narrative_fields(state)
+    presentation['fields'] = [entry for entry in presentation['fields'] if entry['field_pointer'] in fields and
+                              entry['source_sha256'] == digest(fields[entry['field_pointer']])]
+    for entry in presentation['fields']:
+        entry['source_content_revision'] = state['content_revision']
+    for locale in ('ru', 'en'):
+        count = sum(entry[locale]['status'] == 'available' for entry in presentation['fields'])
+        presentation['coverage'][locale] = {'status': 'complete' if count == len(fields) else 'partial',
+                                           'required_fields': len(fields), 'available_fields': count}
+
+
+def check_publication(outcome, state, html_bytes=None):
+    """Synthetic receipt oracle, not proof of lock/write/renderer execution."""
+    keys = ('run_id', 'revision', 'content_revision')
+    current = {key: state[key] for key in keys}
+    require(outcome['current'] == current, 'publication current state mismatch')
+    for stamp in (outcome['saved'], outcome['current'], outcome['published']):
+        require(stamp is None or stamp['content_revision'] <= stamp['revision'], 'publication revision range')
+    published = outcome['published']
+    published_stamp = {key: published[key] for key in keys} if published else None
+    status = outcome['publication_status']
+    if status == 'current':
+        require(outcome['saved'] == current == published_stamp, 'published state identity mismatch')
+        require(published['presentation_revision'] == state['presentation']['presentation_revision'], 'published presentation mismatch')
+        require(html_bytes is not None and hashlib.sha256(html_bytes).hexdigest() == published['html_sha256'], 'publication byte hash')
+    elif status == 'superseded':
+        require(outcome['saved'] != current and outcome['failure_reason'] == 'render_superseded', 'superseded target must differ')
+        require(outcome['retry'] == 'stop', 'superseded retry')
+    elif status == 'stale':
+        require(published is not None and published_stamp != current, 'stale publication must differ')
+        require(outcome['saved'] == current, 'obsolete target must be superseded')
+    elif status == 'unavailable':
+        require(published is None, 'first failure has no HTML')
+        require(outcome['saved'] == current, 'obsolete target must be superseded')
+    elif status == 'not_attempted':
+        require(outcome['saved'] is None and outcome['render_attempts'] == 0 and outcome['retry'] == 'stop' and
+                outcome['failure_reason'] in ('state_busy', 'state_conflict', 'state_invalid', 'state_incompatible',
+                                            'state_write_failed', 'history_integrity', 'storage_limit'),
+                'saved state requires publication attempt')
+        require(outcome['commit_status'] == 'not_saved' or outcome['operation'] == 'render_only',
+                'invalid not-attempted operation')
+    if outcome['retry'] == 'render_only':
+        require(outcome['saved'] == current and outcome['render_attempts'] == 1 and
+                outcome['failure_reason'] in ('render_failed', 'html_write_failed'), 'retry scope')
+    require(outcome['render_attempts'] <= 2, 'render retry bound')
+    if outcome['commit_status'] == 'not_saved':
+        require(outcome['saved'] is None and outcome['render_attempts'] == 0 and status == 'not_attempted', 'failed commit claimed saved')
 
 
 class SchemaContracts(unittest.TestCase):
@@ -475,15 +788,46 @@ class SchemaContracts(unittest.TestCase):
     def validator(self, path):
         return self.validator_type(SCHEMAS[path], registry=self.registry, format_checker=self.checker)
 
-    def test_all_twenty_schemas_meta_validate_and_have_positive_examples(self):
+    def test_all_twenty_two_schemas_preserve_legacy_and_add_workspace_examples(self):
         actual = {str(path.relative_to(ROOT / 'specs')).replace('\\', '/')
                   for path in (ROOT / 'specs').rglob('*.schema.json')}
         self.assertEqual(actual, set(POSITIVE))
-        self.assertEqual(len(actual), 20)
+        self.assertEqual(len(actual), 22)
         for path, schema in SCHEMAS.items():
             with self.subTest(schema=path):
                 Draft202012Validator.check_schema(schema)
                 self.validator(path).validate(POSITIVE[path])
+                self.assertEqual(list(byte_violations(schema, POSITIVE[path])), [])
+        for path, value in FIXTURES['workspace_positive'].items():
+            with self.subTest(workspace_schema=path):
+                self.validator(path).validate(value)
+                self.assertEqual(list(byte_violations(SCHEMAS[path], value)), [])
+
+    def test_legacy_and_workspace_versions_cannot_mix(self):
+        path = 'artifact/project-artifact-state.schema.json'
+        legacy, current = baseline(), workspace_baseline()
+        for key in ('intake', 'brief', 'memo'):
+            hybrid = copy.deepcopy(legacy)
+            hybrid[key] = current[key]
+            with self.subTest(key=key):
+                self.assertTrue(list(self.validator(path).iter_errors(hybrid)))
+        legacy['memo']['integration_plan'] = current['memo']['integration_plan']
+        self.assertTrue(list(self.validator(path).iter_errors(legacy)))
+        current['intake'] = baseline()['intake']
+        self.assertTrue(list(self.validator(path).iter_errors(current)))
+
+    def test_presentation_pointer_coverage_shape_and_publication_conditions(self):
+        path = 'artifact/localized-presentation.schema.json'
+        for pointer, value in [('/fields/0/field_pointer', '/memo/integration_plan/steps/0/proposed_commands/0'),
+                               ('/fields/0/field_pointer', '/presentation/default_locale'),
+                               ('/fields/0/ru/status', 'missing')]:
+            with self.subTest(pointer=pointer):
+                self.assertTrue(list(self.validator(path).iter_errors(mutate(POSITIVE[path], pointer, value))))
+        path = 'artifact/publication-result.schema.json'
+        for pointer, value in [('/render_attempts', 3), ('/commit_status', 'not_saved'),
+                               ('/published', None), ('/operation', 'render_only')]:
+            with self.subTest(pointer=pointer):
+                self.assertTrue(list(self.validator(path).iter_errors(mutate(POSITIVE[path], pointer, value))))
 
     def test_every_reference_is_offline_and_resolvable(self):
         def visit(value):
@@ -573,6 +917,10 @@ class SchemaContracts(unittest.TestCase):
 
 def baseline():
     return copy.deepcopy(POSITIVE['artifact/project-artifact-state.schema.json'])
+
+
+def workspace_baseline():
+    return copy.deepcopy(FIXTURES['workspace_positive']['artifact/project-artifact-state.schema.json'])
 
 
 def sparse_card():
@@ -790,6 +1138,233 @@ class SemanticContracts(unittest.TestCase):
         self.assertEqual(allocation['plugin_input_bytes'], POLICY['limits']['max_plugin_input_bytes'])
         self.assertIsNone(POLICY['snapshot_max_age_days'])
         self.assertEqual(POLICY['calibration_status'], 'unmeasured_initial_policy')
+
+
+class WorkspaceSemanticContracts(unittest.TestCase):
+    def test_technology_literals_are_bounded_and_include_typed_facts(self):
+        state = {'brief': {'constraints': {'languages': ['Go', 'C']},
+                           'observations': {'facts': [{'kind': 'framework', 'value': 'FastAPI'}]}}}
+        self.assertEqual(field_literals(state, 'Goal: Compare alternatives.'), [])
+        self.assertEqual(field_literals(state, 'Use Go with a C library and FastAPI.'), ['C', 'FastAPI', 'Go'])
+        self.assertEqual(field_literals(state, 'Keep `C++` exactly.'), ['C++'])
+
+    def test_user_answer_is_not_observed_project_evidence(self):
+        evidence = {'ev-answer': {'kind': 'user_answer', 'relative_path': None, 'answer_id': 'answer-goal-1'}}
+        claim = dict(text='Synthetic observation claim.',kind='observed',evidence_refs=['ev-answer'],
+                     answer_ids=[],limitation=None)
+        with self.assertRaisesRegex(ValueError, 'project/source evidence'):
+            check_claim(claim, evidence, {'answer-goal-1'})
+        state = workspace_baseline()
+        summary = state['brief']['observations']
+        entry = dict(evidence_id='ev-answer',kind='user_answer',relative_path=None,line_start=None,line_end=None,
+                     answer_id='answer-goal-1',content_persisted=False)
+        summary['evidence'].append(entry)
+        state['memo']['integration_plan']['details']['diagram'] = {
+            'status':'proposed','nodes':[dict(component_id='existing',label='Existing component',change='reuse',
+                                            evidence_refs=['ev-answer'])],'edges':[]}
+        with self.assertRaisesRegex(ValueError, 'reused node'):
+            check_bundle(state)
+
+    def test_linked_workspace_keeps_canonical_retrieval_and_partial_translation(self):
+        state = workspace_baseline()
+        check_bundle(state)
+        self.assertEqual(state['retrieval'], baseline()['retrieval'])
+        self.assertEqual(state['evidence_pack'], baseline()['evidence_pack'])
+        self.assertEqual(state['presentation']['coverage']['ru']['required_fields'], 45)
+        self.assertEqual(state['presentation']['coverage']['ru']['available_fields'], 2)
+        self.assertEqual(state['presentation']['coverage']['en']['status'], 'partial')
+
+    def test_zero_question_no_brief_no_memo_and_scan_before_brief(self):
+        state = workspace_baseline()
+        for key in ('brief', 'selection', 'request', 'index_manifest', 'retrieval', 'evidence_pack', 'memo', 'scan'):
+            state[key] = None
+        state.update(phase='intake', revision=1, content_revision=1, html_revision=None)
+        state['intake'].update(status='asking', questions_asked=0, answers=[], questions=[],
+                                pending_question_id=None, completion_reason=None, next_action='answer_question')
+        rebind_presentation(state)
+        check_bundle(state)
+        self.assertEqual(state['presentation']['coverage']['ru'],
+                         {'status':'complete', 'required_fields':0, 'available_fields':0})
+        state['scan'] = copy.deepcopy(POSITIVE['scanner/scan-report.schema.json'])
+        rebind_presentation(state)
+        check_bundle(state)
+        self.assertGreater(state['presentation']['coverage']['ru']['required_fields'], 0)
+
+    def test_question_ledger_missing_duplicate_and_wrong_ordinal(self):
+        for pointer, value in [('/intake/questions', []), ('/intake/questions/0/ordinal', 2),
+                               ('/intake/questions/0/question_id', 'different'), ('/intake/completion_reason', None)]:
+            with self.subTest(pointer=pointer), self.assertRaises(ValueError):
+                check_bundle(mutate(workspace_baseline(), pointer, value))
+
+    def test_claim_saved_answer_and_scan_provenance(self):
+        for pointer, value in [('/brief/details/problem/answer_ids', ['invented']),
+                               ('/intake/answers/0/status', 'skipped'),
+                               ('/brief/details/problem/kind', 'observed'),
+                               ('/scan/summary/evidence/0/relative_path', 'README.md'),
+                               ('/brief/observations/facts/0/value', 'Contradictory observed fact.')]:
+            with self.subTest(pointer=pointer), self.assertRaises(ValueError):
+                check_bundle(mutate(workspace_baseline(), pointer, value))
+
+    def test_stale_revision_hash_id_unresolved_pointer_and_forged_coverage(self):
+        for pointer, value in [('/presentation/source_content_revision', 2),
+                               ('/presentation/brief_version', 2), ('/presentation/memo_id', 'memo-other'),
+                               ('/presentation/fields/0/source_sha256', 'f' * 64),
+                               ('/presentation/fields/0/source_content_revision', 2),
+                               ('/presentation/fields/0/field_pointer', '/memo/recommendations/99/fit_rationale'),
+                               ('/presentation/coverage/ru/status', 'complete'),
+                               ('/presentation/coverage/en/required_fields', 2),
+                               ('/presentation/fields/1/evidence_refs', []),
+                               ('/presentation/fields/1/canonical_literals', []),
+                               ('/presentation/fields/1/ru/text', 'Локальная интеграция без названия технологии.'),
+                               ('/presentation/fields/1/en/text', 'Different original statement.')]:
+            with self.subTest(pointer=pointer), self.assertRaises(ValueError):
+                check_bundle(mutate(workspace_baseline(), pointer, value))
+        state = workspace_baseline()
+        state['brief']['goal'] = 'A different goal with the same Brief identity.'
+        with self.assertRaisesRegex(ValueError, 'stale localized source'):
+            check_bundle(state)
+
+    def test_locale_only_and_translation_only_saves_do_not_invalidate_result(self):
+        before = workspace_baseline()
+        after = copy.deepcopy(before)
+        after['revision'] += 1
+        after['presentation']['default_locale'] = 'en'
+        check_transition(before, after, before['revision'])
+        self.assertEqual(after['content_revision'], before['content_revision'])
+        self.assertEqual(after['retrieval'], before['retrieval'])
+        self.assertEqual(after['presentation']['presentation_revision'], before['presentation']['presentation_revision'])
+        after = copy.deepcopy(before)
+        after['revision'] += 1
+        after['presentation']['presentation_revision'] += 1
+        after['presentation']['fields'][0]['ru'] = {'status':'missing', 'text':None}
+        rebind_presentation(after)
+        check_transition(before, after, before['revision'])
+        self.assertEqual(after['presentation']['coverage']['ru']['available_fields'], 1)
+        self.assertEqual(after['memo'], before['memo'])
+
+    def test_semantic_correction_invalidates_and_cannot_be_locale_change(self):
+        before, after = workspace_baseline(), workspace_baseline()
+        after['revision'] += 1
+        after['content_revision'] += 1
+        after['brief']['brief_version'] += 1
+        after['brief']['goal'] = 'Compare local alternatives before implementation.'
+        after['corrections'] = [copy.deepcopy(POSITIVE['context/user-corrections.schema.json'])]
+        after['brief']['user_corrections'] = ['correction-1']
+        for key in ('selection', 'request', 'retrieval', 'evidence_pack', 'memo'):
+            after[key] = None
+        after['phase'] = 'context_review'
+        after['presentation']['presentation_revision'] += 1
+        rebind_presentation(after)
+        check_transition(before, after, before['revision'])
+        self.assertEqual(after['scan'], before['scan'])
+        bad = copy.deepcopy(after)
+        bad['retrieval'] = before['retrieval']
+        with self.assertRaisesRegex(ValueError, 'invalidate'):
+            check_transition(before, bad, before['revision'])
+        bad = copy.deepcopy(before)
+        bad['revision'] += 1
+        bad['brief']['details']['target_user']['limitation'] = 'Changed audience interpretation.'
+        with self.assertRaisesRegex(ValueError, 'content revision'):
+            check_transition(before, bad, before['revision'])
+
+    def test_finalized_runs_reject_locale_translation_and_html_revision_writes(self):
+        before = workspace_baseline()
+        before['status'] = 'finalized'
+        for mutation in ('locale', 'translation', 'html_revision'):
+            after = copy.deepcopy(before)
+            after['revision'] += 1
+            if mutation == 'locale':
+                after['presentation']['default_locale'] = 'en'
+            elif mutation == 'translation':
+                after['presentation']['fields'][0]['ru']['text'] = 'Изменённый перевод.'
+            else:
+                after['html_revision'] = after['revision']
+            with self.subTest(mutation=mutation), self.assertRaisesRegex(ValueError, 'immutable finalized'):
+                check_transition(before, after, before['revision'])
+
+    def test_nested_workspace_brief_byte_limit_not_hidden_by_state(self):
+        state = workspace_baseline()
+        details = state['brief']['details']
+        details['non_goals'] = [dict(text='я' * 700, kind='user_statement', evidence_refs=[],
+                                   answer_ids=['answer-goal-1'], limitation='Synthetic byte-boundary example.')
+                                for _ in range(12)]
+        self.assertLess(len(canonical(state)), 2 * 1024 * 1024)
+        self.assertGreater(len(canonical(state['brief'])), 16384)
+        self.assertIn(('/brief', 16384), list(byte_violations(SCHEMAS['artifact/project-artifact-state.schema.json'], state)))
+        with self.assertRaisesRegex(ValueError, 'nested serialized byte budget'):
+            check_bundle(state)
+
+    def test_integration_dependency_and_known_authorization_require_sources(self):
+        state = workspace_baseline()
+        deps = state['memo']['integration_plan']['details']['step_dependencies'][0]
+        deps['depends_on'] = [deps['step_id']]
+        with self.assertRaisesRegex(ValueError, 'cyclic'):
+            check_bundle(state)
+        state = workspace_baseline()
+        state['memo']['integration_plan']['details']['step_dependencies'][0]['safe_paths'] = ['src/app.py']
+        with self.assertRaisesRegex(ValueError, 'step path'):
+            check_bundle(state)
+        state = workspace_baseline()
+        state['memo']['integration_plan']['details']['prerequisite_checks'] = [
+            dict(check_id='auth-1',kind='authorization',detail='Synthetic asserted permission',
+                 status='already_authorized',evidence_refs=[],answer_ids=[],next_check=None)]
+        with self.assertRaisesRegex(ValueError, 'provenance'):
+            check_bundle(state)
+
+    def test_publication_current_requires_state_and_exact_fixture_bytes(self):
+        state = workspace_baseline()
+        receipt = copy.deepcopy(POSITIVE['artifact/publication-result.schema.json'])
+        html = FIXTURES['publication_html_fixture'].encode('utf-8')
+        check_publication(receipt, state, html)
+        for pointer, value in [('/published/revision', state['revision']-1),
+                               ('/published/run_id','bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb'),
+                               ('/published/presentation_revision',2), ('/published/html_sha256','f'*64),
+                               ('/saved/content_revision',2)]:
+            with self.subTest(pointer=pointer), self.assertRaises(ValueError):
+                check_publication(mutate(receipt,pointer,value), state, html)
+        with self.assertRaisesRegex(ValueError, 'byte hash'):
+            check_publication(receipt, state, html+b'changed')
+
+    def test_first_render_failure_stale_prior_run_and_bounded_retry(self):
+        state = workspace_baseline()
+        receipt = copy.deepcopy(POSITIVE['artifact/publication-result.schema.json'])
+        receipt.update(publication_status='unavailable',published=None,failure_reason='render_failed',retry='render_only')
+        check_publication(receipt,state)
+        receipt.update(publication_status='stale',published=copy.deepcopy(POSITIVE['artifact/publication-result.schema.json']['published']))
+        receipt['published']['run_id'] = 'bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb'
+        check_publication(receipt,state)
+        receipt['render_attempts']=2
+        with self.assertRaisesRegex(ValueError,'retry scope'):
+            check_publication(receipt,state)
+        receipt['retry']='stop'
+        check_publication(receipt,state)
+
+    def test_late_render_and_commit_failure_preserve_saved_target(self):
+        state = workspace_baseline()
+        receipt = copy.deepcopy(POSITIVE['artifact/publication-result.schema.json'])
+        receipt['saved']['revision'] -= 1
+        receipt.update(publication_status='superseded',failure_reason='render_superseded',retry='stop')
+        check_publication(receipt,state)
+        receipt['saved'] = copy.deepcopy(receipt['current'])
+        with self.assertRaisesRegex(ValueError,'superseded target'):
+            check_publication(receipt,state)
+        receipt.update(commit_status='not_saved',saved=None,publication_status='not_attempted',
+                       failure_reason='state_write_failed',render_attempts=0,retry='stop')
+        check_publication(receipt,state)
+        receipt['saved'] = copy.deepcopy(receipt['current'])
+        with self.assertRaisesRegex(ValueError,'saved state requires|failed commit'):
+            check_publication(receipt,state)
+
+    def test_saved_cannot_skip_publication_or_hide_supersession(self):
+        state = workspace_baseline()
+        receipt = copy.deepcopy(POSITIVE['artifact/publication-result.schema.json'])
+        receipt.update(publication_status='not_attempted',published=None,render_attempts=0)
+        with self.assertRaisesRegex(ValueError, 'requires publication'):
+            check_publication(receipt,state)
+        receipt.update(publication_status='unavailable',render_attempts=1,failure_reason='render_failed',retry='stop')
+        receipt['saved']['revision'] -= 1
+        with self.assertRaisesRegex(ValueError, 'superseded'):
+            check_publication(receipt,state)
 
 
 if __name__ == '__main__':

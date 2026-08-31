@@ -1,0 +1,423 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://myai-stackguide.invalid/contracts/v1/artifact/publication-result.schema.json",
+  "title": "Transient shared writer and HTML publication outcome",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "operation_id",
+    "operation",
+    "commit_status",
+    "saved",
+    "current",
+    "published",
+    "publication_status",
+    "failure_reason",
+    "render_attempts",
+    "retry",
+    "html_path"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.1.0"
+    },
+    "operation_id": {
+      "$ref": "https://myai-stackguide.invalid/contracts/v1/context/sanitized-project-summary.schema.json#/$defs/uuid"
+    },
+    "operation": {
+      "enum": [
+        "commit_and_publish",
+        "render_only"
+      ]
+    },
+    "commit_status": {
+      "enum": [
+        "saved",
+        "not_saved",
+        "not_attempted"
+      ]
+    },
+    "saved": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "run_id",
+            "revision",
+            "content_revision"
+          ],
+          "properties": {
+            "run_id": {
+              "$ref": "https://myai-stackguide.invalid/contracts/v1/context/sanitized-project-summary.schema.json#/$defs/uuid"
+            },
+            "revision": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 1000000
+            },
+            "content_revision": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 1000000
+            }
+          }
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "current": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "run_id",
+            "revision",
+            "content_revision"
+          ],
+          "properties": {
+            "run_id": {
+              "$ref": "https://myai-stackguide.invalid/contracts/v1/context/sanitized-project-summary.schema.json#/$defs/uuid"
+            },
+            "revision": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 1000000
+            },
+            "content_revision": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 1000000
+            }
+          }
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "published": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "run_id",
+            "revision",
+            "content_revision",
+            "presentation_revision",
+            "generated_at",
+            "html_sha256"
+          ],
+          "properties": {
+            "run_id": {
+              "$ref": "https://myai-stackguide.invalid/contracts/v1/context/sanitized-project-summary.schema.json#/$defs/uuid"
+            },
+            "revision": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 1000000
+            },
+            "content_revision": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 1000000
+            },
+            "presentation_revision": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 1000000
+            },
+            "generated_at": {
+              "$ref": "https://myai-stackguide.invalid/contracts/v1/context/sanitized-project-summary.schema.json#/$defs/timestamp"
+            },
+            "html_sha256": {
+              "$ref": "https://myai-stackguide.invalid/contracts/v1/context/sanitized-project-summary.schema.json#/$defs/sha256"
+            }
+          }
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "publication_status": {
+      "enum": [
+        "current",
+        "stale",
+        "unavailable",
+        "superseded",
+        "not_attempted"
+      ]
+    },
+    "failure_reason": {
+      "anyOf": [
+        {
+          "enum": [
+            "state_busy",
+            "state_conflict",
+            "state_invalid",
+            "state_incompatible",
+            "state_write_failed",
+            "history_integrity",
+            "storage_limit",
+            "render_failed",
+            "html_write_failed",
+            "render_superseded",
+            "retry_exhausted"
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "render_attempts": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 2
+    },
+    "retry": {
+      "enum": [
+        "none",
+        "render_only",
+        "stop"
+      ]
+    },
+    "html_path": {
+      "const": "docs/myai-stackguide/status.html"
+    }
+  },
+  "x-max-utf8-bytes": 8192,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "operation": {
+            "const": "render_only"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "commit_status": {
+            "const": "not_attempted"
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "commit_status": {
+            "enum": [
+              "saved",
+              "not_saved"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "commit_status": {
+            "const": "saved"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "saved": {
+            "type": "object"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "commit_status": {
+            "const": "not_saved"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "saved": {
+            "type": "null"
+          },
+          "publication_status": {
+            "const": "not_attempted"
+          },
+          "render_attempts": {
+            "const": 0
+          },
+          "retry": {
+            "const": "stop"
+          },
+          "failure_reason": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "publication_status": {
+            "const": "current"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "published": {
+            "type": "object"
+          },
+          "current": {
+            "type": "object"
+          },
+          "saved": {
+            "type": "object"
+          },
+          "failure_reason": {
+            "type": "null"
+          },
+          "render_attempts": {
+            "minimum": 1
+          },
+          "retry": {
+            "const": "none"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "publication_status": {
+            "const": "unavailable"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "published": {
+            "type": "null"
+          },
+          "failure_reason": {
+            "type": "string"
+          },
+          "saved": {
+            "type": "object"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "publication_status": {
+            "const": "stale"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "published": {
+            "type": "object"
+          },
+          "failure_reason": {
+            "type": "string"
+          },
+          "saved": {
+            "type": "object"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "publication_status": {
+            "const": "superseded"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "failure_reason": {
+            "const": "render_superseded"
+          },
+          "retry": {
+            "const": "stop"
+          },
+          "current": {
+            "type": "object"
+          },
+          "saved": {
+            "type": "object"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "render_attempts": {
+            "const": 2
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "retry": {
+            "enum": [
+              "none",
+              "stop"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "retry": {
+            "const": "render_only"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "failure_reason": {
+            "enum": [
+              "render_failed",
+              "html_write_failed"
+            ]
+          },
+          "publication_status": {
+            "enum": [
+              "stale",
+              "unavailable"
+            ]
+          },
+          "render_attempts": {
+            "const": 1
+          }
+        }
+      }
+    }
+  ],
+  "x-invariants": [
+    "This operation result is returned to Codex, not persisted as another domain store or inside finalized JSON. saved identifies the state committed by this operation (or validated render-only target); current is the state observed under lock at the final publication check; published identifies bytes actually present at the one HTML path.",
+    "current publication requires saved/current/published run_id, revision, content_revision to agree with validated state; published presentation_revision and hash/time match rendered bytes. HTML metadata alone is not proof without validated same-path bytes.",
+    "commit_and_publish cannot use commit_status=not_attempted; saved requires a non-null saved target. Failed commit never claims a saved answer. A render-only operation has no domain mutation and no question/scan/retrieval/model replay.",
+    "At most two render attempts per operation (one initial plus one render-only retry). Retry only render_failed/html_write_failed while saved is still current; no loop restart without an explicit new operation request. Storage/integrity/version/conflict failures stop.",
+    "Before replacement, lock and compare the captured run/revision/content_revision to current. A newer revision or run returns superseded without replacing HTML. Retry against a different current target requires a distinct explicit render-only operation; never overwrite a newer publication.",
+    "Failed first publication has published=null and unavailable; previous HTML remains stale with its own run/revision, including a predecessor run. An old file cannot discover later failure. Preserve saved state; render-only/final publication never writes html_revision back into finalized state."
+  ]
+}

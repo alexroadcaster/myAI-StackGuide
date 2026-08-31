@@ -1,0 +1,55 @@
+{
+  "schema_version": "retrieval_rubric_v1",
+  "status": "compatibility_only_calibration_pending",
+  "ranking": {
+    "recall": "Count retrieved grade>0 canonical IDs at k / all grade>0 judged IDs. Undefined denominator is null.",
+    "ndcg": "Gain=(2**grade-1), discount=log2(rank+1); ideal includes all judged IDs at k. Zero ideal gain is null.",
+    "grades": {
+      "0": "not relevant",
+      "1": "weak but potentially useful",
+      "2": "useful alternative",
+      "3": "direct fit"
+    },
+    "unjudged_candidate": "invalid_input_not_implicitly_zero",
+    "failure_metrics": null,
+    "thresholds": null,
+    "held_out": false
+  },
+  "compatibility_gate": {
+    "all_statuses_match": true,
+    "hard_constraint_violations": 0,
+    "false_exclusions": 0
+  },
+  "human": {
+    "minimum_total": 16,
+    "maximum_total": 20,
+    "critical_dimension_minimum": 1,
+    "critical_failures_allowed": 0,
+    "dimensions": [
+      "Context interpretation",
+      "Category relevance",
+      "Shortlist fit and roles",
+      "Avoid/defer quality",
+      "Evidence/provenance/activity clarity",
+      "Caveats and missing context",
+      "Integration/validation usefulness",
+      "Plain-language decision support",
+      "Authorized integration handoff",
+      "Privacy and permission"
+    ],
+    "critical_dimensions": [
+      "Evidence/provenance/activity clarity",
+      "Authorized integration handoff",
+      "Privacy and permission"
+    ],
+    "calibrated": false
+  },
+  "pending": [
+    "Actual frozen catalog relevance judgments and lexical/filter baseline",
+    "Development and held-out split, aggregation and ranking thresholds",
+    "Human examples, language semantics and usefulness calibration",
+    "Actual CP-11 captures and route evidence",
+    "Latency, peak-memory, tokenizer and 2000/10000-row synthetic scaling measurements"
+  ],
+  "promotion_ready": false
+}

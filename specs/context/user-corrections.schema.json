@@ -20,7 +20,10 @@
   ],
   "properties": {
     "schema_version": {
-      "const": "1.0.0"
+      "enum": [
+        "1.0.0",
+        "1.1.0"
+      ]
     },
     "run_id": {
       "$ref": "https://myai-stackguide.invalid/contracts/v1/context/sanitized-project-summary.schema.json#/$defs/uuid"
@@ -53,7 +56,8 @@
         "constraints",
         "project_stage",
         "assumption",
-        "observation_interpretation"
+        "observation_interpretation",
+        "context_details"
       ]
     },
     "sanitized_correction": {
@@ -80,6 +84,27 @@
     }
   },
   "x-invariants": [
-    "to_brief_version is from_brief_version + 1. Corrections do not rewrite observed facts as if rescanned."
+    "to_brief_version is from_brief_version + 1. Corrections do not rewrite observed facts as if rescanned.",
+    "Version 1.1.0 adds context_details corrections for sourced audience/workflow/scenario/scope/constraint interpretations. Keep observed facts and original scan immutable; the same Brief bump/downstream invalidation applies. Retained legacy correction events are not rewritten."
+  ],
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "schema_version": {
+            "const": "1.0.0"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "target": {
+            "not": {
+              "const": "context_details"
+            }
+          }
+        }
+      }
+    }
   ]
 }

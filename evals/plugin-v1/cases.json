@@ -1,0 +1,415 @@
+{
+  "schema_version": "retrieval_scenarios_v1",
+  "contract_set_sha256": "bfbdc446a22d1d4548867eac87cf31c8d084344394201dcecd2cc304dbc1e60a",
+  "case_set_id": "cp04-c9-synthetic-compatibility-v1",
+  "corpus_kind": "synthetic_fixture",
+  "split": "grader_contract_not_held_out",
+  "evidence_owner": "quality_evaluator",
+  "cases": [
+    {
+      "case_id": "C8-C9-ALLOW-01",
+      "requirement_ids": [
+        "R06",
+        "R12",
+        "R14"
+      ],
+      "persona": "Synthetic local Python maintainer",
+      "user_goal": "Evaluate local embedded full-text search.",
+      "privacy_boundary": "synthetic_minimized_no_private_context",
+      "judgment_provenance": "independent_synthetic_known_answer",
+      "run_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
+      "query": {
+        "schema_version": "1.0.0",
+        "query_id": "query-1",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "1.0.0",
+        "policy_sha256": "a7a8951b89013332d4ffe747290b2b9b0d5e8e346bb0a86a2005b491c1372fc6",
+        "language": "mixed",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "local",
+              "fulltext"
+            ]
+          },
+          {
+            "variant_id": "q2",
+            "terms": [
+              "Python",
+              "search"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [
+            "Python"
+          ],
+          "deployment": [
+            "local"
+          ],
+          "allowed_licenses": [
+            "MIT"
+          ],
+          "compatibility": [
+            "Python >=3.11"
+          ],
+          "require_no_server": true,
+          "mandatory_fields": [
+            "license",
+            "deployment",
+            "language",
+            "compatibility",
+            "no_server"
+          ]
+        },
+        "max_candidates": 60,
+        "max_cards": 12,
+        "max_evidence_bytes": 49152
+      },
+      "index_manifest": {
+        "schema_version": "1.0.0",
+        "pins": {
+          "catalog_snapshot_id": "fixture-catalog-1",
+          "source_sha256": "e29986d6824397baf09d331c6ad367d7a5b60d540fd505d5979cbb2e63d7fdad",
+          "cards_sha256": "39c79dcd18b1591df2cd79dcbafd818238d762d5e7a59c94b572d95e9e78616e",
+          "index_sha256": "608a8e9186cc4d68b9a2fe45bfa4a683f03f08d434e3554410bae6b21087703e",
+          "policy_sha256": "a7a8951b89013332d4ffe747290b2b9b0d5e8e346bb0a86a2005b491c1372fc6",
+          "taxonomy_sha256": "339335cedc0c6fc271982460d13bd09efaa13e0c7ca99abe45ab78c79b6a0c53",
+          "card_schema_version": "1.0.0",
+          "index_format_version": 1,
+          "retrieval_policy_version": "1.0.0",
+          "corpus_kind": "synthetic_fixture"
+        },
+        "builder_version": "1.0.0",
+        "sqlite_version": "3.0.0",
+        "built_at": "2026-08-31T09:00:00Z",
+        "source_snapshot_date": "2024-01-02",
+        "row_count": 1,
+        "index_file": "catalog.search.sqlite",
+        "cards_file": "catalog.snapshot.json",
+        "policy_file": "retrieval-policy.json",
+        "contains_project_context": false,
+        "read_only_runtime": true,
+        "logical_rows_sha256": "56b2931b458f00152b9ff406f3275362022d38363c86c0eedb81b06435cff4b2"
+      },
+      "expected_status": "ok",
+      "k": 3,
+      "judgments": [
+        {
+          "repo_id": "gh-pending:stackguide-fixtures/embedded-search",
+          "grade": 3,
+          "constraint": "allowed",
+          "rationale": "The authored synthetic brief needs embedded local Python search under MIT, without a server. This fixed example satisfies those declared facts."
+        }
+      ],
+      "accepted_gaps": [
+        "Synthetic known-answer fixture only; no held-out relevance, FTS5 execution, ranking calibration, or human usefulness acceptance."
+      ]
+    },
+    {
+      "case_id": "C8-C9-NO-MATCH-01",
+      "requirement_ids": [
+        "R06",
+        "R12",
+        "R14"
+      ],
+      "persona": "Synthetic local Python maintainer",
+      "user_goal": "Find a capability absent from the one-card synthetic corpus.",
+      "privacy_boundary": "synthetic_minimized_no_private_context",
+      "judgment_provenance": "independent_synthetic_known_answer",
+      "run_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
+      "query": {
+        "schema_version": "1.0.0",
+        "query_id": "query-no-match",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "1.0.0",
+        "policy_sha256": "a7a8951b89013332d4ffe747290b2b9b0d5e8e346bb0a86a2005b491c1372fc6",
+        "language": "mixed",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "orbital-telemetry"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [
+            "Python"
+          ],
+          "deployment": [
+            "local"
+          ],
+          "allowed_licenses": [
+            "MIT"
+          ],
+          "compatibility": [
+            "Python >=3.11"
+          ],
+          "require_no_server": true,
+          "mandatory_fields": [
+            "license",
+            "deployment",
+            "language",
+            "compatibility",
+            "no_server"
+          ]
+        },
+        "max_candidates": 60,
+        "max_cards": 12,
+        "max_evidence_bytes": 49152
+      },
+      "index_manifest": {
+        "schema_version": "1.0.0",
+        "pins": {
+          "catalog_snapshot_id": "fixture-catalog-1",
+          "source_sha256": "e29986d6824397baf09d331c6ad367d7a5b60d540fd505d5979cbb2e63d7fdad",
+          "cards_sha256": "39c79dcd18b1591df2cd79dcbafd818238d762d5e7a59c94b572d95e9e78616e",
+          "index_sha256": "608a8e9186cc4d68b9a2fe45bfa4a683f03f08d434e3554410bae6b21087703e",
+          "policy_sha256": "a7a8951b89013332d4ffe747290b2b9b0d5e8e346bb0a86a2005b491c1372fc6",
+          "taxonomy_sha256": "339335cedc0c6fc271982460d13bd09efaa13e0c7ca99abe45ab78c79b6a0c53",
+          "card_schema_version": "1.0.0",
+          "index_format_version": 1,
+          "retrieval_policy_version": "1.0.0",
+          "corpus_kind": "synthetic_fixture"
+        },
+        "builder_version": "1.0.0",
+        "sqlite_version": "3.0.0",
+        "built_at": "2026-08-31T09:00:00Z",
+        "source_snapshot_date": "2024-01-02",
+        "row_count": 1,
+        "index_file": "catalog.search.sqlite",
+        "cards_file": "catalog.snapshot.json",
+        "policy_file": "retrieval-policy.json",
+        "contains_project_context": false,
+        "read_only_runtime": true,
+        "logical_rows_sha256": "56b2931b458f00152b9ff406f3275362022d38363c86c0eedb81b06435cff4b2"
+      },
+      "expected_status": "no_match",
+      "k": 3,
+      "judgments": [
+        {
+          "repo_id": "gh-pending:stackguide-fixtures/embedded-search",
+          "grade": 0,
+          "constraint": "allowed",
+          "rationale": "The synthetic search-only card has no orbital telemetry capability."
+        }
+      ],
+      "accepted_gaps": [
+        "Synthetic known-answer fixture only; no held-out relevance, FTS5 execution, ranking calibration, or human usefulness acceptance."
+      ]
+    },
+    {
+      "case_id": "C8-C9-DENIED-01",
+      "requirement_ids": [
+        "R06",
+        "R12",
+        "R14"
+      ],
+      "persona": "Synthetic local Python maintainer",
+      "user_goal": "Find local search but require GPL-3.0-only as a mandatory license.",
+      "privacy_boundary": "synthetic_minimized_no_private_context",
+      "judgment_provenance": "independent_synthetic_known_answer",
+      "run_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
+      "query": {
+        "schema_version": "1.0.0",
+        "query_id": "query-denied",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "1.0.0",
+        "policy_sha256": "a7a8951b89013332d4ffe747290b2b9b0d5e8e346bb0a86a2005b491c1372fc6",
+        "language": "mixed",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "local",
+              "fulltext"
+            ]
+          },
+          {
+            "variant_id": "q2",
+            "terms": [
+              "Python",
+              "search"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [
+            "Python"
+          ],
+          "deployment": [
+            "local"
+          ],
+          "allowed_licenses": [
+            "GPL-3.0-only"
+          ],
+          "compatibility": [
+            "Python >=3.11"
+          ],
+          "require_no_server": true,
+          "mandatory_fields": [
+            "license",
+            "deployment",
+            "language",
+            "compatibility",
+            "no_server"
+          ]
+        },
+        "max_candidates": 60,
+        "max_cards": 12,
+        "max_evidence_bytes": 49152
+      },
+      "index_manifest": {
+        "schema_version": "1.0.0",
+        "pins": {
+          "catalog_snapshot_id": "fixture-catalog-1",
+          "source_sha256": "e29986d6824397baf09d331c6ad367d7a5b60d540fd505d5979cbb2e63d7fdad",
+          "cards_sha256": "39c79dcd18b1591df2cd79dcbafd818238d762d5e7a59c94b572d95e9e78616e",
+          "index_sha256": "608a8e9186cc4d68b9a2fe45bfa4a683f03f08d434e3554410bae6b21087703e",
+          "policy_sha256": "a7a8951b89013332d4ffe747290b2b9b0d5e8e346bb0a86a2005b491c1372fc6",
+          "taxonomy_sha256": "339335cedc0c6fc271982460d13bd09efaa13e0c7ca99abe45ab78c79b6a0c53",
+          "card_schema_version": "1.0.0",
+          "index_format_version": 1,
+          "retrieval_policy_version": "1.0.0",
+          "corpus_kind": "synthetic_fixture"
+        },
+        "builder_version": "1.0.0",
+        "sqlite_version": "3.0.0",
+        "built_at": "2026-08-31T09:00:00Z",
+        "source_snapshot_date": "2024-01-02",
+        "row_count": 1,
+        "index_file": "catalog.search.sqlite",
+        "cards_file": "catalog.snapshot.json",
+        "policy_file": "retrieval-policy.json",
+        "contains_project_context": false,
+        "read_only_runtime": true,
+        "logical_rows_sha256": "56b2931b458f00152b9ff406f3275362022d38363c86c0eedb81b06435cff4b2"
+      },
+      "expected_status": "ok",
+      "k": 3,
+      "judgments": [
+        {
+          "repo_id": "gh-pending:stackguide-fixtures/embedded-search",
+          "grade": 0,
+          "constraint": "denied",
+          "rationale": "Independent fixed fact: the synthetic card is MIT, so it fails this mandatory GPL-3.0-only constraint."
+        }
+      ],
+      "accepted_gaps": [
+        "Synthetic known-answer fixture only; no held-out relevance, FTS5 execution, ranking calibration, or human usefulness acceptance."
+      ]
+    },
+    {
+      "case_id": "C8-C9-INDEX-MISSING-01",
+      "requirement_ids": [
+        "R06",
+        "R12",
+        "R14"
+      ],
+      "persona": "Synthetic local Python maintainer",
+      "user_goal": "Attempt retrieval when no manifest/index is available.",
+      "privacy_boundary": "synthetic_minimized_no_private_context",
+      "judgment_provenance": "independent_synthetic_known_answer",
+      "run_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
+      "query": {
+        "schema_version": "1.0.0",
+        "query_id": "query-index-missing",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "1.0.0",
+        "policy_sha256": "a7a8951b89013332d4ffe747290b2b9b0d5e8e346bb0a86a2005b491c1372fc6",
+        "language": "mixed",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "local",
+              "fulltext"
+            ]
+          },
+          {
+            "variant_id": "q2",
+            "terms": [
+              "Python",
+              "search"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [
+            "Python"
+          ],
+          "deployment": [
+            "local"
+          ],
+          "allowed_licenses": [
+            "MIT"
+          ],
+          "compatibility": [
+            "Python >=3.11"
+          ],
+          "require_no_server": true,
+          "mandatory_fields": [
+            "license",
+            "deployment",
+            "language",
+            "compatibility",
+            "no_server"
+          ]
+        },
+        "max_candidates": 60,
+        "max_cards": 12,
+        "max_evidence_bytes": 49152
+      },
+      "index_manifest": null,
+      "expected_status": "retrieval_unavailable",
+      "k": 3,
+      "judgments": [
+        {
+          "repo_id": "gh-pending:stackguide-fixtures/embedded-search",
+          "grade": 3,
+          "constraint": "allowed",
+          "rationale": "The authored synthetic brief needs embedded local Python search under MIT, without a server. This fixed example satisfies those declared facts."
+        }
+      ],
+      "accepted_gaps": [
+        "Synthetic known-answer fixture only; no held-out relevance, FTS5 execution, ranking calibration, or human usefulness acceptance."
+      ]
+    }
+  ],
+  "presentation_cases": [
+    {
+      "case_id": "C8-PRESENTATION-RU-EN-01",
+      "canonical_case_id": "C8-C9-ALLOW-01",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "preserve": [
+        "canonical_ids",
+        "constraints",
+        "roles",
+        "evidence_refs",
+        "negation",
+        "uncertainty",
+        "execution_authority"
+      ],
+      "checks": [
+        "Switch the same canonical result locally; no query, model, scan, state write or different evidence.",
+        "Preserve negation: proposed/not executed remains proposed/not executed. Preserve conditional language and constraints.",
+        "Label partial translations and original-language passages; inspect missing memo and stale source fields.",
+        "Measure generation latency and serialized bytes only in an actual capture; synthetic metrics remain null."
+      ],
+      "status": "contract_cases_only_human_semantics_pending"
+    }
+  ]
+}

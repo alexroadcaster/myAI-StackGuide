@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://myai-stackguide.invalid/contracts/v1/recommendation/integration-plan.schema.json",
   "title": "Actionable non-executed integration handoff",
-  "description": "Local CP-03 v1 contract. This schema does not execute or authorize side effects.",
+  "description": "CP-03 local contract. Version 1.0.0 is a retained read-only legacy shape; new writes use 1.1.0. No migration or runtime is implemented.",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -26,7 +26,10 @@
   ],
   "properties": {
     "schema_version": {
-      "const": "1.0.0"
+      "enum": [
+        "1.0.0",
+        "1.1.0"
+      ]
     },
     "run_id": {
       "$ref": "https://myai-stackguide.invalid/contracts/v1/context/sanitized-project-summary.schema.json#/$defs/uuid"
@@ -293,11 +296,302 @@
     },
     "execution_status": {
       "const": "not_started"
+    },
+    "details": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "diagram",
+        "prerequisite_checks",
+        "validation_input",
+        "expected_behavior",
+        "widen_when",
+        "step_dependencies"
+      ],
+      "properties": {
+        "diagram": {
+          "anyOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "status",
+                "nodes",
+                "edges"
+              ],
+              "properties": {
+                "status": {
+                  "const": "proposed"
+                },
+                "nodes": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "component_id",
+                      "label",
+                      "change",
+                      "evidence_refs"
+                    ],
+                    "properties": {
+                      "component_id": {
+                        "$ref": "https://myai-stackguide.invalid/contracts/v1/context/sanitized-project-summary.schema.json#/$defs/id"
+                      },
+                      "label": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 160
+                      },
+                      "change": {
+                        "enum": [
+                          "reuse",
+                          "change",
+                          "add"
+                        ]
+                      },
+                      "evidence_refs": {
+                        "type": "array",
+                        "items": {
+                          "$ref": "https://myai-stackguide.invalid/contracts/v1/context/sanitized-project-summary.schema.json#/$defs/evidenceId"
+                        },
+                        "maxItems": 12,
+                        "minItems": 0,
+                        "uniqueItems": true
+                      }
+                    }
+                  },
+                  "maxItems": 12,
+                  "minItems": 1
+                },
+                "edges": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "from_component_id",
+                      "to_component_id",
+                      "label",
+                      "status"
+                    ],
+                    "properties": {
+                      "from_component_id": {
+                        "$ref": "https://myai-stackguide.invalid/contracts/v1/context/sanitized-project-summary.schema.json#/$defs/id"
+                      },
+                      "to_component_id": {
+                        "$ref": "https://myai-stackguide.invalid/contracts/v1/context/sanitized-project-summary.schema.json#/$defs/id"
+                      },
+                      "label": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 160
+                      },
+                      "status": {
+                        "const": "proposed"
+                      }
+                    }
+                  },
+                  "maxItems": 24,
+                  "minItems": 0
+                }
+              }
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "prerequisite_checks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "check_id",
+              "kind",
+              "detail",
+              "status",
+              "evidence_refs",
+              "answer_ids",
+              "next_check"
+            ],
+            "properties": {
+              "check_id": {
+                "$ref": "https://myai-stackguide.invalid/contracts/v1/context/sanitized-project-summary.schema.json#/$defs/id"
+              },
+              "kind": {
+                "enum": [
+                  "version",
+                  "license",
+                  "api",
+                  "data_shape",
+                  "deployment",
+                  "authorization"
+                ]
+              },
+              "detail": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 400
+              },
+              "status": {
+                "enum": [
+                  "known",
+                  "unknown",
+                  "already_authorized",
+                  "authorization_needed"
+                ]
+              },
+              "evidence_refs": {
+                "type": "array",
+                "items": {
+                  "$ref": "https://myai-stackguide.invalid/contracts/v1/context/sanitized-project-summary.schema.json#/$defs/evidenceId"
+                },
+                "maxItems": 12,
+                "minItems": 0,
+                "uniqueItems": true
+              },
+              "answer_ids": {
+                "type": "array",
+                "items": {
+                  "$ref": "https://myai-stackguide.invalid/contracts/v1/context/sanitized-project-summary.schema.json#/$defs/id"
+                },
+                "maxItems": 10,
+                "minItems": 0
+              },
+              "next_check": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 400
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            }
+          },
+          "maxItems": 12,
+          "minItems": 0
+        },
+        "validation_input": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 700
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "expected_behavior": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 700
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "widen_when": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 500
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "step_dependencies": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "step_id",
+              "depends_on",
+              "safe_paths",
+              "evidence_refs"
+            ],
+            "properties": {
+              "step_id": {
+                "$ref": "https://myai-stackguide.invalid/contracts/v1/context/sanitized-project-summary.schema.json#/$defs/id"
+              },
+              "depends_on": {
+                "type": "array",
+                "items": {
+                  "$ref": "https://myai-stackguide.invalid/contracts/v1/context/sanitized-project-summary.schema.json#/$defs/id"
+                },
+                "maxItems": 12,
+                "minItems": 0
+              },
+              "safe_paths": {
+                "type": "array",
+                "items": {
+                  "$ref": "https://myai-stackguide.invalid/contracts/v1/context/sanitized-project-summary.schema.json#/$defs/relativePath"
+                },
+                "maxItems": 8,
+                "minItems": 0
+              },
+              "evidence_refs": {
+                "type": "array",
+                "items": {
+                  "$ref": "https://myai-stackguide.invalid/contracts/v1/context/sanitized-project-summary.schema.json#/$defs/evidenceId"
+                },
+                "maxItems": 12,
+                "minItems": 0,
+                "uniqueItems": true
+              }
+            }
+          },
+          "maxItems": 12,
+          "minItems": 0
+        }
+      }
     }
   },
   "x-max-utf8-bytes": 49152,
   "x-invariants": [
     "Implementation commands are proposed data, never executable instructions to the scanner. Actual user-authorized coding belongs to the next workflow; this artifact never grants permissions.",
-    "Selected repository IDs and evidence references resolve to the evidence pack; unknown license/version facts appear in prerequisites/unresolved questions."
+    "Selected repository IDs and evidence references resolve to the evidence pack; unknown license/version facts appear in prerequisites/unresolved questions.",
+    "Diagram component IDs are unique and edges resolve to nodes. Proposed nodes do not assert observed runtime architecture; reuse/change requires project evidence.",
+    "Prerequisite known/authorization records resolve to source evidence or scoped sanitized user answers; unknown records carry next_check. already_authorized never creates new authority and the handoff must preserve its actual scope.",
+    "validation_input is a minimized synthetic/example description, never raw customer/source data. Actual results remain unavailable: execution_status and command/status fields remain not_started/not_executed.",
+    "step_dependencies covers each step once; dependency IDs resolve to earlier steps without self-reference/cycles. safe_paths are contained non-sensitive relative project paths supported by evidence; absent knowledge is an empty list, not an invented filename."
+  ],
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "schema_version": {
+            "const": "1.1.0"
+          }
+        },
+        "required": [
+          "schema_version"
+        ]
+      },
+      "then": {
+        "required": [
+          "details"
+        ]
+      },
+      "else": {
+        "properties": {
+          "details": false
+        }
+      }
+    }
   ]
 }
