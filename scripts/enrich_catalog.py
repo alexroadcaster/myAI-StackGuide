@@ -135,6 +135,7 @@ class Collector:
     def __init__(self, run, transport=None):
         self.run=Path(run); self.plan=load(self.run/'plan.json'); self.state=load(self.run/'checkpoint.json')
         self.transport=transport or GitHubTransport()
+        self.validate_url=getattr(self.transport, 'validate_url', safe_api_url)
         self.started=time.monotonic()
         self.check_pins()
         self.contract=load(self.run/'field-contract.json')
@@ -165,7 +166,9 @@ class Collector:
     def request(self,url):
         retry=0; redirects=0
         while True:
-            safe_api_url(url)
+            self.validate_url(url)
+            if self.state.get('haltReason'):
+                return {'status':'fetch_error','reason':self.state['haltReason'],'url':url,'observedAt':now()}
             if time.time()<self.state['retryNotBefore']:
                 return {'status':'budget_exhausted','reason':'rate_limit_wait','url':url,'observedAt':now()}
             if self.state['requests']>=self.plan['maxRequests'] or self.state['bytes']>=self.plan['maxBytes'] or time.monotonic()-self.started>=self.plan['maxSecondsPerInvocation']:
@@ -189,14 +192,22 @@ class Collector:
                 redirects+=1
                 if redirects>self.plan['maxRedirects']:
                     return {'status':'fetch_error','reason':'redirect_limit','url':url,'observedAt':now()}
-                try:url=safe_api_url(urllib.parse.urljoin(url,header.get('location','')))
+                try:url=self.validate_url(urllib.parse.urljoin(url,header.get('location','')))
                 except ValueError:return {'status':'fetch_error','reason':'unsafe_redirect','url':url,'observedAt':now()}
                 continue
-            if code in (403,429):
+            if code == 401:
+                self.state['haltReason']='authentication_failed';self.save_state()
+                return {'status':'fetch_error','reason':'authentication_failed','httpStatus':code,'url':url,'observedAt':now()}
+            try:error_message=json.loads(body).get('message','').lower() if code>=400 and body else ''
+            except (ValueError,AttributeError):error_message=''
+            rate_limited=code==429 or (code==403 and (header.get('x-ratelimit-remaining')=='0' or 'retry-after' in header or 'rate limit' in error_message or 'abuse' in error_message))
+            if rate_limited:
                 try:delay=max(60,int(header.get('retry-after',60)),int(header.get('x-ratelimit-reset',0))-int(time.time()))
                 except (ValueError,TypeError):delay=60
                 self.state['retryNotBefore']=time.time()+delay;self.save_state()
-                return {'status':'fetch_error','reason':'rate_limited_or_forbidden','httpStatus':code,'url':url,'observedAt':now()}
+                return {'status':'fetch_error','reason':'rate_limited','httpStatus':code,'url':url,'observedAt':now()}
+            if code==403:
+                return {'status':'fetch_error','reason':'permission_denied','httpStatus':code,'url':url,'observedAt':now()}
             if code>=500 and retry<self.plan['maxRetries']:
                 time.sleep(2**retry);retry+=1;continue
             if code in (404,409):
@@ -228,7 +239,9 @@ class Collector:
         atomic_json(self.record_path(record['sourceId']),record)
         return result
 
-    def process(self,record_id,curation=None):
+    def process(self,record_id,curation=None,*,blocks=None):
+        # A selective run requests only needed groups; metadata gates public access.
+        wanted=lambda key: blocks is None or key in blocks
         source=self.source[record_id];name=source['fullName']
         if not NAME.fullmatch(name):raise ValueError('Invalid repository name')
         path=self.record_path(record_id)
@@ -265,8 +278,9 @@ class Collector:
                 self.state['records'][record_id]=record['status'];self.save_state()
                 return record
             branch=facts.get('defaultBranch')
-            self.block(record,'languages',base+'/languages',lambda x:{k:v for k,v in x.items() if isinstance(v,int) and not isinstance(v,bool) and v>=0})
-            if isinstance(branch,str) and branch:
+            if wanted('languages'):
+                self.block(record,'languages',base+'/languages',lambda x:{k:v for k,v in x.items() if isinstance(v,int) and not isinstance(v,bool) and v>=0})
+            if isinstance(branch,str) and branch and any(wanted(k) for k in ('head_commit','readme','manifests')):
                 def commit(x):return {'sha':x['sha'],'date':x['commit']['committer']['date'],'branch':branch}
                 head=self.block(record,'head_commit',base+'/commits/'+urllib.parse.quote(branch,safe=''),commit)
                 if head['status']=='observed':
@@ -275,15 +289,18 @@ class Collector:
                     def content(x):
                         if x.get('type')!='file' or x.get('encoding')!='base64':raise ValueError('Not an ordinary base64 file')
                         raw=base64.b64decode(x['content']);return {'path':x['path'],'sha':x['sha'],'ref':ref,'excerpt':clean_excerpt(raw.decode('utf-8')),'truncated':len(raw)>16000}
-                    self.block(record,'readme',base+'/readme'+query,content)
+                    if wanted('readme'):
+                        self.block(record,'readme',base+'/readme'+query,content)
                     def root_entries(x):
                         if not isinstance(x,list):raise ValueError('Expected root directory')
                         return sorted(e['name'] for e in x if e.get('type')=='file' and e.get('name') in MANIFEST_NAMES)
-                    listing=self.block(record,'manifest_names',base+'/contents'+query,root_entries)
-                    for filename in listing.get('data',[])[:self.plan['maxManifests']]:
-                        self.block(record,'file:'+filename,base+'/contents/'+urllib.parse.quote(filename,safe='')+query,content)
-                    record['manifestEvidenceTruncated']=len(listing.get('data',[]))>self.plan['maxManifests']
-            self.block(record,'release',base+'/releases/latest',lambda x:{'publishedAt':x.get('published_at'),'tag':x.get('tag_name')})
+                    if wanted('manifests'):
+                        listing=self.block(record,'manifest_names',base+'/contents'+query,root_entries)
+                        for filename in listing.get('data',[])[:self.plan['maxManifests']]:
+                            self.block(record,'file:'+filename,base+'/contents/'+urllib.parse.quote(filename,safe='')+query,content)
+                        record['manifestEvidenceTruncated']=len(listing.get('data',[]))>self.plan['maxManifests']
+            if wanted('release'):
+                self.block(record,'release',base+'/releases/latest',lambda x:{'publishedAt':x.get('published_at'),'tag':x.get('tag_name')})
         record=self.normalize(record,source,curation or record.get('curation'))
         atomic_json(path,record)
         self.state['records'][record_id]=record['status'];self.save_state()

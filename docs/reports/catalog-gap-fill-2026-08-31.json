@@ -1,0 +1,99 @@
+{
+  "date": "2026-08-31",
+  "status": "implemented_and_partially_live_verified",
+  "scope": "authorized_public_GET_missing_fields_only_replacement_proposals_no_canonical_write",
+  "client": {
+    "name": "official GitHub CLI",
+    "version": "2.90.0",
+    "tokenExtractedIntoPython": false,
+    "dependenciesInstalled": false
+  },
+  "commands": {
+    "broadTests": "python -B -m unittest tests.test_catalog_gap_fill tests.test_catalog_enrichment tests.test_catalog_refresh_pipeline tests.test_catalog_storage_layout tests.test_catalog_v5_pipeline tests.test_plugin_contracts -q",
+    "focusedTestsAfterFinalChanges": "python -B -m unittest tests.test_catalog_gap_fill -q",
+    "parity": "python -B scripts/build_catalog_html.py --check"
+  },
+  "checks": {
+    "broadTestsPassedBeforeFinalSearchAndMigrationRefinements": 115,
+    "focusedTestsPassedAfterFinalChanges": 12,
+    "htmlByteParity": true,
+    "sparsePatchGuardPassed": 757,
+    "sourceAndHtmlUnchanged": true,
+    "oldCheckpointUnchanged": true,
+    "savedRecordsVerified": 34
+  },
+  "firstAuthenticatedQuota": {
+    "observedAt": "2026-08-31T18:16:33.928865Z",
+    "coreLimit": 5000,
+    "coreRemaining": 5000,
+    "searchLimit": 30,
+    "searchRemaining": 30
+  },
+  "lastPreflight": {
+    "observedAt": "2026-08-31T18:27:04.937145Z",
+    "transport": "official_github_cli",
+    "core": {
+      "limit": 5000,
+      "used": 0,
+      "remaining": 5000,
+      "reset": 1788204424
+    },
+    "search": {
+      "limit": 30,
+      "used": 0,
+      "remaining": 30,
+      "reset": 1788200884
+    },
+    "tokenPersisted": false
+  },
+  "lastResponseQuota": {
+    "x-ratelimit-limit": "5000",
+    "x-ratelimit-remaining": "4857",
+    "x-ratelimit-used": "143",
+    "x-ratelimit-reset": "1788203372",
+    "x-ratelimit-resource": "core",
+    "observedAt": "2026-08-31T18:27:11.406431Z"
+  },
+  "progress": {
+    "scope": "missing_fields_and_low_star_proposals_only",
+    "selectedRows": 1800,
+    "processedThisSuccessor": 33,
+    "outcomes": {
+      "not_started": 1766,
+      "evidence_available": 1,
+      "processed": 30,
+      "replacement_required": 2,
+      "retry_required": 1
+    },
+    "proposedFieldEdits": 757,
+    "replacementLists": 2,
+    "cumulativeTransportAttempts": 258,
+    "cumulativeBytes": 6118950,
+    "canonicalWritten": false,
+    "LLMCalls": 0
+  },
+  "localRun": ".codex-tmp/catalog-refresh/gaps",
+  "previousCumulativeAttempts": 80,
+  "previousBytes": 1309367,
+  "newTransportAttemptsIncludingPreflightsAndSearch": 178,
+  "replacementReview": {
+    "acceptedSwaps": 0,
+    "retainedCategoryLeads": [
+      "tvrcgo/weixin-pay"
+    ],
+    "rejectedFinalPassLeads": [
+      "Glench/ExtPay",
+      "braintree/credit-card-type"
+    ],
+    "pythonSdkReplacement": "not_found_in_bounded_search"
+  },
+  "limits": [
+    "Not a full-corpus refresh or completion claim. Canonical patches prepared, not applied.",
+    "Missing semantic fields require source review; optional exact activity totals remain unsupported.",
+    "Search matches do not prove category fit or functional equivalence.",
+    "Broad README, archived/UI and mobile leads were rejected; history and spending retained.",
+    "CLI invocations are counted locally; GitHub headers own actual quota consumption.",
+    "Derived field-observation timestamps on one inherited record needed explicit rebinding to the successor plan; factual values, source blocks and API observation dates were preserved.",
+    "Original full-card run remains frozen; use the selective successor."
+  ]
+}
