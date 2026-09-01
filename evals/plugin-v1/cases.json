@@ -1,7 +1,7 @@
 {
-  "schema_version": "retrieval_scenarios_v1",
-  "contract_set_sha256": "bfbdc446a22d1d4548867eac87cf31c8d084344394201dcecd2cc304dbc1e60a",
-  "case_set_id": "cp04-c9-synthetic-compatibility-v1",
+  "schema_version": "retrieval_scenarios_v2",
+  "contract_set_sha256": "7dbb16f2adb00afed87bd6cdfce37ea86c91ff974d913f46655eb5795a00ec85",
+  "case_set_id": "cp04-c9-synthetic-compatibility-v2",
   "corpus_kind": "synthetic_fixture",
   "split": "grader_contract_not_held_out",
   "evidence_owner": "quality_evaluator",
@@ -19,13 +19,13 @@
       "judgment_provenance": "independent_synthetic_known_answer",
       "run_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
       "query": {
-        "schema_version": "1.0.0",
+        "schema_version": "2.0.0",
         "query_id": "query-1",
         "brief_version": 1,
         "source_mode": "catalog_only",
         "retrieval_engine": "sqlite_fts5",
-        "policy_version": "1.0.0",
-        "policy_sha256": "a7a8951b89013332d4ffe747290b2b9b0d5e8e346bb0a86a2005b491c1372fc6",
+        "policy_version": "2.0.0",
+        "policy_sha256": "c1a150b36a10c67c0220df31af88f90d59e353bdca2f52cb469e06ac6bb7fdca",
         "language": "mixed",
         "variants": [
           {
@@ -67,23 +67,27 @@
         },
         "max_candidates": 60,
         "max_cards": 12,
-        "max_evidence_bytes": 49152
+        "max_evidence_bytes": 49152,
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 2
       },
       "index_manifest": {
-        "schema_version": "1.0.0",
+        "schema_version": "2.0.0",
         "pins": {
-          "catalog_snapshot_id": "fixture-catalog-1",
-          "source_sha256": "e29986d6824397baf09d331c6ad367d7a5b60d540fd505d5979cbb2e63d7fdad",
-          "cards_sha256": "39c79dcd18b1591df2cd79dcbafd818238d762d5e7a59c94b572d95e9e78616e",
-          "index_sha256": "608a8e9186cc4d68b9a2fe45bfa4a683f03f08d434e3554410bae6b21087703e",
-          "policy_sha256": "a7a8951b89013332d4ffe747290b2b9b0d5e8e346bb0a86a2005b491c1372fc6",
-          "taxonomy_sha256": "339335cedc0c6fc271982460d13bd09efaa13e0c7ca99abe45ab78c79b6a0c53",
-          "card_schema_version": "1.0.0",
-          "index_format_version": 1,
-          "retrieval_policy_version": "1.0.0",
+          "catalog_snapshot_id": "fixture-catalog-2",
+          "source_sha256": "d487719a3299ca76a52d9f7bf5f89cfd1323c65c6777b0d5e4c65adcc381fed5",
+          "cards_sha256": "d955adc033ff103d03496fcd1b22d6bdd9a9f7562be57c1b5de004ecc0e3b76f",
+          "index_sha256": "ab9dbb9a03701785ecdc76b1b17718a4a7ed7a62b03da044aa6e8fcbf0208063",
+          "policy_sha256": "c1a150b36a10c67c0220df31af88f90d59e353bdca2f52cb469e06ac6bb7fdca",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f",
+          "card_schema_version": "2.0.0",
+          "activity_schema_version": "2.0.0",
+          "index_format_version": 2,
+          "retrieval_policy_version": "2.0.0",
           "corpus_kind": "synthetic_fixture"
         },
-        "builder_version": "1.0.0",
+        "builder_version": "2.0.0",
         "sqlite_version": "3.0.0",
         "built_at": "2026-08-31T09:00:00Z",
         "source_snapshot_date": "2024-01-02",
@@ -93,16 +97,16 @@
         "policy_file": "retrieval-policy.json",
         "contains_project_context": false,
         "read_only_runtime": true,
-        "logical_rows_sha256": "56b2931b458f00152b9ff406f3275362022d38363c86c0eedb81b06435cff4b2"
+        "logical_rows_sha256": "34f9e4b5d9d26c1abde12217ba4258bc20db6f16f32fc4f9e7cf41a1eee46a15"
       },
       "expected_status": "ok",
       "k": 3,
       "judgments": [
         {
-          "repo_id": "gh-pending:stackguide-fixtures/embedded-search",
           "grade": 3,
           "constraint": "allowed",
-          "rationale": "The authored synthetic brief needs embedded local Python search under MIT, without a server. This fixed example satisfies those declared facts."
+          "rationale": "The authored synthetic brief needs embedded local Python search under MIT, without a server. This fixed example satisfies those declared facts.",
+          "github_repository_id": 900000001
         }
       ],
       "accepted_gaps": [
@@ -122,13 +126,13 @@
       "judgment_provenance": "independent_synthetic_known_answer",
       "run_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
       "query": {
-        "schema_version": "1.0.0",
+        "schema_version": "2.0.0",
         "query_id": "query-no-match",
         "brief_version": 1,
         "source_mode": "catalog_only",
         "retrieval_engine": "sqlite_fts5",
-        "policy_version": "1.0.0",
-        "policy_sha256": "a7a8951b89013332d4ffe747290b2b9b0d5e8e346bb0a86a2005b491c1372fc6",
+        "policy_version": "2.0.0",
+        "policy_sha256": "c1a150b36a10c67c0220df31af88f90d59e353bdca2f52cb469e06ac6bb7fdca",
         "language": "mixed",
         "variants": [
           {
@@ -162,23 +166,27 @@
         },
         "max_candidates": 60,
         "max_cards": 12,
-        "max_evidence_bytes": 49152
+        "max_evidence_bytes": 49152,
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 2
       },
       "index_manifest": {
-        "schema_version": "1.0.0",
+        "schema_version": "2.0.0",
         "pins": {
-          "catalog_snapshot_id": "fixture-catalog-1",
-          "source_sha256": "e29986d6824397baf09d331c6ad367d7a5b60d540fd505d5979cbb2e63d7fdad",
-          "cards_sha256": "39c79dcd18b1591df2cd79dcbafd818238d762d5e7a59c94b572d95e9e78616e",
-          "index_sha256": "608a8e9186cc4d68b9a2fe45bfa4a683f03f08d434e3554410bae6b21087703e",
-          "policy_sha256": "a7a8951b89013332d4ffe747290b2b9b0d5e8e346bb0a86a2005b491c1372fc6",
-          "taxonomy_sha256": "339335cedc0c6fc271982460d13bd09efaa13e0c7ca99abe45ab78c79b6a0c53",
-          "card_schema_version": "1.0.0",
-          "index_format_version": 1,
-          "retrieval_policy_version": "1.0.0",
+          "catalog_snapshot_id": "fixture-catalog-2",
+          "source_sha256": "d487719a3299ca76a52d9f7bf5f89cfd1323c65c6777b0d5e4c65adcc381fed5",
+          "cards_sha256": "d955adc033ff103d03496fcd1b22d6bdd9a9f7562be57c1b5de004ecc0e3b76f",
+          "index_sha256": "ab9dbb9a03701785ecdc76b1b17718a4a7ed7a62b03da044aa6e8fcbf0208063",
+          "policy_sha256": "c1a150b36a10c67c0220df31af88f90d59e353bdca2f52cb469e06ac6bb7fdca",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f",
+          "card_schema_version": "2.0.0",
+          "activity_schema_version": "2.0.0",
+          "index_format_version": 2,
+          "retrieval_policy_version": "2.0.0",
           "corpus_kind": "synthetic_fixture"
         },
-        "builder_version": "1.0.0",
+        "builder_version": "2.0.0",
         "sqlite_version": "3.0.0",
         "built_at": "2026-08-31T09:00:00Z",
         "source_snapshot_date": "2024-01-02",
@@ -188,16 +196,16 @@
         "policy_file": "retrieval-policy.json",
         "contains_project_context": false,
         "read_only_runtime": true,
-        "logical_rows_sha256": "56b2931b458f00152b9ff406f3275362022d38363c86c0eedb81b06435cff4b2"
+        "logical_rows_sha256": "34f9e4b5d9d26c1abde12217ba4258bc20db6f16f32fc4f9e7cf41a1eee46a15"
       },
       "expected_status": "no_match",
       "k": 3,
       "judgments": [
         {
-          "repo_id": "gh-pending:stackguide-fixtures/embedded-search",
           "grade": 0,
           "constraint": "allowed",
-          "rationale": "The synthetic search-only card has no orbital telemetry capability."
+          "rationale": "The synthetic search-only card has no orbital telemetry capability.",
+          "github_repository_id": 900000001
         }
       ],
       "accepted_gaps": [
@@ -217,13 +225,13 @@
       "judgment_provenance": "independent_synthetic_known_answer",
       "run_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
       "query": {
-        "schema_version": "1.0.0",
+        "schema_version": "2.0.0",
         "query_id": "query-denied",
         "brief_version": 1,
         "source_mode": "catalog_only",
         "retrieval_engine": "sqlite_fts5",
-        "policy_version": "1.0.0",
-        "policy_sha256": "a7a8951b89013332d4ffe747290b2b9b0d5e8e346bb0a86a2005b491c1372fc6",
+        "policy_version": "2.0.0",
+        "policy_sha256": "c1a150b36a10c67c0220df31af88f90d59e353bdca2f52cb469e06ac6bb7fdca",
         "language": "mixed",
         "variants": [
           {
@@ -265,23 +273,27 @@
         },
         "max_candidates": 60,
         "max_cards": 12,
-        "max_evidence_bytes": 49152
+        "max_evidence_bytes": 49152,
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 2
       },
       "index_manifest": {
-        "schema_version": "1.0.0",
+        "schema_version": "2.0.0",
         "pins": {
-          "catalog_snapshot_id": "fixture-catalog-1",
-          "source_sha256": "e29986d6824397baf09d331c6ad367d7a5b60d540fd505d5979cbb2e63d7fdad",
-          "cards_sha256": "39c79dcd18b1591df2cd79dcbafd818238d762d5e7a59c94b572d95e9e78616e",
-          "index_sha256": "608a8e9186cc4d68b9a2fe45bfa4a683f03f08d434e3554410bae6b21087703e",
-          "policy_sha256": "a7a8951b89013332d4ffe747290b2b9b0d5e8e346bb0a86a2005b491c1372fc6",
-          "taxonomy_sha256": "339335cedc0c6fc271982460d13bd09efaa13e0c7ca99abe45ab78c79b6a0c53",
-          "card_schema_version": "1.0.0",
-          "index_format_version": 1,
-          "retrieval_policy_version": "1.0.0",
+          "catalog_snapshot_id": "fixture-catalog-2",
+          "source_sha256": "d487719a3299ca76a52d9f7bf5f89cfd1323c65c6777b0d5e4c65adcc381fed5",
+          "cards_sha256": "d955adc033ff103d03496fcd1b22d6bdd9a9f7562be57c1b5de004ecc0e3b76f",
+          "index_sha256": "ab9dbb9a03701785ecdc76b1b17718a4a7ed7a62b03da044aa6e8fcbf0208063",
+          "policy_sha256": "c1a150b36a10c67c0220df31af88f90d59e353bdca2f52cb469e06ac6bb7fdca",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f",
+          "card_schema_version": "2.0.0",
+          "activity_schema_version": "2.0.0",
+          "index_format_version": 2,
+          "retrieval_policy_version": "2.0.0",
           "corpus_kind": "synthetic_fixture"
         },
-        "builder_version": "1.0.0",
+        "builder_version": "2.0.0",
         "sqlite_version": "3.0.0",
         "built_at": "2026-08-31T09:00:00Z",
         "source_snapshot_date": "2024-01-02",
@@ -291,16 +303,16 @@
         "policy_file": "retrieval-policy.json",
         "contains_project_context": false,
         "read_only_runtime": true,
-        "logical_rows_sha256": "56b2931b458f00152b9ff406f3275362022d38363c86c0eedb81b06435cff4b2"
+        "logical_rows_sha256": "34f9e4b5d9d26c1abde12217ba4258bc20db6f16f32fc4f9e7cf41a1eee46a15"
       },
       "expected_status": "ok",
       "k": 3,
       "judgments": [
         {
-          "repo_id": "gh-pending:stackguide-fixtures/embedded-search",
           "grade": 0,
           "constraint": "denied",
-          "rationale": "Independent fixed fact: the synthetic card is MIT, so it fails this mandatory GPL-3.0-only constraint."
+          "rationale": "Independent fixed fact: the synthetic card is MIT, so it fails this mandatory GPL-3.0-only constraint.",
+          "github_repository_id": 900000001
         }
       ],
       "accepted_gaps": [
@@ -320,13 +332,13 @@
       "judgment_provenance": "independent_synthetic_known_answer",
       "run_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
       "query": {
-        "schema_version": "1.0.0",
+        "schema_version": "2.0.0",
         "query_id": "query-index-missing",
         "brief_version": 1,
         "source_mode": "catalog_only",
         "retrieval_engine": "sqlite_fts5",
-        "policy_version": "1.0.0",
-        "policy_sha256": "a7a8951b89013332d4ffe747290b2b9b0d5e8e346bb0a86a2005b491c1372fc6",
+        "policy_version": "2.0.0",
+        "policy_sha256": "c1a150b36a10c67c0220df31af88f90d59e353bdca2f52cb469e06ac6bb7fdca",
         "language": "mixed",
         "variants": [
           {
@@ -368,17 +380,20 @@
         },
         "max_candidates": 60,
         "max_cards": 12,
-        "max_evidence_bytes": 49152
+        "max_evidence_bytes": 49152,
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 2
       },
       "index_manifest": null,
       "expected_status": "retrieval_unavailable",
       "k": 3,
       "judgments": [
         {
-          "repo_id": "gh-pending:stackguide-fixtures/embedded-search",
           "grade": 3,
           "constraint": "allowed",
-          "rationale": "The authored synthetic brief needs embedded local Python search under MIT, without a server. This fixed example satisfies those declared facts."
+          "rationale": "The authored synthetic brief needs embedded local Python search under MIT, without a server. This fixed example satisfies those declared facts.",
+          "github_repository_id": 900000001
         }
       ],
       "accepted_gaps": [

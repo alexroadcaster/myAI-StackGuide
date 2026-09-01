@@ -1,6 +1,6 @@
 {
-  "schema_version": "1.0.0",
-  "policy_id": "fts5-local-v1",
+  "schema_version": "2.0.0",
+  "policy_id": "fts5-local-v2",
   "source_mode": "catalog_only",
   "retrieval_engine": "sqlite_fts5",
   "tokenizer": "unicode61",
@@ -11,7 +11,9 @@
   "model_supplied_sql": false,
   "field_weights": {
     "full_name": 5.0,
-    "description": 3.0,
+    "full_name_aliases": 5.0,
+    "upstream_description": 3.0,
+    "catalog_description": 3.0,
     "topics": 3.0,
     "category_labels": 1.0,
     "use_cases": 3.0,
@@ -22,8 +24,8 @@
     "method": "rrf",
     "k": 60,
     "variant_weights": "equal",
-    "dedupe_key": "canonical_repo_id",
-    "tie_breaker": "canonical_repo_id_ascending",
+    "dedupe_key": "github_repository_id",
+    "tie_breaker": "github_repository_id_ascending",
     "compare_raw_bm25_across_variants": false
   },
   "limits": {

@@ -1,13 +1,13 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://myai-stackguide.invalid/contracts/v1/catalog/candidate-eligibility.schema.json",
+  "$id": "https://myai-stackguide.invalid/contracts/v2/catalog/candidate-eligibility.schema.json",
   "title": "Request-specific eligibility independent from catalog status",
-  "description": "Local CP-03 v1 contract. This schema does not execute or authorize side effects.",
+  "description": "Local CP-03-C9-V2 contract. This schema does not execute or authorize side effects.",
   "type": "object",
   "additionalProperties": false,
   "required": [
     "schema_version",
-    "repo_id",
+    "github_repository_id",
     "query_id",
     "status",
     "checks",
@@ -16,13 +16,11 @@
   ],
   "properties": {
     "schema_version": {
-      "const": "1.0.0"
+      "const": "2.0.0"
     },
-    "repo_id": {
-      "type": "string",
-      "minLength": 1,
-      "maxLength": 180,
-      "pattern": "^gh(?:-pending)?:[A-Za-z0-9_.:/-]+$"
+    "github_repository_id": {
+      "type": "integer",
+      "minimum": 1
     },
     "query_id": {
       "type": "string",
@@ -158,6 +156,7 @@
     }
   ],
   "x-invariants": [
+    "github_repository_id is the same positive integer used by the card, retrieval candidate and evidence-pack join.",
     "Checks cover mandatory query fields plus availability, archived and advisory_evidence; duplicates and omitted checks fail.",
     "primary_eligible requires an available, explicitly unarchived card, traced advisory fields and all mandatory facts satisfied. Unknowns remain references with concrete next checks; archive status alone is not evidence of operability."
   ]

@@ -60,7 +60,9 @@ class CaptureSemanticCases(unittest.TestCase):
         cls.captures = EVAL.load_json(ROOT / 'tests/fixtures/plugin_retrieval_eval.json')
 
     def test_four_synthetic_c9_relational_examples(self):
-        for case, capture in zip(self.cases['cases'], self.captures['records']):
+        captures = {item['case_id']: item for item in self.captures['records']}
+        for case in self.cases['cases']:
+            capture = captures[case['case_id']]
             with self.subTest(case=case['case_id']):
                 EVAL.validate_capture(case, capture, None)
 
@@ -79,9 +81,9 @@ class CaptureSemanticCases(unittest.TestCase):
         spec = importlib.util.spec_from_file_location('cp03_semantic_oracle', ROOT / 'tests/test_plugin_contracts.py')
         cp03 = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(cp03)
-        for pointer, value in [('/evidence_pack/cards/0/card/aliases',
-                               [self.captures['records'][0]['retrieval']['candidates'][0]['repo_id']]),
-                              ('/evidence_pack/cards/0/card/license', 'GPL-3.0-only'),
+        for pointer, value in [('/evidence_pack/cards/0/card/identity/full_name_aliases',
+                               [self.captures['records'][0]['evidence_pack']['cards'][0]['card']['identity']['full_name']]),
+                              ('/evidence_pack/cards/0/card/repository/license', 'GPL-3.0-only'),
                               ('/evidence_pack/cards/0/eligibility/checks/0/evidence_refs', ['invented']),
                               ('/evidence_pack/cards/0/card/activity/observations/2/source_field', 'repository_pushed_at')]:
             state = cp03.mutate(cp03.baseline(), pointer, value)
@@ -140,8 +142,25 @@ class CapturedContractCases(unittest.TestCase):
             lambda v: v['records'][0]['retrieval'].update(query_sha256='f' * 64),
             lambda v: v['records'][0]['retrieval'].update(brief_version=2),
             lambda v: v['records'][0]['retrieval']['pins'].update(index_sha256='f' * 64),
-            lambda v: v['records'][0]['retrieval']['pins'].update(card_schema_version='2.0.0'),
+            lambda v: v['records'][0]['retrieval']['pins'].update(card_schema_version='1.0.0'),
+            lambda v: v['records'][0]['retrieval']['pins'].update(activity_schema_version='1.0.0'),
+            lambda v: v['records'][0]['retrieval']['pins'].update(index_format_version=1),
+            lambda v: v['records'][0]['retrieval']['pins'].update(retrieval_policy_version='1.0.0'),
             lambda v: v['records'][0]['evidence_pack'].update(query_sha256='f' * 64),
+        ]:
+            with self.subTest(mutation=mutate):
+                self.invalid(mutate)
+
+    def test_c9_v2_rejects_legacy_or_generic_repository_identity(self):
+        for mutate in [
+            lambda v: v['records'][0]['retrieval']['candidates'][0].update(
+                github_repository_id='catalog-record-id'),
+            lambda v: v['records'][0]['evidence_pack']['cards'][0]['card']['identity'].update(
+                github_repository_id='900000001'),
+            lambda v: v['records'][0]['evidence_pack']['cards'][0]['eligibility'].update(
+                github_repository_id=0),
+            lambda v: v['records'][0]['retrieval']['candidates'][0].update(
+                repo_id='catalog-record-id'),
         ]:
             with self.subTest(mutation=mutate):
                 self.invalid(mutate)
@@ -194,10 +213,10 @@ class CapturedContractCases(unittest.TestCase):
 
     def test_c9_semantic_card_alias_provenance_and_eligibility_join(self):
         for mutate in [
-            lambda v: v['records'][0]['evidence_pack']['cards'][0]['card'].update(
-                aliases=[v['records'][0]['evidence_pack']['cards'][0]['card']['repo_id']]),
-            lambda v: v['records'][0]['evidence_pack']['cards'][0]['card'].update(license='GPL-3.0-only'),
-            lambda v: v['records'][0]['evidence_pack']['cards'][0]['card'].update(catalog_status='accepted'),
+            lambda v: v['records'][0]['evidence_pack']['cards'][0]['card']['identity'].update(
+                full_name_aliases=[v['records'][0]['evidence_pack']['cards'][0]['card']['identity']['full_name']]),
+            lambda v: v['records'][0]['evidence_pack']['cards'][0]['card']['repository'].update(license='GPL-3.0-only'),
+            lambda v: v['records'][0]['evidence_pack']['cards'][0]['card']['catalog'].update(status='accepted'),
             lambda v: v['records'][0]['evidence_pack']['cards'][0]['eligibility'].update(checks=[]),
             lambda v: v['records'][0]['evidence_pack']['cards'][0]['card']['activity']['observations'][2].update(
                 source_field='repository_pushed_at'),
@@ -209,7 +228,7 @@ class CapturedContractCases(unittest.TestCase):
         captures = copy.deepcopy(self.captures)
         first = captures['records'][0]
         first['evidence_pack'].update(cards=[], status='no_match', reason_codes=['mandatory_fact_unknown'],
-            exclusions=[{'repo_id':first['retrieval']['candidates'][0]['repo_id'],
+            exclusions=[{'github_repository_id':first['retrieval']['candidates'][0]['github_repository_id'],
                          'reason_codes':['mandatory_fact_unknown']}])
         first['measurements']['evidence_pack_bytes'] = len(EVAL.canonical(first['evidence_pack']))
         report = self.grade(captures)
@@ -231,16 +250,16 @@ class CapturedContractCases(unittest.TestCase):
 
     def test_nested_utf8_budget_and_untrusted_dollar_ref_are_inert(self):
         def oversize(value):
-            value['records'][0]['evidence_pack']['cards'][0]['card']['description'] = 'я' * 1801
+            value['records'][0]['evidence_pack']['cards'][0]['card']['descriptions']['upstream'] = 'я' * 1801
         self.invalid(oversize)
         self.invalid(lambda v: v['records'][0].update(**{'$ref':'https://example.invalid/private'}))
 
     def test_nested_byte_limit_survives_dollar_schema_validator_reset(self):
         captures = copy.deepcopy(self.captures)
         card = captures['records'][0]['evidence_pack']['cards'][0]['card']
-        for field in ('use_cases', 'best_for', 'avoid_if'):
-            card[field] = ['я' * 298 + str(index) for index in range(8)]
-        self.assertGreater(len(EVAL.canonical(card)), 12288)
+        for field in ('use_cases', 'best_for', 'tradeoffs', 'avoid_if'):
+            card['advisory'][field] = ['я' * 498 + str(index) for index in range(10)]
+        self.assertGreater(len(EVAL.canonical(card)), 24576)
         self.assertLess(len(EVAL.canonical(captures['records'][0]['evidence_pack'])), 49152)
         with self.assertRaisesRegex(ValueError, 'byte budget|schema validation'):
             self.grade(captures)

@@ -14,7 +14,8 @@ from datetime import date, datetime
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-BASE = 'https://myai-stackguide.invalid/contracts/v1/'
+BASES = ('https://myai-stackguide.invalid/contracts/v1/',
+         'https://myai-stackguide.invalid/contracts/v2/')
 MAX_INPUT_BYTES = 2 * 1024 * 1024
 FAILURES = {
     'no_match': {'no_hits'},
@@ -74,11 +75,13 @@ class Contracts:
         files = sorted((ROOT / 'specs').rglob('*.schema.json'))
         files += [ROOT / 'evals/scenario.schema.json', ROOT / 'evals/result.schema.json']
         self.schemas = {}
+        self.by_relative = {}
         for path in files:
             schema = load_json(path)
             Draft202012Validator.check_schema(schema)
             require(schema['$id'] not in self.schemas, 'duplicate schema identity')
             self.schemas[schema['$id']] = schema
+            self.by_relative[str(path.relative_to(ROOT)).replace('\\', '/').removeprefix('specs/')] = schema['$id']
         self.schema_set_sha256 = digest({str(path.relative_to(ROOT)).replace('\\', '/'):
                                          hashlib.sha256(path.read_bytes()).hexdigest()
                                          for path in files})
@@ -89,11 +92,13 @@ class Contracts:
             if isinstance(value, dict):
                 if '$ref' in value:
                     ref = value['$ref']
-                    require(ref.startswith(BASE), 'unapproved schema reference')
-                    try:
-                        self.registry.resolver().lookup(ref)
-                    except Exception as exc:
-                        raise ValueError('unresolved offline schema reference') from exc
+                    require(ref.startswith(BASES) or ref.startswith('#'),
+                            'unapproved schema reference')
+                    if ref.startswith(BASES):
+                        try:
+                            self.registry.resolver().lookup(ref)
+                        except Exception as exc:
+                            raise ValueError('unresolved offline schema reference') from exc
                 for child in value.values():
                     check_refs(child)
             elif isinstance(value, list):
@@ -130,48 +135,66 @@ class Contracts:
         self.standard_validator_type = Draft202012Validator
         self.checker = checker
 
-    def check_bytes(self, schema, value, seen=None):
+    def check_bytes(self, schema, value, seen=None, root_schema=None):
         """Walk applicable branches explicitly: $schema may reset an extended validator."""
         seen = set() if seen is None else seen
+        root_schema = schema if root_schema is None else root_schema
         if not isinstance(schema, dict) or (id(schema), id(value)) in seen:
             return
         seen.add((id(schema), id(value)))
         if 'x-max-utf8-bytes' in schema:
             require(len(canonical(value)) <= schema['x-max-utf8-bytes'], 'nested compact UTF-8 byte budget')
         if '$ref' in schema:
-            self.check_bytes(self.registry.resolver().lookup(schema['$ref']).contents, value, seen)
+            location, _, fragment = schema['$ref'].partition('#')
+            target = self.registry.resolver().lookup(location).contents if location else root_schema
+            target_root = target if location else root_schema
+            for part in fragment.strip('/').split('/') if fragment else []:
+                target = target[part]
+            self.check_bytes(target, value, seen, target_root)
         if isinstance(value, dict):
             for name, child in schema.get('properties', {}).items():
                 if name in value:
-                    self.check_bytes(child, value[name], seen)
+                    self.check_bytes(child, value[name], seen, root_schema)
         if isinstance(value, list) and 'items' in schema:
             for child in value:
-                self.check_bytes(schema['items'], child, seen)
+                self.check_bytes(schema['items'], child, seen, root_schema)
         for child in schema.get('allOf', []):
-            self.check_bytes(child, value, seen)
+            self.check_bytes(child, value, seen, root_schema)
         for keyword in ('anyOf', 'oneOf'):
             for child in schema.get(keyword, []):
-                validator = self.standard_validator_type(child, registry=self.registry, format_checker=self.checker)
+                validator = self.standard_validator_type(
+                    root_schema, registry=self.registry,
+                    format_checker=self.checker).evolve(schema=child)
                 if validator.is_valid(value):
-                    self.check_bytes(child, value, seen)
+                    self.check_bytes(child, value, seen, root_schema)
         if 'if' in schema:
-            validator = self.standard_validator_type(schema['if'], registry=self.registry, format_checker=self.checker)
+            validator = self.standard_validator_type(
+                root_schema, registry=self.registry,
+                format_checker=self.checker).evolve(schema=schema['if'])
             keyword = 'then' if validator.is_valid(value) else 'else'
             if keyword in schema:
-                self.check_bytes(schema[keyword], value, seen)
+                self.check_bytes(schema[keyword], value, seen, root_schema)
 
     def validate(self, relative, value):
         canonical(value)
+        schema_id = self.by_relative[relative]
         try:
-            self.validators[BASE + relative].validate(value)
+            self.validators[schema_id].validate(value)
         except Exception as exc:
             # Do not echo untrusted or confidential payload values in CLI errors.
             raise ValueError('schema validation failed: ' + relative) from exc
-        self.check_bytes(self.schemas[BASE + relative], value)
+        self.check_bytes(self.schemas[schema_id], value)
 
 
 def unique(values, label):
     require(len(values) == len(set(values)), 'duplicate ' + label)
+
+
+def require_v2_pins(pins):
+    require(pins['card_schema_version'] == '2.0.0' and
+            pins['activity_schema_version'] == '2.0.0' and
+            pins['index_format_version'] == 2 and
+            pins['retrieval_policy_version'] == '2.0.0', 'mixed C9 version pins')
 
 
 def validate_cases(cases, contracts):
@@ -185,6 +208,9 @@ def validate_cases(cases, contracts):
     taxonomy_hash = hashlib.sha256((ROOT / 'specs/catalog/taxonomy.yaml').read_bytes()).hexdigest()
     for case in cases['cases']:
         query, manifest = case['query'], case['index_manifest']
+        require(query['schema_version'] == '2.0.0' and query['policy_version'] == '2.0.0' and
+                query['card_schema_version'] == '2.0.0' and query['activity_schema_version'] == '2.0.0' and
+                query['index_format_version'] == 2, 'mixed query contract versions')
         require(query['policy_sha256'] == policy_hash, 'query policy pin')
         require(query['max_cards'] <= query['max_candidates'], 'card/candidate budget')
         unique([variant['variant_id'] for variant in query['variants']], 'query variant')
@@ -200,9 +226,10 @@ def validate_cases(cases, contracts):
         if manifest is None:
             require(case['expected_status'] not in ('ok', 'no_match'), 'missing manifest success')
         else:
+            require_v2_pins(manifest['pins'])
             require(manifest['pins']['policy_sha256'] == policy_hash and
                     manifest['pins']['taxonomy_sha256'] == taxonomy_hash, 'manifest policy/taxonomy pin')
-        unique([item['repo_id'] for item in case['judgments']], 'judgment ID')
+        unique([item['github_repository_id'] for item in case['judgments']], 'judgment ID')
         require(case['judgment_provenance'] == 'independent_synthetic_known_answer',
                 'unreviewed relevance provenance')
     return cases
@@ -211,66 +238,101 @@ def validate_cases(cases, contracts):
 def validate_card_eligibility(entry, query):
     """Verify C9 public-card provenance and constraint trace before scoring judgments."""
     card, eligibility = entry['card'], entry['eligibility']
-    require(card['url'] == 'https://github.com/' + card['full_name'], 'card URL identity')
-    require(card['repo_id'] not in card['aliases'], 'card self alias')
-    unique(card['aliases'], 'card alias')
+    identity = card['identity']
+    require(type(identity['github_repository_id']) is int and identity['github_repository_id'] > 0,
+            'invalid numeric GitHub identity')
+    require(identity['url'] == 'https://github.com/' + identity['full_name'], 'card URL identity')
+    require(identity['full_name'] not in identity['full_name_aliases'], 'card self alias')
+    unique(identity['full_name_aliases'], 'card alias')
+    require(identity['catalog_record_id'] not in identity['merged_catalog_record_ids'], 'repeated catalog lineage')
+    unique(identity['merged_catalog_record_ids'], 'merged catalog lineage')
     taxonomy = load_json(ROOT / 'specs/catalog/taxonomy.yaml')
-    categories = {item['id'] for item in taxonomy['categories']}
-    require(card['primary_category'] in categories and set(card['secondary_categories']) <= categories,
-            'unknown category')
-    require(card['primary_category'] not in card['secondary_categories'], 'repeated primary category')
-    require(card['license'] not in ('NOASSERTION', 'unknown', ''), 'unknown license must be null')
+    categories = {item['id']: item for item in taxonomy['categories']}
+    classifications = card['classifications']
+    unique([item['category_id'] for item in classifications], 'classification')
+    require(sum(item['role'] == 'primary' for item in classifications) == 1, 'primary classification count')
+    for item in classifications:
+        source = categories.get(item['category_id'])
+        require(source is not None and source.get('kind') != 'container', 'unknown/container classification')
+        require(item['title'] == source['label'] and item['kind'] == source.get('kind', 'category') and
+                item['parent_id'] == source.get('parent_id'), 'classification metadata mismatch')
+    license_fact = card['repository']['license']
+    require(license_fact is None or (isinstance(license_fact, dict) and
+            license_fact.get('spdx') not in ('NOASSERTION', 'unknown', '')),
+            'unknown license must be null')
     evidence = {item['evidence_id']: item for item in card['evidence']}
     require(len(evidence) == len(card['evidence']), 'duplicate public evidence')
-    if card['catalog_status'] == 'accepted':
-        source = 'curator_record' if card['catalog_status_source'] == 'curator_decision' else 'catalog_snapshot'
-        require(any(item['source_kind'] == source and '/catalog_status' in item['fields']
+    if card['catalog']['status'] == 'accepted':
+        source = 'curator_record' if card['catalog']['status_source'] == 'curator_decision' else 'catalog_snapshot'
+        require(any(item['source_kind'] == source and '/catalog/status' in item['fields']
                     for item in evidence.values()), 'unsupported catalog acceptance')
     if card['corpus_kind'] != 'synthetic_fixture':
         require(all(item['source_kind'] != 'synthetic_fixture' and
                     not item['source_ref'].startswith('fixture:') for item in evidence.values()),
                 'synthetic evidence mislabeled')
-    activity_fields = {'createdAt': 'repository_created_at', 'pushedAt': 'repository_pushed_at',
-                       'lastCommitAt': 'commit_committed_date', 'lastReleaseAt': 'release_published_at'}
+    activity_fields = {'created_at': 'repository_created_at', 'repository_updated_at': 'repository_updated_at',
+                       'pushed_at': 'repository_pushed_at', 'last_commit_at': 'commit_committed_date',
+                       'last_release_at': 'release_published_at', 'last_synced_at': 'last_synced_at',
+                       'observed_at': 'observed_at'}
     activity = card['activity']
     unique([item['field'] for item in activity['observations']], 'activity observation')
     require({item['field'] for item in activity['observations']} ==
             {field for field in activity_fields if activity[field] is not None}, 'activity observation coverage')
     for observation in activity['observations']:
-        field, ref = observation['field'], observation['evidence_ref']
+        field = observation['field']
         require(observation['source_field'] == activity_fields[field], 'activity event conflation')
-        require(ref in evidence and '/activity/' + field in evidence[ref]['fields'] and
-                evidence[ref]['observed_at'] == observation['observedAt'], 'activity evidence mismatch')
-    require(eligibility['repo_id'] == card['repo_id'] and eligibility['query_id'] == query['query_id'],
+        require(all(ref in evidence and '/activity/' + field in evidence[ref]['fields']
+                    for ref in observation['evidence_refs']), 'activity evidence mismatch')
+    require(eligibility['github_repository_id'] == identity['github_repository_id'] and
+            eligibility['query_id'] == query['query_id'],
             'eligibility identity mismatch')
     constraints = query['constraints']
+    license_spdx = license_fact.get('spdx') if isinstance(license_fact, dict) else None
     checks = {item['field']: item for item in eligibility['checks']}
     expected_fields = set(constraints['mandatory_fields']) | {'availability', 'archived', 'advisory_evidence'}
     require(len(checks) == len(eligibility['checks']) and set(checks) == expected_fields,
             'eligibility check coverage')
-    advisory = ['use_cases', 'best_for', 'adoption_mode', 'project_stages', 'complexity',
-                'integration_surface', 'compatibility']
+    advisory = ['/advisory/use_cases', '/advisory/best_for', '/advisory/adoption_mode',
+                '/advisory/project_stages', '/advisory/complexity', '/advisory/integration_surface',
+                '/advisory/compatibility']
+    paths = {
+        'license': '/repository/license', 'language': '/repository/languages',
+        'deployment': '/delivery/deployment', 'compatibility': '/advisory/compatibility',
+        'no_server': '/delivery/requires_server', 'availability': '/repository/availability',
+        'archived': '/repository/archived'
+    }
     outcomes = []
     for field, check in checks.items():
-        pointers = advisory if field == 'advisory_evidence' else [{'no_server': 'requires_server'}.get(field, field)]
+        pointers = advisory if field == 'advisory_evidence' else [paths[field]]
         refs = check['evidence_refs']
         require(set(refs) <= evidence.keys(), 'unresolved eligibility evidence')
-        sourced = all(any('/' + pointer in evidence[ref]['fields'] and
+        sourced = all(any(pointer in evidence[ref]['fields'] and
                          evidence[ref]['verification'] != 'unknown' for ref in refs) for pointer in pointers)
-        known = all(card[pointer] is not None and card[pointer] != [] and card[pointer] != 'unknown'
-                    for pointer in pointers)
+        known_values = {
+            'license': license_fact,
+            'language': card['repository']['languages'],
+            'deployment': card['delivery']['deployment']['values'],
+            'compatibility': card['advisory']['compatibility'],
+            'no_server': card['delivery']['requires_server'],
+            'availability': card['repository']['availability'],
+            'archived': card['repository']['archived'],
+            'advisory_evidence': [card['advisory'][name] for name in
+                                  ('use_cases', 'best_for', 'adoption_mode', 'project_stages', 'complexity',
+                                   'integration_surface', 'compatibility')],
+        }
+        known = known_values[field] is not None and known_values[field] != [] and known_values[field] != 'unknown'
         if not sourced or not known:
             outcome = 'unknown'
         else:
             passed = {
-                'license': card['license'] in constraints['allowed_licenses'],
-                'language': card['language'] in constraints['languages'],
-                'deployment': bool(set(card['deployment']) & set(constraints['deployment'])),
-                'compatibility': set(constraints['compatibility']) <= set(card['compatibility']),
-                'no_server': card['requires_server'] is False,
-                'availability': card['availability'] == 'available',
-                'archived': card['archived'] is False,
-                'advisory_evidence': card['evidence_stage'] == 'advisory_evidence_complete',
+                'license': license_spdx in constraints['allowed_licenses'],
+                'language': bool({item['name'] for item in card['repository']['languages']} & set(constraints['languages'])),
+                'deployment': bool(set(card['delivery']['deployment']['values']) & set(constraints['deployment'])),
+                'compatibility': set(constraints['compatibility']) <= set(card['advisory']['compatibility']),
+                'no_server': card['delivery']['requires_server'] is False,
+                'availability': card['repository']['availability'] == 'available',
+                'archived': card['repository']['archived'] is False,
+                'advisory_evidence': card['catalog']['evidence_stage'] == 'advisory_evidence_complete',
             }[field]
             outcome = 'pass' if passed else 'fail'
         require(check['outcome'] == outcome, 'unsupported eligibility ' + field)
@@ -288,6 +350,8 @@ def validate_capture(case, capture, contracts):
     policy = load_json(ROOT / 'specs/retrieval/retrieval-policy.json')
     result, pack = capture['retrieval'], capture['evidence_pack']
     expected_pins = manifest['pins'] if manifest is not None else None
+    if expected_pins is not None:
+        require_v2_pins(expected_pins)
     for item in (result, pack):
         require(item['run_id'] == case['run_id'], 'run ID mismatch')
         require(item['query_id'] == query['query_id'] and item['query_sha256'] == digest(query),
@@ -302,11 +366,11 @@ def validate_capture(case, capture, contracts):
                             'no_match' if result['status'] in ('ok', 'no_match') else 'unavailable')
     require(pack['status'] == expected_pack_status, 'retrieval/pack status mismatch')
     candidates = result['candidates']
-    ids = [item['repo_id'] for item in candidates]
+    ids = [item['github_repository_id'] for item in candidates]
     unique(ids, 'candidate ID')
     require([item['rank'] for item in candidates] == list(range(1, len(candidates) + 1)),
             'noncontiguous candidate ranks')
-    require(candidates == sorted(candidates, key=lambda item: (-item['rrf_score'], item['repo_id'])),
+    require(candidates == sorted(candidates, key=lambda item: (-item['rrf_score'], item['github_repository_id'])),
             'RRF ordering mismatch')
     require(result['retrieved_hits'] <= query['max_candidates'], 'aggregate hit budget')
     require(result['executed_variants'] <= len(query['variants']), 'variant cardinality')
@@ -333,23 +397,24 @@ def validate_capture(case, capture, contracts):
                     'unexecuted no-match')
     elif result['truncated']:
         require('candidate_budget' in result['reason_codes'], 'missing truncation reason')
-    card_ids = [item['card']['repo_id'] for item in pack['cards']]
-    excluded = [item['repo_id'] for item in pack['exclusions']]
+    card_ids = [item['card']['identity']['github_repository_id'] for item in pack['cards']]
+    excluded = [item['github_repository_id'] for item in pack['exclusions']]
     unique(card_ids, 'pack card')
     unique(excluded, 'excluded ID')
     require(not set(card_ids) & set(excluded), 'included and excluded candidate')
     require(set(card_ids) | set(excluded) == set(ids), 'candidate pack coverage mismatch')
     require(len(card_ids) <= query['max_cards'], 'pack card budget')
     require(len(canonical(pack)) <= query['max_evidence_bytes'], 'requested evidence byte budget')
-    candidates_by_id = {item['repo_id']: item for item in candidates}
+    candidates_by_id = {item['github_repository_id']: item for item in candidates}
     aliases = []
     for item in pack['cards']:
         validate_card_eligibility(item, query)
-        aliases.extend([item['card']['repo_id'], *item['card']['aliases']])
-        candidate = candidates_by_id[item['card']['repo_id']]
+        card_id = item['card']['identity']['github_repository_id']
+        aliases.extend([item['card']['identity']['full_name'], *item['card']['identity']['full_name_aliases']])
+        candidate = candidates_by_id[card_id]
         require(item['retrieval_rank'] == candidate['rank'] and item['rrf_score'] == candidate['rrf_score'] and
                 item['matched_fields'] == candidate['matched_fields'], 'card retrieval trace mismatch')
-        require(item['eligibility']['repo_id'] == item['card']['repo_id'] and
+        require(item['eligibility']['github_repository_id'] == card_id and
                 item['eligibility']['query_id'] == query['query_id'], 'eligibility identity mismatch')
         require(item['eligibility']['status'] != 'blocked', 'blocked card in evidence pack')
         require(item['card']['corpus_kind'] == expected_pins['corpus_kind'], 'corpus kind mismatch')
@@ -404,14 +469,14 @@ def evaluate(cases, captures, contracts=None):
         capture = captured[case['case_id']]
         validate_capture(case, capture, contracts)
         result, pack = capture['retrieval'], capture['evidence_pack']
-        expected = {item['repo_id']: item for item in case['judgments']}
-        ranked_ids = [item['repo_id'] for item in result['candidates']]
+        expected = {item['github_repository_id']: item for item in case['judgments']}
+        ranked_ids = [item['github_repository_id'] for item in result['candidates']]
         require(set(ranked_ids) <= expected.keys(), 'unjudged candidate')
         status_ok = result['status'] == case['expected_status']
         eligible = {repo_id for repo_id, item in expected.items() if item['constraint'] == 'allowed'}
         denied = {repo_id for repo_id, item in expected.items() if item['constraint'] == 'denied'}
-        selected = {item['card']['repo_id'] for item in pack['cards']}
-        excluded = {item['repo_id'] for item in pack['exclusions']
+        selected = {item['card']['identity']['github_repository_id'] for item in pack['cards']}
+        excluded = {item['github_repository_id'] for item in pack['exclusions']
                     if set(item['reason_codes']) & {'constraint_mismatch', 'mandatory_fact_unknown', 'archived', 'unavailable'}}
         violations = len(selected & denied)
         false_exclusions = len(excluded & eligible)
@@ -422,7 +487,7 @@ def evaluate(cases, captures, contracts=None):
                         'candidate_count': len(ranked_ids), 'pack_card_count': len(selected),
                         'evidence_pack_bytes': len(canonical(pack)),
                         'compatible': status_ok and violations == 0 and false_exclusions == 0})
-    return {'schema_version': 'retrieval_score_v1', 'evidence_kind': captures['evidence_kind'],
+    return {'schema_version': 'retrieval_score_v2', 'evidence_kind': captures['evidence_kind'],
             'verdict': 'synthetic_compatibility_only', 'promotion_ready': False,
             'quality_thresholds_calibrated': False, 'records': records,
             'passed': all(item['compatible'] for item in records)}

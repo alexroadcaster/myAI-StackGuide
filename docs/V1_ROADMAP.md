@@ -9,8 +9,8 @@ Deliver a local Codex plugin that turns a user goal and project context into a u
 | Phase | Tasks | Exit evidence / status |
 | --- | --- | --- |
 | P0: direction and design | CP-01, CP-02 | Documentation implemented, amended to FTS5/relevant context/activity/integration; no runtime proof |
-| P1: local contracts and readiness | CP-03, CP-04, CP-05 | Recorded CP-03/C8 v1 results remain historical (46/46 and 27/27 plus CLI). Active `CP-03-C9-V2` card/activity/retrieval contracts and C8 captures must migrate atomically; CP-05 instructions are applied/static-verified, while CP-04 quality calibration and CP-05 fresh-session behavior remain open. |
-| P2: local useful vertical slice | CP-06-CP-11 | After the v2 contract gate, build one self-contained `RepositoryCardV2` per numeric identity and a paired FTS v2 index/policy, then intake/state, bounded context, read-only evidence pack and integration report; actual v2 1/1 route then targeted negatives/scaling; planned |
+| P1: local contracts and readiness | CP-03, CP-04, CP-05 | Recorded CP-03/C8 v1 results remain historical (46/46 and 27/27 plus CLI). `CP-03-C9-V2` is contract-verified (46/46 CP-03, 28/28 C8 and both v2 CLI gates); CP-05 instructions are applied/static-verified, while CP-04 quality calibration and CP-05 fresh-session behavior remain open. |
+| P2: local useful vertical slice | CP-06-CP-11 | With the v2 contract gate complete, CP-06 next builds one self-contained `RepositoryCardV2` per numeric identity and a paired FTS v2 index/policy, then intake/state, bounded context, read-only evidence pack and integration report; actual v2 1/1 route then targeted negatives/scaling; planned |
 | P3: optional remote extension | CP-12-CP-14 | Deferred pending a separate service/auth/consent/architecture decision; no local P4/P5 dependency |
 | P4: independent local acceptance | CP-15 | Depends on CP-04, CP-10, CP-11; held-out retrieval, privacy, rendered UI and integration usefulness; planned |
 | P5: local package and release decision | CP-16 | Depends on CP-01, CP-05, CP-06, CP-15; actual package/index/runtime/fresh-session/rollback evidence; publication separately authorized |

@@ -1,103 +1,39 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://myai-stackguide.invalid/contracts/v1/catalog/activity-evidence.schema.json",
-  "title": "Repository activity independent from observation age",
-  "description": "Local CP-03 v1 contract. This schema does not execute or authorize side effects.",
+  "$id": "https://myai-stackguide.invalid/contracts/v2/catalog/activity-evidence.schema.json",
+  "title": "Repository ActivityV2 independent from observation age",
+  "description": "Local CP-03-C9-V2 contract. Distinct upstream dates remain distinct; this schema does not execute or authorize side effects.",
   "type": "object",
   "additionalProperties": false,
   "required": [
-    "schema_version",
-    "createdAt",
-    "pushedAt",
-    "lastCommitAt",
-    "lastReleaseAt",
-    "lastCommitSha",
-    "lastCommitBranch",
-    "observations"
+    "schema_version", "created_at", "repository_updated_at", "pushed_at", "last_commit_at", "last_release_at",
+    "last_synced_at", "observed_at", "last_commit_sha", "last_commit_branch", "status", "observations"
   ],
   "properties": {
-    "schema_version": {
-      "const": "1.0.0"
-    },
-    "createdAt": {
+    "schema_version": { "const": "2.0.0" },
+    "created_at": { "$ref": "#/$defs/nullableTimestamp" },
+    "repository_updated_at": { "$ref": "#/$defs/nullableTimestamp" },
+    "pushed_at": { "$ref": "#/$defs/nullableTimestamp" },
+    "last_commit_at": { "$ref": "#/$defs/nullableTimestamp" },
+    "last_release_at": { "$ref": "#/$defs/nullableTimestamp" },
+    "last_synced_at": { "$ref": "#/$defs/nullableTimestamp" },
+    "observed_at": { "$ref": "#/$defs/nullableTimestamp" },
+    "last_commit_sha": {
       "anyOf": [
-        {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 32,
-          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,6})?Z$",
-          "format": "date-time"
-        },
-        {
-          "type": "null"
-        }
+        { "type": "string", "minLength": 40, "maxLength": 40, "pattern": "^[a-f0-9]{40}$" },
+        { "type": "null" }
       ]
     },
-    "pushedAt": {
+    "last_commit_branch": {
       "anyOf": [
-        {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 32,
-          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,6})?Z$",
-          "format": "date-time"
-        },
-        {
-          "type": "null"
-        }
+        { "type": "string", "minLength": 1, "maxLength": 120 },
+        { "type": "null" }
       ]
     },
-    "lastCommitAt": {
+    "status": {
       "anyOf": [
-        {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 32,
-          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,6})?Z$",
-          "format": "date-time"
-        },
-        {
-          "type": "null"
-        }
-      ]
-    },
-    "lastReleaseAt": {
-      "anyOf": [
-        {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 32,
-          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,6})?Z$",
-          "format": "date-time"
-        },
-        {
-          "type": "null"
-        }
-      ]
-    },
-    "lastCommitSha": {
-      "anyOf": [
-        {
-          "type": "string",
-          "minLength": 40,
-          "maxLength": 40,
-          "pattern": "^[a-f0-9]{40}$"
-        },
-        {
-          "type": "null"
-        }
-      ]
-    },
-    "lastCommitBranch": {
-      "anyOf": [
-        {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 120
-        },
-        {
-          "type": "null"
-        }
+        { "type": "string", "minLength": 1, "maxLength": 80, "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]*$" },
+        { "type": "null" }
       ]
     },
     "observations": {
@@ -105,213 +41,59 @@
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "field",
-          "source_field",
-          "observedAt",
-          "evidence_ref"
-        ],
+        "required": ["field", "source_field", "observed_at", "verification", "evidence_refs"],
         "properties": {
           "field": {
             "enum": [
-              "createdAt",
-              "pushedAt",
-              "lastCommitAt",
-              "lastReleaseAt"
+              "created_at", "repository_updated_at", "pushed_at", "last_commit_at", "last_release_at", "last_synced_at", "observed_at"
             ]
           },
           "source_field": {
-            "enum": [
-              "repository_created_at",
-              "repository_pushed_at",
-              "commit_committed_date",
-              "release_published_at"
-            ]
+            "type": "string", "minLength": 1, "maxLength": 160, "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]*$"
           },
-          "observedAt": {
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 32,
-            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,6})?Z$",
-            "format": "date-time"
-          },
-          "evidence_ref": {
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 80,
-            "pattern": "^ev-[a-z0-9][a-z0-9_-]*$"
+          "observed_at": { "$ref": "#/$defs/nullableTimestamp" },
+          "verification": { "enum": ["source_reported", "verified", "derived_reviewed", "historical", "unknown"] },
+          "evidence_refs": {
+            "type": "array",
+            "items": { "type": "string", "minLength": 1, "maxLength": 80, "pattern": "^ev-[a-z0-9][a-z0-9_-]*$" },
+            "minItems": 1, "maxItems": 8, "uniqueItems": true
           }
         }
       },
-      "maxItems": 4,
-      "minItems": 0
+      "minItems": 0,
+      "maxItems": 7
+    }
+  },
+  "$defs": {
+    "nullableTimestamp": {
+      "anyOf": [
+        {
+          "type": "string", "minLength": 1, "maxLength": 32,
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,6})?Z$", "format": "date-time"
+        },
+        { "type": "null" }
+      ]
     }
   },
   "allOf": [
     {
-      "if": {
-        "properties": {
-          "createdAt": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "createdAt"
-        ]
-      },
+      "if": { "properties": { "last_commit_at": { "type": "string" } }, "required": ["last_commit_at"] },
       "then": {
         "properties": {
-          "observations": {
-            "contains": {
-              "properties": {
-                "field": {
-                  "const": "createdAt"
-                }
-              },
-              "required": [
-                "field"
-              ]
-            }
-          }
+          "last_commit_sha": { "type": "string", "minLength": 40, "maxLength": 40, "pattern": "^[a-f0-9]{40}$" },
+          "last_commit_branch": { "type": "string", "minLength": 1, "maxLength": 120 }
         }
       }
     },
     {
-      "if": {
-        "properties": {
-          "pushedAt": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "pushedAt"
-        ]
-      },
-      "then": {
-        "properties": {
-          "observations": {
-            "contains": {
-              "properties": {
-                "field": {
-                  "const": "pushedAt"
-                }
-              },
-              "required": [
-                "field"
-              ]
-            }
-          }
-        }
-      }
-    },
-    {
-      "if": {
-        "properties": {
-          "lastCommitAt": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "lastCommitAt"
-        ]
-      },
-      "then": {
-        "properties": {
-          "observations": {
-            "contains": {
-              "properties": {
-                "field": {
-                  "const": "lastCommitAt"
-                }
-              },
-              "required": [
-                "field"
-              ]
-            }
-          }
-        }
-      }
-    },
-    {
-      "if": {
-        "properties": {
-          "lastReleaseAt": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "lastReleaseAt"
-        ]
-      },
-      "then": {
-        "properties": {
-          "observations": {
-            "contains": {
-              "properties": {
-                "field": {
-                  "const": "lastReleaseAt"
-                }
-              },
-              "required": [
-                "field"
-              ]
-            }
-          }
-        }
-      }
-    },
-    {
-      "if": {
-        "properties": {
-          "lastCommitAt": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "lastCommitAt"
-        ]
-      },
-      "then": {
-        "properties": {
-          "lastCommitSha": {
-            "type": "string",
-            "minLength": 40,
-            "maxLength": 40,
-            "pattern": "^[a-f0-9]{40}$"
-          },
-          "lastCommitBranch": {
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 120
-          }
-        }
-      }
-    },
-    {
-      "if": {
-        "properties": {
-          "lastCommitAt": {
-            "type": "null"
-          }
-        },
-        "required": [
-          "lastCommitAt"
-        ]
-      },
-      "then": {
-        "properties": {
-          "lastCommitSha": {
-            "type": "null"
-          },
-          "lastCommitBranch": {
-            "type": "null"
-          }
-        }
-      }
+      "if": { "properties": { "last_commit_at": { "type": "null" } }, "required": ["last_commit_at"] },
+      "then": { "properties": { "last_commit_sha": { "type": "null" }, "last_commit_branch": { "type": "null" } } }
     }
   ],
+  "x-max-utf8-bytes": 8192,
   "x-invariants": [
-    "At most one observation per non-null activity field, with exactly matching source_field; all evidence references resolve in the repository card.",
-    "Unknown activity is null with no fabricated observation. pushedAt is never copied into lastCommitAt. No maximum snapshot/observation age is a recommendation gate."
+    "Each non-null activity timestamp has exactly one same-field observation and every observation evidence_refs entry resolves in the enclosing RepositoryCardV2 evidence array.",
+    "created_at, repository_updated_at, pushed_at, verified commit/release, sync and observation time are never copied into one another. Unknown scalar values are null and have no fabricated observation.",
+    "Legacy arrays and CAT-07A activity objects normalize into this one typed bounded observation representation. Snapshot age alone is not an adoption or recommendation gate."
   ]
 }

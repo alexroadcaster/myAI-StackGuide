@@ -1,421 +1,305 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://myai-stackguide.invalid/contracts/v1/catalog/repository-card.schema.json",
-  "title": "Public canonical repository solution card",
-  "description": "Local CP-03 v1 contract. This schema does not execute or authorize side effects.",
+  "$id": "https://myai-stackguide.invalid/contracts/v2/catalog/repository-card.schema.json",
+  "title": "RepositoryCardV2 public canonical repository solution card",
+  "description": "Local CP-03-C9-V2 self-contained public card contract. It contains no project context and does not execute or authorize side effects.",
   "type": "object",
   "additionalProperties": false,
   "required": [
-    "schema_version",
-    "repo_id",
-    "github_repository_id",
-    "full_name",
-    "url",
-    "aliases",
-    "catalog_status",
-    "catalog_status_source",
-    "evidence_stage",
-    "description",
-    "language",
-    "license",
-    "deployment",
-    "requires_server",
-    "availability",
-    "archived",
-    "primary_category",
-    "secondary_categories",
-    "topics",
-    "use_cases",
-    "best_for",
-    "avoid_if",
-    "adoption_mode",
-    "project_stages",
-    "complexity",
-    "integration_surface",
-    "compatibility",
-    "caveats",
-    "activity",
-    "evidence",
-    "missing_facts",
-    "corpus_kind"
+    "schema_version", "identity", "catalog", "descriptions", "classifications", "repository", "delivery",
+    "activity", "advisory", "provenance", "evidence", "corpus_kind"
   ],
   "properties": {
-    "schema_version": {
-      "const": "1.0.0"
-    },
-    "repo_id": {
-      "type": "string",
-      "minLength": 1,
-      "maxLength": 180,
-      "pattern": "^gh(?:-pending)?:[A-Za-z0-9_.:/-]+$"
-    },
-    "github_repository_id": {
-      "anyOf": [
-        {
-          "type": [
-            "integer",
-            "string"
-          ],
-          "minimum": 1,
-          "maxLength": 100,
-          "minLength": 1
+    "schema_version": { "const": "2.0.0" },
+    "identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "github_repository_id", "catalog_record_id", "merged_catalog_record_ids", "full_name", "full_name_aliases", "url", "identity_status"
+      ],
+      "properties": {
+        "github_repository_id": { "type": "integer", "minimum": 1 },
+        "catalog_record_id": { "$ref": "#/$defs/catalogRecordId" },
+        "merged_catalog_record_ids": {
+          "type": "array", "items": { "$ref": "#/$defs/catalogRecordId" }, "minItems": 0, "maxItems": 40, "uniqueItems": true
         },
-        {
-          "type": "null"
-        }
-      ]
-    },
-    "full_name": {
-      "type": "string",
-      "minLength": 1,
-      "maxLength": 160,
-      "pattern": "^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$"
-    },
-    "url": {
-      "type": "string",
-      "minLength": 1,
-      "maxLength": 250,
-      "pattern": "^https://github\\.com/[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$"
-    },
-    "aliases": {
-      "type": "array",
-      "items": {
-        "type": "string",
-        "minLength": 1,
-        "maxLength": 180,
-        "pattern": "^gh(?:-pending)?:[A-Za-z0-9_.:/-]+$"
-      },
-      "maxItems": 20,
-      "minItems": 0,
-      "uniqueItems": true
-    },
-    "catalog_status": {
-      "enum": [
-        "candidate",
-        "accepted",
-        "reference"
-      ]
-    },
-    "catalog_status_source": {
-      "enum": [
-        "catalog_snapshot",
-        "curator_decision"
-      ]
-    },
-    "evidence_stage": {
-      "enum": [
-        "baseline",
-        "identity_validated",
-        "advisory_evidence_complete"
-      ]
-    },
-    "description": {
-      "anyOf": [
-        {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 1800
+        "full_name": { "$ref": "#/$defs/fullName" },
+        "full_name_aliases": {
+          "type": "array", "items": { "$ref": "#/$defs/fullName" }, "minItems": 0, "maxItems": 20, "uniqueItems": true
         },
-        {
-          "type": "null"
-        }
-      ]
-    },
-    "language": {
-      "anyOf": [
-        {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 60
+        "url": {
+          "type": "string", "minLength": 1, "maxLength": 250,
+          "pattern": "^https://github\\.com/[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$"
         },
-        {
-          "type": "null"
+        "identity_status": {
+          "type": "string", "minLength": 1, "maxLength": 80, "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]*$"
         }
-      ]
+      }
     },
-    "license": {
-      "anyOf": [
-        {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 80
-        },
-        {
-          "type": "null"
-        }
-      ]
+    "catalog": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "status_source", "membership_cohort", "review_status", "evidence_stage"],
+      "properties": {
+        "status": { "enum": ["accepted", "candidate", "reference", "benchmark"] },
+        "status_source": { "enum": ["catalog_snapshot", "curator_decision"] },
+        "membership_cohort": { "enum": ["baseline", "cat07a_expansion"] },
+        "review_status": { "$ref": "#/$defs/nullableToken" },
+        "evidence_stage": { "enum": ["baseline", "identity_validated", "advisory_evidence_complete"] }
+      }
     },
-    "deployment": {
-      "type": "array",
-      "items": {
-        "enum": [
-          "local",
-          "self_hosted",
-          "cloud"
-        ]
-      },
-      "maxItems": 3,
-      "minItems": 0,
-      "uniqueItems": true
+    "descriptions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["upstream", "catalog", "catalog_origin"],
+      "properties": {
+        "upstream": { "$ref": "#/$defs/nullableDescription" },
+        "catalog": { "$ref": "#/$defs/nullableDescription" },
+        "catalog_origin": { "$ref": "#/$defs/nullableToken" }
+      }
     },
-    "requires_server": {
-      "anyOf": [
-        {
-          "type": "boolean"
-        },
-        {
-          "type": "null"
-        }
-      ]
-    },
-    "availability": {
-      "enum": [
-        "available",
-        "unavailable",
-        "unknown"
-      ]
-    },
-    "archived": {
-      "anyOf": [
-        {
-          "type": "boolean"
-        },
-        {
-          "type": "null"
-        }
-      ]
-    },
-    "primary_category": {
-      "type": "string",
-      "minLength": 1,
-      "maxLength": 100,
-      "pattern": "^[a-z][a-z0-9_]*$"
-    },
-    "secondary_categories": {
-      "type": "array",
-      "items": {
-        "type": "string",
-        "minLength": 1,
-        "maxLength": 100
-      },
-      "maxItems": 8,
-      "minItems": 0,
-      "uniqueItems": true
-    },
-    "topics": {
-      "type": "array",
-      "items": {
-        "type": "string",
-        "minLength": 1,
-        "maxLength": 80
-      },
-      "maxItems": 20,
-      "minItems": 0,
-      "uniqueItems": true
-    },
-    "use_cases": {
-      "type": "array",
-      "items": {
-        "type": "string",
-        "minLength": 1,
-        "maxLength": 300
-      },
-      "maxItems": 8,
-      "minItems": 0,
-      "uniqueItems": true
-    },
-    "best_for": {
-      "type": "array",
-      "items": {
-        "type": "string",
-        "minLength": 1,
-        "maxLength": 300
-      },
-      "maxItems": 8,
-      "minItems": 0,
-      "uniqueItems": true
-    },
-    "avoid_if": {
-      "type": "array",
-      "items": {
-        "type": "string",
-        "minLength": 1,
-        "maxLength": 300
-      },
-      "maxItems": 8,
-      "minItems": 0,
-      "uniqueItems": true
-    },
-    "adoption_mode": {
-      "anyOf": [
-        {
-          "enum": [
-            "product",
-            "library",
-            "platform",
-            "reference",
-            "comparison"
-          ]
-        },
-        {
-          "type": "null"
-        }
-      ]
-    },
-    "project_stages": {
-      "type": "array",
-      "items": {
-        "enum": [
-          "idea",
-          "empty",
-          "prototype",
-          "product"
-        ]
-      },
-      "maxItems": 4,
-      "minItems": 0,
-      "uniqueItems": true
-    },
-    "complexity": {
-      "enum": [
-        "low",
-        "medium",
-        "high",
-        "unknown"
-      ]
-    },
-    "integration_surface": {
-      "anyOf": [
-        {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 700
-        },
-        {
-          "type": "null"
-        }
-      ]
-    },
-    "compatibility": {
-      "type": "array",
-      "items": {
-        "type": "string",
-        "minLength": 1,
-        "maxLength": 160
-      },
-      "maxItems": 12,
-      "minItems": 0,
-      "uniqueItems": true
-    },
-    "caveats": {
-      "type": "array",
-      "items": {
-        "type": "string",
-        "minLength": 1,
-        "maxLength": 400
-      },
-      "maxItems": 12,
-      "minItems": 0,
-      "uniqueItems": true
-    },
-    "activity": {
-      "$ref": "https://myai-stackguide.invalid/contracts/v1/catalog/activity-evidence.schema.json"
-    },
-    "evidence": {
+    "classifications": {
       "type": "array",
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "evidence_id",
-          "source_kind",
-          "source_ref",
-          "observed_at",
-          "verification",
-          "fields"
-        ],
+        "required": ["category_id", "title", "kind", "parent_id", "role", "placement_source"],
         "properties": {
-          "evidence_id": {
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 80,
-            "pattern": "^ev-[a-z0-9][a-z0-9_-]*$"
-          },
-          "source_kind": {
-            "enum": [
-              "catalog_snapshot",
-              "github_api",
-              "upstream_document",
-              "curator_record",
-              "synthetic_fixture"
-            ]
-          },
-          "source_ref": {
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 500,
-            "pattern": "^(?:https://(?:github\\.com|raw\\.githubusercontent\\.com)/[^\\s]+|catalog:[A-Za-z0-9._:/-]+|fixture:[A-Za-z0-9._:/-]+)$"
-          },
-          "observed_at": {
+          "category_id": { "type": "string", "minLength": 1, "maxLength": 100, "pattern": "^[a-z][a-z0-9_]*$" },
+          "title": { "type": "string", "minLength": 1, "maxLength": 180 },
+          "kind": { "const": "category" },
+          "parent_id": {
             "anyOf": [
-              {
-                "type": "string",
-                "minLength": 1,
-                "maxLength": 32,
-                "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,6})?Z$",
-                "format": "date-time"
-              },
-              {
-                "type": "null"
+              { "type": "string", "minLength": 1, "maxLength": 100, "pattern": "^[a-z][a-z0-9_]*$" },
+              { "type": "null" }
+            ]
+          },
+          "role": { "enum": ["primary", "secondary"] },
+          "placement_source": { "type": "string", "minLength": 1, "maxLength": 160 }
+        }
+      },
+      "minItems": 1,
+      "maxItems": 9,
+      "contains": { "type": "object", "properties": { "role": { "const": "primary" } }, "required": ["role"] },
+      "minContains": 1,
+      "maxContains": 1
+    },
+    "repository": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "languages", "license", "topics", "stack", "homepage", "default_branch", "availability", "visibility",
+        "archived", "is_fork", "disabled", "stars", "forks", "watchers", "watchers_scope", "size_kb"
+      ],
+      "properties": {
+        "languages": {
+          "type": "array",
+          "items": {
+            "type": "object", "additionalProperties": false, "required": ["name", "scope"],
+            "properties": {
+              "name": { "type": "string", "minLength": 1, "maxLength": 80 },
+              "scope": { "enum": ["primary", "secondary"] }
+            }
+          },
+          "minItems": 0, "maxItems": 20
+        },
+        "license": {
+          "anyOf": [
+            {
+              "type": "object", "additionalProperties": false, "required": ["spdx", "name", "source", "confidence"],
+              "properties": {
+                "spdx": { "$ref": "#/$defs/nullableShortText" },
+                "name": { "$ref": "#/$defs/nullableShortText" },
+                "source": { "$ref": "#/$defs/nullableShortText" },
+                "confidence": { "$ref": "#/$defs/nullableToken" }
               }
-            ]
+            },
+            { "type": "null" }
+          ]
+        },
+        "topics": { "$ref": "#/$defs/shortTextArray" },
+        "stack": {
+          "type": "array",
+          "items": {
+            "type": "object", "additionalProperties": false, "required": ["technology", "evidence_refs"],
+            "properties": {
+              "technology": { "type": "string", "minLength": 1, "maxLength": 120 },
+              "evidence_refs": { "$ref": "#/$defs/evidenceRefs" }
+            }
           },
-          "verification": {
-            "enum": [
-              "source_reported",
-              "verified",
-              "unknown"
-            ]
+          "minItems": 0, "maxItems": 30
+        },
+        "homepage": { "$ref": "#/$defs/nullableUrl" },
+        "default_branch": { "$ref": "#/$defs/nullableShortText" },
+        "availability": { "enum": ["available", "unavailable", "unknown"] },
+        "visibility": { "enum": ["public", "unknown"] },
+        "archived": { "$ref": "#/$defs/nullableBoolean" },
+        "is_fork": { "$ref": "#/$defs/nullableBoolean" },
+        "disabled": { "$ref": "#/$defs/nullableBoolean" },
+        "stars": { "$ref": "#/$defs/nullableCount" },
+        "forks": { "$ref": "#/$defs/nullableCount" },
+        "watchers": { "$ref": "#/$defs/nullableCount" },
+        "watchers_scope": { "$ref": "#/$defs/nullableToken" },
+        "size_kb": { "$ref": "#/$defs/nullableCount" }
+      }
+    },
+    "delivery": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["form", "deployment", "hosting", "requires_server", "difficulty", "lifecycle", "maturity", "persona"],
+      "properties": {
+        "form": { "$ref": "#/$defs/reviewedScalar" },
+        "deployment": {
+          "type": "object", "additionalProperties": false, "required": ["values", "rationale"],
+          "properties": {
+            "values": { "$ref": "#/$defs/shortTextArray" },
+            "rationale": { "$ref": "#/$defs/nullableDescription" }
+          }
+        },
+        "hosting": { "$ref": "#/$defs/reviewedScalar" },
+        "requires_server": { "$ref": "#/$defs/nullableBoolean" },
+        "difficulty": { "$ref": "#/$defs/nullableToken" },
+        "lifecycle": { "$ref": "#/$defs/nullableToken" },
+        "maturity": { "$ref": "#/$defs/nullableToken" },
+        "persona": { "$ref": "#/$defs/nullableShortText" }
+      }
+    },
+    "activity": { "$ref": "https://myai-stackguide.invalid/contracts/v2/catalog/activity-evidence.schema.json" },
+    "advisory": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "recommendation_reason", "best_for", "tradeoffs", "use_cases", "avoid_if", "adoption_status", "adoption_mode",
+        "project_stages", "complexity", "integration_surface", "compatibility", "eligibility", "recommendation_status", "gaps"
+      ],
+      "properties": {
+        "recommendation_reason": { "$ref": "#/$defs/nullableDescription" },
+        "best_for": { "$ref": "#/$defs/longTextArray" },
+        "tradeoffs": { "$ref": "#/$defs/longTextArray" },
+        "use_cases": { "$ref": "#/$defs/longTextArray" },
+        "avoid_if": { "$ref": "#/$defs/longTextArray" },
+        "adoption_status": { "$ref": "#/$defs/nullableShortText" },
+        "adoption_mode": { "$ref": "#/$defs/nullableToken" },
+        "project_stages": { "$ref": "#/$defs/shortTextArray" },
+        "complexity": { "$ref": "#/$defs/nullableToken" },
+        "integration_surface": { "$ref": "#/$defs/nullableDescription" },
+        "compatibility": { "$ref": "#/$defs/shortTextArray" },
+        "eligibility": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "data_gate_passed", "reasons", "minimum_stars", "replacement_required", "catalog_acceptance_changed", "evidence_completeness"
+          ],
+          "properties": {
+            "data_gate_passed": { "$ref": "#/$defs/nullableBoolean" },
+            "reasons": { "$ref": "#/$defs/shortTextArray" },
+            "minimum_stars": { "$ref": "#/$defs/nullableCount" },
+            "replacement_required": { "$ref": "#/$defs/nullableBoolean" },
+            "catalog_acceptance_changed": { "$ref": "#/$defs/nullableBoolean" },
+            "evidence_completeness": {
+              "anyOf": [{ "type": "number", "minimum": 0, "maximum": 100 }, { "type": "null" }]
+            }
+          }
+        },
+        "recommendation_status": { "$ref": "#/$defs/nullableToken" },
+        "gaps": { "$ref": "#/$defs/longTextArray" }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sources", "frozen_pins"],
+      "properties": {
+        "sources": {
+          "type": "array",
+          "items": {
+            "type": "object", "additionalProperties": false,
+            "required": ["source_id", "source_kind", "source_ref", "observed_at", "verification"],
+            "properties": {
+              "source_id": { "type": "string", "minLength": 1, "maxLength": 80, "pattern": "^src-[a-z0-9][a-z0-9_-]*$" },
+              "source_kind": { "$ref": "#/$defs/sourceKind" },
+              "source_ref": { "$ref": "#/$defs/sourceRef" },
+              "observed_at": { "$ref": "#/$defs/nullableTimestamp" },
+              "verification": { "$ref": "#/$defs/verification" }
+            }
           },
+          "minItems": 1, "maxItems": 40
+        },
+        "frozen_pins": {
+          "type": "object", "additionalProperties": false,
+          "required": ["catalog_snapshot_id", "source_sha256", "taxonomy_sha256", "field_contract_sha256"],
+          "properties": {
+            "catalog_snapshot_id": { "type": "string", "minLength": 1, "maxLength": 128, "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$" },
+            "source_sha256": { "$ref": "#/$defs/sha256" },
+            "taxonomy_sha256": { "$ref": "#/$defs/sha256" },
+            "field_contract_sha256": { "$ref": "#/$defs/sha256" }
+          }
+        }
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["evidence_id", "source_kind", "source_ref", "observed_at", "verification", "fields"],
+        "properties": {
+          "evidence_id": { "type": "string", "minLength": 1, "maxLength": 80, "pattern": "^ev-[a-z0-9][a-z0-9_-]*$" },
+          "source_kind": { "$ref": "#/$defs/sourceKind" },
+          "source_ref": { "$ref": "#/$defs/sourceRef" },
+          "observed_at": { "$ref": "#/$defs/nullableTimestamp" },
+          "verification": { "$ref": "#/$defs/verification" },
           "fields": {
             "type": "array",
-            "items": {
-              "type": "string",
-              "minLength": 1,
-              "maxLength": 150,
-              "pattern": "^/[A-Za-z0-9_/-]+$"
-            },
-            "maxItems": 20,
-            "minItems": 1,
-            "uniqueItems": true
+            "items": { "type": "string", "minLength": 1, "maxLength": 180, "pattern": "^/[A-Za-z0-9_/-]+$" },
+            "minItems": 1, "maxItems": 40, "uniqueItems": true
           }
         }
       },
-      "maxItems": 40,
-      "minItems": 0
+      "minItems": 0, "maxItems": 60
     },
-    "missing_facts": {
-      "type": "array",
-      "items": {
-        "type": "string",
-        "minLength": 1,
-        "maxLength": 100
-      },
-      "maxItems": 20,
-      "minItems": 0,
-      "uniqueItems": true
-    },
-    "corpus_kind": {
-      "enum": [
-        "catalog_snapshot",
-        "synthetic_fixture"
-      ]
-    }
+    "corpus_kind": { "enum": ["catalog_snapshot", "synthetic_fixture"] }
   },
-  "x-max-utf8-bytes": 12288,
+  "$defs": {
+    "catalogRecordId": { "type": "string", "minLength": 1, "maxLength": 180, "pattern": "^gh(?:-pending)?:[A-Za-z0-9_.:/-]+$" },
+    "fullName": { "type": "string", "minLength": 1, "maxLength": 160, "pattern": "^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$" },
+    "sha256": { "type": "string", "minLength": 64, "maxLength": 64, "pattern": "^[a-f0-9]{64}$" },
+    "nullableTimestamp": {
+      "anyOf": [
+        { "type": "string", "minLength": 1, "maxLength": 32, "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,6})?Z$", "format": "date-time" },
+        { "type": "null" }
+      ]
+    },
+    "nullableBoolean": { "type": ["boolean", "null"] },
+    "nullableCount": { "anyOf": [{ "type": "integer", "minimum": 0 }, { "type": "null" }] },
+    "nullableToken": { "anyOf": [{ "type": "string", "minLength": 1, "maxLength": 120, "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]*$" }, { "type": "null" }] },
+    "nullableShortText": { "anyOf": [{ "type": "string", "minLength": 1, "maxLength": 300 }, { "type": "null" }] },
+    "nullableDescription": { "anyOf": [{ "type": "string", "minLength": 1, "maxLength": 1800 }, { "type": "null" }] },
+    "nullableUrl": { "anyOf": [{ "type": "string", "minLength": 1, "maxLength": 500, "format": "uri" }, { "type": "null" }] },
+    "shortTextArray": { "type": "array", "items": { "type": "string", "minLength": 1, "maxLength": 180 }, "minItems": 0, "maxItems": 30, "uniqueItems": true },
+    "longTextArray": { "type": "array", "items": { "type": "string", "minLength": 1, "maxLength": 600 }, "minItems": 0, "maxItems": 12, "uniqueItems": true },
+    "evidenceRefs": { "type": "array", "items": { "type": "string", "minLength": 1, "maxLength": 80, "pattern": "^ev-[a-z0-9][a-z0-9_-]*$" }, "minItems": 1, "maxItems": 8, "uniqueItems": true },
+    "reviewedScalar": {
+      "anyOf": [
+        {
+          "type": "object", "additionalProperties": false, "required": ["value", "rationale"],
+          "properties": {
+            "value": { "type": "string", "minLength": 1, "maxLength": 300 },
+            "rationale": { "$ref": "#/$defs/nullableDescription" }
+          }
+        },
+        { "type": "null" }
+      ]
+    },
+    "sourceKind": { "enum": ["catalog_snapshot", "github_api", "upstream_document", "curator_record", "synthetic_fixture"] },
+    "sourceRef": { "type": "string", "minLength": 1, "maxLength": 500, "pattern": "^(?:https://(?:github\\.com|raw\\.githubusercontent\\.com)/[^\\s]+|catalog:[A-Za-z0-9._:/-]+|fixture:[A-Za-z0-9._:/-]+)$" },
+    "verification": { "enum": ["source_reported", "verified", "derived_reviewed", "historical", "unknown"] }
+  },
+  "x-max-utf8-bytes": 24576,
   "x-invariants": [
-    "Preserve v5 source repo_id; canonicalize aliases/redirects using verified GitHub identity without inventing a new upstream ID.",
-    "Every non-null factual/advisory field used for primary eligibility needs its own public evidence path; missing descriptions/licenses/activity remain unknown.",
-    "Baseline-valid sparse cards remain retrievable. accepted requires an existing source catalog status or separate curator decision; machine evidence never grants it."
+    "identity.github_repository_id is the sole canonical dedupe/join key. catalog_record_id and merged_catalog_record_ids are frozen lineage; full_name_aliases contains only historical owner/name values and never the current full_name.",
+    "Exactly one classification is primary, every classification resolves to a non-container pinned taxonomy node, and category ID/title/kind/parent/role/source match the frozen taxonomy and placement evidence.",
+    "descriptions.upstream and descriptions.catalog never silently replace one another. Unknown scalar facts are null and unknown collections are empty arrays.",
+    "Every non-null factual or advisory field used for primary eligibility has public field-addressable evidence. Machine evidence cannot grant catalog acceptance; request-specific recommendation role is not catalog status.",
+    "The card is self-contained public data: no metadata sidecar, project/user context, browser observation, credential, raw local audit path or runtime fallback may supply a card-only fact."
   ]
 }

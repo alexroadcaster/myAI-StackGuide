@@ -1,6 +1,6 @@
 # C8/C9 Offline Retrieval Compatibility Scorer
 
-Version: `retrieval_scenarios_v1` / `retrieval_captures_v1`. Evidence owner: Quality Evaluator. This development tool consumes captured C9 objects; it does not import plugin runtime, execute retrieval, call providers, resolve network references, or write reports. The four checked-in captures are authored synthetic contract examples, not observed executions. The first pair is the CP-03 C9 example without a parallel shadow format.
+Version: `retrieval_scenarios_v2` / `retrieval_captures_v2`. Evidence owner: Quality Evaluator. This development tool consumes captured C9 V2 objects; it does not import plugin runtime, execute retrieval, call providers, resolve network references, or write reports. The four checked-in captures are authored synthetic contract examples, not observed executions. They use the atomic card/activity/policy/index V2 tuple without a parallel shadow format; V1 captures remain historical evidence only.
 
 ## Invocation And Dependencies
 
@@ -30,7 +30,7 @@ Report per case; no synthetic-to-product macro average or calibrated quality thr
 
 Hard-constraint violations count included cards independently judged denied. False exclusions count independently allowed candidates excluded for constraint/mandatory-fact/archived/unavailable reasons; pack-budget truncation is separate and not automatically a false constraint exclusion. Runtime eligibility labels never define expected judgments. Expected status mismatch or either constraint error fails compatibility, regardless of ranking metrics.
 
-Output is one JSON object on stdout: `schema_version=retrieval_score_v1`, evidence kind, `verdict=synthetic_compatibility_only`, `promotion_ready=false`, `quality_thresholds_calibrated=false`, overall `passed`, and `records` with case ID, status match, ranking metrics, constraint errors, observed capture counts/bytes and compatibility. Exit 0 means valid cases or no failed compatibility cases; exit 1 means valid captures with mismatched expected status/constraint judgments; exit 2 means invalid input or unavailable validation. Exit 0 never means quality or runtime acceptance.
+Output is one JSON object on stdout: `schema_version=retrieval_score_v2`, evidence kind, `verdict=synthetic_compatibility_only`, `promotion_ready=false`, `quality_thresholds_calibrated=false`, overall `passed`, and `records` with case ID, status match, ranking metrics, constraint errors, observed capture counts/bytes and compatibility. Exit 0 means valid cases or no failed compatibility cases; exit 1 means valid captures with mismatched expected status/constraint judgments; exit 2 means invalid input or unavailable validation. Exit 0 never means quality or runtime acceptance.
 
 ## Pending Quality And Language Gates
 

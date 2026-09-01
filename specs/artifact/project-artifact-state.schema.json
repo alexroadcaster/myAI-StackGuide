@@ -122,7 +122,7 @@
     "index_manifest": {
       "anyOf": [
         {
-          "$ref": "https://myai-stackguide.invalid/contracts/v1/retrieval/index-manifest.schema.json"
+          "$ref": "https://myai-stackguide.invalid/contracts/v2/retrieval/index-manifest.schema.json"
         },
         {
           "type": "null"
@@ -132,7 +132,7 @@
     "retrieval": {
       "anyOf": [
         {
-          "$ref": "https://myai-stackguide.invalid/contracts/v1/retrieval/retrieval-result.schema.json"
+          "$ref": "https://myai-stackguide.invalid/contracts/v2/retrieval/retrieval-result.schema.json"
         },
         {
           "type": "null"
@@ -142,7 +142,7 @@
     "evidence_pack": {
       "anyOf": [
         {
-          "$ref": "https://myai-stackguide.invalid/contracts/v1/retrieval/evidence-pack.schema.json"
+          "$ref": "https://myai-stackguide.invalid/contracts/v2/retrieval/evidence-pack.schema.json"
         },
         {
           "type": "null"
@@ -152,7 +152,7 @@
     "memo": {
       "anyOf": [
         {
-          "$ref": "https://myai-stackguide.invalid/contracts/v1/recommendation/recommendation-memo.schema.json"
+          "$ref": "https://myai-stackguide.invalid/contracts/v2/recommendation/recommendation-memo.schema.json"
         },
         {
           "type": "null"
@@ -362,7 +362,7 @@
                 "type": "object",
                 "properties": {
                   "schema_version": {
-                    "const": "1.1.0"
+                    "const": "2.0.0"
                   },
                   "integration_plan": {
                     "anyOf": [
@@ -373,7 +373,7 @@
                         "type": "object",
                         "properties": {
                           "schema_version": {
-                            "const": "1.1.0"
+                            "const": "2.0.0"
                           }
                         }
                       }
@@ -427,7 +427,7 @@
                 "type": "object",
                 "properties": {
                   "schema_version": {
-                    "const": "1.0.0"
+                    "const": "2.0.0"
                   }
                 }
               }
@@ -452,7 +452,7 @@
     "Mutations require expected run/revision under OS-backed lock. Finalized runs are never mutated; a new run records predecessor. Identical final history publication is idempotent, conflicting bytes are an error.",
     "State commit precedes HTML publication. html_revision records only a previously verified same-run publication at commit time; in 1.1.0 it is null or strictly less than revision. Publication-result is authoritative for the operation; rendering alone never mutates state or immutable history.",
     "Storage protocol is the exact $defs/storagePolicy constant. Validate prospective peak bytes/entries, not only final files; do not delete or overwrite user files to satisfy caps.",
-    "New writes require schema_version=1.1.0; retained 1.0.0 is read-only and never silently upgraded. Every non-null affected nested intake/Brief/memo/integration plan uses 1.1.0. Unchanged C2/C4/C9 contracts remain 1.0.0.",
+    "New state writes require schema_version=1.1.0; retained state 1.0.0 is read-only and never silently upgraded. Intake and Brief remain 1.1.0, while every non-null C9 V2 memo/integration plan uses 2.0.0 and positive numeric GitHub repository identity.",
     "content_revision is <=revision; initial value is 1. Every domain change advances it, while default_locale-only or translation-only saves advance only revision. Brief semantic corrections also advance brief_version and invalidate request/retrieval/pack/memo as applicable.",
     "scan may exist before a Brief; its run_id agrees and its retained summary is the observation source when a Brief is constructed. A correction never rewrites scan evidence. Canonical Brief additions remain within the existing 16 KiB model allocation.",
     "History summaries are derived at render time from validated immutable run files, not invented from history pointers; state history remains the bounded ID/revision/status ledger."

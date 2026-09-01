@@ -13,14 +13,14 @@
   ],
   "properties": {
     "schema_version": {
-      "const": "retrieval_scenarios_v1"
+      "const": "retrieval_scenarios_v2"
     },
     "contract_set_sha256": {
       "type": "string",
       "pattern": "^[a-f0-9]{64}$"
     },
     "case_set_id": {
-      "const": "cp04-c9-synthetic-compatibility-v1"
+      "const": "cp04-c9-synthetic-compatibility-v2"
     },
     "corpus_kind": {
       "const": "synthetic_fixture"
@@ -87,12 +87,12 @@
             "$ref": "https://myai-stackguide.invalid/contracts/v1/context/sanitized-project-summary.schema.json#/$defs/uuid"
           },
           "query": {
-            "$ref": "https://myai-stackguide.invalid/contracts/v1/retrieval/catalog-query.schema.json"
+            "$ref": "https://myai-stackguide.invalid/contracts/v2/retrieval/catalog-query.schema.json"
           },
           "index_manifest": {
             "anyOf": [
               {
-                "$ref": "https://myai-stackguide.invalid/contracts/v1/retrieval/index-manifest.schema.json"
+                "$ref": "https://myai-stackguide.invalid/contracts/v2/retrieval/index-manifest.schema.json"
               },
               {
                 "type": "null"
@@ -120,16 +120,15 @@
               "type": "object",
               "additionalProperties": false,
               "required": [
-                "repo_id",
+                "github_repository_id",
                 "grade",
                 "constraint",
                 "rationale"
               ],
               "properties": {
-                "repo_id": {
-                  "type": "string",
-                  "pattern": "^gh(?:-pending)?:[A-Za-z0-9_.:/-]+$",
-                  "maxLength": 180
+                "github_repository_id": {
+                  "type": "integer",
+                  "minimum": 1
                 },
                 "grade": {
                   "type": "integer",
@@ -229,7 +228,7 @@
     }
   },
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://myai-stackguide.invalid/contracts/v1/evals/scenario.schema.json",
-  "title": "C8 synthetic compatibility scenarios referencing actual C9 contracts",
+  "$id": "https://myai-stackguide.invalid/contracts/v2/evals/scenario.schema.json",
+  "title": "C8 v2 synthetic compatibility scenarios referencing actual C9 v2 contracts",
   "x-max-utf8-bytes": 2097152
 }

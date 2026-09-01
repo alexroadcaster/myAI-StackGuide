@@ -17,7 +17,8 @@ import unittest
 import uuid
 
 ROOT = Path(__file__).resolve().parents[1]
-BASE = 'https://myai-stackguide.invalid/contracts/v1/'
+BASES = ('https://myai-stackguide.invalid/contracts/v1/',
+         'https://myai-stackguide.invalid/contracts/v2/')
 COMMON = 'context/sanitized-project-summary.schema.json'
 
 try:
@@ -72,42 +73,46 @@ def mutate(value, pointer, replacement):
     return result
 
 
-def byte_violations(schema, instance, path=''):
+def byte_violations(schema, instance, path='', root_schema=None):
     """Enforce our byte annotation even when a standard $ref validator ignores it."""
     if not isinstance(schema, dict):
         return
+    root_schema = schema if root_schema is None else root_schema
     if '$ref' in schema:
         location, _, fragment = schema['$ref'].partition('#')
-        target = SCHEMAS[location.removeprefix(BASE)]
+        target = (next(item for item in SCHEMAS.values() if item['$id'] == location)
+                  if location else root_schema)
+        target_root = target if location else root_schema
         for part in fragment.strip('/').split('/') if fragment else []:
             target = target[part]
-        yield from byte_violations(target, instance, path)
+        yield from byte_violations(target, instance, path, target_root)
     limit = schema.get('x-max-utf8-bytes')
     if limit is not None and len(canonical(instance)) > limit:
         yield path, limit
     if isinstance(instance, dict):
         for key, value in instance.items():
             if key in schema.get('properties', {}):
-                yield from byte_violations(schema['properties'][key], value, path + '/' + key)
+                yield from byte_violations(schema['properties'][key], value, path + '/' + key, root_schema)
     if isinstance(instance, list) and 'items' in schema:
         for index, value in enumerate(instance):
-            yield from byte_violations(schema['items'], value, path + '/' + str(index))
+            yield from byte_violations(schema['items'], value, path + '/' + str(index), root_schema)
     def applies(branch):
         if Draft202012Validator is None:
             return True  # Conservative byte-only traversal, never standards acceptance.
         registry = Registry().with_resources((s['$id'], Resource.from_contents(s)) for s in SCHEMAS.values())
-        return Draft202012Validator(branch, registry=registry).is_valid(instance)
+        return Draft202012Validator(root_schema, registry=registry).evolve(
+            schema=branch).is_valid(instance)
 
     for keyword in ('anyOf', 'oneOf', 'allOf'):
         for branch in schema.get(keyword, []):
             if keyword == 'allOf' or applies(branch):
-                yield from byte_violations(branch, instance, path)
+                yield from byte_violations(branch, instance, path, root_schema)
     if 'if' in schema:
         branches = ('then', 'else') if Draft202012Validator is None else (
             'then' if applies(schema['if']) else 'else',)
         for keyword in branches:
             if keyword in schema:
-                yield from byte_violations(schema[keyword], instance, path)
+                yield from byte_violations(schema[keyword], instance, path, root_schema)
 
 
 def lexical_path(path):
@@ -162,6 +167,9 @@ def check_summary(summary):
 
 def check_query(query):
     require(query['policy_sha256'] == file_digest('specs/retrieval/retrieval-policy.json'), 'query policy digest')
+    require(query['schema_version'] == query['policy_version'] == query['card_schema_version'] ==
+            query['activity_schema_version'] == '2.0.0' and query['index_format_version'] == 2,
+            'mixed query contract versions')
     require(query['max_cards'] <= query['max_candidates'], 'card/candidate budget')
     unique([v['variant_id'] for v in query['variants']], 'query variant')
     for variant in query['variants']:
@@ -174,28 +182,43 @@ def check_query(query):
             'no-server constraint target')
 
 
-ACTIVITY_FIELDS = {'createdAt': 'repository_created_at', 'pushedAt': 'repository_pushed_at',
-                   'lastCommitAt': 'commit_committed_date', 'lastReleaseAt': 'release_published_at'}
+ACTIVITY_FIELDS = {'created_at': 'repository_created_at', 'repository_updated_at': 'repository_updated_at',
+                   'pushed_at': 'repository_pushed_at', 'last_commit_at': 'commit_committed_date',
+                   'last_release_at': 'release_published_at', 'last_synced_at': 'last_synced_at',
+                   'observed_at': 'observed_at'}
 
 
 def check_card(card):
-    require(card['url'] == 'https://github.com/' + card['full_name'], 'repository URL identity')
-    categories = {item['id'] for item in TAXONOMY['categories'] if item.get('kind') != 'container'}
-    require(card['primary_category'] in categories and
-            set(card['secondary_categories']) <= categories, 'unknown taxonomy category')
-    require(card['primary_category'] not in card['secondary_categories'], 'duplicate primary category')
-    require(card['repo_id'] not in card['aliases'], 'self alias')
-    unique(card['aliases'], 'alias')
-    require(card['license'] not in ('NOASSERTION', 'unknown', ''), 'unknown license must be null')
+    identity = card['identity']
+    require(type(identity['github_repository_id']) is int and identity['github_repository_id'] > 0,
+            'numeric repository identity')
+    require(identity['url'] == 'https://github.com/' + identity['full_name'], 'repository URL identity')
+    require(identity['full_name'] not in identity['full_name_aliases'], 'self alias')
+    unique(identity['full_name_aliases'], 'alias')
+    require(identity['catalog_record_id'] not in identity['merged_catalog_record_ids'], 'duplicate lineage')
+    unique(identity['merged_catalog_record_ids'], 'lineage')
+    categories = {item['id']: item for item in TAXONOMY['categories']}
+    classifications = card['classifications']
+    unique([item['category_id'] for item in classifications], 'category')
+    require(sum(item['role'] == 'primary' for item in classifications) == 1, 'primary category count')
+    for item in classifications:
+        source = categories.get(item['category_id'])
+        require(source is not None and source.get('kind') != 'container', 'unknown taxonomy category')
+        require(item['title'] == source['label'] and item['kind'] == source.get('kind', 'category') and
+                item['parent_id'] == source.get('parent_id'), 'taxonomy metadata mismatch')
+    license_fact = card['repository']['license']
+    require(license_fact is None or (isinstance(license_fact, dict) and
+            license_fact.get('spdx') not in ('NOASSERTION', 'unknown', '')),
+            'unknown license must be null')
     evidence = {item['evidence_id']: item for item in card['evidence']}
     require(len(evidence) == len(card['evidence']), 'duplicate card evidence')
     if card['corpus_kind'] != 'synthetic_fixture':
         require(all(item['source_kind'] != 'synthetic_fixture' and
                     not item['source_ref'].startswith('fixture:') for item in evidence.values()),
                 'synthetic evidence in public snapshot')
-    if card['catalog_status'] == 'accepted':
-        owner = 'curator_record' if card['catalog_status_source'] == 'curator_decision' else 'catalog_snapshot'
-        require(any(item['source_kind'] == owner and '/catalog_status' in item['fields']
+    if card['catalog']['status'] == 'accepted':
+        owner = 'curator_record' if card['catalog']['status_source'] == 'curator_decision' else 'catalog_snapshot'
+        require(any(item['source_kind'] == owner and '/catalog/status' in item['fields']
                     for item in evidence.values()), 'catalog acceptance provenance')
     activity = card['activity']
     unique([item['field'] for item in activity['observations']], 'activity observation')
@@ -204,17 +227,17 @@ def check_card(card):
     for observation in activity['observations']:
         field = observation['field']
         require(observation['source_field'] == ACTIVITY_FIELDS[field], 'activity source-field conflation')
-        ref = observation['evidence_ref']
-        require(ref in evidence and '/activity/' + field in evidence[ref]['fields'], 'activity evidence pointer')
-        require(evidence[ref]['observed_at'] == observation['observedAt'], 'activity observation timestamp')
+        require(all(ref in evidence and '/activity/' + field in evidence[ref]['fields']
+                    for ref in observation['evidence_refs']), 'activity evidence pointer')
 
 
-ADVISORY = ['use_cases', 'best_for', 'adoption_mode', 'project_stages', 'complexity',
-            'integration_surface', 'compatibility']
+ADVISORY = ['/advisory/use_cases', '/advisory/best_for', '/advisory/adoption_mode',
+            '/advisory/project_stages', '/advisory/complexity', '/advisory/integration_surface',
+            '/advisory/compatibility']
 
 
 def check_eligibility(eligibility, card, query):
-    require(eligibility['repo_id'] == card['repo_id'] and
+    require(eligibility['github_repository_id'] == card['identity']['github_repository_id'] and
             eligibility['query_id'] == query['query_id'], 'eligibility identity')
     checks = {item['field']: item for item in eligibility['checks']}
     required = set(query['constraints']['mandatory_fields']) | {'availability', 'archived', 'advisory_evidence'}
@@ -222,28 +245,44 @@ def check_eligibility(eligibility, card, query):
             'eligibility check coverage')
     evidence = {item['evidence_id']: item for item in card['evidence']}
     constraints = query['constraints']
+    license_spdx = (card['repository']['license'].get('spdx')
+                    if isinstance(card['repository']['license'], dict) else None)
     outcomes = []
     for field, check in checks.items():
-        pointers = ADVISORY if field == 'advisory_evidence' else [
-            {'no_server': 'requires_server'}.get(field, field)]
+        paths = {'license': '/repository/license', 'language': '/repository/languages',
+                 'deployment': '/delivery/deployment', 'compatibility': '/advisory/compatibility',
+                 'no_server': '/delivery/requires_server', 'availability': '/repository/availability',
+                 'archived': '/repository/archived'}
+        pointers = ADVISORY if field == 'advisory_evidence' else [paths[field]]
         refs = check['evidence_refs']
         require(set(refs) <= evidence.keys(), 'unresolved eligibility evidence')
-        sourced = all(any('/' + pointer in evidence[ref]['fields'] and
+        sourced = all(any(pointer in evidence[ref]['fields'] and
                          evidence[ref]['verification'] != 'unknown' for ref in refs) for pointer in pointers)
-        known = all(card[pointer] is not None and card[pointer] != [] and
-                    card[pointer] != 'unknown' for pointer in pointers)
+        values = {
+            'license': card['repository']['license'],
+            'language': card['repository']['languages'],
+            'deployment': card['delivery']['deployment']['values'],
+            'compatibility': card['advisory']['compatibility'],
+            'no_server': card['delivery']['requires_server'],
+            'availability': card['repository']['availability'],
+            'archived': card['repository']['archived'],
+            'advisory_evidence': [card['advisory'][key] for key in
+                                  ('use_cases', 'best_for', 'adoption_mode', 'project_stages', 'complexity',
+                                   'integration_surface', 'compatibility')],
+        }
+        known = values[field] is not None and values[field] != [] and values[field] != 'unknown'
         if not known or not sourced:
             outcome = 'unknown'
         else:
             passed = {
-                'license': card['license'] in constraints['allowed_licenses'],
-                'language': card['language'] in constraints['languages'],
-                'deployment': bool(set(card['deployment']) & set(constraints['deployment'])),
-                'compatibility': set(constraints['compatibility']) <= set(card['compatibility']),
-                'no_server': card['requires_server'] is False,
-                'availability': card['availability'] == 'available',
-                'archived': card['archived'] is False,
-                'advisory_evidence': card['evidence_stage'] == 'advisory_evidence_complete',
+                'license': license_spdx in constraints['allowed_licenses'],
+                'language': bool({item['name'] for item in card['repository']['languages']} & set(constraints['languages'])),
+                'deployment': bool(set(card['delivery']['deployment']['values']) & set(constraints['deployment'])),
+                'compatibility': set(constraints['compatibility']) <= set(card['advisory']['compatibility']),
+                'no_server': card['delivery']['requires_server'] is False,
+                'availability': card['repository']['availability'] == 'available',
+                'archived': card['repository']['archived'] is False,
+                'advisory_evidence': card['catalog']['evidence_stage'] == 'advisory_evidence_complete',
             }[field]
             outcome = 'pass' if passed else 'fail'
         require(check['outcome'] == outcome, 'unsupported ' + field + ' outcome')
@@ -306,14 +345,17 @@ def check_retrieval(result, query, index):
         require(index is None and result['status'] not in ('ok', 'no_match'), 'missing index pins')
     else:
         require(index is not None and result['pins'] == index['pins'], 'index pairing')
+        require(result['pins']['card_schema_version'] == result['pins']['activity_schema_version'] ==
+                result['pins']['retrieval_policy_version'] == '2.0.0' and
+                result['pins']['index_format_version'] == 2, 'mixed C9 version pins')
         require(result['pins']['policy_sha256'] == query['policy_sha256'], 'index policy pairing')
         require(result['pins']['taxonomy_sha256'] == file_digest('specs/catalog/taxonomy.yaml'), 'taxonomy pairing')
     require(result['retrieved_hits'] <= query['max_candidates'], 'aggregate hit budget')
     require(result['executed_variants'] <= len(query['variants']), 'executed variant count')
     candidates = result['candidates']
-    unique([item['repo_id'] for item in candidates], 'canonical candidate')
+    unique([item['github_repository_id'] for item in candidates], 'canonical candidate')
     require([item['rank'] for item in candidates] == list(range(1, len(candidates) + 1)), 'contiguous ranks')
-    require(candidates == sorted(candidates, key=lambda item: (-item['rrf_score'], item['repo_id'])), 'RRF sort')
+    require(candidates == sorted(candidates, key=lambda item: (-item['rrf_score'], item['github_repository_id'])), 'RRF sort')
     executed = {item['variant_id'] for item in query['variants'][:result['executed_variants']]}
     seen_positions = set()
     for candidate in candidates:
@@ -389,19 +431,19 @@ def check_bundle(state):
     require(pack['pins'] == result['pins'] and pack['query_id'] == query['query_id'] and
             pack['query_sha256'] == digest(query) and pack['pack_id'] == request['pack_id'], 'pack pairing')
     require(len(canonical(pack)) <= query['max_evidence_bytes'] and len(pack['cards']) <= query['max_cards'], 'evidence budget')
-    candidates = {item['repo_id']: item for item in result['candidates']}
-    packed = {item['card']['repo_id']: item for item in pack['cards']}
+    candidates = {item['github_repository_id']: item for item in result['candidates']}
+    packed = {item['card']['identity']['github_repository_id']: item for item in pack['cards']}
     require(len(packed) == len(pack['cards']), 'duplicate packed identity')
-    excluded = {item['repo_id'] for item in pack['exclusions']}
+    excluded = {item['github_repository_id'] for item in pack['exclusions']}
     require(len(excluded) == len(pack['exclusions']) and not (excluded & packed.keys())
             and excluded | packed.keys() == candidates.keys(), 'candidate coverage')
     aliases = []
-    for repo_id, entry in packed.items():
+    for github_repository_id, entry in packed.items():
         card = entry['card']
         check_card(card)
-        aliases.extend([repo_id, *card['aliases']])
+        aliases.extend([card['identity']['full_name'], *card['identity']['full_name_aliases']])
         require(card['corpus_kind'] == pack['pins']['corpus_kind'], 'card corpus kind')
-        retrieved = candidates[repo_id]
+        retrieved = candidates[github_repository_id]
         require(entry['retrieval_rank'] == retrieved['rank'] and entry['rrf_score'] == retrieved['rrf_score']
                 and entry['matched_fields'] == retrieved['matched_fields'], 'card retrieval trace')
         check_eligibility(entry['eligibility'], card, query)
@@ -418,11 +460,16 @@ def check_bundle(state):
     unique(categories, 'category path')
     require(set(categories) <= {item['id'] for item in TAXONOMY['categories']}, 'unknown category path')
     refs = {item['evidence_id'] for entry in packed.values() for item in entry['card']['evidence']}
+    lineage = {entry['card']['identity']['catalog_record_id']: entry for entry in packed.values()}
+    for entry in packed.values():
+        for catalog_record_id in entry['card']['identity']['merged_catalog_record_ids']:
+            require(catalog_record_id not in lineage, 'duplicate memo lineage')
+            lineage[catalog_record_id] = entry
     require(all(item['evidence_ref'] in refs for item in memo['reading_path']), 'reading-path evidence')
-    unique([item['repo_id'] for item in memo['recommendations']], 'recommended repository')
+    unique([item['github_repository_id'] for item in memo['recommendations']], 'recommended repository')
     for recommendation in memo['recommendations']:
-        require(recommendation['repo_id'] in packed, 'recommendation outside pack')
-        entry = packed[recommendation['repo_id']]
+        require(recommendation['github_repository_id'] in packed, 'recommendation outside pack')
+        entry = packed[recommendation['github_repository_id']]
         own_refs = {item['evidence_id'] for item in entry['card']['evidence']}
         require(set(recommendation['evidence_refs']) <= own_refs, 'recommendation evidence')
         if recommendation['role'] == 'primary_candidate':
@@ -432,9 +479,12 @@ def check_bundle(state):
     plan = memo['integration_plan']
     if plan:
         require(plan['run_id'] == run and plan['brief_version'] == brief['brief_version'], 'integration context')
-        require(set(plan['selected_repo_ids']) <= packed.keys() and set(plan['evidence_refs']) <= refs, 'integration evidence')
-        require(all(packed[repo_id]['eligibility']['status'] != 'blocked' for repo_id in plan['selected_repo_ids']), 'blocked integration')
-        if any(packed[repo_id]['eligibility']['status'] == 'reference_only' for repo_id in plan['selected_repo_ids']):
+        selected = plan['selected_github_repository_ids']
+        require(set(selected) <= packed.keys() and set(plan['evidence_refs']) <= refs, 'integration evidence')
+        require(all(packed[github_repository_id]['eligibility']['status'] != 'blocked'
+                    for github_repository_id in selected), 'blocked integration')
+        if any(packed[github_repository_id]['eligibility']['status'] == 'reference_only'
+               for github_repository_id in selected):
             require(plan['unresolved_questions'] and plan['prerequisites'], 'conditional integration uncertainty')
     if pack['status'] == 'unavailable':
         require(memo['status'] == 'retrieval_unavailable' and not memo['recommendations'] and plan is None, 'memo hides retrieval error')
@@ -585,8 +635,10 @@ def check_claim(claim, evidence, answers, allow_public=False):
 def check_workspace(state):
     require(1 <= state['content_revision'] <= state['revision'], 'content revision range')
     require(state['html_revision'] is None or state['html_revision'] < state['revision'], 'publication cannot mutate current state')
-    for key in ('intake', 'brief', 'memo'):
+    for key in ('intake', 'brief'):
         require(state[key] is None or state[key]['schema_version'] == '1.1.0', 'workspace nested version')
+    require(state['memo'] is None or state['memo']['schema_version'] == '2.0.0',
+            'workspace memo version')
     if state['scan']:
         require(state['scan']['run_id'] == state['run_id'], 'scan run identity')
         check_scan(state['scan'])
@@ -625,14 +677,18 @@ def check_workspace(state):
     if memo and memo['comparison_details']:
         comparison = memo['comparison_details']
         cells = comparison['cells']
-        unique([(item['criterion'], item['repo_id']) for item in cells], 'comparison cell')
-        packed = {entry['card']['repo_id'] for entry in state['evidence_pack']['cards']}
+        unique([(item['criterion'], item['github_repository_id']) for item in cells],
+               'comparison cell')
+        packed = {entry['card']['identity']['github_repository_id']
+                  for entry in state['evidence_pack']['cards']}
         for cell in cells:
-            require((cell['baseline'] and cell['repo_id'] is None and comparison['include_no_change']) or
-                    (not cell['baseline'] and cell['repo_id'] in packed), 'comparison baseline/repository join')
+            require((cell['baseline'] and cell['github_repository_id'] is None and
+                     comparison['include_no_change']) or
+                    (not cell['baseline'] and cell['github_repository_id'] in packed),
+                    'comparison baseline/repository join')
             check_claim(cell['claim'], evidence, answers, allow_public=True)
     if plan:
-        require(plan['schema_version'] == '1.1.0', 'integration version')
+        require(plan['schema_version'] == '2.0.0', 'integration version')
         details = plan['details']
         steps = [step['step_id'] for step in plan['steps']]
         deps = details['step_dependencies']
@@ -803,16 +859,16 @@ class SchemaContracts(unittest.TestCase):
                 self.validator(path).validate(value)
                 self.assertEqual(list(byte_violations(SCHEMAS[path], value)), [])
 
-    def test_legacy_and_workspace_versions_cannot_mix(self):
+    def test_state_versions_cannot_mix_but_share_the_v2_memo(self):
         path = 'artifact/project-artifact-state.schema.json'
         legacy, current = baseline(), workspace_baseline()
-        for key in ('intake', 'brief', 'memo'):
+        for key in ('intake', 'brief'):
             hybrid = copy.deepcopy(legacy)
             hybrid[key] = current[key]
             with self.subTest(key=key):
                 self.assertTrue(list(self.validator(path).iter_errors(hybrid)))
-        legacy['memo']['integration_plan'] = current['memo']['integration_plan']
-        self.assertTrue(list(self.validator(path).iter_errors(legacy)))
+        legacy['memo'] = copy.deepcopy(current['memo'])
+        self.validator(path).validate(legacy)
         current['intake'] = baseline()['intake']
         self.assertTrue(list(self.validator(path).iter_errors(current)))
 
@@ -834,8 +890,9 @@ class SchemaContracts(unittest.TestCase):
             if isinstance(value, dict):
                 if '$ref' in value:
                     reference = value['$ref']
-                    self.assertTrue(reference.startswith(BASE))
-                    self.registry.resolver().lookup(reference)
+                    self.assertTrue(reference.startswith(BASES) or reference.startswith('#'))
+                    if reference.startswith(BASES):
+                        self.registry.resolver().lookup(reference)
                 for child in value.values():
                     visit(child)
             elif isinstance(value, list):
@@ -849,6 +906,21 @@ class SchemaContracts(unittest.TestCase):
             with self.subTest(case=case['name']):
                 invalid = mutate(POSITIVE[case['schema']], case['pointer'], case['value'])
                 self.assertTrue(list(self.validator(case['schema']).iter_errors(invalid)))
+        memo_path = 'recommendation/recommendation-memo.schema.json'
+        memo = copy.deepcopy(POSITIVE[memo_path])
+        memo['recommendations'][0]['github_repository_id'] = 'gh-pending:lineage-is-not-identity'
+        self.assertTrue(list(self.validator(memo_path).iter_errors(memo)))
+        memo = copy.deepcopy(POSITIVE[memo_path])
+        memo['recommendations'][0]['repo_id'] = memo['recommendations'][0].pop(
+            'github_repository_id')
+        self.assertTrue(list(self.validator(memo_path).iter_errors(memo)))
+        plan_path = 'recommendation/integration-plan.schema.json'
+        plan = copy.deepcopy(POSITIVE[plan_path])
+        plan['selected_github_repository_ids'] = ['gh-pending:lineage-is-not-identity']
+        self.assertTrue(list(self.validator(plan_path).iter_errors(plan)))
+        plan = copy.deepcopy(POSITIVE[plan_path])
+        plan['selected_repo_ids'] = plan.pop('selected_github_repository_ids')
+        self.assertTrue(list(self.validator(plan_path).iter_errors(plan)))
 
     def test_no_unrecognized_fields_on_any_top_level_contract(self):
         for path, value in POSITIVE.items():
@@ -863,7 +935,7 @@ class SchemaContracts(unittest.TestCase):
         self.assertTrue(list(self.validator(path).iter_errors(pack)))
         pack['cards'] = copy.deepcopy(pack['cards'][:12])
         for entry in pack['cards']:
-            entry['card']['description'] = 'я' * 1800
+            entry['card']['descriptions']['upstream'] = 'я' * 1800
         errors = list(self.validator(path).iter_errors(pack))
         self.assertTrue(any('byte budget' in error.message for error in errors))
 
@@ -925,13 +997,26 @@ def workspace_baseline():
 
 def sparse_card():
     card = copy.deepcopy(POSITIVE['catalog/repository-card.schema.json'])
-    for field in ('description', 'language', 'license', 'requires_server', 'archived', 'adoption_mode', 'integration_surface'):
-        card[field] = None
-    for field in ('deployment', 'topics', 'use_cases', 'best_for', 'avoid_if', 'project_stages', 'compatibility', 'evidence'):
-        card[field] = []
-    card.update(availability='unknown', complexity='unknown', evidence_stage='baseline', missing_facts=['license', 'compatibility'])
-    card['activity'] = {'schema_version': '1.0.0', **dict.fromkeys(ACTIVITY_FIELDS),
-                        'lastCommitSha': None, 'lastCommitBranch': None, 'observations': []}
+    card['descriptions'].update(upstream=None, catalog=None, catalog_origin=None)
+    card['repository'].update(languages=[], license=None, topics=[], stack=[], homepage=None,
+                              default_branch=None, availability='unknown', archived=None,
+                              is_fork=None, disabled=None, stars=None, forks=None, watchers=None,
+                              watchers_scope=None, size_kb=None)
+    card['delivery'].update(form=None, deployment={'values': [], 'rationale': None}, hosting=None,
+                            requires_server=None, difficulty=None, lifecycle=None, maturity=None, persona=None)
+    card['advisory'].update(recommendation_reason=None, best_for=[], tradeoffs=[], use_cases=[], avoid_if=[],
+                            adoption_status=None, adoption_mode=None, project_stages=[], complexity=None,
+                            integration_surface=None, compatibility=[], recommendation_status=None,
+                            gaps=['license', 'compatibility'])
+    card['advisory']['eligibility'].update(data_gate_passed=None, reasons=['mandatory_fields_unresolved'],
+                                          minimum_stars=None, replacement_required=None,
+                                          catalog_acceptance_changed=None, evidence_completeness=None)
+    card['catalog']['evidence_stage'] = 'baseline'
+    card['evidence'] = []
+    card['repository']['stack'] = []
+    card['activity'] = {'schema_version': '2.0.0', **dict.fromkeys(ACTIVITY_FIELDS),
+                        'last_commit_sha': None, 'last_commit_branch': None,
+                        'status': None, 'observations': []}
     return card
 
 
@@ -983,7 +1068,8 @@ class SemanticContracts(unittest.TestCase):
     def test_unknowns_are_representable_without_invented_facts(self):
         check_card(sparse_card())
         card = sparse_card()
-        card['license'] = 'NOASSERTION'
+        card['repository']['license'] = {
+            'spdx': 'NOASSERTION', 'name': 'Unknown', 'source': 'synthetic_fixture', 'confidence': 'unknown'}
         with self.assertRaisesRegex(ValueError, 'license'):
             check_card(card)
 
@@ -999,7 +1085,7 @@ class SemanticContracts(unittest.TestCase):
 
     def test_machine_evidence_cannot_grant_catalog_acceptance(self):
         card = copy.deepcopy(POSITIVE['catalog/repository-card.schema.json'])
-        card['catalog_status'] = 'accepted'
+        card['catalog']['status'] = 'accepted'
         with self.assertRaisesRegex(ValueError, 'acceptance provenance'):
             check_card(card)
         card['evidence'][0].update(source_kind='catalog_snapshot', source_ref='catalog:fixture-existing-acceptance')
@@ -1010,7 +1096,7 @@ class SemanticContracts(unittest.TestCase):
         pins = POSITIVE['retrieval/index-manifest.schema.json']['pins']
         self.assertEqual(digest([card]), pins['cards_sha256'])
         changed = copy.deepcopy(card)
-        changed['license'] = 'GPL-3.0-only'
+        changed['repository']['license']['spdx'] = 'GPL-3.0-only'
         self.assertNotEqual(digest([changed]), pins['cards_sha256'])
 
     def test_old_activity_is_allowed_but_push_commit_conflation_is_not(self):
@@ -1023,7 +1109,7 @@ class SemanticContracts(unittest.TestCase):
     def test_unknown_license_produces_useful_conditional_guidance(self):
         state = baseline()
         entry = state['evidence_pack']['cards'][0]
-        entry['card']['license'] = None
+        entry['card']['repository']['license'] = None
         eligibility = entry['eligibility']
         eligibility.update(status='reference_only', reason_codes=['mandatory_fact_unknown'], required_verifications=['Verify the upstream license before adoption.'])
         eligibility['checks'][0]['outcome'] = 'unknown'
@@ -1037,10 +1123,10 @@ class SemanticContracts(unittest.TestCase):
     def test_eligibility_cannot_omit_mandatory_checks_or_invent_evidence(self):
         for pointer, replacement, message in [
             ('/evidence_pack/cards/0/eligibility/checks', [], 'coverage'),
-            ('/evidence_pack/cards/0/card/license', None, 'unsupported license'),
+            ('/evidence_pack/cards/0/card/repository/license', None, 'unsupported license'),
             ('/evidence_pack/cards/0/eligibility/checks/0/evidence_refs', ['ev-invented'], 'unresolved eligibility'),
-            ('/evidence_pack/cards/0/card/archived', True, 'unsupported archived'),
-            ('/evidence_pack/cards/0/card/availability', 'unavailable', 'unsupported availability'),
+            ('/evidence_pack/cards/0/card/repository/archived', True, 'unsupported archived'),
+            ('/evidence_pack/cards/0/card/repository/availability', 'unavailable', 'unsupported availability'),
         ]:
             with self.subTest(pointer=pointer), self.assertRaisesRegex(ValueError, message):
                 check_bundle(mutate(baseline(), pointer, replacement))
@@ -1086,11 +1172,11 @@ class SemanticContracts(unittest.TestCase):
         result['candidates'] = []
         result['retrieved_hits'] = 60
         for rank in range(1, 31):
-            result['candidates'].append({'repo_id': f'gh-pending:fixture/r{rank:02d}', 'rank': rank,
+            result['candidates'].append({'github_repository_id': 900001000 + rank, 'rank': rank,
                 'rrf_score': 2 / (60 + rank), 'variant_ranks': [
                     {'variant_id': 'q1', 'rank': rank, 'bm25': -1.0},
                     {'variant_id': 'q2', 'rank': rank, 'bm25': -0.1}],
-                'matched_fields': ['description'], 'missing_facts': []})
+                'matched_fields': ['upstream_description'], 'missing_facts': []})
         check_retrieval(result, query, state['index_manifest'])
         result['retrieved_hits'] = 59
         with self.assertRaisesRegex(ValueError, 'hit accounting'):

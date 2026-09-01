@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://myai-stackguide.invalid/contracts/v1/retrieval/index-manifest.schema.json",
+  "$id": "https://myai-stackguide.invalid/contracts/v2/retrieval/index-manifest.schema.json",
   "title": "Build-owned manifest for a read-only public SQLite index",
-  "description": "Local CP-03 v1 contract. This schema does not execute or authorize side effects.",
+  "description": "Local CP-03-C9-V2 contract. This schema does not execute or authorize side effects.",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -22,7 +22,7 @@
   ],
   "properties": {
     "schema_version": {
-      "const": "1.0.0"
+      "const": "2.0.0"
     },
     "pins": {
       "type": "object",
@@ -35,6 +35,7 @@
         "policy_sha256",
         "taxonomy_sha256",
         "card_schema_version",
+        "activity_schema_version",
         "index_format_version",
         "retrieval_policy_version",
         "corpus_kind"
@@ -77,13 +78,14 @@
           "pattern": "^[a-f0-9]{64}$"
         },
         "card_schema_version": {
-          "const": "1.0.0"
+          "const": "2.0.0"
         },
+        "activity_schema_version": { "const": "2.0.0" },
         "index_format_version": {
-          "const": 1
+          "const": 2
         },
         "retrieval_policy_version": {
-          "const": "1.0.0"
+          "const": "2.0.0"
         },
         "corpus_kind": {
           "enum": [

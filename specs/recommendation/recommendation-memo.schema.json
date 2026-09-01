@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://myai-stackguide.invalid/contracts/v1/recommendation/recommendation-memo.schema.json",
+  "$id": "https://myai-stackguide.invalid/contracts/v2/recommendation/recommendation-memo.schema.json",
   "title": "Decision Report data with grounded integration plan",
-  "description": "CP-03 local contract. Version 1.0.0 is a retained read-only legacy shape; new writes use 1.1.0. No migration or runtime is implemented.",
+  "description": "CP-03 C9 V2 local contract. Repository joins use positive numeric GitHub repository identity; catalog record IDs remain card lineage only.",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -26,12 +26,7 @@
     "category_path"
   ],
   "properties": {
-    "schema_version": {
-      "enum": [
-        "1.0.0",
-        "1.1.0"
-      ]
-    },
+    "schema_version": { "const": "2.0.0" },
     "run_id": {
       "$ref": "https://myai-stackguide.invalid/contracts/v1/context/sanitized-project-summary.schema.json#/$defs/uuid"
     },
@@ -71,6 +66,7 @@
             "policy_sha256",
             "taxonomy_sha256",
             "card_schema_version",
+            "activity_schema_version",
             "index_format_version",
             "retrieval_policy_version",
             "corpus_kind"
@@ -113,13 +109,16 @@
               "pattern": "^[a-f0-9]{64}$"
             },
             "card_schema_version": {
-              "const": "1.0.0"
+              "const": "2.0.0"
+            },
+            "activity_schema_version": {
+              "const": "2.0.0"
             },
             "index_format_version": {
-              "const": 1
+              "const": 2
             },
             "retrieval_policy_version": {
-              "const": "1.0.0"
+              "const": "2.0.0"
             },
             "corpus_kind": {
               "enum": [
@@ -153,7 +152,7 @@
         "type": "object",
         "additionalProperties": false,
         "required": [
-          "repo_id",
+          "github_repository_id",
           "role",
           "fit_rationale",
           "confidence",
@@ -162,12 +161,7 @@
           "next_checks"
         ],
         "properties": {
-          "repo_id": {
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 180,
-            "pattern": "^gh(?:-pending)?:[A-Za-z0-9_.:/-]+$"
-          },
+          "github_repository_id": { "type": "integer", "minimum": 1 },
           "role": {
             "enum": [
               "primary_candidate",
@@ -290,7 +284,7 @@
     "integration_plan": {
       "anyOf": [
         {
-          "$ref": "https://myai-stackguide.invalid/contracts/v1/recommendation/integration-plan.schema.json"
+          "$ref": "https://myai-stackguide.invalid/contracts/v2/recommendation/integration-plan.schema.json"
         },
         {
           "type": "null"
@@ -359,7 +353,7 @@
                 "additionalProperties": false,
                 "required": [
                   "criterion",
-                  "repo_id",
+                  "github_repository_id",
                   "baseline",
                   "claim",
                   "next_check"
@@ -376,10 +370,11 @@
                       "evidence_gap"
                     ]
                   },
-                  "repo_id": {
+                  "github_repository_id": {
                     "anyOf": [
                       {
-                        "$ref": "https://myai-stackguide.invalid/contracts/v1/context/sanitized-project-summary.schema.json#/$defs/repositoryId"
+                        "type": "integer",
+                        "minimum": 1
                       },
                       {
                         "type": "null"
@@ -463,15 +458,13 @@
         "type": "object",
         "additionalProperties": false,
         "required": [
-          "repo_id",
+          "github_repository_id",
           "rationale",
           "revisit_when",
           "evidence_refs"
         ],
         "properties": {
-          "repo_id": {
-            "$ref": "https://myai-stackguide.invalid/contracts/v1/context/sanitized-project-summary.schema.json#/$defs/repositoryId"
-          },
+          "github_repository_id": { "type": "integer", "minimum": 1 },
           "rationale": {
             "type": "string",
             "minLength": 1,
@@ -572,7 +565,7 @@
       "if": {
         "properties": {
           "schema_version": {
-            "const": "1.1.0"
+            "const": "2.0.0"
           }
         },
         "required": [
@@ -627,7 +620,7 @@
     "Roles/evidence/selected IDs are request-scoped; report cannot upgrade catalog_status or turn a failed search into successful no-match.",
     "An unavailable manifest may yield pins=null only in an explicit failure. Never invent hashes or use null pins for successful retrieval/no-match.",
     "Category path IDs are unique current taxonomy keys with explicit relevance reasons; no invented taxonomy hierarchy is implied.",
-    "Comparison cells are unique (criterion, repo_id/baseline); baseline=true requires repo_id=null and include_no_change=true. Repository cells resolve to pack cards; evidence and answers resolve to canonical project/public evidence.",
-    "Structured comparison and avoid/defer details must agree with retained summary prose. Missing cells mean unknown. Baseline is not a retrieved card; no matrix or browser choice changes eligibility or selected_repo_ids."
+    "Comparison cells are unique (criterion, github_repository_id/baseline); baseline=true requires github_repository_id=null and include_no_change=true. Repository cells resolve to pack cards; evidence and answers resolve to canonical project/public evidence.",
+    "Structured comparison and avoid/defer details must agree with retained summary prose. Missing cells mean unknown. Baseline is not a retrieved card; no matrix or browser choice changes eligibility or selected_github_repository_ids."
   ]
 }

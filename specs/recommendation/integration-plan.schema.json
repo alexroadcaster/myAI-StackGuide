@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://myai-stackguide.invalid/contracts/v1/recommendation/integration-plan.schema.json",
+  "$id": "https://myai-stackguide.invalid/contracts/v2/recommendation/integration-plan.schema.json",
   "title": "Actionable non-executed integration handoff",
-  "description": "CP-03 local contract. Version 1.0.0 is a retained read-only legacy shape; new writes use 1.1.0. No migration or runtime is implemented.",
+  "description": "CP-03 C9 V2 local contract. Repository selections use the canonical positive numeric GitHub repository identity. This is a non-executed handoff, not runtime evidence.",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -10,7 +10,7 @@
     "run_id",
     "plan_id",
     "brief_version",
-    "selected_repo_ids",
+    "selected_github_repository_ids",
     "goal",
     "integration_surface",
     "affected_components",
@@ -25,12 +25,7 @@
     "execution_status"
   ],
   "properties": {
-    "schema_version": {
-      "enum": [
-        "1.0.0",
-        "1.1.0"
-      ]
-    },
+    "schema_version": { "const": "2.0.0" },
     "run_id": {
       "$ref": "https://myai-stackguide.invalid/contracts/v1/context/sanitized-project-summary.schema.json#/$defs/uuid"
     },
@@ -45,13 +40,11 @@
       "minimum": 1,
       "maximum": 1000000
     },
-    "selected_repo_ids": {
+    "selected_github_repository_ids": {
       "type": "array",
       "items": {
-        "type": "string",
-        "minLength": 1,
-        "maxLength": 180,
-        "pattern": "^gh(?:-pending)?:[A-Za-z0-9_.:/-]+$"
+        "type": "integer",
+        "minimum": 1
       },
       "maxItems": 6,
       "minItems": 1,
@@ -575,7 +568,7 @@
       "if": {
         "properties": {
           "schema_version": {
-            "const": "1.1.0"
+            "const": "2.0.0"
           }
         },
         "required": [

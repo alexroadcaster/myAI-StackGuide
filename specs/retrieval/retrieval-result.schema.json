@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://myai-stackguide.invalid/contracts/v1/retrieval/retrieval-result.schema.json",
+  "$id": "https://myai-stackguide.invalid/contracts/v2/retrieval/retrieval-result.schema.json",
   "title": "Compact retrieval candidates with explicit failure state",
-  "description": "Local CP-03 v1 contract. This schema does not execute or authorize side effects.",
+  "description": "Local CP-03-C9-V2 contract. This schema does not execute or authorize side effects.",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -23,7 +23,7 @@
   ],
   "properties": {
     "schema_version": {
-      "const": "1.0.0"
+      "const": "2.0.0"
     },
     "run_id": {
       "$ref": "https://myai-stackguide.invalid/contracts/v1/context/sanitized-project-summary.schema.json#/$defs/uuid"
@@ -64,6 +64,7 @@
             "policy_sha256",
             "taxonomy_sha256",
             "card_schema_version",
+            "activity_schema_version",
             "index_format_version",
             "retrieval_policy_version",
             "corpus_kind"
@@ -106,13 +107,14 @@
               "pattern": "^[a-f0-9]{64}$"
             },
             "card_schema_version": {
-              "const": "1.0.0"
+              "const": "2.0.0"
             },
+            "activity_schema_version": { "const": "2.0.0" },
             "index_format_version": {
-              "const": 1
+              "const": 2
             },
             "retrieval_policy_version": {
-              "const": "1.0.0"
+              "const": "2.0.0"
             },
             "corpus_kind": {
               "enum": [
@@ -153,7 +155,7 @@
         "type": "object",
         "additionalProperties": false,
         "required": [
-          "repo_id",
+          "github_repository_id",
           "rank",
           "rrf_score",
           "variant_ranks",
@@ -161,11 +163,9 @@
           "missing_facts"
         ],
         "properties": {
-          "repo_id": {
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 180,
-            "pattern": "^gh(?:-pending)?:[A-Za-z0-9_.:/-]+$"
+          "github_repository_id": {
+            "type": "integer",
+            "minimum": 1
           },
           "rank": {
             "type": "integer",
@@ -213,7 +213,9 @@
             "items": {
               "enum": [
                 "full_name",
-                "description",
+                "full_name_aliases",
+                "upstream_description",
+                "catalog_description",
                 "topics",
                 "category_labels",
                 "use_cases",
@@ -221,7 +223,7 @@
                 "best_for"
               ]
             },
-            "maxItems": 7,
+            "maxItems": 9,
             "minItems": 1,
             "uniqueItems": true
           },
@@ -345,8 +347,8 @@
   ],
   "x-max-utf8-bytes": 65536,
   "x-invariants": [
-    "Pins exactly match the loaded compatible manifest/policy and request; IDs/revisions and canonical query digest must match.",
-    "Rank is contiguous after dedupe; variant ranks refer to executed query variants; RRF is sum(1/(60+rank)), sorted descending with ID tie-break. No-match cannot conceal index/FTS5 failure.",
+    "Pins exactly match the loaded v2 manifest/policy and request; card/activity/policy/index versions, IDs/revisions and canonical query digest must match.",
+    "Rank is contiguous after numeric GitHub identity dedupe; variant ranks refer to executed query variants; RRF is sum(1/(60+rank)), sorted descending with numeric ID tie-break. No-match cannot conceal index/FTS5 failure.",
     "An unavailable manifest may yield pins=null only in an explicit failure. Never invent hashes or use null pins for successful retrieval/no-match."
   ]
 }
