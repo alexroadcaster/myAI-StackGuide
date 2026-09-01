@@ -151,13 +151,13 @@ Needs stack recipes across runtime, tools, memory, retrieval, evals, UI, and saf
 
 ## Catalog Scale Strategy
 
-The first product version should contain **1,000 repositories** across different categories, but scale must still follow quality gates.
+The catalog has passed its original 1,000-repository foundation goal. The current canonical intermediate snapshot contains 1,800 repositories, and CAT-07A freezes a non-canonical 2,500-identity candidate pending CAT-08/09/10 reconciliation and verification. Scale must still follow identity, provenance, taxonomy and presentation gates.
 
-The important distinction is that the V1 catalog can include 1,000 repositories, while only a smaller reviewed subset should be treated as high-confidence primary recommendations. Lower-confidence entries can still be useful for discovery, comparison, and landscape coverage when the guide clearly exposes `trust_level`, `verification_status`, and stale metadata caveats.
+The important distinction is that catalog inclusion at 2,500 does not make every repository a high-confidence primary recommendation. A smaller reviewed subset should carry that status. Other eligible entries remain useful for discovery, comparison and landscape coverage when the guide clearly exposes `trust_level`, `verification_status` and stale metadata caveats.
 
 Recommended growth path:
 
-1. Stabilize the current 1,142-record v5 catalog with source-owned identity, provenance, and reproducible generation.
+1. Reconcile and verify the frozen 2,500-identity candidate into one source-owned canonical snapshot without losing identity, provenance or taxonomy history.
 2. Enrich and curate the high-confidence recommendation pool instead of treating catalog inclusion as recommendation readiness.
 3. Ensure broad coverage across AI engineering, developer tooling, product operations, business operations, design, data, security, research, and automation categories.
 4. Add repository cards with advisory metadata.

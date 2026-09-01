@@ -1,0 +1,140 @@
+{
+  "schema_version": "catalog-expansion-policy.v4",
+  "task_id": "CP-03.CAT-07A",
+  "baseline": {
+    "included_distinct_identities": 1624,
+    "pending_identities": 7,
+    "verified_alias_consolidations": 10,
+    "target_included_distinct_identities": 2500,
+    "required_net_additions": 876,
+    "thematic_leaves": 111,
+    "navigation_containers": 14
+  },
+  "hard_eligibility_gate": {
+    "githubRepositoryId": "positive_current_numeric_github_id",
+    "fullName": "current_canonical_owner_repo",
+    "url": "current_canonical_https_github_url",
+    "private": false,
+    "visibility": "public",
+    "archived": false,
+    "minimumStars": 500,
+    "primaryCategory": "existing_thematic_leaf",
+    "dedupeUniverse": [
+      "all_CAT-07_numeric_identities",
+      "all_CAT-07_names_urls_and_verified_aliases",
+      "all_CAT-07A_leads_qualified_cards_and_overflow"
+    ]
+  },
+  "core_factual_fields": [
+    "id",
+    "sourceRecordIds",
+    "githubRepositoryId",
+    "fullName",
+    "url",
+    "aliases",
+    "identityStatus",
+    "availability",
+    "visibility",
+    "archived",
+    "disabled",
+    "stars",
+    "forks",
+    "watchers",
+    "sizeKb",
+    "isFork",
+    "defaultBranch",
+    "language",
+    "languages",
+    "topics",
+    "homepage",
+    "license.spdx",
+    "license.name",
+    "license.source",
+    "license.confidence",
+    "catalogDescription",
+    "descriptionOrigin",
+    "stack",
+    "activity.createdAt",
+    "activity.updatedAt",
+    "activity.pushedAt",
+    "activity.lastCommitAt",
+    "activity.lastCommitSha",
+    "activity.lastCommitBranch",
+    "activity.lastReleaseAt",
+    "activity.observedAt",
+    "activity.status",
+    "catalogStatus",
+    "primaryCategory",
+    "secondaryCategories",
+    "fieldObservations",
+    "evidenceCompleteness",
+    "eligibility",
+    "provenance"
+  ],
+  "terminal_observation_states": [
+    "observed",
+    "derived_reviewed",
+    "source_absent",
+    "source_unsupported",
+    "not_applicable"
+  ],
+  "hard_fields_never_source_unsupported": [
+    "githubRepositoryId",
+    "fullName",
+    "url",
+    "visibility",
+    "archived",
+    "stars",
+    "primaryCategory",
+    "provenance"
+  ],
+  "recommendation_fields": {
+    "status": "downstream_backlog_not_inclusion_gate",
+    "fields": [
+      "recommendation.whyRecommended",
+      "recommendation.bestFor",
+      "recommendation.tradeoffs",
+      "recommendation.adoption_status"
+    ]
+  },
+  "discovery": {
+    "acceptance_authority": "current_github_rest_evidence_only",
+    "lead_planning_range": {
+      "minimum": 1100,
+      "maximum": 1300
+    },
+    "max_pages_per_query": 3,
+    "items_per_page": 30,
+    "max_search_requests_per_invocation": 30,
+    "stop_by_accepted_identity_counter": true,
+    "aggregator_metadata_is_lead_only": true,
+    "zero_leaf_name_bound_topic_seeds": {
+      "embeddings_reranking": [
+        "embeddings",
+        "reranking"
+      ]
+    }
+  },
+  "selection": {
+    "coverage_priority": [
+      "embeddings_reranking",
+      "thematic_leaves_below_ten"
+    ],
+    "soft_floor": 10,
+    "expected_soft_floor_capacity": 202,
+    "post_coverage_policy": "deterministic_category_balanced_round_robin",
+    "within_category_tiebreak": [
+      "query_order",
+      "page",
+      "rank",
+      "numeric_github_id"
+    ],
+    "qualified_overflow_retained": true
+  },
+  "write_boundary": {
+    "canonical_manifest": false,
+    "canonical_html": false,
+    "external_publication": false,
+    "git_history": false
+  }
+}

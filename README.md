@@ -121,9 +121,9 @@ The repository deliberately separates implemented evidence from product intent.
 |---|---|
 | Interactive catalog | Available as a self-contained HTML artifact. |
 | Catalog snapshot | Source-owned and reproducible from manifest + template. |
-| Repository count | 1,142 source records; canonical alias deduplication is part of the planned plugin adapter. |
-| Taxonomy | 77 categories and 1,290 category placements in the current HTML snapshot. |
-| Catalog status groups | 314 accepted, 813 candidate, and 15 reference/benchmark records. |
+| Repository count | 1,800 records in the current canonical intermediate snapshot; CAT-07A separately freezes a non-canonical 2,500-identity candidate for CAT-08/09/10. |
+| Taxonomy | 126 nodes: 111 thematic leaves, 14 navigation containers and one review queue; the current canonical snapshot has 1,945 direct placements. |
+| Catalog status groups | 526 accepted, 1,244 candidate, and 30 reference/benchmark records in the current canonical intermediate snapshot. |
 | Stack guidance | 10 stack recipes and 10 compatibility edges in the current manifest. |
 | Product concept, PRD, and roadmap | Present as source-controlled planning artifacts. |
 | Project-scoped skills and agents | Structurally configured and statically tested. |
@@ -156,7 +156,8 @@ Useful searches include `RAG`, `MCP`, `agent memory`, `sandbox`, `browser automa
 
 | Snapshot layer | Date | Scope |
 |---|---|---|
-| Current HTML v5 | 2026-08-12 | 1,142 repositories, 77 categories, and 1,290 placements. |
+| Current canonical HTML v5.1 intermediate | 2026-08-31 | 1,800 repositories, 126 taxonomy nodes, and 1,945 direct placements. |
+| Frozen CAT-07A candidate | 2026-09-01 | 2,500 distinct identities over the same taxonomy; non-canonical until CAT-08/09/10 complete. |
 | Legacy unified Markdown | 2026-05-23 | 314 repositories, 42 categories, and 351 placements. |
 | Original account-fork catalog | 2026-05-23 | 107 repositories generated from `data/source_repos.csv`. |
 

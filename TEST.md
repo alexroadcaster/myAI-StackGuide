@@ -103,6 +103,78 @@ python -B -m unittest discover -s tests -p test_catalog_v5_pipeline.py -v
 
 Expected result: exact HTML byte/hash parity, `markdown parity ok`, and nine passing v5 pipeline tests.
 
+## CP-03.CAT-07A Expansion Gate
+
+`CP-03.CAT-07A` uses `specs/catalog/catalog-expansion-policy.json`,
+`scripts/expand_catalog_candidate.py` and
+`tests/test_catalog_candidate_expansion.py`. The successor run is separate from the
+frozen CAT-05/06/07 checkpoint and may write only ignored expansion state until
+CAT-08. Run the focused local gate with network disabled:
+
+```powershell
+python -B -m unittest tests.test_catalog_candidate_expansion -v
+python -B scripts/expand_catalog_candidate.py verify --run-dir .codex-tmp/catalog-refresh/cat-07a
+python -B scripts/build_catalog_html.py --check
+```
+
+Required positive evidence by group:
+
+| Group | Positive gate | Negative / stop gate |
+| --- | --- | --- |
+| `CAT-07A-01` | Query map covers exactly 111 thematic leaves; each route pins source attribution, budgets and stop conditions; `embeddings_reranking` and the 202-member soft-floor deficit are prioritized. | Container/review/unknown IDs, unbounded pages/items, missing public/archive/Stars qualifiers or changed policy/taxonomy/base pins stop before network. |
+| `CAT-07A-02` | Every lead retains query/topic source, page/rank, retrieval time and preliminary leaf; duplicate occurrences merge provenance; successful pages resume without refetch. | Aggregator or search metadata never grants inclusion; counters never reset; the 1,100-1,300 lead range is not a completion target. |
+| `CAT-07A-03` | Current GitHub metadata proves positive numeric ID, canonical name/URL, `private=false`, `visibility=public`, `archived=false` and integer Stars >=500; the registry covers all CAT-07 identities/names/URLs/aliases and all run candidates. | 499/unknown/bool Stars, private/non-public/archived, invalid ID/URL, same ID rename, reused name/different ID, pending-name or within-run collision cannot become a distinct addition. |
+| `CAT-07A-04` | Every selected card covers the versioned factual-core list with terminal observations and provenance; exact category-topic or at least two metadata terms support an existing leaf. | Fetch/budget/not-attempted states, unsupported hard facts, container/review assignment, README-only fit or recommendation narrative block freeze. |
+| `CAT-07A-05` | Exactly 876 additions join the 1,624 baseline identities; deterministic coverage then category-balanced selection retains qualified overflow; 111 leaf counts and 14 distinct container unions are reported. | 2,499/2,501 total identities, duplicate/low-Star/archived/non-public/incomplete cards, incomplete decision ledger or canonical manifest/HTML hash drift fail freeze. |
+
+Live `discover` and `collect` commands are separate current-source evidence. Their
+observed timestamps, quotas, request-log audit, failures and residual review queue
+must be recorded; local tests cannot prove live freshness or semantic correctness.
+Passing CAT-07A freezes a non-canonical candidate only. It does not prove browser,
+recommendation, curator acceptance, CP-06 index, release or publication readiness.
+
+Current 2026-09-01 evidence: the five-suite regression command passes 72 tests;
+offline `verify` reports `finalSummaryVerified=true`; the frozen candidate contains
+876 selected additions plus seven qualified overflow cards, 111 leaf rows, 14
+container unions and no empty leaf; exact HTML parity remains 5,806,093 bytes at
+SHA-256 `18d1b086fb539d05f968399bb8a7dd027f255ed5bda10cbbc7ce17a953290138`.
+See `docs/reports/catalog-expansion-2026-09-01.json`.
+
+## Planned CAT-08 To CAT-10 Canonicalization Gates
+
+CAT-08 consumes three pinned inputs rather than treating the CAT-07A expansion file
+as a complete replacement manifest: the current canonical manifest, the CAT-07
+eligibility/alias/semantic state and the CAT-07A candidate. Before writing canonical
+source, verify the pre-migration reconciliation below:
+
+- 1,624 included baseline identities plus 876 selected additions equals 2,500;
+- seven CAT-07A overflow cards remain reserve, not canonical members;
+- CAT-07 exclusions and unresolved pending identities remain outside membership;
+- 2,485 identities occur in thematic leaves and 15 remain in the review queue;
+- 2,615 thematic placements plus 15 review placements reconcile to 2,630 direct
+  placements before any reviewed primary-category reassignment.
+
+CAT-08 must test the old-card/addition field adapter. Search and display use both
+`description` and `catalogDescription`; structured Stack entries render their
+technology names; missing legacy form, deployment, hosting, difficulty, lifecycle
+or derived activity-band values remain unknown. Numeric GitHub identity, canonical
+aliases, observation dates and field provenance survive the merge. Audit-only fields
+may be omitted from a compact standalone HTML projection only when deterministic
+source-to-projection parity proves that no displayed or searchable fact was lost.
+
+CAT-09 automatically checks all 2,500 identities, all 126 taxonomy nodes, all 111
+leaf routes, all 14 distinct container unions, the review queue and placement
+dedupe. Representative offline browser checks cover startup, exact-name and
+description/topic search, structured Stack display, category navigation and no
+external requests. Record manifest, embedded JSON and HTML bytes, DOM row count,
+JavaScript errors, startup time and repeated search/filter p50/p95 on named hardware.
+Performance thresholds must be declared from the current canonical baseline before
+the candidate run; do not invent a retrospective SLA.
+
+CAT-10 freezes final counts/hashes, the review disposition and the exact CP-06 input
+version, then updates active snapshot descriptions while preserving dated historical
+records. These are planned gates until CAT-08/09/10 execute.
+
 ## Contract Test Matrix For The Next Slice
 
 | Requirement | Positive case | Negative or edge case | Evidence owner |
@@ -122,13 +194,13 @@ Expected result: exact HTML byte/hash parity, `markdown parity ok`, and nine pas
 | CP-03 / C1-C6, C9 | Typed local query/card/pack/index/activity/context/handoff contracts; complete local acceptance without C7 | Private fields in public index, unsafe grammar, fabricated dates, unbounded pack, incompatible pins and unsupported primary-fit assertions rejected |
 | CP-04 / C8 | Same frozen corpus/judgments for lexical baseline and candidate; exact runner/thresholds registered before quality runs | No FTS smoke/throughput promoted to relevance; no held-out leakage, fake token counts or synthetic inventory claims |
 | CP-05 / R04, R13, R15 | Updated role/skill cases cover context, actionable handoff, one HTML and localization/publication boundaries | Still exclude secrets and unauthorized execution/install/external disclosure; old scanner-only/blanket-refusal cases explicitly superseded |
-| CP-06 / R07, R11 | Source-persisted activity/provenance/coverage -> canonical cards -> logical index parity/manifest | Browser-only metadata, partial-refresh stamp-all-current, push-as-commit, duplicate aliases and user-context leakage rejected |
+| CP-06 / R07, R11 | Exact CAT-10 2,500-card snapshot -> normalized public cards -> logical index parity/manifest, preserving identity aliases, category hierarchy and baseline/expansion provenance | Browser-only metadata, partial-refresh stamp-all-current, push-as-commit, duplicate aliases, invented legacy fields and user-context leakage rejected |
 | CP-07/08 / R02-R05, R10 | Saved/resumed/corrected Brief, bounded scan and useful targeted ordinary source context | Secret exclusions, path escape/races, hostile instructions, cancellation/caps, stale revisions and interrupted writes; no target-project execution |
-| CP-09 / R06, R07, R11 | Actual read-only FTS5, compiled/escaped queries, RU/EN/aliases, deterministic dedupe/constraints/pack | Empty/no-hit vs unavailable distinguished; missing FTS5/corrupt/mismatched index explicit; no whole-catalog fallback or index writes |
+| CP-09 / R06, R07, R11 | Actual read-only FTS5 over the exact 2,500-card pins, compiled/escaped queries, RU/EN/aliases, all leaf/container/review routes and deterministic secondary-placement dedupe/constraints/pack | Empty/no-hit vs unavailable distinguished; missing FTS5/corrupt/mismatched index explicit; no whole-catalog fallback, duplicate container hits or index writes |
 | CP-09/11 / context limits | Across all variants <=60 candidates, <=12 detailed cards, <=48 KiB serialized evidence including provenance | No counter reset across broadening, truncated data passed as complete, or Brief allocation omitted; limits encoded by CP-03 |
 | CP-10/11 / R13 | Useful build/replace/upgrade report with affected components, prerequisites, first experiment and rollback | Proposed commands do not execute or claim successful integration; undefined mandatory facts remain visible |
-| CP-11 / R12 | Named useful 1/1 path with actual source_mode=catalog_only and retrieval_engine=sqlite_fts5; then 2,000/10,000 synthetic scaling | No mock/alternate route masks acceptance; synthetic scaling cannot prove real repository count or search relevance |
-| CP-15/16 / local release | Held-out relevance/usefulness, independent privacy/UI review, actual install/FTS5/index/version/rollback | No dependency on remote auth/ledger/scheduler; incompatible state/index cannot be silently overwritten |
+| CP-11 / R12 | Named useful 1/1 path with actual source_mode=catalog_only and retrieval_engine=sqlite_fts5; actual 2,500-card capacity plus separately labeled 10,000-row synthetic headroom | No mock/alternate route masks acceptance; synthetic headroom cannot prove search relevance |
+| CP-15/16 / local release | Stratified held-out relevance/usefulness across thin/dense leaves, containers, baseline/expansion and aliases; independent privacy/UI review; actual install/FTS5/index/version and 1,800-to-2,500 upgrade/rollback | No random corpus dominated by dense expansion leaves, dependency on remote auth/ledger/scheduler, or silent overwrite of incompatible state/index |
 
 CP-06 adds `tests/test_plugin_search_index.py`; CP-09 adds `tests/test_plugin_retrieval.py` alongside matching tests. Exact remaining future files/commands are registered in [CP-02 verification](specs/decisions/plugin-v1-verification.md) and the detailed CP tasks. CP-04 owns `evals/plugin-v1/evaluate_retrieval.py`, `tests/test_plugin_retrieval_eval.py` and `tests/fixtures/plugin_retrieval_eval.json`: offline metric scoring of captured C9 results, with tiny known-result positive/error fixtures. Its executable captured-result scorer and exact CLI/input/output contract are present and verified for synthetic compatibility. Actual retrieval captures, relevance judgments and calibration remain CP-04 work; this is not a runtime retrieval/model runner. Require nonzero expected test counts; unittest discovery with zero tests is not acceptance.
 

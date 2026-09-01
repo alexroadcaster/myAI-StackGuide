@@ -4,7 +4,7 @@ Scope: development-team guidance, revised 2026-08-31 for the owner-selected loca
 
 ## Source Routing
 
-- Current catalog: `data/catalog_manifest.json`, `data/catalog_manifest.schema.json`, `templates/unified_catalog.html`, and `scripts/build_catalog_html.py`.
+- Current canonical catalog: `data/catalog_manifest.json`, `data/catalog_manifest.schema.json`, `templates/unified_catalog.html`, and `scripts/build_catalog_html.py`. The CAT-07A 2,500-identity artifact remains a non-canonical candidate until CAT-08/09/10 reconcile, verify and freeze the exact CP-06 handoff.
 - Legacy account taxonomy: `data/categories.json` and `scripts/build_catalog.py`; legacy unified Markdown has its separate dated research inputs. Do not use either to replace current v5 identities, metadata, or taxonomy.
 - Product direction: `docs/plan/2026-08-30-codex-plugin-v1-implementation-plan.md`; active ownership and approved slice: `PLAN.md` and its linked task packet.
 - Product background: `docs/PRODUCT_REQUIREMENTS.md`, `docs/V1_ROADMAP.md`, `docs/MYAI_STACKGUIDE_PRODUCT_CONCEPT.md`, `docs/MYAI_STACKGUIDE_CONTEXT_SCANNER.md`. Hosted-first detail is historical where marked.
@@ -76,7 +76,7 @@ Auth refusal, missing consent, network failure, and ingestion failure must prese
 
 ## Local Retrieval And Integration Contracts
 
-CP-06 persists source-owned public metadata rather than relying on browser enrichment, preserves unknowns and canonical aliases, and builds frozen public cards/index/manifest. CP-09 opens the index read-only, validates pins, compiles/escapes structured queries and enforces the CP-03 60-candidate/12-card/48-KiB ceilings across variants. Model context never receives the whole catalog; public index never receives user context. Actual SQLite support and query route require evidence; a prose/static pass is not activation.
+CP-06 consumes only the exact CAT-10 2,500-card snapshot, persists source-owned public metadata rather than relying on browser enrichment, preserves unknowns, canonical aliases, category hierarchy and baseline/expansion provenance, and builds frozen public cards/index/manifest. CP-09 opens the index read-only, validates pins, compiles/escapes structured queries, verifies all leaf/container/review routes and secondary-placement dedupe, and enforces the CP-03 60-candidate/12-card/48-KiB ceilings across variants. Model context never receives the whole catalog; public index never receives user context. Actual SQLite support and query route require evidence; a prose/static pass is not activation.
 
 Creation, push, verified commit/release, observation and build dates are separate. No snapshot TTL automatically rejects useful candidates. Missing mandatory adoption facts remain unknown and trigger concrete checks, while baseline-valid cards can still be retrieved. Activity/popularity alone does not prove operability or fit. Catalog status, eligibility and role remain independent.
 

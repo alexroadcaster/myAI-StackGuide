@@ -117,11 +117,20 @@ Critical failures override the numeric score:
 
 CP-04 freezes a simple lexical/filter baseline over the same versioned cards, held-out relevance judgments and query set before comparing the selected FTS5/BM25 implementation. No embedding, vector store or model/provider call is necessary to measure retrieval. A later semantic extension must demonstrate gain over this baseline and account for installation, latency, memory and maintenance costs; it is not a current gate.
 
-Report Recall@k and nDCG@k over canonical repository IDs; define relevance grades and multiple valid solutions. Report hard-constraint violations and false exclusions separately. Include RU/EN and technology aliases, exact names, task language, replacement intent, sparse metadata, no-match, activity/observation distinctions and index failure. Measure dedupe/diversity and useful candidates surviving the final evidence-pack budget, not just raw top-k.
+Report Recall@k and nDCG@k over canonical repository IDs; define relevance grades and multiple valid solutions. Report hard-constraint violations and false exclusions separately. Include RU/EN and technology aliases, exact names, task language, replacement intent, sparse metadata, no-match, activity/observation distinctions and index failure. Bind actual captures to the CAT-10/CP-06 2,500-card snapshot. Stratify held-out judgments across all 14 navigation-container domains, representative thin and dense leaves, baseline and CAT-07A expansion cohorts, aliases/renames, review-queue behavior and secondary-category dedupe. Do not use a random corpus dominated by the largest expansion leaves. Measure dedupe/diversity and useful candidates surviving the final evidence-pack budget, not just raw top-k.
 
 Initial ceilings are 60 candidates across query variants, 12 detailed cards and 48 KiB UTF-8 for the full evidence pack. CP-03 specifies the separate Brief/context allocation. CP-04 freezes field weights, query policy, thresholds and measurement before quality runs; tuning uses a development set and held-out data remains separate. Report actual bytes and tokenizer/method when token counts are measured; do not equate bytes/characters with exact tokens. No quality threshold or latency SLA is fabricated in this plan.
 
-Record index build size/time, cold/warm query latency (p50/p95 when sample size supports it), peak-memory method, hardware/runtime and serialized model input. Use actual catalog fixtures for relevance and separately labeled deterministic 2,000/10,000-row synthetic fixtures for scaling. Synthetic repeated cards do not prove semantic coverage, real repository growth or production performance. Inspect representative traces and human integration usefulness; FTS5 availability or speed alone cannot pass V-EVAL.
+Record index build size/time, cold/warm query latency (p50/p95 when sample size supports it), peak-memory method, hardware/runtime and serialized model input. Use the exact 2,500-card catalog for actual relevance and capacity, then a separately labeled deterministic 10,000-row synthetic fixture for headroom. Synthetic repeated cards do not prove semantic coverage, real repository growth or production performance. Inspect representative traces and human integration usefulness; FTS5 availability or speed alone cannot pass V-EVAL.
+
+Use cheap exhaustive structural checks and bounded semantic review rather than one
+human judgment per taxonomy node. Deterministic gates cover every 111 leaf route,
+all 14 container descendant unions, the review queue and alias/secondary dedupe.
+The versioned human corpus should normally contain 24-30 queries spanning at least
+8-10 thin-leaf cases, 8-10 dense/baseline/expansion cases, the 14 domain families
+across the set, plus alias, container-union and failure negatives. Exact counts may
+change before freeze when case quality requires it, but every stratum and rationale
+must remain explicit.
 
 The former `EVAL-NO-CODE-01` blanket-refusal expectation is superseded by `EVAL-HANDOFF-01`. CP-05 versions and realigns team/skill cases for this policy; local and deferred extension corpora are graded separately. Source changes and synthetic grader checks are not observed revised behavior. Do not silently grade revised behavior against incompatible old cases.
 
@@ -155,6 +164,30 @@ synthetic judgments; this completes the bounded contract join. This owner-author
 - Eval scorer: `implemented_verified` for synthetic captured-result compatibility; CP-04 owns C8 and `evals/plugin-v1/evaluate_retrieval.py`, with 27 passing tests and four passing CLI captures. It consumes captured C9 results without executing retrieval/models. The actual lexical baseline, held-out judgments, quality thresholds and human calibration remain unimplemented; this is not a product-quality runner or verdict.
 - Human reviewers: Product Planner for usefulness, Catalog Architect for fit contracts, Quality Evaluator for gates, Evidence Reviewer for claims and permissions.
 - Current status: `partially_implemented`; bounded C8 compatibility is accepted, full CP-04 quality work remains open, and no recommendation quality pass is claimed.
+
+## CAT-07A Factual Expansion Evidence
+
+CAT-07A is a catalog-maintenance evidence gate, not a recommendation-quality eval.
+Its versioned policy and focused tests measure query-route coverage, public identity,
+Stars/archive/visibility eligibility, alias-aware dedupe, terminal factual-core
+observations, fixed-taxonomy classification, exact-count selection and source/output
+hash preservation. Discovery query order, GitHub Stars and topic matches are triage
+and classification evidence only; they are not adoption, operability, security,
+recommendation fit or curator-acceptance scores.
+
+Review representative accepted, rejected, ambiguous and overflow records before
+CAT-08. A factual pass requires zero hard-gate violation and an explicit decision
+for every frozen selected identity. Human category review remains required for
+ambiguous or README-only matches; it cannot be replaced by reaching 2,500. The
+final report must retain live observation times and state that evidence may drift.
+No CAT-07A result promotes CP-04 retrieval quality, CP-10 browser meaning, CP-15
+human usefulness or CP-16 release readiness.
+
+Current status: `factual_candidate_verified`. The 2026-09-01 freeze has zero hard
+gate violations, exactly 876 selected additions, seven qualified overflow cards and
+no empty thematic leaf. This status does not evaluate recommendation quality or
+curator acceptance; the durable factual report is
+`docs/reports/catalog-expansion-2026-09-01.json`.
 
 ## CP-05 Evidence Separation
 

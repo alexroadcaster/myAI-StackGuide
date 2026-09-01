@@ -234,6 +234,63 @@ qualified replacement. All 111 thematic leaves are reported, with only
 unions. See
 `docs/reports/catalog-eligibility-reconciliation-2026-09-01.json`.
 
+## CAT-07A completed expansion candidate
+
+CAT-07A runs in the separate ignored successor
+`.codex-tmp/catalog-refresh/cat-07a/`. Its versioned policy is
+`specs/catalog/catalog-expansion-policy.json`; the single-writer CLI is
+`scripts/expand_catalog_candidate.py`. It reuses the bounded GitHub CLI GET
+transport, keeps cumulative counters and never writes the canonical manifest or
+HTML. The five operational stages are represented by these resumable commands:
+
+```powershell
+python -B scripts/expand_catalog_candidate.py prepare --run-dir .codex-tmp/catalog-refresh/cat-07a --base-run .codex-tmp/catalog-refresh/gaps --target-included 2500
+python -B scripts/expand_catalog_candidate.py discover --run-dir .codex-tmp/catalog-refresh/cat-07a --max-search-requests 30
+python -B scripts/expand_catalog_candidate.py collect --run-dir .codex-tmp/catalog-refresh/cat-07a --max-candidates 100
+python -B scripts/expand_catalog_candidate.py finalize --run-dir .codex-tmp/catalog-refresh/cat-07a
+python -B scripts/expand_catalog_candidate.py verify --run-dir .codex-tmp/catalog-refresh/cat-07a
+```
+
+`migrate-script` is an explicit local/no-network operation for a changed script,
+policy or query pin. It archives the prior query map, records before/after hashes,
+preserves the transport checkpoint and never resets request/byte counters. Do not
+edit the ignored state or pins manually.
+
+The completed run contains 2,693 distinct leads and 883 core-qualified cards. The
+deterministic coverage-first, category-balanced freeze selects exactly 876 additions
+and retains seven qualified overflow cards, producing exactly 2,500 identities from
+the 1,624-identity CAT-07 baseline. It reports 111 thematic leaves, 14 distinct
+container unions and no empty leaf. The formerly empty `embeddings_reranking` leaf
+is covered by `huggingface/text-embeddings-inference`; its zero-base discovery route
+requires both the GitHub `embeddings` topic and the same term in the repository name.
+README-only matches cannot pass classification.
+
+The final hard-gate counters are zero for duplicate numeric IDs, duplicate
+names/aliases, selected Stars below 500, archived/non-public repositories and core
+field failures. One initial sandbox-restricted preflight has a request-log start but
+no finish and qualified no repository; the audit preserves it as unmatched attempt
+1. The remaining 4,658 attempts have matching finishes. Selected factual observation
+times span `2026-09-01T07:53:11.50308Z` through
+`2026-09-01T09:33:44.455075Z`; these facts may drift.
+
+The durable minimized report is
+`docs/reports/catalog-expansion-2026-09-01.json`. The large ledger, core cards,
+request trace and rollback snapshot remain in the ignored run. CAT-08 owns canonical
+application. This completion does not establish recommendation quality, curator
+acceptance, browser behavior, retrieval relevance, release readiness or publication.
+
+CAT-08 must treat the expansion file as an addition-bearing candidate, not as a
+standalone replacement manifest: it carries 876 full addition cards and 1,624
+baseline source IDs. Reconcile it with the complete CAT-07 eligibility, alias and
+semantic state. The pre-migration projection contains 2,485 identities in thematic
+leaves, 15 included baseline identities in `uncategorized_review`, 2,615 thematic
+placements and 2,630 direct placements including review. CAT-08 performs a bounded
+evidence-backed review of those 15 identities, records retained-review outcomes,
+and normalizes old/addition description, structured Stack, identity, activity and
+provenance shapes before generation. No new discovery, taxonomy expansion or
+CAT-07A replay is part of this handoff. CAT-09 measures exact source/output/browser
+behavior; CAT-10 freezes the verified CP-06 input.
+
 ## Historical evidence
 
 [Retained history](reports/catalog-refresh-history.md) and

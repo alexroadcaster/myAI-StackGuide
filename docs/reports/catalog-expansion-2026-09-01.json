@@ -1,0 +1,96 @@
+{
+  "schemaVersion": "catalog-expansion-report.v1",
+  "taskId": "CP-03.CAT-07A",
+  "status": "completed_candidate_frozen",
+  "scope": "non_canonical_exact_2500_identity_candidate",
+  "completedAt": "2026-09-01T09:42:50.9461997Z",
+  "baseline": {
+    "includedDistinctIdentities": 1624,
+    "targetIncludedDistinctIdentities": 2500,
+    "requiredNetAdditions": 876
+  },
+  "result": {
+    "qualifiedCoreCards": 883,
+    "selectedAdditions": 876,
+    "qualifiedOverflow": 7,
+    "finalIncludedDistinctIdentities": 2500,
+    "distinctSelectedNumericIds": 876,
+    "duplicateSelectedNumericIds": 0,
+    "duplicateSelectedNamesOrAliases": 0,
+    "selectedBelowMinimumStars": 0,
+    "selectedArchived": 0,
+    "selectedNonPublic": 0,
+    "selectedCoreFieldGateFailures": 0,
+    "thematicLeaves": 111,
+    "navigationContainers": 14,
+    "emptyThematicLeaves": [],
+    "embeddingCoverageRepository": "huggingface/text-embeddings-inference",
+    "aliasAwareLeafCountMismatches": 0
+  },
+  "ledger": {
+    "distinctLeads": 2693,
+    "discoveredUnverified": 1152,
+    "qualifiedCoreCard": 883,
+    "rejectedExistingIdentity": 480,
+    "rejectedNonProductList": 79,
+    "semanticReviewRequired": 99,
+    "transportAttempts": 4659,
+    "transportBytes": 88593728,
+    "requestLogStarts": 4659,
+    "requestLogFinishes": 4658,
+    "unmatchedAttempts": [
+      1
+    ],
+    "unmatchedAttemptDisposition": "initial sandbox-restricted preflight produced no HTTP response; it qualified no repository and remains preserved in the audit log"
+  },
+  "observationRange": {
+    "selectedFactsFrom": "2026-09-01T07:53:11.50308Z",
+    "selectedFactsThrough": "2026-09-01T09:33:44.455075Z"
+  },
+  "pins": {
+    "expansionPolicySha256": "f1d587d369fc06541827e5f46babe0e6307cc6f542d573c6c61636b082f7db72",
+    "runPlanSha256": "c70885c14c95c7f8f5a128f954e6b2bc685b32e3b699a29d6f3c67944f47d4fa",
+    "queryMapSha256": "8b5bc20d7de5936613d324f76b4c3d3dc5750606187529f12a5cf5cca20cb690",
+    "validatedCandidateSha256": "780f72833a696954bcffa8f62169686337331dd9cdfba72b9cc9dfb14b4a3422",
+    "categoryCountsSha256": "7816fb4de5f0f790c13d46e2b4fe1e5633de5322ef9e5380772563df3832cc7b",
+    "decisionLedgerSha256": "0368f49307eea5844ef9c04c627bb5f59c5934b4adf7a28c888c03c50b60d0ce",
+    "rollbackSnapshotSha256": "acc3fc035312718322f4f65a0d6d6f8dc745bc9bc093fad9b60a0664ae18d803",
+    "summarySha256": "c4560c0c1eb4c03a17ddae2dda5f4bc1952e236a92b7f421eebae1c010328f4e",
+    "canonicalManifestSha256": "f90b6b4540ff263df7fe624b34f5f2eb4306cf5309b9e2e6e9604335614dcff1",
+    "canonicalHtmlSha256": "18d1b086fb539d05f968399bb8a7dd027f255ed5bda10cbbc7ce17a953290138"
+  },
+  "verification": [
+    {
+      "command": "python -B -m unittest tests.test_catalog_candidate_expansion tests.test_catalog_enrichment tests.test_catalog_gap_fill tests.test_catalog_refresh_pipeline tests.test_catalog_eligibility_reconciliation -v",
+      "result": "72 tests passed"
+    },
+    {
+      "command": "python -B scripts/expand_catalog_candidate.py verify --run-dir .codex-tmp/catalog-refresh/cat-07a",
+      "result": "finalSummaryVerified=true; networkPerformed=false"
+    },
+    {
+      "command": "python -B scripts/build_catalog_html.py --check",
+      "result": "matches=true; 5806093 bytes; canonical HTML SHA-256 unchanged"
+    },
+    {
+      "command": "git diff --check",
+      "result": "passed with Windows line-ending warnings only"
+    }
+  ],
+  "writeBoundary": {
+    "canonicalManifestWritten": false,
+    "canonicalHtmlWritten": false,
+    "externalPublication": false,
+    "gitHistory": false
+  },
+  "independentReview": {
+    "initialFinding": "The first freeze dropped four alias-contributed CAT-07 category placements by recomputing base counts without the identity alias map.",
+    "remediation": "Finalize and offline verify now recompute from the full CAT-07 source, canonical root set and identity-alias map before adding selected expansion roots.",
+    "result": "zero mismatches across 111 leaves; ai_application_ui=18, market_research_competitive_intel=12, rag_knowledge_apps=54 and speech_voice_audio=15"
+  },
+  "evidenceLimits": [
+    "Live GitHub evidence supports recorded public identity, archive state, Stars and bounded core facts only at each observation time.",
+    "Fixed-taxonomy classification is not recommendation quality, curator acceptance, security review or operability proof.",
+    "CAT-08 still owns canonical reconciliation; browser behavior, retrieval quality, human usefulness, release readiness and publication remain unverified."
+  ]
+}
