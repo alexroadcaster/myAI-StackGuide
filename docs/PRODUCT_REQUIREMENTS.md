@@ -52,7 +52,7 @@ Persist minimized findings, sanitized answers and safe references under `docs/my
 
 ## Active Catalog And Quality Baseline
 
-The canonical intermediate source snapshot is dated 2026-08-31 with 1,800 repositories, 126 taxonomy nodes and 1,945 direct placements. CAT-07A separately freezes a non-canonical 2,500-identity candidate over the same 111 thematic leaves, 14 navigation containers and one review queue. CAT-08/09/10 own canonical reconciliation, verification and the exact CP-06 handoff; candidate counts are not current published inventory. CP-06 persists available metadata and provenance before index build; browser-only enrichment is not a reproducible source. Missing fields stay unknown. Index one normalized canonical repository card, with concise category/use-case signals, not repeated category prose or arbitrary JSON chunks.
+The canonical source snapshot is dated 2026-09-01 with 2,500 repositories, 126 taxonomy nodes and 2,630 direct placements. CAT-08 applied the frozen CAT-07A candidate and passed source/static parity; CAT-09 still owns browser/performance verification and CAT-10 owns the exact CP-06 freeze/handoff. These counts are snapshot inventory, not live GitHub facts. CP-06 persists available metadata and provenance before index build; browser-only enrichment is not a reproducible source. Missing fields stay unknown. Index one normalized canonical repository card, with concise category/use-case signals, not repeated category prose or arbitrary JSON chunks.
 
 SQLite FTS5/BM25 is selected. The local `catalog_only` source uses `sqlite_fts5`; no vectors/embedding models/database service required. Retrieve at most 60 candidates across query variants, deliver at most 12 cards and 48 KiB UTF-8 evidence including provenance; these uncalibrated ceilings are not token or quality promises. CP-03 allocates Brief and retrieval budgets; CP-04 validates RU/EN/aliases, retrieval relevance and integration usefulness. Missing index/FTS5 is an explicit failure, not silent full-catalog context loading.
 
@@ -533,7 +533,7 @@ V1 beta is ready when:
 
 - `MYAI_STACKGUIDE_PRODUCT_CONCEPT.md` defines the advisory-only repository selection product, V1 catalog size, feature layers, repository card model, and recommendation output contract.
 - `MYAI_STACKGUIDE_CONTEXT_SCANNER.md` defines embedded/project scanning, read-only boundaries, Project Context Brief schema, deployment modes, exclusions, and scanner risks.
-- `README.md` distinguishes the current canonical HTML v5.1 intermediate snapshot (2026-08-31, 1,800 repository records, 126 taxonomy nodes and 1,945 direct placements), the non-canonical CAT-07A 2,500-identity candidate, and the legacy Markdown/research boundary (2026-05-23, 314 repositories, 42 categories, and 351 placements).
+- `README.md` distinguishes the current CAT-08 canonical HTML v5.1 snapshot (2026-09-01, 2,500 repository records, 126 taxonomy nodes and 2,630 direct placements), the frozen CAT-07A input, and the legacy Markdown/research boundary (2026-05-23, 314 repositories, 42 categories, and 351 placements).
 - Catalog metadata is snapshot evidence and must not be described as live or current without a fresh source-backed check.
 
 </details>

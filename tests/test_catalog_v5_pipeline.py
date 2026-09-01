@@ -23,6 +23,14 @@ class CatalogV5PipelineTests(unittest.TestCase):
         cls.builder = load_builder()
         cls.payload = cls.builder.load_manifest()
 
+    def strict_payload(self):
+        payload = copy.deepcopy(self.payload)
+        payload.setdefault("enrichment", {})["canonicalReconciliation"] = {"task": "CP-03.CAT-08"}
+        for index, repository in enumerate(payload["repositories"], start=1):
+            repository["githubRepositoryId"] = index
+            repository["aliases"] = []
+        return payload
+
     def test_manifest_schema_matches_builder_contract(self):
         schema = json.loads(self.builder.SCHEMA.read_text(encoding="utf-8"))
         self.assertEqual(schema["properties"]["schemaVersion"]["const"], self.payload["schemaVersion"])
@@ -79,6 +87,24 @@ class CatalogV5PipelineTests(unittest.TestCase):
         payload = copy.deepcopy(self.payload)
         payload["repositories"][1]["id"] = payload["repositories"][0]["id"]
         with self.assertRaisesRegex(self.builder.CatalogContractError, "duplicate repository ids"):
+            self.builder.validate_payload(payload)
+
+    def test_duplicate_numeric_github_identity_is_rejected(self):
+        payload = self.strict_payload()
+        payload["repositories"][1]["githubRepositoryId"] = payload["repositories"][0]["githubRepositoryId"]
+        with self.assertRaisesRegex(self.builder.CatalogContractError, "duplicate GitHub repository ids"):
+            self.builder.validate_payload(payload)
+
+    def test_alias_collision_with_canonical_name_is_rejected(self):
+        payload = self.strict_payload()
+        payload["repositories"][0]["aliases"] = [payload["repositories"][1]["fullName"]]
+        with self.assertRaisesRegex(self.builder.CatalogContractError, "alias collides"):
+            self.builder.validate_payload(payload)
+
+    def test_malformed_structured_stack_is_rejected(self):
+        payload = self.strict_payload()
+        payload["repositories"][0]["stack"] = [{"technology": "Python", "evidenceRefs": "metadata"}]
+        with self.assertRaisesRegex(self.builder.CatalogContractError, "invalid structured stack"):
             self.builder.validate_payload(payload)
 
     def test_summary_count_drift_is_rejected(self):

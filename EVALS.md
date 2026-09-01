@@ -25,6 +25,10 @@ For each role-relevant case, assess whether the user can explain the recommendat
 
 Separate UI language parity from independent RU/EN retrieval relevance: switch one captured result without changing IDs, roles, constraints or evidence. Judge negation, uncertainty, authority, question rationale and handoff meaning; record partial translations and measured generation latency/byte overhead. CP-11 supplies publication/revision and actual FTS5 route evidence; fixtures or approved images alone cannot satisfy those runtime gates. These checks are planned and no new evaluation result is claimed by this update.
 
+## Current Catalog Evidence Ceiling
+
+CP-03.CAT-08 is `source_canonical_static_verified`: the source-owned snapshot has 2,500 unique repositories, 126 taxonomy nodes, 2,630 placements and exact deterministic HTML parity. Three review records moved to evidence-supported existing leaves; 12 remain explicit review records. This proves canonical source/projection integrity only. CAT-09 still owns browser behavior and measured performance; CP-04/06/09/11/15/16 still own retrieval relevance, index/runtime activation, human usefulness, privacy/UI acceptance and release evidence.
+
 ## Case Format
 
 CP-04 owns active product cases in `evals/plugin-v1/cases.json` and C8 schemas; older `evals/cases/*.json` references are historical. The following are logical quality-case requirements, not extra keys to add to the closed C8 scenario/result envelopes. CP-04 maps them to scenario fields, frozen catalog/query captures and separate judgment/rubric artifacts. Do not break the existing four synthetic captures or schema to copy this checklist:

@@ -61,7 +61,7 @@ const dateShort=v=>!v?'—':String(v).slice(0,10);
 const statusClass=s=>['accepted','candidate','reference','benchmark'].includes(s)?s:'unknown';
 function resetMaps(){repoMap=new Map(DATA.repositories.map(r=>[r.id,r]));catMap=new Map(DATA.categories.map(c=>[c.key,c]));}
 function activityGroup(r){const b=r.activity?.activityBand||'unknown';if(b.startsWith('active_'))return'active';if(b==='maintenance')return'maintenance';if(b==='stale')return'stale';return'unknown'}
-function repoSearch(r){return [r.fullName,r.description,r.language,r.license?.spdx,r.primaryCategory,catMap.get(r.primaryCategory)?.title,catMap.get(catMap.get(r.primaryCategory)?.parentId)?.title,...(r.secondaryCategories||[]),r.form,r.persona,r.difficulty,...(r.deployment||[]),...(r.topics||[])].join(' ').toLowerCase()}
+function repoSearch(r){return [r.fullName,...(r.aliases||[]),r.description,r.catalogDescription,r.language,r.license?.spdx,r.primaryCategory,catMap.get(r.primaryCategory)?.title,catMap.get(catMap.get(r.primaryCategory)?.parentId)?.title,...(r.secondaryCategories||[]),r.form,r.persona,r.difficulty,...(r.deployment||[]),...(r.topics||[])].join(' ').toLowerCase()}
 function matches(r){
  const q=state.q.trim().toLowerCase().split(/\s+/).filter(Boolean);if(q.length&&!q.every(t=>repoSearch(r).includes(t)))return false;
  if(state.status!=='all'&&r.catalogStatus!==state.status)return false;

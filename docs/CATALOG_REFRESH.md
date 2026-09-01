@@ -291,6 +291,20 @@ provenance shapes before generation. No new discovery, taxonomy expansion or
 CAT-07A replay is part of this handoff. CAT-09 measures exact source/output/browser
 behavior; CAT-10 freezes the verified CP-06 input.
 
+## CAT-08 canonical application
+
+CAT-08 completed the pinned source-first merge without discovery or taxonomy changes:
+
+```powershell
+python -B scripts/apply_catalog_candidate.py plan --run-dir .codex-tmp/catalog-refresh/cat-08-v4
+python -B scripts/apply_catalog_candidate.py apply --run-dir .codex-tmp/catalog-refresh/cat-08-v4
+python -B scripts/apply_catalog_candidate.py verify --run-dir .codex-tmp/catalog-refresh/cat-08-v4
+python -B scripts/build_catalog_html.py --check
+python -B -m unittest tests.test_catalog_candidate_application tests.test_catalog_v5_pipeline -v
+```
+
+The final manifest SHA-256 is `d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e`; the 3,932,467-byte HTML SHA-256 is `2f1d77740f0652f518fa8b155d30c1cf35112cd5067875a76cd400445aaef8b2`. Counts are 2,500 repositories, 126 nodes, 2,630 placements, 2,488 thematic repositories and 12 review records. The compact projection retains displayed/searchable descriptions, aliases and Stack labels while keeping repository audit fields and unused top-level migration/evidence data in the canonical source. The transaction journal preserves exact failure recovery plus an operational current-renderer rollback. Browser/performance evidence remains CAT-09. Durable minimized evidence is `docs/reports/catalog-canonical-application-2026-09-01.json`.
+
 ## Historical evidence
 
 [Retained history](reports/catalog-refresh-history.md) and

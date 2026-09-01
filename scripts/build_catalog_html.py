@@ -14,6 +14,7 @@ MANIFEST = ROOT / "data" / "catalog_manifest.json"
 SCHEMA = ROOT / "data" / "catalog_manifest.schema.json"
 TEMPLATE = ROOT / "templates" / "unified_catalog.html"
 OUTPUT = ROOT / "docs" / "UNIFIED_CATALOG.html"
+CANONICAL_WRITE_LOCK = ROOT / ".codex-tmp" / "catalog-refresh" / "canonical-write.lock"
 DATA_MARKER = "{{CATALOG_DATA_JSON}}"
 
 REQUIRED_TOP_LEVEL_FIELDS = {
@@ -34,6 +35,57 @@ REQUIRED_TOP_LEVEL_FIELDS = {
     "dataPolicy",
     "activitySchema",
     "enrichment",
+}
+
+PRESENTATION_REPOSITORY_FIELDS = (
+    "id",
+    "aliases",
+    "fullName",
+    "url",
+    "description",
+    "catalogDescription",
+    "language",
+    "license",
+    "stars",
+    "catalogStatus",
+    "productionEligible",
+    "lifecycle",
+    "form",
+    "deployment",
+    "hosting",
+    "persona",
+    "difficulty",
+    "primaryCategory",
+    "secondaryCategories",
+    "evidenceCompleteness",
+    "topics",
+    "archived",
+    "activity",
+    "stack",
+)
+
+PRESENTATION_TOP_LEVEL_FIELDS = (
+    "snapshot",
+    "summary",
+    "useCases",
+    "categories",
+    "stackRecipes",
+)
+
+PRESENTATION_OMITTED_AUDIT_FIELDS = {
+    "classification",
+    "coreFieldGatePassed",
+    "coreUnsupportedFields",
+    "eligibility",
+    "fieldObservations",
+    "languages",
+    "qualifiedSequence",
+    "recommendationStatus",
+    "schemaVersion",
+    "selectionKey",
+    "sourceId",
+    "sourceRecordIds",
+    "provenance",
 }
 
 
@@ -67,16 +119,54 @@ def validate_payload(payload: dict[str, Any]) -> None:
     compatibility = payload["compatibility"]
     stack_recipes = payload["stackRecipes"]
     summary = payload["summary"]
+    strict_canonical_identity = (
+        (payload.get("enrichment") or {}).get("canonicalReconciliation", {}).get("task")
+        == "CP-03.CAT-08"
+    )
 
     collections = (repositories, categories, placements, compatibility, stack_recipes)
     if not all(isinstance(value, list) for value in collections):
         raise CatalogContractError("catalog collections must be arrays")
 
     required_repo_fields = {"id", "fullName", "url", "catalogStatus", "primaryCategory", "provenance"}
+    if strict_canonical_identity:
+        required_repo_fields.add("githubRepositoryId")
     for index, repository in enumerate(repositories):
         repo_missing = required_repo_fields - repository.keys()
         if repo_missing:
             raise CatalogContractError(f"repository[{index}] missing fields: {sorted(repo_missing)}")
+        if strict_canonical_identity:
+            numeric_id = repository["githubRepositoryId"]
+            if not isinstance(numeric_id, int) or isinstance(numeric_id, bool) or numeric_id <= 0:
+                raise CatalogContractError(f"repository[{index}] has invalid githubRepositoryId")
+            aliases = repository.get("aliases", [])
+            if not isinstance(aliases, list):
+                raise CatalogContractError(f"repository[{index}] aliases must be an array")
+            normalized_aliases = []
+            for alias in aliases:
+                if not isinstance(alias, str) or not alias.strip():
+                    raise CatalogContractError(f"repository[{index}] contains an invalid alias")
+                normalized_aliases.append(alias.strip().casefold())
+            _require_unique(normalized_aliases, f"repository[{index}] aliases")
+            stack = repository.get("stack")
+            if stack is not None:
+                if not isinstance(stack, list):
+                    raise CatalogContractError(f"repository[{index}] stack must be an array or null")
+                for stack_item in stack:
+                    if isinstance(stack_item, str) and stack_item.strip():
+                        continue
+                    if not isinstance(stack_item, dict):
+                        raise CatalogContractError(f"repository[{index}] contains an invalid stack entry")
+                    technology = stack_item.get("technology")
+                    evidence_refs = stack_item.get("evidenceRefs")
+                    if (
+                        not isinstance(technology, str)
+                        or not technology.strip()
+                        or not isinstance(evidence_refs, list)
+                        or not evidence_refs
+                        or any(not isinstance(ref, str) or not ref.strip() for ref in evidence_refs)
+                    ):
+                        raise CatalogContractError(f"repository[{index}] contains an invalid structured stack entry")
 
     required_category_fields = {"key", "title", "repoIds"}
     for index, category in enumerate(categories):
@@ -91,13 +181,31 @@ def validate_payload(payload: dict[str, Any]) -> None:
             raise CatalogContractError(f"placement[{index}] missing fields: {sorted(placement_missing)}")
 
     repo_ids = [repository["id"] for repository in repositories]
+    github_repository_ids = [repository.get("githubRepositoryId") for repository in repositories]
     repo_names = [repository["fullName"].casefold() for repository in repositories]
     category_keys = [category["key"] for category in categories]
     placement_pairs = [(placement["repoKey"].casefold(), placement["categoryKey"]) for placement in placements]
     _require_unique(repo_ids, "repository ids")
+    if strict_canonical_identity:
+        _require_unique(github_repository_ids, "GitHub repository ids")
     _require_unique(repo_names, "repository full names")
     _require_unique(category_keys, "category keys")
     _require_unique(placement_pairs, "repository/category placements")
+
+    if strict_canonical_identity:
+        canonical_name_owners = {
+            repository["fullName"].strip().casefold(): repository["id"]
+            for repository in repositories
+        }
+        alias_owners: dict[str, str] = {}
+        for repository in repositories:
+            for alias in repository.get("aliases", []):
+                normalized_alias = alias.strip().casefold()
+                if normalized_alias in canonical_name_owners:
+                    raise CatalogContractError("repository alias collides with a canonical full name")
+                prior_owner = alias_owners.setdefault(normalized_alias, repository["id"])
+                if prior_owner != repository["id"]:
+                    raise CatalogContractError("repository alias is shared by multiple identities")
 
     category_key_set = set(category_keys)
     unknown_primary_categories = sorted(
@@ -213,6 +321,8 @@ def validate_payload(payload: dict[str, Any]) -> None:
 def load_manifest(path: Path = MANIFEST) -> dict[str, Any]:
     """Load and validate the canonical current catalog manifest."""
 
+    if path == MANIFEST and CANONICAL_WRITE_LOCK.exists():
+        raise CatalogContractError("canonical catalog write is in progress; retry after the transaction finishes")
     raw = path.read_text(encoding="utf-8").strip()
     payload = json.loads(raw)
     if not isinstance(payload, dict):
@@ -229,6 +339,88 @@ def build_payload() -> dict[str, Any]:
     return load_manifest()
 
 
+def _presentation_stack(value: Any) -> list[str]:
+    """Project source-owned structured Stack evidence to display labels."""
+
+    if value is None:
+        return []
+    if not isinstance(value, list):
+        raise CatalogContractError("repository stack must be an array")
+    result: list[str] = []
+    for item in value:
+        if isinstance(item, str) and item.strip():
+            technology = item.strip()
+        elif isinstance(item, dict) and isinstance(item.get("technology"), str) and item["technology"].strip():
+            technology = item["technology"].strip()
+        else:
+            raise CatalogContractError("repository stack entries must be strings or structured technologies")
+        if technology not in result:
+            result.append(technology)
+    return result
+
+
+def presentation_projection(payload: dict[str, Any]) -> dict[str, Any]:
+    """Return the deterministic, display-only payload embedded in standalone HTML."""
+
+    validate_payload(payload)
+    projected = {key: payload[key] for key in PRESENTATION_TOP_LEVEL_FIELDS}
+    verified_replacement = (payload.get("enrichment") or {}).get("verifiedReplacement")
+    projected["enrichment"] = (
+        {"verifiedReplacement": verified_replacement}
+        if isinstance(verified_replacement, dict)
+        else {}
+    )
+    projected_repositories = []
+    for repository in payload["repositories"]:
+        item = {
+            key: repository[key]
+            for key in PRESENTATION_REPOSITORY_FIELDS
+            if key in repository
+        }
+        description = item.get("description")
+        if not isinstance(description, str) or not description.strip():
+            catalog_description = repository.get("catalogDescription")
+            if isinstance(catalog_description, str) and catalog_description.strip():
+                item["description"] = catalog_description
+            else:
+                item.pop("description", None)
+        item["stack"] = _presentation_stack(repository.get("stack"))
+        projected_repositories.append(item)
+    projected["repositories"] = projected_repositories
+    validate_presentation_projection(payload, projected)
+    return projected
+
+
+def validate_presentation_projection(source: dict[str, Any], projected: dict[str, Any]) -> None:
+    """Prove identity/order and adapter parity for every projected repository."""
+
+    expected_top_level = {*PRESENTATION_TOP_LEVEL_FIELDS, "enrichment", "repositories"}
+    if set(projected) != expected_top_level:
+        raise CatalogContractError("presentation projection top-level field mismatch")
+    source_repositories = source["repositories"]
+    projected_repositories = projected.get("repositories")
+    if not isinstance(projected_repositories, list) or len(projected_repositories) != len(source_repositories):
+        raise CatalogContractError("presentation projection repository count mismatch")
+    for source_item, projected_item in zip(source_repositories, projected_repositories, strict=True):
+        if projected_item.get("id") != source_item["id"] or projected_item.get("fullName") != source_item["fullName"]:
+            raise CatalogContractError("presentation projection identity/order mismatch")
+        leaked = PRESENTATION_OMITTED_AUDIT_FIELDS & projected_item.keys()
+        if leaked:
+            raise CatalogContractError(f"presentation projection leaked audit fields: {sorted(leaked)}")
+        if projected_item.get("stack") != _presentation_stack(source_item.get("stack")):
+            raise CatalogContractError("presentation projection stack mismatch")
+        expected_description = source_item.get("description")
+        if not isinstance(expected_description, str) or not expected_description.strip():
+            catalog_description = source_item.get("catalogDescription")
+            expected_description = (
+                catalog_description
+                if isinstance(catalog_description, str) and catalog_description.strip()
+                else None
+            )
+        if projected_item.get("description") != expected_description:
+            raise CatalogContractError("presentation projection description mismatch")
+
+
 def page(payload: dict[str, Any]) -> str:
     """Render the standalone HTML page from the template and manifest."""
 
@@ -236,7 +428,7 @@ def page(payload: dict[str, Any]) -> str:
     template = TEMPLATE.read_text(encoding="utf-8")
     if template.count(DATA_MARKER) != 1:
         raise CatalogContractError("HTML template must contain exactly one catalog data marker")
-    return template.replace(DATA_MARKER, canonical_json(payload))
+    return template.replace(DATA_MARKER, canonical_json(presentation_projection(payload)))
 
 
 def integrity_warnings(payload: dict[str, Any]) -> dict[str, Any]:

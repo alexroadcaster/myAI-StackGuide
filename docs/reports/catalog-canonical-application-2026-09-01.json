@@ -1,0 +1,92 @@
+{
+  "schemaVersion": "1.0",
+  "task": "CP-03.CAT-08",
+  "date": "2026-09-01",
+  "status": "source_canonical_static_verified",
+  "inputs": {
+    "canonicalManifestSha256": "f90b6b4540ff263df7fe624b34f5f2eb4306cf5309b9e2e6e9604335614dcff1",
+    "cat07EligibilitySha256": "8f0355f5d55786acbfb84cd6a1c7845f9c4310102666a1fab28086ef142ec441",
+    "cat07AliasMapSha256": "30803f5ad496ac8ee66d7eaaa48a5af258526ab2c5a7fa7500328d79af983574",
+    "cat07SemanticDecisionsSha256": "cd060adba1ae9da8b25505537d30863323fc223feebf2c72a098fedc19db681c",
+    "cat07aCandidateSha256": "780f72833a696954bcffa8f62169686337331dd9cdfba72b9cc9dfb14b4a3422"
+  },
+  "outputs": {
+    "manifest": "data/catalog_manifest.json",
+    "manifestSha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+    "manifestBytes": 29463709,
+    "html": "docs/UNIFIED_CATALOG.html",
+    "htmlSha256": "2f1d77740f0652f518fa8b155d30c1cf35112cd5067875a76cd400445aaef8b2",
+    "htmlBytes": 3932467,
+    "embeddedPresentationBytes": 3904979
+  },
+  "counts": {
+    "canonicalRepositories": 2500,
+    "accepted": 485,
+    "candidates": 1987,
+    "referenceOrBenchmark": 28,
+    "taxonomyNodes": 126,
+    "thematicCategories": 111,
+    "navigationContainers": 14,
+    "reviewQueues": 1,
+    "directPlacements": 2630,
+    "thematicRepositories": 2488,
+    "reviewRepositories": 12,
+    "thematicPlacements": 2618,
+    "acceptedAdditions": 876,
+    "qualifiedOverflowReserved": 7,
+    "aliases": 55,
+    "repositoriesWithAliases": 54,
+    "recommendationRationaleStored": 212,
+    "recommendationPending": 2288
+  },
+  "reviewReconciliation": {
+    "reviewed": 15,
+    "assignedExistingLeaf": [
+      "deepseek-ai/deepseek-harness -> agent_runtime_orchestration",
+      "HKUDS/DeepTutor -> rag_knowledge_apps",
+      "liyupi/yu-ai-agent -> learning_reference_resources"
+    ],
+    "retainedReview": [
+      "CorentinTh/it-tools",
+      "date-fns/date-fns",
+      "ethereum/go-ethereum",
+      "HeyPuter/puter",
+      "lodash/lodash",
+      "Raphire/Win11Debloat",
+      "zen-browser/desktop",
+      "Joooook/12306-mcp",
+      "jacob-bd/gemini-notebook-mcp-cli",
+      "bitcoin/bitcoin",
+      "homeassistant-ai/ha-mcp",
+      "torvalds/linux"
+    ]
+  },
+  "projection": {
+    "auditFieldsSourceOnly": ["classification", "provenance"],
+    "topLevelFields": ["snapshot", "summary", "useCases", "categories", "stackRecipes", "enrichment", "repositories"],
+    "unusedTopLevelAuditDataOmitted": true,
+    "searchesAliases": true,
+    "searchesDescriptionAndCatalogDescription": true,
+    "structuredStackProjectedToTechnologyLabels": true,
+    "visualCssLayoutChanged": false
+  },
+  "verification": {
+    "transactionVerify": "passed",
+    "exactHtmlParity": "passed",
+    "unitTests": "29 passed",
+    "gitDiffCheck": "passed with line-ending warnings only",
+    "browserVerified": false
+  },
+  "rollback": {
+    "atomicFailureRecovery": "preserves exact pre-apply manifest and HTML bytes",
+    "explicitRollback": "restores the pre-apply manifest and regenerates an HTML artifact compatible with the current renderer"
+  },
+  "knownGaps": {
+    "canonicalArchivedBaselineRepositories": 19,
+    "cat07ObservedArchivedBaselineRepositories": 24,
+    "archiveDifferenceTreatment": "preserved by sparse-patch policy; not hidden or treated as fresh whole-corpus verification",
+    "browserPerformance": "owned by CP-03.CAT-09",
+    "snapshotFreezeAndCp06Handoff": "owned by CP-03.CAT-10",
+    "retrievalHumanReleaseOrPublication": "not established"
+  }
+}

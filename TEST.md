@@ -140,7 +140,7 @@ container unions and no empty leaf; exact HTML parity remains 5,806,093 bytes at
 SHA-256 `18d1b086fb539d05f968399bb8a7dd027f255ed5bda10cbbc7ce17a953290138`.
 See `docs/reports/catalog-expansion-2026-09-01.json`.
 
-## Planned CAT-08 To CAT-10 Canonicalization Gates
+## CAT-08 Evidence And Planned CAT-09/10 Gates
 
 CAT-08 consumes three pinned inputs rather than treating the CAT-07A expansion file
 as a complete replacement manifest: the current canonical manifest, the CAT-07
@@ -171,9 +171,16 @@ JavaScript errors, startup time and repeated search/filter p50/p95 on named hard
 Performance thresholds must be declared from the current canonical baseline before
 the candidate run; do not invent a retrospective SLA.
 
+CAT-08 completed these source/static gates with 2,500 identities, 126 taxonomy nodes,
+2,630 placements, 55 aliases and 12 retained-review records. The transaction verify,
+exact HTML parity and 29 focused tests pass; the compact projection omits source-only
+repository audit fields plus unused top-level migration/evidence data, and the
+template changes no CSS/layout/card markup.
+
 CAT-10 freezes final counts/hashes, the review disposition and the exact CP-06 input
 version, then updates active snapshot descriptions while preserving dated historical
-records. These are planned gates until CAT-08/09/10 execute.
+records. CAT-09 browser/performance verification and CAT-10 freeze/handoff remain
+planned; CAT-08 static evidence does not satisfy either gate.
 
 ## Contract Test Matrix For The Next Slice
 
