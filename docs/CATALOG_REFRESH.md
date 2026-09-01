@@ -63,6 +63,8 @@ Run from the repository root:
 python -B scripts/catalog_gap_fill.py preflight --run-dir .codex-tmp/catalog-refresh/gaps
 python -B scripts/catalog_gap_fill.py run --run-dir .codex-tmp/catalog-refresh/gaps --max-requests 150 --max-records 25
 python -B scripts/catalog_gap_fill.py report --run-dir .codex-tmp/catalog-refresh/gaps
+python -B scripts/run_catalog_gap_fill_batches.py --run-dir .codex-tmp/catalog-refresh/gaps --max-rounds 4 --requests-per-round 1000 --records-per-round 250
+python -B scripts/prepare_catalog_semantic_review.py --run-dir .codex-tmp/catalog-refresh/gaps --batch-size 10 --replacement-batch-size 20
 ```
 
 One bounded invocation performs its selected records sequentially without LLM
@@ -74,6 +76,44 @@ fallback. It records core and search buckets separately. A rate-limited response
 conservatively pauses the current invocation, including search. No recurring task
 is installed. The preflight adds one transport attempt outside the requested work
 budget and does not consume GitHub's primary quota.
+
+The batch driver repeats those same bounded invocations in the foreground. It does
+not change the frozen collector plan or reset cumulative request/byte counters. It
+stops on a quota wait, authentication/transport halt, completed queue, lack of
+progress or its explicit round limit. Interrupting it leaves the per-request
+checkpoint reusable; it is not a scheduler or background automation.
+
+GitHub repository IDs are numeric identities. The collector accepts an equivalent
+positive decimal string from the frozen JSON input because older catalog rows store
+some verified IDs as strings while GitHub returns JSON integers. This normalization
+does not accept names as identity evidence or coerce arbitrary values. A checkpoint
+created with the former strict type comparison requires one explicit local migration:
+
+```powershell
+python -B scripts/migrate_catalog_numeric_ids.py --run-dir .codex-tmp/catalog-refresh/gaps
+```
+
+The migration re-normalizes saved derived records, rebuilds the numeric identity and
+alias map, reruns reports and preserves source blocks plus cumulative request/byte
+counters. It writes `identity-type-migration.json` with before/after record hashes
+and refuses to run twice. It performs no network or canonical catalog write.
+
+The completed CAT-05 run also required a pinned collector migration after large
+single-commit responses exceeded the 1 MB safety cap. The collector now resolves
+the default branch through the compact Git ref and Git commit object endpoints.
+A successful GitHub response with an unsupported README representation or a body
+over the configured cap is retained as terminal `source_unsupported` evidence;
+repeating the same request cannot consume the queue indefinitely. Existing observed
+blocks are not refetched. Apply the explicit migration only to a compatible saved
+run:
+
+```powershell
+python -B scripts/migrate_catalog_compact_commit_endpoint.py --run-dir .codex-tmp/catalog-refresh/gaps
+```
+
+The migration refreshes the frozen field contract and integrity pins while
+preserving all records, request logs, counters and curation. Its local migration
+artifacts record both incremental applications used by the current checkpoint.
 
 Start a new successor only in a nonexistent directory:
 
@@ -105,6 +145,56 @@ Search results require public visibility, new numeric identity and verified Star
 presented as qualified substitutes. Keyword/language matching is only a screening
 step: category fit, adoption trade-offs and the remaining candidate card need review.
 A failed bounded search produces an unresolved vacancy, not a forced replacement.
+
+## CAT-05 completed checkpoint
+
+The 2026-09-01 checkpoint has visited all 1,800 source rows. It contains 1,641
+processed rows and 159 confirmed below-threshold rows, with no `not_started`,
+`retry_required` or identity-conflict status. It prepared 29,538 sparse edits,
+159 replacement lists and the complete 71-field CSV without LLM calls or canonical
+writes. Of those lists, 151 contain at least one bounded-search lead and eight need
+expanded CAT-06 research; every lead still requires semantic fit review.
+
+The large stored-zero count was mostly stale or placeholder metadata. Among 806
+stored-zero rows, live evidence found 768 at Stars >= 500, 25 below 500 and 13 with
+Stars unresolved. Among 137 stored rows from 1 to 499, 134 remain below 500 and
+three are now >= 500. Nine of 857 stored rows already at 500+ also have unresolved
+current Stars. CAT-07 must keep all 22 unresolved rows pending rather than treating
+them as zero or eligible.
+
+Local verification normalized all 1,800 records without network, accepted all
+29,538 edits under the missing-value or verified-Star-correction guard, reconciled
+12,141 request-log start/finish pairs, found no retry/identity-conflict rows and
+confirmed exact 5,806,093-byte HTML parity. These checks prove collection and local
+checkpoint integrity. Semantic field quality, functional replacement fit, canonical
+application, browser behavior and release readiness remain downstream work.
+
+CAT-06 starts from `semantic-review/`, generated by
+`scripts/prepare_catalog_semantic_review.py`. The current output contains 165
+ten-repository semantic batches, eight replacement batches and a separate factual
+gap queue. Each packet includes bounded upstream/README excerpts, dependency
+declarations, available source facts and observed evidence refs. It does not create
+curation files, accept fields, rank functional equivalence or modify canonical data.
+This packaging keeps deterministic evidence preparation out of LLM context while
+leaving semantic decisions explicit and reviewable.
+
+CAT-06 completion uses `scripts/review_catalog_semantic_queue.py`. Its dry-run writes
+a complete decision ledger; `--apply` merges only exact upstream descriptions and
+minimal observed-language Stack values into the ignored checkpoint with network
+access disabled:
+
+```powershell
+python -B scripts/review_catalog_semantic_queue.py --run-dir .codex-tmp/catalog-refresh/gaps
+python -B scripts/review_catalog_semantic_queue.py --run-dir .codex-tmp/catalog-refresh/gaps --apply
+```
+
+The completed ledger covers 1,641 records and 17,978 fields. It accepts 1,595
+minimal Stack values and 676 exact upstream descriptions. It leaves 39 Stack,
+18 descriptions and 15,650 other semantic decisions unresolved. All 445
+metadata-only replacement leads are rejected as functionally unqualified; no
+replacement is accepted. CAT-07 owns the resulting mandatory-gap exclusions and
+unfilled replacement vacancies. The durable result is
+`docs/reports/catalog-semantic-review-2026-09-01.json`.
 
 ## Historical evidence
 

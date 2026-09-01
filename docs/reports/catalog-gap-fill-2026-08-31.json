@@ -1,6 +1,6 @@
 {
   "date": "2026-08-31",
-  "status": "implemented_and_partially_live_verified",
+  "status": "collection_complete_locally_verified_semantic_review_pending",
   "scope": "authorized_public_GET_missing_fields_only_replacement_proposals_no_canonical_write",
   "client": {
     "name": "official GitHub CLI",
@@ -48,11 +48,11 @@
   },
   "lastResponseQuota": {
     "x-ratelimit-limit": "5000",
-    "x-ratelimit-remaining": "4857",
-    "x-ratelimit-used": "143",
-    "x-ratelimit-reset": "1788203372",
+    "x-ratelimit-remaining": "4971",
+    "x-ratelimit-used": "29",
+    "x-ratelimit-reset": "1788244193",
     "x-ratelimit-resource": "core",
-    "observedAt": "2026-08-31T18:27:11.406431Z"
+    "observedAt": "2026-09-01T05:33:14.378160Z"
   },
   "progress": {
     "scope": "missing_fields_and_low_star_proposals_only",
@@ -95,5 +95,503 @@
     "CLI invocations are counted locally; GitHub headers own actual quota consumption.",
     "Derived field-observation timestamps on one inherited record needed explicit rebinding to the successor plan; factual values, source blocks and API observation dates were preserved.",
     "Original full-card run remains frozen; use the selective successor."
-  ]
+  ],
+  "continuations": [
+    {
+      "observedAt": "2026-08-31T19:03:48.110737Z",
+      "status": "in_progress_partially_verified",
+      "scope": "resume_same_checkpoint_no_canonical_write",
+      "before": {
+        "processed": 33,
+        "proposedFieldEdits": 757,
+        "patchRepositories": 31,
+        "transportAttempts": 258
+      },
+      "delta": {
+        "processed": 139,
+        "proposedFieldEdits": 2996,
+        "patchRepositories": 132,
+        "transportAttemptsIncludingPreflights": 1000
+      },
+      "invocations": [
+        {
+          "command": "python -B scripts/catalog_gap_fill.py run --run-dir .codex-tmp/catalog-refresh/gaps --max-requests 1000 --max-records 250",
+          "attemptedThisInvocation": 50,
+          "newTransportAttempts": 353,
+          "processedTotal": 82,
+          "cumulativeTransportAttempts": 612,
+          "stopReason": "elapsed_time_budget"
+        },
+        {
+          "command": "python -B scripts/catalog_gap_fill.py run --run-dir .codex-tmp/catalog-refresh/gaps --max-requests 645 --max-records 200",
+          "attemptedThisInvocation": 52,
+          "newTransportAttempts": 367,
+          "processedTotal": 134,
+          "cumulativeTransportAttempts": 980,
+          "stopReason": "elapsed_time_budget"
+        },
+        {
+          "command": "python -B scripts/catalog_gap_fill.py run --run-dir .codex-tmp/catalog-refresh/gaps --max-requests 277 --max-records 148",
+          "attemptedThisInvocation": 39,
+          "newTransportAttempts": 277,
+          "processedTotal": 172,
+          "cumulativeTransportAttempts": 1258,
+          "stopReason": "request_budget"
+        }
+      ],
+      "progress": {
+        "scope": "missing_fields_and_low_star_proposals_only",
+        "selectedRows": 1800,
+        "processedThisSuccessor": 172,
+        "outcomes": {
+          "not_started": 1627,
+          "evidence_available": 1,
+          "processed": 163,
+          "replacement_required": 8,
+          "retry_required": 1
+        },
+        "proposedFieldEdits": 3753,
+        "replacementLists": 8,
+        "cumulativeTransportAttempts": 1258,
+        "cumulativeBytes": 24318143,
+        "canonicalWritten": false,
+        "LLMCalls": 0
+      },
+      "checks": {
+        "verifiedRecords": 173,
+        "networkPerformed": false,
+        "scope": "local_checkpoint_consistency_only",
+        "observedAt": "2026-08-31T19:03:48.110737Z",
+        "sparsePatchGuardPassed": 3753,
+        "patchRepositories": 163,
+        "fieldReportRows": 71,
+        "sourceTemplateTaxonomyAndHtmlUnchanged": true,
+        "oldCheckpointUnchanged": true,
+        "requestLogPairs": 1258,
+        "newTransportAttemptsIncludingPreflights": 1000,
+        "previousSuccessfulRepositoryUrlsRequestedAgain": [],
+        "proposedEditsByField": {
+          "activity.createdAt": 163,
+          "activity.lastCommitAt": 163,
+          "activity.lastCommitBranch": 163,
+          "activity.lastCommitSha": 163,
+          "activity.lastReleaseAt": 144,
+          "activity.pushedAt": 163,
+          "activity.updatedAt": 163,
+          "archived": 52,
+          "defaultBranch": 52,
+          "deployment": 3,
+          "disabled": 163,
+          "forks": 161,
+          "form": 1,
+          "githubRepositoryId": 53,
+          "homepage": 145,
+          "isFork": 163,
+          "language": 160,
+          "languages": 162,
+          "license.confidence": 142,
+          "license.name": 161,
+          "license.source": 124,
+          "license.spdx": 124,
+          "recommendation.adoption_status": 6,
+          "recommendation.bestFor": 6,
+          "recommendation.role": 2,
+          "recommendation.tradeoffs": 6,
+          "recommendation.whyRecommended": 6,
+          "sizeKb": 158,
+          "stack": 6,
+          "topics": 153,
+          "visibility": 163,
+          "watchers": 150,
+          "stars": 163,
+          "catalogDescription": 3,
+          "description": 141,
+          "hosting": 2
+        },
+        "excluded": [
+          {
+            "sourceId": "gh-pending:adyen/adyen-node-api-library",
+            "fullName": "Adyen/adyen-node-api-library",
+            "stars": 138
+          },
+          {
+            "sourceId": "gh-pending:adyen/adyen-python-api-library",
+            "fullName": "Adyen/adyen-python-api-library",
+            "stars": 68
+          },
+          {
+            "sourceId": "gh-pending:awslabs/agent-evaluation",
+            "fullName": "awslabs/agent-evaluation",
+            "stars": 371
+          },
+          {
+            "sourceId": "gh-pending:bucketeer-io/bucketeer",
+            "fullName": "bucketeer-io/bucketeer",
+            "stars": 479
+          },
+          {
+            "sourceId": "gh-pending:cloudevents/sdk-javascript",
+            "fullName": "cloudevents/sdk-javascript",
+            "stars": 401
+          },
+          {
+            "sourceId": "gh-pending:configcat/go-sdk",
+            "fullName": "configcat/go-sdk",
+            "stars": 24
+          },
+          {
+            "sourceId": "gh-pending:couchbase/sync_gateway",
+            "fullName": "couchbase/sync_gateway",
+            "stars": 454
+          },
+          {
+            "sourceId": "gh-pending:dagshub/client",
+            "fullName": "DagsHub/client",
+            "stars": 103
+          }
+        ],
+        "retry": [
+          {
+            "sourceId": "gh-pending:element-plus/element-plus",
+            "fullName": "element-plus/element-plus",
+            "blocks": {
+              "file:package.json": "run_budget",
+              "release": "run_budget"
+            }
+          }
+        ],
+        "lastResponseQuota": {
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "3983",
+          "x-ratelimit-used": "1017",
+          "x-ratelimit-reset": "1788203372",
+          "x-ratelimit-resource": "core",
+          "observedAt": "2026-08-31T19:03:01.534120Z"
+        },
+        "htmlByteParity": true,
+        "activeRunIgnoredByGit": true,
+        "broadTestsRerun": false,
+        "browserChecksRun": false
+      },
+      "acceptedReplacements": 0,
+      "replacementSearchCaveat": "Generic search still produces unrelated leads, including activation scripts for feature flags and a finance repository for agent evaluation. Search results are pending CAT-06 semantic review, not qualified substitutes.",
+      "nextCheckpointRecord": "element-plus/element-plus",
+      "nextPendingBlocks": [
+        "file:package.json",
+        "release"
+      ],
+      "stopReason": "local_request_budget_not_GitHub_quota_exhaustion",
+      "localEvidence": ".codex-tmp/catalog-refresh/gaps/gap-reports/continuation-verification.json"
+    },
+    {
+      "observedAt": "2026-08-31T19:14:03.028922Z",
+      "status": "in_progress_partially_verified",
+      "scope": "owner_authorized_CAT05_then_CAT06_CAT07_CAT08",
+      "command": "python -B scripts/catalog_gap_fill.py run --run-dir .codex-tmp/catalog-refresh/gaps --max-requests 1000 --max-records 250",
+      "before": {
+        "processed": 172,
+        "proposedFieldEdits": 3753,
+        "transportAttempts": 1258
+      },
+      "delta": {
+        "processed": 52,
+        "proposedFieldEdits": 1107,
+        "transportAttemptsIncludingPreflight": 365
+      },
+      "invocation": {
+        "attemptedThisInvocation": 53,
+        "newTransportAttempts": 364,
+        "stopReason": "elapsed_time_budget"
+      },
+      "progress": {
+        "scope": "missing_fields_and_low_star_proposals_only",
+        "selectedRows": 1800,
+        "processedThisSuccessor": 224,
+        "outcomes": {
+          "not_started": 1575,
+          "evidence_available": 1,
+          "processed": 213,
+          "replacement_required": 10,
+          "retry_required": 1
+        },
+        "proposedFieldEdits": 4860,
+        "replacementLists": 10,
+        "cumulativeTransportAttempts": 1623,
+        "cumulativeBytes": 28753231,
+        "canonicalWritten": false,
+        "LLMCalls": 0
+      },
+      "checks": {
+        "verifiedRecords": 225,
+        "networkPerformed": false,
+        "scope": "local_checkpoint_consistency_only",
+        "observedAt": "2026-08-31T19:14:03.028922Z",
+        "sparsePatchGuardPassed": 4860,
+        "patchRepositories": 212,
+        "sourceTemplateTaxonomyAndHtmlUnchanged": true,
+        "oldCheckpointUnchanged": true,
+        "retry": [
+          {
+            "sourceId": "gh-pending:framer/motion",
+            "fullName": "motiondivision/motion",
+            "blocks": {
+              "readme": "run_budget",
+              "manifest_names": "run_budget",
+              "release": "run_budget"
+            }
+          }
+        ],
+        "lastResponseQuota": {
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4758",
+          "x-ratelimit-used": "242",
+          "x-ratelimit-reset": "1788206973",
+          "x-ratelimit-resource": "core",
+          "observedAt": "2026-08-31T19:13:18.385642Z"
+        }
+      },
+      "successorStages": {
+        "CAT-06": "authorized_planned",
+        "CAT-07": "authorized_planned",
+        "CAT-08": "authorized_planned"
+      },
+      "acceptedReplacements": 0,
+      "localEvidence": ".codex-tmp/catalog-refresh/gaps/gap-reports/continuation-02-verification.json"
+    },
+    {
+      "observedAt": "2026-09-01T03:00:17.352725Z",
+      "status": "in_progress_partially_verified",
+      "scope": "continued_CAT05_with_bounded_foreground_driver_and_numeric_ID_fix",
+      "before": {
+        "processed": 224,
+        "proposedFieldEdits": 4860,
+        "transportAttempts": 1623
+      },
+      "delta": {
+        "processed": 307,
+        "proposedFieldEdits": 6154,
+        "transportAttemptsIncludingPreflights": 2138
+      },
+      "execution": {
+        "singleRoundBeforeDriver": {
+          "attempted": 46,
+          "newTransportAttemptsExcludingPreflight": 321,
+          "stopReason": "elapsed_time_budget",
+          "processedTotal": 269
+        },
+        "driver": {
+          "maxRounds": 4,
+          "roundsCompleted": 4,
+          "attempted": [
+            53,
+            53,
+            57,
+            60
+          ],
+          "newTransportAttemptsExcludingPreflight": [
+            361,
+            366,
+            363,
+            362
+          ],
+          "stopReasons": [
+            "elapsed_time_budget",
+            "elapsed_time_budget",
+            "elapsed_time_budget",
+            "elapsed_time_budget"
+          ],
+          "processedTotal": 485
+        },
+        "postMigrationControlRound": {
+          "attempted": 54,
+          "newTransportAttemptsExcludingPreflight": 359,
+          "stopReason": "elapsed_time_budget",
+          "processedTotal": 531
+        }
+      },
+      "numericIdCorrection": {
+        "problem": "Equivalent numeric GitHub IDs were stored as decimal strings in some frozen rows and returned as integers by GitHub; strict type comparison produced false conflicts.",
+        "oldCollectorSha256": "ce66f0b2b6a9f47ca8f6615c0860cbaae03840db5d603677b27510d0f1a602ec",
+        "newCollectorSha256": "fae1dab9649451b8c91941642731aded528d6f6f66eddefeb8561a73f3210ddd",
+        "normalizedRecords": 484,
+        "verifiedAliases": 2,
+        "remainingIdentityConflicts": 0,
+        "requestsAndBytesPreserved": true,
+        "evidence": ".codex-tmp/catalog-refresh/gaps/identity-type-migration.json"
+      },
+      "progress": {
+        "scope": "missing_fields_and_low_star_proposals_only",
+        "selectedRows": 1800,
+        "processedThisSuccessor": 531,
+        "outcomes": {
+          "not_started": 1268,
+          "evidence_available": 1,
+          "processed": 509,
+          "replacement_required": 21,
+          "retry_required": 1
+        },
+        "proposedFieldEdits": 11014,
+        "replacementLists": 21,
+        "cumulativeTransportAttempts": 3761,
+        "cumulativeBytes": 68702486,
+        "canonicalWritten": false,
+        "LLMCalls": 0
+      },
+      "checks": {
+        "verifiedRecords": 532,
+        "networkPerformed": false,
+        "scope": "local_checkpoint_consistency_only",
+        "processed": 531,
+        "outcomes": {
+          "not_started": 1268,
+          "evidence_available": 1,
+          "processed": 509,
+          "replacement_required": 21,
+          "retry_required": 1
+        },
+        "patches": 11014,
+        "patchRepositories": 498,
+        "fieldReportRows": 71,
+        "requestLogPairs": 3761,
+        "identityConflicts": 0,
+        "replacementLists": 21,
+        "canonicalInputsAndHtmlUnchanged": true,
+        "secretPatternFiles": 0,
+        "lastQuota": {
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "3159",
+          "x-ratelimit-used": "1841",
+          "x-ratelimit-reset": "1788233062",
+          "x-ratelimit-resource": "core",
+          "observedAt": "2026-09-01T03:00:17.352725Z"
+        }
+      },
+      "tests": {
+        "targeted": "python -B -m unittest tests.test_catalog_enrichment tests.test_catalog_gap_fill -q",
+        "passed": 40,
+        "driverStopContinueSynthetic": true,
+        "migrationFixture": true
+      },
+      "acceptedReplacements": 0,
+      "canonicalWritten": false,
+      "localEvidence": ".codex-tmp/catalog-refresh/gaps/gap-reports/continuation-03-verification.json"
+    },
+    {
+      "observedAt": "2026-09-01T05:36:16.440227Z",
+      "status": "collection_complete_locally_verified",
+      "scope": "full_selective_gap_queue_collected_no_canonical_write",
+      "before": {
+        "processed": 531,
+        "proposedFieldEdits": 11014,
+        "replacementLists": 21,
+        "transportAttempts": 3761
+      },
+      "progress": {
+        "scope": "missing_fields_and_low_star_proposals_only",
+        "selectedRows": 1800,
+        "processedThisSuccessor": 1800,
+        "outcomes": {
+          "processed": 1641,
+          "replacement_required": 159
+        },
+        "proposedFieldEdits": 29538,
+        "replacementLists": 159,
+        "cumulativeTransportAttempts": 12141,
+        "cumulativeBytes": 343376553,
+        "canonicalWritten": false,
+        "LLMCalls": 0
+      },
+      "storedStarsAudit": {
+        "zero": {
+          "rows": 806,
+          "observed500Plus": 768,
+          "observedBelow500": 25,
+          "unresolved": 13
+        },
+        "oneTo499": {
+          "rows": 137,
+          "observed500Plus": 3,
+          "observedBelow500": 134,
+          "unresolved": 0
+        },
+        "stored500Plus": {
+          "rows": 857,
+          "observed500Plus": 848,
+          "observedBelow500": 0,
+          "unresolved": 9
+        }
+      },
+      "replacementReview": {
+        "lists": 159,
+        "withCandidates": 151,
+        "withoutCandidateInBoundedSearch": 8,
+        "threeCandidates": 147,
+        "oneCandidate": 4,
+        "automaticReplacements": 0
+      },
+      "checks": {
+        "verifiedRecords": 1800,
+        "networkPerformedDuringVerify": false,
+        "sparsePatchGuardPassed": 29538,
+        "invalidSparseEdits": 0,
+        "fieldReportRows": 71,
+        "requestLogStartFinishPairs": 12141,
+        "requestLogMissingPairs": 0,
+        "identityConflicts": 0,
+        "retryRequired": 0,
+        "htmlByteParity": true,
+        "htmlBytes": 5806093,
+        "htmlSha256": "18d1b086fb539d05f968399bb8a7dd027f255ed5bda10cbbc7ce17a953290138",
+        "canonicalSourceTemplateTaxonomyAndHtmlUnchanged": true,
+        "focusedTestsPassed": 41,
+        "tokenPatternFiles": 0
+      },
+      "pipelineHardening": {
+        "numericIdTypeConflictsResolved": true,
+        "compactGitObjectCommitRoute": true,
+        "oversizedOrUnsupportedSourceIsTerminalEvidence": true,
+        "migrationArtifacts": [
+          ".codex-tmp/catalog-refresh/gaps/identity-type-migration.json",
+          ".codex-tmp/catalog-refresh/gaps/compact-commit-endpoint-migration.json",
+          ".codex-tmp/catalog-refresh/gaps/compact-commit-endpoint-migration-02.json"
+        ]
+      },
+      "acceptedReplacements": 0,
+      "canonicalWritten": false
+    }
+  ],
+  "latestProgress": {
+    "scope": "missing_fields_and_low_star_proposals_only",
+    "selectedRows": 1800,
+    "processedThisSuccessor": 1800,
+    "outcomes": {
+      "processed": 1641,
+      "replacement_required": 159
+    },
+    "proposedFieldEdits": 29538,
+    "replacementLists": 159,
+    "cumulativeTransportAttempts": 12141,
+    "cumulativeBytes": 343376553,
+    "canonicalWritten": false,
+    "LLMCalls": 0
+  },
+  "initialEvidencePreserved": true,
+  "initialEvidenceNote": "Top-level progress/checks/quota above describe the initial authenticated run. Latest continuation evidence and latestProgress are separate; prior test results were not rerun.",
+  "finalChecks": {
+    "verifiedRecords": 1800,
+    "networkPerformedDuringVerify": false,
+    "sparsePatchGuardPassed": 29538,
+    "invalidSparseEdits": 0,
+    "fieldReportRows": 71,
+    "requestLogStartFinishPairs": 12141,
+    "requestLogMissingPairs": 0,
+    "identityConflicts": 0,
+    "retryRequired": 0,
+    "htmlByteParity": true,
+    "htmlBytes": 5806093,
+    "htmlSha256": "18d1b086fb539d05f968399bb8a7dd027f255ed5bda10cbbc7ce17a953290138",
+    "canonicalSourceTemplateTaxonomyAndHtmlUnchanged": true,
+    "focusedTestsPassed": 41,
+    "tokenPatternFiles": 0
+  }
 }

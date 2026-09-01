@@ -72,7 +72,8 @@ def safe_api_url(url):
         raise ValueError('GET destination outside public GitHub API boundary')
     if not parsed.path.startswith(('/repos/','/repositories/')) or any(x in ('.','..') for x in urllib.parse.unquote(parsed.path).split('/')):
         raise ValueError('GET path outside repository endpoint boundary')
-    if set(urllib.parse.parse_qs(parsed.query,keep_blank_values=True))-{'ref'}:
+    query=urllib.parse.parse_qs(parsed.query,keep_blank_values=True)
+    if set(query)-{'ref'} or any(len(values)!=1 for values in query.values()):
         raise ValueError('Unexpected query parameter; credentials and arbitrary query strings are forbidden')
     return url
 
@@ -82,6 +83,19 @@ def clean_excerpt(text):
     text = re.sub(r'[\w.+-]+@[\w.-]+\.[A-Za-z]{2,}','[EMAIL REDACTED]',text)
     text = re.sub(r'''(?i)(?:[A-Z]:[\\/](?:Users|Documents and Settings)[\\/]|/(?:Users|home)/)[^\s<>"')\]]+''','[LOCAL PATH REDACTED]',text)
     return text[:16000]
+
+
+def same_github_identity(stored, observed):
+    """Compare GitHub's numeric repository ID across JSON number/string storage."""
+    if stored is None:
+        return True
+    if isinstance(stored, bool) or isinstance(observed, bool):
+        return False
+    if isinstance(stored, int) and isinstance(observed, int):
+        return stored > 0 and stored == observed
+    if isinstance(stored, str) and stored.isascii() and stored.isdecimal() and isinstance(observed, int):
+        return observed > 0 and int(stored) == observed
+    return False
 
 
 class NoRedirect(urllib.request.HTTPRedirectHandler):
@@ -187,7 +201,7 @@ class Collector:
             self.save_state()
             self.trace({'attempt':self.state['requests'],'phase':'finish','httpStatus':code,'bytes':len(body),'rateLimit':rate,'at':now()})
             if len(body)>remaining:
-                return {'status':'budget_exhausted','reason':'response_size','url':url,'observedAt':now()}
+                return {'status':'source_unsupported','reason':'response_size','url':url,'observedAt':now()}
             if code in (301,302,303,307,308):
                 redirects+=1
                 if redirects>self.plan['maxRedirects']:
@@ -225,14 +239,17 @@ class Collector:
 
     def block(self,record,key,url,project):
         previous=record['blocks'].get(key)
-        if previous and previous['status'] in ('observed','source_absent'):
+        if previous and previous['status'] in ('observed','source_absent','source_unsupported'):
             return previous
         result=self.request(url)
         if result['status']=='observed':
             try:result['data']=project(result['data'])
             except (ValueError,TypeError,KeyError,AttributeError):
                 result={k:v for k,v in result.items() if k!='data'}
-                result.update(status='fetch_error',reason='invalid_or_unsafe_source_shape')
+                # A successful response with an unsupported representation is
+                # deterministic source evidence, not a transient transport
+                # failure. Preserve the fact without retrying it forever.
+                result.update(status='source_unsupported',reason='invalid_or_unsafe_source_shape')
         if previous:
             record.setdefault('blockHistory',[]).append({k:v for k,v in previous.items() if k!='data'})
         record['blocks'][key]=result
@@ -261,7 +278,7 @@ class Collector:
         if metadata['status']=='observed':
             facts=metadata['data'];name=facts['fullName'];base=API+'/repos/'+name
             identity=facts.get('githubRepositoryId')
-            conflict=source.get('githubRepositoryId') not in (None,identity)
+            conflict=not same_github_identity(source.get('githubRepositoryId'),identity)
             other=self.state['identities'].get(str(identity)) if isinstance(identity,int) and not isinstance(identity,bool) else None
             if other and other!=record_id and not conflict:
                 record['aliasOf']=other
@@ -281,9 +298,15 @@ class Collector:
             if wanted('languages'):
                 self.block(record,'languages',base+'/languages',lambda x:{k:v for k,v in x.items() if isinstance(v,int) and not isinstance(v,bool) and v>=0})
             if isinstance(branch,str) and branch and any(wanted(k) for k in ('head_commit','readme','manifests')):
-                def commit(x):return {'sha':x['sha'],'date':x['commit']['committer']['date'],'branch':branch}
-                head=self.block(record,'head_commit',base+'/commits/'+urllib.parse.quote(branch,safe=''),commit)
-                if head['status']=='observed':
+                head=record['blocks'].get('head_commit',{})
+                if head.get('status') not in ('observed','source_absent','source_unsupported'):
+                    def git_ref(x):return {'sha':x['object']['sha'],'branch':branch}
+                    encoded_branch=urllib.parse.quote(branch,safe='')
+                    ref_block=self.block(record,'head_ref',base+'/git/ref/heads/'+encoded_branch,git_ref)
+                    if ref_block['status']=='observed':
+                        def git_commit(x):return {'sha':x['sha'],'date':x['committer']['date'],'branch':branch}
+                        head=self.block(record,'head_commit',base+'/git/commits/'+ref_block['data']['sha'],git_commit)
+                if head.get('status')=='observed':
                     ref=head['data']['sha']
                     query='?ref='+urllib.parse.quote(ref,safe='')
                     def content(x):
@@ -320,7 +343,7 @@ class Collector:
         if meta.get('status')=='observed':
             for key,value in meta['data'].items():set_value(key,value,'observed',['metadata'])
             full=values['fullName'];identity=values.get('githubRepositoryId')
-            conflict=source.get('githubRepositoryId') not in (None,identity)
+            conflict=not same_github_identity(source.get('githubRepositoryId'),identity)
             set_value('aliases',[source['fullName']] if full.casefold()!=source['fullName'].casefold() else [],'derived_reviewed',['metadata'])
             set_value('identityStatus','conflict' if conflict else 'resolved','derived_reviewed',['metadata'])
             set_value('availability','available','observed',['metadata'])

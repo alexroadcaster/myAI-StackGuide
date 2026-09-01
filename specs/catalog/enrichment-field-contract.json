@@ -2475,7 +2475,7 @@
   "source_routes": {
     "github_repository": "GET /repos/{owner}/{repo}",
     "github_languages": "GET /repos/{owner}/{repo}/languages",
-    "github_commit": "GET /repos/{owner}/{repo}/commits/{ref}",
+    "github_commit": "GET /repos/{owner}/{repo}/git/ref/heads/{ref}, then GET /repos/{owner}/{repo}/git/commits/{sha}",
     "github_releases": "GET /repos/{owner}/{repo}/releases with complete bounded scan",
     "readme_and_dependency_manifests": "GET bounded README/content at observed default-branch ref; allowlisted file paths; no code execution or automatic links crawling",
     "github_activity": "Exact bounded pagination over commits/issues/pulls; unsupported aggregates stay unknown; no scraper fallback that invents values"

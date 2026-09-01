@@ -1,0 +1,80 @@
+{
+  "date": "2026-09-01",
+  "status": "completed_at_evidence_bounded_semantic_review_gate",
+  "scope": "cat06_semantic_fields_and_replacement_candidate_fit_no_canonical_write",
+  "sourceRun": ".codex-tmp/catalog-refresh/gaps",
+  "results": {
+    "scope": "cat06_evidence_bounded_decisions",
+    "reviewItems": 1641,
+    "semanticFieldDecisions": 17978,
+    "acceptedCurationFragments": 1599,
+    "decisionCounts": {
+      "unresolved_other_semantic": 15650,
+      "accepted_stack": 1595,
+      "unresolved_stack": 39,
+      "accepted_catalogDescription": 676,
+      "unresolved_catalogDescription": 18,
+      "replacement_candidates_rejected": 445,
+      "replacement_items_unresolved": 159
+    },
+    "replacementItems": 159,
+    "automaticReplacements": 0,
+    "networkCalls": 0,
+    "LLMCalls": 0,
+    "appliedToCheckpoint": true,
+    "canonicalWritten": false,
+    "postApplyGapSummary": {
+      "scope": "missing_fields_and_low_star_proposals_only",
+      "selectedRows": 1800,
+      "processedThisSuccessor": 1800,
+      "outcomes": {
+        "processed": 1641,
+        "replacement_required": 159
+      },
+      "proposedFieldEdits": 31809,
+      "replacementLists": 159,
+      "cumulativeTransportAttempts": 12141,
+      "cumulativeBytes": 343376553,
+      "canonicalWritten": false,
+      "LLMCalls": 0
+    }
+  },
+  "acceptance": {
+    "reviewSources": 1641,
+    "uniqueReviewSources": 1641,
+    "semanticFieldDecisions": 17978,
+    "acceptedMinimalObservedStacks": 1595,
+    "acceptedExactUpstreamDescriptions": 676,
+    "unresolvedStacks": 39,
+    "unresolvedDescriptions": 18,
+    "unresolvedOtherSemanticDecisions": 15650,
+    "replacementItemsReviewed": 159,
+    "replacementCandidatesReviewed": 445,
+    "replacementCandidatesAccepted": 0,
+    "replacementCandidatesRejectedInsufficientFunctionalEvidence": 445,
+    "automaticReplacements": 0
+  },
+  "postReview": {
+    "proposedFieldEdits": 31809,
+    "collectorVerifiedRecords": 1800,
+    "requestAttemptsPreserved": 12141,
+    "networkCallsDuringReview": 0,
+    "LLMCallsDuringReview": 0,
+    "canonicalWritten": false
+  },
+  "verification": {
+    "focusedTestsPassed": 41,
+    "htmlParity": true,
+    "htmlBytes": 5806093,
+    "htmlSha256": "18d1b086fb539d05f968399bb8a7dd027f255ed5bda10cbbc7ce17a953290138",
+    "decisionCoverageComplete": true,
+    "replacementDecisionCoverageComplete": true
+  },
+  "evidenceLimits": [
+    "Minimal Stack contains only the observed primary language and does not claim a complete dependency stack.",
+    "Exact upstream descriptions are source text, not curator summaries.",
+    "Unresolved mandatory recommendation fields are not accepted and must be rejected or otherwise reconciled by CAT-07.",
+    "Metadata-only search leads are not functionally qualified replacements.",
+    "No canonical, browser, release or production-readiness claim."
+  ]
+}

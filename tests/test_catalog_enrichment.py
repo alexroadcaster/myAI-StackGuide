@@ -22,7 +22,8 @@ class FakeAPI:
         for suffix,response in self.failures.items():
             if path.endswith(suffix):return response
         if path.endswith('/languages'):data={'Python':100}
-        elif '/commits/' in path:data={'sha':'a'*40,'commit':{'committer':{'date':'2026-08-30T00:00:00Z','email':'do-not-persist@example.org'}}}
+        elif '/git/ref/heads/' in path:data={'object':{'sha':'a'*40}}
+        elif '/git/commits/' in path:data={'sha':'a'*40,'committer':{'date':'2026-08-30T00:00:00Z','email':'do-not-persist@example.org'}}
         elif path.endswith('/readme'):data={'type':'file','encoding':'base64','content':base64.b64encode(b'Synthetic Python backend fixture.').decode(),'path':'README.md','sha':'b'*40}
         elif path.endswith('/contents'):data=[]
         elif path.endswith('/releases/latest'):return 404,{},b''
@@ -72,10 +73,29 @@ class EnrichmentTests(unittest.TestCase):
         e.Collector(self.run,self.api).process('gh:unit/repo')
         self.assertEqual(len(self.api.calls)-before,1);self.assertTrue(self.api.calls[-1].endswith('/languages'))
 
+    def test_unsupported_readme_shape_is_terminal_and_not_retried(self):
+        self.api.failures['/readme']=(200,{},json.dumps({'type':'symlink','target':'README.md'}).encode())
+        first=e.Collector(self.run,self.api).process('gh:unit/repo')
+        self.assertEqual(first['blocks']['readme']['status'],'source_unsupported')
+        before=len(self.api.calls)
+        second=e.Collector(self.run,self.api).process('gh:unit/repo')
+        self.assertEqual(len(self.api.calls),before)
+        self.assertEqual(second['blocks']['readme']['reason'],'invalid_or_unsafe_source_shape')
+
     def test_null_stars_never_become_zero_or_old_value(self):
         self.api.stars=None;r=e.Collector(self.run,self.api).process('gh:unit/repo')
         self.assertIsNone(r['values']['stars']);self.assertIn('stars',r['missingMandatory'])
         self.assertIn('stars_unknown',r['values']['eligibility']['reasons'])
+
+    def test_numeric_string_repository_id_matches_github_integer(self):
+        source=e.load(self.input)
+        source['repositories'][0]['githubRepositoryId']='123'
+        e.atomic_json(self.input,source)
+        run=self.base/'numeric-string-id'
+        e.create_plan(run,self.input,ROOT/'specs/catalog/taxonomy.yaml',ROOT/'specs/catalog/enrichment-field-contract.json')
+        record=e.Collector(run,self.api).process('gh:unit/repo')
+        self.assertEqual(record['values']['identityStatus'],'resolved')
+        self.assertEqual(e.load(run/'checkpoint.json')['identities'],{'123':'gh:unit/repo'})
 
     def test_confirmed_zero_is_preserved_and_blocked(self):
         self.api.stars=0;r=e.Collector(self.run,self.api).process('gh:unit/repo')
@@ -160,6 +180,7 @@ class EnrichmentTests(unittest.TestCase):
         plan=e.load(self.run/'plan.json');plan['maxResponseBytes']=2;e.atomic_json(self.run/'plan.json',plan)
         r=e.Collector(self.run,self.api).process('gh:unit/repo')
         self.assertEqual(r['blocks']['metadata']['reason'],'response_size')
+        self.assertEqual(r['blocks']['metadata']['status'],'source_unsupported')
         self.assertNotIn('data',r['blocks']['metadata'])
 
     def test_pending_review_does_not_starve_next_record_and_alias_is_verified(self):
