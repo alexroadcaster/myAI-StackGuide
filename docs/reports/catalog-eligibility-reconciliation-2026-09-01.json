@@ -1,0 +1,99 @@
+{
+  "date": "2026-09-01",
+  "status": "completed_with_owner_corrected_catalog_and_recommendation_boundaries",
+  "scope": "cat07_identity_stars_catalog_inclusion_recommendation_readiness_replacements_and_category_counts_no_canonical_write",
+  "sourceRun": ".codex-tmp/catalog-refresh/gaps",
+  "identity": {
+    "sourceRows": 1800,
+    "distinctCanonicalIdentities": 1790,
+    "verifiedAliasesConsolidated": 10,
+    "duplicateCanonicalIdentities": 0,
+    "resolvedByFrozenNumericRepositoryId": [
+      {"sourceId": "gh-pending:lakefs/lakefs", "fullName": "treeverse/lakeFS", "stars": 5503},
+      {"sourceId": "gh-pending:objectionjs/objection", "fullName": "Vincit/objection.js", "stars": 7343},
+      {"sourceId": "gh-pending:jotai/jotai", "fullName": "pmndrs/jotai", "stars": 21249},
+      {"sourceId": "gh-pending:greptimedb/greptimedb", "fullName": "GreptimeTeam/greptimedb", "stars": 6588},
+      {"sourceId": "gh-pending:vikunja/vikunja", "fullName": "go-vikunja/vikunja", "stars": 5227}
+    ],
+    "pendingWithoutFrozenNumericRepositoryId": [
+      "gh-pending:django-anymail/django-anymail",
+      "gh-pending:forgejo/forgejo",
+      "gh-pending:iterative/studio",
+      "gh-pending:literalai/literalai",
+      "gh-pending:lunary-ai/lunary",
+      "gh-pending:mise-plugins/mise",
+      "gh-1500:stability-ai/stablediffusion"
+    ]
+  },
+  "catalogInclusion": {
+    "minimumStars": 500,
+    "belowThresholdExceptions": 0,
+    "includedRepositories": 1624,
+    "confirmedBelowThresholdExcluded": 159,
+    "pendingUnresolvedStars": 7,
+    "recommendationFieldsAffectCatalogInclusion": false,
+    "catalogStatusChanged": false
+  },
+  "recommendationReadiness": {
+    "readyRepositories": 7,
+    "pendingRepositories": 1617,
+    "pendingFields": {
+      "reviewStatus": 1617,
+      "recommendation.whyRecommended": 1617,
+      "recommendation.bestFor": 1617,
+      "recommendation.tradeoffs": 1617,
+      "recommendation.adoption_status": 1617
+    },
+    "disposition": "downstream_recommendation_system_backlog_not_catalog_exclusion"
+  },
+  "nonBlockingCatalogEnrichmentBacklog": {
+    "stack": 17,
+    "catalogDescription": 5,
+    "descriptionOrigin": 5
+  },
+  "replacements": {
+    "excludedItemsReconciled": 159,
+    "candidateLeadsReviewed": 445,
+    "qualifiedReplacementsAccepted": 0,
+    "unresolvedVacancies": 159
+  },
+  "taxonomyCounts": {
+    "thematicLeaves": 111,
+    "nonEmptyThematicLeaves": 110,
+    "emptyThematicLeaves": ["embeddings_reranking"],
+    "navigationContainers": 14,
+    "nonEmptyNavigationContainers": 14,
+    "catalogIncludedDirectPlacements": 1739
+  },
+  "network": {
+    "transport": "official_github_cli_get_only",
+    "successfulCat07Requests": 6,
+    "cumulativeTransportAttempts": 12148,
+    "requestLogStarts": 12148,
+    "requestLogFinishes": 12147,
+    "accountedUnmatchedAttempt": 12142,
+    "unmatchedReason": "restricted_local_execution_returned_no_http_response_before_authorized_retry",
+    "resumeNewRequests": 0,
+    "tokenPersisted": false
+  },
+  "verification": {
+    "collectorVerifiedRecords": 1800,
+    "decisionCoverageRows": 1800,
+    "focusedTestsPassed": 47,
+    "htmlParity": true,
+    "htmlBytes": 5806093,
+    "htmlSha256": "18d1b086fb539d05f968399bb8a7dd027f255ed5bda10cbbc7ce17a953290138",
+    "canonicalManifestSha256": "f90b6b4540ff263df7fe624b34f5f2eb4306cf5309b9e2e6e9604335614dcff1",
+    "canonicalManifestUnchanged": true,
+    "canonicalHtmlUnchanged": true,
+    "canonicalWritten": false
+  },
+  "evidenceLimits": [
+    "Catalog inclusion proves only public identity and the configured Stars gate.",
+    "Recommendation fields are a downstream readiness backlog and never remove a repository from the catalog.",
+    "Alias consolidation requires the same observed GitHub numeric repository identity.",
+    "Records without a frozen numeric identity remain pending when the saved owner/name endpoint is unavailable.",
+    "Recommendation-pending records are not product, security or code-quality judgments.",
+    "No canonical source, generated HTML, browser, release or production-readiness claim."
+  ]
+}

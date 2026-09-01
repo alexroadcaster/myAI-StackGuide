@@ -192,9 +192,47 @@ The completed ledger covers 1,641 records and 17,978 fields. It accepts 1,595
 minimal Stack values and 676 exact upstream descriptions. It leaves 39 Stack,
 18 descriptions and 15,650 other semantic decisions unresolved. All 445
 metadata-only replacement leads are rejected as functionally unqualified; no
-replacement is accepted. CAT-07 owns the resulting mandatory-gap exclusions and
-unfilled replacement vacancies. The durable result is
+replacement is accepted. CAT-07 owns identity, Stars and replacement-vacancy
+reconciliation. Recommendation fields remain downstream readiness work and do not
+exclude catalog records. The durable result is
 `docs/reports/catalog-semantic-review-2026-09-01.json`.
+
+## CAT-07 completed reconciliation
+
+`scripts/reconcile_catalog_eligibility.py` consumes the saved CAT-05/06 evidence,
+consolidates aliases by observed numeric GitHub identity, applies the strict Stars
+catalog-inclusion gate, tracks recommendation readiness separately, reconciles every
+exclusion/replacement decision and computes all thematic-leaf and distinct
+container-union counts. Its outputs remain
+under the ignored checkpoint in `eligibility-reconciliation/`; it does not write
+the canonical manifest or HTML.
+
+Run the bounded numeric-ID resolver once, then rerun locally as needed:
+
+```powershell
+python -B scripts/reconcile_catalog_eligibility.py --run-dir .codex-tmp/catalog-refresh/gaps --resolve-known-ids --max-resolutions 20
+python -B scripts/reconcile_catalog_eligibility.py --run-dir .codex-tmp/catalog-refresh/gaps
+```
+
+The authenticated resolver uses only `GET /rate_limit` and
+`GET /repositories/{id}` for unavailable saved names that already have a frozen
+numeric repository ID. It does not search by name or accept a guessed rename.
+The completed run resolved five renamed repositories, retained seven no-ID rows as
+pending and consolidates ten previously verified aliases. One initial restricted
+local attempt received no HTTP response and remains attempt 12,142 with only a
+start trace; the successful authorized run added one preflight and five repository
+responses. The cumulative counter is 12,148 and rerunning the resolver makes zero
+new requests.
+
+The corrected final gate keeps 1,624 repositories in the catalog, excludes 159
+confirmed low-Star identities and retains seven unresolved-Star roots as pending.
+Within the included set, seven cards are recommendation-ready and 1,617 carry a
+downstream recommendation backlog; they are not rejected or removed. All 159
+replacement vacancies are explicit; none of the 445 metadata-only leads is a
+qualified replacement. All 111 thematic leaves are reported, with only
+`embeddings_reranking` empty, and all 14 container counts are distinct descendant
+unions. See
+`docs/reports/catalog-eligibility-reconciliation-2026-09-01.json`.
 
 ## Historical evidence
 
