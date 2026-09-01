@@ -1,0 +1,91 @@
+{
+  "schemaVersion": "catalog-browser-verification-policy.v1",
+  "taskId": "CP-03.CAT-09",
+  "declaredAt": "2026-09-01",
+  "candidate": {
+    "manifestSha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+    "embeddedPresentationSha256": "634571ee81f2d97c010865a6cbf50db7c0d7a415bb8a36f144f0a22f5dc0897a",
+    "htmlSha256": "da6c85bfd0158123cd6a1f756f1b54dc6f277dce849ac4e5d29f8709319792f0",
+    "supersedesFailedPreflightHtmlSha256": "2f1d77740f0652f518fa8b155d30c1cf35112cd5067875a76cd400445aaef8b2",
+    "repositories": 2500,
+    "taxonomyNodes": 126,
+    "directPlacements": 2630
+  },
+  "boundary": {
+    "origin": "http://127.0.0.1:<ephemeral-port>",
+    "offline": true,
+    "allowedNetworkHosts": ["127.0.0.1", "localhost"],
+    "externalRequestsAllowed": 0,
+    "sourceMutationAllowed": false,
+    "visualDesignMutationAllowed": false,
+    "browserEvidenceDoesNotProve": [
+      "human_visual_acceptance",
+      "retrieval_relevance",
+      "recommendation_quality",
+      "live_github_freshness",
+      "release_readiness"
+    ]
+  },
+  "artifactThresholds": {
+    "manifestBytesMaximum": 33554432,
+    "embeddedPresentationBytesMaximum": 4718592,
+    "htmlBytesMaximum": 4718592
+  },
+  "runtimeThresholdsMilliseconds": {
+    "coldStartupP95Maximum": 10000,
+    "coldStartupMaximum": 15000,
+    "searchP95Maximum": 750,
+    "searchMaximum": 1500,
+    "filterP95Maximum": 750,
+    "filterMaximum": 1500,
+    "categoryNavigationMaximum": 750
+  },
+  "sampling": {
+    "coldStartupRuns": 5,
+    "warmupIterationsPerInteraction": 3,
+    "measuredIterationsPerInteraction": 20,
+    "viewports": [
+      {"name": "desktop", "width": 1440, "height": 900},
+      {"name": "laptop", "width": 1280, "height": 720}
+    ]
+  },
+  "requiredInvariants": {
+    "javascriptErrors": 0,
+    "unhandledPageErrors": 0,
+    "canonicalRepositoryIdsInBrowser": 2500,
+    "taxonomyNodesInBrowser": 126,
+    "directPlacementRowsUnfiltered": 2630,
+    "reviewRepositories": 12,
+    "containerDirectAssignments": 0,
+    "duplicateContainerDescendantIds": 0,
+    "auditOrLocalPathLeaks": 0
+  },
+  "representativeSearches": [
+    {"id": "exact_name", "query": "openai/codex", "minimumUniqueResults": 1},
+    {"id": "historical_alias", "query": "coreybutler/nvm-windows", "minimumUniqueResults": 1},
+    {"id": "catalog_description", "query": "modular architecture infrastructure", "minimumUniqueResults": 1},
+    {"id": "topic", "query": "natural-language-processing", "minimumUniqueResults": 1},
+    {"id": "no_hit", "query": "cat09-no-such-repository-9f6b1f", "maximumUniqueResults": 0}
+  ],
+  "representativeFilters": [
+    {"id": "status", "control": "statusFilter", "value": "accepted"},
+    {"id": "activity", "control": "activityFilter", "value": "active"},
+    {"id": "form", "control": "formFilter", "value": "unknown"},
+    {"id": "language", "control": "languageFilter", "value": "Rust"},
+    {"id": "license", "control": "licenseFilter", "value": "known"}
+  ],
+  "representativeRoutes": [
+    "agent_runtime_orchestration",
+    "embeddings_reranking",
+    "uncategorized_review",
+    "developer_tools_cli_general"
+  ],
+  "requiredUserFlows": [
+    "startup_and_summary",
+    "search_exact_name_alias_description_topic_and_no_hit",
+    "status_activity_form_language_and_license_filters",
+    "leaf_review_and_container_navigation",
+    "structured_stack_rendering",
+    "offline_network_and_console_audit"
+  ]
+}

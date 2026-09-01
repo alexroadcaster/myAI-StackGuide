@@ -74,6 +74,20 @@ class CatalogCandidateApplicationTests(unittest.TestCase):
         self.assertNotIn("fieldObservations", projected)
         self.assertNotIn("eligibility", projected)
 
+    def test_reviewed_field_wrappers_project_without_object_coercion(self):
+        rig = next(item for item in self.payload["repositories"] if item["fullName"] == "0xPlaygrounds/rig")
+        rig_projected = self.projected_by_id[rig["id"]]
+        self.assertIsInstance(rig["form"], dict)
+        self.assertEqual("library", rig_projected["form"])
+        self.assertEqual(
+            ["embedded in a Rust application; limited browser-WASM support"],
+            rig_projected["deployment"],
+        )
+        runner = next(item for item in self.payload["repositories"] if item["fullName"] == "actions/runner")
+        runner_projected = self.projected_by_id[runner["id"]]
+        self.assertEqual(["Windows", "macOS", "Linux"], runner_projected["deployment"])
+        self.assertEqual("self-hosted runner option", runner_projected["hosting"])
+
     def test_description_fallback_keeps_audit_identity_source_only(self):
         source = self.by_id["gh-expansion:704543233"]
         projected = self.projected_by_id[source["id"]]

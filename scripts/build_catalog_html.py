@@ -359,6 +359,37 @@ def _presentation_stack(value: Any) -> list[str]:
     return result
 
 
+def _reviewed_value(value: Any, field: str) -> Any:
+    """Unwrap a source-owned reviewed value while retaining its rationale in source."""
+
+    if not isinstance(value, dict):
+        return value
+    if set(value) != {"value", "rationale"}:
+        raise CatalogContractError(f"repository {field} review wrapper must contain value and rationale")
+    if not isinstance(value["rationale"], str) or not value["rationale"].strip():
+        raise CatalogContractError(f"repository {field} review wrapper rationale must be non-empty")
+    return value["value"]
+
+
+def _presentation_scalar(value: Any, field: str) -> str:
+    projected = _reviewed_value(value, field)
+    if not isinstance(projected, str) or not projected.strip():
+        raise CatalogContractError(f"repository {field} must project to a non-empty string")
+    return projected.strip()
+
+
+def _presentation_list(value: Any, field: str) -> list[str]:
+    projected = _reviewed_value(value, field)
+    if isinstance(projected, str):
+        projected = [projected]
+    if (
+        not isinstance(projected, list)
+        or any(not isinstance(item, str) or not item.strip() for item in projected)
+    ):
+        raise CatalogContractError(f"repository {field} must project to an array of non-empty strings")
+    return [item.strip() for item in projected]
+
+
 def presentation_projection(payload: dict[str, Any]) -> dict[str, Any]:
     """Return the deterministic, display-only payload embedded in standalone HTML."""
 
@@ -385,6 +416,11 @@ def presentation_projection(payload: dict[str, Any]) -> dict[str, Any]:
             else:
                 item.pop("description", None)
         item["stack"] = _presentation_stack(repository.get("stack"))
+        for field in ("form", "hosting"):
+            if field in repository:
+                item[field] = _presentation_scalar(repository[field], field)
+        if "deployment" in repository:
+            item["deployment"] = _presentation_list(repository["deployment"], "deployment")
         projected_repositories.append(item)
     projected["repositories"] = projected_repositories
     validate_presentation_projection(payload, projected)
@@ -409,6 +445,13 @@ def validate_presentation_projection(source: dict[str, Any], projected: dict[str
             raise CatalogContractError(f"presentation projection leaked audit fields: {sorted(leaked)}")
         if projected_item.get("stack") != _presentation_stack(source_item.get("stack")):
             raise CatalogContractError("presentation projection stack mismatch")
+        for field in ("form", "hosting"):
+            if field in source_item and projected_item.get(field) != _presentation_scalar(source_item[field], field):
+                raise CatalogContractError(f"presentation projection {field} mismatch")
+        if "deployment" in source_item and projected_item.get("deployment") != _presentation_list(
+            source_item["deployment"], "deployment"
+        ):
+            raise CatalogContractError("presentation projection deployment mismatch")
         expected_description = source_item.get("description")
         if not isinstance(expected_description, str) or not expected_description.strip():
             catalog_description = source_item.get("catalogDescription")

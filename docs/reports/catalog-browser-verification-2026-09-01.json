@@ -1,0 +1,188 @@
+{
+  "schemaVersion": "catalog-browser-verification-report.v1",
+  "taskId": "CP-03.CAT-09",
+  "date": "2026-09-01",
+  "status": "browser_performance_verified_after_projection_adapter_remediation",
+  "policy": {
+    "path": "specs/catalog/catalog-browser-verification-policy.json",
+    "sha256": "248a59a0ff5bb44a2a556a1ac35124192cd9ad8acf9331b6648b834982aa3c24",
+    "thresholdsDeclaredBeforeMeasuredRun": true,
+    "warmupIterationsPerInteraction": 3,
+    "measuredIterationsPerInteraction": 20,
+    "coldStartupRunsPerViewport": 5
+  },
+  "candidate": {
+    "manifest": {
+      "bytes": 29463709,
+      "sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e"
+    },
+    "embeddedPresentation": {
+      "bytes": 3904469,
+      "sha256": "634571ee81f2d97c010865a6cbf50db7c0d7a415bb8a36f144f0a22f5dc0897a"
+    },
+    "html": {
+      "bytes": 3931957,
+      "sha256": "da6c85bfd0158123cd6a1f756f1b54dc6f277dce849ac4e5d29f8709319792f0"
+    },
+    "counts": {
+      "repositories": 2500,
+      "taxonomyNodes": 126,
+      "thematicLeaves": 111,
+      "navigationContainers": 14,
+      "reviewBuckets": 1,
+      "directPlacements": 2630,
+      "thematicRepositories": 2488,
+      "thematicPlacements": 2618,
+      "reviewRepositories": 12,
+      "aliases": 55,
+      "aliasOwners": 54
+    }
+  },
+  "preflightFailureAndRemediation": {
+    "failedHtmlSha256": "2f1d77740f0652f518fa8b155d30c1cf35112cd5067875a76cd400445aaef8b2",
+    "failure": "Every non-empty search raised TypeError because three source-owned reviewed deployment values were objects while the presentation expected arrays; one reviewed form value rendered as [object Object].",
+    "affectedRepositories": [
+      "0xPlaygrounds/rig",
+      "1Panel-dev/MaxKB",
+      "actions/runner"
+    ],
+    "remediation": "The deterministic source-to-presentation adapter now unwraps reviewed form and hosting values to strings and deployment values to string arrays while retaining value/rationale wrappers in the canonical source. The standalone HTML was regenerated; no CSS, layout, card markup, taxonomy or membership changed.",
+    "regressionChecks": [
+      "reviewed wrapper projection and malformed-wrapper rejection",
+      "generated embedded-data static smoke rather than canonical-source execution",
+      "loading placeholder assertion narrowed so public descriptions containing Loading do not fail"
+    ]
+  },
+  "environment": {
+    "os": "Windows 25H2 build 26200.9168",
+    "cpu": "Intel Core i7-12700H",
+    "logicalProcessors": 20,
+    "browser": "Google Chrome 151.0.7922.174",
+    "browserEngine": "Chromium",
+    "node": "v26.5.0",
+    "browserReportedDeviceMemoryGiB": 16,
+    "origin": "http://127.0.0.1:8765/docs/UNIFIED_CATALOG.html",
+    "externalNetworkBlocked": true
+  },
+  "staticExhaustive": {
+    "status": "passed",
+    "repositoryIdsUnique": 2500,
+    "numericGithubIdsUnique": 2500,
+    "canonicalNamesUnique": 2500,
+    "minimumStars": 500,
+    "emptyThematicLeaves": 0,
+    "unresolvedRoutes": 0,
+    "duplicatePlacementPairs": 0,
+    "duplicateContainerDescendantIds": 0,
+    "containerDirectAssignments": 0,
+    "aliasCollisions": 0,
+    "auditOrLocalPathLeaks": 0,
+    "externalRuntimeDependencies": 0,
+    "structuredStackEntriesProjected": 2447,
+    "repositoriesWithStructuredStack": 2432,
+    "projectionByteExact": true
+  },
+  "browserInvariants": {
+    "viewports": [
+      {"name": "desktop", "width": 1440, "height": 900},
+      {"name": "laptop", "width": 1280, "height": 720}
+    ],
+    "repositories": 2500,
+    "uniqueRepositoryIds": 2500,
+    "taxonomyNodes": 126,
+    "navigationLinks": 126,
+    "unfilteredPlacementRows": 2630,
+    "reviewRepositories": 12,
+    "containerDirectAssignments": 0,
+    "duplicateContainerDescendantIds": 0,
+    "auditOrLocalPathLeaks": 0,
+    "invalidObjectCoercionFilterOptions": 0,
+    "pageErrors": 0,
+    "consoleErrors": 0,
+    "externalRequests": 0,
+    "loopbackDocumentRequests": 12
+  },
+  "timingsMilliseconds": {
+    "desktop": {
+      "coldAppReady": {"minimum": 758, "p50": 766, "p95": 779, "maximum": 779},
+      "navigationLoadEventEnd": {"minimum": 708.7, "p50": 723.3, "p95": 734.5, "maximum": 734.5},
+      "search": {
+        "exact_name": {"p50": 86.4, "p95": 108.4, "maximum": 125.7, "uniqueRepositories": 1, "placements": 1},
+        "historical_alias": {"p50": 93.6, "p95": 109.1, "maximum": 120.0, "uniqueRepositories": 1, "placements": 1},
+        "catalog_description": {"p50": 90.0, "p95": 114.7, "maximum": 116.2, "uniqueRepositories": 1, "placements": 1},
+        "topic": {"p50": 125.2, "p95": 160.8, "maximum": 161.8, "uniqueRepositories": 88, "placements": 89},
+        "no_hit": {"p50": 90.3, "p95": 115.6, "maximum": 138.5, "uniqueRepositories": 0, "placements": 0}
+      },
+      "filter": {
+        "status": {"p50": 214.3, "p95": 237.1, "maximum": 245.2, "uniqueRepositories": 485, "placements": 554},
+        "activity": {"p50": 227.2, "p95": 286.0, "maximum": 455.6, "uniqueRepositories": 587, "placements": 631},
+        "form": {"p50": 331.5, "p95": 396.5, "maximum": 402.3, "uniqueRepositories": 1096, "placements": 1144},
+        "language": {"p50": 94.6, "p95": 115.9, "maximum": 134.5, "uniqueRepositories": 97, "placements": 98},
+        "license": {"p50": 551.9, "p95": 603.9, "maximum": 604.0, "uniqueRepositories": 2072, "placements": 2178}
+      },
+      "categoryNavigationMaximum": 18.4
+    },
+    "laptop": {
+      "coldAppReady": {"minimum": 749, "p50": 772, "p95": 791, "maximum": 791},
+      "navigationLoadEventEnd": {"minimum": 706.2, "p50": 718.5, "p95": 750.7, "maximum": 750.7},
+      "search": {
+        "exact_name": {"p50": 88.9, "p95": 111.1, "maximum": 113.2, "uniqueRepositories": 1, "placements": 1},
+        "historical_alias": {"p50": 92.9, "p95": 118.7, "maximum": 121.7, "uniqueRepositories": 1, "placements": 1},
+        "catalog_description": {"p50": 47.8, "p95": 58.7, "maximum": 59.6, "uniqueRepositories": 1, "placements": 1},
+        "topic": {"p50": 61.3, "p95": 69.2, "maximum": 69.8, "uniqueRepositories": 88, "placements": 89},
+        "no_hit": {"p50": 52.6, "p95": 59.6, "maximum": 61.2, "uniqueRepositories": 0, "placements": 0}
+      },
+      "filter": {
+        "status": {"p50": 105.0, "p95": 133.7, "maximum": 145.0, "uniqueRepositories": 485, "placements": 554},
+        "activity": {"p50": 114.8, "p95": 119.7, "maximum": 132.7, "uniqueRepositories": 587, "placements": 631},
+        "form": {"p50": 169.8, "p95": 190.3, "maximum": 208.3, "uniqueRepositories": 1096, "placements": 1144},
+        "language": {"p50": 52.6, "p95": 59.8, "maximum": 63.9, "uniqueRepositories": 97, "placements": 98},
+        "license": {"p50": 304.8, "p95": 351.8, "maximum": 353.8, "uniqueRepositories": 2072, "placements": 2178}
+      },
+      "categoryNavigationMaximum": 18.4
+    }
+  },
+  "representativeRoutes": {
+    "agent_runtime_orchestration": {"kind": "category", "expectedRepositories": 68, "renderedRows": 68},
+    "embeddings_reranking": {"kind": "category", "expectedRepositories": 1, "renderedRows": 1},
+    "uncategorized_review": {"kind": "review_bucket", "expectedRepositories": 12, "renderedRows": 12},
+    "developer_tools_cli_general": {"kind": "container", "expectedDescendantRepositories": 68, "renderedDirectRows": 0}
+  },
+  "thresholdResults": {
+    "artifactSizes": "passed",
+    "coldStartup": "passed",
+    "search": "passed",
+    "filters": "passed",
+    "categoryNavigation": "passed",
+    "browserInvariants": "passed",
+    "networkBoundary": "passed"
+  },
+  "commands": [
+    {"command": "python -B scripts/build_catalog_html.py --check", "result": "passed exact parity"},
+    {"command": "python -B -m unittest tests.test_catalog_candidate_application tests.test_catalog_v5_pipeline -v", "result": "31 passed"},
+    {"command": "node --test tests/catalog_static_smoke.cjs", "result": "1 passed"},
+    {"command": "Playwright CLI browser acceptance runner", "result": "passed in Chrome 151 at 1440x900 and 1280x720"}
+  ],
+  "knownGaps": [
+    "The comparison panel has no user-facing repository selection control and is not certified by CAT-09.",
+    "Browser evidence is representative for two desktop/laptop viewports, not human visual acceptance.",
+    "The catalog remains a dated public-data snapshot; no live GitHub refresh occurred in CAT-09."
+  ],
+  "claimCeiling": {
+    "supported": [
+      "source_output_parity_verified",
+      "exhaustive_static_catalog_coverage_verified",
+      "representative_offline_browser_flows_verified",
+      "current_machine_browser_performance_thresholds_met"
+    ],
+    "notSupported": [
+      "human_visual_acceptance",
+      "retrieval_relevance",
+      "recommendation_quality",
+      "live_github_freshness",
+      "release_readiness",
+      "publication"
+    ]
+  },
+  "rollback": "Revert the CAT-09 projection-adapter, focused tests, regenerated HTML, policy/report and control-plane deltas together; preserve the canonical manifest and all unrelated work."
+}

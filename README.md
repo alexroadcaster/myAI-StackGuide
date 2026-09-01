@@ -120,8 +120,8 @@ The repository deliberately separates implemented evidence from product intent.
 | Surface | Current state |
 |---|---|
 | Interactive catalog | Available as a self-contained HTML artifact. |
-| Catalog snapshot | Source-owned and reproducible from manifest + template. |
-| Repository count | 2,500 records in the CAT-08 canonical source snapshot. |
+| Catalog snapshot | CAT-10 exact-version freeze is source-owned and reproducible from the pinned manifest, contracts, builder and template. |
+| Repository count | 2,500 records in the CAT-10 frozen canonical snapshot; CAT-09 verified the same deterministic browser projection. |
 | Taxonomy | 126 nodes: 111 thematic leaves, 14 navigation containers and one review queue; the canonical snapshot has 2,630 direct placements. |
 | Catalog status groups | 485 accepted, 1,987 candidate, and 28 reference/benchmark records. |
 | Stack guidance | 10 stack recipes and 10 compatibility edges in the current manifest. |
@@ -135,7 +135,7 @@ The repository deliberately separates implemented evidence from product intent.
 | Recommendation engine and interview runtime | Planned; contracts and eval cases are still being defined. |
 | MCP server / Agents SDK | MCP is planned; no runtime is activated. An Agents SDK application is not required by the selected plugin architecture. |
 
-Static configuration, generated artifacts, and local tests do not prove recommendation quality, browser behavior, GitHub integration, private-repository safety, or production readiness.
+Static configuration, generated artifacts, and local tests do not by themselves prove recommendation quality, browser behavior, GitHub integration, private-repository safety, or production readiness. CAT-09 adds bounded Chrome evidence for the exact standalone artifact and CAT-10 freezes its exact CP-06 input pins; neither is human visual, retrieval, freshness, runtime or release evidence.
 
 ## Use The Catalog Today
 
@@ -147,7 +147,7 @@ The current catalog supports:
 - category and use-case navigation;
 - persona and status filters;
 - stack recipes and compatibility relationships;
-- repository comparison and triage signals;
+- catalog triage signals; the comparison panel is present, but user-facing repository selection is not yet wired;
 - visible source, snapshot, and evidence metadata where available.
 
 Useful searches include `RAG`, `MCP`, `agent memory`, `sandbox`, `browser automation`, `CRM`, `support`, `analytics`, and `workflow automation`.
@@ -156,7 +156,7 @@ Useful searches include `RAG`, `MCP`, `agent memory`, `sandbox`, `browser automa
 
 | Snapshot layer | Date | Scope |
 |---|---|---|
-| Current canonical HTML v5.1 | 2026-09-01 | CAT-08 source/static verified: 2,500 repositories, 126 taxonomy nodes, and 2,630 direct placements; browser/performance acceptance remains CAT-09. |
+| Current canonical HTML v5.1 | 2026-09-01 | CAT-10 exact-version freeze over the CAT-09 source/output/browser evidence: 2,500 repositories, 126 taxonomy nodes, 2,630 direct placements; [source/output pins and CP-06 handoff](docs/reports/catalog-final-freeze-2026-09-01.json). |
 | Frozen CAT-07A input | 2026-09-01 | Historical pre-application candidate: 1,624 retained baseline identities plus 876 additions and seven overflow cards. |
 | Legacy unified Markdown | 2026-05-23 | 314 repositories, 42 categories, and 351 placements. |
 | Original account-fork catalog | 2026-05-23 | 107 repositories generated from `data/source_repos.csv`. |

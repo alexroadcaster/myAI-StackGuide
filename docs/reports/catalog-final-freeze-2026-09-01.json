@@ -1,0 +1,275 @@
+{
+  "schemaVersion": "catalog-final-freeze-report.v1",
+  "taskId": "CP-03.CAT-10",
+  "frozenAt": "2026-09-01T15:15:17+03:00",
+  "status": "catalog_snapshot_frozen_cp06_handoff_ready",
+  "snapshotId": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+  "sourceOfTruth": {
+    "path": "data/catalog_manifest.json",
+    "schemaVersion": "5.1-taxonomy-v2",
+    "snapshotDate": "2026-09-01",
+    "bytes": 29463709,
+    "sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e"
+  },
+  "artifactManifest": {
+    "sourceContract": {
+      "path": "data/catalog_manifest.schema.json",
+      "bytes": 6068,
+      "sha256": "2264afd29aa61c440fa075b430012a3aeae911425ac47ebe4b82cb13a40f0583"
+    },
+    "taxonomy": {
+      "path": "specs/catalog/taxonomy.yaml",
+      "bytes": 26847,
+      "sha256": "7f74561ff8206d1fb6782e7815ebb7c8080ae813f303fabfd6c9c72d8cbbaaec"
+    },
+    "taxonomyRules": {
+      "path": "specs/catalog/taxonomy-rules.md",
+      "bytes": 8129,
+      "sha256": "efe0ce87a3804a5fb7c6a1ff5d63224ec2656f901472b4e905dfb8dbc0fc5f0a"
+    },
+    "fieldContract": {
+      "path": "specs/catalog/enrichment-field-contract.json",
+      "bytes": 125107,
+      "sha256": "9c0d6fd6e12ef42a37e26d8607405a7cbafdf1b7a633c8f8b53da159eaa7f456"
+    },
+    "template": {
+      "path": "templates/unified_catalog.html",
+      "bytes": 27509,
+      "sha256": "8e6e34867196a369a0c1e4d81bb871025e3c484f34cbcad51b8ee1fbb2183100"
+    },
+    "builder": {
+      "path": "scripts/build_catalog_html.py",
+      "bytes": 23737,
+      "sha256": "fac9654bb0ea92e58badd799c566e8a1977a8d53961aa6c5120a9e9e7f985914"
+    },
+    "embeddedPresentation": {
+      "bytes": 3904469,
+      "sha256": "634571ee81f2d97c010865a6cbf50db7c0d7a415bb8a36f144f0a22f5dc0897a"
+    },
+    "standaloneHtml": {
+      "path": "docs/UNIFIED_CATALOG.html",
+      "bytes": 3931957,
+      "sha256": "da6c85bfd0158123cd6a1f756f1b54dc6f277dce849ac4e5d29f8709319792f0"
+    }
+  },
+  "counts": {
+    "repositories": 2500,
+    "uniqueNumericGithubIdentities": 2500,
+    "taxonomyNodes": 126,
+    "thematicLeaves": 111,
+    "navigationContainers": 14,
+    "reviewBuckets": 1,
+    "directPlacements": 2630,
+    "thematicRepositories": 2488,
+    "thematicPlacements": 2618,
+    "reviewRepositories": 12,
+    "accepted": 485,
+    "candidates": 1987,
+    "referenceOrBenchmark": 28,
+    "aliases": 55,
+    "aliasOwners": 54,
+    "recommendationRationaleStored": 212,
+    "recommendationPending": 2288,
+    "stackRecipes": 10,
+    "compatibilityEdges": 10
+  },
+  "countReconciliation": {
+    "historicalCanonicalV5": {
+      "snapshotDate": "2026-08-12",
+      "repositories": 1142,
+      "taxonomyNodes": 77,
+      "directPlacements": 1290,
+      "disposition": "historical_source_snapshot"
+    },
+    "audited1800Input": {
+      "snapshotDate": "2026-08-31",
+      "repositories": 1800,
+      "taxonomyNodes": 77,
+      "directPlacements": 2155,
+      "disposition": "historical_pre_taxonomy_v2_input"
+    },
+    "taxonomyV2Intermediate": {
+      "snapshotDate": "2026-08-31",
+      "repositories": 1800,
+      "taxonomyNodes": 126,
+      "directPlacements": 1945,
+      "disposition": "historical_pre_eligibility_intermediate"
+    },
+    "eligibility": {
+      "sourceRows": 1800,
+      "distinctIdentityRoots": 1790,
+      "aliasConsolidations": 10,
+      "includedBaseline": 1624,
+      "excludedBelowThreshold": 159,
+      "pendingUnresolvedIdentityOrStars": 7,
+      "equation": "1624 + 159 + 7 = 1790"
+    },
+    "expansion": {
+      "includedBaseline": 1624,
+      "selectedAdditions": 876,
+      "qualifiedOverflowReserved": 7,
+      "equation": "1624 + 876 = 2500; overflow is not canonical membership"
+    },
+    "finalMembership": {
+      "thematicRepositories": 2488,
+      "reviewRepositories": 12,
+      "equation": "2488 + 12 = 2500"
+    },
+    "finalPlacements": {
+      "thematicPlacements": 2618,
+      "reviewPlacements": 12,
+      "equation": "2618 + 12 = 2630"
+    },
+    "catalogStatuses": {
+      "accepted": 485,
+      "candidates": 1987,
+      "referenceOrBenchmark": 28,
+      "equation": "485 + 1987 + 28 = 2500"
+    }
+  },
+  "sourceObservationRange": {
+    "activityObservedAt": {
+      "cardsWithTimestamp": 2495,
+      "minimum": "2026-08-31T14:10:49.928249Z",
+      "maximum": "2026-09-01T09:33:44.455075Z"
+    },
+    "fieldObservationEntries": {
+      "entriesWithTimestamp": 69063,
+      "minimum": "2026-08-31T14:10:49.928249Z",
+      "maximum": "2026-09-01T05:30:18.250223Z"
+    },
+    "missingActivityObservedAt": [
+      "GreptimeTeam/greptimedb",
+      "pmndrs/jotai",
+      "treeverse/lakeFS",
+      "Vincit/objection.js",
+      "go-vikunja/vikunja"
+    ],
+    "interpretation": "The catalog is a dated composite snapshot, not one atomic whole-corpus GitHub observation. Missing timestamps remain unknown."
+  },
+  "decisions": {
+    "minimumObservedStarsForIncludedVerifiedRecords": 500,
+    "lowStarExceptions": 0,
+    "excludedBelowThreshold": 159,
+    "pendingOutsideMembership": 7,
+    "qualifiedOverflowReservedOutsideMembership": 7,
+    "aliasesPreserved": 55,
+    "aliasesSearchableInPresentation": true,
+    "reviewRecordsRetained": 12,
+    "wholeCorpusRefreshed": false
+  },
+  "cp06Handoff": {
+    "status": "ready_for_separately_owned_cp06_implementation",
+    "requiredSourcePath": "data/catalog_manifest.json",
+    "requiredSourceSha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+    "requiredSchemaPath": "data/catalog_manifest.schema.json",
+    "requiredSchemaSha256": "2264afd29aa61c440fa075b430012a3aeae911425ac47ebe4b82cb13a40f0583",
+    "requiredTaxonomyPath": "specs/catalog/taxonomy.yaml",
+    "requiredTaxonomySha256": "7f74561ff8206d1fb6782e7815ebb7c8080ae813f303fabfd6c9c72d8cbbaaec",
+    "requiredFieldContractPath": "specs/catalog/enrichment-field-contract.json",
+    "requiredFieldContractSha256": "9c0d6fd6e12ef42a37e26d8607405a7cbafdf1b7a633c8f8b53da159eaa7f456",
+    "migrationRules": [
+      "Use schemaVersion 5.1-taxonomy-v2 and preserve numeric githubRepositoryId as canonical identity.",
+      "Preserve fullName aliases and baseline-versus-CAT-07A expansion provenance during dedupe.",
+      "Keep description and catalogDescription distinct; do not promote display fallback into source metadata.",
+      "Normalize structured Stack technology/evidence values without stringifying objects.",
+      "Unwrap reviewed form, hosting and deployment values only in presentation; rationale remains source-owned.",
+      "Keep absent legacy form, deployment, hosting, difficulty, lifecycle and activity fields unknown.",
+      "Preserve category kind, parentId, direct leaf/review membership and container descendant unions.",
+      "Keep created, updated, pushed, verified commit/release and observed timestamps semantically separate.",
+      "Reject any source/schema/taxonomy/field-contract pin mismatch before building cards or index."
+    ],
+    "notMetadataSources": [
+      "docs/UNIFIED_CATALOG.html",
+      "embedded presentation JSON",
+      "browser DOM or localStorage",
+      "CAT-09 timing observations"
+    ],
+    "nextOwner": "catalog_pipeline_builder",
+    "nextTask": "CP-06"
+  },
+  "evidenceReports": [
+    {
+      "path": "docs/reports/catalog-gap-fill-2026-08-31.json",
+      "sha256": "8c1c64987814e4eae6707dcaba525c77127ee4334bb99bdbc31f8f10d9905b52"
+    },
+    {
+      "path": "docs/reports/catalog-semantic-review-2026-09-01.json",
+      "sha256": "1c54c05f6512bf2818f46edea347b21f115071c8efcbe4b70c1c831acdb098dc"
+    },
+    {
+      "path": "docs/reports/catalog-eligibility-reconciliation-2026-09-01.json",
+      "sha256": "4a8749f7d3224f5edfe32ff40ebb11a31bc6b98acfe5fce5eba2934b9264d5db"
+    },
+    {
+      "path": "docs/reports/catalog-expansion-2026-09-01.json",
+      "sha256": "a9d706404b6e7cfacdf3a24ba633b3f554d934e69159469724512e3ec5400d2e"
+    },
+    {
+      "path": "docs/reports/catalog-canonical-application-2026-09-01.json",
+      "sha256": "3d8aa277a3b814ba0ca2f4e2cdaefe6d3408664598dfac913ae4392a9bec7d33"
+    },
+    {
+      "path": "docs/reports/catalog-browser-verification-2026-09-01.json",
+      "sha256": "ca402ce80db8e802c5c65dc8b1f362bf8ea5d5928d2109a21eeeb5d0ecae9a67"
+    }
+  ],
+  "knownGaps": [
+    "Twelve repositories remain explicitly in uncategorized_review.",
+    "Only 212 cards store recommendation rationale; 2,288 retain a downstream recommendation backlog that does not control catalog inclusion.",
+    "Five canonical cards lack activity.observedAt and remain unknown for that field.",
+    "Nineteen canonical archived flags differ from 24 CAT-07-observed archived baseline records under the preserved sparse-patch policy; this is not a whole-corpus freshness claim.",
+    "The standalone comparison panel still lacks a user-facing repository selection control and is not certified.",
+    "Chrome evidence is bounded to the recorded Windows/Chrome/current-machine run and is not human visual acceptance.",
+    "No FTS5 index, retrieval relevance, recommendation quality, live GitHub freshness, plugin runtime, release readiness or publication is established by this freeze."
+  ],
+  "verification": {
+    "sourceOutputParity": "passed",
+    "countReconciliation": "passed",
+    "reportLinksAndPins": "passed",
+    "sourceMutationDuringCat10": false,
+    "externalPublication": false,
+    "commands": [
+      {
+        "command": "inline Python CAT-10 freeze verifier",
+        "result": "CAT-10 freeze report verified"
+      },
+      {
+        "command": "python -B scripts/build_catalog_html.py --check",
+        "result": "passed exact 3931957-byte parity"
+      },
+      {
+        "command": "python -B -m unittest tests.test_codex_contracts -v",
+        "result": "13 passed"
+      },
+      {
+        "command": "Product-Agent OS validate_control_plane.py .",
+        "result": "ok true"
+      },
+      {
+        "command": "git diff --check",
+        "result": "exit 0 with line-ending warnings only"
+      }
+    ]
+  },
+  "claimCeiling": {
+    "supported": [
+      "exact_catalog_snapshot_frozen",
+      "source_output_hashes_pinned",
+      "count_reconciliation_verified",
+      "cp06_input_handoff_ready",
+      "prior_cat09_browser_performance_evidence_preserved"
+    ],
+    "notSupported": [
+      "fts5_index_built_or_activated",
+      "retrieval_relevance",
+      "recommendation_quality",
+      "human_visual_acceptance",
+      "live_github_freshness",
+      "plugin_runtime_ready",
+      "release_ready",
+      "publication"
+    ]
+  },
+  "rollback": "Remove this CAT-10 report and reverse only CAT-10 active-document/RUNLOG status deltas. Preserve the frozen manifest, CAT-09 builder/HTML/report, historical reports and unrelated work; do not regenerate, reset Git or delete ignored checkpoints."
+}

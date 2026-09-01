@@ -303,7 +303,39 @@ python -B scripts/build_catalog_html.py --check
 python -B -m unittest tests.test_catalog_candidate_application tests.test_catalog_v5_pipeline -v
 ```
 
-The final manifest SHA-256 is `d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e`; the 3,932,467-byte HTML SHA-256 is `2f1d77740f0652f518fa8b155d30c1cf35112cd5067875a76cd400445aaef8b2`. Counts are 2,500 repositories, 126 nodes, 2,630 placements, 2,488 thematic repositories and 12 review records. The compact projection retains displayed/searchable descriptions, aliases and Stack labels while keeping repository audit fields and unused top-level migration/evidence data in the canonical source. The transaction journal preserves exact failure recovery plus an operational current-renderer rollback. Browser/performance evidence remains CAT-09. Durable minimized evidence is `docs/reports/catalog-canonical-application-2026-09-01.json`.
+The CAT-08 transaction output used manifest SHA-256 `d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e` and 3,932,467-byte HTML SHA-256 `2f1d77740f0652f518fa8b155d30c1cf35112cd5067875a76cd400445aaef8b2`. Counts are 2,500 repositories, 126 nodes, 2,630 placements, 2,488 thematic repositories and 12 review records. The transaction journal preserves exact failure recovery plus an operational current-renderer rollback. Durable CAT-08 evidence is `docs/reports/catalog-canonical-application-2026-09-01.json`; CAT-09 subsequently superseded only the presentation HTML after browser preflight found reviewed-wrapper coercion.
+
+## CAT-09 browser and performance verification
+
+CAT-09 kept the manifest, taxonomy, membership, template CSS/layout and card markup unchanged. The source-to-presentation adapter now unwraps reviewed form/hosting wrappers to strings and deployment wrappers to string arrays while retaining value/rationale evidence in canonical source. The generated projection is 3,904,469 bytes with SHA-256 `634571ee81f2d97c010865a6cbf50db7c0d7a415bb8a36f144f0a22f5dc0897a`; the standalone HTML is 3,931,957 bytes with SHA-256 `da6c85bfd0158123cd6a1f756f1b54dc6f277dce849ac4e5d29f8709319792f0`.
+
+Exhaustive checks cover every identity and route. Chrome 151 ran offline through loopback at 1440x900 and 1280x720 with five cold starts per viewport and 20 measured iterations after three warmups for each declared search/filter. Worst p95 values were 791 ms cold, 160.8 ms search and 603.9 ms filter; category navigation max was 18.4 ms. No external request, page/console error, container drift, duplicate union or structured-field corruption was observed. Comparison selection remains unwired and outside CAT-09 acceptance. Durable evidence is `docs/reports/catalog-browser-verification-2026-09-01.json`; the subsequent completed CAT-10 freeze and CP-06 handoff are recorded below.
+
+## CAT-10 final freeze and CP-06 handoff
+
+CAT-10 freezes the exact source/output family in
+`docs/reports/catalog-final-freeze-2026-09-01.json`. The authoritative CP-06 input
+is `data/catalog_manifest.json` at SHA-256
+`d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e`,
+paired with the exact manifest schema, taxonomy and enrichment-field-contract pins
+in that report. The standalone HTML and its compact embedded presentation are
+verified consumers, not metadata sources for CP-06.
+
+Final reconciliation is 2,500 identities and 2,630 direct placements: 2,488
+thematic plus 12 review repositories, and 2,618 thematic plus 12 review placements.
+The catalog retains 55 aliases across 54 identities. The earlier 1,800 rows resolve
+to 1,790 identity roots: 1,624 included, 159 low-Star exclusions and seven pending;
+876 selected additions produce 2,500, while seven qualified overflow cards remain
+outside membership. Activity observation timestamps exist on 2,495 cards and span
+2026-08-31T14:10:49.928249Z through 2026-09-01T09:33:44.455075Z; missing values
+remain explicit rather than being stamped current.
+
+CP-06 must reject source/schema/taxonomy/field-contract pin drift and preserve the
+old-card/addition migration rules: numeric identity and aliases, baseline/expansion
+provenance, distinct source/catalog descriptions, structured Stack, reviewed-value
+rationale, category hierarchy and unknown legacy fields. CAT-10 does not build or
+activate FTS5, establish retrieval or recommendation quality, refresh GitHub again,
+accept the comparison UI, prepare a release or publish externally.
 
 ## Historical evidence
 

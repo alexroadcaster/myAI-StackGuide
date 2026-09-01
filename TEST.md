@@ -140,7 +140,7 @@ container unions and no empty leaf; exact HTML parity remains 5,806,093 bytes at
 SHA-256 `18d1b086fb539d05f968399bb8a7dd027f255ed5bda10cbbc7ce17a953290138`.
 See `docs/reports/catalog-expansion-2026-09-01.json`.
 
-## CAT-08 Evidence And Planned CAT-09/10 Gates
+## CAT-08/09 Evidence And Completed CAT-10 Gate
 
 CAT-08 consumes three pinned inputs rather than treating the CAT-07A expansion file
 as a complete replacement manifest: the current canonical manifest, the CAT-07
@@ -177,10 +177,25 @@ exact HTML parity and 29 focused tests pass; the compact projection omits source
 repository audit fields plus unused top-level migration/evidence data, and the
 template changes no CSS/layout/card markup.
 
+CAT-09 passed after its real-browser preflight exposed object-valued reviewed fields
+that broke every non-empty search. The source-owned value/rationale wrappers remain
+canonical; the deterministic presentation adapter now emits scalar form/hosting and
+array deployment values. The regenerated projection is 3,904,469 bytes and the HTML
+is 3,931,957 bytes. Chrome 151 at 1440x900 and 1280x720 observed 2,500 identities,
+126 routes and 2,630 rows with zero page/console errors or external requests. Five
+cold runs per viewport had worst p95 791 ms; 20 measured iterations per scenario had
+worst search p95 160.8 ms, filter p95 603.9 ms and route maximum 18.4 ms, all below
+the predeclared policy. Focused Python checks pass 31/31 and the generated-data DOM
+smoke passes. See `docs/reports/catalog-browser-verification-2026-09-01.json`.
+
 CAT-10 freezes final counts/hashes, the review disposition and the exact CP-06 input
-version, then updates active snapshot descriptions while preserving dated historical
-records. CAT-09 browser/performance verification and CAT-10 freeze/handoff remain
-planned; CAT-08 static evidence does not satisfy either gate.
+version in `docs/reports/catalog-final-freeze-2026-09-01.json`. A current-run parity
+check, direct artifact hashes and machine reconciliation verify 2,500 identities,
+126 nodes, 2,630 placements, the 2,495-card activity-observation range, five explicit
+timestamp gaps, 55 aliases, 159 exclusions, seven pending roots and seven overflow
+cards. Report links and source/schema/taxonomy/field-contract pins resolve. This
+documentation/handoff gate does not extend CAT-09 into comparison usability, human
+visual acceptance, retrieval, live freshness, release readiness or publication.
 
 ## Contract Test Matrix For The Next Slice
 

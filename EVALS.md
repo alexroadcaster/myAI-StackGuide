@@ -27,7 +27,7 @@ Separate UI language parity from independent RU/EN retrieval relevance: switch o
 
 ## Current Catalog Evidence Ceiling
 
-CP-03.CAT-08 is `source_canonical_static_verified`: the source-owned snapshot has 2,500 unique repositories, 126 taxonomy nodes, 2,630 placements and exact deterministic HTML parity. Three review records moved to evidence-supported existing leaves; 12 remain explicit review records. This proves canonical source/projection integrity only. CAT-09 still owns browser behavior and measured performance; CP-04/06/09/11/15/16 still own retrieval relevance, index/runtime activation, human usefulness, privacy/UI acceptance and release evidence.
+CP-03.CAT-10 is `catalog_snapshot_frozen_cp06_handoff_ready`: the source-owned snapshot has 2,500 unique repositories, 126 taxonomy nodes and 2,630 placements, with exact source/schema/taxonomy/field-contract/output pins in its final report. It preserves CAT-09 `browser_performance_verified` evidence for the same HTML projection; three review records moved to evidence-supported existing leaves and 12 remain explicit review records. The freeze does not prove comparison usability, retrieval relevance, index/runtime activation, human usefulness, visual/privacy acceptance, live freshness or release readiness; those remain CP-04/06/09/11/15/16 scope.
 
 ## Case Format
 

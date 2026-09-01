@@ -107,6 +107,12 @@ class CatalogV5PipelineTests(unittest.TestCase):
         with self.assertRaisesRegex(self.builder.CatalogContractError, "invalid structured stack"):
             self.builder.validate_payload(payload)
 
+    def test_malformed_reviewed_presentation_wrapper_is_rejected(self):
+        payload = self.strict_payload()
+        payload["repositories"][0]["deployment"] = {"value": ["Docker"]}
+        with self.assertRaisesRegex(self.builder.CatalogContractError, "value and rationale"):
+            self.builder.presentation_projection(payload)
+
     def test_summary_count_drift_is_rejected(self):
         payload = copy.deepcopy(self.payload)
         payload["summary"]["canonicalRepositories"] += 1

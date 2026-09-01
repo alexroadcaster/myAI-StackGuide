@@ -4,7 +4,7 @@ Scope: development-team guidance, revised 2026-08-31 for the owner-selected loca
 
 ## Source Routing
 
-- Current canonical catalog: `data/catalog_manifest.json`, `data/catalog_manifest.schema.json`, `templates/unified_catalog.html`, and `scripts/build_catalog_html.py`. The CAT-07A 2,500-identity artifact remains a non-canonical candidate until CAT-08/09/10 reconcile, verify and freeze the exact CP-06 handoff.
+- Current canonical catalog: `data/catalog_manifest.json`, `data/catalog_manifest.schema.json`, `templates/unified_catalog.html`, and `scripts/build_catalog_html.py`. CAT-10 has frozen the exact 2,500-identity CP-06 handoff in `docs/reports/catalog-final-freeze-2026-09-01.json`; the CAT-07A artifact is retained only as historical pre-application candidate evidence.
 - Legacy account taxonomy: `data/categories.json` and `scripts/build_catalog.py`; legacy unified Markdown has its separate dated research inputs. Do not use either to replace current v5 identities, metadata, or taxonomy.
 - Product direction: `docs/plan/2026-08-30-codex-plugin-v1-implementation-plan.md`; active ownership and approved slice: `PLAN.md` and its linked task packet.
 - Product background: `docs/PRODUCT_REQUIREMENTS.md`, `docs/V1_ROADMAP.md`, `docs/MYAI_STACKGUIDE_PRODUCT_CONCEPT.md`, `docs/MYAI_STACKGUIDE_CONTEXT_SCANNER.md`. Hosted-first detail is historical where marked.

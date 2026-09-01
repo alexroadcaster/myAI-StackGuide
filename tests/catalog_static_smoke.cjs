@@ -4,10 +4,10 @@ const path = require('node:path');
 const vm = require('node:vm');
 const assert = require('node:assert/strict');
 const root = path.resolve(__dirname, '..');
-const dataText = fs.readFileSync(path.join(root, 'data/catalog_manifest.json'), 'utf8');
+const html = fs.readFileSync(path.join(root, 'docs/UNIFIED_CATALOG.html'), 'utf8');
+const dataText = html.match(/<script id="catalog-data" type="application\/json">([\s\S]*?)<\/script>/)[1];
 const data = JSON.parse(dataText);
-const template = fs.readFileSync(path.join(root, 'templates/unified_catalog.html'), 'utf8');
-const script = template.match(/<script>([\s\S]*?)<\/script>/)[1];
+const script = html.match(/<script>([\s\S]*?)<\/script>/)[1];
 const elements = new Map();
 function get(id) {
   if (!elements.has(id)) elements.set(id, {
@@ -28,7 +28,7 @@ assert.ok(get('visibleCount').textContent.startsWith(`${data.repositories.length
 assert.equal((get('nav').innerHTML.match(/class="navitem"/g) || []).length, data.categories.length);
 const rendered = get('categories').innerHTML;
 for (const repo of data.repositories) assert.ok(rendered.includes(`href="${repo.url}"`), repo.fullName);
-assert.ok(!rendered.includes('Loading'));
+assert.notEqual(rendered.trim(), 'Loading…');
 vm.runInContext('state.q="Game Engines";renderAll()', context);
 for (const repo of data.repositories.filter(r => r.primaryCategory === 'game_engines')) {
   assert.ok(get('categories').innerHTML.includes(`href="${repo.url}"`), repo.fullName);

@@ -151,7 +151,7 @@ Needs stack recipes across runtime, tools, memory, retrieval, evals, UI, and saf
 
 ## Catalog Scale Strategy
 
-The catalog has passed its original 1,000-repository foundation goal. The current canonical intermediate snapshot contains 1,800 repositories, and CAT-07A freezes a non-canonical 2,500-identity candidate pending CAT-08/09/10 reconciliation and verification. Scale must still follow identity, provenance, taxonomy and presentation gates.
+The catalog has passed its original 1,000-repository foundation goal. CAT-10 freezes the current canonical snapshot at 2,500 repositories after CAT-08 source reconciliation and CAT-09 source/output/browser verification. The earlier 1,800 snapshot and CAT-07A candidate remain historical evidence. Scale must still follow identity, provenance, taxonomy and presentation gates.
 
 The important distinction is that catalog inclusion at 2,500 does not make every repository a high-confidence primary recommendation. A smaller reviewed subset should carry that status. Other eligible entries remain useful for discovery, comparison and landscape coverage when the guide clearly exposes `trust_level`, `verification_status` and stale metadata caveats.
 
