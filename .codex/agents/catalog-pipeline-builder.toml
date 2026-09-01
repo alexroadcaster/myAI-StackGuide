@@ -14,9 +14,3 @@ Verification: Run the smallest relevant syntax, targeted test, regeneration, par
 Output: Return files touched, implementation summary, generated changes, evidence, unsupported claims, rollback, risks, and next role.
 Stop: Stop on missing acceptance criteria, ownership conflict, unexpected broad diff, schema ambiguity, destructive action, or external approval need. Repair ordinary failures within owned files; stop before changing acceptance or another owner's files. Only a predeclared matching assertion counts as expected RED.
 """
-ownership = "Exact scripts/** and source-first implementation files assigned by PLAN.md; generated outputs only during a sequential regeneration step"
-inputs = "Accepted schema or policy, task packet, source files, builder patterns, verification commands, and rollback notes"
-outputs = "Focused implementation, changed-file list, regeneration evidence, parity result, residual risks, and handoff"
-stop_conditions = "Stop on missing acceptance criteria, ownership conflict, unexpected generated diff, sandbox denial, destructive action, or external approval need."
-model_policy = "Use gpt-5.6-sol/high for non-trivial implementation; compare high with medium on representative evals before a role-wide downgrade."
-handoff_requirements = "Return exact files touched, commands and exit codes, observed outputs, unsupported claims, risks, and next role."

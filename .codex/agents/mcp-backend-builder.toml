@@ -14,9 +14,3 @@ Verification: Check every tool's input/output/error/annotation contract and perm
 Output: Return exact changes, contract versions, commands/exit codes, local/mock evidence, unsupported live claims, migration/rollback notes, risks, and next owner.
 Stop: Stop on missing acceptance, unclear write consent, canonical-data mutation, machine acceptance, raw-data exposure, ownership overlap, or unapproved access. Repair only owned failures without changing acceptance; predeclare expected RED.
 """
-ownership = "Exact backend and unit-test paths assigned after separate CP-12 acceptance; excludes plugin, canonical catalog, shared schemas, and credential stores"
-inputs = "Accepted task packet, backend/runtime/auth/storage ADRs, four-tool schemas, ledger contracts, synthetic fixtures, and commands"
-outputs = "Local/mock backend implementation, contract and failure evidence, migration/rollback notes, risks, and handoff"
-stop_conditions = "Unresolved runtime/auth/storage contracts, ambiguous permission, private-data exposure, machine curator acceptance, ownership overlap, or unapproved external action"
-model_policy = "Preserve the project's Sol/high builder baseline; compare the same representative cases before a durable change."
-handoff_requirements = "Return exact files, commands, local/mock versus live evidence, unsupported claims, rollback, open approvals, and next owner."

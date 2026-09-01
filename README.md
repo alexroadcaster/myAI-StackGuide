@@ -6,7 +6,7 @@ myAI-StackGuide is a myAI Labs project that helps founders, product teams, engin
 
 The selected path is a Codex plugin working locally from the user's project: adaptive intake, bounded relevant context, a curated catalog and **SQLite FTS5/BM25 retrieval**. It helps users build or modernize solutions through OSS integration, ending with a saved Project Context Brief, offline **Decision Report**, actionable integration plan and coding-agent handoff. Remote MCP/discovery and a shared backend are deferred, not installation/runtime/release prerequisites.
 
-**Current status:** the catalog and reproducible pipeline exist; agent/skill definitions and offline team checks are present. CP-01/02 documentation and [local ADRs](specs/decisions/plugin-v1-architecture.md) are amended to the owner's 2026-08-31 decisions. CP-03 includes 22 local schemas, [eight-view/presentation/publication contracts](specs/artifact/session-workspace-contract.md) and [linked examples](tests/fixtures/plugin_contracts.json). The mandatory `CP-03-C9-V2` gate now makes `RepositoryCardV2`, ActivityV2, retrieval policy `2.0.0` and index format `2` the active paired contract. CP-03 passes all 46 contract checks; the [C8 captured-result scorer](evals/plugin-v1/runner-contract.md) passes 28 checks and both CLI gates for four v2 synthetic captures. Contract compatibility is verified, while CP-04 retrieval-quality/human calibration and CP-06 2,500-card/index generation remain open. The validator is isolated in TEMP, not a plugin dependency. FTS5 index, scanner and recommendation runtime remain planned; the plugin is not installed or operational. Relevant authorized project context is allowed; [privacy boundaries](specs/decisions/plugin-v1-permissions.md#context-access-and-product-privacy) retain minimization and sensitive exclusions without a host-wide isolation promise.
+**Current status:** the catalog and reproducible pipeline exist; agent/skill definitions and offline team checks are present. CP-01/02 documentation and [local ADRs](specs/decisions/plugin-v1-architecture.md) are amended to the owner's decisions. CP-03 includes 22 local schemas, [eight-view/presentation/publication contracts](specs/artifact/session-workspace-contract.md) and [linked examples](tests/fixtures/plugin_contracts.json). The mandatory `CP-03-C9-V2` gate makes `RepositoryCardV2`, ActivityV2, retrieval policy `2.0.0` and index format `2` the active paired contract. CP-06 now packages all 2,500 frozen repositories as schema-valid v2 cards plus a deterministic immutable SQLite FTS5 index, manifest and byte-identical policy. Post-build validation passes 47 CP-03 checks, 28 C8 checks and both synthetic CLI gates; `promotion_ready=false` remains explicit. CP-04 retrieval-quality/human calibration and CP-07/09 runtime work remain open. The validator was disposable and is not a plugin dependency. The scanner and recommendation runtime remain planned; the plugin is not installed or operational. Relevant authorized project context is allowed; [privacy boundaries](specs/decisions/plugin-v1-permissions.md#context-access-and-product-privacy) retain minimization and sensitive exclusions without a host-wide isolation promise.
 
 The planned session workspace is one offline HTML from the first saved answer, with eight desktop views and RU/EN switching. Codex collects answers and performs operations; HTML displays canonical state, evidence and copyable next actions. CP-07/10 implement persistence/publication and rendering; the approved design is not yet a working plugin.
 
@@ -128,14 +128,14 @@ The repository deliberately separates implemented evidence from product intent.
 | Product concept, PRD, and roadmap | Present as source-controlled planning artifacts. |
 | Project-scoped skills and agents | Structurally configured and statically tested. |
 | Read-only scanner | Planned; no production scanner runtime is committed. |
-| Local Codex plugin | Selected local direction; CP-02 amended for FTS5, runtime not implemented or activated. |
-| SQLite FTS5 retrieval | Selected lexical baseline; CP-03 contracts/examples present, index/retrieval/evals remain CP-04/06/09/11/15. No embeddings or server needed. |
+| Local Codex plugin | Selected local direction; CP-06 assets exist, but runtime is not implemented or activated. |
+| SQLite FTS5 bundle | CP-06 build-verifies 2,500 v2 cards, 2,500 logical rows, 2,630 assignments and paired card/policy/index hashes. Actual retrieval routing and relevance remain CP-04/09/11/15. No embeddings or server needed. |
 | Remote MCP and shared candidate backend | Deferred future extension; no service, hosting, storage or auth selected for the local path. |
 | Hosted web app and project GitHub OAuth | Earlier entrypoint proposal; superseded for V1 by local plugin-first context acquisition. |
 | Recommendation engine and interview runtime | Planned; contracts and eval cases are still being defined. |
 | MCP server / Agents SDK | MCP is planned; no runtime is activated. An Agents SDK application is not required by the selected plugin architecture. |
 
-Static configuration, generated artifacts, and local tests do not by themselves prove recommendation quality, browser behavior, GitHub integration, private-repository safety, or production readiness. CAT-09 adds bounded Chrome evidence for the exact standalone artifact and CAT-10 freezes its exact CP-06 input pins; neither is human visual, retrieval, freshness, runtime or release evidence.
+Static configuration, generated artifacts, and local tests do not by themselves prove recommendation quality, GitHub integration, private-repository safety, or production readiness. CAT-09 adds bounded Chrome evidence for the standalone catalog, CAT-10 freezes CP-06 inputs and CP-06 proves bundle construction/integrity; none proves actual plugin retrieval routing, human usefulness, live freshness, installation or release readiness.
 
 ## Use The Catalog Today
 
@@ -195,7 +195,7 @@ The [PRD](docs/PRODUCT_REQUIREMENTS.md#active-plugin-v1-requirements) and [CP pl
 
 1. CP-01/02: completed documentation, amended for local FTS5/context/activity/integration.
 2. CP-03 contracts and bounded C8/C9 compatibility are accepted. Complete CP-04 quality corpus/baseline/thresholds and human calibration, plus CP-05 agent/skill alignment before their downstream acceptance.
-3. CP-06/07: persist catalog metadata, build cards/index, then local intake/state/preflight.
+3. CP-06 is complete at the bundle-build ceiling; complete CP-05-C fresh-session acceptance, then CP-07 implements local intake/state/preflight.
 4. CP-08/09/10/11: context, bounded retrieval and integration report; one useful actual FTS5 slice, then negatives/scaling.
 5. CP-15/16: independent local acceptance and package/index/fresh-session/rollback evidence. Publication requires separate authorization.
 
@@ -210,10 +210,13 @@ python scripts/build_catalog.py
 python scripts/build_unified_catalog.py
 python scripts/build_catalog_html.py
 python scripts/build_catalog_html.py --check
+python -B scripts/build_plugin_catalog.py --check
+python -B scripts/build_plugin_search_index.py --check
+python -B -m unittest tests.test_plugin_catalog tests.test_plugin_search_index -v
 python -m unittest discover -s tests -v
 ```
 
-The HTML parity check validates deterministic reconstruction of the checked-in artifact. It does not refresh GitHub metadata or prove browser behavior.
+The HTML parity check validates deterministic reconstruction of the checked-in artifact. CP-06 checks validate the frozen card/index bundle. Neither refreshes GitHub metadata nor proves plugin retrieval relevance, runtime activation or release readiness.
 
 ## Repository Structure
 

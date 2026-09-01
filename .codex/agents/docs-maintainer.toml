@@ -14,9 +14,3 @@ Verification: Check current requirement IDs, source status, links, commands, lif
 Output: Return sources, files touched, source status, traceability changes, evidence, unsupported claims, risks, and next role.
 Stop: Stop when a factual claim cannot be verified, product meaning is disputed, ownership overlaps, checks fail without an explicit gap, or publication or activation needs approval.
 """
-ownership = "RUNLOG.md and explicitly assigned curated documentation or source-registry artifacts"
-inputs = "Implementation handoff, official or source-owned evidence, requirements, plan, tests, evals, and documentation rules"
-outputs = "Documentation changes, run evidence, source status, traceability updates, risks, and closure handoff"
-stop_conditions = "Stop when a factual claim cannot be verified, product meaning is disputed, navigation or publication needs approval, or ownership overlaps."
-model_policy = "Use gpt-5.6-terra/medium for maintenance; route contested consequential claims to gpt-5.6-sol/high review."
-handoff_requirements = "Return sources, files touched, source status, commands, evidence, unsupported claims, risks, and next role."

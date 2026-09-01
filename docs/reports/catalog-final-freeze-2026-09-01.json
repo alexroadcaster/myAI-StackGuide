@@ -20,7 +20,7 @@
     "taxonomy": {
       "path": "specs/catalog/taxonomy.yaml",
       "bytes": 26847,
-      "sha256": "7f74561ff8206d1fb6782e7815ebb7c8080ae813f303fabfd6c9c72d8cbbaaec"
+      "sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
     },
     "taxonomyRules": {
       "path": "specs/catalog/taxonomy-rules.md",
@@ -165,7 +165,7 @@
     "requiredSchemaPath": "data/catalog_manifest.schema.json",
     "requiredSchemaSha256": "2264afd29aa61c440fa075b430012a3aeae911425ac47ebe4b82cb13a40f0583",
     "requiredTaxonomyPath": "specs/catalog/taxonomy.yaml",
-    "requiredTaxonomySha256": "7f74561ff8206d1fb6782e7815ebb7c8080ae813f303fabfd6c9c72d8cbbaaec",
+    "requiredTaxonomySha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f",
     "requiredFieldContractPath": "specs/catalog/enrichment-field-contract.json",
     "requiredFieldContractSha256": "9c0d6fd6e12ef42a37e26d8607405a7cbafdf1b7a633c8f8b53da159eaa7f456",
     "migrationRules": [
@@ -187,6 +187,14 @@
     ],
     "nextOwner": "catalog_pipeline_builder",
     "nextTask": "CP-06"
+  },
+  "postFreezeContractReconciliation": {
+    "taskId": "CP-03-C9-V2",
+    "reason": "The taxonomy contract header was rebound to the exact CAT-10 source hash and 2026-09-01 snapshot after CAT-10; category IDs, labels, kinds, parents and aliases did not change.",
+    "previousTaxonomySha256": "7f74561ff8206d1fb6782e7815ebb7c8080ae813f303fabfd6c9c72d8cbbaaec",
+    "requiredTaxonomySha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f",
+    "taxonomySemanticContentChanged": false,
+    "handoffReverifiedBy": "CP-06 source-pin preflight"
   },
   "evidenceReports": [
     {

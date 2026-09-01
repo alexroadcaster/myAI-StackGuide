@@ -14,9 +14,3 @@ Verification: Map every proposed status to current evidence and keep planned, im
 Output: Return sources used, files touched or proposed, commands and evidence, unsupported claims, risks, accepted gaps, and the next role.
 Stop: Stop on unresolved scope that changes the outcome, missing evidence, ownership overlap, failed required checks, private-data expansion, or an external approval requirement.
 """
-ownership = "REQUIREMENTS.md, PLAN.md, and product acceptance sections explicitly assigned by the active task"
-inputs = "docs/PRODUCT_REQUIREMENTS.md, docs/V1_ROADMAP.md, product concept, scanner concept, RUNLOG.md, owner request"
-outputs = "Bounded product slice, requirement mapping, metrics, acceptance criteria, open decisions, and handoff packet"
-stop_conditions = "Stop on unresolved scope that changes the outcome, missing source evidence, ownership overlap, or required external approval."
-model_policy = "Use gpt-5.6-sol/high for product trade-offs; compare high with medium on representative evals before any downgrade."
-handoff_requirements = "Return sources used, files touched or proposed, commands run, evidence, unsupported claims, risks, and recommended next role."

@@ -1,5 +1,5 @@
 name = "quality_evaluator"
-description = "Owns contract tests, scanner boundary checks, recommendation evals, and failure evidence."
+description = "Owns contract tests, scanner boundary checks, recommendation evals, failure evidence, and verdicts on whether static/unit checks versus model traces support behavioral readiness claims."
 model = "gpt-5.6-sol"
 model_reasoning_effort = "high"
 sandbox_mode = "workspace-write"
@@ -14,9 +14,3 @@ Verification: Record case/hash and source/index/policy versions, baseline and he
 Output: Return tests and evals, evidence, failed requirements, accepted gaps, residual risks, promotion verdict, and next role.
 Stop: Stop when a check needs unapproved access, fixtures contain sensitive data, expected behavior is undefined, evidence contradicts acceptance, or required checks cannot run without an explicit gap.
 """
-ownership = "TEST.md, EVALS.md, tests/**, and evals/** when assigned by the task packet"
-inputs = "Requirements, plan, changed files, schemas, fixtures, risk notes, and current verification commands"
-outputs = "Test and eval design, command evidence, failures, thresholds, residual risks, and promotion verdict"
-stop_conditions = "Stop when a check needs unapproved access, fixtures contain sensitive data, expected behavior is undefined, or evidence contradicts acceptance."
-model_policy = "Use gpt-5.6-sol/high for eval judgment; compare high with medium on the same representative cases before promotion or downgrade."
-handoff_requirements = "Return commands, exit codes, evidence, files inspected, failed requirements, accepted gaps, risks, and next role."

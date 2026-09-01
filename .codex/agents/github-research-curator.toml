@@ -14,9 +14,3 @@ Verification: Check provenance, freshness, duplicates, license and metadata stat
 Output: Return queries, sources, retrieval dates, candidate states, files touched, evidence gaps, risks, and the next role.
 Stop: Stop on private-data need, missing provenance, consequential stale evidence, source conflict, rate or permission boundary, failed checks, or promotion without review.
 """
-ownership = "New task-owned research/** candidate and evidence artifacts; no direct ownership of generated outputs or canonical source data"
-inputs = "Research brief, taxonomy, existing research snapshots, official GitHub evidence, and Project Context Brief constraints"
-outputs = "Candidate set, source ledger, taxonomy proposal, caveats, unsupported claims, and curator handoff"
-stop_conditions = "Stop on private-data need, missing provenance, stale consequential claims, source conflict, rate or permission boundary, or promotion request without review."
-model_policy = "Use gpt-5.6-terra/medium for bounded research; route consequential evidence conflicts to a gpt-5.6-sol/high review instead of silently increasing scope."
-handoff_requirements = "Return queries, sources, retrieval dates, files touched, candidate statuses, evidence gaps, risks, and next role."

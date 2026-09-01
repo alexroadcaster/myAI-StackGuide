@@ -1,10 +1,10 @@
 # CP-02: Local Plugin Architecture
 
-Decision date: 2026-08-30; amended by owner decision 2026-08-31. Owner: Catalog Architect; product scope selected by the user. Status: local design selected; implementation and runtime verification pending. Read with [permissions](plugin-v1-permissions.md) and [verification](plugin-v1-verification.md).
+Decision date: 2026-08-30; amended by owner decision 2026-09-01. Owner: Catalog Architect; product scope selected by the user. Status: local design selected; CP-06 bundle implemented and build-verified; runtime verification pending. Read with [permissions](plugin-v1-permissions.md) and [verification](plugin-v1-verification.md).
 
 ## Decision And Scope
 
-Owner revision: 2026-08-31. SQLite FTS5/BM25 is selected for local catalog retrieval. The product optimizes time to a useful open-source integration or modernization plan. Relevant project reads are allowed within existing permissions; the former host-wide source-isolation requirement is superseded, not technically proven. Repository activity and evidence observation are separate; the former 30-day snapshot rejection is withdrawn. CP-01/02 remain completed documentation records. CP-03 is implemented and verified at contract level: 22 local schemas, the presentation/publication addendum and linked fixtures pass all 46 checks. The bounded CP-04 C8/C9 join passes all 27 checks and both scorer CLI gates; synthetic compatibility is accepted, while quality corpus/baseline/thresholds and human calibration remain open. CP-05 source alignment is implemented and statically verified; fresh-session behavioral acceptance remains pending; CP-06-CP-16 remain planned, with CP-12-CP-14 deferred. Runtime and permissions are unchanged.
+Owner revision: 2026-09-01. SQLite FTS5/BM25 is selected for local catalog retrieval. The product optimizes time to a useful open-source integration or modernization plan. Relevant project reads are allowed within existing permissions; the former host-wide source-isolation requirement is superseded, not technically proven. Repository activity and evidence observation are separate; the former 30-day snapshot rejection is withdrawn. CP-01/02 remain completed documentation records. CP-03 is implemented and verified at contract level, and CP-06 has generated and build-verified the exact 2,500-card RepositoryCardV2/FTS5 bundle. Post-build standards evidence is 47 CP-03 and 28 C8 checks; CP-04 quality calibration remains open. CP-05 source alignment is implemented and statically verified; fresh-session behavioral acceptance remains pending. CP-07-CP-16 remain planned, with CP-12-CP-14 deferred. Actual retrieval routing, runtime, UI, install, release and publication remain unverified. Permissions are unchanged.
 
 The selected package is a Codex skill, trusted local Python scripts, catalog cards, a read-only SQLite FTS5 index, and project-local artifacts. No Cloudflare, server database, remote MCP, embedding API/model download, vector extension, Docker, daemon, OAuth or scheduler is required. Codex supplies the conversational model under its own account/data policy; local scripts do not imply local model inference or zero Codex cost.
 
@@ -41,20 +41,20 @@ The official package contract requires `.codex-plugin/plugin.json`; skills and M
 
 Local marketplace installation and fresh-session testing are CP-16 work, not implied by files existing. The documented repo marketplace is `.agents/plugins/marketplace.json`; changing it or global plugin state requires the applicable permission boundary. Neither is changed in CP-02. The host can cache a package separately from the project, so a source-folder edit does not prove that an installed copy changed. [OpenAI local distribution workflow](https://developers.openai.com/plugins/build/plugins#marketplaces).
 
-## Exact Future File Ownership
+## Exact File Ownership
 
-Paths are relative to this implementation repository. CP-03 contracts/tests are verified at contract level; downstream implementation paths remain future work. Builders own implementation; the Quality Evaluator owns named tests/fixtures; the Curator owns research evidence. Sequential handoffs preserve these boundaries. A registry entry alone is not implementation evidence.
+Paths are relative to this implementation repository. CP-03 contracts/tests and the CP-06 bundle are verified at their stated evidence ceilings; later implementation paths remain future work. Builders own implementation; the Quality Evaluator owns named tests/fixtures; the Curator owns research evidence. Sequential handoffs preserve these boundaries. A registry entry alone is not implementation evidence.
 
 | Task | Implementation / source outputs | Evaluator-owned checks |
 | --- | --- | --- |
 | CP-03 | Local C1-C6 and C9 registry in the detailed plan | `tests/test_plugin_contracts.py`, `tests/fixtures/plugin_contracts.json` |
-| CP-06 | `scripts/build_plugin_catalog.py`, `scripts/build_plugin_search_index.py`; `data/plugin_advisory_seed.json`, `data/plugin_catalog_metadata.json`; Curator: `research/plugin-v1-advisory-evidence.json`; bundle assets `catalog.snapshot.json`, `catalog.search.sqlite`, `catalog.search-manifest.json`, `retrieval-policy.json` | `tests/test_plugin_catalog.py`, `tests/test_plugin_search_index.py` |
+| CP-06 | `scripts/build_plugin_catalog.py`, `scripts/build_plugin_search_index.py`; `data/plugin_advisory_seed.json`; bundle assets `catalog.snapshot.json`, `catalog.search.sqlite`, `catalog.search-manifest.json`, `retrieval-policy.json` | `tests/test_plugin_catalog.py`, `tests/test_plugin_search_index.py` |
 | CP-07 | `plugins/myai-stackguide/.codex-plugin/plugin.json`; `skills/myai-stackguide/SKILL.md`; `scripts/intake.py`, `state_store.py`, `sanitize.py`; `assets/question-bank.json` under that plugin root | `tests/test_plugin_intake.py`, `tests/test_plugin_state.py` |
 | CP-08 | Plugin `scripts/scanner.py`, `context.py` | `tests/test_plugin_scanner.py`, synthetic `tests/fixtures/plugin_scanner/` |
 | CP-09 | Plugin `scripts/retrieval.py`, `context_pack.py`, `matcher.py` | `tests/test_plugin_retrieval.py`, `tests/test_plugin_matching.py` |
 | CP-10 | Plugin `scripts/render_report.py`, `assets/status-template.html`; planned R15 `assets/locales/ru.json`, `assets/locales/en.json` | `tests/test_plugin_artifact.py` |
 
-CP-07 state helpers are shared; no parallel state implementation. CP-06 derives public cards/index from source-owned inputs, preserving v5 and existing generated outputs unless a separately assigned source change requires regeneration. Browser-local enrichment must not be mistaken for persisted source metadata. Research facts need per-field provenance and observation dates in source-owned evidence before normalization into `data/plugin_catalog_metadata.json`.
+CP-07 state helpers are shared; no parallel state implementation. CP-06 derives public cards/index from source-owned inputs, preserving v5 and existing generated outputs unless a separately assigned source change requires regeneration. Browser-local enrichment must not be mistaken for persisted source metadata. Any future advisory enrichment needs per-field provenance and observation dates in source-owned evidence before normalization into the self-contained card; no public-fact metadata sidecar is accepted.
 
 ## Scan Budgets And Classification
 
@@ -133,11 +133,11 @@ The CP-02 decision was documentation only. CP-03 supplies the verified local con
 
 ## CP-03 Local Contract Implementation
 
-C1/C3/C5/C6 new writes use `1.1.0` with the workspace addendum; original `1.0.0` shapes remain read-only compatible. C2/C4/C9 remain `1.0.0`. The contract family uses [JSON Schema Draft 2020-12](https://json-schema.org/draft/2020-12/json-schema-core).
+C1/C3/C5/C6 new writes use `1.1.0` with the workspace addendum; original `1.0.0` shapes remain read-only compatible. C2/C4 retain their accepted versions; active C9 uses the paired card/activity/policy `2.0.0` and index format `2`. The contract family uses [JSON Schema Draft 2020-12](https://json-schema.org/draft/2020-12/json-schema-core).
 All 22 local C1-C6/C9 schemas and their [linked positive examples](../../tests/fixtures/plugin_contracts.json)
-are present. Repository names, index version and index hashes in those fixtures
-are explicitly synthetic; no scan, upstream verification, SQLite query or plugin
-installation occurred. Actual generation remains CP-06.
+are present. C8 compatibility captures remain synthetic. CP-06 has generated the exact
+frozen public card/index bundle, but no target-project scan, CP-09 runtime query or plugin
+installation has occurred.
 
 Schemas use reserved `.invalid` `$id` values and an offline reference registry,
 never schema-network retrieval. Reject unknown properties/versions, malformed

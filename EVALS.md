@@ -1,6 +1,6 @@
 # EVALS.md
 
-Retrieval and recommendation-quality evaluation contract for local myAI-StackGuide V1. Owner revision: 2026-08-31; policy specified, product quality not yet run.
+Retrieval and recommendation-quality evaluation contract for local myAI-StackGuide V1. Owner revision: 2026-09-01; CP-06 bundle built, product quality not yet run.
 
 ## Purpose
 
@@ -27,7 +27,7 @@ Separate UI language parity from independent RU/EN retrieval relevance: switch o
 
 ## Current Catalog Evidence Ceiling
 
-CP-03.CAT-10 is `catalog_snapshot_frozen_cp06_handoff_ready`: the source-owned snapshot has 2,500 unique repositories, 126 taxonomy nodes and 2,630 placements, with exact source/schema/taxonomy/field-contract/output pins in its final report. It preserves CAT-09 `browser_performance_verified` evidence for the same HTML projection; three review records moved to evidence-supported existing leaves and 12 remain explicit review records. `CP-03-C9-V2` now contract-verifies the accepted `RepositoryCardV2`, ActivityV2, retrieval policy 2.0.0, index format 2 and four matching C8 captures. The scorer reports `retrieval_score_v2`, `passed=true`, `promotion_ready=false`, `quality_thresholds_calibrated=false` and `verdict=synthetic_compatibility_only`. Historical v1 results remain dated evidence. The CAT-10 freeze and v2 synthetic compatibility do not prove 2,500-card mapping, index/runtime activation, retrieval relevance, comparison usability, human usefulness, visual/privacy acceptance, live freshness or release readiness; those remain CP-04/06/09/11/15/16 scope.
+CP-03.CAT-10 is `catalog_snapshot_frozen_cp06_handoff_ready`: the source-owned snapshot has 2,500 unique repositories, 126 taxonomy nodes and 2,630 placements, with exact source/schema/taxonomy/field-contract/output pins in its final report. It preserves CAT-09 `browser_performance_verified` evidence for the same HTML projection; three review records moved to evidence-supported existing leaves and 12 remain explicit review records. `CP-03-C9-V2` contract-verifies the accepted `RepositoryCardV2`, ActivityV2, retrieval policy 2.0.0, index format 2 and four matching C8 captures. CP-06 now proves lossless 2,500-card generation, logical-row parity, immutable SQLite bytes/integrity, paired hashes and build-time alias/catalog-description smoke. The scorer still reports `retrieval_score_v2`, `passed=true`, `promotion_ready=false`, `quality_thresholds_calibrated=false` and `verdict=synthetic_compatibility_only`. Historical v1 results remain dated evidence. CP-06 does not prove CP-09 actual runtime routing, held-out relevance, comparison usability, human usefulness, visual/privacy acceptance, live freshness, install or release readiness; those remain CP-04/07/09/11/15/16 scope.
 
 ## Case Format
 
@@ -198,3 +198,5 @@ curator acceptance; the durable factual report is
 ## CP-05 Evidence Separation
 
 TB-015-022 cover permitted context, typed index failure, partial HTML, saved/published recovery, no-call RU/EN display, invalidation, useful handoff and activity unknowns. Real public catalog judgments are permitted with provenance; private-project test contexts remain synthetic. Static team checks, C8 compatibility, actual FTS5 relevance, translation meaning, browser behavior and human integration usefulness are separate verdicts. See the [full audit](docs/plan/2026-08-31-cp05-control-plane-audit.md) and .codex/agent-eval-workflow.md.
+
+Current CP-05-C evidence is `measured_local`: all 19 local cases ran in separate blind `codex exec` roots, required named children/skills were observed, and `TB-012` correctly used no project dispatch. A separate read-only reviewer marked all routes, skills, outcomes, action boundaries and named checks `PASS`. The strict observed packet at `evals/agents/results/cp05c-2026-09-01/results.json` grades 19/19 with no failures, packet-local trace hashes verified and status `needs_owner_acceptance`. The packet does not prove omitted-action absence, runtime activation, browser behavior, recommendation usefulness, release readiness or owner acceptance.

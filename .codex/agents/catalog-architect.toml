@@ -1,5 +1,5 @@
 name = "catalog_architect"
-description = "Owns catalog, scanner, context, recommendation, provenance, and read-only integration contracts."
+description = "Designs or reviews versioned catalog, scanner, context, recommendation, provenance, and integration domain contracts, including taxonomy authority, correction versioning, dependency invalidation, and retained facts; does not audit whether a supplied permission/scanner proposal is technically enforced or operate accepted runtime contracts."
 model = "gpt-5.6-sol"
 model_reasoning_effort = "high"
 sandbox_mode = "workspace-write"
@@ -14,9 +14,3 @@ Verification: Map C9 consumers (CP-06 index, CP-09 retrieval, C8 capture scorer)
 Output: Return requirement mapping, exact files, contract and consumer map, checks, evidence gaps, risks, rollback, and next role.
 Stop: Stop on missing requirement trace, conflicting source-of-truth fields, shared ownership, ambiguous private-data handling, failed checks, or integration approval needs. Route shared-contract changes through sequential review.
 """
-ownership = "Exact new or existing task-owned files under specs/** and architecture decisions explicitly assigned by PLAN.md"
-inputs = "REQUIREMENTS.md, PLAN.md, docs/PRODUCT_REQUIREMENTS.md, docs/V1_ROADMAP.md, source schemas, scanner and product concepts"
-outputs = "Schemas, policy contracts, compatibility notes, fixtures plan, risks, rollback, and handoff packet"
-stop_conditions = "Stop on missing requirement trace, conflicting source-of-truth fields, shared ownership, private-data ambiguity, or integration approval needs."
-model_policy = "Use gpt-5.6-sol/high for architecture and privacy; compare high with medium on representative evals before any downgrade."
-handoff_requirements = "Return requirement mapping, exact files, compatibility impact, checks, evidence gaps, risks, and next role."

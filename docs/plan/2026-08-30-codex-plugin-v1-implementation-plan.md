@@ -2,17 +2,17 @@
 
 Planning date: 2026-08-30; owner revision: 2026-08-31. Timezone: `Europe/Moscow`.
 
-Document status: the detailed eight-view desktop/laptop design and RU-EN implementation scope are `owner_accepted`; runtime dispatch still requires CP-03 contracts, CP-04 evaluation design and CP-05 behavior alignment. CP-01/02 are implemented documentation; CP-03 addendum and bounded CP-04 C8/scorer compatibility are contract-verified; CP-04 quality calibration remains open, CP-05 source alignment is implemented/static-verified with fresh-session acceptance pending, and later runtime tasks remain planned. No product runtime, index, remote integration or publication is activated by this revision.
+Document status: the detailed eight-view desktop/laptop design and RU-EN implementation scope are `owner_accepted`; runtime dispatch still requires CP-03 contracts, CP-04 evaluation design and accepted CP-05 behavior alignment. CP-01/02 are implemented documentation; CP-03 addendum and bounded CP-04 C8/scorer compatibility are contract-verified; CP-04 quality calibration remains open. CP-05 source alignment is implemented/static-verified and its 19-case fresh-session evidence is `measured_local` with owner acceptance pending. Later runtime tasks remain planned. No product runtime, index, remote integration or publication is activated by this revision.
 
 ## 1. Goal, Sources, And Boundaries
 
-Owner revision: 2026-09-01. SQLite FTS5/BM25 is selected for local catalog retrieval. The product optimizes time to a useful open-source integration or modernization plan. Relevant project reads are allowed within existing permissions; the former host-wide source-isolation requirement is superseded, not technically proven. Repository activity and evidence observation are separate; the former 30-day snapshot rejection is withdrawn. CP-01/02 remain completed documentation records. The recorded CP-03 v1 contract suite (46 checks) and bounded CP-04 C8/C9 v1 join (27 checks plus both scorer CLI gates) remain historical evidence. The owner accepted `RepositoryCardV2` as the sole active public-card representation; the atomic `CP-03-C9-V2` schema/policy/fixture and C8 compatibility migration is now verified with 46 CP-03 checks, 28 C8 checks and both v2 scorer CLI gates. CP-06 asset generation is the next task and remains unimplemented. CP-05 source alignment is implemented and statically verified; fresh-session behavioral acceptance remains pending. CP-06-CP-16 remain planned, with CP-12-CP-14 deferred. Runtime and permissions are unchanged.
+Owner revision: 2026-09-01. SQLite FTS5/BM25 is selected for local catalog retrieval. The product optimizes time to a useful open-source integration or modernization plan. Relevant project reads are allowed within existing permissions; the former host-wide source-isolation requirement is superseded, not technically proven. Repository activity and evidence observation are separate; the former 30-day snapshot rejection is withdrawn. CP-01/02 remain completed documentation records. The recorded CP-03 v1 contract suite (46 checks) and bounded CP-04 C8/C9 v1 join (27 checks plus both scorer CLI gates) remain historical evidence. The owner accepted `RepositoryCardV2` as the sole active public-card representation; the atomic `CP-03-C9-V2` migration is verified. CP-06 has generated and build-verified the exact 2,500-card snapshot plus paired FTS v2 index/policy/manifest; post-build validation passes 47 CP-03 checks and 28 C8 checks. CP-05 source alignment is implemented/static-verified; CP-05-C measured all 19 local cases in blind fresh sessions with independent trace review and an exit-zero observed-packet grade, while owner acceptance remains pending. CP-07 is next after acceptance; CP-07-CP-16 remain planned, with CP-12-CP-14 deferred. Actual retrieval routing, relevance, runtime, UI, install, release and publication remain unverified. Permissions are unchanged.
 
 Goal: help users build or modernize their solutions faster by selecting suitable OSS components and handing off a concrete integration plan grounded in their project. The saved output is a Project Context Brief plus an offline Decision Report with comparison, integration steps, a first useful validation slice and rollback. Measured speed/quality improvements are hypotheses until evaluated.
 
 The [active PRD](../PRODUCT_REQUIREMENTS.md#active-plugin-v1-requirements) owns product meaning; this plan owns task scope and dependencies. [Root PLAN](../../PLAN.md), [team contracts](plugin-v1-team-contracts.md), and the [architecture](../../specs/decisions/plugin-v1-architecture.md), [permissions](../../specs/decisions/plugin-v1-permissions.md), [verification](../../specs/decisions/plugin-v1-verification.md) ADRs are synchronized to the owner revision. The earlier source plan SHA-256 `A456F4C4CD7A22709D844ADC52276F40874F0D93232D58F3198E005BE12C9DB5` is historical input, not an override of later owner decisions.
 
-Current catalog source is `data/catalog_manifest.json`, schema `data/catalog_manifest.schema.json`, shell `templates/unified_catalog.html`; `docs/UNIFIED_CATALOG.html` is generated. CAT-10 freezes the exact 2026-09-01 canonical manifest at 2,500 repository records, 126 taxonomy nodes and 2,630 direct placements after CAT-08 source reconciliation and CAT-09 source/output/browser verification. The [final freeze report](../reports/catalog-final-freeze-2026-09-01.json) owns the source/schema/taxonomy/field-contract/output pins and migration handoff; historical 1,142/77, 1,800/77 and 1,800/126 snapshots remain dated evidence. Browser observations are not persisted source evidence. CP-06 must consume only the pinned source manifest and preserve reported input gaps before indexing claims about activity. Unknown facts must not be invented.
+Current catalog source is `data/catalog_manifest.json`, schema `data/catalog_manifest.schema.json`, shell `templates/unified_catalog.html`; `docs/UNIFIED_CATALOG.html` is generated. CAT-10 freezes the exact 2026-09-01 canonical manifest at 2,500 repository records, 126 taxonomy nodes and 2,630 direct placements after CAT-08 source reconciliation and CAT-09 source/output/browser verification. The [final freeze report](../reports/catalog-final-freeze-2026-09-01.json) owns the source/schema/taxonomy/field-contract/output pins and migration handoff; historical 1,142/77, 1,800/77 and 1,800/126 snapshots remain dated evidence. Browser observations are not persisted source evidence. CP-06 consumed only the pinned source manifest and preserved reported input gaps before indexing claims about activity. Unknown facts were not invented.
 
 No hosted app, Cloudflare, remote database/auth/MCP, embedding API/model, vector extension, Docker, daemon or scheduler is needed for the local route. Public read-only research remains possible when requested; it does not create a plugin network dependency. CP-12-CP-14 are a future extension requiring a new scope/architecture decision. Local CP-15/16 do not depend on them, directly or transitively.
 
@@ -146,11 +146,12 @@ Execution order: CP-03 local schemas and CP-04 eval contract can proceed indepen
 | Relevant project context; no strict host-isolation promise | `owner_revised` | CP-03/05/08/15 verify minimization, exclusions, authorized scope and useful reads |
 | Activity/observation dates; no blanket snapshot TTL | `owner_revised` | CP-03 semantics, CP-06 source persistence/coverage, CP-09/15 activity cases |
 | Actionable integration plan and coding handoff | `design_selected` | CP-03/10/11/15 contract, implementation and human usefulness |
-| Contracts and retrieval budgets | `contract_verified` | CP-03 46/46 and C8 27/27 full checks plus scorer CLI pass; independent full-suite repeat; ceilings uncalibrated |
+| Contracts and retrieval budgets | `contract_verified` | Current post-CP-06 CP-03 47/47 and C8 28/28 checks plus scorer CLI pass; independent repeat; ceilings uncalibrated |
 | Quality corpus, runner and calibration | `partially_implemented` | C8 synthetic compatibility scorer present; actual corpus/baseline/held-out thresholds and human calibration remain CP-04 work |
-| Loaded agent/skill behavior | `present_unverified` | CP-05 alignment plus fresh-session evidence; no implicit promotion |
+| Loaded agent/skill behavior | `measured_local_owner_acceptance_pending` | CP-05-C 19/19 blind fresh sessions, independent trace review and observed-packet integrity; no implicit runtime/product promotion |
 | Detailed eight-view desktop design and RU-EN | `owner_accepted` | CP-10 A-D implements the approved composition; CP-11/15 verify the working artifact, without another concept gate |
-| Runtime/index/UI/install | `not_implemented` | CP-06-11, CP-15/16; planning is not product acceptance |
+| Bundle/index build | `implemented_verified_build_package` | CP-06 exact card/index/manifest/policy parity and immutable read-only integrity |
+| Runtime/UI/install | `not_implemented` | CP-07-11, CP-15/16; bundle evidence is not product acceptance |
 | Remote tools/auth/backend/scheduler | `deferred` | New extension decision and CP-12-14; no local-release block |
 | Publication / external actions | `approval_required` | Exact destination/action only after a reviewable package exists |
 
@@ -160,7 +161,7 @@ All future commands require their named test/runner files to exist; a zero-test 
 
 - V-DOC: Product-Agent OS task/control-plane validators, focused existing `test_codex_contracts.py`, R01-R15/FR1-FR15 mapping, unique 16-task DAG and reciprocal Blocks, links/UTF-8/history/protected-file audit, whitespace and semantic self-review.
 - V-CONTRACT / CP-03: `python -B -m unittest discover -s tests -p test_plugin_contracts.py -v`; local C1-C6/C9 fixtures, bounded query/context, activity/unknown semantics and handoff. No remote-contract prerequisite.
-- V-CATALOG / CP-06: future `test_plugin_catalog.py` and `test_plugin_search_index.py`; normalized source/card/index/policy parity and hashes, dedupe/coverage/integrity. Run existing catalog HTML parity only if its source/output changes.
+- V-CATALOG / CP-06: `python -B -m unittest tests.test_plugin_catalog tests.test_plugin_search_index -v` plus both builder `--check` commands; normalized source/card/index/policy parity and hashes, dedupe/coverage/integrity, immutable read-only open and representative alias/catalog-description smoke. Existing catalog HTML parity remains exact.
 - V-RETRIEVAL / CP-09: future `test_plugin_retrieval.py` and `test_plugin_matching.py`; actual FTS5, query grammar, RU/EN/aliases, stable ordering/constraints/caps, no-hit versus unavailable, read-only and mismatch cases.
 - V-LOCAL / CP-11: register one exact useful semantic-case command, then affected edges, then final `python -B -m unittest discover -s tests -p "test_plugin_*.py" -v`. Record intended `sqlite_fts5` route and prevent fallback/mock masking.
 - V-EVAL / CP-04/15: offline scorer `evals/plugin-v1/evaluate_retrieval.py` consumes validated captured C9 results and frozen C8 judgments; its CLI/input/output contract passes the bounded synthetic join (TEST.md). This closes the scorer command gap only. Register actual held-out cases, lexical baseline, Recall@k/nDCG@k thresholds, exclusion errors and human integration-usefulness calibration before quality runs. Bind captures to the CAT-10/CP-06 2,500-card snapshot and stratify judgments across containers, thin/dense leaves, baseline/expansion cohorts, aliases and secondary-category dedupe. Same-case comparisons; no quality gain inferred from FTS5 availability. Actual 2,500-card capacity and separately labeled 10,000-row synthetic headroom remain distinct from semantic relevance.
@@ -174,7 +175,7 @@ Rollback preserves the previous compatible package/index and valid user state/hi
 
 ## 7. Detailed Task Matrix
 
-The task contracts below are amended to the 2026-08-31 local scope. CP-01/02 completion reports are preserved historical evidence for their original documentation runs; the amendment does not retroactively claim new tests or implementation. CP-03/04 current fields record the addendum and open acceptance gates. Their completion reports below preserve earlier first-pass/planning evidence; CP-05-CP-16 remain future work.
+The task contracts below are amended to the 2026-09-01 local scope. CP-01/02 completion reports are preserved historical evidence for their original documentation runs; the amendment does not retroactively claim new tests or implementation. CP-03/04 current fields record the addendum and open acceptance gates. Their completion reports below preserve earlier first-pass/planning evidence; CP-05 source alignment and CP-06 bundle build are implemented at their stated ceilings, while CP-07-CP-16 remain future work.
 
 ### Task `CP-01`
 
@@ -402,7 +403,7 @@ The preceding Completion report is preserved planning history. This report recor
 - Timezone: Europe/Moscow
 - Plan trigger: Owner revision 2026-08-31: local SQLite FTS5, relevant context, activity-aware evidence and actionable OSS integration. This task remains within the local product path.
 - Validator target: detailed task blocks
-- Date and time of task implementation: 2026-08-31; source applied/static-verified, fresh-session acceptance pending
+- Date and time of task implementation: 2026-08-31 source alignment; 2026-09-01 fresh-session evidence measured, owner acceptance pending
 - Depends on: CP-01, CP-02
 - Blocks: CP-07, CP-08, CP-09, CP-10, CP-12, CP-13, CP-16
 - Source: Owner decisions 2026-08-31; active PRD R04, R13; accepted CP-02 ADRs and Section 3 registries. R15 session workspace/localization amendment and linked design addendum.
@@ -425,7 +426,7 @@ The preceding Completion report is preserved planning history. This report recor
 - Docs update path: Product Planner updates PLAN.md/task status; Quality Evaluator records TEST.md/EVALS.md evidence; Docs Maintainer appends RUNLOG.md after handoff. No unsupported completion claim.
 - Rollback: Undo only owned changes; preserve prior valid state, finalized history and compatible package/index. No automatic deletion, Git reset, permission weakening or silent retrieval fallback.
 - Stop conditions: Unexpected sensitive data or side effects, ownership overlap, incompatible accepted contract, unsafe containment, failed mandatory evidence or missing required external authorization. Routine relevant reads are not failures; report useful partial results when safe.
-- Next step: Complete CP-05-C fresh-session loading/behavior before claiming runtime dispatch readiness; finish CP-04 quality design separately. CP-12 remains dormant.
+- Next step: Obtain owner acceptance of the CP-05-C measured packet before runtime dispatch; then start CP-07. Finish CP-04 quality design separately. CP-12 remains dormant.
 
 #### Completion report
 
@@ -448,10 +449,10 @@ The original Completion report above is retained as dated planning evidence. Thi
 - files touched / work locations: Exact audit registry; isolated candidate and before-byte snapshot used during preparation. Applied source files and evidence are recorded in RUNLOG.md; temporary copies are not product artifacts.
 - technical value delivered: Applied definitions cover one writer/renderer, bounded public FTS5, relevant authorized context, partial-state HTML and source-bound RU/EN; static checks pass on the actual workspace.
 - product value delivered: Instructions remove unnecessary blanket refusals and remote prerequisites; actual user speed, recommendation quality and browser usefulness are not measured.
-- actual implementation date and time: 31-08-2026; source preparation and static validation, fresh-session acceptance pending
+- actual implementation date and time: 31-08-2026 source preparation/static validation; 01-09-2026 fresh-session evidence measured, owner acceptance pending
 - verification evidence: Actual workspace control-plane 13/13 and grader 19/19 tests; local/deferred case validation 19/3; Product-Agent OS control-plane/nine-agent/task-matrix validators and diff checks pass. Config/model/sandbox, 65 frozen files, 16 original completion reports and R01-R15/dependencies preserved. See RUNLOG.md for commands and exact limitations.
-- residual risks: Protected-file application is complete. Fresh-session loading and representative observed behavior remain pending; same-session inspection cannot prove them. No observed agent/model, runtime, browser or product-quality result is claimed.
-- follow-up: Start fresh Codex context, verify loaded instruction/case identities and representative traces before runtime dispatch. Do not launch extra agents/provider experiments or enable MCP solely to satisfy a gate. CP-04 quality calibration remains separate.
+- residual risks: Protected-file application is complete. Fresh-session loading/routing/output behavior is measured for all 19 local cases and independently reviewed, but the sanitized packet cannot authenticate omitted raw actions or prove runtime, browser, product quality, release readiness or owner acceptance.
+- follow-up: Owner reviews and accepts or rejects the CP-05-C packet before runtime dispatch. Do not launch extra provider experiments or enable MCP solely to strengthen this gate. CP-04 quality calibration remains separate.
 
 #### Accepted `CP-03-C9-V2` contract migration (2026-09-01)
 
@@ -476,19 +477,19 @@ Completion status: `implemented_verified` at the synthetic contract-compatibilit
 ### Task `CP-06`
 
 - Task: CP-06 — persist catalog metadata and build normalized cards plus FTS5 bundle
-- Status: planned
+- Status: implemented_verified_build_package
 - Schema version: task_matrix_plan_v1
 - Timezone: Europe/Moscow
 - Plan trigger: Owner revision 2026-08-31: local SQLite FTS5, relevant context, activity-aware evidence and actionable OSS integration. This task remains within the local product path.
 - Validator target: detailed task blocks
-- Date and time of task implementation: pending_execution_timestamp
+- Date and time of task implementation: 2026-09-01T17:44:43+03:00
 - Depends on: CP-03
 - Blocks: CP-09, CP-11, CP-16
 - Source: Owner decisions 2026-08-31; active PRD R06, R07, R08, R11, R14; accepted CP-02 ADRs and Section 3 registries.
 - Short description: Create the reproducible public-data adapter and immutable search assets without changing canonical v5 by side effect.
 - Technical value: Source-owned activity/provenance and canonical dedupe feed a verifiable read-only index.
 - Product value: Useful search covers the verified 2,500-card catalog without requiring all recommendation narratives to be exhaustively curated first.
-- Scope: After `CP-03-C9-V2` acceptance, Pipeline Builder owns scripts/build_plugin_catalog.py, scripts/build_plugin_search_index.py, data/plugin_advisory_seed.json, plugins/myai-stackguide/assets/catalog.snapshot.json, catalog.search.sqlite, catalog.search-manifest.json and retrieval-policy.json under that assets directory. `data/plugin_catalog_metadata.json` is removed: no shipped or source-owned public card fact may live only in a sidecar. Curator owns research/plugin-v1-advisory-evidence.json as optional public input; Quality Evaluator owns tests/test_plugin_catalog.py and tests/test_plugin_search_index.py. Shared schemas, sources and generated assets use sequential handoff.
+- Scope: After `CP-03-C9-V2` acceptance, Pipeline Builder produced `scripts/build_plugin_catalog.py`, `scripts/build_plugin_search_index.py`, `data/plugin_advisory_seed.json` and `plugins/myai-stackguide/assets/{catalog.snapshot.json,catalog.search.sqlite,catalog.search-manifest.json,retrieval-policy.json}`. `data/plugin_catalog_metadata.json` remains removed: no shipped or source-owned public card fact lives only in a sidecar. Quality Evaluator added `tests/test_plugin_catalog.py` and `tests/test_plugin_search_index.py`; shared schemas, sources and generated assets used sequential handoff.
 - Non-goals: Unassigned files, model/permission changes, Git history, automatic installs, private-data disclosure or external activation. No remote architecture/runtime or vector/embedding dependency.
 - Expected result: Exactly one self-contained `RepositoryCardV2` per accepted numeric GitHub identity, an actual field-coverage/rejection report, reproducible logical FTS5 v2 rows, a paired version manifest and frozen actual bytes/hashes. The packaged policy is the accepted CP-03 C9 v2 source, never a separately re-expressed policy.
 - Acceptance criteria: Consume only the exact CAT-10 snapshot and its pinned taxonomy/schema/field contract; reject mismatch before output. Map all 2,500 records to schema-valid v2 cards or explicit rejection, with 2,500 unique positive numeric IDs, exact catalog lineage, 55 historical full-name aliases, 1,624 baseline/876 expansion cohorts, four exact catalog statuses and typed category assignments preserving 2,488 thematic/12 review cards and 2,630 direct placements. Preserve upstream/catalog descriptions without fallback, structured Stack/license/reviewed delivery values, and all separate activity dates/unknowns. Validate every card field from source or bounded public evidence; mandatory adoption evidence gates primary claims, not retrieval membership. Build one FTS v2 row per numeric identity with explicit alias/upstream/catalog columns, logical row parity, policy/card/index pins, SQLite integrity and one useful alias plus one catalog-description search. Reject v1/mixed pins. No metadata sidecar, user context, browser/localStorage input, API, embedding or model download. Actual 2,500-card size and synthetic 10,000-row headroom remain distinct.
@@ -503,21 +504,21 @@ Completion status: `implemented_verified` at the synthetic contract-compatibilit
 - Docs update path: Product Planner updates PLAN.md/task status; Quality Evaluator records TEST.md/EVALS.md evidence; Docs Maintainer appends RUNLOG.md after handoff. No unsupported completion claim.
 - Rollback: Undo only owned changes; preserve prior valid state, finalized history and compatible package/index. No automatic deletion, Git reset, permission weakening or silent retrieval fallback.
 - Stop conditions: Unexpected sensitive data or side effects, ownership overlap, incompatible accepted contract, unsafe containment, failed mandatory evidence or missing required external authorization. Routine relevant reads are not failures; report useful partial results when safe.
-- Next step: `CP-03-C9-V2` is complete at the synthetic contract-compatibility ceiling. CP-06 now builds cards/index from the exact CAT-10 freeze. CP-09 consumes only the paired v2 cards/index/policy after CP-07. Public evidence collection must stay within its assigned read-only scope; incomplete coverage is reported, not fabricated.
+- Next step: CP-06 is complete at the build/package ceiling. Accept the measured CP-05-C packet, then CP-07 implements intake/state/runtime preflight; CP-09 consumes only the paired v2 cards/index/policy after CP-07. Public evidence collection stays within its assigned read-only scope; incomplete coverage is reported, not fabricated.
 
 - Audit follow-up: clarify generated docs/METHODOLOGY.md through its owner scripts/build_catalog.py so legacy popularity/freshness curation scoring cannot be mistaken for C9 FTS5 ranking. Do not hand-edit generated methodology or retune accepted retrieval policy as part of that clarification.
 
 #### Completion report
 
-- status: planned
-- what was done: Task contract and dependencies revised on 2026-08-31; no task implementation executed by this plan revision.
-- files touched / work locations: Planning/control/ADR documentation only; future owned outputs are listed above.
-- technical value delivered: Implementation benefit not claimed; planned result is Source-owned activity/provenance and canonical dedupe feed a verifiable read-only index.
-- product value delivered: User outcome not measured; planned result is Useful search covers the verified 2,500-card catalog without requiring all recommendation narratives to be exhaustively curated first.
-- actual implementation date and time: pending_execution_timestamp
-- verification evidence: Current documentation checks belong in RUNLOG.md; no task-specific runtime, schema, index, model or release pass claimed.
-- residual risks: Upstream acceptance and task-specific evidence remain open. Remote extension and vectors are not prerequisites.
-- follow-up: CP-09 consumes the frozen cards/index/policy after CP-07. Public evidence collection must stay within its assigned read-only scope; incomplete coverage is reported, not fabricated.
+- status: implemented_verified_build_package
+- what was done: Reconciled the CAT-10 taxonomy pin with the accepted v2 contract, mapped all 2,500 frozen records to `RepositoryCardV2`, built a deterministic external-content FTS5 index with nine explicit columns, copied the accepted retrieval policy byte-for-byte and emitted a pinned manifest. No design, runtime or remote surface changed.
+- files touched / work locations: Builders and advisory seed under `scripts/` and `data/`; generated public assets under `plugins/myai-stackguide/assets/`; focused catalog/index tests and the minimum C9 contract regressions; active control-plane documentation.
+- technical value delivered: One numeric identity now joins each schema-valid card, logical search row and immutable SQLite asset with exact source/card/policy/index hashes, integrity checks and read-only rejection evidence.
+- product value delivered: The full frozen 2,500-repository catalog is packaged for bounded local search, including 55 historical aliases and separate upstream/catalog descriptions, without user context or a remote dependency.
+- actual implementation date and time: 2026-09-01T17:44:43+03:00
+- verification evidence: Both builders pass `--check`; 19/19 focused CP-06 tests pass; post-build standards validation accepts 2,500/2,500 cards and the manifest, CP-03 passes 47/47 and C8 passes 28/28, both synthetic scorer CLI gates retain `promotion_ready=false`, the standalone HTML remains byte-identical, and independent review returned accept with no P0/P1/P2.
+- residual risks: Default Python has no persistent `jsonschema`; standards checks used a disposable development target that was removed. Build/package evidence does not prove CP-09 query routing/relevance, CP-10 UI, CP-11 usefulness, CP-15 human acceptance or CP-16 install/release. Direct PowerShell reads of one generated manifest were ACL-restricted during independent review, while Python builders/tests read it successfully; clean-install permissions remain CP-16 evidence.
+- follow-up: Owner acceptance of the measured CP-05-C packet is the remaining dispatch gate; then CP-07 implements local intake/state/preflight. CP-09 later consumes the frozen paired cards/index/policy and must prove actual read-only routing without a v1 or whole-catalog fallback.
 
 ### Task `CP-07`
 

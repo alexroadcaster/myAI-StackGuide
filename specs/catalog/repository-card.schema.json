@@ -67,7 +67,7 @@
         "properties": {
           "category_id": { "type": "string", "minLength": 1, "maxLength": 100, "pattern": "^[a-z][a-z0-9_]*$" },
           "title": { "type": "string", "minLength": 1, "maxLength": 180 },
-          "kind": { "const": "category" },
+        "kind": { "enum": ["category", "review_bucket"] },
           "parent_id": {
             "anyOf": [
               { "type": "string", "minLength": 1, "maxLength": 100, "pattern": "^[a-z][a-z0-9_]*$" },
@@ -101,7 +101,7 @@
               "scope": { "enum": ["primary", "secondary"] }
             }
           },
-          "minItems": 0, "maxItems": 20
+          "minItems": 0, "maxItems": 80
         },
         "license": {
           "anyOf": [
@@ -260,7 +260,7 @@
     "corpus_kind": { "enum": ["catalog_snapshot", "synthetic_fixture"] }
   },
   "$defs": {
-    "catalogRecordId": { "type": "string", "minLength": 1, "maxLength": 180, "pattern": "^gh(?:-pending)?:[A-Za-z0-9_.:/-]+$" },
+    "catalogRecordId": { "type": "string", "minLength": 1, "maxLength": 180, "pattern": "^gh(?:-(?:pending|expansion|[0-9]+))?:[A-Za-z0-9_.:/-]+$" },
     "fullName": { "type": "string", "minLength": 1, "maxLength": 160, "pattern": "^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$" },
     "sha256": { "type": "string", "minLength": 64, "maxLength": 64, "pattern": "^[a-f0-9]{64}$" },
     "nullableTimestamp": {
@@ -274,7 +274,7 @@
     "nullableToken": { "anyOf": [{ "type": "string", "minLength": 1, "maxLength": 120, "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]*$" }, { "type": "null" }] },
     "nullableShortText": { "anyOf": [{ "type": "string", "minLength": 1, "maxLength": 300 }, { "type": "null" }] },
     "nullableDescription": { "anyOf": [{ "type": "string", "minLength": 1, "maxLength": 1800 }, { "type": "null" }] },
-    "nullableUrl": { "anyOf": [{ "type": "string", "minLength": 1, "maxLength": 500, "format": "uri" }, { "type": "null" }] },
+    "nullableUrl": { "anyOf": [{ "type": "string", "minLength": 1, "maxLength": 500, "format": "uri-reference" }, { "type": "null" }] },
     "shortTextArray": { "type": "array", "items": { "type": "string", "minLength": 1, "maxLength": 180 }, "minItems": 0, "maxItems": 30, "uniqueItems": true },
     "longTextArray": { "type": "array", "items": { "type": "string", "minLength": 1, "maxLength": 600 }, "minItems": 0, "maxItems": 12, "uniqueItems": true },
     "evidenceRefs": { "type": "array", "items": { "type": "string", "minLength": 1, "maxLength": 80, "pattern": "^ev-[a-z0-9][a-z0-9_-]*$" }, "minItems": 1, "maxItems": 8, "uniqueItems": true },

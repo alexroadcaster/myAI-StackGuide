@@ -1041,6 +1041,23 @@ class SemanticContracts(unittest.TestCase):
         self.assertEqual(TAXONOMY['categories'], [{'id': item['key'], 'label': item['title'], 'layer': item['layer'], 'parent_id': item.get('parentId'), 'aliases': item.get('aliases', []), 'kind': item.get('kind', 'category')} for item in manifest['categories']])
         unique([item['id'] for item in TAXONOMY['categories']], 'taxonomy identifier')
 
+    def test_repository_card_accepts_frozen_lineage_and_review_bucket(self):
+        schema = SCHEMAS['catalog/repository-card.schema.json']
+        lineage_pattern = schema['$defs']['catalogRecordId']['pattern']
+        for catalog_record_id in (
+                'gh:owner/repository',
+                'gh-pending:owner/repository',
+                'gh-1500:owner/repository',
+                'gh-expansion:owner/repository'):
+            self.assertRegex(catalog_record_id, lineage_pattern)
+        self.assertNotRegex('repo:generic-string-id', lineage_pattern)
+
+        kind_contract = schema['properties']['classifications']['items']['properties']['kind']
+        self.assertEqual(set(kind_contract['enum']), {'category', 'review_bucket'})
+        self.assertNotIn('container', kind_contract['enum'])
+        self.assertEqual(schema['properties']['repository']['properties']['languages']['maxItems'], 80)
+        self.assertEqual(schema['$defs']['nullableUrl']['anyOf'][0]['format'], 'uri-reference')
+
     def test_scan_exclusion_examples(self):
         for case in load('specs/scanner/exclusion-cases.json')['cases']:
             with self.subTest(path=case['path']):

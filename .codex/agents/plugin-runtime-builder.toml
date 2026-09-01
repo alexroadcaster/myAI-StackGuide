@@ -1,5 +1,5 @@
 name = "plugin_runtime_builder"
-description = "Implements bounded local StackGuide plugin slices after runtime and schema gates are accepted; never activates remote services."
+description = "Owns implementation and operational decisions for local StackGuide scanner, context, state, retrieval, publication, rendering, and localization seams, including fail-closed stop/escalation when a requested runtime extension lacks accepted policy, limits, or exact owned files; never activates remote services."
 model = "gpt-5.6-sol"
 model_reasoning_effort = "high"
 sandbox_mode = "workspace-write"
@@ -14,9 +14,3 @@ Verification: Check the assigned state/publication, retrieval or rendering seam,
 Output: Return exact changes, source versions, commands/exit codes, observed results, unsupported claims, rollback, risks, and next owner.
 Stop: Stop on missing contracts, ownership conflict, unsafe payloads, path escape, non-atomic state, schema changes, or unapproved access. Repair ordinary failures only within owned files and unchanged acceptance; expected RED must be predeclared.
 """
-ownership = "Exact packet-assigned plugins/myai-stackguide/ files and explicitly assigned unit-test files; no backend, canonical catalog, or shared schema ownership"
-inputs = "Accepted task packet, applicable runtime/schema and workspace/retrieval contracts, safe synthetic or public fixtures, and exact verification commands"
-outputs = "Focused local implementation, targeted evidence, unsupported claims, rollback, risks, and sequential handoff"
-stop_conditions = "Missing applicable acceptance after resolving existing contracts, ownership overlap, unsafe sensitive-data handling, schema ambiguity, unsafe local state, or unapproved action"
-model_policy = "Preserve the project's Sol/high builder baseline; no model suitability claim until fresh-context comparisons and owner acceptance."
-handoff_requirements = "Return exact files, commands and exit codes, current evidence, gaps, permission boundary, rollback, and next owner."

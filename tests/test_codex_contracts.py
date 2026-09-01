@@ -67,8 +67,17 @@ class CodexContractTests(unittest.TestCase):
         self.assertEqual(len(names), len(set(names)))
         self.assertTrue(set(BASELINE_MODELS) <= set(names))
         discovered_skills = {path.name for path in SKILL_DIR.iterdir() if path.is_dir()}
+        supported_fields = {
+            "name",
+            "description",
+            "developer_instructions",
+            "model",
+            "model_reasoning_effort",
+            "sandbox_mode",
+        }
         for path in files:
             agent = load_agent(path)
+            self.assertEqual(set(agent), supported_fields, f"{path.name}: unsupported runtime field")
             for field in ("name", "description", "developer_instructions"):
                 self.assertTrue(agent.get(field), f"{path.name}: missing {field}")
             if agent["name"] in BASELINE_MODELS:
