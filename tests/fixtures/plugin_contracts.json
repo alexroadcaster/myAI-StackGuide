@@ -2402,9 +2402,39 @@
       },
       "publication_status": "current",
       "failure_reason": null,
+      "message_key": null,
       "render_attempts": 1,
       "retry": "none",
       "html_path": "docs/myai-stackguide/status.html"
+    },
+    "runtime/runtime-preflight-result.schema.json": {
+      "schema_version": "1.0.0",
+      "status": "ready",
+      "observed_at": "2026-09-12T00:00:00Z",
+      "python": {
+        "implementation": "CPython",
+        "version": "3.14.6"
+      },
+      "sqlite": {
+        "version": "3.50.4",
+        "fts5_available": true
+      },
+      "root_ref": "selected-project",
+      "pins": {
+        "catalog_snapshot_id": "fixture-catalog-2",
+        "source_sha256": "d487719a3299ca76a52d9f7bf5f89cfd1323c65c6777b0d5e4c65adcc381fed5",
+        "cards_sha256": "d955adc033ff103d03496fcd1b22d6bdd9a9f7562be57c1b5de004ecc0e3b76f",
+        "index_sha256": "ab9dbb9a03701785ecdc76b1b17718a4a7ed7a62b03da044aa6e8fcbf0208063",
+        "policy_sha256": "c1a150b36a10c67c0220df31af88f90d59e353bdca2f52cb469e06ac6bb7fdca",
+        "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 2,
+        "retrieval_policy_version": "2.0.0",
+        "corpus_kind": "synthetic_fixture"
+      },
+      "reason_codes": [],
+      "next_action": "continue"
     }
   },
   "negative": [
@@ -2413,6 +2443,26 @@
       "schema": "intake/intake-state.schema.json",
       "pointer": "/questions_asked",
       "value": 11
+    },
+    {
+      "name": "legacy_answer_correction_marker",
+      "schema": "intake/interview-answer.schema.json",
+      "pointer": "/last_correction_id",
+      "value": null
+    },
+    {
+      "name": "active_initial_answer_with_correction_marker",
+      "fixture": "workspace_positive",
+      "schema": "intake/interview-answer.schema.json",
+      "pointer": "/last_correction_id",
+      "value": "correction-before-initial-answer"
+    },
+    {
+      "name": "active_revised_answer_without_correction_marker",
+      "fixture": "workspace_positive",
+      "schema": "intake/interview-answer.schema.json",
+      "pointer": "/answer_revision",
+      "value": 2
     },
     {
       "name": "raw_source_forbidden",
@@ -2531,7 +2581,7 @@
         "questions_asked": 1,
         "answers": [
           {
-            "schema_version": "1.0.0",
+            "schema_version": "1.1.0",
             "run_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
             "answer_id": "answer-goal-1",
             "question_id": "goal",
@@ -2541,7 +2591,8 @@
             "status": "answered",
             "sanitized_value": "Add local search to a small Python project.",
             "redaction_applied": false,
-            "recorded_at": "2026-08-31T09:00:00Z"
+            "recorded_at": "2026-08-31T09:00:00Z",
+            "last_correction_id": null
           }
         ],
         "pending_question_id": null,
@@ -3492,6 +3543,20 @@
         }
       }
     },
+    "intake/interview-answer.schema.json": {
+      "schema_version": "1.1.0",
+      "run_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
+      "answer_id": "answer-goal-1",
+      "question_id": "goal",
+      "ordinal": 1,
+      "answer_revision": 1,
+      "expected_state_revision": 0,
+      "status": "answered",
+      "sanitized_value": "Add local search to a small Python project.",
+      "redaction_applied": false,
+      "recorded_at": "2026-08-31T09:00:00Z",
+      "last_correction_id": null
+    },
     "intake/intake-state.schema.json": {
       "schema_version": "1.1.0",
       "run_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
@@ -3499,7 +3564,7 @@
       "questions_asked": 1,
       "answers": [
         {
-          "schema_version": "1.0.0",
+          "schema_version": "1.1.0",
           "run_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
           "answer_id": "answer-goal-1",
           "question_id": "goal",
@@ -3509,7 +3574,8 @@
           "status": "answered",
           "sanitized_value": "Add local search to a small Python project.",
           "redaction_applied": false,
-          "recorded_at": "2026-08-31T09:00:00Z"
+          "recorded_at": "2026-08-31T09:00:00Z",
+          "last_correction_id": null
         }
       ],
       "pending_question_id": null,

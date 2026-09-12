@@ -73,11 +73,7 @@
       "format": "date-time"
     },
     "invalidates": {
-      "const": [
-        "retrieval_result",
-        "evidence_pack",
-        "recommendation_memo"
-      ]
+      "type": "array"
     },
     "observed_facts_mutated": {
       "const": false
@@ -85,7 +81,9 @@
   },
   "x-invariants": [
     "to_brief_version is from_brief_version + 1. Corrections do not rewrite observed facts as if rescanned.",
-    "Version 1.1.0 adds context_details corrections for sourced audience/workflow/scenario/scope/constraint interpretations. Keep observed facts and original scan immutable; the same Brief bump/downstream invalidation applies. Retained legacy correction events are not rewritten."
+    "Version 1.1.0 adds context_details corrections for sourced audience/workflow/scenario/scope/constraint interpretations. Keep observed facts, the original scan and index_manifest immutable; the same Brief bump/downstream invalidation applies. Clear selection, request, retrieval, evidence_pack and memo, return phase to context_review and set intake.next_action=review_context. Retained legacy correction events are not rewritten.",
+    "This event is post-Brief only. A pre-Brief answer correction updates the existing interview answer revision and does not create this event or a Brief version.",
+    "Repeating the same correction_id and payload is a no-op with the same result. Reusing that ID with a different payload returns state_conflict without a write."
   ],
   "allOf": [
     {
@@ -102,6 +100,26 @@
             "not": {
               "const": "context_details"
             }
+          },
+          "invalidates": {
+            "const": [
+              "retrieval_result",
+              "evidence_pack",
+              "recommendation_memo"
+            ]
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "invalidates": {
+            "const": [
+              "selection",
+              "request",
+              "retrieval_result",
+              "evidence_pack",
+              "recommendation_memo"
+            ]
           }
         }
       }

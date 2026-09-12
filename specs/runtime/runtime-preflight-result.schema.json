@@ -1,0 +1,330 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://myai-stackguide.invalid/contracts/v1/runtime/runtime-preflight-result.schema.json",
+  "title": "Transient local runtime preflight result",
+  "description": "CP-07 transient prerequisite result. It is returned to Codex and never persisted in session state.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "status",
+    "observed_at",
+    "python",
+    "sqlite",
+    "root_ref",
+    "pins",
+    "reason_codes",
+    "next_action"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "status": {
+      "enum": [
+        "ready",
+        "blocked"
+      ]
+    },
+    "observed_at": {
+      "$ref": "https://myai-stackguide.invalid/contracts/v1/context/sanitized-project-summary.schema.json#/$defs/timestamp"
+    },
+    "python": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "implementation",
+        "version"
+      ],
+      "properties": {
+        "implementation": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 40
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "version": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 40
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "sqlite": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "version",
+        "fts5_available"
+      ],
+      "properties": {
+        "version": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 30
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "fts5_available": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "root_ref": {
+      "anyOf": [
+        {
+          "const": "selected-project"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "pins": {
+      "anyOf": [
+        {
+          "$ref": "https://myai-stackguide.invalid/contracts/v2/retrieval/index-manifest.schema.json#/properties/pins"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "reason_codes": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "invalid_input",
+          "python_unsupported",
+          "invalid_root",
+          "fts5_unavailable",
+          "index_missing",
+          "unavailable",
+          "index_corrupt",
+          "index_incompatible"
+        ]
+      },
+      "minItems": 0,
+      "maxItems": 1,
+      "uniqueItems": true
+    },
+    "next_action": {
+      "enum": [
+        "continue",
+        "provide_valid_input",
+        "select_valid_project_root",
+        "use_supported_python",
+        "use_compatible_package",
+        "stop"
+      ]
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "ready"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "then": {
+        "properties": {
+          "python": {
+            "properties": {
+              "implementation": {
+                "const": "CPython"
+              },
+              "version": {
+                "type": "string",
+                "pattern": "^3\\.14\\.[0-9]+$"
+              }
+            }
+          },
+          "sqlite": {
+            "properties": {
+              "version": {
+                "type": "string"
+              },
+              "fts5_available": {
+                "const": true
+              }
+            }
+          },
+          "root_ref": {
+            "const": "selected-project"
+          },
+          "pins": {
+            "type": "object"
+          },
+          "reason_codes": {
+            "maxItems": 0
+          },
+          "next_action": {
+            "const": "continue"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "blocked"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "then": {
+        "properties": {
+          "pins": {
+            "type": "null"
+          },
+          "reason_codes": {
+            "minItems": 1,
+            "maxItems": 1
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "reason_codes": {
+            "const": [
+              "invalid_input"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "next_action": {
+            "const": "provide_valid_input"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "reason_codes": {
+            "const": [
+              "invalid_root"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "next_action": {
+            "const": "select_valid_project_root"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "reason_codes": {
+            "enum": [
+              [
+                "python_unsupported"
+              ],
+              [
+                "fts5_unavailable"
+              ]
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "next_action": {
+            "const": "use_supported_python"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "reason_codes": {
+            "enum": [
+              [
+                "index_missing"
+              ],
+              [
+                "index_corrupt"
+              ],
+              [
+                "index_incompatible"
+              ]
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "next_action": {
+            "const": "use_compatible_package"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "reason_codes": {
+            "const": [
+              "unavailable"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "next_action": {
+            "const": "stop"
+          }
+        }
+      }
+    }
+  ],
+  "x-invariants": [
+    "Checks stop at the first failure in this order: validate bounded input; require CPython 3.14.x; validate selected-project root; probe actual SQLite FTS5 availability; require package files; parse JSON/SQLite and verify read-only integrity; verify exact paired-v2 pins, hashes and flags.",
+    "Reason mapping is deterministic: invalid or oversized input to invalid_input; implementation/version mismatch to python_unsupported; unsafe or invalid root to invalid_root; failed actual FTS5 probe to fts5_unavailable; missing required package file to index_missing; inaccessible or OS read failure to unavailable; invalid JSON/SQLite or integrity failure to index_corrupt; exact v2 pin/hash/flag mismatch to index_incompatible.",
+    "ready has no reason, next_action=continue, CPython 3.14.x, actual FTS5=true, root_ref=selected-project and exact v2 pins. blocked has exactly one reason and pins=null; fields not reached by the ordered checks may remain null. next_action maps invalid_input to provide_valid_input, invalid_root to select_valid_project_root, python_unsupported or fts5_unavailable to use_supported_python, index_missing/index_corrupt/index_incompatible to use_compatible_package, and unavailable to stop.",
+    "This result is sanitized and transient. Preflight never writes session state, installs or downloads anything, rebuilds the index, uses network, changes permissions, switches to an alternate engine or supplies the full catalog as fallback. Raw named sanitizer canaries never appear in it."
+  ]
+}

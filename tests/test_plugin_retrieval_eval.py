@@ -51,6 +51,85 @@ class MetricGoldenCases(unittest.TestCase):
                 EVAL.load_json(path)
 
 
+class QualityPlanContractCases(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.plan = EVAL.load_json(ROOT / 'evals/plugin-v1/quality-plan.json')
+
+    def invalid_plan(self, mutate, message):
+        plan = copy.deepcopy(self.plan)
+        mutate(plan)
+        with self.assertRaisesRegex(ValueError, message):
+            EVAL.validate_quality_plan(plan)
+
+    def test_versioned_quality_plan_is_complete_and_predeclared(self):
+        self.assertTrue(hasattr(EVAL, 'validate_quality_plan'),
+                        'quality-plan validation is absent from the existing evaluator')
+        report = EVAL.validate_quality_plan(self.plan)
+        self.assertEqual(report['schema_version'], 'retrieval_quality_plan_validation_v1')
+        self.assertEqual(report['quality_plan_sha256'], EVAL.digest(self.plan))
+        self.assertEqual(report['pins'], self.plan['pins'])
+        self.assertEqual(report['query_count'], 24)
+        self.assertEqual(report['split_counts'], {'development': 12, 'held_out': 12})
+        self.assertEqual(report['catalog_row_count'], 2500)
+        self.assertEqual(report['synthetic_headroom_row_count'], 10000)
+        self.assertTrue(report['thresholds_predeclared'])
+        self.assertFalse(report['quality_observed'])
+        self.assertFalse(report['promotion_ready'])
+
+    def test_stale_pins_incomplete_judgments_and_invalid_thresholds_fail(self):
+        self.invalid_plan(lambda value: value['artifacts'].update(manifest_sha256='f' * 64),
+                          'stale manifest pin')
+        self.invalid_plan(lambda value: value['pins'].update(policy_sha256='f' * 64),
+                          'stale policy pin')
+        self.invalid_plan(lambda value: value['cases'][0]['judgments'].pop(),
+                          'incomplete or reordered judgment pool')
+        self.invalid_plan(lambda value: value['thresholds'].update(
+                          held_out_macro_recall_at_12_min=1.1), 'schema maximum')
+        self.invalid_plan(lambda value: value['cases'][0].update(split='held_out'),
+                          'case/split identity|split counts')
+
+    def test_strata_scale_language_and_rubric_are_fail_closed(self):
+        self.invalid_plan(lambda value: value['stratification']['container_ids'].pop(),
+                          'schema minItems|container stratum')
+        self.invalid_plan(lambda value: value['scale_protocol']['headroom'].update(row_count=9999),
+                          'scale separation')
+        self.invalid_plan(lambda value: value['language_protocol'].update(
+                          presentation_switch_calls=['retrieval']), 'schema const')
+        self.invalid_plan(lambda value: value['candidate_route'].update(max_cards=13),
+                          'schema const')
+        self.invalid_plan(lambda value: value.update(rubric_sha256='f' * 64),
+                          'stale rubric pin')
+        self.invalid_plan(lambda value: value.update(unexpected='field'),
+                          'schema property')
+
+    def test_literal_baseline_is_deterministic_and_not_fts5_runtime(self):
+        def card(repo_id, name, aliases, upstream, category):
+            return {
+                'identity': {'github_repository_id': repo_id, 'full_name': name,
+                             'full_name_aliases': aliases},
+                'descriptions': {'upstream': upstream, 'catalog': None},
+                'repository': {'topics': []},
+                'classifications': [{'title': category}],
+                'advisory': {'use_cases': [], 'integration_surface': None, 'best_for': []},
+            }
+
+        cards = [
+            card(2, 'example/second', [], 'Local search editor', 'Code Editors'),
+            card(1, 'example/first', ['legacy/first'], 'Local editor', 'Code Editors'),
+        ]
+        self.assertEqual(EVAL.lexical_baseline(cards, ['legacy/first', 'search']), [1, 2])
+        self.assertEqual(EVAL.lexical_baseline(list(reversed(cards)), ['editor']), [1, 2])
+        with self.assertRaisesRegex(ValueError, 'baseline terms'):
+            EVAL.lexical_baseline(cards, [], 12)
+
+    def test_quality_plan_cli_is_validation_only(self):
+        path = str(ROOT / 'evals/plugin-v1/quality-plan.json')
+        with patch('builtins.print'):
+            self.assertEqual(EVAL.main(['--quality-plan', path]), 0)
+            self.assertEqual(EVAL.main(['--quality-plan', path, '--results', 'unused.json']), 2)
+
+
 class CaptureSemanticCases(unittest.TestCase):
     """Explicit semantic-only checks; do not call the schema-dependent grading gate."""
 

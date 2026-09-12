@@ -2,11 +2,11 @@
 
 Planning date: 2026-08-30; owner revision: 2026-08-31. Timezone: `Europe/Moscow`.
 
-Document status: the detailed eight-view desktop/laptop design and RU-EN implementation scope are `owner_accepted`; runtime dispatch still requires CP-03 contracts, CP-04 evaluation design and accepted CP-05 behavior alignment. CP-01/02 are implemented documentation; CP-03 addendum and bounded CP-04 C8/scorer compatibility are contract-verified; CP-04 quality calibration remains open. CP-05 source alignment is implemented/static-verified and its 19-case fresh-session evidence is `measured_local` with owner acceptance pending. Later runtime tasks remain planned. No product runtime, index, remote integration or publication is activated by this revision.
+Document status: the detailed eight-view desktop/laptop design and RU-EN implementation scope are `owner_accepted`. CP-01/02 are implemented documentation; CP-03 addendum and bounded CP-04 C8/scorer compatibility are contract-verified; CP-04 quality calibration remains open. CP-05 source alignment and its 19-case fresh-session evidence are owner-accepted at `measured_local`. CP-07 runtime implementation is now active; no product retrieval, browser, remote integration, release or publication claim follows from this dispatch.
 
 ## 1. Goal, Sources, And Boundaries
 
-Owner revision: 2026-09-01. SQLite FTS5/BM25 is selected for local catalog retrieval. The product optimizes time to a useful open-source integration or modernization plan. Relevant project reads are allowed within existing permissions; the former host-wide source-isolation requirement is superseded, not technically proven. Repository activity and evidence observation are separate; the former 30-day snapshot rejection is withdrawn. CP-01/02 remain completed documentation records. The recorded CP-03 v1 contract suite (46 checks) and bounded CP-04 C8/C9 v1 join (27 checks plus both scorer CLI gates) remain historical evidence. The owner accepted `RepositoryCardV2` as the sole active public-card representation; the atomic `CP-03-C9-V2` migration is verified. CP-06 has generated and build-verified the exact 2,500-card snapshot plus paired FTS v2 index/policy/manifest; post-build validation passes 47 CP-03 checks and 28 C8 checks. CP-05 source alignment is implemented/static-verified; CP-05-C measured all 19 local cases in blind fresh sessions with independent trace review and an exit-zero observed-packet grade, while owner acceptance remains pending. CP-07 is next after acceptance; CP-07-CP-16 remain planned, with CP-12-CP-14 deferred. Actual retrieval routing, relevance, runtime, UI, install, release and publication remain unverified. Permissions are unchanged.
+Owner revision: 2026-09-01. SQLite FTS5/BM25 is selected for local catalog retrieval. The product optimizes time to a useful open-source integration or modernization plan. Relevant project reads are allowed within existing permissions; the former host-wide source-isolation requirement is superseded, not technically proven. Repository activity and evidence observation are separate; the former 30-day snapshot rejection is withdrawn. CP-01/02 remain completed documentation records. The recorded CP-03 v1 contract suite (46 checks) and bounded CP-04 C8/C9 v1 join (27 checks plus both scorer CLI gates) remain historical evidence. The owner accepted `RepositoryCardV2` as the sole active public-card representation; the atomic `CP-03-C9-V2` migration is verified. CP-06 has generated and build-verified the exact 2,500-card snapshot plus paired FTS v2 index/policy/manifest; post-build validation passes 47 CP-03 checks and 28 C8 checks. CP-05-C measured all 19 local cases in blind fresh sessions with independent trace review and an exit-zero observed-packet grade; the owner accepted the packet on 2026-09-01 at the bounded `measured_local` ceiling. CP-05 is complete at that ceiling. CP-07 is in progress, while CP-04 quality calibration proceeds in a disjoint parallel lane; CP-12-CP-14 remain deferred. Actual retrieval routing, relevance, runtime, UI, install, release and publication remain unverified. Permissions are unchanged.
 
 Goal: help users build or modernize their solutions faster by selecting suitable OSS components and handing off a concrete integration plan grounded in their project. The saved output is a Project Context Brief plus an offline Decision Report with comparison, integration steps, a first useful validation slice and rollback. Measured speed/quality improvements are hypotheses until evaluated.
 
@@ -398,12 +398,12 @@ The preceding Completion report is preserved planning history. This report recor
 ### Task `CP-05`
 
 - Task: CP-05 — align local FTS5, session HTML, localization and integration instructions
-- Status: in_progress
+- Status: completed
 - Schema version: task_matrix_plan_v1
 - Timezone: Europe/Moscow
 - Plan trigger: Owner revision 2026-08-31: local SQLite FTS5, relevant context, activity-aware evidence and actionable OSS integration. This task remains within the local product path.
 - Validator target: detailed task blocks
-- Date and time of task implementation: 2026-08-31 source alignment; 2026-09-01 fresh-session evidence measured, owner acceptance pending
+- Date and time of task implementation: 2026-08-31 source alignment; 2026-09-01 fresh-session evidence measured and owner-accepted
 - Depends on: CP-01, CP-02
 - Blocks: CP-07, CP-08, CP-09, CP-10, CP-12, CP-13, CP-16
 - Source: Owner decisions 2026-08-31; active PRD R04, R13; accepted CP-02 ADRs and Section 3 registries. R15 session workspace/localization amendment and linked design addendum.
@@ -426,7 +426,7 @@ The preceding Completion report is preserved planning history. This report recor
 - Docs update path: Product Planner updates PLAN.md/task status; Quality Evaluator records TEST.md/EVALS.md evidence; Docs Maintainer appends RUNLOG.md after handoff. No unsupported completion claim.
 - Rollback: Undo only owned changes; preserve prior valid state, finalized history and compatible package/index. No automatic deletion, Git reset, permission weakening or silent retrieval fallback.
 - Stop conditions: Unexpected sensitive data or side effects, ownership overlap, incompatible accepted contract, unsafe containment, failed mandatory evidence or missing required external authorization. Routine relevant reads are not failures; report useful partial results when safe.
-- Next step: Obtain owner acceptance of the CP-05-C measured packet before runtime dispatch; then start CP-07. Finish CP-04 quality design separately. CP-12 remains dormant.
+- Next step: Start CP-07 and finish CP-04 quality design in a disjoint parallel lane. CP-12 remains dormant.
 
 #### Completion report
 
@@ -444,15 +444,15 @@ The preceding Completion report is preserved planning history. This report recor
 
 The original Completion report above is retained as dated planning evidence. This update owns the current implementation status.
 
-- status: in_progress
+- status: completed_measured_local_owner_accepted
 - what was done: Full 83-file audit saved; nine roles, thirteen skills, eleven metadata files, shared ownership/contracts/templates, active status and versioned local/deferred cases aligned and applied. All 39 protected-file writes succeeded through the authorized escalation path.
 - files touched / work locations: Exact audit registry; isolated candidate and before-byte snapshot used during preparation. Applied source files and evidence are recorded in RUNLOG.md; temporary copies are not product artifacts.
 - technical value delivered: Applied definitions cover one writer/renderer, bounded public FTS5, relevant authorized context, partial-state HTML and source-bound RU/EN; static checks pass on the actual workspace.
 - product value delivered: Instructions remove unnecessary blanket refusals and remote prerequisites; actual user speed, recommendation quality and browser usefulness are not measured.
-- actual implementation date and time: 31-08-2026 source preparation/static validation; 01-09-2026 fresh-session evidence measured, owner acceptance pending
+- actual implementation date and time: 31-08-2026 source preparation/static validation; 01-09-2026 fresh-session evidence measured and owner-accepted
 - verification evidence: Actual workspace control-plane 13/13 and grader 19/19 tests; local/deferred case validation 19/3; Product-Agent OS control-plane/nine-agent/task-matrix validators and diff checks pass. Config/model/sandbox, 65 frozen files, 16 original completion reports and R01-R15/dependencies preserved. See RUNLOG.md for commands and exact limitations.
-- residual risks: Protected-file application is complete. Fresh-session loading/routing/output behavior is measured for all 19 local cases and independently reviewed, but the sanitized packet cannot authenticate omitted raw actions or prove runtime, browser, product quality, release readiness or owner acceptance.
-- follow-up: Owner reviews and accepts or rejects the CP-05-C packet before runtime dispatch. Do not launch extra provider experiments or enable MCP solely to strengthen this gate. CP-04 quality calibration remains separate.
+- residual risks: Protected-file application is complete. Fresh-session loading/routing/output behavior is measured for all 19 local cases and independently reviewed, but the sanitized packet cannot authenticate omitted raw actions or prove runtime, browser, product quality or release readiness.
+- follow-up: CP-07 runtime work is authorized; CP-04 quality calibration remains separate. Do not launch extra provider experiments or enable MCP solely to strengthen this gate.
 
 #### Accepted `CP-03-C9-V2` contract migration (2026-09-01)
 
@@ -504,7 +504,7 @@ Completion status: `implemented_verified` at the synthetic contract-compatibilit
 - Docs update path: Product Planner updates PLAN.md/task status; Quality Evaluator records TEST.md/EVALS.md evidence; Docs Maintainer appends RUNLOG.md after handoff. No unsupported completion claim.
 - Rollback: Undo only owned changes; preserve prior valid state, finalized history and compatible package/index. No automatic deletion, Git reset, permission weakening or silent retrieval fallback.
 - Stop conditions: Unexpected sensitive data or side effects, ownership overlap, incompatible accepted contract, unsafe containment, failed mandatory evidence or missing required external authorization. Routine relevant reads are not failures; report useful partial results when safe.
-- Next step: CP-06 is complete at the build/package ceiling. Accept the measured CP-05-C packet, then CP-07 implements intake/state/runtime preflight; CP-09 consumes only the paired v2 cards/index/policy after CP-07. Public evidence collection stays within its assigned read-only scope; incomplete coverage is reported, not fabricated.
+- Next step: CP-06 is complete at the build/package ceiling and CP-05-C is owner-accepted at `measured_local`. CP-07 now implements intake/state/runtime preflight; CP-09 consumes only the paired v2 cards/index/policy after CP-07. Public evidence collection stays within its assigned read-only scope; incomplete coverage is reported, not fabricated.
 
 - Audit follow-up: clarify generated docs/METHODOLOGY.md through its owner scripts/build_catalog.py so legacy popularity/freshness curation scoring cannot be mistaken for C9 FTS5 ranking. Do not hand-edit generated methodology or retune accepted retrieval policy as part of that clarification.
 
@@ -518,12 +518,12 @@ Completion status: `implemented_verified` at the synthetic contract-compatibilit
 - actual implementation date and time: 2026-09-01T17:44:43+03:00
 - verification evidence: Both builders pass `--check`; 19/19 focused CP-06 tests pass; post-build standards validation accepts 2,500/2,500 cards and the manifest, CP-03 passes 47/47 and C8 passes 28/28, both synthetic scorer CLI gates retain `promotion_ready=false`, the standalone HTML remains byte-identical, and independent review returned accept with no P0/P1/P2.
 - residual risks: Default Python has no persistent `jsonschema`; standards checks used a disposable development target that was removed. Build/package evidence does not prove CP-09 query routing/relevance, CP-10 UI, CP-11 usefulness, CP-15 human acceptance or CP-16 install/release. Direct PowerShell reads of one generated manifest were ACL-restricted during independent review, while Python builders/tests read it successfully; clean-install permissions remain CP-16 evidence.
-- follow-up: Owner acceptance of the measured CP-05-C packet is the remaining dispatch gate; then CP-07 implements local intake/state/preflight. CP-09 later consumes the frozen paired cards/index/policy and must prove actual read-only routing without a v1 or whole-catalog fallback.
+- follow-up: CP-05-C is owner-accepted at `measured_local`; CP-07 now implements local intake/state/preflight. CP-09 later consumes the frozen paired cards/index/policy and must prove actual read-only routing without a v1 or whole-catalog fallback.
 
 ### Task `CP-07`
 
 - Task: CP-07 — implement local plugin intake, state and runtime preflight
-- Status: planned
+- Status: in_progress
 - Schema version: task_matrix_plan_v1
 - Timezone: Europe/Moscow
 - Plan trigger: Owner revision 2026-08-31: local SQLite FTS5, relevant context, activity-aware evidence and actionable OSS integration. This task remains within the local product path.

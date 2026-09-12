@@ -844,11 +844,11 @@ class SchemaContracts(unittest.TestCase):
     def validator(self, path):
         return self.validator_type(SCHEMAS[path], registry=self.registry, format_checker=self.checker)
 
-    def test_all_twenty_two_schemas_preserve_legacy_and_add_workspace_examples(self):
+    def test_all_twenty_three_schemas_preserve_legacy_and_add_workspace_examples(self):
         actual = {str(path.relative_to(ROOT / 'specs')).replace('\\', '/')
                   for path in (ROOT / 'specs').rglob('*.schema.json')}
         self.assertEqual(actual, set(POSITIVE))
-        self.assertEqual(len(actual), 22)
+        self.assertEqual(len(actual), 23)
         for path, schema in SCHEMAS.items():
             with self.subTest(schema=path):
                 Draft202012Validator.check_schema(schema)
@@ -858,6 +858,20 @@ class SchemaContracts(unittest.TestCase):
             with self.subTest(workspace_schema=path):
                 self.validator(path).validate(value)
                 self.assertEqual(list(byte_violations(SCHEMAS[path], value)), [])
+        answer_path = 'intake/interview-answer.schema.json'
+        initial = copy.deepcopy(FIXTURES['workspace_positive'][answer_path])
+        self.assertEqual(initial['schema_version'], '1.1.0')
+        self.assertEqual(initial['answer_revision'], 1)
+        self.assertIsNone(initial['last_correction_id'])
+        revised = copy.deepcopy(initial)
+        revised.update(answer_revision=2,
+                       expected_state_revision=1,
+                       sanitized_value='Corrected synthetic goal.',
+                       last_correction_id='correction-pre-brief-1')
+        self.validator(answer_path).validate(revised)
+        legacy = copy.deepcopy(POSITIVE[answer_path])
+        self.assertEqual(legacy['schema_version'], '1.0.0')
+        self.assertNotIn('last_correction_id', legacy)
 
     def test_state_versions_cannot_mix_but_share_the_v2_memo(self):
         path = 'artifact/project-artifact-state.schema.json'
@@ -871,6 +885,10 @@ class SchemaContracts(unittest.TestCase):
         self.validator(path).validate(legacy)
         current['intake'] = baseline()['intake']
         self.assertTrue(list(self.validator(path).iter_errors(current)))
+        contract = (ROOT / 'specs' / 'artifact' / 'session-workspace-contract.md').read_text(encoding='utf-8')
+        self.assertIn('every non-null recommendation memo and integration plan uses `2.0.0`', contract)
+        self.assertIn('active C9 v2 schemas use `/v2/`', contract)
+        self.assertNotIn('C2/C4/C9 source/index/query/card/pack contracts remain `1.0.0`', contract)
 
     def test_presentation_pointer_coverage_shape_and_publication_conditions(self):
         path = 'artifact/localized-presentation.schema.json'
@@ -904,7 +922,9 @@ class SchemaContracts(unittest.TestCase):
     def test_negative_fixtures_are_rejected(self):
         for case in FIXTURES['negative']:
             with self.subTest(case=case['name']):
-                invalid = mutate(POSITIVE[case['schema']], case['pointer'], case['value'])
+                source = (FIXTURES[case['fixture']]
+                          if 'fixture' in case else POSITIVE)
+                invalid = mutate(source[case['schema']], case['pointer'], case['value'])
                 self.assertTrue(list(self.validator(case['schema']).iter_errors(invalid)))
         memo_path = 'recommendation/recommendation-memo.schema.json'
         memo = copy.deepcopy(POSITIVE[memo_path])

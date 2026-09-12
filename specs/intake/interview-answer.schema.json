@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://myai-stackguide.invalid/contracts/v1/intake/interview-answer.schema.json",
   "title": "Sanitized interview answer",
-  "description": "Local CP-03 v1 contract. This schema does not execute or authorize side effects.",
+  "description": "Local CP-03 contract. Version 1.0.0 is retained read-only; new writes use 1.1.0 with one bounded last-correction marker. This schema does not execute or authorize side effects.",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -20,7 +20,10 @@
   ],
   "properties": {
     "schema_version": {
-      "const": "1.0.0"
+      "enum": [
+        "1.0.0",
+        "1.1.0"
+      ]
     },
     "run_id": {
       "$ref": "https://myai-stackguide.invalid/contracts/v1/context/sanitized-project-summary.schema.json#/$defs/uuid"
@@ -79,6 +82,19 @@
       "maxLength": 32,
       "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,6})?Z$",
       "format": "date-time"
+    },
+    "last_correction_id": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]*$"
+        },
+        {
+          "type": "null"
+        }
+      ]
     }
   },
   "allOf": [
@@ -121,6 +137,89 @@
           }
         }
       }
+    },
+    {
+      "if": {
+        "properties": {
+          "schema_version": {
+            "const": "1.1.0"
+          }
+        },
+        "required": [
+          "schema_version"
+        ]
+      },
+      "then": {
+        "required": [
+          "last_correction_id"
+        ],
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "answer_revision": {
+                  "const": 1
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "last_correction_id": {
+                  "type": "null"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "answer_revision": {
+                  "minimum": 2
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "last_correction_id": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "else": {
+        "properties": {
+          "last_correction_id": false
+        }
+      }
     }
+  ],
+  "x-sanitizer-contract": {
+    "contract_version": "1.0.0",
+    "named_synthetic_canaries": {
+      "literal": "STACKGUIDE_TEST_SECRET_7f4c2a90",
+      "assignment": "STACKGUIDE_TEST_TOKEN=STACKGUIDE_TEST_SECRET_7f4c2a90",
+      "block_begin": "-----BEGIN STACKGUIDE TEST SECRET-----",
+      "block_end": "-----END STACKGUIDE TEST SECRET-----"
+    },
+    "case_sensitive": true,
+    "match_order": "longest_first",
+    "replacement": "[REDACTED]",
+    "collapse_adjacent_redactions_separated_only_by_whitespace": true,
+    "line_endings": "lf",
+    "outer_whitespace": "trim",
+    "max_code_points": 2000,
+    "oversize_behavior": "invalid_input_no_commit_no_truncate",
+    "empty_or_fully_redacted_behavior": "invalid_input_no_commit_pending_unchanged",
+    "fully_redacted_message_key": "answer_fully_redacted"
+  },
+  "x-invariants": [
+    "Sanitization recognizes only the named synthetic canaries in x-sanitizer-contract. It is not a general secret detector and does not prove arbitrary confidential prose safe.",
+    "Match case-sensitively and longest-first. The assignment is one match; a block is one contiguous match from the begin delimiter through the next end delimiter. Replace each match with [REDACTED], collapse adjacent redactions separated only by whitespace, normalize CRLF or CR to LF, and trim only outer whitespace. Do not otherwise normalize Unicode or interior whitespace.",
+    "Measure the sanitized answer in Unicode code points. More than 2000 code points fails invalid_input without truncation or commit. Empty or fully redacted output fails invalid_input, keeps the pending question unchanged and returns message key answer_fully_redacted.",
+    "Raw named canaries never enter state, finalized history, recovery or pending files, stdout, stderr, publication results or runtime-preflight results. redaction_applied is true exactly when a named-canary replacement occurred.",
+    "For 1.1.0, an initial answer has last_correction_id=null. A pre-Brief correction updates the existing answer in place with the same answer_id, question_id and ordinal, increments answer_revision by one, records the correction ID in last_correction_id, and retains only the current sanitized answer rather than raw or prior-answer history. It does not create a user-corrections event or Brief version.",
+    "Correction payload identity is the canonical sanitized mutation tuple: correction ID, expected state revision, run/answer/question IDs, ordinal, status, sanitized_value and redaction_applied. Under the state lock, an incoming ID equal to last_correction_id is a no-op only when current state revision equals expected_state_revision + 1, the saved answer expected_state_revision matches, and every other tuple field equals the saved current answer; that ID with a different tuple returns state_conflict. A different ID applies only when expected_state_revision is current. After any later commit, an unchanged older replay has a stale expected revision and is state_conflict; callers must not rebase an old ID onto a new expected revision, because that is a new payload and requires a new ID. This bounded marker does not claim historical-ID lookup."
   ]
 }

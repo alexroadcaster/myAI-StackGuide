@@ -14,6 +14,7 @@
     "published",
     "publication_status",
     "failure_reason",
+    "message_key",
     "render_attempts",
     "retry",
     "html_path"
@@ -165,11 +166,22 @@
             "state_write_failed",
             "history_integrity",
             "storage_limit",
+            "invalid_input",
             "render_failed",
             "html_write_failed",
             "render_superseded",
             "retry_exhausted"
           ]
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "message_key": {
+      "anyOf": [
+        {
+          "const": "answer_fully_redacted"
         },
         {
           "type": "null"
@@ -194,6 +206,56 @@
   },
   "x-max-utf8-bytes": 8192,
   "allOf": [
+    {
+      "if": {
+        "properties": {
+          "failure_reason": {
+            "const": "invalid_input"
+          }
+        },
+        "required": [
+          "failure_reason"
+        ]
+      },
+      "then": {
+        "properties": {
+          "commit_status": {
+            "const": "not_saved"
+          },
+          "saved": {
+            "type": "null"
+          },
+          "publication_status": {
+            "const": "not_attempted"
+          },
+          "render_attempts": {
+            "const": 0
+          },
+          "retry": {
+            "const": "stop"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "message_key": {
+            "const": "answer_fully_redacted"
+          }
+        },
+        "required": [
+          "message_key"
+        ]
+      },
+      "then": {
+        "properties": {
+          "failure_reason": {
+            "const": "invalid_input"
+          }
+        }
+      }
+    },
     {
       "if": {
         "properties": {
@@ -418,6 +480,7 @@
     "commit_and_publish cannot use commit_status=not_attempted; saved requires a non-null saved target. Failed commit never claims a saved answer. A render-only operation has no domain mutation and no question/scan/retrieval/model replay.",
     "At most two render attempts per operation (one initial plus one render-only retry). Retry only render_failed/html_write_failed while saved is still current; no loop restart without an explicit new operation request. Storage/integrity/version/conflict failures stop.",
     "Before replacement, lock and compare the captured run/revision/content_revision to current. A newer revision or run returns superseded without replacing HTML. Retry against a different current target requires a distinct explicit render-only operation; never overwrite a newer publication.",
-    "Failed first publication has published=null and unavailable; previous HTML remains stale with its own run/revision, including a predecessor run. An old file cannot discover later failure. Preserve saved state; render-only/final publication never writes html_revision back into finalized state."
+    "Failed first publication has published=null and unavailable; previous HTML remains stale with its own run/revision, including a predecessor run. An old file cannot discover later failure. Preserve saved state; render-only/final publication never writes html_revision back into finalized state.",
+    "invalid_input is a no-write outcome: commit_status=not_saved, publication_status=not_attempted, render_attempts=0, saved=null and retry=stop. message_key=answer_fully_redacted is valid only with invalid_input; other invalid_input cases use null unless a later contract adds another typed key. Raw named sanitizer canaries never appear in this envelope."
   ]
 }

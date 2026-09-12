@@ -33,6 +33,7 @@ Do not promise that Codex never sees source, that chat already sent can be unsen
 - Structured scanner output contains observations and safe references, not arbitrary source/config strings or private URLs. Separately selected relevant excerpts are transient context, not scanner-log/persistence payloads. CP-03 bounds and labels each path explicitly so this distinction is testable.
 - Minimize and redact state, HTML, stdout/stderr, parser exceptions, logs and temporary/recovery files. Errors must not echo secret contents or absolute target paths. Regex secret detection is a backstop, not proof arbitrary confidential prose is public-safe.
 - Warn users not to enter secrets. Persist sanitized answers with `redaction_applied` when necessary; never duplicate the raw chat. No project-context index, global context cache or automatic bulk embedding/upload.
+- The deterministic CP-07 sanitizer regression boundary recognizes only `STACKGUIDE_TEST_SECRET_7f4c2a90`, its exact `STACKGUIDE_TEST_TOKEN=...` assignment, and the exact delimited `STACKGUIDE TEST SECRET` block defined by the workspace contract. It replaces case-sensitively and longest-first with `[REDACTED]`; raw named canaries must not reach state/history/recovery/stdout/stderr/publication/preflight. This is not universal secret detection and cannot justify a broader privacy claim.
 
 ## Disclosure, State And Local Access
 

@@ -198,20 +198,130 @@
         "required": [
           "questions",
           "completion_reason"
+        ],
+        "properties": {
+          "answers": {
+            "items": {
+              "properties": {
+                "schema_version": {
+                  "const": "1.1.0"
+                }
+              }
+            }
+          },
+          "next_action": {
+            "enum": [
+              "answer_question",
+              "review_context",
+              "proceed_with_assumptions",
+              "resume_or_finalize"
+            ]
+          }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "status": {
+                  "const": "asking"
+                }
+              },
+              "required": [
+                "status"
+              ]
+            },
+            "then": {
+              "properties": {
+                "pending_question_id": {
+                  "type": "string"
+                },
+                "next_action": {
+                  "const": "answer_question"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "status": {
+                  "const": "ready"
+                }
+              },
+              "required": [
+                "status"
+              ]
+            },
+            "then": {
+              "properties": {
+                "answers": {
+                  "minItems": 1
+                },
+                "completion_reason": {
+                  "type": "string"
+                },
+                "next_action": {
+                  "enum": [
+                    "review_context",
+                    "proceed_with_assumptions"
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "status": {
+                  "const": "cancelled"
+                }
+              },
+              "required": [
+                "status"
+              ]
+            },
+            "then": {
+              "properties": {
+                "next_action": {
+                  "const": "resume_or_finalize"
+                }
+              }
+            }
+          }
         ]
       },
       "else": {
         "properties": {
+          "answers": {
+            "items": {
+              "properties": {
+                "schema_version": {
+                  "const": "1.0.0"
+                }
+              }
+            }
+          },
           "questions": false,
-          "completion_reason": false
+          "completion_reason": false,
+          "next_action": {
+            "enum": [
+              "answer_question",
+              "review_context",
+              "proceed_with_assumptions",
+              "clarification_required",
+              "resume_or_finalize"
+            ]
+          }
         }
       }
     }
   ],
   "x-invariants": [
     "questions_asked equals unique answered/skipped questions plus any pending question; ordinals are contiguous from 1. Corrections replace an answer version without increasing unique question count.",
-    "ready may occur before ten questions; zero questions is valid only for cancellation or existing sufficient explicit context, never fabricated answers.",
+    "New 1.1.0 intake starts asking with exactly one pending question at ordinal 1. ready may occur before ten questions only after at least one accepted answer; cancellation never fabricates answers. Retained 1.0.0 state keeps its read-only legacy interpretation.",
     "Questions are the canonical bounded question ledger, not chat. Question IDs/ordinals join saved answers and pending_question_id exactly; no saved answer exists without its question.",
-    "Topic coverage is derived from answered/skipped/pending question joins, never a completion percentage. ready requires completion_reason; asking requires a pending question unless questions_asked is zero before the first question."
+    "Every answer in intake 1.1.0 uses interview-answer 1.1.0 and its bounded last_correction_id; retained intake 1.0.0 answers remain 1.0.0 and cannot gain the marker. No correction ledger or prior answer value is stored.",
+    "Topic coverage is derived from answered/skipped/pending question joins, never a completion percentage. For 1.1.0, ready requires completion_reason and asking requires a pending question; no state asks an eleventh question.",
+    "The persisted intake next_action vocabulary is unchanged: asking with a pending question maps to answer_question; retained zero-question compatibility maps to clarification_required; ready maps to review_context or, when assumptions are retained, proceed_with_assumptions; cancelled maps to resume_or_finalize. Runtime phase advancement is derived from lifecycle, phase and legal commands, not new intake next_action literals. Once a memo exists, memo.next_action owns the user-facing next action."
   ]
 }

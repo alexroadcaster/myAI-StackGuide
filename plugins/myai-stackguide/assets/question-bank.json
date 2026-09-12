@@ -1,0 +1,176 @@
+{
+  "schema_version": "1.0.0",
+  "default_locale": "ru",
+  "questions": [
+    {
+      "question_id": "goal",
+      "ordinal": 1,
+      "topics": ["goal"],
+      "ru": {
+        "text": "Какой результат вы хотите получить или улучшить?",
+        "rationale": "Цель определяет, какие варианты стека имеют смысл сравнивать.",
+        "decision_consequence": "Ответ задаст основной сценарий и критерий полезности рекомендации.",
+        "answer_examples": ["Собрать прототип", "Заменить текущий компонент", "Сравнить подходы"]
+      },
+      "en": {
+        "text": "What outcome do you want to build or improve?",
+        "rationale": "The goal determines which stack options are worth comparing.",
+        "decision_consequence": "The answer sets the main scenario and usefulness criterion for the recommendation.",
+        "answer_examples": ["Build a prototype", "Replace an existing component", "Compare approaches"]
+      }
+    },
+    {
+      "question_id": "success",
+      "ordinal": 2,
+      "topics": ["goal", "integration"],
+      "ru": {
+        "text": "Какой первый наблюдаемый результат покажет, что решение полезно?",
+        "rationale": "Проверяемый критерий помогает выбрать небольшой первый шаг.",
+        "decision_consequence": "Ответ определит первый validation slice и условия расширения работ.",
+        "answer_examples": ["Один рабочий сценарий", "Измеримое сокращение ручной работы"]
+      },
+      "en": {
+        "text": "What first observable result would show that the solution is useful?",
+        "rationale": "A testable criterion helps select a small first step.",
+        "decision_consequence": "The answer defines the first validation slice and when to widen the work.",
+        "answer_examples": ["One working scenario", "A measurable reduction in manual work"]
+      }
+    },
+    {
+      "question_id": "project_stage",
+      "ordinal": 3,
+      "topics": ["goal", "stack"],
+      "ru": {
+        "text": "На какой стадии находится проект: идея, прототип или продукт?",
+        "rationale": "Стадия меняет допустимую сложность и цену миграции.",
+        "decision_consequence": "Ответ поможет различить быстрый старт, доработку и замену существующего пути.",
+        "answer_examples": ["Идея", "Прототип", "Работающий продукт"]
+      },
+      "en": {
+        "text": "What stage is the project at: idea, prototype, or product?",
+        "rationale": "Project stage changes the acceptable complexity and migration cost.",
+        "decision_consequence": "The answer distinguishes a quick start from extension or replacement of an existing path.",
+        "answer_examples": ["Idea", "Prototype", "Working product"]
+      }
+    },
+    {
+      "question_id": "current_stack",
+      "ordinal": 4,
+      "topics": ["stack"],
+      "ru": {
+        "text": "Какие технологии и компоненты уже являются обязательной частью проекта?",
+        "rationale": "Совместимость с существующими границами важнее общего рейтинга инструмента.",
+        "decision_consequence": "Ответ сузит варианты по языкам, фреймворкам и точкам интеграции.",
+        "answer_examples": ["Python и PostgreSQL", "Next.js и внешний API"]
+      },
+      "en": {
+        "text": "Which technologies and components are already mandatory in the project?",
+        "rationale": "Compatibility with existing boundaries matters more than a tool's general popularity.",
+        "decision_consequence": "The answer narrows options by languages, frameworks, and integration surfaces.",
+        "answer_examples": ["Python and PostgreSQL", "Next.js and an external API"]
+      }
+    },
+    {
+      "question_id": "deployment",
+      "ordinal": 5,
+      "topics": ["deployment"],
+      "ru": {
+        "text": "Где решение должно работать: локально, self-hosted или в облаке?",
+        "rationale": "Модель развёртывания исключает несовместимые варианты.",
+        "decision_consequence": "Ответ станет ограничением для поиска и проверки кандидатов.",
+        "answer_examples": ["Только локально", "Self-hosted", "Облако допустимо"]
+      },
+      "en": {
+        "text": "Where must the solution run: locally, self-hosted, or in the cloud?",
+        "rationale": "The deployment model excludes incompatible options.",
+        "decision_consequence": "The answer becomes a retrieval and candidate-validation constraint.",
+        "answer_examples": ["Local only", "Self-hosted", "Cloud is acceptable"]
+      }
+    },
+    {
+      "question_id": "data_boundary",
+      "ordinal": 6,
+      "topics": ["license_data"],
+      "ru": {
+        "text": "Какие ограничения по данным, приватности или сети обязательны?",
+        "rationale": "Граница данных может запретить сервис или способ интеграции.",
+        "decision_consequence": "Ответ определит обязательные проверки и допустимые источники данных.",
+        "answer_examples": ["Без внешней передачи", "Только публичные данные", "Есть разрешённый API"]
+      },
+      "en": {
+        "text": "Which data, privacy, or network constraints are mandatory?",
+        "rationale": "The data boundary can rule out a service or integration mode.",
+        "decision_consequence": "The answer defines mandatory checks and permitted data sources.",
+        "answer_examples": ["No external transfer", "Public data only", "An approved API is available"]
+      }
+    },
+    {
+      "question_id": "license",
+      "ordinal": 7,
+      "topics": ["license_data"],
+      "ru": {
+        "text": "Есть ли обязательные или недопустимые лицензии?",
+        "rationale": "Неизвестная или несовместимая лицензия не допускает безусловную рекомендацию.",
+        "decision_consequence": "Ответ задаст жёсткий фильтр или конкретную проверку перед внедрением.",
+        "answer_examples": ["Только permissive", "GPL допустима", "Нужна юридическая проверка"]
+      },
+      "en": {
+        "text": "Are any licenses required or prohibited?",
+        "rationale": "An unknown or incompatible license prevents an unconditional recommendation.",
+        "decision_consequence": "The answer creates a hard filter or a concrete pre-adoption check.",
+        "answer_examples": ["Permissive only", "GPL is acceptable", "Legal review is required"]
+      }
+    },
+    {
+      "question_id": "integration_surface",
+      "ordinal": 8,
+      "topics": ["integration", "stack"],
+      "ru": {
+        "text": "Какой компонент или пользовательский поток должен измениться первым?",
+        "rationale": "Точная поверхность интеграции делает план выполнимым и обратимым.",
+        "decision_consequence": "Ответ задаст границы первого изменения и rollback.",
+        "answer_examples": ["Поиск", "Обработка документов", "CI pipeline"]
+      },
+      "en": {
+        "text": "Which component or user flow should change first?",
+        "rationale": "A precise integration surface makes the plan actionable and reversible.",
+        "decision_consequence": "The answer sets the boundary of the first change and its rollback.",
+        "answer_examples": ["Search", "Document processing", "CI pipeline"]
+      }
+    },
+    {
+      "question_id": "operating_constraints",
+      "ordinal": 9,
+      "topics": ["deployment", "integration"],
+      "ru": {
+        "text": "Какие ограничения команды, поддержки или эксплуатации нужно учитывать?",
+        "rationale": "Операционная нагрузка может изменить выбор даже при хорошем функциональном совпадении.",
+        "decision_consequence": "Ответ уточнит допустимую сложность и обязательные prerequisite checks.",
+        "answer_examples": ["Один разработчик", "Без нового сервиса", "Есть команда эксплуатации"]
+      },
+      "en": {
+        "text": "Which team, support, or operating constraints must be considered?",
+        "rationale": "Operational burden can change the choice even when functional fit is strong.",
+        "decision_consequence": "The answer refines acceptable complexity and required prerequisite checks.",
+        "answer_examples": ["One developer", "No new service", "An operations team is available"]
+      }
+    },
+    {
+      "question_id": "remaining_unknown",
+      "ordinal": 10,
+      "topics": ["goal", "deployment", "stack", "license_data", "integration"],
+      "ru": {
+        "text": "Какое оставшееся неизвестное сильнее всего может изменить решение?",
+        "rationale": "Последний вопрос фиксирует главный риск без расширения интервью сверх лимита.",
+        "decision_consequence": "Ответ станет явным caveat или следующей проверкой.",
+        "answer_examples": ["Совместимость версии", "Лицензия", "Доступный бюджет эксплуатации"]
+      },
+      "en": {
+        "text": "Which remaining unknown is most likely to change the decision?",
+        "rationale": "The final question records the main risk without extending the interview beyond its limit.",
+        "decision_consequence": "The answer becomes an explicit caveat or next check.",
+        "answer_examples": ["Version compatibility", "License", "Available operating budget"]
+      }
+    }
+  ]
+}

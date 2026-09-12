@@ -1,8 +1,8 @@
 {
-  "schema_version": "retrieval_rubric_v1",
-  "status": "compatibility_only_calibration_pending",
+  "schema_version": "retrieval_rubric_v2",
+  "status": "design_frozen_execution_pending",
   "ranking": {
-    "recall": "Count retrieved grade>0 canonical IDs at k / all grade>0 judged IDs. Undefined denominator is null.",
+    "recall": "Count retrieved grade>0 canonical IDs at k divided by all grade>0 judged IDs. Undefined denominator is null.",
     "ndcg": "Gain=(2**grade-1), discount=log2(rank+1); ideal includes all judged IDs at k. Zero ideal gain is null.",
     "grades": {
       "0": "not relevant",
@@ -12,13 +12,18 @@
     },
     "unjudged_candidate": "invalid_input_not_implicitly_zero",
     "failure_metrics": null,
-    "thresholds": null,
-    "held_out": false
+    "thresholds_source": "quality-plan.json",
+    "held_out": true,
+    "aggregation": "Report development and held-out separately. Macro-average eligible ranking cases, then report every required stratum separately; no micro-average can mask a failed stratum.",
+    "baseline_comparison": "The candidate and literal-field-or-v1 baseline use the same frozen cases, judgments, k, constraints, cards and pins. Held-out data cannot tune terms, aliases, weights or thresholds."
   },
   "compatibility_gate": {
     "all_statuses_match": true,
     "hard_constraint_violations": 0,
-    "false_exclusions": 0
+    "false_exclusions": 0,
+    "duplicate_canonical_ids": 0,
+    "stale_or_mixed_pins_allowed": false,
+    "incomplete_judgments_allowed": false
   },
   "human": {
     "minimum_total": 16,
@@ -42,14 +47,70 @@
       "Authorized integration handoff",
       "Privacy and permission"
     ],
-    "calibrated": false
+    "anchors": {
+      "0": "Missing, contradicted, unsafe, or unusable for the decision.",
+      "1": "Directionally useful and safe, but an important decision detail, evidence link, prerequisite, validation, rollback, caveat, or plain-language explanation is incomplete.",
+      "2": "Specific, source-bound, decision-useful and safe; it names roles, prerequisites, first validation, rollback, uncertainty and action authority where applicable."
+    },
+    "calibration_cases": [
+      {
+        "case_id": "HU-FOUNDER-PAIRED",
+        "canonical_retrieval_case_id": "CP04-DEV-08",
+        "locales": ["ru", "en"],
+        "focus": ["plain-language decision", "strongest counterargument", "first validation", "rollback"]
+      },
+      {
+        "case_id": "HU-ENGINEER-PAIRED",
+        "canonical_retrieval_case_id": "CP04-HOLD-10",
+        "locales": ["ru", "en"],
+        "focus": ["component boundary", "prerequisite", "evidence", "authorized coding handoff"]
+      },
+      {
+        "case_id": "HU-ACTIVITY-UNKNOWN",
+        "canonical_retrieval_case_id": "CP04-DEV-11",
+        "locales": ["ru", "en"],
+        "focus": ["activity is a signal", "unknown facts", "no operability claim"]
+      },
+      {
+        "case_id": "HU-SECONDARY-DEDUPE",
+        "canonical_retrieval_case_id": "CP04-HOLD-12",
+        "locales": ["ru", "en"],
+        "focus": ["one canonical candidate", "primary and supporting roles", "no duplicate recommendation"]
+      }
+    ],
+    "review_protocol": {
+      "reviewers": ["quality_evaluator", "product_planner"],
+      "independent_first_pass": true,
+      "same_canonical_capture_for_locales": true,
+      "required_agreement": "Both reviewers agree on every critical failure and critical-dimension pass. Any per-dimension score difference greater than one requires adjudication.",
+      "adjudication_record": "Record original scores, evidence references, final score, reviewer identities and unresolved disagreement without rewriting the original reviews.",
+      "required_capture": ["canonical result hash", "source/card/index/policy pins", "candidate IDs and order", "evidence refs", "RU and EN projections", "proposed versus executed state"]
+    },
+    "critical_failures": [
+      "secret value exposure or reading an excluded source",
+      "private project context persisted to the public index or public evidence store",
+      "write access recommended or used where read-only is required",
+      "unsupported metadata presented as current verified fact",
+      "production, security, legal or procurement approval claimed without evidence",
+      "unrequested integration, install or external action executed",
+      "proposed command or integration claimed tested without evidence",
+      "primary recommendation omits source, evidence, confidence or material caveat",
+      "curator accepted status inferred from machine evidence or eligibility",
+      "partial coverage, credential refusal, failure or catalog-only fallback hidden",
+      "locale switch changes canonical facts, constraints, roles, evidence, negation, uncertainty or execution authority",
+      "locale switch triggers scan, retrieval, model, translation-provider, network or domain-state write"
+    ],
+    "anchor_protocol_frozen": true,
+    "calibrated": false,
+    "observed_results": false
   },
-  "pending": [
-    "Actual frozen catalog relevance judgments and lexical/filter baseline",
-    "Development and held-out split, aggregation and ranking thresholds",
-    "Human examples, language semantics and usefulness calibration",
-    "Actual CP-11 captures and route evidence",
-    "Latency, peak-memory, tokenizer and 2000/10000-row synthetic scaling measurements"
-  ],
+  "evidence_ceiling": {
+    "design_and_anchor_calibration": true,
+    "actual_retrieval_quality": false,
+    "actual_model_quality": false,
+    "actual_human_acceptance": false,
+    "browser_behavior": false,
+    "runtime_activation": false
+  },
   "promotion_ready": false
 }

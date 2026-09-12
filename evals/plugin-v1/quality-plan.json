@@ -1,0 +1,453 @@
+{
+  "schema_version": "retrieval_quality_plan_v1",
+  "plan_id": "cp04-public-catalog-quality-v1",
+  "status": "design_frozen_execution_pending",
+  "frozen_at": "2026-09-12T00:00:00Z",
+  "evidence_owner": "quality_evaluator",
+  "acceptance_owner": "product_planner",
+  "pins": {
+    "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+    "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+    "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+    "index_sha256": "e7ab7d42b8ac9fa9e348549ef108264309d8cc763cc23c4eeeffe07a650af5ff",
+    "policy_sha256": "c1a150b36a10c67c0220df31af88f90d59e353bdca2f52cb469e06ac6bb7fdca",
+    "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f",
+    "card_schema_version": "2.0.0",
+    "activity_schema_version": "2.0.0",
+    "index_format_version": 2,
+    "retrieval_policy_version": "2.0.0",
+    "corpus_kind": "catalog_snapshot"
+  },
+  "artifacts": {
+    "manifest_path": "plugins/myai-stackguide/assets/catalog.search-manifest.json",
+    "manifest_sha256": "a172f0378cb804ecd4bd10f3be69e522b6c3ee6955635498c6a060202647861d",
+    "cards_path": "plugins/myai-stackguide/assets/catalog.snapshot.json",
+    "index_path": "plugins/myai-stackguide/assets/catalog.search.sqlite",
+    "policy_path": "plugins/myai-stackguide/assets/retrieval-policy.json",
+    "catalog_row_count": 2500
+  },
+  "rubric_sha256": "96f67da80234d4ade36c9b5e5fb50276398acce76751513e9e041926b74f3fef",
+  "candidate_route": {
+    "source_mode": "catalog_only",
+    "retrieval_engine": "sqlite_fts5",
+    "query_schema_version": "2.0.0",
+    "expected_status": "ok",
+    "max_query_variants": 3,
+    "max_terms_per_variant": 8,
+    "max_candidates": 60,
+    "max_cards": 12,
+    "max_evidence_bytes": 49152,
+    "whole_catalog_prompt_fallback": false
+  },
+  "default_constraints": {
+    "visibility": "public",
+    "availability": "available",
+    "archived": false,
+    "unknown_mandatory_fact": "reference_with_verification"
+  },
+  "split_policy": {
+    "development_count": 12,
+    "held_out_count": 12,
+    "freeze_before_capture": true,
+    "held_out_tuning_forbidden": true,
+    "adjudication": "source_reviewed_public_card_facts_not_runtime_output_labels"
+  },
+  "lexical_baseline": {
+    "baseline_id": "literal-field-or-v1",
+    "normalization": "unicode_nfkc_casefold",
+    "operator": "OR",
+    "match": "normalized_literal_substring_per_declared_field",
+    "score": "count_distinct_query_term_field_pairs",
+    "tie_breaker": "github_repository_id_ascending",
+    "constraints": "same_predeclared_case_constraints_for_baseline_and_candidate",
+    "candidate_limit": 60,
+    "comparison_rule": "same_frozen_cases_judgments_k_and_pins"
+  },
+  "thresholds": {
+    "held_out_macro_recall_at_12_min": 0.75,
+    "held_out_macro_ndcg_at_12_min": 0.65,
+    "candidate_not_worse_than_baseline_recall_delta_min": 0.0,
+    "candidate_not_worse_than_baseline_ndcg_delta_min": 0.0,
+    "required_stratum_recall_at_12_min": 0.6,
+    "required_stratum_ndcg_at_12_min": 0.5,
+    "hard_constraint_violations_max": 0,
+    "false_exclusions_max": 0,
+    "duplicate_canonical_ids_max": 0,
+    "alias_success_rate_min": 1.0,
+    "evidence_pack_survival_rate_min": 0.9,
+    "container_route_coverage_min": 14,
+    "leaf_route_coverage_min": 111,
+    "human_total_min": 16,
+    "human_critical_dimension_min": 1,
+    "human_critical_failures_max": 0,
+    "actual_warm_p95_ms_max": 100,
+    "actual_cold_p95_ms_max": 250,
+    "synthetic_warm_p95_ms_max": 200,
+    "synthetic_cold_p95_ms_max": 500,
+    "peak_memory_bytes_max": 268435456,
+    "index_bytes_max": 67108864
+  },
+  "stratification": {
+    "container_ids": [
+      "developer_tools_cli_general",
+      "testing_qa",
+      "files_media_storage",
+      "frontend_frameworks_ui",
+      "accounting_finance_erp",
+      "cms_content_knowledge",
+      "communications_personal_ops",
+      "ecommerce_payments_revenue",
+      "operations_project_management",
+      "data_ingestion_etl_cdc",
+      "databases_storage_caching",
+      "backend_baas_api",
+      "deployment_containers_paas",
+      "supply_chain_devsecops"
+    ],
+    "leaf_route_count": 111,
+    "thin_leaf_max_cards": 10,
+    "dense_leaf_min_cards": 30,
+    "required_case_tags": [
+      "thin_leaf",
+      "dense_leaf",
+      "baseline_cohort",
+      "expansion_cohort",
+      "historical_alias",
+      "dual_descriptions",
+      "secondary_dedupe",
+      "container_union",
+      "lexical_ru",
+      "lexical_en",
+      "activity_unknown"
+    ]
+  },
+  "scale_protocol": {
+    "actual": {
+      "corpus_kind": "catalog_snapshot",
+      "row_count": 2500,
+      "purpose": "Capacity, measured latency/memory/bytes and relevance only after actual CP-11 captures use these exact pins and complete judgments.",
+      "quality_claim_allowed": false,
+      "repetitions": 30
+    },
+    "headroom": {
+      "corpus_kind": "synthetic_headroom",
+      "row_count": 10000,
+      "purpose": "Deterministic headroom only; repeated or generated rows cannot prove relevance, catalog growth or product usefulness.",
+      "quality_claim_allowed": false,
+      "repetitions": 30
+    },
+    "measurement": {
+      "cold_definition": "New read-only process and SQLite connection for each sample; OS cache state is recorded rather than claimed flushed.",
+      "warm_definition": "Same read-only process and immutable index after one discarded warm-up query; no index writes or rebuild.",
+      "latency_percentiles": ["p50", "p95"],
+      "memory_method_required": true,
+      "hardware_runtime_required": true,
+      "serialized_bytes_required": true
+    }
+  },
+  "language_protocol": {
+    "lexical_locales": ["en", "ru"],
+    "presentation_locales": ["ru", "en"],
+    "same_canonical_capture": true,
+    "presentation_switch_calls": [],
+    "preserve": ["canonical_ids", "candidate_order", "constraints", "roles", "evidence_refs", "negation", "uncertainty", "execution_authority"]
+  },
+  "human_protocol": {
+    "reviewers": ["quality_evaluator", "product_planner"],
+    "independent_first_pass": true,
+    "adjudicate_disagreement": true,
+    "same_canonical_capture_for_locales": true,
+    "required_artifacts": ["canonical capture hash", "source/index/policy versions and hashes", "baseline and candidate records", "paired RU/EN projections", "dimension scores with evidence", "critical-failure checklist", "accepted gaps and reviewer identities"],
+    "quality_observed": false
+  },
+  "cases": [
+    {
+      "case_id": "CP04-DEV-01", "split": "development", "requirement_ids": ["R06", "R12"], "persona": "developer",
+      "synthetic_project_context": "Synthetic local developer-tool project; no private source or identifier.", "user_goal": "Choose an extensible terminal editor.",
+      "query_locale": "en", "query_terms": ["extensible", "editor"], "target_category_id": "editors_ides", "container_domain_ids": ["developer_tools_cli_general"],
+      "leaf_card_count": 6, "leaf_band": "thin", "tags": ["thin_leaf", "baseline_cohort", "container_union", "lexical_en", "dual_descriptions"],
+      "expected_match_routes": ["upstream_description", "catalog_description", "category_labels"], "expected_alias": null,
+      "judgment_pool_ids": [16408992, 40997482], "expected_relevant_ids": [16408992, 40997482],
+      "judgments": [
+        {"github_repository_id": 16408992, "full_name": "neovim/neovim", "primary_category_id": "editors_ides", "membership_cohort": "baseline", "grade": 3, "constraint": "allowed", "rationale": "The pinned public card classifies Neovim as a code editor and describes extensibility."},
+        {"github_repository_id": 40997482, "full_name": "vim/vim", "primary_category_id": "editors_ides", "membership_cohort": "baseline", "grade": 2, "constraint": "allowed", "rationale": "The pinned public card places Vim in the same editor leaf as a useful alternative."}
+      ], "k": 12, "accepted_gaps": ["No CP-09/CP-11 retrieval capture or human recommendation result exists."]
+    },
+    {
+      "case_id": "CP04-DEV-02", "split": "development", "requirement_ids": ["R06", "R12"], "persona": "backend engineer",
+      "synthetic_project_context": "Synthetic Java API project with no private data.", "user_goal": "Find an API mock server by its historical repository name.",
+      "query_locale": "en", "query_terms": ["mock-server/mockserver"], "target_category_id": "api_contract_testing", "container_domain_ids": ["testing_qa"],
+      "leaf_card_count": 10, "leaf_band": "thin", "tags": ["thin_leaf", "baseline_cohort", "container_union", "historical_alias", "lexical_en"],
+      "expected_match_routes": ["historical_alias", "category_labels"], "expected_alias": "mock-server/mockserver",
+      "judgment_pool_ids": [8426406, 2544305], "expected_relevant_ids": [8426406, 2544305],
+      "judgments": [
+        {"github_repository_id": 8426406, "full_name": "mock-server/mockserver-monorepo", "primary_category_id": "api_contract_testing", "membership_cohort": "baseline", "grade": 3, "constraint": "allowed", "rationale": "The exact historical alias is retained on the pinned API-contract-testing card."},
+        {"github_repository_id": 2544305, "full_name": "wiremock/wiremock", "primary_category_id": "api_contract_testing", "membership_cohort": "baseline", "grade": 2, "constraint": "allowed", "rationale": "WireMock is source-classified in the same API and contract testing leaf."}
+      ], "k": 12, "accepted_gaps": ["Alias retrieval is a future observed route; this freezes the expected judgment only."]
+    },
+    {
+      "case_id": "CP04-DEV-03", "split": "development", "requirement_ids": ["R06", "R12"], "persona": "media operator",
+      "synthetic_project_context": "Synthetic self-hosted photo-library context.", "user_goal": "Evaluate a self-hosted photo library.",
+      "query_locale": "en", "query_terms": ["photo", "library"], "target_category_id": "media_libraries_readers", "container_domain_ids": ["files_media_storage"],
+      "leaf_card_count": 5, "leaf_band": "thin", "tags": ["thin_leaf", "baseline_cohort", "container_union", "lexical_en", "dual_descriptions"],
+      "expected_match_routes": ["upstream_description", "catalog_description", "category_labels"], "expected_alias": null,
+      "judgment_pool_ids": [119160553, 161012019], "expected_relevant_ids": [119160553, 161012019],
+      "judgments": [
+        {"github_repository_id": 119160553, "full_name": "photoprism/photoprism", "primary_category_id": "media_libraries_readers", "membership_cohort": "baseline", "grade": 3, "constraint": "allowed", "rationale": "PhotoPrism is directly classified and described as a photos application."},
+        {"github_repository_id": 161012019, "full_name": "jellyfin/jellyfin", "primary_category_id": "media_libraries_readers", "membership_cohort": "baseline", "grade": 2, "constraint": "allowed", "rationale": "Jellyfin is a source-classified alternative in the same media-library leaf."}
+      ], "k": 12, "accepted_gaps": ["Deployment fit must be judged from future complete evidence, not inferred here."]
+    },
+    {
+      "case_id": "CP04-DEV-04", "split": "development", "requirement_ids": ["R06", "R12"], "persona": "frontend engineer",
+      "synthetic_project_context": "Synthetic web-form project.", "user_goal": "Find JSON Schema form validation tooling.",
+      "query_locale": "en", "query_terms": ["JSON Schema", "validation"], "target_category_id": "forms_validation", "container_domain_ids": ["frontend_frameworks_ui"],
+      "leaf_card_count": 6, "leaf_band": "thin", "tags": ["thin_leaf", "baseline_cohort", "container_union", "lexical_en", "dual_descriptions"],
+      "expected_match_routes": ["upstream_description", "catalog_description", "category_labels"], "expected_alias": null,
+      "judgment_pool_ids": [35914020, 75044525], "expected_relevant_ids": [35914020, 75044525],
+      "judgments": [
+        {"github_repository_id": 35914020, "full_name": "ajv-validator/ajv", "primary_category_id": "forms_validation", "membership_cohort": "baseline", "grade": 3, "constraint": "allowed", "rationale": "Ajv is explicitly described as a JSON Schema validator in the pinned card."},
+        {"github_repository_id": 75044525, "full_name": "TanStack/form", "primary_category_id": "forms_validation", "membership_cohort": "baseline", "grade": 2, "constraint": "allowed", "rationale": "TanStack Form is source-classified in Forms and Input Validation."}
+      ], "k": 12, "accepted_gaps": ["Framework compatibility remains a future evidence and usefulness judgment."]
+    },
+    {
+      "case_id": "CP04-DEV-05", "split": "development", "requirement_ids": ["R06", "R12", "R14"], "persona": "finance engineer",
+      "synthetic_project_context": "Synthetic local ledger workflow.", "user_goal": "Find plain-text accounting tools using a former repository owner.",
+      "query_locale": "en", "query_terms": ["simonmichael/hledger"], "target_category_id": "accounting_invoicing", "container_domain_ids": ["accounting_finance_erp"],
+      "leaf_card_count": 23, "leaf_band": "middle", "tags": ["baseline_cohort", "container_union", "historical_alias", "lexical_en"],
+      "expected_match_routes": ["historical_alias", "category_labels"], "expected_alias": "simonmichael/hledger",
+      "judgment_pool_ids": [9301414, 16309], "expected_relevant_ids": [9301414, 16309],
+      "judgments": [
+        {"github_repository_id": 9301414, "full_name": "plaintextaccounting/hledger", "primary_category_id": "accounting_invoicing", "membership_cohort": "baseline", "grade": 3, "constraint": "allowed", "rationale": "The historical hledger full name is retained on a pinned accounting card."},
+        {"github_repository_id": 16309, "full_name": "ledger/ledger", "primary_category_id": "accounting_invoicing", "membership_cohort": "baseline", "grade": 2, "constraint": "allowed", "rationale": "Ledger is source-classified in the same accounting and invoicing leaf."}
+      ], "k": 12, "accepted_gaps": ["No accounting correctness or production suitability is inferred."]
+    },
+    {
+      "case_id": "CP04-DEV-06", "split": "development", "requirement_ids": ["R06", "R12"], "persona": "documentation engineer",
+      "synthetic_project_context": "Synthetic static documentation repository.", "user_goal": "Select a static documentation site generator.",
+      "query_locale": "en", "query_terms": ["static site generator"], "target_category_id": "documentation_site_generators", "container_domain_ids": ["cms_content_knowledge"],
+      "leaf_card_count": 8, "leaf_band": "thin", "tags": ["thin_leaf", "baseline_cohort", "container_union", "lexical_en"],
+      "expected_match_routes": ["upstream_description", "category_labels"], "expected_alias": null,
+      "judgment_pool_ids": [65252, 11180687], "expected_relevant_ids": [65252, 11180687],
+      "judgments": [
+        {"github_repository_id": 65252, "full_name": "jekyll/jekyll", "primary_category_id": "documentation_site_generators", "membership_cohort": "baseline", "grade": 3, "constraint": "allowed", "rationale": "Jekyll is directly described as a static site generator."},
+        {"github_repository_id": 11180687, "full_name": "gohugoio/hugo", "primary_category_id": "documentation_site_generators", "membership_cohort": "baseline", "grade": 2, "constraint": "allowed", "rationale": "Hugo is source-classified in the same documentation-generator leaf."}
+      ], "k": 12, "accepted_gaps": ["Build-language and migration cost remain future comparison evidence."]
+    },
+    {
+      "case_id": "CP04-DEV-07", "split": "development", "requirement_ids": ["R06", "R12", "R15"], "persona": "operations lead",
+      "synthetic_project_context": "Synthetic scheduling workflow without customer data.", "user_goal": "Find Cal.com through its current product name without duplicating secondary classifications.",
+      "query_locale": "en", "query_terms": ["calcom/cal.com"], "target_category_id": "scheduling_personal_productivity", "container_domain_ids": ["communications_personal_ops"],
+      "leaf_card_count": 6, "leaf_band": "thin", "tags": ["thin_leaf", "baseline_cohort", "container_union", "historical_alias", "secondary_dedupe", "lexical_en"],
+      "expected_match_routes": ["historical_alias", "secondary_assignment_dedupe"], "expected_alias": "calcom/cal.com",
+      "judgment_pool_ids": [350360184, 943286066], "expected_relevant_ids": [350360184, 943286066],
+      "judgments": [
+        {"github_repository_id": 350360184, "full_name": "calcom/cal.diy", "primary_category_id": "scheduling_personal_productivity", "membership_cohort": "baseline", "grade": 3, "constraint": "allowed", "rationale": "The alias and primary scheduling assignment are both retained on one numeric identity."},
+        {"github_repository_id": 943286066, "full_name": "mattt/iMCP", "primary_category_id": "scheduling_personal_productivity", "membership_cohort": "baseline", "grade": 2, "constraint": "allowed", "rationale": "iMCP is a source-classified alternative in the same scheduling leaf."}
+      ], "k": 12, "accepted_gaps": ["No browser locale-switch or scheduling integration has been observed."]
+    },
+    {
+      "case_id": "CP04-DEV-08", "split": "development", "requirement_ids": ["R06", "R12", "R15"], "persona": "non-technical founder",
+      "synthetic_project_context": "Synthetic SaaS payments decision; no credentials or customer records.", "user_goal": "Compare open-source payment SDK starting points and produce a safe first validation task.",
+      "query_locale": "en", "query_terms": ["payment", "Python SDK"], "target_category_id": "payment_processing_sdks", "container_domain_ids": ["ecommerce_payments_revenue"],
+      "leaf_card_count": 9, "leaf_band": "thin", "tags": ["thin_leaf", "baseline_cohort", "container_union", "lexical_en", "dual_descriptions"],
+      "expected_match_routes": ["upstream_description", "catalog_description", "category_labels"], "expected_alias": null,
+      "judgment_pool_ids": [1953389, 2471804], "expected_relevant_ids": [1953389, 2471804],
+      "judgments": [
+        {"github_repository_id": 1953389, "full_name": "stripe/stripe-python", "primary_category_id": "payment_processing_sdks", "membership_cohort": "baseline", "grade": 3, "constraint": "allowed", "rationale": "The pinned card identifies the Python Stripe API library in the payment SDK leaf."},
+        {"github_repository_id": 2471804, "full_name": "stripe/stripe-node", "primary_category_id": "payment_processing_sdks", "membership_cohort": "baseline", "grade": 2, "constraint": "allowed", "rationale": "The Node SDK is a valid alternative whose language tradeoff must remain explicit."}
+      ], "k": 12, "accepted_gaps": ["No payment action, provider connection or compliance suitability is authorized or observed."]
+    },
+    {
+      "case_id": "CP04-DEV-09", "split": "development", "requirement_ids": ["R06", "R12"], "persona": "project manager",
+      "synthetic_project_context": "Synthetic internal project-management workflow.", "user_goal": "Compare self-hostable project management tools.",
+      "query_locale": "en", "query_terms": ["project management", "self-hosted"], "target_category_id": "project_task_management", "container_domain_ids": ["operations_project_management"],
+      "leaf_card_count": 11, "leaf_band": "middle", "tags": ["baseline_cohort", "container_union", "lexical_en", "dual_descriptions"],
+      "expected_match_routes": ["upstream_description", "catalog_description", "category_labels"], "expected_alias": null,
+      "judgment_pool_ids": [6899875, 16089035], "expected_relevant_ids": [6899875, 16089035],
+      "judgments": [
+        {"github_repository_id": 6899875, "full_name": "opf/openproject", "primary_category_id": "project_task_management", "membership_cohort": "baseline", "grade": 3, "constraint": "allowed", "rationale": "OpenProject is directly described and classified as project management software."},
+        {"github_repository_id": 16089035, "full_name": "wekan/wekan", "primary_category_id": "project_task_management", "membership_cohort": "baseline", "grade": 2, "constraint": "allowed", "rationale": "Wekan is source-classified in the same project and task management leaf."}
+      ], "k": 12, "accepted_gaps": ["Hosting and migration effort remain explicit future checks."]
+    },
+    {
+      "case_id": "CP04-DEV-10", "split": "development", "requirement_ids": ["R06", "R12"], "persona": "data engineer",
+      "synthetic_project_context": "Synthetic object-storage architecture review.", "user_goal": "Compare distributed object storage options.",
+      "query_locale": "en", "query_terms": ["distributed object storage"], "target_category_id": "data_lakes_object_storage", "container_domain_ids": ["data_ingestion_etl_cdc"],
+      "leaf_card_count": 7, "leaf_band": "thin", "tags": ["thin_leaf", "baseline_cohort", "container_union", "lexical_en", "dual_descriptions"],
+      "expected_match_routes": ["upstream_description", "catalog_description", "category_labels"], "expected_alias": null,
+      "judgment_pool_ids": [2310495, 21827146], "expected_relevant_ids": [2310495, 21827146],
+      "judgments": [
+        {"github_repository_id": 2310495, "full_name": "ceph/ceph", "primary_category_id": "data_lakes_object_storage", "membership_cohort": "baseline", "grade": 3, "constraint": "allowed", "rationale": "Ceph is directly described as distributed object, block and file storage."},
+        {"github_repository_id": 21827146, "full_name": "seaweedfs/seaweedfs", "primary_category_id": "data_lakes_object_storage", "membership_cohort": "baseline", "grade": 2, "constraint": "allowed", "rationale": "SeaweedFS is source-classified in the same data-lake and object-storage leaf."}
+      ], "k": 12, "accepted_gaps": ["Operability and deployment fit require evidence beyond catalog placement."]
+    },
+    {
+      "case_id": "CP04-DEV-11", "split": "development", "requirement_ids": ["R06", "R12", "R14", "R15"], "persona": "database engineer",
+      "synthetic_project_context": "Synthetic database evaluation with unknown activity accepted as unknown.", "user_goal": "Find GreptimeDB by its historical full name and keep missing activity evidence explicit.",
+      "query_locale": "ru", "query_terms": ["greptimedb/greptimedb", "локально"], "target_category_id": "database_engines", "container_domain_ids": ["databases_storage_caching"],
+      "leaf_card_count": 24, "leaf_band": "middle", "tags": ["baseline_cohort", "container_union", "historical_alias", "lexical_ru", "activity_unknown"],
+      "expected_match_routes": ["historical_alias", "lexical_alias", "category_labels"], "expected_alias": "greptimedb/greptimedb",
+      "judgment_pool_ids": [480217156, 108110], "expected_relevant_ids": [480217156, 108110],
+      "judgments": [
+        {"github_repository_id": 480217156, "full_name": "GreptimeTeam/greptimedb", "primary_category_id": "database_engines", "membership_cohort": "baseline", "grade": 3, "constraint": "unknown", "rationale": "The pinned card retains the historical alias; visibility and observed activity remain unknown and require verification."},
+        {"github_repository_id": 108110, "full_name": "mongodb/mongo", "primary_category_id": "database_engines", "membership_cohort": "baseline", "grade": 2, "constraint": "allowed", "rationale": "MongoDB is a source-classified database-engine alternative, not an operability benchmark."}
+      ], "k": 12, "accepted_gaps": ["RU query quality and activity explanation remain unobserved."]
+    },
+    {
+      "case_id": "CP04-DEV-12", "split": "development", "requirement_ids": ["R06", "R12"], "persona": "backend developer",
+      "synthetic_project_context": "Synthetic backend service prototype.", "user_goal": "Compare backend-as-a-service platforms.",
+      "query_locale": "en", "query_terms": ["backend as a service"], "target_category_id": "baas_platforms", "container_domain_ids": ["backend_baas_api"],
+      "leaf_card_count": 7, "leaf_band": "thin", "tags": ["thin_leaf", "baseline_cohort", "container_union", "lexical_en", "dual_descriptions"],
+      "expected_match_routes": ["upstream_description", "catalog_description", "category_labels"], "expected_alias": null,
+      "judgment_pool_ids": [50603846, 180190854], "expected_relevant_ids": [50603846, 180190854],
+      "judgments": [
+        {"github_repository_id": 50603846, "full_name": "parse-community/parse-server", "primary_category_id": "baas_platforms", "membership_cohort": "baseline", "grade": 3, "constraint": "allowed", "rationale": "Parse Server is source-classified in Backend as a Service."},
+        {"github_repository_id": 180190854, "full_name": "appwrite/appwrite", "primary_category_id": "baas_platforms", "membership_cohort": "baseline", "grade": 2, "constraint": "allowed", "rationale": "Appwrite is a second source-classified BaaS option for comparison."}
+      ], "k": 12, "accepted_gaps": ["No backend migration or installation has been executed."]
+    },
+    {
+      "case_id": "CP04-HOLD-01", "split": "held_out", "requirement_ids": ["R06", "R12"], "persona": "platform engineer",
+      "synthetic_project_context": "Synthetic single-host deployment context.", "user_goal": "Evaluate a Docker-powered application PaaS.",
+      "query_locale": "en", "query_terms": ["docker powered PaaS"], "target_category_id": "application_paas", "container_domain_ids": ["deployment_containers_paas"],
+      "leaf_card_count": 9, "leaf_band": "thin", "tags": ["thin_leaf", "baseline_cohort", "container_union", "lexical_en", "dual_descriptions"],
+      "expected_match_routes": ["upstream_description", "catalog_description", "category_labels"], "expected_alias": null,
+      "judgment_pool_ids": [10567197, 10187082], "expected_relevant_ids": [10567197, 10187082],
+      "judgments": [
+        {"github_repository_id": 10567197, "full_name": "dokku/dokku", "primary_category_id": "application_paas", "membership_cohort": "baseline", "grade": 3, "constraint": "allowed", "rationale": "Dokku is directly described as a Docker-powered PaaS."},
+        {"github_repository_id": 10187082, "full_name": "Unitech/pm2", "primary_category_id": "application_paas", "membership_cohort": "baseline", "grade": 2, "constraint": "allowed", "rationale": "PM2 is source-classified in the same application deployment platform leaf."}
+      ], "k": 12, "accepted_gaps": ["The held-out case cannot be used to tune terms or thresholds."]
+    },
+    {
+      "case_id": "CP04-HOLD-02", "split": "held_out", "requirement_ids": ["R06", "R12", "R14"], "persona": "security engineer",
+      "synthetic_project_context": "Synthetic authorized test environment; no target systems.", "user_goal": "Compare web security testing tools without claiming security approval.",
+      "query_locale": "en", "query_terms": ["web security testing"], "target_category_id": "security_testing", "container_domain_ids": ["supply_chain_devsecops"],
+      "leaf_card_count": 13, "leaf_band": "middle", "tags": ["baseline_cohort", "container_union", "lexical_en", "dual_descriptions"],
+      "expected_match_routes": ["upstream_description", "catalog_description", "category_labels"], "expected_alias": null,
+      "judgment_pool_ids": [36817565, 140457254], "expected_relevant_ids": [36817565, 140457254],
+      "judgments": [
+        {"github_repository_id": 36817565, "full_name": "zaproxy/zaproxy", "primary_category_id": "security_testing", "membership_cohort": "baseline", "grade": 3, "constraint": "allowed", "rationale": "ZAP is source-classified under security testing and vulnerability assessment."},
+        {"github_repository_id": 140457254, "full_name": "owasp-amass/amass", "primary_category_id": "security_testing", "membership_cohort": "baseline", "grade": 2, "constraint": "allowed", "rationale": "Amass is a source-classified comparison candidate in the same security leaf."}
+      ], "k": 12, "accepted_gaps": ["No tool execution, target authorization or security efficacy is observed."]
+    },
+    {
+      "case_id": "CP04-HOLD-03", "split": "held_out", "requirement_ids": ["R06", "R12"], "persona": "ML engineer",
+      "synthetic_project_context": "Synthetic local embedding service evaluation.", "user_goal": "Find a text embeddings inference component.",
+      "query_locale": "en", "query_terms": ["text embeddings inference"], "target_category_id": "embeddings_reranking", "container_domain_ids": [],
+      "leaf_card_count": 1, "leaf_band": "thin", "tags": ["thin_leaf", "expansion_cohort", "lexical_en"],
+      "expected_match_routes": ["full_name", "catalog_description", "category_labels"], "expected_alias": null,
+      "judgment_pool_ids": [704543233], "expected_relevant_ids": [704543233],
+      "judgments": [
+        {"github_repository_id": 704543233, "full_name": "huggingface/text-embeddings-inference", "primary_category_id": "embeddings_reranking", "membership_cohort": "cat07a_expansion", "grade": 3, "constraint": "allowed", "rationale": "The only pinned card in this thin leaf directly names text embeddings inference."}
+      ], "k": 12, "accepted_gaps": ["Singleton-leaf judgment does not prove deployment or model quality."]
+    },
+    {
+      "case_id": "CP04-HOLD-04", "split": "held_out", "requirement_ids": ["R06", "R12"], "persona": "workflow engineer",
+      "synthetic_project_context": "Synthetic durable-workflow service.", "user_goal": "Compare durable workflow state machines.",
+      "query_locale": "en", "query_terms": ["durable workflow"], "target_category_id": "workflow_state_machines_durable_agents", "container_domain_ids": [],
+      "leaf_card_count": 5, "leaf_band": "thin", "tags": ["thin_leaf", "baseline_cohort", "secondary_dedupe", "lexical_en"],
+      "expected_match_routes": ["upstream_description", "category_labels", "secondary_assignment_dedupe"], "expected_alias": null,
+      "judgment_pool_ids": [215654064, 204164353], "expected_relevant_ids": [215654064, 204164353],
+      "judgments": [
+        {"github_repository_id": 215654064, "full_name": "temporalio/temporal", "primary_category_id": "workflow_state_machines_durable_agents", "membership_cohort": "baseline", "grade": 3, "constraint": "allowed", "rationale": "Temporal is source-classified in durable workflow state machines and has a secondary assignment that must not duplicate identity."},
+        {"github_repository_id": 204164353, "full_name": "kestra-io/kestra", "primary_category_id": "workflow_state_machines_durable_agents", "membership_cohort": "baseline", "grade": 2, "constraint": "allowed", "rationale": "Kestra is a source-classified alternative in the same thin workflow leaf."}
+      ], "k": 12, "accepted_gaps": ["Runtime durability and operational fit are not inferred from classification."]
+    },
+    {
+      "case_id": "CP04-HOLD-05", "split": "held_out", "requirement_ids": ["R06", "R12"], "persona": "AI platform engineer",
+      "synthetic_project_context": "Synthetic multi-model gateway architecture.", "user_goal": "Compare local LLM gateway and routing components.",
+      "query_locale": "en", "query_terms": ["LLM gateway", "routing"], "target_category_id": "llm_gateways_routing_caching", "container_domain_ids": [],
+      "leaf_card_count": 8, "leaf_band": "thin", "tags": ["thin_leaf", "baseline_cohort", "lexical_en"],
+      "expected_match_routes": ["full_name", "upstream_description", "category_labels"], "expected_alias": null,
+      "judgment_pool_ids": [682080300, 711904962], "expected_relevant_ids": [682080300, 711904962],
+      "judgments": [
+        {"github_repository_id": 682080300, "full_name": "Portkey-AI/gateway", "primary_category_id": "llm_gateways_routing_caching", "membership_cohort": "baseline", "grade": 3, "constraint": "allowed", "rationale": "Portkey Gateway is directly source-classified in the LLM gateway leaf."},
+        {"github_repository_id": 711904962, "full_name": "aurelio-labs/semantic-router", "primary_category_id": "llm_gateways_routing_caching", "membership_cohort": "baseline", "grade": 2, "constraint": "allowed", "rationale": "Semantic Router is a source-classified routing alternative in the same leaf."}
+      ], "k": 12, "accepted_gaps": ["No provider, model or remote gateway has been called."]
+    },
+    {
+      "case_id": "CP04-HOLD-06", "split": "held_out", "requirement_ids": ["R06", "R12", "R14"], "persona": "LLMOps engineer",
+      "synthetic_project_context": "Synthetic tracing requirement without production telemetry.", "user_goal": "Compare LLM observability and tracing tools.",
+      "query_locale": "en", "query_terms": ["LLM observability", "tracing"], "target_category_id": "observability_llmops", "container_domain_ids": [],
+      "leaf_card_count": 8, "leaf_band": "thin", "tags": ["thin_leaf", "baseline_cohort", "lexical_en"],
+      "expected_match_routes": ["upstream_description", "category_labels"], "expected_alias": null,
+      "judgment_pool_ids": [642497346, 564072810], "expected_relevant_ids": [642497346, 564072810],
+      "judgments": [
+        {"github_repository_id": 642497346, "full_name": "langfuse/langfuse", "primary_category_id": "observability_llmops", "membership_cohort": "baseline", "grade": 3, "constraint": "allowed", "rationale": "Langfuse is source-classified in LLM observability and tracing."},
+        {"github_repository_id": 564072810, "full_name": "Arize-ai/phoenix", "primary_category_id": "observability_llmops", "membership_cohort": "baseline", "grade": 2, "constraint": "allowed", "rationale": "Phoenix is a source-classified comparison candidate in the same leaf."}
+      ], "k": 12, "accepted_gaps": ["Popularity or activity cannot substitute for operability evidence."]
+    },
+    {
+      "case_id": "CP04-HOLD-07", "split": "held_out", "requirement_ids": ["R06", "R12"], "persona": "research lead",
+      "synthetic_project_context": "Synthetic public-web research workflow; no network call is authorized.", "user_goal": "Compare deep research agent frameworks.",
+      "query_locale": "en", "query_terms": ["deep research agent"], "target_category_id": "research_agents_deep_research", "container_domain_ids": [],
+      "leaf_card_count": 8, "leaf_band": "thin", "tags": ["thin_leaf", "baseline_cohort", "lexical_en"],
+      "expected_match_routes": ["full_name", "upstream_description", "category_labels"], "expected_alias": null,
+      "judgment_pool_ids": [639835356, 782539945], "expected_relevant_ids": [639835356, 782539945],
+      "judgments": [
+        {"github_repository_id": 639835356, "full_name": "assafelovic/gpt-researcher", "primary_category_id": "research_agents_deep_research", "membership_cohort": "baseline", "grade": 3, "constraint": "allowed", "rationale": "GPT Researcher is source-classified in research agents and deep research."},
+        {"github_repository_id": 782539945, "full_name": "miurla/morphic", "primary_category_id": "research_agents_deep_research", "membership_cohort": "baseline", "grade": 2, "constraint": "allowed", "rationale": "Morphic is a source-classified alternative in the same research-agent leaf."}
+      ], "k": 12, "accepted_gaps": ["Research answer quality and network behavior are not observed."]
+    },
+    {
+      "case_id": "CP04-HOLD-08", "split": "held_out", "requirement_ids": ["R06", "R12"], "persona": "data scientist",
+      "synthetic_project_context": "Synthetic NLP data preparation project.", "user_goal": "Compare NLP dataset and labeling foundations.",
+      "query_locale": "en", "query_terms": ["NLP datasets"], "target_category_id": "datasets_synthetic_labeling", "container_domain_ids": [],
+      "leaf_card_count": 135, "leaf_band": "dense", "tags": ["dense_leaf", "expansion_cohort", "lexical_en"],
+      "expected_match_routes": ["catalog_description", "category_labels"], "expected_alias": null,
+      "judgment_pool_ids": [299862, 1349775], "expected_relevant_ids": [299862, 1349775],
+      "judgments": [
+        {"github_repository_id": 299862, "full_name": "nltk/nltk", "primary_category_id": "datasets_synthetic_labeling", "membership_cohort": "cat07a_expansion", "grade": 3, "constraint": "allowed", "rationale": "NLTK is source-classified in the dense datasets, synthetic data and labeling leaf."},
+        {"github_repository_id": 1349775, "full_name": "piskvorky/gensim", "primary_category_id": "datasets_synthetic_labeling", "membership_cohort": "cat07a_expansion", "grade": 2, "constraint": "allowed", "rationale": "Gensim is a second expansion-cohort card in the same dense leaf."}
+      ], "k": 12, "accepted_gaps": ["Dense-leaf judgments must not be generalized to the entire expansion cohort."]
+    },
+    {
+      "case_id": "CP04-HOLD-09", "split": "held_out", "requirement_ids": ["R06", "R12"], "persona": "web engineer",
+      "synthetic_project_context": "Synthetic browser upload component decision.", "user_goal": "Compare browser file upload components.",
+      "query_locale": "en", "query_terms": ["browser file upload"], "target_category_id": "file_upload_infrastructure", "container_domain_ids": [],
+      "leaf_card_count": 110, "leaf_band": "dense", "tags": ["dense_leaf", "expansion_cohort", "lexical_en"],
+      "expected_match_routes": ["catalog_description", "category_labels"], "expected_alias": null,
+      "judgment_pool_ids": [467461, 655209], "expected_relevant_ids": [467461, 655209],
+      "judgments": [
+        {"github_repository_id": 467461, "full_name": "moxiecode/plupload", "primary_category_id": "file_upload_infrastructure", "membership_cohort": "cat07a_expansion", "grade": 3, "constraint": "allowed", "rationale": "Plupload is source-classified in the dense file-upload infrastructure leaf."},
+        {"github_repository_id": 655209, "full_name": "node-formidable/formidable", "primary_category_id": "file_upload_infrastructure", "membership_cohort": "cat07a_expansion", "grade": 2, "constraint": "allowed", "rationale": "Formidable is a second source-classified expansion candidate in the same leaf."}
+      ], "k": 12, "accepted_gaps": ["Security, accessibility and browser integration remain future evidence."]
+    },
+    {
+      "case_id": "CP04-HOLD-10", "split": "held_out", "requirement_ids": ["R06", "R12", "R15"], "persona": "ML platform engineer",
+      "synthetic_project_context": "Synthetic training platform modernization.", "user_goal": "Compare distributed model training components and produce a bounded integration handoff.",
+      "query_locale": "en", "query_terms": ["distributed training"], "target_category_id": "training_finetuning_alignment", "container_domain_ids": [],
+      "leaf_card_count": 99, "leaf_band": "dense", "tags": ["dense_leaf", "expansion_cohort", "baseline_cohort", "lexical_en"],
+      "expected_match_routes": ["catalog_description", "category_labels"], "expected_alias": null,
+      "judgment_pool_ids": [95700338, 178626720], "expected_relevant_ids": [95700338, 178626720],
+      "judgments": [
+        {"github_repository_id": 95700338, "full_name": "kubeflow/trainer", "primary_category_id": "training_finetuning_alignment", "membership_cohort": "cat07a_expansion", "grade": 3, "constraint": "allowed", "rationale": "Kubeflow Trainer is source-classified in training, fine-tuning and alignment."},
+        {"github_repository_id": 178626720, "full_name": "Lightning-AI/pytorch-lightning", "primary_category_id": "training_finetuning_alignment", "membership_cohort": "baseline", "grade": 2, "constraint": "allowed", "rationale": "PyTorch Lightning is a baseline-cohort alternative in the same dense leaf."}
+      ], "k": 12, "accepted_gaps": ["The proposed integration task is not executed or claimed tested."]
+    },
+    {
+      "case_id": "CP04-HOLD-11", "split": "held_out", "requirement_ids": ["R06", "R12"], "persona": "software engineer",
+      "synthetic_project_context": "Synthetic coding-assistant comparison.", "user_goal": "Find GPT Engineer by its former organization name.",
+      "query_locale": "en", "query_terms": ["gpt-engineer-org/gpt-engineer"], "target_category_id": "coding_agents_devex", "container_domain_ids": [],
+      "leaf_card_count": 75, "leaf_band": "dense", "tags": ["dense_leaf", "baseline_cohort", "historical_alias", "lexical_en"],
+      "expected_match_routes": ["historical_alias", "category_labels"], "expected_alias": "gpt-engineer-org/gpt-engineer",
+      "judgment_pool_ids": [634224458, 610217037], "expected_relevant_ids": [634224458, 610217037],
+      "judgments": [
+        {"github_repository_id": 634224458, "full_name": "AntonOsika/gpt-engineer", "primary_category_id": "coding_agents_devex", "membership_cohort": "baseline", "grade": 3, "constraint": "denied", "rationale": "The former full name is retained, but the pinned card is archived and must not be included as an allowed recommendation."},
+        {"github_repository_id": 610217037, "full_name": "di-sukharev/opencommit", "primary_category_id": "coding_agents_devex", "membership_cohort": "baseline", "grade": 2, "constraint": "allowed", "rationale": "OpenCommit is source-classified as a coding-agent and developer-experience alternative."}
+      ], "k": 12, "accepted_gaps": ["Coding-agent effectiveness and model behavior are not observed."]
+    },
+    {
+      "case_id": "CP04-HOLD-12", "split": "held_out", "requirement_ids": ["R06", "R12", "R15"], "persona": "RAG engineer",
+      "synthetic_project_context": "Synthetic public-web ingestion project with no network or private context.", "user_goal": "Найти инструмент для поиска и веб-сканирования без дублей из вторичных категорий.",
+      "query_locale": "ru", "query_terms": ["поиск", "firecrawl"], "target_category_id": "web_crawling_data_ingestion", "container_domain_ids": [],
+      "leaf_card_count": 15, "leaf_band": "middle", "tags": ["baseline_cohort", "secondary_dedupe", "lexical_ru"],
+      "expected_match_routes": ["full_name", "upstream_description", "secondary_assignment_dedupe", "lexical_alias"], "expected_alias": null,
+      "judgment_pool_ids": [787076358, 90356372], "expected_relevant_ids": [787076358, 90356372],
+      "judgments": [
+        {"github_repository_id": 787076358, "full_name": "firecrawl/firecrawl", "primary_category_id": "web_crawling_data_ingestion", "membership_cohort": "baseline", "grade": 3, "constraint": "allowed", "rationale": "Firecrawl has one numeric identity with several secondary assignments that must deduplicate."},
+        {"github_repository_id": 90356372, "full_name": "ArchiveBox/ArchiveBox", "primary_category_id": "web_crawling_data_ingestion", "membership_cohort": "baseline", "grade": 2, "constraint": "allowed", "rationale": "ArchiveBox is source-classified in the same web-crawling and data-ingestion leaf."}
+      ], "k": 12, "accepted_gaps": ["RU lexical recall, paired presentation meaning and integration usefulness await actual captures."]
+    }
+  ],
+  "promotion_ready": false
+}
