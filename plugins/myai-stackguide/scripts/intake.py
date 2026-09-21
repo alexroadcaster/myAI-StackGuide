@@ -20,6 +20,8 @@ SCRIPT_ROOT = Path(__file__).resolve().parent
 PLUGIN_ROOT = SCRIPT_ROOT.parent
 ASSETS = PLUGIN_ROOT / "assets"
 MAX_INPUT_BYTES = 8192
+COMMIT_SCAN_INPUT_BYTES = 2_500_000
+COMMIT_CONTEXT_INPUT_BYTES = 32_768
 APPLICATION_ID = 1297695049
 TRUSTED_MANIFEST_SHA256 = "a172f0378cb804ecd4bd10f3be69e522b6c3ee6955635498c6a060202647861d"
 
@@ -36,11 +38,13 @@ def _load_trusted(name: str, path: Path):
 
 store = _load_trusted("myai_stackguide_state_store", SCRIPT_ROOT / "state_store.py")
 sanitizer = _load_trusted("myai_stackguide_sanitize", SCRIPT_ROOT / "sanitize.py")
+scanner = _load_trusted("myai_stackguide_scanner", SCRIPT_ROOT / "scanner.py")
+context = scanner.context
 
 
 COMMANDS = {
     "preflight", "start", "resume", "answer", "correct", "cancel", "finalize",
-    "retry-publication",
+    "retry-publication", "commit-scan", "commit-context",
 }
 
 
@@ -53,9 +57,13 @@ def _strict_object(pairs: list[tuple[str, Any]]) -> dict[str, Any]:
     return result
 
 
-def _read_payload() -> dict[str, Any]:
-    data = sys.stdin.buffer.read(MAX_INPUT_BYTES + 1)
-    if len(data) > MAX_INPUT_BYTES:
+def _read_payload(command: str) -> dict[str, Any]:
+    limit = {
+        "commit-scan": COMMIT_SCAN_INPUT_BYTES,
+        "commit-context": COMMIT_CONTEXT_INPUT_BYTES,
+    }.get(command, MAX_INPUT_BYTES)
+    data = sys.stdin.buffer.read(limit + 1)
+    if len(data) > limit:
         raise ValueError("oversized input")
     if not data:
         return {}
@@ -555,7 +563,7 @@ def _new_state(bank: dict[str, Any], history: list[dict[str, Any]], predecessor:
         "corrections": [],
         "html_revision": None,
         "history": copy.deepcopy(history),
-        "storage_policy_version": "1.0.0",
+        "storage_policy_version": store.STORAGE_POLICY_VERSION,
         "presentation": {},
         "scan": None,
     }
@@ -624,6 +632,7 @@ def command_start(project_root: Path, payload: dict[str, Any], manifest: dict[st
             locked.ensure_history(previous)
             history = copy.deepcopy(previous["history"])
             predecessor = previous["run_id"]
+            scanner.remove_checkpoint_locked(locked.root, run_id=previous["run_id"])
         state = _new_state(bank, history, predecessor, manifest)
         locked.commit(state, previous)
     return _publication_success(state, operation="commit_and_publish", commit_status="saved")
@@ -778,6 +787,177 @@ def command_resume(project_root: Path, payload: dict[str, Any], run_id: str | No
     return _publication_success(state, operation="commit_and_publish", commit_status="saved")
 
 
+def _validate_commit_scan_payload(project_root: Path, payload: dict[str, Any]) -> tuple[dict[str, Any], dict[str, Any]]:
+    if set(payload) != {"report", "checkpoint"} or not isinstance(payload.get("report"), dict):
+        raise store.StateError("invalid_input")
+    try:
+        checkpoint = scanner._validate_checkpoint_envelope(payload.get("checkpoint"))
+    except scanner.ScannerError as error:
+        raise store.StateError("invalid_input") from error
+    report = payload["report"]
+    required = {
+        "schema_version", "run_id", "policy_version", "mode", "status", "classification",
+        "manifest", "summary", "reason_codes",
+    }
+    if (
+        set(report) != required
+        or report.get("schema_version") != scanner.SCHEMA_VERSION
+        or report.get("policy_version") != scanner.POLICY_VERSION
+        or report.get("mode") not in scanner.MODES
+        or report.get("status") not in ("complete", "partial", "cancelled", "unavailable")
+        or report != checkpoint.get("last_report")
+        or report.get("run_id") != checkpoint.get("run_id")
+    ):
+        raise store.StateError("invalid_input")
+    try:
+        scanner.ScannerSession.from_checkpoint(
+            project_root,
+            report["run_id"],
+            checkpoint,
+            limit_overrides=checkpoint["session"]["limit_overrides"] or None,
+        )
+    except scanner.ScannerError as error:
+        raise store.StateError("invalid_input") from error
+    return report, checkpoint
+
+
+def command_commit_scan(project_root: Path, payload: dict[str, Any], run_id: str | None, revision: int | None) -> dict[str, Any]:
+    report, checkpoint = _validate_commit_scan_payload(project_root, payload)
+    bank = _load_question_bank()
+    with store.locked_store(project_root, create=False) as locked:
+        current = locked.load(required=True, writable=True)
+        assert current is not None
+        immediate_retry = (
+            run_id is not None
+            and revision is not None
+            and current["run_id"] == run_id
+            and current["revision"] == revision + 1
+            and current.get("scan") == report
+            and checkpoint["expected_state_revision"] == revision
+            and checkpoint["committed_state_revision"] == current["revision"]
+        )
+        if immediate_retry:
+            state = current
+            try:
+                persisted = scanner.read_checkpoint_locked(locked.root)
+            except scanner.ScannerError as error:
+                raise store.StateError("state_conflict") from error
+            if (
+                persisted.get("checkpoint_id") != checkpoint.get("checkpoint_id")
+                or store.canonical_json_bytes(persisted) != store.canonical_json_bytes(checkpoint)
+            ):
+                raise store.StateError("state_conflict")
+        else:
+            _expected(current, run_id, revision)
+            if (
+                current["status"] != "active"
+                or current["phase"] not in ("intake", "scan")
+                or current["intake"]["status"] != "ready"
+                or report["run_id"] != current["run_id"]
+                or checkpoint["expected_state_revision"] != current["revision"]
+                or checkpoint["committed_state_revision"] != current["revision"] + 1
+            ):
+                raise store.StateError("state_conflict")
+            state = copy.deepcopy(current)
+            state["scan"] = copy.deepcopy(report)
+            state["phase"] = "scan"
+            state["intake"]["next_action"] = "review_context"
+            _invalidate(state)
+            _advance_revision(state, locked, bank)
+            scanner.write_checkpoint_locked(locked.root, checkpoint)
+            locked.commit(state, current)
+    return _publication_success(state, operation="commit_and_publish", commit_status="saved")
+
+
+def _validate_commit_context_payload(payload: dict[str, Any]) -> tuple[dict[str, Any], dict[str, Any]]:
+    if set(payload) != {"selection", "brief"}:
+        raise store.StateError("invalid_input")
+    try:
+        selection = context.validate_context_selection(payload.get("selection"))
+        brief = context.validate_project_context_brief(payload.get("brief"))
+    except context.ContextError as error:
+        raise store.StateError("invalid_input") from error
+    return selection, brief
+
+
+def command_commit_context(project_root: Path, payload: dict[str, Any], run_id: str | None, revision: int | None) -> dict[str, Any]:
+    selection, brief = _validate_commit_context_payload(payload)
+    bank = _load_question_bank()
+    with store.locked_store(project_root, create=False) as locked:
+        current = locked.load(required=True, writable=True)
+        assert current is not None
+        immediate_retry = (
+            run_id is not None
+            and revision is not None
+            and current["run_id"] == run_id
+            and current["revision"] == revision + 1
+            and current.get("selection") == selection
+            and current.get("brief") == brief
+        )
+        if immediate_retry:
+            state = current
+        else:
+            _expected(current, run_id, revision)
+            scan = current.get("scan")
+            if (
+                current["status"] != "active"
+                or current["phase"] not in ("scan", "context_review")
+                or current["intake"]["status"] != "ready"
+                or not isinstance(scan, dict)
+                or selection["run_id"] != current["run_id"]
+                or brief["run_id"] != current["run_id"]
+                or selection["brief_version"] != brief["brief_version"]
+                or selection["mode"] != scan.get("mode")
+                or selection["scan_policy_version"] != scan.get("policy_version")
+                or brief["observations"] != scan.get("summary")
+            ):
+                raise store.StateError("state_conflict")
+            try:
+                policy = scanner.load_policy()
+                scanner.validate_scan_report(scan, policy)
+            except scanner.ScannerError as error:
+                raise store.StateError("state_conflict") from error
+            try:
+                checkpoint = scanner.read_checkpoint_locked(locked.root)
+                if (
+                    checkpoint.get("run_id") != current["run_id"]
+                    or checkpoint.get("last_report") != scan
+                ):
+                    raise store.StateError("state_conflict")
+                scanner.ScannerSession.from_checkpoint(
+                    project_root,
+                    current["run_id"],
+                    checkpoint,
+                    limit_overrides=checkpoint["session"]["limit_overrides"] or None,
+                )
+            except scanner.ScannerError as error:
+                raise store.StateError("state_conflict") from error
+            try:
+                context.validate_context_commit(
+                    selection,
+                    brief,
+                    scan,
+                    current,
+                    policy,
+                    canonical_brief=current.get("brief"),
+                    scan_records=checkpoint["session"]["records"],
+                )
+            except context.ContextError as error:
+                raise store.StateError("invalid_input") from error
+            state = copy.deepcopy(current)
+            _invalidate(state)
+            state["selection"] = copy.deepcopy(selection)
+            state["brief"] = copy.deepcopy(brief)
+            state["phase"] = "context_review"
+            state["intake"]["status"] = "ready"
+            state["intake"]["pending_question_id"] = None
+            state["intake"]["next_action"] = "review_context"
+            _advance_revision(state, locked, bank)
+            locked.commit(state, current)
+        scanner.remove_checkpoint_locked(locked.root, run_id=state["run_id"])
+    return _publication_success(state, operation="commit_and_publish", commit_status="saved")
+
+
 def _validate_correction_payload(payload: dict[str, Any]) -> str:
     pre = {"correction_id", "answer_id", "value", "ready"}
     post = {"correction_id", "target", "value"}
@@ -865,7 +1045,17 @@ def command_correct(project_root: Path, payload: dict[str, Any], run_id: str | N
                 raise store.StateError("invalid_input")
             previous_event = next((item for item in current["corrections"] if item["correction_id"] == payload["correction_id"]), None)
             if previous_event is not None:
-                if previous_event["target"] != payload["target"] or previous_event["sanitized_correction"] != value:
+                immediate_retry = (
+                    run_id is not None
+                    and revision is not None
+                    and current["run_id"] == run_id
+                    and current["revision"] == revision + 1
+                    and previous_event.get("expected_state_revision") == revision
+                    and previous_event.get("schema_version") == "1.1.0"
+                    and previous_event["target"] == payload["target"]
+                    and previous_event["sanitized_correction"] == value
+                )
+                if not immediate_retry:
                     raise store.StateError("state_conflict")
                 state = current
             else:
@@ -875,27 +1065,26 @@ def command_correct(project_root: Path, payload: dict[str, Any], run_id: str | N
                 assert isinstance(brief, dict)
                 from_version = brief["brief_version"]
                 target = payload["target"]
-                if target in ("goal", "success_criterion"):
-                    brief[target] = value
-                elif target == "project_stage":
-                    if value not in ("idea", "empty", "prototype", "product", "unknown"):
-                        raise store.StateError("invalid_input")
-                    brief[target] = value
-                elif target == "assumption" and value not in brief["assumptions"]:
-                    if len(brief["assumptions"]) >= 12:
-                        raise store.StateError("storage_limit")
-                    brief["assumptions"].append(value)
+                try:
+                    brief = context.apply_brief_correction(
+                        brief, target, value, payload["correction_id"]
+                    )
+                except context.ContextError as error:
+                    reason = "storage_limit" if error.reason == "brief_too_large" else "invalid_input"
+                    raise store.StateError(reason) from error
                 brief["brief_version"] = from_version + 1
                 brief["updated_at"] = store.utc_now()
-                brief["user_corrections"].append(payload["correction_id"])
-                is_context = target == "context_details"
-                invalidates = (
-                    ["selection", "request", "retrieval_result", "evidence_pack", "recommendation_memo"]
-                    if is_context else
-                    ["retrieval_result", "evidence_pack", "recommendation_memo"]
-                )
+                try:
+                    context.validate_project_context_brief(brief)
+                except context.ContextError as error:
+                    reason = "storage_limit" if error.reason == "brief_too_large" else "invalid_input"
+                    raise store.StateError(reason) from error
+                state["brief"] = brief
+                invalidates = [
+                    "selection", "request", "retrieval_result", "evidence_pack", "recommendation_memo"
+                ]
                 state["corrections"].append({
-                    "schema_version": "1.1.0" if is_context else "1.0.0",
+                    "schema_version": "1.1.0",
                     "run_id": state["run_id"],
                     "correction_id": payload["correction_id"],
                     "expected_state_revision": current["revision"],
@@ -964,6 +1153,7 @@ def command_finalize(project_root: Path, payload: dict[str, Any], run_id: str | 
                 raise store.StateError("history_integrity")
             locked.commit(state, current)
             locked.ensure_history(state, data)
+        scanner.remove_checkpoint_locked(locked.root, run_id=state["run_id"])
     return _publication_success(state, operation="commit_and_publish", commit_status="saved")
 
 
@@ -987,7 +1177,7 @@ def main(argv: list[str]) -> int:
         command, raw_root, run_id, revision = _parse_cli(argv)
         operation = "render_only" if command == "retry-publication" else "commit_and_publish"
         try:
-            payload = _read_payload()
+            payload = _read_payload(command)
         except (UnicodeDecodeError, json.JSONDecodeError, ValueError):
             if command == "preflight":
                 result = _preflight_result(
@@ -1016,6 +1206,10 @@ def main(argv: list[str]) -> int:
             result = command_resume(project_root, payload, run_id, revision)
         elif command == "correct":
             result = command_correct(project_root, payload, run_id, revision)
+        elif command == "commit-scan":
+            result = command_commit_scan(project_root, payload, run_id, revision)
+        elif command == "commit-context":
+            result = command_commit_context(project_root, payload, run_id, revision)
         elif command == "finalize":
             result = command_finalize(project_root, payload, run_id, revision)
         else:

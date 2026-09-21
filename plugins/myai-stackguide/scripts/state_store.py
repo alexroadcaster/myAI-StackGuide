@@ -34,6 +34,8 @@ MAX_TOTAL_BYTES = 268_435_456
 MAX_FILE_ENTRIES = 128
 MAX_HISTORY = 100
 LOCK_WAIT_SECONDS = 2.0
+STORAGE_POLICY_VERSION = "1.1.0"
+LEGACY_STORAGE_POLICY_VERSION = "1.0.0"
 
 STATE_OWNER = "myai-stackguide.state.v1"
 HTML_OWNER = "myai-stackguide.status.v1"
@@ -210,8 +212,16 @@ def validate_state(state: Any, *, writable: bool = False) -> dict[str, Any]:
         raise StateError("state_incompatible")
     if writable and version != "1.1.0":
         raise StateError("state_incompatible")
-    if state.get("owner_marker") != STATE_OWNER or state.get("storage_policy_version") != "1.0.0":
+    storage_policy_version = state.get("storage_policy_version")
+    if state.get("owner_marker") != STATE_OWNER:
         raise StateError("state_invalid")
+    if version == "1.0.0":
+        if storage_policy_version != LEGACY_STORAGE_POLICY_VERSION:
+            raise StateError("state_invalid")
+    elif storage_policy_version not in (LEGACY_STORAGE_POLICY_VERSION, STORAGE_POLICY_VERSION):
+        raise StateError("state_invalid")
+    if writable and storage_policy_version != STORAGE_POLICY_VERSION:
+        raise StateError("state_incompatible")
     if not _valid_uuid(state.get("run_id")):
         raise StateError("state_invalid")
     predecessor = state.get("predecessor_run_id")

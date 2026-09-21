@@ -1,6 +1,6 @@
 {
-  "schema_version": "1.1.0",
-  "policy_id": "local-scan-v1.1",
+  "schema_version": "1.3.0",
+  "policy_id": "local-scan-v1.3",
   "platform": "windows_local_disk",
   "source_access": "bounded_relevant_context",
   "network": false,
@@ -8,19 +8,19 @@
   "install_dependencies": false,
   "modes": {
     "quick": {
-      "max_files": 250,
-      "max_bytes": 33554432,
-      "max_seconds": 60
-    },
-    "standard": {
       "max_files": 2000,
       "max_bytes": 268435456,
-      "max_seconds": 480
+      "max_seconds": 120
+    },
+    "standard": {
+      "max_files": 30000,
+      "max_bytes": 2147483648,
+      "max_seconds": 1200
     },
     "deep": {
-      "max_files": 10000,
-      "max_bytes": 2147483648,
-      "max_seconds": 1800
+      "max_files": 100000,
+      "max_bytes": 8589934592,
+      "max_seconds": 4000
     }
   },
   "topology": {
@@ -111,7 +111,9 @@
   "denied_segments": [
     ".git",
     ".codex",
+    ".codex-tmp",
     ".agents",
+    ".chub",
     ".ssh",
     ".aws",
     ".azure",
@@ -119,10 +121,20 @@
     ".gnupg",
     ".venv",
     "venv",
+    ".pytest_cache",
+    ".ruff_cache",
+    ".runtime",
+    ".tmp",
+    ".worktrees",
+    ".wrangler",
     "node_modules",
     "vendor",
+    "site-packages",
     "dist",
     "build",
+    ".next",
+    "target",
+    "outputs",
     "coverage",
     "__pycache__",
     "logs",

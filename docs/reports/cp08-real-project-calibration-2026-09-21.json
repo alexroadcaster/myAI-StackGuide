@@ -1,0 +1,186 @@
+{
+  "report_version": "1.1.0",
+  "observed_at": "2026-09-21",
+  "timezone": "Europe/Moscow",
+  "scope": "CP-08 confirmed standard-to-deep read-only calibration",
+  "evidence_ceiling": "Three local real-project standard-to-deep runs, fresh-instance checkpoint restore, aggregate context composition and focused synthetic regressions. This is not quick-mode, universal-project, human-usefulness, performance-SLA, release, or host-wide-isolation evidence.",
+  "method": {
+    "mode_sequence": ["standard", "deep"],
+    "deep_authorization": "explicitly_confirmed_by_owner_after_visible_standard_gaps",
+    "counters": "cumulative_within_each_run",
+    "network": false,
+    "project_execution": false,
+    "dependency_install": false,
+    "persistent_target_write": false,
+    "output_minimization": "Only aliases, aggregate counters, typed reason codes, byte sizes, source buckets, and continuation status were retained. Absolute roots, selected paths, excerpts, source content, environment values, and root fingerprints were not retained.",
+    "checkpoint_check": "Exported in memory, compact-JSON round-tripped, and restored into a fresh ScannerSession without writing the sidecar to the target project.",
+    "context_check": "Selected and read only scan-backed safe references from the remaining deep cumulative budget. Usefulness is aggregate structural evidence, not human judgment."
+  },
+  "results": [
+    {
+      "project_alias": "current-catalog",
+      "standard": {
+        "status": "partial",
+        "classification": "large_or_monorepo",
+        "reason_codes": ["budget_reached", "excluded_sources"],
+        "file_attempts": 2000,
+        "bytes_consumed": 15066319,
+        "elapsed_ms": 12278
+      },
+      "deep": {
+        "status": "partial",
+        "classification": "standard",
+        "reason_codes": ["excluded_sources"],
+        "visited_entries": 5840,
+        "eligible_files": 5694,
+        "file_attempts": 5694,
+        "bytes_consumed": 92292401,
+        "elapsed_ms": 27995,
+        "manifest_count": 0,
+        "service_roots": 0,
+        "workspace_declared": false,
+        "topology_complete": true,
+        "budget_reached": false,
+        "incremental_file_attempts": 3694,
+        "incremental_bytes": 77226082,
+        "incremental_elapsed_ms": 15717
+      },
+      "excluded_counts": {"generated": 5, "sensitive": 9, "unsupported": 59, "unsafe_path": 0},
+      "report_bytes": 117226,
+      "checkpoint": {
+        "status": "restored_transiently",
+        "bytes": 1476422,
+        "counter_continuity": true,
+        "topology_complete_after_restore": false
+      },
+      "targeted_context": {
+        "status": "composed",
+        "selected_files": 12,
+        "selection_backed": 12,
+        "bytes_read": 108637,
+        "model_context_bytes": 65536,
+        "truncated": true,
+        "brief_bytes": 6183,
+        "brief_status": "partial",
+        "source_buckets": {"source_or_config": 12},
+        "goal_term_path_matches": 0,
+        "structural_usefulness": "structurally_useful"
+      }
+    },
+    {
+      "project_alias": "SOL-0.6",
+      "standard": {
+        "status": "partial",
+        "classification": "large_or_monorepo",
+        "reason_codes": ["budget_reached", "monorepo_detected", "excluded_sources"],
+        "file_attempts": 2000,
+        "bytes_consumed": 17928836,
+        "elapsed_ms": 12648
+      },
+      "deep": {
+        "status": "partial",
+        "classification": "large_or_monorepo",
+        "reason_codes": ["monorepo_detected", "excluded_sources"],
+        "visited_entries": 6247,
+        "eligible_files": 2740,
+        "file_attempts": 2740,
+        "bytes_consumed": 114208234,
+        "elapsed_ms": 25899,
+        "manifest_count": 13,
+        "service_roots": 13,
+        "workspace_declared": false,
+        "topology_complete": true,
+        "budget_reached": false,
+        "incremental_file_attempts": 740,
+        "incremental_bytes": 96279398,
+        "incremental_elapsed_ms": 13251
+      },
+      "excluded_counts": {"generated": 7, "sensitive": 81, "unsupported": 2168, "unsafe_path": 0},
+      "report_bytes": 102065,
+      "checkpoint": {
+        "status": "restored_transiently",
+        "bytes": 656456,
+        "counter_continuity": true,
+        "topology_complete_after_restore": false
+      },
+      "targeted_context": {
+        "status": "composed",
+        "selected_files": 14,
+        "selection_backed": 14,
+        "bytes_read": 66194,
+        "model_context_bytes": 65535,
+        "truncated": true,
+        "brief_bytes": 6036,
+        "brief_status": "partial",
+        "source_buckets": {"documentation": 5, "source_or_config": 9},
+        "goal_term_path_matches": 0,
+        "structural_usefulness": "structurally_useful"
+      }
+    },
+    {
+      "project_alias": "codex_docs",
+      "standard": {
+        "status": "partial",
+        "classification": "large_or_monorepo",
+        "reason_codes": ["budget_reached", "topology_incomplete", "monorepo_detected", "excluded_sources", "encoding_error", "containment_unsupported"],
+        "file_attempts": 2000,
+        "bytes_consumed": 46146842,
+        "elapsed_ms": 24238
+      },
+      "deep": {
+        "status": "partial",
+        "classification": "large_or_monorepo",
+        "reason_codes": ["monorepo_detected", "excluded_sources", "encoding_error", "containment_unsupported"],
+        "visited_entries": 26891,
+        "eligible_files": 5913,
+        "file_attempts": 5913,
+        "bytes_consumed": 101641668,
+        "elapsed_ms": 37992,
+        "manifest_count": 83,
+        "service_roots": 81,
+        "workspace_declared": true,
+        "topology_complete": false,
+        "budget_reached": false,
+        "incremental_file_attempts": 3913,
+        "incremental_bytes": 55494826,
+        "incremental_elapsed_ms": 13754
+      },
+      "excluded_counts": {"generated": 154, "sensitive": 89, "unsupported": 18926, "unsafe_path": 59},
+      "report_bytes": 120788,
+      "checkpoint": {
+        "status": "restored_transiently",
+        "bytes": 1347513,
+        "counter_continuity": true,
+        "topology_complete_after_restore": false
+      },
+      "targeted_context": {
+        "status": "composed",
+        "selected_files": 8,
+        "selection_backed": 8,
+        "bytes_read": 700341,
+        "model_context_bytes": 65535,
+        "truncated": true,
+        "brief_bytes": 4914,
+        "brief_status": "partial",
+        "source_buckets": {"source_or_config": 8},
+        "goal_term_path_matches": 0,
+        "structural_usefulness": "structurally_useful"
+      }
+    }
+  ],
+  "findings": [
+    "The confirmed deep continuation removed the standard 2,000-file budget gap on all three measured roots: deep file attempts matched the final eligible-file count and budget_reached was false.",
+    "The projects remained partial for explicit non-budget reasons such as excluded sources, monorepo classification, encoding errors, or containment-unsupported paths; deep is therefore not presented as exhaustive.",
+    "Real deep runs exposed and repaired checkpoint duplication, independently minimized manifest/evidence joins, and an unsatisfied scan-summary-to-Brief size relationship.",
+    "After remediation all three fresh-instance checkpoints fit the unchanged 2 MiB ceiling and preserved cumulative counters; restart deliberately marks transient topology incomplete because no raw graph is persisted.",
+    "All three context selections were fully backed by retained safe scan evidence and produced a Brief under 16 KiB. Each hit the 64 KiB model-facing envelope and was truncated as designed.",
+    "The generic calibration goal terms matched no retained path names, so structural usefulness is supported but graph-guided semantic relevance and human usefulness are not established.",
+    "This three-project sample still does not cover quick mode or compact/ordinary project classes and does not justify setting policy_limits_calibrated=true."
+  ],
+  "open_gates": [
+    "Quick-mode real-project behavior is not measured.",
+    "Human review of selected context relevance and task-specific integration usefulness is not performed.",
+    "Persisted cross-process crash injection, complete CP-11 lifecycle, install, release, and publication remain unverified.",
+    "policy_limits_calibrated remains false."
+  ]
+}

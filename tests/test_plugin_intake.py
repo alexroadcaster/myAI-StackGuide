@@ -8,6 +8,9 @@ roots and the named non-secret canaries from the accepted sanitizer contract.
 
 from __future__ import annotations
 
+import copy
+import importlib
+import importlib.util
 import json
 import os
 from pathlib import Path
@@ -20,6 +23,8 @@ import unittest
 ROOT = Path(__file__).resolve().parents[1]
 PLUGIN_ROOT = ROOT / "plugins" / "myai-stackguide"
 ENTRY_POINT = PLUGIN_ROOT / "scripts" / "intake.py"
+SCANNER_ENTRY = PLUGIN_ROOT / "scripts" / "scanner.py"
+PLUGIN_SCRIPTS = SCANNER_ENTRY.parent
 STATE_RELATIVE = Path("docs/myai-stackguide/state.json")
 PREFLIGHT_SCHEMA = ROOT / "specs/runtime/runtime-preflight-result.schema.json"
 LITERAL = "STACKGUIDE_TEST_SECRET_7f4c2a90"
@@ -78,6 +83,25 @@ def assert_refs_resolve(test: unittest.TestCase, schema: dict) -> None:
                 visit(child)
 
     visit(schema)
+
+
+def load_cp08_runtime():
+    scripts = str(PLUGIN_SCRIPTS)
+    if scripts not in sys.path:
+        sys.path.insert(0, scripts)
+    scanner = importlib.import_module("scanner")
+    return scanner, scanner.context
+
+
+def load_contract_helpers():
+    spec = importlib.util.spec_from_file_location(
+        "stackguide_plugin_contract_helpers_for_intake",
+        ROOT / "tests/test_plugin_contracts.py",
+    )
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
 
 
 class IntakeContractTests(unittest.TestCase):
@@ -564,6 +588,348 @@ class IntakeRuntimeTests(unittest.TestCase):
             self.assertEqual(stale["failure_reason"], "state_conflict")
             self.assertEqual(stale["commit_status"], "not_saved")
             self.assertEqual(self.state_path(project_root).read_bytes(), second_bytes)
+
+    @unittest.skipUnless(SCANNER_ENTRY.is_file(), "CP-08 runtime entry point is not implemented")
+    def test_scan_and_context_commits_are_revisioned_idempotent_and_cleanup_checkpoint(self):
+        scanner, context = load_cp08_runtime()
+        with tempfile.TemporaryDirectory(prefix="stackguide-cp0708-commit-") as directory:
+            project_root = Path(directory)
+            (project_root / "src").mkdir()
+            (project_root / "README.md").write_text("Synthetic API project", encoding="utf-8")
+            (project_root / "src/api.py").write_text(
+                "@app.get('/items')\ndef items():\n    return []\n", encoding="utf-8"
+            )
+            for index in range(64):
+                manifest = project_root / f"packages/p{index:02d}/package.json"
+                manifest.parent.mkdir(parents=True)
+                manifest.write_text(
+                    json.dumps(
+                        {
+                            "name": f"package-{index:02d}",
+                            "dependencies": {f"dependency-{index:02d}": "1.0.0"},
+                        }
+                    ),
+                    encoding="utf-8",
+                )
+            _, state = self.start(project_root)
+            answer = {
+                "answer_id": "answer-cp08-goal",
+                "question_id": state["intake"]["pending_question_id"],
+                "status": "answered",
+                "value": "Evaluate the synthetic API integration",
+                "ready": True,
+            }
+            self.run_cli(project_root, "answer", answer, state["run_id"], state["revision"])
+            ready = load_json(self.state_path(project_root))
+            session = scanner.ScannerSession(project_root, ready["run_id"])
+            scan_result = session.scan("standard")
+            checkpoint = session.export_checkpoint(ready["revision"])
+            scan_payload = {"report": scan_result.report, "checkpoint": checkpoint}
+            output_root = project_root / "docs/myai-stackguide"
+            files_before = {path for path in output_root.rglob("*") if path.is_file()}
+            state_before = self.state_path(project_root).read_bytes()
+
+            _, conflict = self.run_cli(
+                project_root,
+                "commit-scan",
+                scan_payload,
+                ready["run_id"],
+                ready["revision"] + 1,
+            )
+            self.assertEqual(conflict["failure_reason"], "state_conflict")
+            self.assertEqual(self.state_path(project_root).read_bytes(), state_before)
+
+            _, committed = self.run_cli(
+                project_root, "commit-scan", scan_payload, ready["run_id"], ready["revision"]
+            )
+            self.assert_publication(committed)
+            self.assertEqual(committed["commit_status"], "saved")
+            scanned = load_json(self.state_path(project_root))
+            self.assertEqual(scanned["phase"], "scan")
+            self.assertEqual(scanned["scan"], scan_result.report)
+            self.assertEqual(scanned["revision"], ready["revision"] + 1)
+            checkpoint_files = {
+                path for path in output_root.rglob("*") if path.is_file()
+            } - files_before
+            self.assertTrue(checkpoint_files)
+            for path in checkpoint_files:
+                self.assertTrue(path.is_relative_to(output_root))
+                payload = path.read_bytes()
+                self.assertLessEqual(len(payload), 262_144)
+                self.assertNotIn(LITERAL.encode(), payload)
+                self.assertNotIn(b"raw_source", payload)
+                self.assertNotIn(b"excerpt", payload.lower())
+
+            scan_bytes = self.state_path(project_root).read_bytes()
+            self.run_cli(
+                project_root, "commit-scan", scan_payload, ready["run_id"], ready["revision"]
+            )
+            self.assertEqual(self.state_path(project_root).read_bytes(), scan_bytes)
+            (project_root / "src/changed.py").write_text("CHANGED = True\n", encoding="utf-8")
+            changed_session = scanner.ScannerSession(project_root, ready["run_id"])
+            changed_result = changed_session.scan("standard")
+            changed_scan = {
+                "report": changed_result.report,
+                "checkpoint": changed_session.export_checkpoint(ready["revision"]),
+            }
+            _, changed_conflict = self.run_cli(
+                project_root,
+                "commit-scan",
+                changed_scan,
+                ready["run_id"],
+                ready["revision"],
+            )
+            self.assertEqual(changed_conflict["failure_reason"], "state_conflict")
+            self.assertEqual(self.state_path(project_root).read_bytes(), scan_bytes)
+
+            selected = context.select_context(
+                scan_result,
+                brief_version=1,
+                purpose="Build the synthetic project context",
+                goal_terms=("api", "integration"),
+            )
+            transient = context.read_selected_context(session, selected)
+            brief = context.build_project_context_brief(
+                scan_result.report,
+                scanned["intake"],
+                selected.selection,
+                transient,
+                decision="evaluate",
+                updated_at="2026-09-21T12:00:00Z",
+            )
+            self.assertGreaterEqual(len(scan_result.report["summary"]["facts"]), 8)
+            self.assertGreaterEqual(len(scan_result.report["summary"]["evidence"]), 8)
+            self.assertLessEqual(len(compact_json(brief)), 16_384)
+            self.assertEqual(brief["observations"], scan_result.report["summary"])
+            context_payload = {"selection": selected.selection, "brief": brief}
+            _, context_conflict = self.run_cli(
+                project_root,
+                "commit-context",
+                context_payload,
+                scanned["run_id"],
+                scanned["revision"] + 1,
+            )
+            self.assertEqual(context_conflict["failure_reason"], "state_conflict")
+            self.assertEqual(self.state_path(project_root).read_bytes(), scan_bytes)
+
+            def assert_context_rejected(candidate):
+                _, rejected = self.run_cli(
+                    project_root,
+                    "commit-context",
+                    candidate,
+                    scanned["run_id"],
+                    scanned["revision"],
+                )
+                self.assert_publication(rejected)
+                self.assertEqual(rejected["failure_reason"], "invalid_input")
+                self.assertEqual(rejected["commit_status"], "not_saved")
+                self.assertEqual(self.state_path(project_root).read_bytes(), scan_bytes)
+
+            unknown_source = copy.deepcopy(context_payload)
+            unknown_source["selection"]["requested_sources"][0][
+                "relative_path"
+            ] = "src/not-observed.py"
+            self.assertNotIn("src/not-observed.py", scan_result.eligible_paths)
+            assert_context_rejected(unknown_source)
+
+            above_remaining_budget = copy.deepcopy(context_payload)
+            available_read_budget = min(
+                selected.remaining_budget["bytes"], 8_388_608
+            )
+            above_remaining_budget["selection"]["max_read_bytes"] = (
+                available_read_budget + 1
+            )
+            assert_context_rejected(above_remaining_budget)
+
+            unresolved_answer = copy.deepcopy(context_payload)
+            unresolved_answer["brief"]["details"]["problem"]["answer_ids"] = [
+                "answer-missing"
+            ]
+            assert_context_rejected(unresolved_answer)
+
+            unresolved_evidence = copy.deepcopy(context_payload)
+            self.assertTrue(
+                unresolved_evidence["brief"]["details"]["current_behavior"][
+                    "evidence_refs"
+                ]
+            )
+            unresolved_evidence["brief"]["details"]["current_behavior"][
+                "evidence_refs"
+            ] = ["ev-missing"]
+            assert_context_rejected(unresolved_evidence)
+
+            intake_mismatch = copy.deepcopy(context_payload)
+            intake_mismatch["brief"]["goal"] = "Goal absent from canonical intake"
+            assert_context_rejected(intake_mismatch)
+
+            _, context_commit = self.run_cli(
+                project_root,
+                "commit-context",
+                context_payload,
+                scanned["run_id"],
+                scanned["revision"],
+            )
+            self.assert_publication(context_commit)
+            contextual = load_json(self.state_path(project_root))
+            self.assertEqual(contextual["phase"], "context_review")
+            self.assertEqual(contextual["scan"], scan_result.report)
+            self.assertEqual(contextual["selection"], selected.selection)
+            self.assertEqual(contextual["brief"], brief)
+            self.assertEqual(
+                contextual["brief"]["observations"],
+                scan_result.report["summary"],
+            )
+            context_bytes = self.state_path(project_root).read_bytes()
+            self.run_cli(
+                project_root,
+                "commit-context",
+                context_payload,
+                scanned["run_id"],
+                scanned["revision"],
+            )
+            self.assertEqual(self.state_path(project_root).read_bytes(), context_bytes)
+            changed_context = copy.deepcopy(context_payload)
+            changed_context["brief"]["goal"] = "Conflicting synthetic goal"
+            _, stale = self.run_cli(
+                project_root,
+                "commit-context",
+                changed_context,
+                scanned["run_id"],
+                scanned["revision"],
+            )
+            self.assertEqual(stale["failure_reason"], "state_conflict")
+            self.assertEqual(self.state_path(project_root).read_bytes(), context_bytes)
+            with self.assertRaises(scanner.ScannerError) as cleaned:
+                scanner.load_checkpoint(
+                    project_root,
+                    contextual["run_id"],
+                    contextual["revision"],
+                )
+            self.assertEqual(cleaned.exception.reason, "checkpoint_missing")
+
+        with tempfile.TemporaryDirectory(prefix="stackguide-cp0708-terminal-") as directory:
+            project_root = Path(directory)
+            (project_root / "README.md").write_text("Terminal cleanup", encoding="utf-8")
+            _, state = self.start(project_root)
+            self.run_cli(
+                project_root,
+                "answer",
+                {
+                    "answer_id": "answer-terminal-cleanup",
+                    "question_id": state["intake"]["pending_question_id"],
+                    "status": "answered",
+                    "value": "Synthetic terminal cleanup",
+                    "ready": True,
+                },
+                state["run_id"],
+                state["revision"],
+            )
+            state = load_json(self.state_path(project_root))
+            session = scanner.ScannerSession(project_root, state["run_id"])
+            scan_result = session.scan("standard")
+            payload = {
+                "report": scan_result.report,
+                "checkpoint": session.export_checkpoint(state["revision"]),
+            }
+            self.run_cli(
+                project_root, "commit-scan", payload, state["run_id"], state["revision"]
+            )
+            scanned = load_json(self.state_path(project_root))
+            scanner.load_checkpoint(project_root, scanned["run_id"], scanned["revision"])
+            self.run_cli(
+                project_root,
+                "finalize",
+                expected_run_id=scanned["run_id"],
+                expected_revision=scanned["revision"],
+            )
+            finalized = load_json(self.state_path(project_root))
+            with self.assertRaises(scanner.ScannerError) as cleaned:
+                scanner.load_checkpoint(project_root, finalized["run_id"], finalized["revision"])
+            self.assertEqual(cleaned.exception.reason, "checkpoint_missing")
+
+    def test_post_brief_correction_targets_mutate_domain_and_normalize_dependencies(self):
+        helpers = load_contract_helpers()
+        invalidates = [
+            "selection",
+            "request",
+            "retrieval_result",
+            "evidence_pack",
+            "recommendation_memo",
+        ]
+        cases = (
+            "constraints",
+            "observation_interpretation",
+            "context_details",
+        )
+        for target in cases:
+            with self.subTest(target=target), tempfile.TemporaryDirectory(
+                prefix=f"stackguide-cp07-correction-{target}-"
+            ) as directory:
+                project_root = Path(directory)
+                output_root = project_root / "docs/myai-stackguide"
+                output_root.mkdir(parents=True)
+                state = helpers.workspace_baseline()
+                state.update(
+                    status="active",
+                    phase="context_review",
+                    revision=7,
+                    content_revision=3,
+                    html_revision=None,
+                    corrections=[],
+                )
+                state["intake"]["next_action"] = "review_context"
+                state["brief"]["user_corrections"] = []
+                helpers.rebind_presentation(state)
+                helpers.check_bundle(state)
+                self.state_path(project_root).write_bytes(compact_json(state))
+                scan_before = compact_json(state["scan"])
+                observations_before = compact_json(state["brief"]["observations"])
+                if target == "constraints":
+                    expected_constraints = copy.deepcopy(state["brief"]["constraints"])
+                    expected_constraints["languages"] = ["Rust"]
+                    value = compact_json(expected_constraints).decode("utf-8")
+                elif target == "observation_interpretation":
+                    value = "Synthetic corrected current behavior"
+                else:
+                    value = compact_json(
+                        {"field": "target_user", "text": "Synthetic platform operators"}
+                    ).decode("utf-8")
+                payload = {
+                    "correction_id": f"correction-{target}",
+                    "target": target,
+                    "value": value,
+                }
+                _, outcome = self.run_cli(
+                    project_root,
+                    "correct",
+                    payload,
+                    state["run_id"],
+                    state["revision"],
+                )
+                self.assert_publication(outcome)
+                corrected = load_json(self.state_path(project_root))
+                self.assertEqual(corrected["phase"], "context_review")
+                self.assertEqual(corrected["intake"]["next_action"], "review_context")
+                self.assertEqual(corrected["brief"]["brief_version"], state["brief"]["brief_version"] + 1)
+                self.assertEqual(compact_json(corrected["scan"]), scan_before)
+                self.assertEqual(compact_json(corrected["brief"]["observations"]), observations_before)
+                if target == "constraints":
+                    self.assertEqual(corrected["brief"]["constraints"], expected_constraints)
+                elif target == "observation_interpretation":
+                    claim = corrected["brief"]["details"]["current_behavior"]
+                    self.assertEqual((claim["text"], claim["kind"]), (value, "inference"))
+                else:
+                    self.assertEqual(
+                        corrected["brief"]["details"]["target_user"]["text"],
+                        "Synthetic platform operators",
+                    )
+                for key in ("selection", "request", "retrieval", "evidence_pack", "memo"):
+                    self.assertIsNone(corrected[key])
+                event = corrected["corrections"][-1]
+                self.assertEqual(event["schema_version"], "1.1.0")
+                self.assertEqual(event["target"], target)
+                self.assertEqual(event["invalidates"], invalidates)
+                self.assertFalse(event["observed_facts_mutated"])
 
 
 if __name__ == "__main__":

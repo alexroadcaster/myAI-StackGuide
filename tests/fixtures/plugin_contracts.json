@@ -3,6 +3,11 @@
   "corpus_kind": "synthetic_fixture",
   "evidence_ceiling": "Contract examples only. Names, dates, index version and hashes are synthetic; no GitHub lookup, project scan, SQLite query or installation occurred.",
   "serialization": "sorted_keys_compact_json_ensure_ascii_false_allow_nan_false",
+  "derived_positive_contracts": [
+    "scanner/scanner-restart-checkpoint.schema.json",
+    "runtime/scan-commit-request.schema.json",
+    "runtime/context-commit-request.schema.json"
+  ],
   "positive": {
     "intake/interview-answer.schema.json": {
       "schema_version": "1.0.0",
@@ -42,8 +47,8 @@
       "assumptions": []
     },
     "scanner/scan-policy.schema.json": {
-      "schema_version": "1.1.0",
-      "policy_id": "local-scan-v1.1",
+      "schema_version": "1.3.0",
+      "policy_id": "local-scan-v1.3",
       "platform": "windows_local_disk",
       "source_access": "bounded_relevant_context",
       "network": false,
@@ -51,19 +56,19 @@
       "install_dependencies": false,
       "modes": {
         "quick": {
-          "max_files": 250,
-          "max_bytes": 33554432,
-          "max_seconds": 60
-        },
-        "standard": {
           "max_files": 2000,
           "max_bytes": 268435456,
-          "max_seconds": 480
+          "max_seconds": 120
+        },
+        "standard": {
+          "max_files": 30000,
+          "max_bytes": 2147483648,
+          "max_seconds": 1200
         },
         "deep": {
-          "max_files": 10000,
-          "max_bytes": 2147483648,
-          "max_seconds": 1800
+          "max_files": 100000,
+          "max_bytes": 8589934592,
+          "max_seconds": 4000
         }
       },
       "topology": {
@@ -154,7 +159,9 @@
       "denied_segments": [
         ".git",
         ".codex",
+        ".codex-tmp",
         ".agents",
+        ".chub",
         ".ssh",
         ".aws",
         ".azure",
@@ -162,10 +169,20 @@
         ".gnupg",
         ".venv",
         "venv",
+        ".pytest_cache",
+        ".ruff_cache",
+        ".runtime",
+        ".tmp",
+        ".worktrees",
+        ".wrangler",
         "node_modules",
         "vendor",
+        "site-packages",
         "dist",
         "build",
+        ".next",
+        "target",
+        "outputs",
         "coverage",
         "__pycache__",
         "logs",
@@ -220,7 +237,7 @@
     "scanner/scan-manifest.schema.json": {
       "schema_version": "1.1.0",
       "run_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
-      "policy_version": "1.1.0",
+      "policy_version": "1.3.0",
       "mode": "quick",
       "root_ref": "selected-project",
       "files": [
@@ -254,14 +271,14 @@
     "scanner/scan-report.schema.json": {
       "schema_version": "1.1.0",
       "run_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
-      "policy_version": "1.1.0",
+      "policy_version": "1.3.0",
       "mode": "quick",
       "status": "complete",
       "classification": "compact",
       "manifest": {
         "schema_version": "1.1.0",
         "run_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
-        "policy_version": "1.1.0",
+        "policy_version": "1.3.0",
         "mode": "quick",
         "root_ref": "selected-project",
         "files": [
@@ -469,7 +486,7 @@
       "authorization_scope": "existing_user_host_permissions",
       "content_delivery": "transient_host_context",
       "persistence": "references_only",
-      "scan_policy_version": "1.1.0",
+      "scan_policy_version": "1.3.0",
       "charge_to_scan_budget": true
     },
     "context/user-corrections.schema.json": {
@@ -1719,7 +1736,7 @@
         "authorization_scope": "existing_user_host_permissions",
         "content_delivery": "transient_host_context",
         "persistence": "references_only",
-        "scan_policy_version": "1.1.0",
+        "scan_policy_version": "1.3.0",
         "charge_to_scan_budget": true
       },
       "request": {
@@ -2803,7 +2820,7 @@
         "authorization_scope": "existing_user_host_permissions",
         "content_delivery": "transient_host_context",
         "persistence": "references_only",
-        "scan_policy_version": "1.1.0",
+        "scan_policy_version": "1.3.0",
         "charge_to_scan_budget": true
       },
       "request": {
@@ -3432,19 +3449,19 @@
       "corrections": [],
       "html_revision": 2,
       "history": [],
-      "storage_policy_version": "1.0.0",
+      "storage_policy_version": "1.1.0",
       "content_revision": 1,
       "scan": {
         "schema_version": "1.1.0",
         "run_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
-        "policy_version": "1.1.0",
+        "policy_version": "1.3.0",
         "mode": "quick",
         "status": "complete",
         "classification": "compact",
         "manifest": {
           "schema_version": "1.1.0",
           "run_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
-          "policy_version": "1.1.0",
+          "policy_version": "1.3.0",
           "mode": "quick",
           "root_ref": "selected-project",
           "files": [

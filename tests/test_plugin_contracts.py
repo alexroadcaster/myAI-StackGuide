@@ -47,7 +47,69 @@ def file_digest(path):
 
 
 FIXTURES = load('tests/fixtures/plugin_contracts.json')
-POSITIVE = FIXTURES['positive']
+POSITIVE = copy.deepcopy(FIXTURES['positive'])
+
+
+def add_derived_runtime_positives():
+    report = copy.deepcopy(POSITIVE['scanner/scan-report.schema.json'])
+    checkpoint = {
+        'schema_version': '1.1.0',
+        'owner_marker': 'myai-stackguide.scan-checkpoint.v1',
+        'checkpoint_id': 'checkpoint-' + ('a' * 32),
+        'run_id': report['run_id'],
+        'root_ref': 'selected-project',
+        'root_fingerprint': 'b' * 64,
+        'policy_id': 'local-scan-v1.3',
+        'policy_version': '1.3.0',
+        'policy_sha256': 'c' * 64,
+        'expected_state_revision': 1,
+        'committed_state_revision': 2,
+        'mode': report['mode'],
+        'last_report': copy.deepcopy(report),
+        'session': {
+            'pending_dirs': [],
+            'depth_deferred': [],
+            'candidate_files': [],
+            'records': [],
+            'read_paths': [],
+            'excluded_counts': copy.deepcopy(report['manifest']['excluded_counts']),
+            'oversized': [],
+            'service_root_count': report['manifest']['counters']['service_roots'],
+            'workspace_declared': report['manifest']['counters']['workspace_declared'],
+            'reasons': [],
+            'warnings': [],
+            'checkpoints': [],
+            'last_checkpoint_files': report['manifest']['counters']['file_attempts'],
+            'last_checkpoint_bytes': report['manifest']['counters']['bytes_consumed'],
+            'visited_entries': report['manifest']['counters']['visited_entries'],
+            'file_attempts': report['manifest']['counters']['file_attempts'],
+            'bytes_consumed': report['manifest']['counters']['bytes_consumed'],
+            'active_seconds': report['manifest']['counters']['elapsed_ms'] / 1000,
+            'topology_seconds': 0,
+            'topology_complete': report['manifest']['counters']['topology_complete'],
+            'limit_overrides': {},
+        },
+    }
+    derived = {
+        'scanner/scanner-restart-checkpoint.schema.json': checkpoint,
+        'runtime/scan-commit-request.schema.json': {
+            'report': copy.deepcopy(report),
+            'checkpoint': copy.deepcopy(checkpoint),
+        },
+        'runtime/context-commit-request.schema.json': {
+            'selection': copy.deepcopy(POSITIVE['context/context-selection.schema.json']),
+            'brief': copy.deepcopy(
+                FIXTURES['workspace_positive']['context/project-context-brief.schema.json']
+            ),
+        },
+    }
+    require_keys = set(FIXTURES['derived_positive_contracts'])
+    if set(derived) != require_keys or require_keys & set(POSITIVE):
+        raise RuntimeError('derived positive contract registry mismatch')
+    POSITIVE.update(derived)
+
+
+add_derived_runtime_positives()
 POLICY = load('specs/retrieval/retrieval-policy.json')
 SCAN_POLICY = load('specs/scanner/scan-policy.yaml')
 TAXONOMY = load('specs/catalog/taxonomy.yaml')
@@ -844,11 +906,11 @@ class SchemaContracts(unittest.TestCase):
     def validator(self, path):
         return self.validator_type(SCHEMAS[path], registry=self.registry, format_checker=self.checker)
 
-    def test_all_twenty_three_schemas_preserve_legacy_and_add_workspace_examples(self):
+    def test_all_twenty_six_schemas_preserve_legacy_and_add_workspace_examples(self):
         actual = {str(path.relative_to(ROOT / 'specs')).replace('\\', '/')
                   for path in (ROOT / 'specs').rglob('*.schema.json')}
         self.assertEqual(actual, set(POSITIVE))
-        self.assertEqual(len(actual), 23)
+        self.assertEqual(len(actual), 26)
         for path, schema in SCHEMAS.items():
             with self.subTest(schema=path):
                 Draft202012Validator.check_schema(schema)
@@ -1098,15 +1160,21 @@ class SemanticContracts(unittest.TestCase):
 
     def test_quick_scan_cannot_use_deep_budget(self):
         report = copy.deepcopy(POSITIVE['scanner/scan-report.schema.json'])
-        report['manifest']['counters']['file_attempts'] = 251
+        report['manifest']['counters']['file_attempts'] = 2001
         with self.assertRaisesRegex(ValueError, 'scan mode budget'):
             check_scan(report)
 
     def test_cp08_expanded_mode_limits_are_exact_and_mode_specific(self):
+        actual_schemas = {
+            str(path.relative_to(ROOT / 'specs')).replace('\\', '/')
+            for path in (ROOT / 'specs').rglob('*.schema.json')
+        }
+        self.assertEqual(set(POSITIVE), actual_schemas)
+        self.assertEqual(len(POSITIVE), 26)
         self.assertEqual(SCAN_POLICY['modes'], {
-            'quick': {'max_files': 250, 'max_bytes': 33554432, 'max_seconds': 60},
-            'standard': {'max_files': 2000, 'max_bytes': 268435456, 'max_seconds': 480},
-            'deep': {'max_files': 10000, 'max_bytes': 2147483648, 'max_seconds': 1800},
+            'quick': {'max_files': 2000, 'max_bytes': 268435456, 'max_seconds': 120},
+            'standard': {'max_files': 30000, 'max_bytes': 2147483648, 'max_seconds': 1200},
+            'deep': {'max_files': 100000, 'max_bytes': 8589934592, 'max_seconds': 4000},
         })
         self.assertEqual(SCAN_POLICY['topology'], {
             'quick': {'max_entries': 50000, 'max_depth': 20, 'max_seconds': 20},
@@ -1120,6 +1188,18 @@ class SemanticContracts(unittest.TestCase):
             {mode: limits['max_model_context_bytes']
              for mode, limits in SCAN_POLICY['targeted_context'].items() if isinstance(limits, dict)},
             {'quick': 24576, 'standard': 49152, 'deep': 65536},
+        )
+        manifest_counters = SCHEMAS['scanner/scan-manifest.schema.json']['properties']['counters']['properties']
+        self.assertEqual(manifest_counters['file_attempts']['maximum'], 100000)
+        self.assertEqual(manifest_counters['bytes_consumed']['maximum'], 8589934592)
+        checkpoint_session = load(
+            'specs/scanner/scanner-restart-checkpoint.schema.json'
+        )['$defs']['session']['properties']
+        self.assertEqual(checkpoint_session['file_attempts']['maximum'], 100000)
+        self.assertEqual(checkpoint_session['bytes_consumed']['maximum'], 8589934592)
+        self.assertEqual(
+            SCHEMAS['context/context-selection.schema.json']['properties']['scan_policy_version']['const'],
+            '1.3.0',
         )
 
     def test_unknowns_are_representable_without_invented_facts(self):
@@ -1272,6 +1352,9 @@ class SemanticContracts(unittest.TestCase):
     def test_storage_caps_and_input_allocation_are_explicit(self):
         storage = SCHEMAS['artifact/project-artifact-state.schema.json']['$defs']['storagePolicy']['const']
         self.assertEqual(storage['max_state_bytes'], 2 * 1024 * 1024)
+        self.assertEqual(storage['policy_version'], '1.1.0')
+        self.assertEqual(storage['max_checkpoint_bytes'], 64 * 1024 * 1024)
+        self.assertEqual(storage['json_slot_max_bytes'], 64 * 1024 * 1024)
         self.assertEqual(storage['max_finalized_runs'], 100)
         self.assertEqual(storage['max_total_bytes'], 256 * 1024 * 1024)
         self.assertFalse(storage['auto_delete'])
