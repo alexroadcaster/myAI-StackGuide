@@ -1091,16 +1091,36 @@ class SemanticContracts(unittest.TestCase):
         self.assertEqual(classification(counts), 'large_or_monorepo')
         counts.update(eligible_files=0, service_roots=0)
         self.assertEqual(classification(counts), 'idea_or_empty')
-        counts.update(eligible_files=500, manifest_count=5, service_roots=1)
+        counts.update(eligible_files=2000, manifest_count=12, service_roots=1)
         self.assertEqual(classification(counts), 'compact')
-        counts['eligible_files'] = 501
+        counts['eligible_files'] = 2001
         self.assertEqual(classification(counts), 'standard')
 
     def test_quick_scan_cannot_use_deep_budget(self):
         report = copy.deepcopy(POSITIVE['scanner/scan-report.schema.json'])
-        report['manifest']['counters']['file_attempts'] = 51
+        report['manifest']['counters']['file_attempts'] = 251
         with self.assertRaisesRegex(ValueError, 'scan mode budget'):
             check_scan(report)
+
+    def test_cp08_expanded_mode_limits_are_exact_and_mode_specific(self):
+        self.assertEqual(SCAN_POLICY['modes'], {
+            'quick': {'max_files': 250, 'max_bytes': 33554432, 'max_seconds': 60},
+            'standard': {'max_files': 2000, 'max_bytes': 268435456, 'max_seconds': 480},
+            'deep': {'max_files': 10000, 'max_bytes': 2147483648, 'max_seconds': 1800},
+        })
+        self.assertEqual(SCAN_POLICY['topology'], {
+            'quick': {'max_entries': 50000, 'max_depth': 20, 'max_seconds': 20},
+            'standard': {'max_entries': 250000, 'max_depth': 40, 'max_seconds': 90},
+            'deep': {'max_entries': 1000000, 'max_depth': 50, 'max_seconds': 300},
+        })
+        self.assertEqual(SCAN_POLICY['max_file_bytes'], {
+            'quick': 1048576, 'standard': 2097152, 'deep': 4194304,
+        })
+        self.assertEqual(
+            {mode: limits['max_model_context_bytes']
+             for mode, limits in SCAN_POLICY['targeted_context'].items() if isinstance(limits, dict)},
+            {'quick': 24576, 'standard': 49152, 'deep': 65536},
+        )
 
     def test_unknowns_are_representable_without_invented_facts(self):
         check_card(sparse_card())

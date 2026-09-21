@@ -62,22 +62,29 @@ CP-07 state helpers are shared; no parallel state implementation. CP-06 derives 
 
 These are selected conservative engineering limits, not measured speed or quality promises. CP-03 encodes them in the policy; CP-08 supplies boundary evidence. Depth selection and repository classification are separate fields. Raising limits requires an explicit policy change, not an automatic retry or a model decision.
 
+Mode selection is deterministic. `standard` is the default for an in-scope user-requested project scan when no mode is named. `quick` is used only when the user explicitly requests a fast overview. `deep` is an explicit bounded expansion after the current result exposes a material coverage/context gap and Codex explains why more reading may help; Codex may recommend it but cannot silently select it. Classification is an output and never changes the mode. Escalation keeps the same run/root/evidence and uses cumulative totals: prior attempts, bytes and active scanner elapsed time count against the higher ceiling. Human/Codex waiting time is not active scanner time. No limit automatically triggers another pass.
+
 | Control | Selected value |
 | --- | --- |
-| `quick` reads | 50 files; 2 MiB text; 10 seconds total |
-| `standard` reads | 200 files; 10 MiB text; 30 seconds total |
-| `deep` reads | Up to 500 files; 30 MiB text; 90 seconds total, including standard work; no repeated reset of counters |
-| Topology, all depths | At most 10,000 visited directory entries, depth 12 below project root, 5 seconds; also charged to total time |
-| Individual file | At most 512 KiB bytes; no truncated source passed off as a complete file |
+| `quick` reads | 250 files; 32 MiB text; 60 seconds total |
+| `standard` reads | 2,000 files; 256 MiB text; 480 seconds total |
+| `deep` reads | Up to 10,000 files; 2 GiB text; 1,800 seconds total, including prior work; no repeated reset of counters |
+| `quick` topology/file | 50,000 visited entries; depth 20; 20 seconds; 1 MiB per file |
+| `standard` topology/file | 250,000 visited entries; depth 40; 90 seconds; 2 MiB per file |
+| `deep` topology/file | 1,000,000 visited entries; depth 50; 300 seconds; 4 MiB per file |
 | Sanitized scanner response | At most 256 KiB UTF-8 JSON; retain aggregate gaps if detailed observations do not fit |
 
 Use monotonic deadlines and check cancellation/budgets before enumeration, opening, reading and parsing, and between bounded chunks. File/byte counters include unsuccessful attempted reads and bytes consumed before a rejection; file attempts never exceed the cap. A single blocking OS operation may overrun a cooperative deadline; no hard realtime guarantee is claimed. Do not walk excluded subtrees. Count every visited entry before exclusions, but expose only safe aggregate exclusion counts. Do not enumerate or sort an unbounded directory before applying the entry cap.
 
+Topology and individual-file limits are mode-specific; escalation raises them only to the selected cumulative profile and never relaxes sensitive-source or containment rules. At 80% of a file/byte/time/topology ceiling, emit a warning in the current result. A `deep` continuation records progress, coverage and remaining gaps after at most each 2,000 additional file attempts or 256 MiB consumed; checkpoints do not reset counters or create extra allowance. CP-08 must measure the selected profiles on named representative projects/fixtures and report visited entries, eligible/attempted files, consumed bytes, active time, manifest/service-root counts, completion reason and whether the output was useful. The owner accepted the expanded v1.1 ceilings after a 30-repository catalog stress sample, but `policy_limits_calibrated=false` remains until real scanner measurements and owner acceptance exist.
+
 An eligible file is a regular, contained file admitted by the CP-03 policy after mandatory path/type/size exclusions; excluded/generated/binary files are not eligible. Manifest count is the number of eligible recognized manifest files, not the count of dependencies. A service root is a distinct directory containing at least one recognized application/package manifest; multiple manifests in one directory count once. Recognized formats and exclusions are source-owned by CP-03, not inferred from arbitrary filenames.
 
-Classification precedence: (1) any coverage cap, incomplete enumeration/access, or detected monorepo => `large_or_monorepo`, with a separate reason so a cap does not claim an actual monorepo; (2) complete traversal with zero eligible files => `idea_or_empty`; (3) at most 500 eligible files and five manifests => `compact`; (4) at most 5,000 eligible files, twenty manifests and twenty service roots => `standard`; otherwise `large_or_monorepo`. Monorepo detection precedes compact: a safely parsed workspace declaration or at least two distinct service roots suffices. This is a conservative heuristic, not architectural certainty; user corrections remain separate from observed facts. Unread/unparseable declarations stay unknown.
+Classification precedence: (1) any coverage cap, incomplete enumeration/access, or detected monorepo => `large_or_monorepo`, with a separate reason so a cap does not claim an actual monorepo; (2) complete traversal with zero eligible files => `idea_or_empty`; (3) at most 2,000 eligible files and twelve manifests => `compact`; (4) at most 25,000 eligible files, one hundred manifests and fifty service roots => `standard`; otherwise `large_or_monorepo`. Monorepo detection precedes compact: a safely parsed workspace declaration or at least two distinct service roots suffices. This is a conservative heuristic, not architectural certainty; user corrections remain separate from observed facts. Unread/unparseable declarations stay unknown.
 
 At any cap, cancellation, denied path or invalid encoding, show `coverage_partial` and reason codes, missing areas and reduced confidence; never label an incompletely enumerated project empty. Deep is only an explicitly selected expansion and does not authorize broader file types or sensitive-source exceptions.
+
+CP-08 may construct a transient typed directed multigraph after containment/exclusion checks and allowlisted parsing. Nodes represent only observed project/service roots, manifests, internal packages and API/storage/deployment/test/integration surfaces; edges carry evidence references and observed/inferred status. Deterministic weak/strong components, cycle condensation, topological generations and bounded ancestor/descendant traversal may rank goal-relevant context. The shipped path stays standard-library-only: no NetworkX runtime dependency, GraphRAG, embeddings, graph database, persisted raw graph or source-content cache. NetworkX may serve only as a separately prepared development reference oracle if authorized; it is not product evidence. Persist graph-derived results through existing topology facts, basis-linked inferences and gaps. Missing edges under partial coverage are unknown, not proof of independence.
 
 ## Local State, Recovery And Retention
 
@@ -170,10 +177,18 @@ instructions, existing chat, tool schemas or generated answer; CP-11/15 must
 account for that additional context. Bytes are not tokens. All limits remain
 uncalibrated initial choices.
 
-Targeted reads request at most eight relative paths, consume at most 256 KiB of
-source bytes and deliver at most 16 KiB of transient context. They share scanner
-root, exclusions, mode counters and deadlines; there is no independent budget
-reset. Persist selection references/minimized findings, not source excerpts.
+Targeted reads are mode-specific: `quick` requests at most 16 paths/1 MiB source/
+24 KiB model context, `standard` 64 paths/8 MiB/48 KiB, and `deep` 256 paths/
+64 MiB/64 KiB. They share scanner root, exclusions, mode counters and deadlines;
+there is no independent budget reset. CP-08 context is transient Brief-composition
+input and is not automatically duplicated into the later CP-09/11 request. Persist
+selection references/minimized findings, not source excerpts.
+For each resource, runtime applies the smaller of the targeted cap and the selected
+mode's remaining cumulative allowance. A follow-up selection after a user/Codex
+pause resumes cumulative counters and active elapsed time; the pause itself does
+not consume scanner time. Exhausted allowance yields a typed gap and can support a
+recommendation for an explicit higher mode, never an automatic reset. Bytes are
+measured compactly and are not token counts.
 Paths use `/` without drive letters, parent/dot segments, ADS, control characters,
 Windows device names or trailing dots/spaces. Never expand environment variables,
 `~`, wildcards or shell syntax. Lexical examples do not prove final-handle

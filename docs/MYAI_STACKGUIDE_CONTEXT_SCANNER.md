@@ -1,14 +1,42 @@
 # myAI-StackGuide Context Scanner
 
-Active owner revision: 2026-08-31. Read [PRD](PRODUCT_REQUIREMENTS.md#active-plugin-v1-requirements), [architecture](../specs/decisions/plugin-v1-architecture.md#scan-budgets-and-classification) and [permissions](../specs/decisions/plugin-v1-permissions.md). CP-03 now provides [scan policy](../specs/scanner/scan-policy.yaml), [exclusion examples](../specs/scanner/exclusion-cases.json) and typed context contracts. Their acceptance is verified at contract level; scanning and filesystem containment remain unimplemented CP-08 work.
+Active owner revision: 2026-09-21. Read [PRD](PRODUCT_REQUIREMENTS.md#active-plugin-v1-requirements), [architecture](../specs/decisions/plugin-v1-architecture.md#scan-budgets-and-classification) and [permissions](../specs/decisions/plugin-v1-permissions.md). CP-03 now provides [scan policy](../specs/scanner/scan-policy.yaml), [exclusion examples](../specs/scanner/exclusion-cases.json) and typed context contracts. The owner accepted the expanded CP-08 v1.1 ceilings after a 30-repository catalog stress sample; scanning, filesystem containment, runtime performance and limit calibration remain unimplemented CP-08 work.
 
 ## Active Local Scanner Contract
 
-The scanner gives a fast project overview to support OSS integration. Intake/manual context can serve an idea or empty project. For a real project: topology -> high-signal files -> goal-targeted relevant context -> normalized observations -> corrected Brief. The scanner is not an exclusive gateway that prevents the host from reading relevant source within actual user permissions.
+The scanner gives a fast project overview to support OSS integration. Intake/manual context can serve an idea or empty project. For a real project: safe topology enumeration -> high-signal files -> typed evidence graph -> goal-targeted relevant context -> normalized observations -> corrected Brief. The scanner is not an exclusive gateway that prevents the host from reading relevant source within actual user permissions.
 
-Retain selected quick (50 files/2 MiB/10 s), standard (200/10 MiB/30 s) and deep total (500/30 MiB/90 s) budgets. All modes share topology limits of 10,000 entries, depth 12 and 5 s charged to total, individual file cap 512 KiB and structured response cap 256 KiB. Full counter, incomplete-traversal/monorepo precedence and recovery rules remain in the ADR. These are engineering ceilings pending CP-08 evidence, not performance guarantees. CP-03 separately bounds targeted-read requests and total model-facing context; no unbounded expansion bypasses the scan policy.
+### Mode Selection And Escalation
 
-The canonical state may retain scan data before a Brief; scan=null means no retained result, not zero files. Emit explicit coverage/gaps and safe references; user corrections remain separate from observed facts. Unknown or inaccessible context should lead to a useful caveated answer when possible. Do not label partial traversal empty or infer architecture certainty from heuristics.
+`quick`, `standard` and `deep` are read-budget profiles, not repository classifications and not three automatic passes. The caller records one mode in the scan request/result; runtime validates it against the versioned policy. Repository classification is derived later from observed topology and never selects or silently raises the mode.
+
+| Mode | Selection rule | Intended use | Total ceiling for one scan lifecycle |
+| --- | --- | --- | --- |
+| `quick` | Explicit user request for a fast overview | Early orientation from manifests and highest-signal files; incomplete coverage is expected | 250 file attempts, 32 MiB consumed source bytes, 60 seconds active scanner time |
+| `standard` | Default when the user requests a project scan and does not name a mode | Normal decision-support scan for a compact or ordinary project | 2,000 file attempts, 256 MiB, 480 seconds active scanner time |
+| `deep` | Explicit user selection after Codex shows the remaining gap and explains why more local reading may help | Bounded expansion for a complex/monorepo case; never an exhaustive audit | 10,000 file attempts, 2 GiB, 1,800 seconds active scanner time |
+
+Codex may recommend `quick` or `deep`, but cannot change the limits or silently escalate to `deep`. A user request that already names the mode is the selection; otherwise `standard` is used after the normal root/purpose/budget/exclusion disclosure. Escalation `quick -> standard -> deep` reuses the same run, root, exclusions, visited evidence and counters. The higher profile is a cumulative total, not an additional allowance: for example, 200 attempts in `quick` leave at most 1,800 attempts after escalation to `standard`, then at most 8,000 more after a fully consumed `standard` result escalates to `deep`. Active scanner elapsed time is accumulated across scan/read phases; time spent waiting for the user or Codex is not scanner execution time. Hitting a limit returns partial coverage and a visible gap; it never triggers an automatic retry or escalation.
+
+Topology and per-file ceilings now scale with the selected mode: `quick` permits 50,000 visited entries/depth 20/20 seconds and 1 MiB per file; `standard` permits 250,000/depth 40/90 seconds and 2 MiB per file; `deep` permits 1,000,000/depth 50/300 seconds and 4 MiB per file. Topology time is charged to the selected mode total. The structured scanner response remains capped at 256 KiB. At 80% of any mode ceiling runtime emits a budget warning. A `deep` scan records a continuation checkpoint after at most each 2,000 additional file attempts or 256 MiB consumed. These are owner-accepted but uncalibrated engineering ceilings pending CP-08 measurements, not performance guarantees or promises that every real repository will be fully traversed.
+
+### Topology-Guided Context Selection
+
+After safe reads, CP-08 builds a transient evidence-backed directed topology: project/service roots, manifests, internal packages, API/storage/deployment/test surfaces and explicit relations such as `contains`, `depends_on`, `exposes`, `persists_to`, `deploys_as` and `tested_by`. It may use deterministic weak/strong components, cycle condensation, topological generations and bounded ancestor/descendant traversal to select useful context. This is standard-library local processing, not GraphRAG, a graph database, embeddings or a shipped NetworkX dependency.
+
+Only relations supported by allowlisted files become observed edges. Text similarity alone may propose a verification target but cannot establish a dependency. Goal terms and saved answers seed selection; evidence strength, bounded graph distance and stable relative-path ordering determine ties. Partial topology makes graph-derived conclusions inferences with explicit coverage gaps, never architectural facts.
+
+The targeted-context envelope is nested inside the selected mode rather than added on top:
+
+| Mode | Relative paths | Source-read bytes | Model-facing UTF-8 bytes |
+| --- | ---: | ---: | ---: |
+| `quick` | 16 | 1 MiB | 24 KiB |
+| `standard` | 64 | 8 MiB | 48 KiB |
+| `deep` | 256 | 64 MiB | 64 KiB |
+
+The actual read allowance is the smaller of those caps and the mode's remaining file/byte/time budget. Model-facing values are bytes, not token counts. This CP-08 material is used transiently to form/update the Brief and is not automatically carried into the later CP-09/11 recommendation request; that later call retains its separately versioned 88 KiB total input allocation. Source excerpts are not persisted; state retains minimized findings and safe evidence references. If no budget remains, CP-08 records the gap and Codex may recommend an explicit higher mode instead of resetting counters.
+
+The canonical state may retain scan data before a Brief; scan=null means no retained result, not zero files. Emit explicit coverage/gaps and safe references; user corrections remain separate from observed facts. Unknown or inaccessible context should lead to a useful caveated answer when possible. Do not label partial traversal empty, interpret an absent graph edge as proof that no dependency exists, or infer architecture certainty from heuristics.
 
 ## Active Privacy And Output Contract
 

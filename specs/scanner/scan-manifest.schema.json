@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://myai-stackguide.invalid/contracts/v1/scanner/scan-manifest.schema.json",
   "title": "Bounded scan inventory",
-  "description": "Local CP-03 v1 contract. This schema does not execute or authorize side effects.",
+  "description": "Local CP-03/CP-08 v1.1 contract. This schema does not execute or authorize side effects.",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -17,13 +17,13 @@
   ],
   "properties": {
     "schema_version": {
-      "const": "1.0.0"
+      "const": "1.1.0"
     },
     "run_id": {
       "$ref": "https://myai-stackguide.invalid/contracts/v1/context/sanitized-project-summary.schema.json#/$defs/uuid"
     },
     "policy_version": {
-      "const": "1.0.0"
+      "const": "1.1.0"
     },
     "mode": {
       "enum": [
@@ -57,7 +57,7 @@
           "size_bytes": {
             "type": "integer",
             "minimum": 0,
-            "maximum": 524288
+            "maximum": 4194304
           },
           "kind": {
             "enum": [
@@ -112,17 +112,17 @@
         "visited_entries": {
           "type": "integer",
           "minimum": 0,
-          "maximum": 10000
+          "maximum": 1000000
         },
         "file_attempts": {
           "type": "integer",
           "minimum": 0,
-          "maximum": 500
+          "maximum": 10000
         },
         "bytes_consumed": {
           "type": "integer",
           "minimum": 0,
-          "maximum": 31457280
+          "maximum": 2147483648
         },
         "elapsed_ms": {
           "type": "integer",
@@ -132,17 +132,17 @@
         "eligible_files": {
           "type": "integer",
           "minimum": 0,
-          "maximum": 10000
+          "maximum": 1000000
         },
         "manifest_count": {
           "type": "integer",
           "minimum": 0,
-          "maximum": 10000
+          "maximum": 1000000
         },
         "service_roots": {
           "type": "integer",
           "minimum": 0,
-          "maximum": 10000
+          "maximum": 1000000
         },
         "workspace_declared": {
           "type": "boolean"
@@ -168,22 +168,22 @@
         "sensitive": {
           "type": "integer",
           "minimum": 0,
-          "maximum": 10000
+          "maximum": 1000000
         },
         "generated": {
           "type": "integer",
           "minimum": 0,
-          "maximum": 10000
+          "maximum": 1000000
         },
         "unsupported": {
           "type": "integer",
           "minimum": 0,
-          "maximum": 10000
+          "maximum": 1000000
         },
         "unsafe_path": {
           "type": "integer",
           "minimum": 0,
-          "maximum": 10000
+          "maximum": 1000000
         }
       }
     }
