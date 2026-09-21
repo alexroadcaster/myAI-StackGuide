@@ -19,6 +19,8 @@ The mandatory `CP-03-C9-V2` gate passed on 2026-09-01: **46/46 CP-03 tests and 2
 
 CP-06 build/package acceptance passed on 2026-09-01. Both builder `--check` commands reproduce exactly 2,500 cards, 2,500 logical FTS rows, 2,630 typed assignments, 55 aliases and the 1,624/876 cohort split with zero rejected cards. `python -B -m unittest tests.test_plugin_catalog tests.test_plugin_search_index -v` passes **19/19**. Disposable Draft 2020-12 validation accepts **2,500/2,500** cards and the index manifest; post-build suites pass **47/47 CP-03** and **28/28 C8**, and both synthetic scorer gates keep `promotion_ready=false`. The SQLite build reports FTS5 support, passes quick/integrity/FTS consistency checks, opens with `mode=ro&immutable=1`, rejects writes and passes representative historical-alias and catalog-description smoke. These are build/package checks, not CP-09 actual query-route or relevance evidence.
 
+CP-07 bounded local implementation was owner-accepted on 2026-09-21. `C:\Python314\python.exe -B -m unittest tests.test_plugin_intake tests.test_plugin_state -v` passed **13/13**, followed by one **1/1** rerun of the existing immediate-answer-replay case after its final condition was tightened. This supports the CP-07 writer/intake/preflight handoff only. No new case or broad suite was added. Adaptive selection, interruption recovery, real rendering/retry, downstream scan/retrieval/memo schemas and the complete lifecycle remain CP-08/09/10/11 evidence.
+
 The owner authorized development-only wheel installation into TEMP. Python 3.14.6 uses `jsonschema==4.26.0`, `attrs==26.1.0`, `jsonschema-specifications==2025.9.1`, `referencing==0.37.0` and `rpds-py==2026.6.3` from `C:/Users/user/AppData/Local/Temp/stackguide-cp03-standards-n_tpu3_c/validator`. Default Python still has no importable jsonschema without this process-local path. No global Python, plugin dependency, profile or package configuration changed. TEMP is disposable: if absent, prepare a separately authorized development environment; never auto-install through the standard-library plugin.
 
 Executed from the repository in child PowerShell processes with this temporary environment (do not persist PYTHONPATH):
@@ -35,9 +37,9 @@ All commands exited 0. The full gates cover Draft 2020-12 meta-validation, offli
 
 Byte annotations and cross-document joins require explicit checks beyond JSON Schema. The referenced structurally legal >12 KiB card inside a <48 KiB pack is now a passing C8 byte regression. Synthetic HTML bytes validate a fixture receipt only, not rendering, atomic writes, locks or installed-plugin behavior. YAML policies use the JSON-compatible YAML 1.2 subset; no YAML parser was added. [Validator documentation](https://python-jsonschema.readthedocs.io/en/stable/validate/) and [offline referencing](https://python-jsonschema.readthedocs.io/en/stable/referencing/) distinguish standards/format/reference validation from custom checks. CP-03 is verified at contract level; full CP-04 quality calibration and all runtime/browser/usefulness gates remain open.
 
-## Planned Session Workspace And RU-EN Checks
+## Remaining Session Workspace And RU-EN Checks
 
-R15 and the [workspace design](docs/plan/plugin-v1-session-workspace-design.md) extend CP-03/07/10/11/15/16 acceptance. These are future checks, not executed results:
+R15 and the [workspace design](docs/plan/plugin-v1-session-workspace-design.md) extend the bounded CP-07 interface through CP-10/11/15/16 acceptance. The checks below remain future evidence unless explicitly recorded otherwise:
 
 - CP-10 follows A-D checkpoints in the approved design: common shell/RU-EN first, views 1-4, views 5-7, then History/recovery. Use the smallest relevant fixture/browser check per checkpoint and one final complete eight-view review; no repeated concept-approval gate.
 - CP-07 defines and CP-10 binds the commit/publication boundary. CP-11 verifies start -> saved answer -> scan/Brief -> actual FTS5 result -> memo -> correction/invalidation -> resume -> finalization, using one HTML path and explicit committed/published revision identity. No manual second report command is required in the normal flow.

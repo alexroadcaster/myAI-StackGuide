@@ -10,7 +10,7 @@ Deliver a local Codex plugin that turns a user goal and project context into a u
 | --- | --- | --- |
 | P0: direction and design | CP-01, CP-02 | Documentation implemented, amended to FTS5/relevant context/activity/integration; no runtime proof |
 | P1: local contracts and readiness | CP-03, CP-04, CP-05 | Recorded CP-03/C8 v1 results remain historical (46/46 and 27/27 plus CLI). `CP-03-C9-V2` is contract-verified (46/46 CP-03, 28/28 C8 and both v2 CLI gates); CP-05-C is owner-accepted at `measured_local`, while CP-04 quality calibration remains open. |
-| P2: local useful vertical slice | CP-06-CP-11 | CP-06 build/package step is implemented and verified: 2,500 self-contained cards plus paired FTS v2 index/policy/manifest. CP-07 is active for intake/state/preflight; bounded context, actual read-only v2 retrieval and integration report remain CP-08-11. |
+| P2: local useful vertical slice | CP-06-CP-11 | CP-06 build/package and bounded CP-07 intake/state/preflight are implemented at their stated ceilings. CP-08 is next; bounded context, actual read-only v2 retrieval, rendered workspace and the joined integration report remain CP-08-11. |
 | P3: optional remote extension | CP-12-CP-14 | Deferred pending a separate service/auth/consent/architecture decision; no local P4/P5 dependency |
 | P4: independent local acceptance | CP-15 | Depends on CP-04, CP-10, CP-11; held-out retrieval, privacy, rendered UI and integration usefulness; planned |
 | P5: local package and release decision | CP-16 | Depends on CP-01, CP-05, CP-06, CP-15; actual package/index/runtime/fresh-session/rollback evidence; publication separately authorized |

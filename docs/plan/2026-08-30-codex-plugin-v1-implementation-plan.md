@@ -2,11 +2,11 @@
 
 Planning date: 2026-08-30; owner revision: 2026-08-31. Timezone: `Europe/Moscow`.
 
-Document status: the detailed eight-view desktop/laptop design and RU-EN implementation scope are `owner_accepted`. CP-01/02 are implemented documentation; CP-03 addendum and bounded CP-04 C8/scorer compatibility are contract-verified; CP-04 quality calibration remains open. CP-05 source alignment and its 19-case fresh-session evidence are owner-accepted at `measured_local`. CP-07 runtime implementation is now active; no product retrieval, browser, remote integration, release or publication claim follows from this dispatch.
+Document status: the detailed eight-view desktop/laptop design and RU-EN implementation scope are `owner_accepted`. CP-01/02 are implemented documentation; CP-03 addendum and bounded CP-04 C8/scorer compatibility are contract-verified; CP-04 quality calibration remains open. CP-05 source alignment and its 19-case fresh-session evidence are owner-accepted at `measured_local`. CP-07 is owner-accepted as `implemented` at its bounded writer/intake/preflight ceiling; CP-08 is the next primary slice, while CP-09 and CP-10-A may proceed against the stable interface. No product retrieval, browser, remote integration, release or publication claim follows from CP-07 completion.
 
 ## 1. Goal, Sources, And Boundaries
 
-Owner revision: 2026-09-01. SQLite FTS5/BM25 is selected for local catalog retrieval. The product optimizes time to a useful open-source integration or modernization plan. Relevant project reads are allowed within existing permissions; the former host-wide source-isolation requirement is superseded, not technically proven. Repository activity and evidence observation are separate; the former 30-day snapshot rejection is withdrawn. CP-01/02 remain completed documentation records. The recorded CP-03 v1 contract suite (46 checks) and bounded CP-04 C8/C9 v1 join (27 checks plus both scorer CLI gates) remain historical evidence. The owner accepted `RepositoryCardV2` as the sole active public-card representation; the atomic `CP-03-C9-V2` migration is verified. CP-06 has generated and build-verified the exact 2,500-card snapshot plus paired FTS v2 index/policy/manifest; post-build validation passes 47 CP-03 checks and 28 C8 checks. CP-05-C measured all 19 local cases in blind fresh sessions with independent trace review and an exit-zero observed-packet grade; the owner accepted the packet on 2026-09-01 at the bounded `measured_local` ceiling. CP-05 is complete at that ceiling. CP-07 is in progress, while CP-04 quality calibration proceeds in a disjoint parallel lane; CP-12-CP-14 remain deferred. Actual retrieval routing, relevance, runtime, UI, install, release and publication remain unverified. Permissions are unchanged.
+Owner revision: 2026-09-01, with CP-07 closure accepted 2026-09-21. SQLite FTS5/BM25 is selected for local catalog retrieval. The product optimizes time to a useful open-source integration or modernization plan. Relevant project reads are allowed within existing permissions; the former host-wide source-isolation requirement is superseded, not technically proven. Repository activity and evidence observation are separate; the former 30-day snapshot rejection is withdrawn. CP-01/02 remain completed documentation records. The recorded CP-03 v1 contract suite (46 checks) and bounded CP-04 C8/C9 v1 join (27 checks plus both scorer CLI gates) remain historical evidence. The owner accepted `RepositoryCardV2` as the sole active public-card representation; the atomic `CP-03-C9-V2` migration is verified. CP-06 has generated and build-verified the exact 2,500-card snapshot plus paired FTS v2 index/policy/manifest; post-build validation passes 47 CP-03 checks and 28 C8 checks. CP-05-C measured all 19 local cases in blind fresh sessions with independent trace review and an exit-zero observed-packet grade; the owner accepted the packet on 2026-09-01 at the bounded `measured_local` ceiling. CP-07 is implemented at its bounded local writer/intake/preflight ceiling; CP-04 quality calibration continues and CP-08 is next. CP-12-CP-14 remain deferred. Actual CP-09 retrieval routing/relevance, CP-10 UI, joined CP-11 behavior, install, release and publication remain unverified. Permissions are unchanged.
 
 Goal: help users build or modernize their solutions faster by selecting suitable OSS components and handing off a concrete integration plan grounded in their project. The saved output is a Project Context Brief plus an offline Decision Report with comparison, integration steps, a first useful validation slice and rollback. Measured speed/quality improvements are hypotheses until evaluated.
 
@@ -175,7 +175,7 @@ Rollback preserves the previous compatible package/index and valid user state/hi
 
 ## 7. Detailed Task Matrix
 
-The task contracts below are amended to the 2026-09-01 local scope. CP-01/02 completion reports are preserved historical evidence for their original documentation runs; the amendment does not retroactively claim new tests or implementation. CP-03/04 current fields record the addendum and open acceptance gates. Their completion reports below preserve earlier first-pass/planning evidence; CP-05 source alignment and CP-06 bundle build are implemented at their stated ceilings, while CP-07-CP-16 remain future work.
+The task contracts below are amended to the 2026-09-01 local scope and the owner-accepted 2026-09-21 CP-07 boundary. CP-01/02 completion reports are preserved historical evidence for their original documentation runs; the amendment does not retroactively claim new tests or implementation. CP-03/04 current fields record the addendum and open acceptance gates. Their completion reports below preserve earlier first-pass/planning evidence; CP-05 source alignment, CP-06 bundle build and CP-07 local writer/intake/preflight are implemented at their stated ceilings, while CP-08 onward remain future work.
 
 ### Task `CP-01`
 
@@ -523,24 +523,26 @@ Completion status: `implemented_verified` at the synthetic contract-compatibilit
 ### Task `CP-07`
 
 - Task: CP-07 — implement local plugin intake, state and runtime preflight
-- Status: in_progress
+- Status: implemented
 - Schema version: task_matrix_plan_v1
 - Timezone: Europe/Moscow
 - Plan trigger: Owner revision 2026-08-31: local SQLite FTS5, relevant context, activity-aware evidence and actionable OSS integration. This task remains within the local product path.
 - Validator target: detailed task blocks
-- Date and time of task implementation: pending_execution_timestamp
+- Date and time of task implementation: 2026-09-21T12:57:07+03:00
 - Depends on: CP-02, CP-03, CP-05
 - Blocks: CP-08, CP-09, CP-10, CP-11, CP-13
 - Source: Owner decisions 2026-08-31; active PRD R01, R02, R05, R10, R13; accepted CP-02 ADRs and Section 3 registries. R15 session workspace/localization amendment and linked design addendum.
-- Short description: Create the local plugin skeleton, adaptive intake and one authoritative state writer.
+- Short description: Create the local plugin skeleton, bounded resumable intake and one authoritative state writer; CP-11 owns proof of integrated adaptive routing.
 - Technical value: Trusted interpreter and FTS5 capability checks plus revision-safe minimized state.
 - Product value: Start quickly, resume and correct answers without losing progress or requiring login.
 - Scope: Plugin Runtime Builder owns plugins/myai-stackguide/.codex-plugin/plugin.json, skills/myai-stackguide/SKILL.md, scripts/intake.py, state_store.py, sanitize.py and assets/question-bank.json under the plugin root. Quality Evaluator owns tests/test_plugin_intake.py and tests/test_plugin_state.py. No .app.json/.mcp.json/connections/hooks.
 - Non-goals: Unassigned files, model/permission changes, Git history, automatic installs, private-data disclosure or external activation. No remote architecture/runtime or vector/embedding dependency.
 - Expected result: Working local start/answer/resume/correct/finalize transitions and capability preflight; typed prerequisite errors instead of installations. State fields support later retrieval pins and integration handoff without importing unfinished retrieval code.
-- Acceptance criteria: 1-10 adaptive questions and early completion; sanitized save after each answer, correction invalidation, safe version checks; output-root containment, expected-revision locking, atomic save/recovery/immutable history, disk/sharing failure and bounded storage/retry slots from CP-02. No hidden network/project execution, raw chat persistence or public context cache. A recommendation request does not execute integration.
-- Session workspace / R15 (planned): Persist default locale/presentation revision through shared state_store.py; localize question-bank text and save/resume/error behavior. Own the normal commit-then-publish interface consumed by all phases, with separate saved/published revision outcomes, bounded render-only retry and obsolete-render rejection. A renderer fixture can test this boundary before CP-10 binds the actual renderer; coordinate shared intake/state/skill wiring sequentially. Browser preferences are not state writes; verify older-state compatibility.
+- Acceptance criteria: CP-07 supplies 1-10 deterministic bounded questions and early completion; CP-11 must prove behaviorally adaptive selection before R02 is promoted. Save sanitized state after each accepted answer, invalidate dependencies after correction and enforce safe version checks, output-root containment, expected-revision locking, atomic replacement, immutable history, fail-closed owned-pending detection and bounded storage. Automatic recovery/reuse of pending slots and the one explicit render-only retry are end-to-end CP-10/11 evidence, not current CP-07 claims. No hidden network/project execution, raw chat persistence or public context cache. A recommendation request does not execute integration.
+- Session workspace / R15 (planned): Persist default locale/presentation revision through shared state_store.py; localize question-bank text and save/resume/error behavior. Own the normal one-attempt commit-then-publish interface consumed by all phases, with separate saved/published revision outcomes, an explicit render-only retry signal and obsolete-render rejection. CP-10/11 may orchestrate one retry against the unchanged target. A renderer fixture can test this boundary before CP-10 binds the actual renderer; coordinate shared intake/state/skill wiring sequentially. Browser preferences are not state writes; verify older-state compatibility.
 - Verification gates: Targeted test_plugin_intake.py and test_plugin_state.py; actual runtime capability and no-write-outside-root evidence; V-CONTRACT compatibility.
+- Evidence boundary after bounded remediation: CP-07 validates its owned lifecycle, intake, revision, storage, history and publication-envelope surface. It does not claim complete semantic validation of later non-null scan, Brief, retrieval, evidence-pack, memo or integration-plan objects; their owning CP-08/09/10 adapters validate those schemas and the joined CP-11 lifecycle accepts cross-phase behavior.
+- Execution handoff: the owner accepted this bounded CP-07 implementation on 2026-09-21. CP-08/09/10 consumers may proceed against the stable writer/preflight interface. Do not hold downstream work for additional CP-07-only tests; final adaptive/recovery/retry behavior is accepted once in the joined CP-11 lifecycle.
 - Risks / approval gates: Preserve pre-existing dirty work and source-owned boundaries. Public research is read-only; sensitive scope, credentials, material cost, external writes, publication and destructive operations follow actual authorization. Selected caps and ranking quality are not yet measured.
 - Complexity: L
 - Estimated execution time: Re-estimate at dispatch from accepted inputs and the first bounded slice; earlier ranges are superseded by the changed FTS5/context/integration scope. No delivery commitment or provider-cost estimate.
@@ -551,19 +553,19 @@ Completion status: `implemented_verified` at the synthetic contract-compatibilit
 - Docs update path: Product Planner updates PLAN.md/task status; Quality Evaluator records TEST.md/EVALS.md evidence; Docs Maintainer appends RUNLOG.md after handoff. No unsupported completion claim.
 - Rollback: Undo only owned changes; preserve prior valid state, finalized history and compatible package/index. No automatic deletion, Git reset, permission weakening or silent retrieval fallback.
 - Stop conditions: Unexpected sensitive data or side effects, ownership overlap, incompatible accepted contract, unsafe containment, failed mandatory evidence or missing required external authorization. Routine relevant reads are not failures; report useful partial results when safe.
-- Next step: CP-10-A starts the shell after its prerequisites; CP-08/09 supply scan/context/retrieval through the same writer. CP-11 must prove actual commit/publication wiring, not only the fixture interface.
+- Next step: CP-08 is the primary next slice; CP-09 may proceed in parallel against the frozen CP-06 bundle, and CP-10-A may start the shell against accepted fixtures. CP-11 must prove actual adaptive/recovery/commit-publication wiring, not only the fixture interface.
 
 #### Completion report
 
-- status: planned
-- what was done: Task contract and dependencies revised on 2026-08-31; no task implementation executed by this plan revision.
-- files touched / work locations: Planning/control/ADR documentation only; future owned outputs are listed above.
-- technical value delivered: Implementation benefit not claimed; planned result is Trusted interpreter and FTS5 capability checks plus revision-safe minimized state.
-- product value delivered: User outcome not measured; planned result is Start quickly, resume and correct answers without losing progress or requiring login.
-- actual implementation date and time: pending_execution_timestamp
-- verification evidence: Current documentation checks belong in RUNLOG.md; no task-specific runtime, schema, index, model or release pass claimed.
-- residual risks: Upstream acceptance and task-specific evidence remain open. Remote extension and vectors are not prerequisites.
-- follow-up: CP-08 scanner, CP-09 retrieval and CP-10 renderer after their own inputs are ready.
+- status: implemented
+- what was done: Implemented the local plugin skeleton, trusted CPython/FTS5/package preflight, deterministic bounded intake with early completion, sanitized answer/correction persistence, revision-safe single-writer state, immutable finalized history and one-attempt commit/publication envelope. Bounded remediation removed unsupported generic idempotency and automatic-recovery claims, added an independent manifest trust anchor and aligned skipped/ready and correction limits. The owner accepted the bounded CP-07 completion boundary on 2026-09-21.
+- files touched / work locations: `plugins/myai-stackguide/.codex-plugin/plugin.json`, `plugins/myai-stackguide/skills/myai-stackguide/SKILL.md`, `plugins/myai-stackguide/scripts/{intake.py,state_store.py,sanitize.py}`, `plugins/myai-stackguide/assets/question-bank.json`, linked state/intake/runtime/publication contracts, focused CP-07 tests and active control documents.
+- technical value delivered: One local writer now provides trusted package/runtime preflight, expected-revision locking, atomic replacement, bounded immediate replay, minimized state validation, immutable history and explicit saved-versus-published outcomes.
+- product value delivered: A user can start, answer, stop, resume and correct a local StackGuide session without login or losing the last confirmed state; publication failure does not erase a saved answer.
+- actual implementation date and time: 2026-09-21T12:57:07+03:00
+- verification evidence: `C:\Python314\python.exe -B -m unittest tests.test_plugin_intake tests.test_plugin_state -v` passed 13/13, followed by one 1/1 rerun of the existing immediate-answer-replay case after the final condition change. `git diff --check` reported no whitespace errors; LF-to-CRLF warnings are non-fatal. No new test, broad regression, browser, retrieval-quality or model eval suite was run for closure.
+- residual risks: CP-08/09/10 still own downstream schema adapters and real scanner/retrieval/renderer behavior. CP-11 owns the joined adaptive selection, interruption recovery and one bounded render retry. CP-15/16 still own human/privacy acceptance and package/release evidence. Remote extension and vectors are not prerequisites.
+- follow-up: Begin CP-08 bounded scanner/context as the primary slice; CP-09 retrieval can proceed in parallel and CP-10-A can use accepted fixtures. Preserve the stable CP-07 interface and consolidate cross-phase behavior evidence in CP-11.
 
 ### Task `CP-08`
 

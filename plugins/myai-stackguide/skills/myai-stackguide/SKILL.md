@@ -16,8 +16,10 @@ reloadable offline projection. Report saved and published revisions separately.
 Resume the active run instead of replacing it, and use the exact expected run
 and revision supplied by the last validated state.
 
-Ask no more than ten adaptive questions and stop early once one accepted answer
-is enough to proceed. Explain why each question changes the decision. Preserve
+Use the current deterministic bounded question bank and stop early once one
+accepted answer is enough to proceed. Do not describe CP-07 ordering as
+behaviorally adaptive until the integrated CP-11 lifecycle proves that routing.
+Explain why each question changes the decision. Preserve
 sanitized answers, corrections, explicit assumptions, unknowns, sources, and
 correction invalidation. Never persist raw chat or source excerpts.
 

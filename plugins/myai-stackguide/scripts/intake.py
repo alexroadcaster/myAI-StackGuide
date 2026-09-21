@@ -21,6 +21,7 @@ PLUGIN_ROOT = SCRIPT_ROOT.parent
 ASSETS = PLUGIN_ROOT / "assets"
 MAX_INPUT_BYTES = 8192
 APPLICATION_ID = 1297695049
+TRUSTED_MANIFEST_SHA256 = "a172f0378cb804ecd4bd10f3be69e522b6c3ee6955635498c6a060202647861d"
 
 
 def _load_trusted(name: str, path: Path):
@@ -181,6 +182,8 @@ def _check_package() -> dict[str, Any]:
     snapshot = _load_json_file(cards_path)
     if not isinstance(manifest, dict) or not isinstance(policy, dict) or not isinstance(snapshot, dict):
         raise ValueError("invalid package JSON")
+    if _sha256_file(manifest_path) != TRUSTED_MANIFEST_SHA256:
+        raise RuntimeError("untrusted manifest")
     uri = index_path.resolve(strict=True).as_uri() + "?mode=ro&immutable=1"
     connection = sqlite3.connect(uri, uri=True)
     try:
@@ -628,6 +631,8 @@ def command_start(project_root: Path, payload: dict[str, Any], manifest: dict[st
 
 def command_answer(project_root: Path, payload: dict[str, Any], run_id: str | None, revision: int | None) -> dict[str, Any]:
     _validate_answer_payload(payload)
+    if payload["status"] == "skipped" and payload["ready"]:
+        raise store.StateError("invalid_input")
     value, redacted = _answer_value(payload)
     bank = _load_question_bank()
     with store.locked_store(project_root, create=False) as locked:
@@ -635,11 +640,21 @@ def command_answer(project_root: Path, payload: dict[str, Any], run_id: str | No
         assert current is not None
         existing = next((item for item in current["intake"]["answers"] if item["answer_id"] == payload["answer_id"]), None)
         if existing is not None:
+            expected_ready = payload["ready"] or (
+                existing["ordinal"] == 10
+                and any(item["status"] == "answered" for item in current["intake"]["answers"])
+            )
             same = (
-                existing["question_id"] == payload["question_id"]
+                run_id is not None
+                and revision is not None
+                and current["run_id"] == run_id
+                and current["revision"] == revision + 1
+                and existing["expected_state_revision"] == revision
+                and existing["question_id"] == payload["question_id"]
                 and existing["status"] == payload["status"]
                 and existing["sanitized_value"] == value
                 and existing["redaction_applied"] == redacted
+                and (current["intake"]["status"] == "ready") == expected_ready
             )
             if not same:
                 raise store.StateError("state_conflict")
@@ -668,7 +683,8 @@ def command_answer(project_root: Path, payload: dict[str, Any], run_id: str | No
                 "last_correction_id": None,
             }
             state["intake"]["answers"].append(answer)
-            if payload["ready"] or state["intake"]["questions_asked"] == 10:
+            answered_exists = any(item["status"] == "answered" for item in state["intake"]["answers"])
+            if (payload["ready"] or state["intake"]["questions_asked"] == 10) and answered_exists:
                 state["intake"].update(
                     status="ready", pending_question_id=None,
                     next_action="review_context",
@@ -677,6 +693,11 @@ def command_answer(project_root: Path, payload: dict[str, Any], run_id: str | No
                         if payload["ready"] else
                         "Достигнут предел из десяти вопросов; оставшиеся неизвестные сохраняются явно."
                     ),
+                )
+            elif state["intake"]["questions_asked"] == 10:
+                state["intake"].update(
+                    status="cancelled", pending_question_id=None,
+                    next_action="resume_or_finalize", completion_reason=None,
                 )
             else:
                 ordinal = state["intake"]["questions_asked"] + 1
@@ -736,10 +757,13 @@ def command_resume(project_root: Path, payload: dict[str, Any], run_id: str | No
             state = copy.deepcopy(current)
             ordinal = state["intake"]["questions_asked"] + 1
             if ordinal > 10:
-                state["intake"].update(
-                    status="ready", pending_question_id=None, next_action="review_context",
-                    completion_reason="Достигнут предел из десяти вопросов; оставшиеся неизвестные сохраняются явно.",
-                )
+                if any(item["status"] == "answered" for item in state["intake"]["answers"]):
+                    state["intake"].update(
+                        status="ready", pending_question_id=None, next_action="review_context",
+                        completion_reason="Достигнут предел из десяти вопросов; оставшиеся неизвестные сохраняются явно.",
+                    )
+                else:
+                    state = current
             else:
                 question = _question(bank, ordinal)
                 state["intake"]["questions"].append(question)
@@ -748,8 +772,9 @@ def command_resume(project_root: Path, payload: dict[str, Any], run_id: str | No
                     pending_question_id=question["question_id"], next_action="answer_question",
                     completion_reason=None,
                 )
-            _advance_revision(state, locked, bank)
-            locked.commit(state, current)
+            if state is not current:
+                _advance_revision(state, locked, bank)
+                locked.commit(state, current)
     return _publication_success(state, operation="commit_and_publish", commit_status="saved")
 
 
@@ -778,7 +803,9 @@ def _validate_correction_payload(payload: dict[str, Any]) -> str:
 
 def command_correct(project_root: Path, payload: dict[str, Any], run_id: str | None, revision: int | None) -> dict[str, Any]:
     branch = _validate_correction_payload(payload)
-    value, redacted = sanitizer.sanitize_text(payload["value"], max_code_points=1000)
+    value, redacted = sanitizer.sanitize_text(
+        payload["value"], max_code_points=2000 if branch == "pre" else 1000
+    )
     bank = _load_question_bank()
     with store.locked_store(project_root, create=False) as locked:
         current = locked.load(required=True, writable=True)

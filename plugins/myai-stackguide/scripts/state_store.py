@@ -322,7 +322,10 @@ def validate_state(state: Any, *, writable: bool = False) -> dict[str, Any]:
         raise StateError("state_invalid")
     if intake_status in ("ready", "cancelled") and pending is not None:
         raise StateError("state_invalid")
-    if intake_status == "ready" and (not answers or not intake.get("completion_reason")):
+    if intake_status == "ready" and (
+        not any(answer.get("status") == "answered" for answer in answers)
+        or not intake.get("completion_reason")
+    ):
         raise StateError("state_invalid")
     status, phase = state.get("status"), state.get("phase")
     if status not in ("active", "finalized", "finalized_incomplete") or phase not in (
