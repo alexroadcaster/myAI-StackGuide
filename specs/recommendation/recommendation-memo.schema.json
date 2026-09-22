@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://myai-stackguide.invalid/contracts/v2/recommendation/recommendation-memo.schema.json",
   "title": "Decision Report data with grounded integration plan",
-  "description": "CP-03 C9 V2 local contract. Repository joins use positive numeric GitHub repository identity; catalog record IDs remain card lineage only.",
+  "description": "CP-03 C9 V2 compatibility contract. Schema 2.0.0 is retained read-only evidence for index format 2; schema 2.1.0 is active for index format 3. Repository joins use positive numeric GitHub repository identity; catalog record IDs remain card lineage only.",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -26,7 +26,12 @@
     "category_path"
   ],
   "properties": {
-    "schema_version": { "const": "2.0.0" },
+    "schema_version": {
+      "enum": [
+        "2.0.0",
+        "2.1.0"
+      ]
+    },
     "run_id": {
       "$ref": "https://myai-stackguide.invalid/contracts/v1/context/sanitized-project-summary.schema.json#/$defs/uuid"
     },
@@ -115,7 +120,10 @@
               "const": "2.0.0"
             },
             "index_format_version": {
-              "const": 2
+              "enum": [
+                2,
+                3
+              ]
             },
             "retrieval_policy_version": {
               "const": "2.1.0"
@@ -576,12 +584,23 @@
         "required": [
           "comparison_details",
           "avoid_defer_details"
-        ]
-      },
-      "else": {
+        ],
         "properties": {
-          "comparison_details": false,
-          "avoid_defer_details": false
+          "pins": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "index_format_version": {
+                    "const": 2
+                  }
+                }
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
         }
       }
     },
@@ -589,24 +608,31 @@
       "if": {
         "properties": {
           "schema_version": {
-            "const": "1.0.0"
+            "const": "2.1.0"
           }
-        }
+        },
+        "required": [
+          "schema_version"
+        ]
       },
       "then": {
+        "required": [
+          "comparison_details",
+          "avoid_defer_details"
+        ],
         "properties": {
-          "integration_plan": {
+          "pins": {
             "anyOf": [
-              {
-                "type": "null"
-              },
               {
                 "type": "object",
                 "properties": {
-                  "schema_version": {
-                    "const": "1.0.0"
+                  "index_format_version": {
+                    "const": 3
                   }
                 }
+              },
+              {
+                "type": "null"
               }
             ]
           }
@@ -619,6 +645,7 @@
     "primary_candidate is allowed only for matching primary_eligible pack records; conditional guidance cannot disguise unknowns as adopted/verified.",
     "Roles/evidence/selected IDs are request-scoped; report cannot upgrade catalog_status or turn a failed search into successful no-match.",
     "An unavailable manifest may yield pins=null only in an explicit failure. Never invent hashes or use null pins for successful retrieval/no-match.",
+    "A non-null pins object exactly matches its source evidence pack: memo schema 2.0.0 requires index format 2 and is retained validation compatibility only; active memo schema 2.1.0 requires index format 3. Repository IDs and evidence refs resolve against that pack and cannot be invented by the memo. Historical validation never authorizes a format-2 runtime fallback.",
     "Category path IDs are unique current taxonomy keys with explicit relevance reasons; no invented taxonomy hierarchy is implied.",
     "Comparison cells are unique (criterion, github_repository_id/baseline); baseline=true requires github_repository_id=null and include_no_change=true. Repository cells resolve to pack cards; evidence and answers resolve to canonical project/public evidence.",
     "Structured comparison and avoid/defer details must agree with retained summary prose. Missing cells mean unknown. Baseline is not a retrieved card; no matrix or browser choice changes eligibility or selected_github_repository_ids."

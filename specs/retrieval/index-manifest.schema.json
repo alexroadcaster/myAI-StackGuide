@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://myai-stackguide.invalid/contracts/v2/retrieval/index-manifest.schema.json",
   "title": "Build-owned manifest for a read-only public SQLite index",
-  "description": "Local CP-03-C9-V2 contract. This schema does not execute or authorize side effects.",
+  "description": "Local CP-03-C9-V2 contract for a read-only index-format-3 bundle with canonical taxonomy routing. This schema does not execute or authorize side effects.",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -18,11 +18,12 @@
     "policy_file",
     "contains_project_context",
     "read_only_runtime",
-    "logical_rows_sha256"
+    "logical_rows_sha256",
+    "route_registry"
   ],
   "properties": {
     "schema_version": {
-      "const": "2.0.0"
+      "const": "2.1.0"
     },
     "pins": {
       "type": "object",
@@ -82,7 +83,7 @@
         },
         "activity_schema_version": { "const": "2.0.0" },
         "index_format_version": {
-          "const": 2
+          "const": 3
         },
         "retrieval_policy_version": {
           "const": "2.1.0"
@@ -145,10 +146,49 @@
       "minLength": 64,
       "maxLength": 64,
       "pattern": "^[a-f0-9]{64}$"
+    },
+    "route_registry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version",
+        "table_name",
+        "route_count",
+        "route_member_count",
+        "logical_routes_sha256"
+      ],
+      "properties": {
+        "schema_version": {
+          "const": "1.0.0"
+        },
+        "table_name": {
+          "const": "taxonomy_route_registry"
+        },
+        "route_count": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1000
+        },
+        "route_member_count": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 10000
+        },
+        "logical_routes_sha256": {
+          "type": "string",
+          "minLength": 64,
+          "maxLength": 64,
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      }
     }
   },
   "x-invariants": [
     "CP-06 hashes actual source/card/policy/index bytes; placeholders in synthetic fixtures are not build evidence. Runtime rejects pin/format mismatch instead of rebuilding or fetching.",
-    "Logical rebuild reproducibility is separate from SQLite file byte identity across versions; CP-16 freezes the actual tested package bytes."
+    "Logical rebuild reproducibility is separate from SQLite file byte identity across versions; CP-16 freezes the actual tested package bytes.",
+    "The index-format-3 SQLite registry is taxonomy_route_registry(route_id TEXT, route_kind TEXT, match_category_id TEXT, match_category_kind TEXT, PRIMARY KEY(route_id, match_category_id)) STRICT, WITHOUT ROWID. route_kind is category, container or review_bucket; match_category_kind is category or review_bucket. All values are canonical pinned-taxonomy IDs and kinds, never labels or aliases.",
+    "The current pinned taxonomy produces 126 distinct routes and 162 route-member rows: 111 category routes and one review_bucket route each map only to themselves; each of 14 container routes maps to every non-container transitive descendant and never to the container itself. Routes and members are sorted by route_id then match_category_id before hashing.",
+    "logical_routes_sha256 is SHA-256 of the compact UTF-8 sorted-key JSON array of registry rows with allow_nan=false. route_count and route_member_count are derived from that array and the same values are stored in bundle_metadata. The registry taxonomy is bound by pins.taxonomy_sha256 and the whole database by pins.index_sha256.",
+    "Route filtering joins registry match_category_id to every direct repository_classifications.category_id, including primary and secondary roles, and deduplicates by positive github_repository_id before final ranking."
   ]
 }

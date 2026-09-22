@@ -207,7 +207,7 @@ def validate_quality_plan(plan, root=ROOT):
     route = plan['candidate_route']
     require(policy['schema_version'] == '2.1.0' and policy['retrieval_engine'] == 'sqlite_fts5' and
             policy['source_mode'] == 'catalog_only', 'quality policy route')
-    require(route['query_schema_version'] == '2.0.0' and
+    require(route['query_schema_version'] == '2.1.0' and
             route['source_mode'] == policy['source_mode'] and
             route['retrieval_engine'] == policy['retrieval_engine'] and
             route['expected_status'] == 'ok' and
@@ -504,7 +504,7 @@ def unique(values, label):
 def require_v2_pins(pins):
     require(pins['card_schema_version'] == '2.0.0' and
             pins['activity_schema_version'] == '2.0.0' and
-            pins['index_format_version'] == 2 and
+            pins['index_format_version'] == 3 and
             pins['retrieval_policy_version'] == '2.1.0', 'mixed C9 version pins')
 
 
@@ -519,9 +519,10 @@ def validate_cases(cases, contracts):
     taxonomy_hash = hashlib.sha256((ROOT / 'specs/catalog/taxonomy.yaml').read_bytes()).hexdigest()
     for case in cases['cases']:
         query, manifest = case['query'], case['index_manifest']
-        require(query['schema_version'] == '2.0.0' and query['policy_version'] == '2.1.0' and
+        require(query['schema_version'] == '2.1.0' and query['policy_version'] == '2.1.0' and
                 query['card_schema_version'] == '2.0.0' and query['activity_schema_version'] == '2.0.0' and
-                query['index_format_version'] == 2, 'mixed query contract versions')
+                query['index_format_version'] == 3 and 'taxonomy_route_id' in query,
+                'mixed query contract versions')
         require(query['policy_sha256'] == policy_hash, 'query policy pin')
         require(query['max_cards'] <= query['max_candidates'], 'card/candidate budget')
         unique([variant['variant_id'] for variant in query['variants']], 'query variant')
@@ -617,8 +618,17 @@ def validate_card_eligibility(entry, query):
         pointers = advisory if field == 'advisory_evidence' else [paths[field]]
         refs = check['evidence_refs']
         require(set(refs) <= evidence.keys(), 'unresolved eligibility evidence')
-        sourced = all(any(pointer in evidence[ref]['fields'] and
-                         evidence[ref]['verification'] != 'unknown' for ref in refs) for pointer in pointers)
+        def covers(source, target):
+            return source != '/' and (source == target or target.startswith(source + '/'))
+        resolved = [evidence[ref] for ref in refs]
+        refs_valid = all(item['verification'] != 'unknown' and
+                         any(covers(source, target)
+                             for source in item['fields'] for target in pointers)
+                         for item in resolved)
+        sourced = refs_valid and all(any(
+            item['verification'] != 'unknown' and
+            any(covers(source, target) for source in item['fields'])
+            for item in resolved) for target in pointers)
         known_values = {
             'license': license_fact,
             'language': card['repository']['languages'],

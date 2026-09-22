@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://myai-stackguide.invalid/contracts/v2/retrieval/retrieval-result.schema.json",
   "title": "Compact retrieval candidates with explicit failure state",
-  "description": "Local CP-03-C9-V2 contract. This schema does not execute or authorize side effects.",
+  "description": "Local CP-03-C9-V2 contract for index format 3. This schema does not execute or authorize side effects.",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -23,7 +23,7 @@
   ],
   "properties": {
     "schema_version": {
-      "const": "2.0.0"
+      "const": "2.1.0"
     },
     "run_id": {
       "$ref": "https://myai-stackguide.invalid/contracts/v1/context/sanitized-project-summary.schema.json#/$defs/uuid"
@@ -111,7 +111,7 @@
             },
             "activity_schema_version": { "const": "2.0.0" },
             "index_format_version": {
-              "const": 2
+              "const": 3
             },
             "retrieval_policy_version": {
               "const": "2.1.0"
@@ -326,6 +326,28 @@
       "if": {
         "properties": {
           "status": {
+            "const": "invalid_query"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "then": {
+        "properties": {
+          "executed_variants": {
+            "const": 0
+          },
+          "retrieved_hits": {
+            "const": 0
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
             "enum": [
               "ok",
               "no_match"
@@ -347,8 +369,9 @@
   ],
   "x-max-utf8-bytes": 65536,
   "x-invariants": [
-    "Pins exactly match the loaded v2 manifest/policy and request; card/activity/policy/index versions, IDs/revisions and canonical query digest must match.",
+    "Pins exactly match the loaded index-format-3 manifest/policy and request; card/activity/policy/index versions, IDs/revisions and canonical query digest must match.",
     "Rank is contiguous after numeric GitHub identity dedupe; variant ranks refer to executed query variants; RRF is sum(1/(60+rank)), sorted descending with numeric ID tie-break. No-match cannot conceal index/FTS5 failure.",
-    "An unavailable manifest may yield pins=null only in an explicit failure. Never invent hashes or use null pins for successful retrieval/no-match."
+    "An unavailable manifest may yield pins=null only in an explicit failure. Never invent hashes or use null pins for successful retrieval/no-match.",
+    "A non-null taxonomy_route_id absent from the pinned route registry yields invalid_query with zero executed variants, hits and candidates. It never becomes no_match and never retries as an unscoped lexical query."
   ]
 }

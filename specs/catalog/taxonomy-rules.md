@@ -1,6 +1,7 @@
 # Local catalog contract and taxonomy compatibility
 
-CP-03 contract version: `1.0.0`. This is a source-owned projection of the
+CP-03 taxonomy contract version: `1.0.0`; CP-09 routing amendment: `1.0.0`.
+This is a source-owned projection of the
 current catalog manifest. The 2026-08-31 owner-authorized taxonomy migration
 updates the projection to taxonomy v2; it is not a GitHub metadata refresh.
 
@@ -25,6 +26,24 @@ update, reference migration and parity check. Retired IDs need a reviewed mappin
 aliases cannot collide with canonical IDs or other aliases. If hierarchy is
 introduced later, all parents must exist and the parent graph must be acyclic.
 Do not hand-edit generated catalog pages as part of that migration.
+
+## Retrieval route registry
+
+`taxonomy_route_id` is an explicit query field. `null` is the only unscoped
+search; every non-null value must exactly match a canonical `taxonomy.yaml`
+`categories[].id`. Labels, empty strings and aliases are not routes. An unknown
+route is `invalid_query` before any lexical variant executes and never falls
+back to an unscoped search.
+
+Index format `3` materializes `taxonomy_route_registry` with the exact columns
+and hash contract in `specs/retrieval/index-manifest.schema.json`. The current
+pinned taxonomy produces 126 routes and 162 membership rows. Each of the 111
+thematic leaves and the one review bucket maps directly only to itself. Each of
+the 14 containers maps to all of its non-container transitive descendants,
+sorted by canonical ID; the container itself is not an assignable member.
+Routing matches both primary and secondary direct card classifications, then
+deduplicates on positive numeric `github_repository_id`. The query's route is
+part of its canonical JSON and therefore its `query_sha256` replay binding.
 
 ## v5 card mapping
 
@@ -88,8 +107,16 @@ compatibility or activity is represented explicitly. Each mandatory query field
 gets one check, together with availability, archived status and advisory evidence.
 The outcome is `unknown` when the value or supporting evidence is absent, `fail`
 when sourced facts contradict the constraint, and `pass` when sourced facts match.
-Every check reference resolves to evidence for the corresponding field. Empty or
-omitted checks cannot establish primary eligibility.
+Every check reference resolves to non-`unknown` evidence for the corresponding
+field. For target JSON pointer `t`, evidence field pointer `p` covers it only
+when `p == t` or `t` starts with `p + '/'`. Thus `/repository` may cover
+`/repository/archived`, while `/`, `/repository/license`, a sibling prefix or
+`/advisory/compatibility` cannot cover that target. Each supplied evidence
+reference must cover at least one target for the check and must not have
+`verification=unknown`. A `pass` or `fail` check needs collective coverage of
+all targets; an `unknown` check may have no references or incomplete verified
+coverage and must retain a concrete next verification. Empty or omitted checks
+cannot establish primary eligibility.
 
 For primary eligibility the card is explicitly available and unarchived, all
 mandatory constraints pass, and use cases, best fit, adoption mode, project stages,

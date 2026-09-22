@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://myai-stackguide.invalid/contracts/v2/catalog/candidate-eligibility.schema.json",
   "title": "Request-specific eligibility independent from catalog status",
-  "description": "Local CP-03-C9-V2 contract. This schema does not execute or authorize side effects.",
+  "description": "Local CP-03-C9-V2 contract with segment-safe ancestor evidence coverage. This schema does not execute or authorize side effects.",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -16,7 +16,7 @@
   ],
   "properties": {
     "schema_version": {
-      "const": "2.0.0"
+      "const": "2.1.0"
     },
     "github_repository_id": {
       "type": "integer",
@@ -158,6 +158,8 @@
   "x-invariants": [
     "github_repository_id is the same positive integer used by the card, retrieval candidate and evidence-pack join.",
     "Checks cover mandatory query fields plus availability, archived and advisory_evidence; duplicates and omitted checks fail.",
+    "For a target card JSON pointer t, a source evidence pointer p covers t exactly when p == t or t starts with p + '/'. The root pointer '/', sibling prefixes and cross-section prefixes never cover t; plain string-prefix matching is forbidden.",
+    "Every supplied evidence_ref resolves to a card evidence item whose verification is not unknown and whose fields cover at least one target pointer for that check. Pass or fail requires the referenced items collectively to cover every target pointer; unknown may use no refs or incomplete verified coverage and requires a concrete next verification. advisory_evidence targets /advisory/use_cases, /advisory/best_for, /advisory/adoption_mode, /advisory/project_stages, /advisory/complexity, /advisory/integration_surface and /advisory/compatibility.",
     "primary_eligible requires an available, explicitly unarchived card, traced advisory fields and all mandatory facts satisfied. Unknowns remain references with concrete next checks; archive status alone is not evidence of operability."
   ]
 }

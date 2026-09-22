@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://myai-stackguide.invalid/contracts/v1/recommendation/recommendation-request.schema.json",
   "title": "Model decision input references and explicit action boundary",
-  "description": "Local CP-03 v1 contract. This schema does not execute or authorize side effects.",
+  "description": "Local CP-03 v1.1 contract embedding the C9 query 2.1 contract. This schema does not execute or authorize side effects.",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -19,7 +19,7 @@
   ],
   "properties": {
     "schema_version": {
-      "const": "1.0.0"
+      "const": "1.1.0"
     },
     "run_id": {
       "$ref": "https://myai-stackguide.invalid/contracts/v1/context/sanitized-project-summary.schema.json#/$defs/uuid"
@@ -69,5 +69,9 @@
       }
     }
   },
-  "x-max-utf8-bytes": 8192
+  "x-max-utf8-bytes": 8192,
+  "x-invariants": [
+    "query uses schema_version 2.1.0, index_format_version 3 and an explicit nullable taxonomy_route_id; the complete query is the replay/hash-visible decision input.",
+    "The request remains advisory-only: it does not authorize retrieval-side writes, recommendation execution, installation or code changes."
+  ]
 }

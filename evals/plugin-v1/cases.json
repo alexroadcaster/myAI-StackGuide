@@ -1,6 +1,6 @@
 {
   "schema_version": "retrieval_scenarios_v2",
-  "contract_set_sha256": "4cd21e78b96b4777daa93a33bcd6c35a3be89a1194451bc44572501b535a5e84",
+  "contract_set_sha256": "fd89076fdd2701ba138ec033bbbd235a312a4bf8c0c2f6c4ff845607b322b83d",
   "case_set_id": "cp04-c9-synthetic-compatibility-v2",
   "corpus_kind": "synthetic_fixture",
   "split": "grader_contract_not_held_out",
@@ -19,8 +19,9 @@
       "judgment_provenance": "independent_synthetic_known_answer",
       "run_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
       "query": {
-        "schema_version": "2.0.0",
+        "schema_version": "2.1.0",
         "query_id": "query-1",
+        "taxonomy_route_id": null,
         "brief_version": 1,
         "source_mode": "catalog_only",
         "retrieval_engine": "sqlite_fts5",
@@ -70,10 +71,10 @@
         "max_evidence_bytes": 163840,
         "card_schema_version": "2.0.0",
         "activity_schema_version": "2.0.0",
-        "index_format_version": 2
+        "index_format_version": 3
       },
       "index_manifest": {
-        "schema_version": "2.0.0",
+        "schema_version": "2.1.0",
         "pins": {
           "catalog_snapshot_id": "fixture-catalog-2",
           "source_sha256": "d487719a3299ca76a52d9f7bf5f89cfd1323c65c6777b0d5e4c65adcc381fed5",
@@ -83,7 +84,7 @@
           "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f",
           "card_schema_version": "2.0.0",
           "activity_schema_version": "2.0.0",
-          "index_format_version": 2,
+          "index_format_version": 3,
           "retrieval_policy_version": "2.1.0",
           "corpus_kind": "synthetic_fixture"
         },
@@ -97,7 +98,14 @@
         "policy_file": "retrieval-policy.json",
         "contains_project_context": false,
         "read_only_runtime": true,
-        "logical_rows_sha256": "34f9e4b5d9d26c1abde12217ba4258bc20db6f16f32fc4f9e7cf41a1eee46a15"
+        "logical_rows_sha256": "34f9e4b5d9d26c1abde12217ba4258bc20db6f16f32fc4f9e7cf41a1eee46a15",
+        "route_registry": {
+          "schema_version": "1.0.0",
+          "table_name": "taxonomy_route_registry",
+          "route_count": 1,
+          "route_member_count": 1,
+          "logical_routes_sha256": "98e613d9d1fbc7a32c836c3dee88f3ba2a63236185375ddbc638f35422bf5c30"
+        }
       },
       "expected_status": "ok",
       "k": 3,
@@ -126,8 +134,9 @@
       "judgment_provenance": "independent_synthetic_known_answer",
       "run_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
       "query": {
-        "schema_version": "2.0.0",
+        "schema_version": "2.1.0",
         "query_id": "query-no-match",
+        "taxonomy_route_id": null,
         "brief_version": 1,
         "source_mode": "catalog_only",
         "retrieval_engine": "sqlite_fts5",
@@ -169,10 +178,10 @@
         "max_evidence_bytes": 163840,
         "card_schema_version": "2.0.0",
         "activity_schema_version": "2.0.0",
-        "index_format_version": 2
+        "index_format_version": 3
       },
       "index_manifest": {
-        "schema_version": "2.0.0",
+        "schema_version": "2.1.0",
         "pins": {
           "catalog_snapshot_id": "fixture-catalog-2",
           "source_sha256": "d487719a3299ca76a52d9f7bf5f89cfd1323c65c6777b0d5e4c65adcc381fed5",
@@ -182,7 +191,7 @@
           "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f",
           "card_schema_version": "2.0.0",
           "activity_schema_version": "2.0.0",
-          "index_format_version": 2,
+          "index_format_version": 3,
           "retrieval_policy_version": "2.1.0",
           "corpus_kind": "synthetic_fixture"
         },
@@ -196,7 +205,14 @@
         "policy_file": "retrieval-policy.json",
         "contains_project_context": false,
         "read_only_runtime": true,
-        "logical_rows_sha256": "34f9e4b5d9d26c1abde12217ba4258bc20db6f16f32fc4f9e7cf41a1eee46a15"
+        "logical_rows_sha256": "34f9e4b5d9d26c1abde12217ba4258bc20db6f16f32fc4f9e7cf41a1eee46a15",
+        "route_registry": {
+          "schema_version": "1.0.0",
+          "table_name": "taxonomy_route_registry",
+          "route_count": 1,
+          "route_member_count": 1,
+          "logical_routes_sha256": "98e613d9d1fbc7a32c836c3dee88f3ba2a63236185375ddbc638f35422bf5c30"
+        }
       },
       "expected_status": "no_match",
       "k": 3,
@@ -225,8 +241,9 @@
       "judgment_provenance": "independent_synthetic_known_answer",
       "run_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
       "query": {
-        "schema_version": "2.0.0",
+        "schema_version": "2.1.0",
         "query_id": "query-denied",
+        "taxonomy_route_id": null,
         "brief_version": 1,
         "source_mode": "catalog_only",
         "retrieval_engine": "sqlite_fts5",
@@ -276,10 +293,10 @@
         "max_evidence_bytes": 163840,
         "card_schema_version": "2.0.0",
         "activity_schema_version": "2.0.0",
-        "index_format_version": 2
+        "index_format_version": 3
       },
       "index_manifest": {
-        "schema_version": "2.0.0",
+        "schema_version": "2.1.0",
         "pins": {
           "catalog_snapshot_id": "fixture-catalog-2",
           "source_sha256": "d487719a3299ca76a52d9f7bf5f89cfd1323c65c6777b0d5e4c65adcc381fed5",
@@ -289,7 +306,7 @@
           "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f",
           "card_schema_version": "2.0.0",
           "activity_schema_version": "2.0.0",
-          "index_format_version": 2,
+          "index_format_version": 3,
           "retrieval_policy_version": "2.1.0",
           "corpus_kind": "synthetic_fixture"
         },
@@ -303,7 +320,14 @@
         "policy_file": "retrieval-policy.json",
         "contains_project_context": false,
         "read_only_runtime": true,
-        "logical_rows_sha256": "34f9e4b5d9d26c1abde12217ba4258bc20db6f16f32fc4f9e7cf41a1eee46a15"
+        "logical_rows_sha256": "34f9e4b5d9d26c1abde12217ba4258bc20db6f16f32fc4f9e7cf41a1eee46a15",
+        "route_registry": {
+          "schema_version": "1.0.0",
+          "table_name": "taxonomy_route_registry",
+          "route_count": 1,
+          "route_member_count": 1,
+          "logical_routes_sha256": "98e613d9d1fbc7a32c836c3dee88f3ba2a63236185375ddbc638f35422bf5c30"
+        }
       },
       "expected_status": "ok",
       "k": 3,
@@ -332,8 +356,9 @@
       "judgment_provenance": "independent_synthetic_known_answer",
       "run_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
       "query": {
-        "schema_version": "2.0.0",
+        "schema_version": "2.1.0",
         "query_id": "query-index-missing",
+        "taxonomy_route_id": null,
         "brief_version": 1,
         "source_mode": "catalog_only",
         "retrieval_engine": "sqlite_fts5",
@@ -383,7 +408,7 @@
         "max_evidence_bytes": 163840,
         "card_schema_version": "2.0.0",
         "activity_schema_version": "2.0.0",
-        "index_format_version": 2
+        "index_format_version": 3
       },
       "index_manifest": null,
       "expected_status": "retrieval_unavailable",

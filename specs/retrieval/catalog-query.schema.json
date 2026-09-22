@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://myai-stackguide.invalid/contracts/v2/retrieval/catalog-query.schema.json",
   "title": "Bounded literal catalog query, never SQL",
-  "description": "Local CP-03-C9-V2 contract. This schema does not execute or authorize side effects.",
+  "description": "Local CP-03-C9-V2 contract with explicit taxonomy routing. This schema does not execute or authorize side effects.",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -16,6 +16,7 @@
     "card_schema_version",
     "activity_schema_version",
     "index_format_version",
+    "taxonomy_route_id",
     "language",
     "variants",
     "constraints",
@@ -25,7 +26,7 @@
   ],
   "properties": {
     "schema_version": {
-      "const": "2.0.0"
+      "const": "2.1.0"
     },
     "query_id": {
       "type": "string",
@@ -55,7 +56,21 @@
     },
     "card_schema_version": { "const": "2.0.0" },
     "activity_schema_version": { "const": "2.0.0" },
-    "index_format_version": { "const": 2 },
+    "index_format_version": { "const": 3 },
+    "taxonomy_route_id": {
+      "description": "Canonical taxonomy node ID for a scoped search, or null for an unscoped search.",
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100,
+          "pattern": "^[a-z][a-z0-9_]*$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
     "language": {
       "enum": [
         "ru",
@@ -200,6 +215,8 @@
   "x-max-utf8-bytes": 8192,
   "x-invariants": [
     "Query IDs, variants and terms are unique; canonicalize aliases before lookup on both index and query. Quote literal terms and bind the MATCH string as a SQL parameter. Never interpolate field names, SQL or MATCH syntax supplied by a model.",
-    "The 150-hit ceiling counts all variants including duplicates before canonical dedupe; at most three bounded queries, with remaining budget shared, not 150 per query. A request may choose a lower max_candidates value for narrow intent."
+    "The 150-hit ceiling counts all variants including duplicates before canonical dedupe; at most three bounded queries, with remaining budget shared, not 150 per query. A request may choose a lower max_candidates value for narrow intent.",
+    "taxonomy_route_id=null is the only unscoped form. A non-null value must exactly equal one canonical route_id in the index-format-3 taxonomy route registry; labels and aliases are not route IDs. An absent route is invalid_query and must not fall back to unscoped lexical search.",
+    "taxonomy_route_id is part of the canonical sorted-key query serialization covered by query_sha256, so scoped and unscoped searches cannot share a replay digest."
   ]
 }

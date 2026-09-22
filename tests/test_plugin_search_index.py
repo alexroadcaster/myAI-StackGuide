@@ -41,13 +41,13 @@ class PluginSearchIndexTests(unittest.TestCase):
         self.assertEqual(report["classifications"], 2630)
         self.assertTrue(report["read_only_write_rejected"])
 
-    def test_manifest_pins_exact_package_bytes_and_v2_tuple(self):
+    def test_manifest_pins_exact_package_bytes_and_active_tuple(self):
         pins = self.manifest["pins"]
-        self.assertEqual(self.manifest["schema_version"], "2.0.0")
+        self.assertEqual(self.manifest["schema_version"], "2.1.0")
         self.assertEqual(pins["card_schema_version"], "2.0.0")
         self.assertEqual(pins["activity_schema_version"], "2.0.0")
         self.assertEqual(pins["retrieval_policy_version"], "2.1.0")
-        self.assertEqual(pins["index_format_version"], 2)
+        self.assertEqual(pins["index_format_version"], 3)
         self.assertEqual(pins["cards_sha256"], self.builder._sha256(self.builder.CARDS.read_bytes()))
         self.assertEqual(pins["policy_sha256"], self.builder._sha256(self.builder.PACKAGED_POLICY.read_bytes()))
         self.assertEqual(pins["index_sha256"], self.builder._sha256(self.builder.INDEX.read_bytes()))
@@ -57,7 +57,7 @@ class PluginSearchIndexTests(unittest.TestCase):
         connection = self.connection()
         try:
             self.assertEqual(connection.execute("PRAGMA application_id").fetchone()[0], self.builder.APPLICATION_ID)
-            self.assertEqual(connection.execute("PRAGMA user_version").fetchone()[0], 2)
+            self.assertEqual(connection.execute("PRAGMA user_version").fetchone()[0], 3)
             self.assertEqual(connection.execute("PRAGMA page_size").fetchone()[0], 4096)
             self.assertEqual(connection.execute("PRAGMA quick_check").fetchone()[0], "ok")
             self.assertEqual(connection.execute("PRAGMA integrity_check").fetchone()[0], "ok")
@@ -73,6 +73,24 @@ class PluginSearchIndexTests(unittest.TestCase):
             self.assertEqual(connection.execute("SELECT count(*) FROM repository_search_rows").fetchone()[0], 2500)
             self.assertEqual(connection.execute("SELECT count(*) FROM repository_fts").fetchone()[0], 2500)
             self.assertEqual(connection.execute("SELECT count(*) FROM repository_classifications").fetchone()[0], 2630)
+            route_columns = tuple(item[1] for item in connection.execute(
+                "PRAGMA table_info(taxonomy_route_registry)"
+            ).fetchall())
+            self.assertEqual(route_columns, (
+                "route_id", "route_kind", "match_category_id", "match_category_kind"
+            ))
+            route_rows = [dict(zip(route_columns, row)) for row in connection.execute(
+                "SELECT route_id, route_kind, match_category_id, match_category_kind "
+                "FROM taxonomy_route_registry ORDER BY route_id, match_category_id"
+            )]
+            registry = self.manifest["route_registry"]
+            self.assertEqual(registry["schema_version"], "1.0.0")
+            self.assertEqual(registry["route_count"], 126)
+            self.assertEqual(registry["route_member_count"], 162)
+            self.assertEqual(len({item["route_id"] for item in route_rows}), 126)
+            self.assertEqual(len(route_rows), 162)
+            self.assertEqual(self.builder.logical_routes_sha256(route_rows),
+                             registry["logical_routes_sha256"])
         finally:
             connection.close()
 

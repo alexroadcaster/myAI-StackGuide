@@ -23,7 +23,25 @@ MAX_INPUT_BYTES = 8192
 COMMIT_SCAN_INPUT_BYTES = 2_500_000
 COMMIT_CONTEXT_INPUT_BYTES = 32_768
 APPLICATION_ID = 1297695049
-TRUSTED_MANIFEST_SHA256 = "9cbb259aac4c75707814a3eb4f6811214146539d13a36f32aaae9e2ef072f8c8"
+TRUSTED_MANIFEST_SHA256 = "1d090b0e2e56f4c7cd38276d0d8b08be2436e0c75b77649cf00d32c13cb9497f"
+INDEX_FORMAT_VERSION = 3
+MANIFEST_SCHEMA_VERSION = "2.1.0"
+ROUTE_REGISTRY_SCHEMA_VERSION = "1.0.0"
+ROUTE_REGISTRY_TABLE = "taxonomy_route_registry"
+EXPECTED_ROUTE_COUNT = 126
+EXPECTED_ROUTE_MEMBER_COUNT = 162
+EXPECTED_CLASSIFICATION_COUNT = 2630
+FTS_COLUMNS = (
+    "full_name", "full_name_aliases", "upstream_description",
+    "catalog_description", "topics", "category_labels", "use_cases",
+    "integration_surface", "best_for",
+)
+FIELD_WEIGHTS = {
+    "full_name": 5.0, "full_name_aliases": 5.0,
+    "upstream_description": 3.0, "catalog_description": 3.0,
+    "topics": 3.0, "category_labels": 1.0, "use_cases": 3.0,
+    "integration_surface": 3.0, "best_for": 2.0,
+}
 
 
 def _load_trusted(name: str, path: Path):
@@ -190,8 +208,6 @@ def _check_package() -> dict[str, Any]:
     snapshot = _load_json_file(cards_path)
     if not isinstance(manifest, dict) or not isinstance(policy, dict) or not isinstance(snapshot, dict):
         raise ValueError("invalid package JSON")
-    if _sha256_file(manifest_path) != TRUSTED_MANIFEST_SHA256:
-        raise RuntimeError("untrusted manifest")
     uri = index_path.resolve(strict=True).as_uri() + "?mode=ro&immutable=1"
     connection = sqlite3.connect(uri, uri=True)
     try:
@@ -203,6 +219,35 @@ def _check_package() -> dict[str, Any]:
         user_version = connection.execute("PRAGMA user_version").fetchone()[0]
         row_count = connection.execute("SELECT count(*) FROM repository_search_rows").fetchone()[0]
         fts_count = connection.execute("SELECT count(*) FROM repository_fts").fetchone()[0]
+        classification_count = connection.execute(
+            "SELECT count(*) FROM repository_classifications"
+        ).fetchone()[0]
+        search_columns = tuple(
+            item[1] for item in connection.execute("PRAGMA table_info(repository_search_rows)")
+        )
+        route_table = connection.execute(
+            "PRAGMA table_list(taxonomy_route_registry)"
+        ).fetchone()
+        route_columns = tuple(
+            item[1] for item in connection.execute(
+                "PRAGMA table_info(taxonomy_route_registry)"
+            )
+        )
+        route_rows = [
+            {
+                "route_id": row[0],
+                "route_kind": row[1],
+                "match_category_id": row[2],
+                "match_category_kind": row[3],
+            }
+            for row in connection.execute(
+                "SELECT route_id, route_kind, match_category_id, match_category_kind "
+                "FROM taxonomy_route_registry ORDER BY route_id, match_category_id"
+            )
+        ]
+        route_count = connection.execute(
+            "SELECT count(DISTINCT route_id) FROM taxonomy_route_registry"
+        ).fetchone()[0]
         metadata_cursor = connection.execute("SELECT * FROM bundle_metadata WHERE singleton = 1")
         columns = [item[0] for item in metadata_cursor.description]
         metadata_row = metadata_cursor.fetchone()
@@ -211,6 +256,8 @@ def _check_package() -> dict[str, Any]:
         metadata = dict(zip(columns, metadata_row))
     finally:
         connection.close()
+    if _sha256_file(manifest_path) != TRUSTED_MANIFEST_SHA256:
+        raise RuntimeError("untrusted manifest")
     pins = manifest.get("pins")
     exact_pin_keys = {
         "catalog_snapshot_id", "source_sha256", "cards_sha256", "index_sha256",
@@ -218,30 +265,80 @@ def _check_package() -> dict[str, Any]:
         "activity_schema_version", "index_format_version", "retrieval_policy_version",
         "corpus_kind",
     }
+    exact_manifest_keys = {
+        "schema_version", "pins", "builder_version", "sqlite_version", "built_at",
+        "source_snapshot_date", "row_count", "index_file", "cards_file",
+        "policy_file", "contains_project_context", "read_only_runtime",
+        "logical_rows_sha256", "route_registry",
+    }
+    route_manifest = manifest.get("route_registry")
+    route_hash = hashlib.sha256(
+        json.dumps(
+            route_rows, ensure_ascii=False, allow_nan=False,
+            sort_keys=True, separators=(",", ":"),
+        ).encode("utf-8")
+    ).hexdigest()
+    first_card = snapshot.get("cards", [None])[0] if isinstance(snapshot.get("cards"), list) and snapshot.get("cards") else None
+    field_contract_sha256 = (
+        first_card.get("provenance", {}).get("frozen_pins", {}).get("field_contract_sha256")
+        if isinstance(first_card, dict) else None
+    )
+    expected_metadata_keys = {
+        "singleton", "schema_version", "catalog_snapshot_id", "source_sha256",
+        "source_schema_sha256", "taxonomy_sha256", "field_contract_sha256",
+        "cards_sha256", "policy_sha256", "card_schema_version",
+        "activity_schema_version", "retrieval_policy_version",
+        "index_format_version", "corpus_kind", "row_count",
+        "logical_rows_sha256", "route_count", "route_member_count",
+        "logical_routes_sha256", "fts_columns_json", "fts_weights_json",
+        "tokenizer", "normalization",
+    }
     compatible = (
-        manifest.get("schema_version") == "2.0.0"
+        set(manifest) == exact_manifest_keys
+        and manifest.get("schema_version") == MANIFEST_SCHEMA_VERSION
         and isinstance(pins, dict)
         and set(pins) == exact_pin_keys
         and pins.get("card_schema_version") == "2.0.0"
         and pins.get("activity_schema_version") == "2.0.0"
         and pins.get("retrieval_policy_version") == "2.1.0"
-        and pins.get("index_format_version") == 2
+        and pins.get("index_format_version") == INDEX_FORMAT_VERSION
         and pins.get("corpus_kind") == "catalog_snapshot"
+        and manifest.get("builder_version") == "2.0.0"
         and manifest.get("index_file") == "catalog.search.sqlite"
         and manifest.get("cards_file") == "catalog.snapshot.json"
         and manifest.get("policy_file") == "retrieval-policy.json"
         and manifest.get("contains_project_context") is False
         and manifest.get("read_only_runtime") is True
         and manifest.get("row_count") == 2500
+        and isinstance(route_manifest, dict)
+        and route_manifest == {
+            "schema_version": ROUTE_REGISTRY_SCHEMA_VERSION,
+            "table_name": ROUTE_REGISTRY_TABLE,
+            "route_count": EXPECTED_ROUTE_COUNT,
+            "route_member_count": EXPECTED_ROUTE_MEMBER_COUNT,
+            "logical_routes_sha256": route_hash,
+        }
         and application_id == APPLICATION_ID
-        and user_version == 2
+        and user_version == INDEX_FORMAT_VERSION
         and row_count == fts_count == manifest.get("row_count")
+        and classification_count == EXPECTED_CLASSIFICATION_COUNT
+        and search_columns == ("github_repository_id", *FTS_COLUMNS)
+        and route_table is not None
+        and route_table[1] == ROUTE_REGISTRY_TABLE
+        and route_table[4] == 1
+        and route_table[5] == 1
+        and route_columns == (
+            "route_id", "route_kind", "match_category_id", "match_category_kind"
+        )
+        and route_count == EXPECTED_ROUTE_COUNT
+        and len(route_rows) == EXPECTED_ROUTE_MEMBER_COUNT
         and policy.get("schema_version") == "2.1.0"
         and policy.get("source_mode") == "catalog_only"
         and policy.get("retrieval_engine") == "sqlite_fts5"
         and policy.get("runtime_index_access") == "read_only"
         and policy.get("automatic_index_build") is False
         and policy.get("full_catalog_prompt_fallback") is False
+        and policy.get("field_weights") == FIELD_WEIGHTS
         and snapshot.get("schema_version") == "2.0.0"
         and snapshot.get("activity_schema_version") == "2.0.0"
         and snapshot.get("catalog_snapshot_id") == pins.get("catalog_snapshot_id")
@@ -253,19 +350,33 @@ def _check_package() -> dict[str, Any]:
         and _sha256_file(cards_path) == pins.get("cards_sha256")
         and _sha256_file(index_path) == pins.get("index_sha256")
         and _sha256_file(policy_path) == pins.get("policy_sha256")
-        and metadata.get("schema_version") == "2.0.0"
+        and set(metadata) == expected_metadata_keys
+        and metadata.get("singleton") == 1
+        and metadata.get("schema_version") == MANIFEST_SCHEMA_VERSION
         and metadata.get("catalog_snapshot_id") == pins.get("catalog_snapshot_id")
         and metadata.get("source_sha256") == pins.get("source_sha256")
+        and isinstance(metadata.get("source_schema_sha256"), str)
+        and len(metadata.get("source_schema_sha256")) == 64
         and metadata.get("taxonomy_sha256") == pins.get("taxonomy_sha256")
+        and metadata.get("field_contract_sha256") == field_contract_sha256
         and metadata.get("cards_sha256") == pins.get("cards_sha256")
         and metadata.get("policy_sha256") == pins.get("policy_sha256")
         and metadata.get("card_schema_version") == "2.0.0"
         and metadata.get("activity_schema_version") == "2.0.0"
         and metadata.get("retrieval_policy_version") == "2.1.0"
-        and metadata.get("index_format_version") == 2
+        and metadata.get("index_format_version") == INDEX_FORMAT_VERSION
         and metadata.get("corpus_kind") == "catalog_snapshot"
         and metadata.get("row_count") == 2500
         and metadata.get("logical_rows_sha256") == manifest.get("logical_rows_sha256")
+        and metadata.get("route_count") == EXPECTED_ROUTE_COUNT
+        and metadata.get("route_member_count") == EXPECTED_ROUTE_MEMBER_COUNT
+        and metadata.get("logical_routes_sha256") == route_hash
+        and metadata.get("fts_columns_json") == json.dumps(
+            list(FTS_COLUMNS), ensure_ascii=False, separators=(",", ":")
+        )
+        and metadata.get("fts_weights_json") == json.dumps(
+            FIELD_WEIGHTS, ensure_ascii=False, separators=(",", ":")
+        )
         and metadata.get("tokenizer") == policy.get("tokenizer") == "unicode61"
         and metadata.get("normalization") == policy.get("normalization")
     )

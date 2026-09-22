@@ -229,10 +229,13 @@ def check_summary(summary):
 
 def check_query(query):
     require(query['policy_sha256'] == file_digest('specs/retrieval/retrieval-policy.json'), 'query policy digest')
-    require(query['schema_version'] == query['card_schema_version'] ==
-            query['activity_schema_version'] == '2.0.0' and
-            query['policy_version'] == '2.1.0' and query['index_format_version'] == 2,
-            'mixed query contract versions')
+    common = (query['card_schema_version'] == query['activity_schema_version'] == '2.0.0' and
+              query['policy_version'] == '2.1.0')
+    active = (query['schema_version'] == '2.1.0' and query['index_format_version'] == 3 and
+              'taxonomy_route_id' in query)
+    historical = (query['schema_version'] == '2.0.0' and query['index_format_version'] == 2 and
+                  'taxonomy_route_id' not in query)
+    require(common and (active or historical), 'mixed query contract versions')
     require(query['max_cards'] <= query['max_candidates'], 'card/candidate budget')
     unique([v['variant_id'] for v in query['variants']], 'query variant')
     for variant in query['variants']:
@@ -299,6 +302,10 @@ ADVISORY = ['/advisory/use_cases', '/advisory/best_for', '/advisory/adoption_mod
             '/advisory/compatibility']
 
 
+def pointer_covers(source, target):
+    return source != '/' and (source == target or target.startswith(source + '/'))
+
+
 def check_eligibility(eligibility, card, query):
     require(eligibility['github_repository_id'] == card['identity']['github_repository_id'] and
             eligibility['query_id'] == query['query_id'], 'eligibility identity')
@@ -319,8 +326,15 @@ def check_eligibility(eligibility, card, query):
         pointers = ADVISORY if field == 'advisory_evidence' else [paths[field]]
         refs = check['evidence_refs']
         require(set(refs) <= evidence.keys(), 'unresolved eligibility evidence')
-        sourced = all(any(pointer in evidence[ref]['fields'] and
-                         evidence[ref]['verification'] != 'unknown' for ref in refs) for pointer in pointers)
+        resolved = [evidence[ref] for ref in refs]
+        refs_valid = all(item['verification'] != 'unknown' and
+                         any(pointer_covers(source, target)
+                             for source in item['fields'] for target in pointers)
+                         for item in resolved)
+        sourced = refs_valid and all(any(
+            item['verification'] != 'unknown' and
+            any(pointer_covers(source, target) for source in item['fields'])
+            for item in resolved) for target in pointers)
         values = {
             'license': card['repository']['license'],
             'language': card['repository']['languages'],
@@ -410,7 +424,8 @@ def check_retrieval(result, query, index):
         require(index is not None and result['pins'] == index['pins'], 'index pairing')
         require(result['pins']['card_schema_version'] == result['pins']['activity_schema_version'] ==
                 '2.0.0' and result['pins']['retrieval_policy_version'] == '2.1.0' and
-                result['pins']['index_format_version'] == 2, 'mixed C9 version pins')
+                result['pins']['index_format_version'] == query['index_format_version'],
+                'mixed C9 version pins')
         require(result['pins']['policy_sha256'] == query['policy_sha256'], 'index policy pairing')
         require(result['pins']['taxonomy_sha256'] == file_digest('specs/catalog/taxonomy.yaml'), 'taxonomy pairing')
     require(result['retrieved_hits'] <= query['max_candidates'], 'aggregate hit budget')
@@ -517,8 +532,10 @@ def check_bundle(state):
         require(pack['reason_codes'] == result['reason_codes'], 'pack failure reason')
     if memo is None:
         return
-    require(memo['pins'] == pack['pins'] and memo['pack_id'] == pack['pack_id']
-            and memo['request_id'] == request['request_id'], 'memo pairing')
+    require(memo['pack_id'] == pack['pack_id'] and memo['request_id'] == request['request_id'],
+            'memo pairing')
+    if state['schema_version'] == '1.1.0':
+        require(memo['pins'] == pack['pins'], 'memo pairing')
     categories = [item['category_id'] for item in memo['category_path']]
     unique(categories, 'category path')
     require(set(categories) <= {item['id'] for item in TAXONOMY['categories']}, 'unknown category path')
@@ -700,7 +717,8 @@ def check_workspace(state):
     require(state['html_revision'] is None or state['html_revision'] < state['revision'], 'publication cannot mutate current state')
     for key in ('intake', 'brief'):
         require(state[key] is None or state[key]['schema_version'] == '1.1.0', 'workspace nested version')
-    require(state['memo'] is None or state['memo']['schema_version'] == '2.0.0',
+    memo_version = '2.0.0' if state['schema_version'] == '1.0.0' else '2.1.0'
+    require(state['memo'] is None or state['memo']['schema_version'] == memo_version,
             'workspace memo version')
     if state['scan']:
         require(state['scan']['run_id'] == state['run_id'], 'scan run identity')
@@ -936,21 +954,25 @@ class SchemaContracts(unittest.TestCase):
         self.assertEqual(legacy['schema_version'], '1.0.0')
         self.assertNotIn('last_correction_id', legacy)
 
-    def test_state_versions_cannot_mix_but_share_the_v2_memo(self):
+    def test_state_versions_cannot_mix_or_cross_memo_generations(self):
         path = 'artifact/project-artifact-state.schema.json'
-        legacy, current = baseline(), workspace_baseline()
+        legacy, current = legacy_baseline(), workspace_baseline()
         for key in ('intake', 'brief'):
             hybrid = copy.deepcopy(legacy)
             hybrid[key] = current[key]
             with self.subTest(key=key):
                 self.assertTrue(list(self.validator(path).iter_errors(hybrid)))
         legacy['memo'] = copy.deepcopy(current['memo'])
-        self.validator(path).validate(legacy)
+        self.assertTrue(list(self.validator(path).iter_errors(legacy)))
         current['intake'] = baseline()['intake']
         self.assertTrue(list(self.validator(path).iter_errors(current)))
         contract = (ROOT / 'specs' / 'artifact' / 'session-workspace-contract.md').read_text(encoding='utf-8')
-        self.assertIn('every non-null recommendation memo and integration plan uses `2.0.0`', contract)
-        self.assertIn('active C9 v2 schemas use `/v2/`', contract)
+        self.assertIn('Historical C9 v1 artifacts and the index-format-2 tuple remain dated compatibility evidence', contract)
+        self.assertIn('every non-null recommendation memo uses `2.1.0`', contract)
+        self.assertIn(
+            "active C9 schemas retain stable `/v2/` IDs and explicitly dispatch",
+            contract,
+        )
         self.assertNotIn('C2/C4/C9 source/index/query/card/pack contracts remain `1.0.0`', contract)
 
     def test_presentation_pointer_coverage_shape_and_publication_conditions(self):
@@ -1074,6 +1096,10 @@ class SchemaContracts(unittest.TestCase):
 
 
 def baseline():
+    return copy.deepcopy(POSITIVE['artifact/project-artifact-state.schema.json'])
+
+
+def legacy_baseline():
     return copy.deepcopy(POSITIVE['artifact/project-artifact-state.schema.json'])
 
 

@@ -28,9 +28,14 @@ PACKAGED_POLICY = ASSETS / "retrieval-policy.json"
 POLICY_SOURCE = ROOT / "specs" / "retrieval" / "retrieval-policy.json"
 SOURCE_SCHEMA = ROOT / "data" / "catalog_manifest.schema.json"
 
-INDEX_FORMAT_VERSION = 2
-MANIFEST_SCHEMA_VERSION = "2.0.0"
+INDEX_FORMAT_VERSION = 3
+MANIFEST_SCHEMA_VERSION = "2.1.0"
+BUILDER_VERSION = "2.0.0"
 APPLICATION_ID = 1297695049
+ROUTE_REGISTRY_SCHEMA_VERSION = "1.0.0"
+ROUTE_REGISTRY_TABLE = "taxonomy_route_registry"
+EXPECTED_ROUTE_COUNT = 126
+EXPECTED_ROUTE_MEMBER_COUNT = 162
 FTS_COLUMNS = (
     "full_name",
     "full_name_aliases",
@@ -42,6 +47,23 @@ FTS_COLUMNS = (
     "integration_surface",
     "best_for",
 )
+
+
+def _publish_with_parent_acl(staged: Path, output: Path) -> None:
+    """Atomically publish bytes through a destination-local inherited-ACL file."""
+    descriptor, temporary_name = tempfile.mkstemp(
+        prefix=f".{output.name}.", suffix=".tmp", dir=output.parent
+    )
+    os.close(descriptor)
+    temporary = Path(temporary_name)
+    try:
+        with staged.open("rb") as source, temporary.open("wb") as destination:
+            shutil.copyfileobj(source, destination)
+            destination.flush()
+            os.fsync(destination.fileno())
+        os.replace(temporary, output)
+    finally:
+        temporary.unlink(missing_ok=True)
 
 
 class PluginSearchIndexBuildError(ValueError):
@@ -114,6 +136,89 @@ def logical_rows_sha256(rows: list[dict[str, Any]]) -> str:
     return _sha256(catalog_builder.canonical_bytes(rows))
 
 
+def logical_routes(taxonomy_sha256: str) -> list[dict[str, str]]:
+    taxonomy_path = catalog_builder.TAXONOMY
+    _require(
+        catalog_builder.file_sha256(taxonomy_path) == taxonomy_sha256,
+        "taxonomy route source does not match the frozen taxonomy pin",
+    )
+    taxonomy = _load_json(taxonomy_path)
+    categories = taxonomy.get("categories")
+    _require(isinstance(categories, list), "taxonomy categories must be an array")
+
+    by_id: dict[str, dict[str, Any]] = {}
+    children: dict[str, list[str]] = {}
+    kind_counts = {"category": 0, "container": 0, "review_bucket": 0}
+    for item in categories:
+        _require(isinstance(item, dict), "taxonomy category must be an object")
+        category_id = item.get("id")
+        kind = item.get("kind")
+        _require(isinstance(category_id, str) and category_id, "taxonomy category ID must be non-empty")
+        _require(category_id not in by_id, f"duplicate taxonomy category ID: {category_id}")
+        _require(kind in kind_counts, f"unsupported taxonomy category kind: {kind}")
+        by_id[category_id] = item
+        children[category_id] = []
+        kind_counts[kind] += 1
+
+    _require(
+        kind_counts == {"category": 111, "container": 14, "review_bucket": 1},
+        f"unexpected pinned taxonomy kind counts: {kind_counts}",
+    )
+    for item in categories:
+        parent_id = item.get("parent_id")
+        if parent_id is None:
+            continue
+        _require(parent_id in by_id, f"unknown taxonomy parent: {parent_id}")
+        children[parent_id].append(item["id"])
+    for child_ids in children.values():
+        child_ids.sort()
+
+    def descendants(category_id: str, visiting: frozenset[str] = frozenset()) -> list[str]:
+        _require(category_id not in visiting, f"taxonomy parent cycle at: {category_id}")
+        nested: list[str] = []
+        next_visiting = visiting | {category_id}
+        for child_id in children[category_id]:
+            nested.append(child_id)
+            nested.extend(descendants(child_id, next_visiting))
+        return nested
+
+    rows: list[dict[str, str]] = []
+    for route_id, route in by_id.items():
+        route_kind = route["kind"]
+        member_ids = (
+            [route_id]
+            if route_kind != "container"
+            else [
+                member_id
+                for member_id in descendants(route_id)
+                if by_id[member_id]["kind"] != "container"
+            ]
+        )
+        _require(member_ids, f"taxonomy route has no assignable members: {route_id}")
+        for member_id in member_ids:
+            rows.append({
+                "route_id": route_id,
+                "route_kind": route_kind,
+                "match_category_id": member_id,
+                "match_category_kind": by_id[member_id]["kind"],
+            })
+    rows.sort(key=lambda row: (row["route_id"], row["match_category_id"]))
+    _require(
+        len({row["route_id"] for row in rows}) == EXPECTED_ROUTE_COUNT,
+        "taxonomy route count mismatch",
+    )
+    _require(len(rows) == EXPECTED_ROUTE_MEMBER_COUNT, "taxonomy route-member count mismatch")
+    _require(
+        len({(row["route_id"], row["match_category_id"]) for row in rows}) == len(rows),
+        "duplicate taxonomy route member",
+    )
+    return rows
+
+
+def logical_routes_sha256(rows: list[dict[str, str]]) -> str:
+    return _sha256(catalog_builder.canonical_bytes(rows))
+
+
 def _create_schema(connection: sqlite3.Connection) -> None:
     connection.executescript(f"""
         PRAGMA application_id = {APPLICATION_ID};
@@ -124,7 +229,7 @@ def _create_schema(connection: sqlite3.Connection) -> None:
 
         CREATE TABLE bundle_metadata (
             singleton INTEGER PRIMARY KEY CHECK (singleton = 1),
-            schema_version TEXT NOT NULL CHECK (schema_version = '2.0.0'),
+            schema_version TEXT NOT NULL CHECK (schema_version = '2.1.0'),
             catalog_snapshot_id TEXT NOT NULL,
             source_sha256 TEXT NOT NULL CHECK (length(source_sha256) = 64),
             source_schema_sha256 TEXT NOT NULL CHECK (length(source_schema_sha256) = 64),
@@ -135,10 +240,13 @@ def _create_schema(connection: sqlite3.Connection) -> None:
             card_schema_version TEXT NOT NULL CHECK (card_schema_version = '2.0.0'),
             activity_schema_version TEXT NOT NULL CHECK (activity_schema_version = '2.0.0'),
             retrieval_policy_version TEXT NOT NULL CHECK (retrieval_policy_version = '2.1.0'),
-            index_format_version INTEGER NOT NULL CHECK (index_format_version = 2),
+            index_format_version INTEGER NOT NULL CHECK (index_format_version = 3),
             corpus_kind TEXT NOT NULL CHECK (corpus_kind = 'catalog_snapshot'),
             row_count INTEGER NOT NULL CHECK (row_count = 2500),
             logical_rows_sha256 TEXT NOT NULL CHECK (length(logical_rows_sha256) = 64),
+            route_count INTEGER NOT NULL CHECK (route_count = 126),
+            route_member_count INTEGER NOT NULL CHECK (route_member_count = 162),
+            logical_routes_sha256 TEXT NOT NULL CHECK (length(logical_routes_sha256) = 64),
             fts_columns_json TEXT NOT NULL,
             fts_weights_json TEXT NOT NULL,
             tokenizer TEXT NOT NULL CHECK (tokenizer = 'unicode61'),
@@ -170,6 +278,14 @@ def _create_schema(connection: sqlite3.Connection) -> None:
         CREATE INDEX repository_classifications_category
             ON repository_classifications(category_id, github_repository_id);
 
+        CREATE TABLE taxonomy_route_registry (
+            route_id TEXT,
+            route_kind TEXT,
+            match_category_id TEXT,
+            match_category_kind TEXT,
+            PRIMARY KEY (route_id, match_category_id)
+        ) STRICT, WITHOUT ROWID;
+
         CREATE VIRTUAL TABLE repository_fts USING fts5(
             full_name,
             full_name_aliases,
@@ -196,6 +312,8 @@ def build_sqlite(
     cards_sha256: str,
     policy_sha256: str,
     logical_sha256: str,
+    route_rows: list[dict[str, str]],
+    logical_routes_sha256_value: str,
 ) -> None:
     if path.exists():
         path.unlink()
@@ -220,8 +338,20 @@ def build_sqlite(
                 for classification in card["classifications"]
             ],
         )
+        connection.executemany(
+            "INSERT INTO taxonomy_route_registry VALUES (?, ?, ?, ?)",
+            [
+                (
+                    row["route_id"],
+                    row["route_kind"],
+                    row["match_category_id"],
+                    row["match_category_kind"],
+                )
+                for row in route_rows
+            ],
+        )
         connection.execute(
-            "INSERT INTO bundle_metadata VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+            "INSERT INTO bundle_metadata VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
             (
                 1,
                 MANIFEST_SCHEMA_VERSION,
@@ -239,6 +369,9 @@ def build_sqlite(
                 snapshot["corpus_kind"],
                 len(rows),
                 logical_sha256,
+                EXPECTED_ROUTE_COUNT,
+                len(route_rows),
+                logical_routes_sha256_value,
                 _array_text(list(FTS_COLUMNS)),
                 json.dumps(policy["field_weights"], ensure_ascii=False, separators=(",", ":")),
                 policy["tokenizer"],
@@ -270,6 +403,9 @@ def verify_sqlite(
     *,
     verify_write_rejection: bool = True,
 ) -> dict[str, Any]:
+    route_rows = logical_routes(manifest["pins"]["taxonomy_sha256"])
+    route_columns = ("route_id", "route_kind", "match_category_id", "match_category_kind")
+    expected_route_hash = logical_routes_sha256(route_rows)
     connection = _read_only_connection(path)
     try:
         _require(connection.execute("PRAGMA application_id").fetchone()[0] == APPLICATION_ID, "application_id mismatch")
@@ -287,6 +423,34 @@ def verify_sqlite(
         _require(connection.execute("SELECT count(*) FROM repository_fts").fetchone()[0] == len(cards), "FTS row count mismatch")
         _require(connection.execute("SELECT count(*) FROM repository_classifications").fetchone()[0] == 2630,
                  "classification row count mismatch")
+        route_table_info = connection.execute("PRAGMA table_list(taxonomy_route_registry)").fetchone()
+        _require(route_table_info is not None and route_table_info[1] == ROUTE_REGISTRY_TABLE,
+                 "missing taxonomy route registry")
+        _require(route_table_info[4] == 1 and route_table_info[5] == 1,
+                 "taxonomy route registry must be WITHOUT ROWID and STRICT")
+        actual_route_columns = tuple(
+            item[1] for item in connection.execute("PRAGMA table_info(taxonomy_route_registry)").fetchall()
+        )
+        _require(actual_route_columns == route_columns, "taxonomy route registry columns mismatch")
+        db_route_rows = [dict(zip(route_columns, row)) for row in connection.execute(
+            "SELECT route_id, route_kind, match_category_id, match_category_kind "
+            "FROM taxonomy_route_registry ORDER BY route_id, match_category_id"
+        )]
+        _require(db_route_rows == route_rows, "taxonomy route registry logical parity mismatch")
+        _require(
+            logical_routes_sha256(db_route_rows) == manifest["route_registry"]["logical_routes_sha256"],
+            "taxonomy route registry logical hash mismatch",
+        )
+        _require(
+            manifest["route_registry"] == {
+                "schema_version": ROUTE_REGISTRY_SCHEMA_VERSION,
+                "table_name": ROUTE_REGISTRY_TABLE,
+                "route_count": EXPECTED_ROUTE_COUNT,
+                "route_member_count": EXPECTED_ROUTE_MEMBER_COUNT,
+                "logical_routes_sha256": expected_route_hash,
+            },
+            "manifest taxonomy route registry mismatch",
+        )
         metadata_cursor = connection.execute("SELECT * FROM bundle_metadata WHERE singleton = 1")
         metadata_row = metadata_cursor.fetchone()
         _require(metadata_row is not None, "missing bundle metadata")
@@ -295,7 +459,7 @@ def verify_sqlite(
         first_card = cards[0]
         expected_metadata = {
             "singleton": 1,
-            "schema_version": "2.0.0",
+            "schema_version": MANIFEST_SCHEMA_VERSION,
             "catalog_snapshot_id": manifest["pins"]["catalog_snapshot_id"],
             "source_sha256": manifest["pins"]["source_sha256"],
             "source_schema_sha256": catalog_builder.file_sha256(SOURCE_SCHEMA),
@@ -310,6 +474,9 @@ def verify_sqlite(
             "corpus_kind": manifest["pins"]["corpus_kind"],
             "row_count": manifest["row_count"],
             "logical_rows_sha256": manifest["logical_rows_sha256"],
+            "route_count": EXPECTED_ROUTE_COUNT,
+            "route_member_count": EXPECTED_ROUTE_MEMBER_COUNT,
+            "logical_routes_sha256": expected_route_hash,
             "fts_columns_json": _array_text(list(FTS_COLUMNS)),
             "fts_weights_json": json.dumps(policy["field_weights"], ensure_ascii=False, separators=(",", ":")),
             "tokenizer": policy["tokenizer"],
@@ -346,6 +513,9 @@ def verify_sqlite(
     return {
         "rows": len(rows),
         "classifications": 2630,
+        "routes": EXPECTED_ROUTE_COUNT,
+        "route_members": EXPECTED_ROUTE_MEMBER_COUNT,
+        "logical_routes_sha256": expected_route_hash,
         "alias_search_github_repository_id": 323965659,
         "catalog_description_search_github_repository_id": 691347156,
         "sqlite_version": sqlite3.sqlite_version,
@@ -360,6 +530,7 @@ def _manifest(
     policy_sha256: str,
     index_sha256: str,
     logical_sha256: str,
+    logical_routes_sha256_value: str,
     built_at: str,
 ) -> dict[str, Any]:
     return {
@@ -377,7 +548,7 @@ def _manifest(
             "retrieval_policy_version": policy["schema_version"],
             "corpus_kind": snapshot["corpus_kind"],
         },
-        "builder_version": catalog_builder.BUILDER_VERSION,
+        "builder_version": BUILDER_VERSION,
         "sqlite_version": sqlite3.sqlite_version,
         "built_at": built_at,
         "source_snapshot_date": snapshot["source_snapshot_date"],
@@ -388,6 +559,13 @@ def _manifest(
         "contains_project_context": False,
         "read_only_runtime": True,
         "logical_rows_sha256": logical_sha256,
+        "route_registry": {
+            "schema_version": ROUTE_REGISTRY_SCHEMA_VERSION,
+            "table_name": ROUTE_REGISTRY_TABLE,
+            "route_count": EXPECTED_ROUTE_COUNT,
+            "route_member_count": EXPECTED_ROUTE_MEMBER_COUNT,
+            "logical_routes_sha256": logical_routes_sha256_value,
+        },
     }
 
 
@@ -397,20 +575,21 @@ def build_package(*, built_at: str | None = None) -> dict[str, Any]:
     cards_bytes = catalog_builder.canonical_bytes(snapshot)
     rows = logical_rows(snapshot["cards"])
     logical_sha256 = logical_rows_sha256(rows)
+    route_rows = logical_routes(snapshot["taxonomy_sha256"])
+    route_sha256 = logical_routes_sha256(route_rows)
     cards_sha256 = _sha256(cards_bytes)
     policy_sha256 = _sha256(policy_bytes)
+    _require(CARDS.exists() and CARDS.read_bytes() == cards_bytes, "catalog snapshot byte parity failed")
+    _require(PACKAGED_POLICY.exists() and PACKAGED_POLICY.read_bytes() == policy_bytes,
+             "packaged policy is not byte-identical to accepted source")
     built_at = built_at or datetime.now(timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z")
 
     staging_parent = ROOT / ".codex-tmp"
     staging_parent.mkdir(parents=True, exist_ok=True)
     with tempfile.TemporaryDirectory(prefix="cp06-package-", dir=staging_parent) as directory:
         staging = Path(directory)
-        staged_cards = staging / CARDS.name
-        staged_policy = staging / PACKAGED_POLICY.name
         staged_index = staging / INDEX.name
         staged_manifest = staging / MANIFEST.name
-        staged_cards.write_bytes(cards_bytes)
-        staged_policy.write_bytes(policy_bytes)
         build_sqlite(
             staged_index,
             snapshot["cards"],
@@ -420,6 +599,8 @@ def build_package(*, built_at: str | None = None) -> dict[str, Any]:
             cards_sha256,
             policy_sha256,
             logical_sha256,
+            route_rows,
+            route_sha256,
         )
         index_sha256 = _sha256(staged_index.read_bytes())
         manifest = _manifest(
@@ -429,6 +610,7 @@ def build_package(*, built_at: str | None = None) -> dict[str, Any]:
             policy_sha256,
             index_sha256,
             logical_sha256,
+            route_sha256,
             built_at,
         )
         staged_manifest.write_bytes(catalog_builder.canonical_bytes(manifest))
@@ -436,12 +618,10 @@ def build_package(*, built_at: str | None = None) -> dict[str, Any]:
 
         ASSETS.mkdir(parents=True, exist_ok=True)
         for staged, output in (
-            (staged_cards, CARDS),
-            (staged_policy, PACKAGED_POLICY),
             (staged_index, INDEX),
             (staged_manifest, MANIFEST),
         ):
-            os.replace(staged, output)
+            _publish_with_parent_acl(staged, output)
 
     return {
         "status": "ok",
@@ -451,6 +631,9 @@ def build_package(*, built_at: str | None = None) -> dict[str, Any]:
         "policy_sha256": policy_sha256,
         "index_sha256": index_sha256,
         "logical_rows_sha256": logical_sha256,
+        "routes": EXPECTED_ROUTE_COUNT,
+        "route_members": EXPECTED_ROUTE_MEMBER_COUNT,
+        "logical_routes_sha256": route_sha256,
         "index_bytes": INDEX.stat().st_size,
         "sqlite_version": sqlite3.sqlite_version,
     }
@@ -466,6 +649,8 @@ def check_package() -> dict[str, Any]:
     _require(INDEX.exists() and MANIFEST.exists(), "missing CP-06 package artifact")
     manifest = _load_json(MANIFEST)
     rows = logical_rows(snapshot["cards"])
+    route_rows = logical_routes(snapshot["taxonomy_sha256"])
+    route_sha256 = logical_routes_sha256(route_rows)
     expected_pins = {
         "catalog_snapshot_id": snapshot["catalog_snapshot_id"],
         "source_sha256": snapshot["source_sha256"],
@@ -475,14 +660,22 @@ def check_package() -> dict[str, Any]:
         "taxonomy_sha256": snapshot["taxonomy_sha256"],
         "card_schema_version": "2.0.0",
         "activity_schema_version": "2.0.0",
-        "index_format_version": 2,
+        "index_format_version": INDEX_FORMAT_VERSION,
         "retrieval_policy_version": "2.1.0",
         "corpus_kind": "catalog_snapshot",
     }
-    _require(manifest.get("schema_version") == "2.0.0", "manifest version mismatch")
+    _require(manifest.get("schema_version") == MANIFEST_SCHEMA_VERSION, "manifest version mismatch")
     _require(manifest.get("pins") == expected_pins, "manifest pin mismatch")
     _require(manifest.get("row_count") == 2500, "manifest row count mismatch")
     _require(manifest.get("logical_rows_sha256") == logical_rows_sha256(rows), "manifest logical hash mismatch")
+    _require(manifest.get("builder_version") == BUILDER_VERSION, "manifest builder version mismatch")
+    _require(manifest.get("route_registry") == {
+        "schema_version": ROUTE_REGISTRY_SCHEMA_VERSION,
+        "table_name": ROUTE_REGISTRY_TABLE,
+        "route_count": EXPECTED_ROUTE_COUNT,
+        "route_member_count": EXPECTED_ROUTE_MEMBER_COUNT,
+        "logical_routes_sha256": route_sha256,
+    }, "manifest route registry mismatch")
     verification = verify_sqlite(INDEX, snapshot["cards"], rows, manifest)
     return {
         "status": "ok",
@@ -493,6 +686,9 @@ def check_package() -> dict[str, Any]:
         "policy_sha256": expected_pins["policy_sha256"],
         "index_sha256": expected_pins["index_sha256"],
         "logical_rows_sha256": manifest["logical_rows_sha256"],
+        "routes": EXPECTED_ROUTE_COUNT,
+        "route_members": EXPECTED_ROUTE_MEMBER_COUNT,
+        "logical_routes_sha256": route_sha256,
         "index_bytes": INDEX.stat().st_size,
     }
 

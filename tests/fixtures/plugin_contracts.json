@@ -782,7 +782,7 @@
       "corpus_kind": "synthetic_fixture"
     },
     "catalog/candidate-eligibility.schema.json": {
-      "schema_version": "2.0.0",
+      "schema_version": "2.1.0",
       "query_id": "query-1",
       "status": "primary_eligible",
       "checks": [
@@ -848,8 +848,9 @@
       "github_repository_id": 900000001
     },
     "retrieval/catalog-query.schema.json": {
-      "schema_version": "2.0.0",
+      "schema_version": "2.1.0",
       "query_id": "query-1",
+      "taxonomy_route_id": null,
       "brief_version": 1,
       "source_mode": "catalog_only",
       "retrieval_engine": "sqlite_fts5",
@@ -899,13 +900,13 @@
       "max_evidence_bytes": 163840,
       "card_schema_version": "2.0.0",
       "activity_schema_version": "2.0.0",
-      "index_format_version": 2
+      "index_format_version": 3
     },
     "retrieval/retrieval-result.schema.json": {
-      "schema_version": "2.0.0",
+      "schema_version": "2.1.0",
       "run_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
       "query_id": "query-1",
-      "query_sha256": "b9651def345ba350289d7aa05e5771c5718ab7e38d37ec506febcf47cf25d0ca",
+      "query_sha256": "86c5c11cb19d4cbbfc53f861f3e69b40c28df19fa9c83dc69575734f8daf8db4",
       "brief_version": 1,
       "source_mode": "catalog_only",
       "retrieval_engine": "sqlite_fts5",
@@ -918,7 +919,7 @@
         "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f",
         "card_schema_version": "2.0.0",
         "activity_schema_version": "2.0.0",
-        "index_format_version": 2,
+        "index_format_version": 3,
         "retrieval_policy_version": "2.1.0",
         "corpus_kind": "synthetic_fixture"
       },
@@ -953,11 +954,11 @@
       "reason_codes": []
     },
     "retrieval/evidence-pack.schema.json": {
-      "schema_version": "2.0.0",
+      "schema_version": "2.1.0",
       "run_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
       "pack_id": "pack-1",
       "query_id": "query-1",
-      "query_sha256": "b9651def345ba350289d7aa05e5771c5718ab7e38d37ec506febcf47cf25d0ca",
+      "query_sha256": "86c5c11cb19d4cbbfc53f861f3e69b40c28df19fa9c83dc69575734f8daf8db4",
       "brief_version": 1,
       "pins": {
         "catalog_snapshot_id": "fixture-catalog-2",
@@ -968,7 +969,7 @@
         "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f",
         "card_schema_version": "2.0.0",
         "activity_schema_version": "2.0.0",
-        "index_format_version": 2,
+        "index_format_version": 3,
         "retrieval_policy_version": "2.1.0",
         "corpus_kind": "synthetic_fixture"
       },
@@ -1215,7 +1216,7 @@
             "integration_surface"
           ],
           "eligibility": {
-            "schema_version": "2.0.0",
+            "schema_version": "2.1.0",
             "query_id": "query-1",
             "status": "primary_eligible",
             "checks": [
@@ -1287,7 +1288,7 @@
       "reason_codes": []
     },
     "retrieval/index-manifest.schema.json": {
-      "schema_version": "2.0.0",
+      "schema_version": "2.1.0",
       "pins": {
         "catalog_snapshot_id": "fixture-catalog-2",
         "source_sha256": "d487719a3299ca76a52d9f7bf5f89cfd1323c65c6777b0d5e4c65adcc381fed5",
@@ -1297,7 +1298,7 @@
         "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f",
         "card_schema_version": "2.0.0",
         "activity_schema_version": "2.0.0",
-        "index_format_version": 2,
+        "index_format_version": 3,
         "retrieval_policy_version": "2.1.0",
         "corpus_kind": "synthetic_fixture"
       },
@@ -1311,17 +1312,25 @@
       "policy_file": "retrieval-policy.json",
       "contains_project_context": false,
       "read_only_runtime": true,
-      "logical_rows_sha256": "34f9e4b5d9d26c1abde12217ba4258bc20db6f16f32fc4f9e7cf41a1eee46a15"
+      "logical_rows_sha256": "34f9e4b5d9d26c1abde12217ba4258bc20db6f16f32fc4f9e7cf41a1eee46a15",
+      "route_registry": {
+        "schema_version": "1.0.0",
+        "table_name": "taxonomy_route_registry",
+        "route_count": 1,
+        "route_member_count": 1,
+        "logical_routes_sha256": "98e613d9d1fbc7a32c836c3dee88f3ba2a63236185375ddbc638f35422bf5c30"
+      }
     },
     "recommendation/recommendation-request.schema.json": {
-      "schema_version": "1.0.0",
+      "schema_version": "1.1.0",
       "run_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
       "request_id": "request-1",
       "brief_id": "brief-1",
       "brief_version": 1,
       "query": {
-        "schema_version": "2.0.0",
-        "query_id": "query-1",
+      "schema_version": "2.1.0",
+      "query_id": "query-1",
+      "taxonomy_route_id": null,
         "brief_version": 1,
         "source_mode": "catalog_only",
         "retrieval_engine": "sqlite_fts5",
@@ -1371,7 +1380,7 @@
         "max_evidence_bytes": 163840,
         "card_schema_version": "2.0.0",
         "activity_schema_version": "2.0.0",
-        "index_format_version": 2
+      "index_format_version": 3
       },
       "pack_id": "pack-1",
       "output_intent": "integration_handoff",
@@ -1466,7 +1475,7 @@
       }
     },
     "recommendation/recommendation-memo.schema.json": {
-      "schema_version": "2.0.0",
+      "schema_version": "2.1.0",
       "run_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
       "memo_id": "memo-1",
       "request_id": "request-1",
@@ -1481,7 +1490,7 @@
         "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f",
         "card_schema_version": "2.0.0",
         "activity_schema_version": "2.0.0",
-        "index_format_version": 2,
+        "index_format_version": 3,
         "retrieval_policy_version": "2.1.0",
         "corpus_kind": "synthetic_fixture"
       },
@@ -1504,9 +1513,9 @@
           "github_repository_id": 900000001
         }
       ],
-      "comparison": [],
-      "avoid_defer": [],
-      "reading_path": [
+     "comparison": [],
+     "avoid_defer": [],
+     "reading_path": [
         {
           "evidence_ref": "ev-public-fit",
           "purpose": "Check the integration surface and constraints."
@@ -1740,14 +1749,15 @@
         "charge_to_scan_budget": true
       },
       "request": {
-        "schema_version": "1.0.0",
+        "schema_version": "1.1.0",
         "run_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
         "request_id": "request-1",
         "brief_id": "brief-1",
         "brief_version": 1,
         "query": {
-          "schema_version": "2.0.0",
+          "schema_version": "2.1.0",
           "query_id": "query-1",
+          "taxonomy_route_id": null,
           "brief_version": 1,
           "source_mode": "catalog_only",
           "retrieval_engine": "sqlite_fts5",
@@ -1797,7 +1807,7 @@
           "max_evidence_bytes": 163840,
           "card_schema_version": "2.0.0",
           "activity_schema_version": "2.0.0",
-          "index_format_version": 2
+          "index_format_version": 3
         },
         "pack_id": "pack-1",
         "output_intent": "integration_handoff",
@@ -1811,7 +1821,7 @@
         }
       },
       "index_manifest": {
-        "schema_version": "2.0.0",
+        "schema_version": "2.1.0",
         "pins": {
           "catalog_snapshot_id": "fixture-catalog-2",
           "source_sha256": "d487719a3299ca76a52d9f7bf5f89cfd1323c65c6777b0d5e4c65adcc381fed5",
@@ -1821,7 +1831,7 @@
           "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f",
           "card_schema_version": "2.0.0",
           "activity_schema_version": "2.0.0",
-          "index_format_version": 2,
+          "index_format_version": 3,
           "retrieval_policy_version": "2.1.0",
           "corpus_kind": "synthetic_fixture"
         },
@@ -1835,13 +1845,20 @@
         "policy_file": "retrieval-policy.json",
         "contains_project_context": false,
         "read_only_runtime": true,
-        "logical_rows_sha256": "34f9e4b5d9d26c1abde12217ba4258bc20db6f16f32fc4f9e7cf41a1eee46a15"
+        "logical_rows_sha256": "34f9e4b5d9d26c1abde12217ba4258bc20db6f16f32fc4f9e7cf41a1eee46a15",
+        "route_registry": {
+          "schema_version": "1.0.0",
+          "table_name": "taxonomy_route_registry",
+          "route_count": 1,
+          "route_member_count": 1,
+          "logical_routes_sha256": "98e613d9d1fbc7a32c836c3dee88f3ba2a63236185375ddbc638f35422bf5c30"
+        }
       },
       "retrieval": {
-        "schema_version": "2.0.0",
+        "schema_version": "2.1.0",
         "run_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
         "query_id": "query-1",
-        "query_sha256": "b9651def345ba350289d7aa05e5771c5718ab7e38d37ec506febcf47cf25d0ca",
+        "query_sha256": "86c5c11cb19d4cbbfc53f861f3e69b40c28df19fa9c83dc69575734f8daf8db4",
         "brief_version": 1,
         "source_mode": "catalog_only",
         "retrieval_engine": "sqlite_fts5",
@@ -1854,7 +1871,7 @@
           "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f",
           "card_schema_version": "2.0.0",
           "activity_schema_version": "2.0.0",
-          "index_format_version": 2,
+          "index_format_version": 3,
           "retrieval_policy_version": "2.1.0",
           "corpus_kind": "synthetic_fixture"
         },
@@ -1889,11 +1906,11 @@
         "reason_codes": []
       },
       "evidence_pack": {
-        "schema_version": "2.0.0",
+        "schema_version": "2.1.0",
         "run_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
         "pack_id": "pack-1",
         "query_id": "query-1",
-        "query_sha256": "b9651def345ba350289d7aa05e5771c5718ab7e38d37ec506febcf47cf25d0ca",
+        "query_sha256": "86c5c11cb19d4cbbfc53f861f3e69b40c28df19fa9c83dc69575734f8daf8db4",
         "brief_version": 1,
         "pins": {
           "catalog_snapshot_id": "fixture-catalog-2",
@@ -1904,7 +1921,7 @@
           "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f",
           "card_schema_version": "2.0.0",
           "activity_schema_version": "2.0.0",
-          "index_format_version": 2,
+          "index_format_version": 3,
           "retrieval_policy_version": "2.1.0",
           "corpus_kind": "synthetic_fixture"
         },
@@ -2150,8 +2167,8 @@
               "upstream_description",
               "integration_surface"
             ],
-            "eligibility": {
-              "schema_version": "2.0.0",
+          "eligibility": {
+            "schema_version": "2.1.0",
               "query_id": "query-1",
               "status": "primary_eligible",
               "checks": [
@@ -2261,9 +2278,9 @@
             "github_repository_id": 900000001
           }
         ],
-        "comparison": [],
-        "avoid_defer": [],
-        "reading_path": [
+     "comparison": [],
+     "avoid_defer": [],
+     "reading_path": [
           {
             "evidence_ref": "ev-public-fit",
             "purpose": "Check the integration surface and constraints."
@@ -2481,7 +2498,7 @@
         "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f",
         "card_schema_version": "2.0.0",
         "activity_schema_version": "2.0.0",
-        "index_format_version": 2,
+        "index_format_version": 3,
         "retrieval_policy_version": "2.1.0",
         "corpus_kind": "synthetic_fixture"
       },
@@ -2824,14 +2841,15 @@
         "charge_to_scan_budget": true
       },
       "request": {
-        "schema_version": "1.0.0",
+        "schema_version": "1.1.0",
         "run_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
         "request_id": "request-1",
         "brief_id": "brief-1",
         "brief_version": 1,
         "query": {
-          "schema_version": "2.0.0",
+          "schema_version": "2.1.0",
           "query_id": "query-1",
+          "taxonomy_route_id": null,
           "brief_version": 1,
           "source_mode": "catalog_only",
           "retrieval_engine": "sqlite_fts5",
@@ -2881,7 +2899,7 @@
           "max_evidence_bytes": 163840,
           "card_schema_version": "2.0.0",
           "activity_schema_version": "2.0.0",
-          "index_format_version": 2
+      "index_format_version": 3
         },
         "pack_id": "pack-1",
         "output_intent": "integration_handoff",
@@ -2895,7 +2913,7 @@
         }
       },
       "index_manifest": {
-        "schema_version": "2.0.0",
+        "schema_version": "2.1.0",
         "pins": {
           "catalog_snapshot_id": "fixture-catalog-2",
           "source_sha256": "d487719a3299ca76a52d9f7bf5f89cfd1323c65c6777b0d5e4c65adcc381fed5",
@@ -2905,7 +2923,7 @@
           "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f",
           "card_schema_version": "2.0.0",
           "activity_schema_version": "2.0.0",
-          "index_format_version": 2,
+          "index_format_version": 3,
           "retrieval_policy_version": "2.1.0",
           "corpus_kind": "synthetic_fixture"
         },
@@ -2919,13 +2937,20 @@
         "policy_file": "retrieval-policy.json",
         "contains_project_context": false,
         "read_only_runtime": true,
-        "logical_rows_sha256": "34f9e4b5d9d26c1abde12217ba4258bc20db6f16f32fc4f9e7cf41a1eee46a15"
+        "logical_rows_sha256": "34f9e4b5d9d26c1abde12217ba4258bc20db6f16f32fc4f9e7cf41a1eee46a15",
+        "route_registry": {
+          "schema_version": "1.0.0",
+          "table_name": "taxonomy_route_registry",
+          "route_count": 1,
+          "route_member_count": 1,
+          "logical_routes_sha256": "98e613d9d1fbc7a32c836c3dee88f3ba2a63236185375ddbc638f35422bf5c30"
+        }
       },
       "retrieval": {
-        "schema_version": "2.0.0",
+        "schema_version": "2.1.0",
         "run_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
         "query_id": "query-1",
-        "query_sha256": "b9651def345ba350289d7aa05e5771c5718ab7e38d37ec506febcf47cf25d0ca",
+        "query_sha256": "86c5c11cb19d4cbbfc53f861f3e69b40c28df19fa9c83dc69575734f8daf8db4",
         "brief_version": 1,
         "source_mode": "catalog_only",
         "retrieval_engine": "sqlite_fts5",
@@ -2938,7 +2963,7 @@
           "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f",
           "card_schema_version": "2.0.0",
           "activity_schema_version": "2.0.0",
-          "index_format_version": 2,
+          "index_format_version": 3,
           "retrieval_policy_version": "2.1.0",
           "corpus_kind": "synthetic_fixture"
         },
@@ -2973,11 +2998,11 @@
         "reason_codes": []
       },
       "evidence_pack": {
-        "schema_version": "2.0.0",
+        "schema_version": "2.1.0",
         "run_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
         "pack_id": "pack-1",
         "query_id": "query-1",
-        "query_sha256": "b9651def345ba350289d7aa05e5771c5718ab7e38d37ec506febcf47cf25d0ca",
+        "query_sha256": "86c5c11cb19d4cbbfc53f861f3e69b40c28df19fa9c83dc69575734f8daf8db4",
         "brief_version": 1,
         "pins": {
           "catalog_snapshot_id": "fixture-catalog-2",
@@ -2988,7 +3013,7 @@
           "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f",
           "card_schema_version": "2.0.0",
           "activity_schema_version": "2.0.0",
-          "index_format_version": 2,
+          "index_format_version": 3,
           "retrieval_policy_version": "2.1.0",
           "corpus_kind": "synthetic_fixture"
         },
@@ -3235,7 +3260,7 @@
               "integration_surface"
             ],
             "eligibility": {
-              "schema_version": "2.0.0",
+              "schema_version": "2.1.0",
               "query_id": "query-1",
               "status": "primary_eligible",
               "checks": [
@@ -3307,7 +3332,7 @@
         "reason_codes": []
       },
       "memo": {
-        "schema_version": "2.0.0",
+        "schema_version": "2.1.0",
         "run_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
         "memo_id": "memo-1",
         "request_id": "request-1",
@@ -3322,7 +3347,7 @@
           "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f",
           "card_schema_version": "2.0.0",
           "activity_schema_version": "2.0.0",
-          "index_format_version": 2,
+          "index_format_version": 3,
           "retrieval_policy_version": "2.1.0",
           "corpus_kind": "synthetic_fixture"
         },
@@ -3345,9 +3370,9 @@
             "github_repository_id": 900000001
           }
         ],
-        "comparison": [],
-        "avoid_defer": [],
-        "reading_path": [
+       "comparison": [],
+       "avoid_defer": [],
+       "reading_path": [
           {
             "evidence_ref": "ev-public-fit",
             "purpose": "Check the integration surface and constraints."
@@ -3785,7 +3810,7 @@
       }
     },
     "recommendation/recommendation-memo.schema.json": {
-      "schema_version": "2.0.0",
+      "schema_version": "2.1.0",
       "run_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
       "memo_id": "memo-1",
       "request_id": "request-1",
@@ -3800,7 +3825,7 @@
         "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f",
         "card_schema_version": "2.0.0",
         "activity_schema_version": "2.0.0",
-        "index_format_version": 2,
+        "index_format_version": 3,
         "retrieval_policy_version": "2.1.0",
         "corpus_kind": "synthetic_fixture"
       },
@@ -3823,9 +3848,9 @@
           "github_repository_id": 900000001
         }
       ],
-      "comparison": [],
-      "avoid_defer": [],
-      "reading_path": [
+       "comparison": [],
+       "avoid_defer": [],
+       "reading_path": [
         {
           "evidence_ref": "ev-public-fit",
           "purpose": "Check the integration surface and constraints."

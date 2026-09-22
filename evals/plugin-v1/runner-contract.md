@@ -4,13 +4,13 @@ Version: `retrieval_scenarios_v2` / `retrieval_captures_v2` plus `retrieval_qual
 
 ## Invocation And Dependencies
 
-Run with Python. The two C8 commands and full C8 test class also require development-only `jsonschema` / `referencing`; these packages must never be added to the stdlib-only plugin runtime. The CP-04 quality-plan gate uses its bounded stdlib validator so it does not alter the accepted C8 schema-set pin. Missing required C8 validation is exit 2, not skip or success.
+Run with the ignored project-local `.venv`. Bootstrap once with `python -m venv .venv` and `.venv\Scripts\python.exe -m pip install --requirement requirements-dev.txt`. The pinned development-only `jsonschema` / `referencing` packages must never be added to the stdlib-only plugin runtime. The CP-04 quality-plan gate uses its bounded stdlib validator so it does not alter the accepted C8 schema-set pin. Missing required C8 validation is exit 2, not skip or success.
 
 ```powershell
-python -B evals/plugin-v1/evaluate_retrieval.py --cases evals/plugin-v1/cases.json
-python -B evals/plugin-v1/evaluate_retrieval.py --cases evals/plugin-v1/cases.json --results tests/fixtures/plugin_retrieval_eval.json
-python -B evals/plugin-v1/evaluate_retrieval.py --quality-plan evals/plugin-v1/quality-plan.json
-python -B -m unittest discover -s tests -p test_plugin_retrieval_eval.py -v
+.venv\Scripts\python.exe -B evals/plugin-v1/evaluate_retrieval.py --cases evals/plugin-v1/cases.json
+.venv\Scripts\python.exe -B evals/plugin-v1/evaluate_retrieval.py --cases evals/plugin-v1/cases.json --results tests/fixtures/plugin_retrieval_eval.json
+.venv\Scripts\python.exe -B evals/plugin-v1/evaluate_retrieval.py --quality-plan evals/plugin-v1/quality-plan.json
+.venv\Scripts\python.exe -B -m unittest discover -s tests -p test_plugin_retrieval_eval.py -v
 ```
 
 C8 inputs are UTF-8 JSON objects, each limited to 2 MiB. Duplicate keys, nonfinite numbers, unexpected fields, stale schema/case pins, incomplete/duplicate case records and invalid C9 objects are rejected. CLI errors do not print payloads. All C8 schema references must resolve in the repository-only Draft 2020-12 registry; no input reference is followed. File arguments are explicit caller-selected local inputs; they are not taken from case content.
