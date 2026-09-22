@@ -45,7 +45,7 @@
       "const": "sqlite_fts5"
     },
     "policy_version": {
-      "const": "2.0.0"
+      "const": "2.1.0"
     },
     "policy_sha256": {
       "type": "string",
@@ -184,7 +184,7 @@
     "max_candidates": {
       "type": "integer",
       "minimum": 1,
-      "maximum": 60
+      "maximum": 150
     },
     "max_cards": {
       "type": "integer",
@@ -194,12 +194,12 @@
     "max_evidence_bytes": {
       "type": "integer",
       "minimum": 1024,
-      "maximum": 49152
+      "maximum": 163840
     }
   },
   "x-max-utf8-bytes": 8192,
   "x-invariants": [
     "Query IDs, variants and terms are unique; canonicalize aliases before lookup on both index and query. Quote literal terms and bind the MATCH string as a SQL parameter. Never interpolate field names, SQL or MATCH syntax supplied by a model.",
-    "The 60-hit total counts all variants including duplicates before canonical dedupe; at most three bounded queries, with remaining budget shared, not 60 per query."
+    "The 150-hit ceiling counts all variants including duplicates before canonical dedupe; at most three bounded queries, with remaining budget shared, not 150 per query. A request may choose a lower max_candidates value for narrow intent."
   ]
 }

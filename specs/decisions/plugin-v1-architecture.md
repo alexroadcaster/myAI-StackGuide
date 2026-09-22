@@ -118,7 +118,7 @@ The retrieval unit is a repository solution card, with one canonical repository 
 
 FTS5 uses `unicode61` and weighted BM25 as the initial lexical baseline. Smaller BM25 values rank earlier; stable canonical ID is the tie-breaker. SQL values must be parameterized, but that alone does not escape FTS MATCH syntax: compile an allowlisted structured query into quoted terms/operators. Bound term count/length and reject malformed queries. The model never supplies SQL. Preserve technology aliases such as `C++`, `.NET` and `Next.js` through the versioned policy. RU/EN intent normalization and maintained aliases address vocabulary gaps; no claim of automatic semantic or Russian morphology understanding. CP-03 specifies deterministic rank fusion across query variants; raw BM25 scores from different queries are not treated as comparable fit scores. CP-04 measures where lexical recall remains weak. [SQLite FTS5 reference](https://www.sqlite.org/fts5.html).
 
-Selected initial engineering caps: at most 60 retrieved candidates across all query variants, at most 12 detailed cards, and at most 48 KiB UTF-8 for the complete serialized evidence pack including provenance and exclusion summaries. These are uncalibrated ceilings, not token counts or quality targets. CP-03 fixes per-query/field limits and total model-input allocation; CP-04 calibrates them against held-out cases without silently lifting the ceilings. The Brief and host context are additional model input and must receive their own bounded allocation. Apply hard metadata constraints before retrieval where feasible, dedupe before spending detailed-card budget, and use only bounded query broadening within the same total cap. Never fall back to reading the whole catalog into context.
+Owner-accepted policy 2.1.0 engineering caps: a request-selected budget of at most 150 fetched hits across all query variants, at most 12 detailed cards, and at most 160 KiB UTF-8 for the complete serialized evidence pack including provenance and exclusion summaries. Narrow intent may request fewer hits. These remain uncalibrated ceilings, not token counts, relevance results or latency targets. CP-03 fixes per-query/field limits and total model-input allocation; CP-04 calibrates them against held-out cases without silently lifting the ceilings. The Brief and host context are additional model input and must receive their own bounded allocation. Apply hard metadata constraints before retrieval where feasible, dedupe before spending detailed-card budget, and use only bounded query broadening within the same total cap. Never fall back to reading the whole catalog into context.
 
 Separate stages: structured intent/constraints -> lexical candidates -> canonical dedupe and mandatory-evidence checks -> diversified evidence pack -> Codex comparison, roles and integration handoff. A lexical score orders candidates; it is not fit, confidence, or a probability. Return source references, matched fields, score/rank, exclusion reasons, missing facts, activity observations and truncation flags. Broad/no-hit queries can yield a clarification or an honest limited/no-match report. No-match is distinct from retrieval failure.
 
@@ -142,7 +142,7 @@ The CP-02 decision was documentation only. CP-03 supplies the verified local con
 
 ## CP-03 Local Contract Implementation
 
-C1/C3/C5/C6 new writes use `1.1.0` with the workspace addendum; original `1.0.0` shapes remain read-only compatible. C2/C4 retain their accepted versions; active C9 uses the paired card/activity/policy `2.0.0` and index format `2`. The contract family uses [JSON Schema Draft 2020-12](https://json-schema.org/draft/2020-12/json-schema-core).
+C1/C3/C5/C6 new writes use `1.1.0` with the workspace addendum; original `1.0.0` shapes remain read-only compatible. C2/C4 retain their accepted versions; active C9 uses card/activity `2.0.0`, retrieval policy `2.1.0` and index format `2`. The contract family uses [JSON Schema Draft 2020-12](https://json-schema.org/draft/2020-12/json-schema-core).
 All 22 local C1-C6/C9 schemas and their [linked positive examples](../../tests/fixtures/plugin_contracts.json)
 are present. C8 compatibility captures remain synthetic. CP-06 has generated the exact
 frozen public card/index bundle, but no target-project scan, CP-09 runtime query or plugin
@@ -164,18 +164,17 @@ runtime; loading these files alone is insufficient.
 | --- | ---: |
 | Full Project Context Brief, including structured observations | 16,384 |
 | Additional transient targeted source context | 16,384 |
-| Entire evidence pack, including provenance/exclusions | 49,152 |
+| Entire evidence pack, including provenance/exclusions | 163,840 |
 | Recommendation request, including structured query | 8,192 |
-| Sum of the four allocations | 90,112 (88 KiB) |
+| Sum of the four allocations | 204,800 (200 KiB) |
 
 Count actual UTF-8 bytes of sorted-key compact JSON with `ensure_ascii=False`
 and `allow_nan=False`, not a model-provided byte count. Smaller request caps also
-apply. Each card is at most 12 KiB; twelve maximum-sized cards do not all fit in
-48 KiB. Preserve provenance and report truncation/exclusion rather than passing
+apply. Each card is at most 12 KiB; twelve maximum-sized schema-valid cards plus all exclusions can still exceed
+160 KiB, so runtime byte enforcement and explicit truncation remain required. The current frozen 2,500-card corpus was measured before acceptance and fits the selected 12-card/150-hit envelope with headroom. Preserve provenance and report truncation/exclusion rather than passing
 incomplete content as complete. These limits do not include the host's system
 instructions, existing chat, tool schemas or generated answer; CP-11/15 must
-account for that additional context. Bytes are not tokens. All limits remain
-uncalibrated initial choices.
+account for that additional context. Bytes are not tokens. The capacity values are owner-accepted from current-corpus sizing, while relevance, token, latency and usefulness calibration remains open.
 
 Targeted reads are mode-specific: `quick` requests at most 16 paths/1 MiB source/
 24 KiB model context, `standard` 64 paths/8 MiB/48 KiB, and `deep` 256 paths/

@@ -229,8 +229,9 @@ def check_summary(summary):
 
 def check_query(query):
     require(query['policy_sha256'] == file_digest('specs/retrieval/retrieval-policy.json'), 'query policy digest')
-    require(query['schema_version'] == query['policy_version'] == query['card_schema_version'] ==
-            query['activity_schema_version'] == '2.0.0' and query['index_format_version'] == 2,
+    require(query['schema_version'] == query['card_schema_version'] ==
+            query['activity_schema_version'] == '2.0.0' and
+            query['policy_version'] == '2.1.0' and query['index_format_version'] == 2,
             'mixed query contract versions')
     require(query['max_cards'] <= query['max_candidates'], 'card/candidate budget')
     unique([v['variant_id'] for v in query['variants']], 'query variant')
@@ -408,7 +409,7 @@ def check_retrieval(result, query, index):
     else:
         require(index is not None and result['pins'] == index['pins'], 'index pairing')
         require(result['pins']['card_schema_version'] == result['pins']['activity_schema_version'] ==
-                result['pins']['retrieval_policy_version'] == '2.0.0' and
+                '2.0.0' and result['pins']['retrieval_policy_version'] == '2.1.0' and
                 result['pins']['index_format_version'] == 2, 'mixed C9 version pins')
         require(result['pins']['policy_sha256'] == query['policy_sha256'], 'index policy pairing')
         require(result['pins']['taxonomy_sha256'] == file_digest('specs/catalog/taxonomy.yaml'), 'taxonomy pairing')
@@ -1018,6 +1019,9 @@ class SchemaContracts(unittest.TestCase):
         pack['cards'] = copy.deepcopy(pack['cards'][:12])
         for entry in pack['cards']:
             entry['card']['descriptions']['upstream'] = 'я' * 1800
+            entry['card']['descriptions']['catalog'] = 'я' * 1800
+            entry['card']['advisory']['recommendation_reason'] = 'я' * 1800
+            entry['card']['advisory']['integration_surface'] = 'я' * 1800
         errors = list(self.validator(path).iter_errors(pack))
         self.assertTrue(any('byte budget' in error.message for error in errors))
 
@@ -1303,19 +1307,19 @@ class SemanticContracts(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'missing index pins'):
             check_bundle(state)
 
-    def test_sixty_hits_include_duplicate_variant_matches(self):
+    def test_one_hundred_fifty_hits_include_duplicate_variant_matches(self):
         state = baseline()
         query, result = state['request']['query'], state['retrieval']
         result['candidates'] = []
-        result['retrieved_hits'] = 60
-        for rank in range(1, 31):
+        result['retrieved_hits'] = 150
+        for rank in range(1, 76):
             result['candidates'].append({'github_repository_id': 900001000 + rank, 'rank': rank,
                 'rrf_score': 2 / (60 + rank), 'variant_ranks': [
                     {'variant_id': 'q1', 'rank': rank, 'bm25': -1.0},
                     {'variant_id': 'q2', 'rank': rank, 'bm25': -0.1}],
                 'matched_fields': ['upstream_description'], 'missing_facts': []})
         check_retrieval(result, query, state['index_manifest'])
-        result['retrieved_hits'] = 59
+        result['retrieved_hits'] = 149
         with self.assertRaisesRegex(ValueError, 'hit accounting'):
             check_retrieval(result, query, state['index_manifest'])
 
@@ -1363,7 +1367,10 @@ class SemanticContracts(unittest.TestCase):
         self.assertEqual(sum(value for key, value in allocation.items() if key != 'plugin_input_bytes'), allocation['plugin_input_bytes'])
         self.assertEqual(allocation['plugin_input_bytes'], POLICY['limits']['max_plugin_input_bytes'])
         self.assertIsNone(POLICY['snapshot_max_age_days'])
-        self.assertEqual(POLICY['calibration_status'], 'unmeasured_initial_policy')
+        self.assertEqual(
+            POLICY['calibration_status'],
+            'owner_accepted_capacity_recalibration_quality_unmeasured',
+        )
 
 
 class WorkspaceSemanticContracts(unittest.TestCase):

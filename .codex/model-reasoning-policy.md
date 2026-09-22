@@ -4,7 +4,8 @@ Status: `configured_not_behaviorally_verified`
 
 ## Baseline
 
-- The project default is `gpt-5.6-sol` with `high` reasoning for complex product, architecture, implementation, evaluation, and evidence-review work.
+- The currently configured project baseline is `gpt-5.6-sol` with `high` reasoning. It is retained pending the same-case `high` versus `medium` comparison and is not a requirement to use high effort for every task.
+- Reserve high effort for structural product, architecture, cross-boundary implementation, evidence-conflict and privacy/security work. Prefer medium for bounded implementation, focused verification and documentation when a task-level override is available and representative evidence preserves quality.
 - The default unnamed subagent is `gpt-5.6-terra` with `medium` reasoning for bounded everyday work.
 - `github_research_curator` and `docs_maintainer` use `gpt-5.6-terra` with `medium` reasoning.
 - The other named agents use `gpt-5.6-sol` with `high` reasoning.
@@ -33,3 +34,10 @@ For every named role, compare the configured baseline with one reasoning level l
 ## Instruction-Only Changes
 
 Changed durable instructions still require representative fresh-context behavior checks. Repeating a baseline-versus-one-lower model comparison is required before changing a durable model/effort default, not after every documentation-only edit. Preserve the configured baseline during CP-05; no model suitability or promotion claim follows from static tests.
+
+## Effort Selection
+
+- Micro and contract-value changes use focused context, no subagents and the lowest evaluated effort that preserves the contract.
+- Structural work may use high effort when ambiguity, blast radius or evidence conflict justifies it.
+- Do not escalate reasoning because a value is repeated widely; first reduce duplicated context and derive consumers from the canonical source.
+- Record the comparison before changing `.codex/config.toml` or named-agent defaults. Instruction changes alone do not justify a silent model-default change.

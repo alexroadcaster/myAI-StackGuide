@@ -42,6 +42,8 @@ Primary owns explicitly assigned durable Codex remediation. Product Planner owns
 
 ## Parallelism Rules
 
+Before delegation, classify the change using `AGENTS.md`. Micro and contract-value work stays with the primary agent, uses at most one primary skill and does not receive an independent subagent review. Structural work may delegate only separable read-heavy or disjoint-write slices. If the expected compatibility unit exceeds eight files, two control-document families or one skill, the task packet must explain the concrete coupling and why a smaller unit would be inconsistent.
+
 Safe in parallel:
 
 - Read-only GitHub research in separate query/source slices.
@@ -82,13 +84,14 @@ Before a subagent starts, copy and complete `.codex/artifact-templates/agent-tas
 
 ## Model And Reasoning Policy
 
-- Use `gpt-5.6-sol` with `high` reasoning for product trade-offs, architecture, implementation, tests, evidence review, and privacy boundaries.
+- Keep the currently configured `gpt-5.6-sol` / `high` baseline until the required same-case comparison with `medium` is recorded; configuration is not evidence that every task needs high effort.
+- Reserve `high` reasoning for structural product trade-offs, architecture, cross-boundary implementation, evidence conflicts and privacy/security boundaries. Use `medium` for bounded implementation, focused tests and documentation when the selected runtime supports a task-level override and representative evidence preserves quality.
 - Use `gpt-5.6-terra` with `medium` reasoning for bounded GitHub research and documentation maintenance.
 - Use Terra/medium for unnamed subagents; named agent files override the default by role.
 - Preserve the configured effort as the baseline and compare it with one level lower on the same representative cases before changing a durable default.
 - Do not use `xhigh`, `max`, Pro mode, persisted reasoning, Programmatic Tool Calling, or API multi-agent beta without measured need and a separate approval boundary.
 - Escalate to the parent when uncertainty affects scope, permissions, shared contracts, security, or irreversible decisions.
-- Downgrade only for mechanical formatting or deterministic command execution after the semantic decision is settled.
+- Use the lowest evaluated effort that preserves the task contract. Mechanical formatting and deterministic command execution do not justify a premium reasoning escalation.
 
 See `.codex/model-reasoning-policy.md`. Current model suitability is `configured_not_behaviorally_verified` until the behavioral workflow in `.codex/agent-eval-workflow.md` runs.
 

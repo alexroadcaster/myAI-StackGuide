@@ -23,7 +23,7 @@ MAX_INPUT_BYTES = 8192
 COMMIT_SCAN_INPUT_BYTES = 2_500_000
 COMMIT_CONTEXT_INPUT_BYTES = 32_768
 APPLICATION_ID = 1297695049
-TRUSTED_MANIFEST_SHA256 = "a172f0378cb804ecd4bd10f3be69e522b6c3ee6955635498c6a060202647861d"
+TRUSTED_MANIFEST_SHA256 = "9cbb259aac4c75707814a3eb4f6811214146539d13a36f32aaae9e2ef072f8c8"
 
 
 def _load_trusted(name: str, path: Path):
@@ -224,7 +224,7 @@ def _check_package() -> dict[str, Any]:
         and set(pins) == exact_pin_keys
         and pins.get("card_schema_version") == "2.0.0"
         and pins.get("activity_schema_version") == "2.0.0"
-        and pins.get("retrieval_policy_version") == "2.0.0"
+        and pins.get("retrieval_policy_version") == "2.1.0"
         and pins.get("index_format_version") == 2
         and pins.get("corpus_kind") == "catalog_snapshot"
         and manifest.get("index_file") == "catalog.search.sqlite"
@@ -236,7 +236,7 @@ def _check_package() -> dict[str, Any]:
         and application_id == APPLICATION_ID
         and user_version == 2
         and row_count == fts_count == manifest.get("row_count")
-        and policy.get("schema_version") == "2.0.0"
+        and policy.get("schema_version") == "2.1.0"
         and policy.get("source_mode") == "catalog_only"
         and policy.get("retrieval_engine") == "sqlite_fts5"
         and policy.get("runtime_index_access") == "read_only"
@@ -261,7 +261,7 @@ def _check_package() -> dict[str, Any]:
         and metadata.get("policy_sha256") == pins.get("policy_sha256")
         and metadata.get("card_schema_version") == "2.0.0"
         and metadata.get("activity_schema_version") == "2.0.0"
-        and metadata.get("retrieval_policy_version") == "2.0.0"
+        and metadata.get("retrieval_policy_version") == "2.1.0"
         and metadata.get("index_format_version") == 2
         and metadata.get("corpus_kind") == "catalog_snapshot"
         and metadata.get("row_count") == 2500

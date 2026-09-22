@@ -205,7 +205,7 @@ def validate_quality_plan(plan, root=ROOT):
 
     policy = load_json(paths['policy_path'])
     route = plan['candidate_route']
-    require(policy['schema_version'] == '2.0.0' and policy['retrieval_engine'] == 'sqlite_fts5' and
+    require(policy['schema_version'] == '2.1.0' and policy['retrieval_engine'] == 'sqlite_fts5' and
             policy['source_mode'] == 'catalog_only', 'quality policy route')
     require(route['query_schema_version'] == '2.0.0' and
             route['source_mode'] == policy['source_mode'] and
@@ -218,9 +218,11 @@ def validate_quality_plan(plan, root=ROOT):
             route['max_evidence_bytes'] == policy['limits']['max_evidence_bytes'] and
             route['whole_catalog_prompt_fallback'] is policy['full_catalog_prompt_fallback'],
             'candidate route/policy mismatch')
-    require(policy['limits']['max_retrieved_hits'] == 60 and
+    require(policy['limits']['max_retrieved_hits'] == 150 and
             policy['limits']['max_detailed_cards'] == 12 and
-            policy['limits']['max_evidence_bytes'] == 49152, 'quality policy ceilings')
+            policy['limits']['max_evidence_bytes'] == 163840 and
+            policy['limits']['max_plugin_input_bytes'] == 204800,
+            'quality policy ceilings')
     require(policy['unknown_mandatory_fact'] == plan['default_constraints']['unknown_mandatory_fact'],
             'unknown mandatory fact policy')
     require(policy['runtime_index_access'] == 'read_only' and
@@ -503,7 +505,7 @@ def require_v2_pins(pins):
     require(pins['card_schema_version'] == '2.0.0' and
             pins['activity_schema_version'] == '2.0.0' and
             pins['index_format_version'] == 2 and
-            pins['retrieval_policy_version'] == '2.0.0', 'mixed C9 version pins')
+            pins['retrieval_policy_version'] == '2.1.0', 'mixed C9 version pins')
 
 
 def validate_cases(cases, contracts):
@@ -517,7 +519,7 @@ def validate_cases(cases, contracts):
     taxonomy_hash = hashlib.sha256((ROOT / 'specs/catalog/taxonomy.yaml').read_bytes()).hexdigest()
     for case in cases['cases']:
         query, manifest = case['query'], case['index_manifest']
-        require(query['schema_version'] == '2.0.0' and query['policy_version'] == '2.0.0' and
+        require(query['schema_version'] == '2.0.0' and query['policy_version'] == '2.1.0' and
                 query['card_schema_version'] == '2.0.0' and query['activity_schema_version'] == '2.0.0' and
                 query['index_format_version'] == 2, 'mixed query contract versions')
         require(query['policy_sha256'] == policy_hash, 'query policy pin')

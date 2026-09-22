@@ -112,7 +112,7 @@
               "const": 2
             },
             "retrieval_policy_version": {
-              "const": "2.0.0"
+              "const": "2.1.0"
             },
             "corpus_kind": {
               "enum": [
@@ -153,7 +153,7 @@
           "retrieval_rank": {
             "type": "integer",
             "minimum": 1,
-            "maximum": 60
+            "maximum": 150
           },
           "eligibility": {
             "$ref": "https://myai-stackguide.invalid/contracts/v2/catalog/candidate-eligibility.schema.json"
@@ -228,7 +228,7 @@
           }
         }
       },
-      "maxItems": 60,
+      "maxItems": 150,
       "minItems": 0
     },
     "truncated": {
@@ -328,10 +328,10 @@
       }
     }
   ],
-  "x-max-utf8-bytes": 49152,
+  "x-max-utf8-bytes": 163840,
   "x-invariants": [
     "Cards are unique positive GitHub repository identities from retrieval candidates, with matching ranks/query/pins. Exclusions cover every candidate not packed, never silently disappear.",
-    "Entire compact UTF-8 serialization including evidence/exclusions is <=49152 bytes and <=query.max_evidence_bytes. No fabricated measured byte field is trusted.",
+    "Entire compact UTF-8 serialization including evidence/exclusions is <=163840 bytes and <=query.max_evidence_bytes. No fabricated measured byte field is trusted.",
     "An unavailable manifest may yield pins=null only in an explicit failure. Never invent hashes or use null pins for successful retrieval/no-match."
   ]
 }

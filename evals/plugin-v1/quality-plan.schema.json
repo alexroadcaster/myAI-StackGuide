@@ -30,7 +30,7 @@
         "card_schema_version": {"const": "2.0.0"},
         "activity_schema_version": {"const": "2.0.0"},
         "index_format_version": {"const": 2},
-        "retrieval_policy_version": {"const": "2.0.0"},
+        "retrieval_policy_version": {"const": "2.1.0"},
         "corpus_kind": {"const": "catalog_snapshot"}
       }
     },
@@ -57,9 +57,9 @@
         "expected_status": {"const": "ok"},
         "max_query_variants": {"const": 3},
         "max_terms_per_variant": {"const": 8},
-        "max_candidates": {"const": 60},
+        "max_candidates": {"const": 150},
         "max_cards": {"const": 12},
-        "max_evidence_bytes": {"const": 49152},
+        "max_evidence_bytes": {"const": 163840},
         "whole_catalog_prompt_fallback": {"const": false}
       }
     },
@@ -95,7 +95,7 @@
         "score": {"const": "count_distinct_query_term_field_pairs"},
         "tie_breaker": {"const": "github_repository_id_ascending"},
         "constraints": {"const": "same_predeclared_case_constraints_for_baseline_and_candidate"},
-        "candidate_limit": {"const": 60},
+        "candidate_limit": {"const": 150},
         "comparison_rule": {"const": "same_frozen_cases_judgments_k_and_pins"}
       }
     },

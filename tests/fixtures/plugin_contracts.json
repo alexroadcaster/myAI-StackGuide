@@ -853,8 +853,8 @@
       "brief_version": 1,
       "source_mode": "catalog_only",
       "retrieval_engine": "sqlite_fts5",
-      "policy_version": "2.0.0",
-      "policy_sha256": "c1a150b36a10c67c0220df31af88f90d59e353bdca2f52cb469e06ac6bb7fdca",
+      "policy_version": "2.1.0",
+      "policy_sha256": "ff6e8444c4664492bb099f0819b2d284aa5c28f0d44c7a745c63f434c3489dbf",
       "language": "mixed",
       "variants": [
         {
@@ -894,9 +894,9 @@
           "no_server"
         ]
       },
-      "max_candidates": 60,
+      "max_candidates": 150,
       "max_cards": 12,
-      "max_evidence_bytes": 49152,
+      "max_evidence_bytes": 163840,
       "card_schema_version": "2.0.0",
       "activity_schema_version": "2.0.0",
       "index_format_version": 2
@@ -905,7 +905,7 @@
       "schema_version": "2.0.0",
       "run_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
       "query_id": "query-1",
-      "query_sha256": "bcc91f2805acf426b77c724755a3a446e00324dbccbac9af360603e4c56b52d9",
+      "query_sha256": "b9651def345ba350289d7aa05e5771c5718ab7e38d37ec506febcf47cf25d0ca",
       "brief_version": 1,
       "source_mode": "catalog_only",
       "retrieval_engine": "sqlite_fts5",
@@ -914,12 +914,12 @@
         "source_sha256": "d487719a3299ca76a52d9f7bf5f89cfd1323c65c6777b0d5e4c65adcc381fed5",
         "cards_sha256": "d955adc033ff103d03496fcd1b22d6bdd9a9f7562be57c1b5de004ecc0e3b76f",
         "index_sha256": "ab9dbb9a03701785ecdc76b1b17718a4a7ed7a62b03da044aa6e8fcbf0208063",
-        "policy_sha256": "c1a150b36a10c67c0220df31af88f90d59e353bdca2f52cb469e06ac6bb7fdca",
+        "policy_sha256": "ff6e8444c4664492bb099f0819b2d284aa5c28f0d44c7a745c63f434c3489dbf",
         "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f",
         "card_schema_version": "2.0.0",
         "activity_schema_version": "2.0.0",
         "index_format_version": 2,
-        "retrieval_policy_version": "2.0.0",
+        "retrieval_policy_version": "2.1.0",
         "corpus_kind": "synthetic_fixture"
       },
       "status": "ok",
@@ -957,19 +957,19 @@
       "run_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
       "pack_id": "pack-1",
       "query_id": "query-1",
-      "query_sha256": "bcc91f2805acf426b77c724755a3a446e00324dbccbac9af360603e4c56b52d9",
+      "query_sha256": "b9651def345ba350289d7aa05e5771c5718ab7e38d37ec506febcf47cf25d0ca",
       "brief_version": 1,
       "pins": {
         "catalog_snapshot_id": "fixture-catalog-2",
         "source_sha256": "d487719a3299ca76a52d9f7bf5f89cfd1323c65c6777b0d5e4c65adcc381fed5",
         "cards_sha256": "d955adc033ff103d03496fcd1b22d6bdd9a9f7562be57c1b5de004ecc0e3b76f",
         "index_sha256": "ab9dbb9a03701785ecdc76b1b17718a4a7ed7a62b03da044aa6e8fcbf0208063",
-        "policy_sha256": "c1a150b36a10c67c0220df31af88f90d59e353bdca2f52cb469e06ac6bb7fdca",
+        "policy_sha256": "ff6e8444c4664492bb099f0819b2d284aa5c28f0d44c7a745c63f434c3489dbf",
         "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f",
         "card_schema_version": "2.0.0",
         "activity_schema_version": "2.0.0",
         "index_format_version": 2,
-        "retrieval_policy_version": "2.0.0",
+        "retrieval_policy_version": "2.1.0",
         "corpus_kind": "synthetic_fixture"
       },
       "status": "ready",
@@ -1293,12 +1293,12 @@
         "source_sha256": "d487719a3299ca76a52d9f7bf5f89cfd1323c65c6777b0d5e4c65adcc381fed5",
         "cards_sha256": "d955adc033ff103d03496fcd1b22d6bdd9a9f7562be57c1b5de004ecc0e3b76f",
         "index_sha256": "ab9dbb9a03701785ecdc76b1b17718a4a7ed7a62b03da044aa6e8fcbf0208063",
-        "policy_sha256": "c1a150b36a10c67c0220df31af88f90d59e353bdca2f52cb469e06ac6bb7fdca",
+        "policy_sha256": "ff6e8444c4664492bb099f0819b2d284aa5c28f0d44c7a745c63f434c3489dbf",
         "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f",
         "card_schema_version": "2.0.0",
         "activity_schema_version": "2.0.0",
         "index_format_version": 2,
-        "retrieval_policy_version": "2.0.0",
+        "retrieval_policy_version": "2.1.0",
         "corpus_kind": "synthetic_fixture"
       },
       "builder_version": "2.0.0",
@@ -1325,8 +1325,8 @@
         "brief_version": 1,
         "source_mode": "catalog_only",
         "retrieval_engine": "sqlite_fts5",
-        "policy_version": "2.0.0",
-        "policy_sha256": "c1a150b36a10c67c0220df31af88f90d59e353bdca2f52cb469e06ac6bb7fdca",
+        "policy_version": "2.1.0",
+        "policy_sha256": "ff6e8444c4664492bb099f0819b2d284aa5c28f0d44c7a745c63f434c3489dbf",
         "language": "mixed",
         "variants": [
           {
@@ -1366,9 +1366,9 @@
             "no_server"
           ]
         },
-        "max_candidates": 60,
+        "max_candidates": 150,
         "max_cards": 12,
-        "max_evidence_bytes": 49152,
+        "max_evidence_bytes": 163840,
         "card_schema_version": "2.0.0",
         "activity_schema_version": "2.0.0",
         "index_format_version": 2
@@ -1379,9 +1379,9 @@
       "input_allocation": {
         "brief_bytes": 16384,
         "targeted_context_bytes": 16384,
-        "evidence_bytes": 49152,
+        "evidence_bytes": 163840,
         "request_bytes": 8192,
-        "plugin_input_bytes": 90112
+        "plugin_input_bytes": 204800
       }
     },
     "recommendation/integration-plan.schema.json": {
@@ -1477,12 +1477,12 @@
         "source_sha256": "d487719a3299ca76a52d9f7bf5f89cfd1323c65c6777b0d5e4c65adcc381fed5",
         "cards_sha256": "d955adc033ff103d03496fcd1b22d6bdd9a9f7562be57c1b5de004ecc0e3b76f",
         "index_sha256": "ab9dbb9a03701785ecdc76b1b17718a4a7ed7a62b03da044aa6e8fcbf0208063",
-        "policy_sha256": "c1a150b36a10c67c0220df31af88f90d59e353bdca2f52cb469e06ac6bb7fdca",
+        "policy_sha256": "ff6e8444c4664492bb099f0819b2d284aa5c28f0d44c7a745c63f434c3489dbf",
         "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f",
         "card_schema_version": "2.0.0",
         "activity_schema_version": "2.0.0",
         "index_format_version": 2,
-        "retrieval_policy_version": "2.0.0",
+        "retrieval_policy_version": "2.1.0",
         "corpus_kind": "synthetic_fixture"
       },
       "status": "recommendations",
@@ -1751,8 +1751,8 @@
           "brief_version": 1,
           "source_mode": "catalog_only",
           "retrieval_engine": "sqlite_fts5",
-          "policy_version": "2.0.0",
-          "policy_sha256": "c1a150b36a10c67c0220df31af88f90d59e353bdca2f52cb469e06ac6bb7fdca",
+          "policy_version": "2.1.0",
+          "policy_sha256": "ff6e8444c4664492bb099f0819b2d284aa5c28f0d44c7a745c63f434c3489dbf",
           "language": "mixed",
           "variants": [
             {
@@ -1792,9 +1792,9 @@
               "no_server"
             ]
           },
-          "max_candidates": 60,
+          "max_candidates": 150,
           "max_cards": 12,
-          "max_evidence_bytes": 49152,
+          "max_evidence_bytes": 163840,
           "card_schema_version": "2.0.0",
           "activity_schema_version": "2.0.0",
           "index_format_version": 2
@@ -1805,9 +1805,9 @@
         "input_allocation": {
           "brief_bytes": 16384,
           "targeted_context_bytes": 16384,
-          "evidence_bytes": 49152,
+          "evidence_bytes": 163840,
           "request_bytes": 8192,
-          "plugin_input_bytes": 90112
+          "plugin_input_bytes": 204800
         }
       },
       "index_manifest": {
@@ -1817,12 +1817,12 @@
           "source_sha256": "d487719a3299ca76a52d9f7bf5f89cfd1323c65c6777b0d5e4c65adcc381fed5",
           "cards_sha256": "d955adc033ff103d03496fcd1b22d6bdd9a9f7562be57c1b5de004ecc0e3b76f",
           "index_sha256": "ab9dbb9a03701785ecdc76b1b17718a4a7ed7a62b03da044aa6e8fcbf0208063",
-          "policy_sha256": "c1a150b36a10c67c0220df31af88f90d59e353bdca2f52cb469e06ac6bb7fdca",
+          "policy_sha256": "ff6e8444c4664492bb099f0819b2d284aa5c28f0d44c7a745c63f434c3489dbf",
           "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f",
           "card_schema_version": "2.0.0",
           "activity_schema_version": "2.0.0",
           "index_format_version": 2,
-          "retrieval_policy_version": "2.0.0",
+          "retrieval_policy_version": "2.1.0",
           "corpus_kind": "synthetic_fixture"
         },
         "builder_version": "2.0.0",
@@ -1841,7 +1841,7 @@
         "schema_version": "2.0.0",
         "run_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
         "query_id": "query-1",
-        "query_sha256": "bcc91f2805acf426b77c724755a3a446e00324dbccbac9af360603e4c56b52d9",
+        "query_sha256": "b9651def345ba350289d7aa05e5771c5718ab7e38d37ec506febcf47cf25d0ca",
         "brief_version": 1,
         "source_mode": "catalog_only",
         "retrieval_engine": "sqlite_fts5",
@@ -1850,12 +1850,12 @@
           "source_sha256": "d487719a3299ca76a52d9f7bf5f89cfd1323c65c6777b0d5e4c65adcc381fed5",
           "cards_sha256": "d955adc033ff103d03496fcd1b22d6bdd9a9f7562be57c1b5de004ecc0e3b76f",
           "index_sha256": "ab9dbb9a03701785ecdc76b1b17718a4a7ed7a62b03da044aa6e8fcbf0208063",
-          "policy_sha256": "c1a150b36a10c67c0220df31af88f90d59e353bdca2f52cb469e06ac6bb7fdca",
+          "policy_sha256": "ff6e8444c4664492bb099f0819b2d284aa5c28f0d44c7a745c63f434c3489dbf",
           "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f",
           "card_schema_version": "2.0.0",
           "activity_schema_version": "2.0.0",
           "index_format_version": 2,
-          "retrieval_policy_version": "2.0.0",
+          "retrieval_policy_version": "2.1.0",
           "corpus_kind": "synthetic_fixture"
         },
         "status": "ok",
@@ -1893,19 +1893,19 @@
         "run_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
         "pack_id": "pack-1",
         "query_id": "query-1",
-        "query_sha256": "bcc91f2805acf426b77c724755a3a446e00324dbccbac9af360603e4c56b52d9",
+        "query_sha256": "b9651def345ba350289d7aa05e5771c5718ab7e38d37ec506febcf47cf25d0ca",
         "brief_version": 1,
         "pins": {
           "catalog_snapshot_id": "fixture-catalog-2",
           "source_sha256": "d487719a3299ca76a52d9f7bf5f89cfd1323c65c6777b0d5e4c65adcc381fed5",
           "cards_sha256": "d955adc033ff103d03496fcd1b22d6bdd9a9f7562be57c1b5de004ecc0e3b76f",
           "index_sha256": "ab9dbb9a03701785ecdc76b1b17718a4a7ed7a62b03da044aa6e8fcbf0208063",
-          "policy_sha256": "c1a150b36a10c67c0220df31af88f90d59e353bdca2f52cb469e06ac6bb7fdca",
+          "policy_sha256": "ff6e8444c4664492bb099f0819b2d284aa5c28f0d44c7a745c63f434c3489dbf",
           "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f",
           "card_schema_version": "2.0.0",
           "activity_schema_version": "2.0.0",
           "index_format_version": 2,
-          "retrieval_policy_version": "2.0.0",
+          "retrieval_policy_version": "2.1.0",
           "corpus_kind": "synthetic_fixture"
         },
         "status": "ready",
@@ -2234,12 +2234,12 @@
           "source_sha256": "d487719a3299ca76a52d9f7bf5f89cfd1323c65c6777b0d5e4c65adcc381fed5",
           "cards_sha256": "d955adc033ff103d03496fcd1b22d6bdd9a9f7562be57c1b5de004ecc0e3b76f",
           "index_sha256": "ab9dbb9a03701785ecdc76b1b17718a4a7ed7a62b03da044aa6e8fcbf0208063",
-          "policy_sha256": "c1a150b36a10c67c0220df31af88f90d59e353bdca2f52cb469e06ac6bb7fdca",
+          "policy_sha256": "ff6e8444c4664492bb099f0819b2d284aa5c28f0d44c7a745c63f434c3489dbf",
           "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f",
           "card_schema_version": "2.0.0",
           "activity_schema_version": "2.0.0",
           "index_format_version": 2,
-          "retrieval_policy_version": "2.0.0",
+          "retrieval_policy_version": "2.1.0",
           "corpus_kind": "synthetic_fixture"
         },
         "status": "recommendations",
@@ -2477,12 +2477,12 @@
         "source_sha256": "d487719a3299ca76a52d9f7bf5f89cfd1323c65c6777b0d5e4c65adcc381fed5",
         "cards_sha256": "d955adc033ff103d03496fcd1b22d6bdd9a9f7562be57c1b5de004ecc0e3b76f",
         "index_sha256": "ab9dbb9a03701785ecdc76b1b17718a4a7ed7a62b03da044aa6e8fcbf0208063",
-        "policy_sha256": "c1a150b36a10c67c0220df31af88f90d59e353bdca2f52cb469e06ac6bb7fdca",
+        "policy_sha256": "ff6e8444c4664492bb099f0819b2d284aa5c28f0d44c7a745c63f434c3489dbf",
         "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f",
         "card_schema_version": "2.0.0",
         "activity_schema_version": "2.0.0",
         "index_format_version": 2,
-        "retrieval_policy_version": "2.0.0",
+        "retrieval_policy_version": "2.1.0",
         "corpus_kind": "synthetic_fixture"
       },
       "reason_codes": [],
@@ -2559,10 +2559,10 @@
       "value": "unknown"
     },
     {
-      "name": "sixty_one_hits",
+      "name": "one_hundred_fifty_one_hits",
       "schema": "retrieval/retrieval-result.schema.json",
       "pointer": "/retrieved_hits",
-      "value": 61
+      "value": 151
     },
     {
       "name": "raw_match_grammar",
@@ -2585,10 +2585,10 @@
       }
     },
     {
-      "name": "query_cap_increase",
+      "name": "query_cap_above_ceiling",
       "schema": "retrieval/catalog-query.schema.json",
       "pointer": "/max_candidates",
-      "value": 61
+      "value": 151
     },
     {
       "name": "execution_not_authorized",
@@ -2835,8 +2835,8 @@
           "brief_version": 1,
           "source_mode": "catalog_only",
           "retrieval_engine": "sqlite_fts5",
-          "policy_version": "2.0.0",
-          "policy_sha256": "c1a150b36a10c67c0220df31af88f90d59e353bdca2f52cb469e06ac6bb7fdca",
+          "policy_version": "2.1.0",
+          "policy_sha256": "ff6e8444c4664492bb099f0819b2d284aa5c28f0d44c7a745c63f434c3489dbf",
           "language": "mixed",
           "variants": [
             {
@@ -2876,9 +2876,9 @@
               "no_server"
             ]
           },
-          "max_candidates": 60,
+          "max_candidates": 150,
           "max_cards": 12,
-          "max_evidence_bytes": 49152,
+          "max_evidence_bytes": 163840,
           "card_schema_version": "2.0.0",
           "activity_schema_version": "2.0.0",
           "index_format_version": 2
@@ -2889,9 +2889,9 @@
         "input_allocation": {
           "brief_bytes": 16384,
           "targeted_context_bytes": 16384,
-          "evidence_bytes": 49152,
+          "evidence_bytes": 163840,
           "request_bytes": 8192,
-          "plugin_input_bytes": 90112
+          "plugin_input_bytes": 204800
         }
       },
       "index_manifest": {
@@ -2901,12 +2901,12 @@
           "source_sha256": "d487719a3299ca76a52d9f7bf5f89cfd1323c65c6777b0d5e4c65adcc381fed5",
           "cards_sha256": "d955adc033ff103d03496fcd1b22d6bdd9a9f7562be57c1b5de004ecc0e3b76f",
           "index_sha256": "ab9dbb9a03701785ecdc76b1b17718a4a7ed7a62b03da044aa6e8fcbf0208063",
-          "policy_sha256": "c1a150b36a10c67c0220df31af88f90d59e353bdca2f52cb469e06ac6bb7fdca",
+          "policy_sha256": "ff6e8444c4664492bb099f0819b2d284aa5c28f0d44c7a745c63f434c3489dbf",
           "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f",
           "card_schema_version": "2.0.0",
           "activity_schema_version": "2.0.0",
           "index_format_version": 2,
-          "retrieval_policy_version": "2.0.0",
+          "retrieval_policy_version": "2.1.0",
           "corpus_kind": "synthetic_fixture"
         },
         "builder_version": "2.0.0",
@@ -2925,7 +2925,7 @@
         "schema_version": "2.0.0",
         "run_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
         "query_id": "query-1",
-        "query_sha256": "bcc91f2805acf426b77c724755a3a446e00324dbccbac9af360603e4c56b52d9",
+        "query_sha256": "b9651def345ba350289d7aa05e5771c5718ab7e38d37ec506febcf47cf25d0ca",
         "brief_version": 1,
         "source_mode": "catalog_only",
         "retrieval_engine": "sqlite_fts5",
@@ -2934,12 +2934,12 @@
           "source_sha256": "d487719a3299ca76a52d9f7bf5f89cfd1323c65c6777b0d5e4c65adcc381fed5",
           "cards_sha256": "d955adc033ff103d03496fcd1b22d6bdd9a9f7562be57c1b5de004ecc0e3b76f",
           "index_sha256": "ab9dbb9a03701785ecdc76b1b17718a4a7ed7a62b03da044aa6e8fcbf0208063",
-          "policy_sha256": "c1a150b36a10c67c0220df31af88f90d59e353bdca2f52cb469e06ac6bb7fdca",
+          "policy_sha256": "ff6e8444c4664492bb099f0819b2d284aa5c28f0d44c7a745c63f434c3489dbf",
           "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f",
           "card_schema_version": "2.0.0",
           "activity_schema_version": "2.0.0",
           "index_format_version": 2,
-          "retrieval_policy_version": "2.0.0",
+          "retrieval_policy_version": "2.1.0",
           "corpus_kind": "synthetic_fixture"
         },
         "status": "ok",
@@ -2977,19 +2977,19 @@
         "run_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
         "pack_id": "pack-1",
         "query_id": "query-1",
-        "query_sha256": "bcc91f2805acf426b77c724755a3a446e00324dbccbac9af360603e4c56b52d9",
+        "query_sha256": "b9651def345ba350289d7aa05e5771c5718ab7e38d37ec506febcf47cf25d0ca",
         "brief_version": 1,
         "pins": {
           "catalog_snapshot_id": "fixture-catalog-2",
           "source_sha256": "d487719a3299ca76a52d9f7bf5f89cfd1323c65c6777b0d5e4c65adcc381fed5",
           "cards_sha256": "d955adc033ff103d03496fcd1b22d6bdd9a9f7562be57c1b5de004ecc0e3b76f",
           "index_sha256": "ab9dbb9a03701785ecdc76b1b17718a4a7ed7a62b03da044aa6e8fcbf0208063",
-          "policy_sha256": "c1a150b36a10c67c0220df31af88f90d59e353bdca2f52cb469e06ac6bb7fdca",
+          "policy_sha256": "ff6e8444c4664492bb099f0819b2d284aa5c28f0d44c7a745c63f434c3489dbf",
           "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f",
           "card_schema_version": "2.0.0",
           "activity_schema_version": "2.0.0",
           "index_format_version": 2,
-          "retrieval_policy_version": "2.0.0",
+          "retrieval_policy_version": "2.1.0",
           "corpus_kind": "synthetic_fixture"
         },
         "status": "ready",
@@ -3318,12 +3318,12 @@
           "source_sha256": "d487719a3299ca76a52d9f7bf5f89cfd1323c65c6777b0d5e4c65adcc381fed5",
           "cards_sha256": "d955adc033ff103d03496fcd1b22d6bdd9a9f7562be57c1b5de004ecc0e3b76f",
           "index_sha256": "ab9dbb9a03701785ecdc76b1b17718a4a7ed7a62b03da044aa6e8fcbf0208063",
-          "policy_sha256": "c1a150b36a10c67c0220df31af88f90d59e353bdca2f52cb469e06ac6bb7fdca",
+          "policy_sha256": "ff6e8444c4664492bb099f0819b2d284aa5c28f0d44c7a745c63f434c3489dbf",
           "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f",
           "card_schema_version": "2.0.0",
           "activity_schema_version": "2.0.0",
           "index_format_version": 2,
-          "retrieval_policy_version": "2.0.0",
+          "retrieval_policy_version": "2.1.0",
           "corpus_kind": "synthetic_fixture"
         },
         "status": "recommendations",
@@ -3796,12 +3796,12 @@
         "source_sha256": "d487719a3299ca76a52d9f7bf5f89cfd1323c65c6777b0d5e4c65adcc381fed5",
         "cards_sha256": "d955adc033ff103d03496fcd1b22d6bdd9a9f7562be57c1b5de004ecc0e3b76f",
         "index_sha256": "ab9dbb9a03701785ecdc76b1b17718a4a7ed7a62b03da044aa6e8fcbf0208063",
-        "policy_sha256": "c1a150b36a10c67c0220df31af88f90d59e353bdca2f52cb469e06ac6bb7fdca",
+        "policy_sha256": "ff6e8444c4664492bb099f0819b2d284aa5c28f0d44c7a745c63f434c3489dbf",
         "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f",
         "card_schema_version": "2.0.0",
         "activity_schema_version": "2.0.0",
         "index_format_version": 2,
-        "retrieval_policy_version": "2.0.0",
+        "retrieval_policy_version": "2.1.0",
         "corpus_kind": "synthetic_fixture"
       },
       "status": "recommendations",

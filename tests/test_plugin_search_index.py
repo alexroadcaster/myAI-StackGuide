@@ -46,7 +46,7 @@ class PluginSearchIndexTests(unittest.TestCase):
         self.assertEqual(self.manifest["schema_version"], "2.0.0")
         self.assertEqual(pins["card_schema_version"], "2.0.0")
         self.assertEqual(pins["activity_schema_version"], "2.0.0")
-        self.assertEqual(pins["retrieval_policy_version"], "2.0.0")
+        self.assertEqual(pins["retrieval_policy_version"], "2.1.0")
         self.assertEqual(pins["index_format_version"], 2)
         self.assertEqual(pins["cards_sha256"], self.builder._sha256(self.builder.CARDS.read_bytes()))
         self.assertEqual(pins["policy_sha256"], self.builder._sha256(self.builder.PACKAGED_POLICY.read_bytes()))

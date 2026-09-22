@@ -73,7 +73,7 @@ def _array_text(values: list[str]) -> str:
 def load_policy() -> tuple[dict[str, Any], bytes]:
     raw = POLICY_SOURCE.read_bytes()
     policy = json.loads(raw.decode("utf-8"))
-    _require(policy["schema_version"] == "2.0.0", "retrieval policy must be v2")
+    _require(policy["schema_version"] == "2.1.0", "retrieval policy must be v2.1")
     _require(policy["retrieval_engine"] == "sqlite_fts5", "retrieval engine mismatch")
     _require(policy["tokenizer"] == "unicode61", "tokenizer mismatch")
     _require(tuple(policy["field_weights"]) == FTS_COLUMNS, "policy/search column order mismatch")
@@ -134,7 +134,7 @@ def _create_schema(connection: sqlite3.Connection) -> None:
             policy_sha256 TEXT NOT NULL CHECK (length(policy_sha256) = 64),
             card_schema_version TEXT NOT NULL CHECK (card_schema_version = '2.0.0'),
             activity_schema_version TEXT NOT NULL CHECK (activity_schema_version = '2.0.0'),
-            retrieval_policy_version TEXT NOT NULL CHECK (retrieval_policy_version = '2.0.0'),
+            retrieval_policy_version TEXT NOT NULL CHECK (retrieval_policy_version = '2.1.0'),
             index_format_version INTEGER NOT NULL CHECK (index_format_version = 2),
             corpus_kind TEXT NOT NULL CHECK (corpus_kind = 'catalog_snapshot'),
             row_count INTEGER NOT NULL CHECK (row_count = 2500),
@@ -476,7 +476,7 @@ def check_package() -> dict[str, Any]:
         "card_schema_version": "2.0.0",
         "activity_schema_version": "2.0.0",
         "index_format_version": 2,
-        "retrieval_policy_version": "2.0.0",
+        "retrieval_policy_version": "2.1.0",
         "corpus_kind": "catalog_snapshot",
     }
     _require(manifest.get("schema_version") == "2.0.0", "manifest version mismatch")

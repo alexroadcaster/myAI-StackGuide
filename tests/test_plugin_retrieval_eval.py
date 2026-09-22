@@ -254,7 +254,7 @@ class CapturedContractCases(unittest.TestCase):
             lambda v: v['records'][0]['retrieval']['candidates'][0].update(rank=2),
             lambda v: v['records'][0]['retrieval']['candidates'].append(copy.deepcopy(v['records'][0]['retrieval']['candidates'][0])),
             lambda v: v['records'][0]['retrieval']['candidates'][0]['variant_ranks'][1].update(variant_id='q1'),
-            lambda v: v['records'][0]['retrieval'].update(retrieved_hits=61),
+            lambda v: v['records'][0]['retrieval'].update(retrieved_hits=151),
             lambda v: v['records'][0]['retrieval'].update(executed_variants=1),
             lambda v: v['records'][0]['retrieval']['candidates'][0].update(rrf_score=0.5),
         ]:
@@ -339,7 +339,7 @@ class CapturedContractCases(unittest.TestCase):
         for field in ('use_cases', 'best_for', 'tradeoffs', 'avoid_if'):
             card['advisory'][field] = ['я' * 498 + str(index) for index in range(10)]
         self.assertGreater(len(EVAL.canonical(card)), 24576)
-        self.assertLess(len(EVAL.canonical(captures['records'][0]['evidence_pack'])), 49152)
+        self.assertLess(len(EVAL.canonical(captures['records'][0]['evidence_pack'])), 163840)
         with self.assertRaisesRegex(ValueError, 'byte budget|schema validation'):
             self.grade(captures)
 

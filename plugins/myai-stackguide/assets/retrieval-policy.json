@@ -1,6 +1,6 @@
 {
-  "schema_version": "2.0.0",
-  "policy_id": "fts5-local-v2",
+  "schema_version": "2.1.0",
+  "policy_id": "fts5-local-v2.1",
   "source_mode": "catalog_only",
   "retrieval_engine": "sqlite_fts5",
   "tokenizer": "unicode61",
@@ -32,13 +32,13 @@
     "max_query_variants": 3,
     "max_terms_per_variant": 8,
     "max_term_chars": 64,
-    "max_retrieved_hits": 60,
+    "max_retrieved_hits": 150,
     "max_detailed_cards": 12,
-    "max_evidence_bytes": 49152,
+    "max_evidence_bytes": 163840,
     "max_brief_bytes": 16384,
     "max_targeted_context_bytes": 16384,
     "max_request_bytes": 8192,
-    "max_plugin_input_bytes": 90112
+    "max_plugin_input_bytes": 204800
   },
   "aliases": [
     {
@@ -96,7 +96,7 @@
   "automatic_index_build": false,
   "bytes_encoding": "utf-8",
   "serialization": "sorted_keys_compact_json_ensure_ascii_false_allow_nan_false",
-  "calibration_status": "unmeasured_initial_policy",
+  "calibration_status": "owner_accepted_capacity_recalibration_quality_unmeasured",
   "schema_guard_changes_require_version_review": true,
   "variant_hit_allocation": "ceil_remaining_hits_divided_by_remaining_variants_in_request_order",
   "card_selection": "primary_then_reference_in_rrf_order_skip_blocked_or_oversized_with_reasons",

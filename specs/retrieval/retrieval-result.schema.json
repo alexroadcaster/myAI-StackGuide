@@ -114,7 +114,7 @@
               "const": 2
             },
             "retrieval_policy_version": {
-              "const": "2.0.0"
+              "const": "2.1.0"
             },
             "corpus_kind": {
               "enum": [
@@ -147,7 +147,7 @@
     "retrieved_hits": {
       "type": "integer",
       "minimum": 0,
-      "maximum": 60
+      "maximum": 150
     },
     "candidates": {
       "type": "array",
@@ -170,7 +170,7 @@
           "rank": {
             "type": "integer",
             "minimum": 1,
-            "maximum": 60
+            "maximum": 150
           },
           "rrf_score": {
             "type": "number",
@@ -197,7 +197,7 @@
                 "rank": {
                   "type": "integer",
                   "minimum": 1,
-                  "maximum": 60
+                  "maximum": 150
                 },
                 "bm25": {
                   "type": "number",
@@ -240,7 +240,7 @@
           }
         }
       },
-      "maxItems": 60,
+      "maxItems": 150,
       "minItems": 0
     },
     "truncated": {

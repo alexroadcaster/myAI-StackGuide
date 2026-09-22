@@ -9,18 +9,18 @@
     "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
     "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
     "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
-    "index_sha256": "e7ab7d42b8ac9fa9e348549ef108264309d8cc763cc23c4eeeffe07a650af5ff",
-    "policy_sha256": "c1a150b36a10c67c0220df31af88f90d59e353bdca2f52cb469e06ac6bb7fdca",
+    "index_sha256": "acc1ddba2945c4ce2014178d61d923419f4d569a6ae77629790b8e7adbdab9c7",
+    "policy_sha256": "ff6e8444c4664492bb099f0819b2d284aa5c28f0d44c7a745c63f434c3489dbf",
     "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f",
     "card_schema_version": "2.0.0",
     "activity_schema_version": "2.0.0",
     "index_format_version": 2,
-    "retrieval_policy_version": "2.0.0",
+    "retrieval_policy_version": "2.1.0",
     "corpus_kind": "catalog_snapshot"
   },
   "artifacts": {
     "manifest_path": "plugins/myai-stackguide/assets/catalog.search-manifest.json",
-    "manifest_sha256": "a172f0378cb804ecd4bd10f3be69e522b6c3ee6955635498c6a060202647861d",
+    "manifest_sha256": "9cbb259aac4c75707814a3eb4f6811214146539d13a36f32aaae9e2ef072f8c8",
     "cards_path": "plugins/myai-stackguide/assets/catalog.snapshot.json",
     "index_path": "plugins/myai-stackguide/assets/catalog.search.sqlite",
     "policy_path": "plugins/myai-stackguide/assets/retrieval-policy.json",
@@ -34,9 +34,9 @@
     "expected_status": "ok",
     "max_query_variants": 3,
     "max_terms_per_variant": 8,
-    "max_candidates": 60,
+    "max_candidates": 150,
     "max_cards": 12,
-    "max_evidence_bytes": 49152,
+    "max_evidence_bytes": 163840,
     "whole_catalog_prompt_fallback": false
   },
   "default_constraints": {
@@ -60,7 +60,7 @@
     "score": "count_distinct_query_term_field_pairs",
     "tie_breaker": "github_repository_id_ascending",
     "constraints": "same_predeclared_case_constraints_for_baseline_and_candidate",
-    "candidate_limit": 60,
+    "candidate_limit": 150,
     "comparison_rule": "same_frozen_cases_judgments_k_and_pins"
   },
   "thresholds": {

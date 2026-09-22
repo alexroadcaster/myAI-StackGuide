@@ -32,6 +32,28 @@ Do not hand-edit generated catalog outputs unless the task is explicitly editori
 - CP-07 owns the single state writer/publication boundary; CP-10 owns rendering and RU/EN presentation. Local generation within an authorized task is not external publication. English control documents do not prohibit RU/EN product content.
 - Development agents/skills are not the shipped plugin runtime. CP-12-14 backend/MCP work is deferred and is not a local release prerequisite. Resolve already accepted contracts before declaring them missing.
 
+## Change Sizing And Context Budget
+
+Classify the requested change before loading broad context:
+
+- **Micro:** one literal, limit, label, link or narrowly owned assertion changes without altering a contract shape or dependency.
+- **Contract-value:** an accepted value changes across one owning source and its direct runtime, fixture, generated or documentation consumers, while the contract shape remains stable.
+- **Structural:** keys, types, required fields, semantics, ownership, task dependencies, persistence, trust, release or public behavior change.
+
+For micro and contract-value work, read `AGENTS.md`, the owning source and only the direct consumers found by targeted search. Do not read the full PRD, roadmap, PLAN, TEST, EVALS or RUNLOG merely because they mention the same value. Search RUNLOG by task, policy or evidence ID only when historical evidence is decision-relevant. Follow links to broader sources only when the change alters their owned meaning.
+
+Use at most one primary skill for micro or contract-value work. Do not invoke `maintain-control-plane` unless active status, ownership, dependencies, acceptance or evidence claims materially change. Do not spawn subagents for these changes. Prefer a canonical link or machine-readable source over copied prose and do not add tests that only mirror a policy literal already validated at its owning boundary.
+
+Before editing, if the expected compatibility unit exceeds eight files, two control-document families or one skill, state the concrete coupling that requires the expansion and choose the smallest coherent unit. Generated outputs and exact hash consumers count as one compatibility unit when their builder proves deterministic propagation.
+
+## Policy And Schema Versioning
+
+- Change `schema_version` only when keys, types, required fields or normative semantics change.
+- Use `policy_revision` for numeric ceilings, weights and thresholds that change without changing the policy shape. Consumers bind the exact policy content with `policy_sha256` where trust or reproducibility requires it.
+- Change `index_format_version` only when the serialized index representation or reader compatibility changes.
+- Runtime, fixtures and tests should read policy values from the canonical policy or deterministic generated projection. Avoid duplicating policy constants in prose and assertion code when a reference or derived check is sufficient.
+- When an older artifact uses `policy_version` as a compatibility pin, document whether it identifies the schema or the policy revision before changing the field. Do not silently reinterpret an existing pin.
+
 ## Build And Verification Commands
 
 Run commands from this directory.
@@ -66,12 +88,19 @@ python -c "import sys; from pathlib import Path; sys.dont_write_bytecode=True; r
 
 ## Change Workflow
 
-1. Read `README.md`, `docs/METHODOLOGY.md`, `docs/RELEASE_PROCESS.md`, and the target source files before editing.
-2. Classify the task: data update, taxonomy update, generation pipeline change, HTML UX change, research refresh, or release packaging.
+1. Classify the change size and task type, then read the owning source and direct consumers. Read `README.md`, `docs/METHODOLOGY.md` or `docs/RELEASE_PROCESS.md` only when product presentation, methodology or release behavior is in scope.
+2. Classify the task surface: data update, taxonomy update, generation pipeline change, HTML UX change, research refresh, control-plane repair or release packaging.
 3. Keep changes focused. Do not mix unrelated taxonomy, scoring, UI, and research-refresh changes in one pass.
 4. Route current catalog taxonomy changes through `data/catalog_manifest.json` and its contract. Use `PRIMARY_OVERRIDES` in `scripts/build_catalog.py` only for the explicitly selected legacy fork-catalog pipeline; never substitute `data/categories.json` for the current taxonomy.
 5. Regenerate outputs after source or script changes.
-6. Verify generated parity, inspect diffs, and update `RUNLOG.md` with decisions, commands, failures, and residual risks.
+6. Verify the smallest affected boundary and inspect the focused diff. Append `RUNLOG.md` only for a durable decision, compatibility migration, material failure, residual risk, release evidence or lifecycle-status change; routine literal synchronization does not require a new entry.
+
+## Verification Stop Rule
+
+- For micro and contract-value work, run one targeted semantic or contract check and one parity or focused-diff check. Stop when both support the requested claim.
+- Broaden verification only when changed executable code crosses another boundary, the targeted check finds a product defect, a new trust/persistence/compatibility/release risk appears, or a concrete review finding requires it.
+- Record an unrelated tooling, ACL, dependency or environment failure once. Do not repair or repeatedly probe it unless the requested outcome depends on that gate.
+- A failed command may justify one bounded repair and rerun of the affected check. It does not authorize a broad suite or repeated retry loop.
 
 ## Release Discipline
 
@@ -82,7 +111,7 @@ python -c "import sys; from pathlib import Path; sys.dont_write_bytecode=True; r
 
 ## Agent Collaboration
 
-- Use subagents only for independent slices with clear file ownership, such as data-quality audit, taxonomy review, HTML UX review, or release notes.
+- Use subagents only for independent structural slices where parallel coverage materially exceeds coordination cost, with clear file ownership such as data-quality audit, taxonomy review, HTML UX review, or release notes. Do not use them for micro or contract-value changes.
 - Handoffs must include sources read, assumptions, files touched or proposed, verification evidence, open risks, and recommended next action.
 - `RUNLOG.md` is the durable memory for this project cycle. Keep it concise and factual.
 
