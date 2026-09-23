@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="{{locale}}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; connect-src 'none'; img-src 'none'; base-uri 'none'; form-action 'none'">
+<title>myAI-StackGuide</title>
+<style>
+/* Apple-inspired web glass approximation, not a native Apple material.
+   Opaque fills are the baseline; blur is progressive enhancement. */
+:root {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #202b40;
+  background: #eaf0f8;
+  font-size: 16px;
+  line-height: 1.65;
+  --muted: #526078;
+  --accent: #1459ae;
+  --edge: rgba(255, 255, 255, .88);
+  --shadow: 0 18px 50px -24px rgba(46, 72, 112, .28), inset 0 1px 0 #fff;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  padding: 24px;
+  background:
+    radial-gradient(ellipse at 6% 6%, #d5eaff 0, transparent 48%),
+    radial-gradient(ellipse at 94% 18%, #dce1f9 0, transparent 40%),
+    radial-gradient(ellipse at 62% 94%, #def3f3 0, transparent 48%),
+    #edf1f8;
+}
+a { color: inherit; }
+button { font: inherit; cursor: pointer; }
+a:focus-visible, button:focus-visible, section:focus-visible, main:focus-visible {
+  outline: 3px solid var(--accent); outline-offset: 4px;
+}
+.skip { position: absolute; top: -100px; padding: 12px 20px; background: white; z-index: 2; border-radius: 16px; }
+.skip:focus { top: 12px; }
+header {
+  max-width: 1480px; margin: 0 auto 22px; padding: 18px 26px;
+  display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;
+  background: #f8faff; border: 1px solid var(--edge); border-radius: 26px; box-shadow: var(--shadow);
+}
+.brand { font-weight: 700; letter-spacing: -.045em; font-size: 24px; }
+.subtitle { font-size: 13px; color: var(--muted); }
+.languages {
+  display: flex; gap: 5px; align-items: center; flex-wrap: wrap;
+  padding: 5px; border: 1px solid var(--edge); border-radius: 999px; background: #e9eff8;
+  box-shadow: inset 0 1px 5px rgba(52, 76, 111, .08);
+}
+.languages > span { padding: 0 12px; color: var(--muted); font-size: 13px; }
+.languages button {
+  border: 1px solid transparent; border-radius: 999px; background: transparent;
+  padding: 8px 18px; min-height: 42px; color: #34435c;
+  transition: background-color .18s ease, box-shadow .18s ease;
+}
+.languages button:hover { background: #f4f8ff; }
+.languages button[aria-pressed=true] {
+  color: #164e94; background: linear-gradient(160deg, #fff, #ecf4ff);
+  border-color: #fff; box-shadow: 0 3px 10px rgba(46, 72, 112, .14), inset 0 1px 0 #fff;
+  font-weight: 650;
+}
+.layout {
+  max-width: 1480px; margin: auto; display: grid;
+  grid-template-columns: 244px minmax(0, 1fr); gap: 24px; align-items: start;
+}
+aside {
+  padding: 16px 12px; border: 1px solid var(--edge); border-radius: 26px;
+  background: #f2f6fd; box-shadow: var(--shadow);
+}
+nav { display: grid; gap: 7px; }
+nav a {
+  text-decoration: none; padding: 12px; display: flex; align-items: center; gap: 12px;
+  border: 1px solid transparent; border-radius: 16px; overflow-wrap: anywhere;
+  transition: background-color .18s ease, box-shadow .18s ease;
+}
+nav a:hover { background: #fff; }
+nav a[aria-current=page] {
+  background: linear-gradient(125deg, #fff 10%, #e2efff);
+  border-color: white; color: #164e94; font-weight: 650;
+  box-shadow: 0 5px 16px -6px rgba(37, 89, 162, .25), inset 0 1px 0 white;
+}
+.number {
+  color: #536985; font-size: 11px; font-weight: 650; font-variant-numeric: tabular-nums;
+  display: grid; place-items: center; min-width: 27px; height: 27px;
+  border: 1px solid #d4e0ef; border-radius: 9px; background: #f8fbff;
+}
+main { min-width: 0; width: 100%; }
+.summary { padding: 24px 30px; border-bottom: 1px solid #cbd7e7; }
+.snapshot {
+  display: inline-block; font-size: 12px; font-weight: 650; letter-spacing: .035em;
+  color: #355d86; padding: 4px 12px; border: 1px solid #c3d6ee; border-radius: 999px; background: #edf5ff;
+}
+.summary > p { max-width: 76ch; color: var(--muted); font-size: 14px; }
+.meta { display: flex; gap: 14px 28px; flex-wrap: wrap; font-size: 13px; margin-bottom: 0; }
+.meta dt { color: var(--muted); }
+.meta dd { margin: 3px 0 0; font-weight: 600; overflow-wrap: anywhere; font-variant-numeric: tabular-nums; }
+section {
+  margin: 24px 0; padding: 32px; scroll-margin-top: 24px;
+  border: 1px solid var(--edge); border-radius: 30px; background: #f9fbff;
+  box-shadow: var(--shadow); overflow-wrap: anywhere;
+}
+h1 { font-size: clamp(32px, 3.5vw, 46px); line-height: 1.15; letter-spacing: -.045em; font-weight: 650; margin: 0 0 28px; }
+.eyebrow { margin: 0 0 16px; font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; letter-spacing: .12em; }
+.availability { font-weight: 550; }
+.notice {
+  border: 1px solid #ead7b9; border-radius: 16px; padding: 16px 20px;
+  background: #fff8eb; max-width: 76ch; color: #684c25; font-size: 14px;
+}
+.next {
+  border: 1px solid var(--edge); border-radius: 24px; padding: 20px 30px;
+  background: #f3f8ff; box-shadow: var(--shadow);
+}
+.next h2 { font-size: 13px; font-weight: 600; color: var(--muted); margin: 0 0 8px; }
+.next p { max-width: 78ch; margin: 8px 0; }
+.next h2 + p { font-weight: 600; color: #214f88; font-size: 17px; }
+noscript { display: block; max-width: 1480px; margin: 0 auto 20px; padding: 16px 24px; border-radius: 16px; background: #fff8eb; color: #684c25; }
+section dd { margin-left: 0; font-variant-numeric: tabular-nums; }
+section dl { display: grid; grid-template-columns: minmax(0, max-content) minmax(0, 1fr); gap: 8px 24px; }
+[hidden] { display: none !important; }
+@supports ((backdrop-filter: blur(24px)) or (-webkit-backdrop-filter: blur(24px))) {
+  header, aside, .next {
+    background: linear-gradient(135deg, rgba(255,255,255,.8), rgba(255,255,255,.48));
+    -webkit-backdrop-filter: blur(24px) saturate(140%);
+    backdrop-filter: blur(24px) saturate(140%);
+  }
+  section { background: linear-gradient(145deg, rgba(255,255,255,.93), rgba(248,251,255,.85)); }
+}
+@media (max-width: 1100px) {
+  body { padding: 16px; }
+  .layout { grid-template-columns: 215px minmax(0, 1fr); gap: 16px; }
+  .summary, section, .next { padding: 24px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  nav a, .languages button { transition: none; }
+}
+@media (prefers-reduced-transparency: reduce), (prefers-contrast: more) {
+  body { background: #edf1f8; }
+  header, aside, section, .next {
+    background: #fff; -webkit-backdrop-filter: none; backdrop-filter: none;
+    border-color: #94a3b8; box-shadow: none;
+  }
+  :root { --muted: #37445b; }
+}
+@media (forced-colors: active) {
+  header, aside, section, .next, .notice { border: 1px solid CanvasText; box-shadow: none; }
+  nav a[aria-current=page], .languages button[aria-pressed=true] { outline: 2px solid Highlight; }
+}
+@media print {
+  body { padding: 0; background: white; color: black; }
+  header, aside, .skip, .languages { display: none; }
+  .layout { display: block; }
+  main { max-width: none; padding: 0; }
+  section[hidden] { display: block !important; }
+  section { break-inside: avoid; }
+  section, .summary, .next, .notice {
+    background: white; box-shadow: none; border-color: #bbb; color: black;
+    -webkit-backdrop-filter: none; backdrop-filter: none;
+  }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">{{skip}}</a>
+<header><div><div class="brand">myAI-StackGuide</div><div class="subtitle">{{shell}}</div></div>
+<div class="languages"><span>{{language}}</span><button type="button" data-locale="ru" lang="ru" hidden>Русский</button><button type="button" data-locale="en" lang="en" hidden>English</button></div></header>
+<noscript>{{no_js}}</noscript>
+<div class="layout"><aside><nav aria-label="{{navigation_label}}" data-i18n-aria="navigation">{{navigation_items}}</nav></aside>
+<main id="main" tabindex="-1"><div class="summary"><div class="snapshot">{{snapshot}}</div><p>{{snapshot_note}}</p>
+<dl class="meta"><div><dt>{{project}}</dt><dd>selected-project</dd></div><div><dt>{{revision}}</dt><dd>{{revision_value}}</dd></div><div><dt>{{saved_at}}</dt><dd>{{saved_value}}</dd></div><div><dt>{{status}}</dt><dd>{{status_value}}</dd></div><div><dt>{{phase}}</dt><dd>{{phase_value}}</dd></div></dl></div>
+{{sections}}
+<footer class="next"><h2>{{next}}</h2><p>{{next_value}}</p><p class="subtitle">{{codex}}</p></footer>
+</main></div>
+<script id="ui-locales" type="application/json">{{dictionaries}}</script>
+<script>
+(() => {
+  "use strict";
+  const dictionaries = JSON.parse(document.getElementById("ui-locales").textContent);
+  const savedLocale = document.documentElement.lang;
+  const sections = [...document.querySelectorAll("main > section")];
+  const links = [...document.querySelectorAll("[data-view]")];
+  const buttons = [...document.querySelectorAll("[data-locale]")];
+  const validView = value => sections.some(section => section.id === value);
+  let currentView = "goal", currentLocale = savedLocale;
+  function applyFragment() {
+    const raw = location.hash.slice(1);
+    const params = new URLSearchParams(raw);
+    const requested = raw === "main" ? currentView : (params.get("view") || raw);
+    currentView = validView(requested) ? requested : "goal";
+    currentLocale = raw === "main" ? currentLocale :
+      (["ru", "en"].includes(params.get("lang")) ? params.get("lang") : savedLocale);
+    document.documentElement.lang = currentLocale;
+    const labels = dictionaries[currentLocale];
+    document.querySelectorAll("[data-i18n]").forEach(node => { node.textContent = labels[node.dataset.i18n]; });
+    document.querySelectorAll("[data-i18n-aria]").forEach(node => { node.setAttribute("aria-label", labels[node.dataset.i18nAria]); });
+    sections.forEach(section => { section.hidden = section.id !== currentView; });
+    links.forEach(link => {
+      link.href = `#view=${link.dataset.view}&lang=${currentLocale}`;
+      if (link.dataset.view === currentView) link.setAttribute("aria-current", "page");
+      else link.removeAttribute("aria-current");
+    });
+    buttons.forEach(button => {
+      button.hidden = false;
+      button.setAttribute("aria-pressed", String(button.dataset.locale === currentLocale));
+    });
+    // Back/forward must not leave focus inside a now-hidden panel.
+    if (document.activeElement.closest("section[hidden]")) document.getElementById(currentView).focus();
+  }
+  buttons.forEach(button => button.addEventListener("click", () => {
+    location.hash = `view=${currentView}&lang=${button.dataset.locale}`;
+  }));
+  window.addEventListener("hashchange", applyFragment);
+  applyFragment();
+})();
+</script>
+</body>
+</html>

@@ -5,7 +5,6 @@ from __future__ import annotations
 from contextlib import contextmanager
 from datetime import datetime, timezone
 import hashlib
-import html
 import importlib.util
 import json
 import os
@@ -633,7 +632,7 @@ def published_receipt(root: Path) -> dict[str, Any] | None:
 
 
 def render_fixture(state: dict[str, Any]) -> bytes:
-    """A deterministic CP-07 boundary fixture, intentionally not the CP-10 UI."""
+    """CP-10 renderer adapter; retain the CP-07 receipt and failure-injection seam."""
 
     validate_state(state)
     presentation = state.get("presentation") or {}
@@ -644,18 +643,18 @@ def render_fixture(state: dict[str, Any]) -> bytes:
         "generated_at": state["updated_at"],
     }
     marker = _HTML_MARKER_PREFIX + canonical_json_bytes(metadata) + _HTML_MARKER_SUFFIX
-    safe_status = html.escape(str(state["status"]), quote=True)
-    safe_phase = html.escape(str(state["phase"]), quote=True)
-    body = (
-        "<!doctype html><html lang=\"ru\"><head><meta charset=\"utf-8\">"
-        "<meta name=\"viewport\" content=\"width=device-width,initial-scale=1\">"
-        "<title>myAI-StackGuide</title></head><body>"
-        "<main><h1>myAI-StackGuide</h1>"
-        "<p>This is a saved local session snapshot. The full desktop renderer is supplied by CP-10.</p>"
-        f"<p>State: {safe_status}; phase: {safe_phase}; revision: {state['revision']}.</p>"
-        "<p>Answers and project files are managed through Codex, not this HTML.</p>"
-        "</main></body></html>"
-    ).encode("utf-8")
+    # Resolve only the packaged sibling, including under Python isolated mode.
+    try:
+        spec = importlib.util.spec_from_file_location(
+            "myai_stackguide_render_report", Path(__file__).with_name("render_report.py")
+        )
+        if spec is None or spec.loader is None:
+            raise ValueError("renderer unavailable")
+        renderer = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(renderer)
+        body = renderer.render_report(state)
+    except (OSError, ImportError, ValueError) as error:
+        raise StateError("render_failed") from error
     data = marker + b"\n" + body
     if len(data) > MAX_HTML_BYTES or _contains_canary(data):
         raise StateError("render_failed")
