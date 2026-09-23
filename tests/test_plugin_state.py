@@ -137,7 +137,7 @@ class StateContractTests(unittest.TestCase):
                                 {"schema_version": "1.1.0"}
                                 if phase in ("context_review", "matching", "report") else None
                             ),
-                            "memo": {"schema_version": "2.0.0"} if phase == "report" else None,
+                            "memo": {"schema_version": "2.1.0"} if phase == "report" else None,
                         }
                         self.assertEqual(
                             schema_matches(lifecycle, instance),
@@ -428,7 +428,7 @@ class StateRuntimeTests(unittest.TestCase):
             self.assertFalse(event["observed_facts_mutated"])
             self.assertEqual(
                 event["invalidates"],
-                ["retrieval_result", "evidence_pack", "recommendation_memo"],
+                ["selection", "request", "retrieval_result", "evidence_pack", "recommendation_memo"],
             )
 
 

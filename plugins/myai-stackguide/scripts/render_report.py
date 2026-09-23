@@ -1,6 +1,6 @@
 """Pure CP-10 HTML projection; CP-07 alone owns filesystem publication.
 
-Checkpoint B projects the first four source-bound views. No raw state JSON is embedded.
+Checkpoint C projects seven source-bound views. No raw state JSON is embedded.
 """
 
 from __future__ import annotations
@@ -39,6 +39,23 @@ UI_KEYS = frozenset(VIEWS) | {
     "not_measured", "saved_deliverables", "selection", "scan_fact_limit", "translation_partial",
     "languages", "deployment", "allowed_licenses", "compatibility", "mandatory_fields",
     "require_no_server", "constraint_notes", "observed_kind", "user_statement_kind", "inference_kind",
+    "no_memo", "no_plan", "recommendation_summary", "category_path", "candidate_roles",
+    "repository", "role", "eligibility", "fit", "caveats", "next_checks", "matched_fields",
+    "integration_surface", "license", "created_at", "pushed_at", "last_commit_at",
+    "last_release_at", "observed_at", "catalog_status", "retrieval_disclosure",
+    "query", "retrieved_hits", "candidates_count", "cards_count", "pack_bytes",
+    "truncated", "index_format", "snapshot_id", "avoid_defer", "revisit_when",
+    "reading_path", "missing_context", "evidence_ceiling", "comparison_scope",
+    "no_change", "decision_matrix", "selection_rationale", "counterargument",
+    "reconsider_when", "next_decision", "draft_only", "no_comparison_details",
+    "proposed_outcome", "execution_status", "selected_candidates", "proposed_diagram",
+    "diagram_nodes", "diagram_edges", "proposed", "prerequisites", "steps",
+    "depends_on", "safe_paths", "proposed_commands", "acceptance", "first_validation",
+    "validation_input", "expected_behavior", "widen_when", "actual_not_run",
+    "risks", "rollback", "coding_handoff", "handoff_instruction", "first_slice",
+    "stop_conditions", "execution_authority", "permission_changes", "affected_components",
+    "no_matrix_cell", "source_not_execution", "pack_status", "reason_codes",
+    "blocked_candidate", "reference_candidate", "unassigned_card", "source_snapshot_date", "built_at",
 }
 
 
@@ -342,6 +359,273 @@ class ViewContent:
                              + self.row("context_status", self.literal(brief.get("context_status"))) + '</dl>'
                              + self.group("corrections", self.items(corrections))))
 
+    def _pack_cards(self) -> dict[int, dict[str, Any]]:
+        pack = self.state.get("evidence_pack") or {}
+        return {item["card"]["identity"]["github_repository_id"]: item
+                for item in pack.get("cards", [])}
+
+    def _narrative_items(self, pointer: str, values: list[str], empty: str = "unknown") -> str:
+        return self.items([self.narrative(f"{pointer}/{index}", value)
+                           for index, value in enumerate(values)], empty)
+
+    def options(self) -> str:
+        memo = self.state.get("memo") or {}
+        no_memo_notice = f'<p class="notice">{self.t("no_memo")}</p>' if not self.state.get("memo") else ""
+        cards = self._pack_cards()
+        paths = [self.literal(item.get("category_id")) + " — " +
+                 self.narrative(f"/memo/category_path/{index}/reason", item.get("reason"))
+                 for index, item in enumerate(memo.get("category_path", []))]
+        recommendations = []
+        for index, rec in enumerate(memo.get("recommendations", [])):
+            repo_id = rec["github_repository_id"]
+            item = cards.get(repo_id)
+            card = (item or {}).get("card") or {}
+            identity = card.get("identity") or {}
+            eligibility = (item or {}).get("eligibility") or {}
+            title = self.literal(identity.get("full_name")) + " · " + self.literal(repo_id)
+            url = identity.get("url")
+            if isinstance(url, str) and url.startswith("https://github.com/"):
+                title = f'<a href="{_escape(url)}">{title}</a>'
+            activity = card.get("activity") or {}
+            delivery = card.get("advisory") or {}
+            eligibility_status = eligibility.get("status")
+            eligibility_note = (f'<p class="notice">{self.t("blocked_candidate")}</p>'
+                                if eligibility_status == "blocked" else
+                                f'<p class="notice">{self.t("reference_candidate")}</p>'
+                                if eligibility_status == "reference_only" else "")
+            rows = [
+                self.row("repository", title),
+                self.row("role", self.literal(rec.get("role"))),
+                self.row("eligibility", self.literal(eligibility.get("status")) + " · " +
+                         self.items([self.literal(value) for value in eligibility.get("reason_codes", [])])),
+                self.row("catalog_status", self.literal((card.get("catalog") or {}).get("status"))),
+                self.row("fit", self.narrative(f"/memo/recommendations/{index}/fit_rationale", rec.get("fit_rationale"))),
+                self.row("integration_surface", self.literal(delivery.get("integration_surface"))),
+                self.row("matched_fields", self.items([self.literal(value) for value in (item or {}).get("matched_fields", [])])),
+                self.row("license", self.literal(((card.get("repository") or {}).get("license") or {}).get("spdx"))),
+                self.row("evidence", self.items([self.literal(value) for value in rec.get("evidence_refs", [])])),
+                self.row("caveats", self._narrative_items(f"/memo/recommendations/{index}/caveats", rec.get("caveats", []))),
+                self.row("next_checks", self._narrative_items(f"/memo/recommendations/{index}/next_checks", rec.get("next_checks", []))),
+            ]
+            for key in ("created_at", "pushed_at", "last_commit_at", "last_release_at", "observed_at"):
+                rows.append(self.row(key, self.literal(activity.get(key))))
+            recommendations.append('<article class="candidate"><h3>' + title + '</h3>'
+                                   + eligibility_note + '<dl class="detail-list">' + ''.join(rows) + '</dl></article>')
+        recommended_ids = {rec["github_repository_id"] for rec in memo.get("recommendations", [])}
+        for repo_id, item in cards.items():
+            if repo_id in recommended_ids:
+                continue
+            identity = item["card"]["identity"]
+            recommendations.append('<article class="candidate"><h3>'
+                                   + self.literal(identity.get("full_name")) + ' · ' + self.literal(repo_id)
+                                   + '</h3><p class="notice">' + self.t("unassigned_card")
+                                   + '</p><dl class="detail-list">'
+                                   + self.row("eligibility", self.literal((item.get("eligibility") or {}).get("status")))
+                                   + self.row("matched_fields", self.items([
+                                       self.literal(field) for field in item.get("matched_fields", [])]))
+                                   + '</dl></article>')
+        request = self.state.get("request") or {}
+        query = request.get("query") or {}
+        retrieval = self.state.get("retrieval") or {}
+        pack = self.state.get("evidence_pack") or {}
+        pins = (self.state.get("index_manifest") or {}).get("pins") or pack.get("pins") or {}
+        pack_bytes = len(json.dumps(pack, ensure_ascii=False, sort_keys=True,
+                                    separators=(",", ":")).encode("utf-8")) if pack else None
+        disclosure = [self.row("query", self.items([
+            self.literal(term) for variant in query.get("variants", []) for term in variant.get("terms", [])])),
+                      self.row("retrieved_hits", self.literal(retrieval.get("retrieved_hits"))),
+                      self.row("candidates_count", self.literal(len(retrieval.get("candidates", []))) if retrieval else self.t("unknown")),
+                      self.row("cards_count", self.literal(len(pack.get("cards", []))) if pack else self.t("unknown")),
+                      self.row("pack_bytes", self.literal(pack_bytes)),
+                      self.row("pack_status", self.literal(pack.get("status"))),
+                      self.row("truncated", self.literal(pack.get("truncated")) if pack else self.t("unknown")),
+                      self.row("reason_codes", self.items([self.literal(value) for value in
+                                                          retrieval.get("reason_codes", []) + pack.get("reason_codes", [])])),
+                      self.row("snapshot_id", self.literal(pins.get("catalog_snapshot_id"))),
+                      self.row("index_format", self.literal(pins.get("index_format_version"))),
+                      self.row("source_snapshot_date", self.literal((self.state.get("index_manifest") or {}).get("source_snapshot_date"))),
+                      self.row("built_at", self.literal((self.state.get("index_manifest") or {}).get("built_at")))]
+        avoid = [self.narrative(f"/memo/avoid_defer_details/{index}/rationale", item.get("rationale"))
+                 + f' · {self.literal(item.get("github_repository_id"))}'
+                 + f'<small class="source-meta">{self.t("revisit_when")}: '
+                 + self.narrative(f"/memo/avoid_defer_details/{index}/revisit_when", item.get("revisit_when"))
+                 + ' · ' + ', '.join(self.literal(ref) for ref in item.get("evidence_refs", [])) + '</small>'
+                 for index, item in enumerate(memo.get("avoid_defer_details", []))]
+        avoid += [self.narrative(f"/memo/avoid_defer/{index}", value)
+                  for index, value in enumerate(memo.get("avoid_defer", []))]
+        reading = [self.literal(item.get("evidence_ref")) + ' · '
+                   + self.narrative(f"/memo/reading_path/{index}/purpose", item.get("purpose"))
+                   for index, item in enumerate(memo.get("reading_path", []))]
+        return (self.group("recommendation_summary", no_memo_notice + '<dl class="detail-list">'
+                           + self.row("recommendation_summary", self.narrative("/memo/summary", memo.get("summary")))
+                           + self.row("status", self.literal(memo.get("status")))
+                           + self.row("evidence_ceiling", self.literal(memo.get("evidence_ceiling")))
+                           + '</dl>' + self._narrative_items("/memo/missing_context", memo.get("missing_context", [])))
+                + self.group("category_path", self.items(paths))
+                + self.group("candidate_roles", ''.join(recommendations) if recommendations else self.t("unknown"))
+                + self.group("retrieval_disclosure", '<dl class="detail-list">' + ''.join(disclosure) + '</dl>')
+                + self.group("avoid_defer", self.items(avoid))
+                + self.group("reading_path", self.items(reading)))
+
+    def compare(self) -> str:
+        memo = self.state.get("memo")
+        if not memo:
+            return self.group("decision_matrix", f'<p class="notice">{self.t("no_memo")}</p>')
+        details = memo.get("comparison_details")
+        if not details:
+            return (self.group("comparison_scope", self.t("no_comparison_details"))
+                    + self.group("decision_matrix", self._narrative_items("/memo/comparison", memo.get("comparison", [])))
+                    + self.group("avoid_defer", self._narrative_items("/memo/avoid_defer", memo.get("avoid_defer", [])))
+                    + f'<p class="source-meta">{self.t("draft_only")}</p>')
+        cells = details.get("cells", [])
+        cards = self._pack_cards()
+        ids = list(dict.fromkeys([rec["github_repository_id"] for rec in memo.get("recommendations", [])] +
+                                 [cell["github_repository_id"] for cell in cells if not cell.get("baseline")]))
+        columns = [(repo_id, self.literal(((cards.get(repo_id) or {}).get("card") or {}).get("identity", {}).get("full_name"))
+                    + ' · ' + self.literal(repo_id)) for repo_id in ids]
+        if details.get("include_no_change"):
+            columns.insert(0, (None, self.t("no_change")))
+        criteria = list(dict.fromkeys(cell["criterion"] for cell in cells))
+        rows = []
+        for criterion in criteria:
+            entries = []
+            for repo_id, _ in columns:
+                matches = [(index, cell) for index, cell in enumerate(cells)
+                           if cell["criterion"] == criterion and cell.get("github_repository_id") == repo_id
+                           and bool(cell.get("baseline")) == (repo_id is None)]
+                if not matches:
+                    entries.append(f'<td>{self.t("no_matrix_cell")}</td>')
+                    continue
+                index, cell = matches[0]
+                content = self.claim(f"/memo/comparison_details/cells/{index}/claim", cell.get("claim"))
+                if cell.get("next_check"):
+                    content += '<small class="source-meta">' + self.t("next_check") + ': ' + self.narrative(
+                        f"/memo/comparison_details/cells/{index}/next_check", cell["next_check"]) + '</small>'
+                entries.append(f'<td>{content}</td>')
+            rows.append(f'<tr><th scope="row">{self.literal(criterion)}</th>{"".join(entries)}</tr>')
+        matrix = ('<div class="matrix-scroll"><table><thead><tr><th scope="col">' + self.t("decision_matrix")
+                  + '</th>' + ''.join(f'<th scope="col">{name}</th>' for _, name in columns)
+                  + '</tr></thead><tbody>' + ''.join(rows) + '</tbody></table></div>') if rows else self.t("no_comparison_details")
+        reasoning = '<dl class="detail-list">' + ''.join([
+            self.row(key, self.narrative("/memo/comparison_details/" + pointer, details.get(pointer)))
+            for key, pointer in (("selection_rationale", "selection_rationale"),
+                                 ("counterargument", "strongest_counterargument"),
+                                 ("reconsider_when", "reconsider_when"),
+                                 ("next_decision", "next_decision"))]) + '</dl>'
+        exclusions = [self.literal(item.get("github_repository_id")) + ' · '
+                      + self.narrative(f"/memo/avoid_defer_details/{index}/rationale", item.get("rationale"))
+                      for index, item in enumerate(memo.get("avoid_defer_details", []))]
+        exclusions += [self.literal(item.get("github_repository_id")) + ' · '
+                       + self.items([self.literal(code) for code in (item.get("eligibility") or {}).get("reason_codes", [])])
+                       for item in (self.state.get("evidence_pack") or {}).get("exclusions", [])]
+        brief = self.state.get("brief") or {}
+        return (self.group("comparison_scope", self.narrative("/memo/comparison_details/scope", details.get("scope")))
+                + self.group("constraints", self.constraint_rows(brief) if brief else self.t("no_brief"))
+                + self.group("decision_matrix", matrix)
+                + self.group("selection_rationale", reasoning)
+                + self.group("exclusions", self.items(exclusions))
+                + f'<p class="source-meta">{self.t("draft_only")}</p>')
+
+    def integration(self) -> str:
+        memo = self.state.get("memo") or {}
+        plan = memo.get("integration_plan")
+        if not plan:
+            return self.group("proposed_outcome", f'<p class="notice">{self.t("no_plan")}</p>')
+        details = plan.get("details") or {}
+        diagram = details.get("diagram")
+        if diagram:
+            nodes = [self.literal(node.get("component_id")) + ' · '
+                     + self.narrative(f"/memo/integration_plan/details/diagram/nodes/{index}/label", node.get("label"))
+                     + ' · ' + self.literal(node.get("change")) + ' · '
+                     + ', '.join(self.literal(ref) for ref in node.get("evidence_refs", []))
+                     for index, node in enumerate(diagram.get("nodes", []))]
+            edges = [self.literal(edge.get("from_component_id")) + ' → '
+                     + self.literal(edge.get("to_component_id")) + ' · '
+                     + self.narrative(f"/memo/integration_plan/details/diagram/edges/{index}/label", edge.get("label"))
+                     for index, edge in enumerate(diagram.get("edges", []))]
+            proposed = (f'<p class="notice">{self.t("proposed")}</p>'
+                        + self.group("diagram_nodes", self.items(nodes))
+                        + self.group("diagram_edges", self.items(edges)))
+        else:
+            proposed = self.t("unknown")
+        checks = []
+        for index, check in enumerate(details.get("prerequisite_checks", [])):
+            text = (self.literal(check.get("kind")) + ' · ' + self.literal(check.get("status")) + ' · '
+                    + self.narrative(f"/memo/integration_plan/details/prerequisite_checks/{index}/detail", check.get("detail")))
+            refs = check.get("evidence_refs", []) + check.get("answer_ids", [])
+            if refs:
+                text += f'<small class="source-meta">{self.t("refs")}: '
+                text += ', '.join(self.literal(ref) for ref in refs) + '</small>'
+            if check.get("next_check"):
+                text += f'<small class="source-meta">{self.t("next_check")}: '
+                text += self.narrative(f"/memo/integration_plan/details/prerequisite_checks/{index}/next_check",
+                                       check["next_check"]) + '</small>'
+            checks.append(text)
+        checks += [self.narrative(f"/memo/integration_plan/prerequisites/{index}", value)
+                   for index, value in enumerate(plan.get("prerequisites", []))]
+        dependencies = {entry["step_id"]: entry for entry in details.get("step_dependencies", [])}
+        steps = []
+        for index, step in enumerate(plan.get("steps", [])):
+            dependency = dependencies.get(step["step_id"], {})
+            commands = [self.literal(command) for command in step.get("proposed_commands", [])]
+            rows = [self.row("affected_components", self.items([
+                self.literal(value) for value in step.get("affected_components", [])])),
+                    self.row("prerequisites", self._narrative_items(
+                        f"/memo/integration_plan/steps/{index}/prerequisites", step.get("prerequisites", []))),
+                    self.row("depends_on", self.items([self.literal(value) for value in dependency.get("depends_on", [])])),
+                    self.row("safe_paths", self.items([self.literal(value) for value in dependency.get("safe_paths", [])])),
+                    self.row("evidence", self.items([self.literal(value) for value in dependency.get("evidence_refs", [])])),
+                    self.row("proposed_commands", self.items(commands) + ' · ' + self.literal(step.get("command_status"))),
+                    self.row("acceptance", self.narrative(f"/memo/integration_plan/steps/{index}/acceptance", step.get("acceptance")))]
+            steps.append('<article class="candidate"><h3>' + self.literal(step.get("step_id")) + '</h3>'
+                         + self.narrative(f"/memo/integration_plan/steps/{index}/action", step.get("action"))
+                         + '<dl class="detail-list">' + ''.join(rows) + '</dl></article>')
+        first = plan.get("first_validation") or {}
+        validation = '<dl class="detail-list">' + ''.join([
+            self.row("outcome", self.narrative("/memo/integration_plan/first_validation/goal", first.get("goal"))),
+            self.row("success_criterion", self.narrative("/memo/integration_plan/first_validation/success_criterion",
+                                                       first.get("success_criterion"))),
+            self.row("validation_input", self.narrative("/memo/integration_plan/details/validation_input", details.get("validation_input"))),
+            self.row("expected_behavior", self.narrative("/memo/integration_plan/details/expected_behavior", details.get("expected_behavior"))),
+            self.row("widen_when", self.narrative("/memo/integration_plan/details/widen_when", details.get("widen_when"))),
+            self.row("proposed_commands", self.items([self.literal(command) for command in first.get("proposed_commands", [])])),
+            self.row("execution_status", self.literal(first.get("status")) + ' · ' + self.t("actual_not_run")),
+        ]) + '</dl>'
+        handoff = plan.get("handoff") or {}
+        handoff_rows = [
+            self.row("outcome", self.narrative("/memo/integration_plan/handoff/goal", handoff.get("goal"))),
+            self.row("scope", self.narrative("/memo/integration_plan/handoff/scope", handoff.get("scope"))),
+            self.row("non_goals", self._narrative_items("/memo/integration_plan/handoff/non_goals", handoff.get("non_goals", []))),
+            self.row("evidence", self.items([self.literal(ref) for ref in plan.get("evidence_refs", [])])),
+            self.row("first_slice", self.narrative("/memo/integration_plan/steps/0/action",
+                                                  plan.get("steps", [{}])[0].get("action"))),
+            self.row("acceptance", self.narrative("/memo/integration_plan/steps/0/acceptance",
+                                                 plan.get("steps", [{}])[0].get("acceptance"))),
+            self.row("stop_conditions", self._narrative_items(
+                "/memo/integration_plan/handoff/stop_conditions", handoff.get("stop_conditions", []))),
+            self.row("execution_authority", self.literal(handoff.get("execution_authority"))),
+            self.row("permission_changes", self.literal(handoff.get("permission_changes"))),
+        ]
+        intro = '<dl class="detail-list">' + ''.join([
+            self.row("proposed_outcome", self.narrative("/memo/integration_plan/goal", plan.get("goal"))),
+            self.row("execution_status", self.literal(plan.get("execution_status"))),
+            self.row("selected_candidates", self.items([
+                self.literal(value) for value in plan.get("selected_github_repository_ids", [])])),
+            self.row("brief_version", self.literal(plan.get("brief_version"))),
+            self.row("missing_context", self._narrative_items(
+                "/memo/integration_plan/unresolved_questions", plan.get("unresolved_questions", []))),
+        ]) + '</dl>'
+        return (self.group("proposed_outcome", intro + f'<p class="source-meta">{self.t("source_not_execution")}</p>')
+                + self.group("proposed_diagram", proposed)
+                + self.group("prerequisites", self.items(checks))
+                + self.group("steps", ''.join(steps) if steps else self.t("unknown"))
+                + self.group("first_validation", validation)
+                + self.group("risks", self._narrative_items("/memo/integration_plan/risks", plan.get("risks", [])))
+                + self.group("rollback", self._narrative_items("/memo/integration_plan/rollback", plan.get("rollback", [])))
+                + self.group("coding_handoff", '<div id="coding-handoff" class="copy-panel" tabindex="0">'
+                             + '<dl class="detail-list">' + ''.join(handoff_rows) + '</dl></div>'
+                             + f'<p class="source-meta">{self.t("handoff_instruction")}</p>'))
+
 
 def render_report(state: dict[str, Any]) -> bytes:
     """Render a validated snapshot without state writes, retrieval or translation."""
@@ -369,7 +653,7 @@ def render_report(state: dict[str, Any]) -> bytes:
         for index, view in enumerate(VIEWS, 1):
             availability = "saved" if sources[view] else "missing"
             details = ""
-            if view in ("goal", "questions", "scan", "context"):
+            if view in ("goal", "questions", "scan", "context", "options", "compare", "integration"):
                 details = getattr(content, view)()
                 if view == "questions":
                     details = (f'<p class="source-meta">{text("questions_count")}: '

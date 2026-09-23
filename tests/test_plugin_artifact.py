@@ -153,6 +153,75 @@ class ArtifactShell(unittest.TestCase):
             store.render_fixture(state)
         self.assertEqual(error.exception.reason, "render_failed")
 
+    def test_options_compare_integration_project_saved_sources(self):
+        corpus = json.loads((ROOT / "tests/fixtures/plugin_contracts.json").read_text(encoding="utf-8"))
+        state = copy.deepcopy(corpus["workspace_positive"]["artifact/project-artifact-state.schema.json"])
+        memo = state["memo"]
+        memo["comparison_details"] = {
+            "scope": "Compare local search with no change.", "include_no_change": True,
+            "cells": [{"criterion": "deployment", "github_repository_id": 900000001,
+                       "baseline": False, "claim": {"kind": "inference", "text": "Local deployment may fit.",
+                       "evidence_refs": ["ev-public-fit"], "answer_ids": [], "limitation": "API unverified."},
+                       "next_check": "Check the package API."}],
+            "selection_rationale": "Try one bounded adapter.",
+            "strongest_counterargument": "The current lookup may suffice.",
+            "reconsider_when": "If the API cannot fit.", "next_decision": "Approve a small experiment.",
+        }
+        plan = memo["integration_plan"]
+        plan["details"]["diagram"] = {
+            "status": "proposed", "nodes": [
+                {"component_id": "existing", "label": "Existing lookup", "change": "reuse", "evidence_refs": ["ev-public-fit"]},
+                {"component_id": "adapter", "label": "Search adapter", "change": "add", "evidence_refs": []},
+            ], "edges": [{"from_component_id": "existing", "to_component_id": "adapter",
+                         "label": "Proposed lookup call", "status": "proposed"}],
+        }
+        plan["details"]["validation_input"] = "One synthetic local record"
+        plan["details"]["expected_behavior"] = "Return that record without network access"
+        plan["details"]["widen_when"] = "Only after the first lookup is verified"
+        markup = store.render_fixture(state).decode("utf-8")
+        panels = {view: markup.split(f'id="{view}"', 1)[1].split("</section>", 1)[0]
+                  for view in ("options", "compare", "integration")}
+        for panel in panels.values():
+            self.assertNotIn('data-i18n="pending_view"', panel)
+        self.assertIn("stackguide-fixtures/embedded-search", panels["options"])
+        self.assertIn("ev-public-fit", panels["options"])
+        self.assertIn("The current lookup may suffice.", panels["compare"])
+        self.assertIn("Proposed lookup call", panels["integration"])
+        self.assertIn("One synthetic local record", panels["integration"])
+        for value in ("stackguide-fixtures/embedded-search", "900000001", "ev-public-fit",
+                      "The current lookup may suffice.", "Proposed lookup call",
+                      "One synthetic local record", "not_executed", "separate_user_implementation_request"):
+            self.assertIn(value, markup)
+        self.assertIn('id="coding-handoff"', markup)
+        state["presentation"]["default_locale"] = "en"
+        english = store.render_fixture(state).decode("utf-8")
+        self.assertIn('<html lang="en">', english)
+        self.assertIn('data-i18n="candidate_roles">Candidate roles and evidence', english)
+        self.assertIn('data-i18n="decision_matrix">Decision matrix', english)
+
+    def test_missing_memo_keeps_c_views_unavailable(self):
+        markup = store.render_fixture(self.state).decode("utf-8")
+        for view in ("options", "compare", "integration"):
+            panel = markup.split(f'id="{view}"', 1)[1].split("</section>", 1)[0]
+            self.assertIn('data-i18n="missing"', panel)
+        self.assertIn('data-i18n="no_memo"', markup.split('id="options"', 1)[1].split("</section>", 1)[0])
+
+    def test_blocked_and_unassigned_pack_cards_are_not_promoted(self):
+        corpus = json.loads((ROOT / "tests/fixtures/plugin_contracts.json").read_text(encoding="utf-8"))
+        state = copy.deepcopy(corpus["workspace_positive"]["artifact/project-artifact-state.schema.json"])
+        original = state["evidence_pack"]["cards"][0]
+        original["eligibility"]["status"] = "blocked"
+        extra = copy.deepcopy(original)
+        extra["card"]["identity"]["github_repository_id"] = 900000002
+        extra["card"]["identity"]["full_name"] = "stackguide-fixtures/unassigned"
+        extra["eligibility"]["github_repository_id"] = 900000002
+        state["evidence_pack"]["cards"].append(extra)
+        markup = store.render_fixture(state).decode("utf-8")
+        options = markup.split('id="options"', 1)[1].split("</section>", 1)[0]
+        self.assertIn('data-i18n="blocked_candidate"', options)
+        self.assertIn("stackguide-fixtures/unassigned", options)
+        self.assertIn('data-i18n="unassigned_card"', options)
+
 
 if __name__ == "__main__":
     unittest.main()
