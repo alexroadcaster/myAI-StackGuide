@@ -118,6 +118,19 @@ h1 { font-size: clamp(32px, 3.5vw, 46px); line-height: 1.15; letter-spacing: -.0
 noscript { display: block; max-width: 1480px; margin: 0 auto 20px; padding: 16px 24px; border-radius: 16px; background: #fff8eb; color: #684c25; }
 section dd { margin-left: 0; font-variant-numeric: tabular-nums; }
 section dl { display: grid; grid-template-columns: minmax(0, max-content) minmax(0, 1fr); gap: 8px 24px; }
+section dl.detail-list { display: block; }
+.subsection { margin-top: 26px; padding-top: 22px; border-top: 1px solid #dce5f1; }
+.subsection:first-of-type { border-top: 0; padding-top: 0; }
+.subsection h2 { font-size: 17px; line-height: 1.35; margin: 0 0 14px; letter-spacing: -.015em; }
+.detail-list { margin: 0; }
+.detail-list .field { display: grid; grid-template-columns: minmax(150px, 28%) minmax(0, 1fr); gap: 6px 18px; padding: 9px 0; border-bottom: 1px solid #e5ebf4; }
+.detail-list dt { color: var(--muted); font-size: 13px; }
+.detail-list dd { margin: 0; min-width: 0; }
+.item-list { margin: 0; padding-left: 22px; }
+.item-list li { margin: 8px 0; }
+.source-meta, .limitation { display: block; font-size: 12px; color: var(--muted); margin-top: 5px; }
+.claim-kind { font-weight: 650; }
+.translation-note { color: #765522; font-size: 12px; }
 [hidden] { display: none !important; }
 @supports ((backdrop-filter: blur(24px)) or (-webkit-backdrop-filter: blur(24px))) {
   header, aside, .next {
@@ -194,6 +207,13 @@ section dl { display: grid; grid-template-columns: minmax(0, max-content) minmax
     const labels = dictionaries[currentLocale];
     document.querySelectorAll("[data-i18n]").forEach(node => { node.textContent = labels[node.dataset.i18n]; });
     document.querySelectorAll("[data-i18n-aria]").forEach(node => { node.setAttribute("aria-label", labels[node.dataset.i18nAria]); });
+    document.querySelectorAll("[data-narrative]").forEach(node => {
+      node.textContent = node.dataset[currentLocale];
+      node.lang = node.dataset[`${currentLocale}Lang`];
+      const missing = node.dataset[`${currentLocale}Missing`] === "true";
+      node.dataset.translationMissing = String(missing);
+      node.nextElementSibling.hidden = !missing;
+    });
     sections.forEach(section => { section.hidden = section.id !== currentView; });
     links.forEach(link => {
       link.href = `#view=${link.dataset.view}&lang=${currentLocale}`;

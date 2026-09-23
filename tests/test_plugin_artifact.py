@@ -119,6 +119,40 @@ class ArtifactShell(unittest.TestCase):
             rendered = (Path(directory) / store.OUTPUT_RELATIVE / store.HTML_NAME).read_text(encoding="utf-8")
             self.assertIn('id="integration"', rendered)
 
+    def test_committed_brief_and_scan_populate_first_four_views(self):
+        corpus = json.loads((ROOT / "tests/fixtures/plugin_contracts.json").read_text(encoding="utf-8"))
+        state = corpus["workspace_positive"]["artifact/project-artifact-state.schema.json"]
+        markup = store.render_fixture(state).decode("utf-8")
+        self.assertIn("Добавить локальный полнотекстовый поиск без сервиса.", markup)
+        self.assertIn("What should improve in this project?", markup)
+        self.assertIn("Add local search to a small Python project.", markup)
+        self.assertIn("pyproject.toml", markup)
+        self.assertIn("A narrow adapter may fit the existing project.", markup)
+        self.assertIn("ev-project-manifest", markup)
+        self.assertNotIn("Detailed content for this view is not implemented yet", markup.split('id="context"')[1].split("</section>")[0])
+
+    def test_partial_scan_and_missing_translation_remain_explicit(self):
+        corpus = json.loads((ROOT / "tests/fixtures/plugin_contracts.json").read_text(encoding="utf-8"))
+        state = copy.deepcopy(corpus["workspace_positive"]["artifact/project-artifact-state.schema.json"])
+        state["scan"]["status"] = "partial"
+        state["scan"]["manifest"]["counters"]["topology_complete"] = False
+        state["scan"]["reason_codes"] = ["topology_incomplete"]
+        state["presentation"]["fields"] = [
+            field for field in state["presentation"]["fields"] if field["field_pointer"] != "/brief/goal"
+        ]
+        markup = store.render_fixture(state).decode("utf-8")
+        self.assertIn("topology_incomplete", markup)
+        self.assertIn("Add local full-text search without a service.", markup)
+        self.assertIn("data-source-lang=", markup)
+        self.assertIn("data-translation-missing=", markup)
+        state = copy.deepcopy(corpus["workspace_positive"]["artifact/project-artifact-state.schema.json"])
+        forged = next(field for field in state["presentation"]["fields"]
+                      if field["field_pointer"] == "/brief/goal")
+        forged["source_sha256"] = "0" * 64
+        with self.assertRaises(store.StateError) as error:
+            store.render_fixture(state)
+        self.assertEqual(error.exception.reason, "render_failed")
+
 
 if __name__ == "__main__":
     unittest.main()
