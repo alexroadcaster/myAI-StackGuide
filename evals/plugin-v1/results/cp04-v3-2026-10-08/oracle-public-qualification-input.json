@@ -1,0 +1,385 @@
+{
+  "schema_version": "cp04_oracle_public_qualification_input_v1",
+  "source_sha256": "c8d7cdbee232c84df1a136c25f0bcc6b5c2d25b8c243d0d42f38e672d1e07b7b",
+  "records": [
+    {
+      "case_id": "CP04-HV3-01",
+      "github_repository_id": 586920414,
+      "full_name": "jdx/mise",
+      "public_url": "https://github.com/jdx/mise",
+      "goal": "Manage Node.js runtime versions on a Windows developer machine.",
+      "criteria": {
+        "core": "Node.js runtime version selection.",
+        "preferred_detail": "Explicit Windows support.",
+        "explicit_supporting_function": "None; package installation and shell environment management are distinct functions."
+      },
+      "unknown_reason": "Dev tools, environment variables and a task runner do not establish Node.js runtime version management."
+    },
+    {
+      "case_id": "CP04-HV3-05",
+      "github_repository_id": 1864233,
+      "full_name": "frappe/erpnext",
+      "public_url": "https://github.com/frappe/erpnext",
+      "goal": "Manage stock and warehouse operations in an ERP, preferring purchasing integration.",
+      "criteria": {
+        "core": "ERP stock/inventory management.",
+        "preferred_detail": "Explicit purchase/order/supplier or warehouse functionality alongside inventory.",
+        "explicit_supporting_function": "None; generic ERP/accounting/CRM/HR labels cannot establish inventory support."
+      },
+      "unknown_reason": "ERP/procurement/distribution are explicit, but stock/inventory management is not established."
+    },
+    {
+      "case_id": "CP04-HV3-05",
+      "github_repository_id": 19745004,
+      "full_name": "odoo/odoo",
+      "public_url": "https://github.com/odoo/odoo",
+      "goal": "Manage stock and warehouse operations in an ERP, preferring purchasing integration.",
+      "criteria": {
+        "core": "ERP stock/inventory management.",
+        "preferred_detail": "Explicit purchase/order/supplier or warehouse functionality alongside inventory.",
+        "explicit_supporting_function": "None; generic ERP/accounting/CRM/HR labels cannot establish inventory support."
+      },
+      "unknown_reason": "Generic business apps and ERP topic do not establish stock/inventory functionality."
+    },
+    {
+      "case_id": "CP04-HV3-05",
+      "github_repository_id": 189829392,
+      "full_name": "ever-co/ever-gauzy",
+      "public_url": "https://github.com/ever-co/ever-gauzy",
+      "goal": "Manage stock and warehouse operations in an ERP, preferring purchasing integration.",
+      "criteria": {
+        "core": "ERP stock/inventory management.",
+        "preferred_detail": "Explicit purchase/order/supplier or warehouse functionality alongside inventory.",
+        "explicit_supporting_function": "None; generic ERP/accounting/CRM/HR labels cannot establish inventory support."
+      },
+      "unknown_reason": "ERP/CRM/HR platform and accounting/time topics do not establish stock/inventory functionality."
+    },
+    {
+      "case_id": "CP04-HV3-05",
+      "github_repository_id": 304981340,
+      "full_name": "idurar/idurar-erp-crm",
+      "public_url": "https://github.com/idurar/idurar-erp-crm",
+      "goal": "Manage stock and warehouse operations in an ERP, preferring purchasing integration.",
+      "criteria": {
+        "core": "ERP stock/inventory management.",
+        "preferred_detail": "Explicit purchase/order/supplier or warehouse functionality alongside inventory.",
+        "explicit_supporting_function": "None; generic ERP/accounting/CRM/HR labels cannot establish inventory support."
+      },
+      "unknown_reason": "ERP accounting/invoicing and CRM do not establish stock/inventory functionality."
+    },
+    {
+      "case_id": "CP04-HV3-06",
+      "github_repository_id": 100695,
+      "full_name": "drupal/drupal",
+      "public_url": "https://github.com/drupal/drupal",
+      "goal": "Integrate a CMS with a Django application, preferring editorial flexibility or ease of use.",
+      "criteria": {
+        "core": "Explicitly Django-based CMS.",
+        "preferred_detail": "Explicit flexibility or ease-of-use statement.",
+        "explicit_supporting_function": "None; alternate technology CMSs and mirror metadata do not establish Django integration."
+      },
+      "unknown_reason": "Mirror/contribution metadata alone does not establish a Django CMS integration."
+    },
+    {
+      "case_id": "CP04-HV3-06",
+      "github_repository_id": 75645659,
+      "full_name": "WordPress/wordpress-develop",
+      "public_url": "https://github.com/WordPress/wordpress-develop",
+      "goal": "Integrate a CMS with a Django application, preferring editorial flexibility or ease of use.",
+      "criteria": {
+        "core": "Explicitly Django-based CMS.",
+        "preferred_detail": "Explicit flexibility or ease-of-use statement.",
+        "explicit_supporting_function": "None; alternate technology CMSs and mirror metadata do not establish Django integration."
+      },
+      "unknown_reason": "Mirror/contribution metadata alone does not establish the requested CMS interface."
+    },
+    {
+      "case_id": "CP04-HV3-06",
+      "github_repository_id": 126178683,
+      "full_name": "halo-dev/halo",
+      "public_url": "https://github.com/halo-dev/halo",
+      "goal": "Integrate a CMS with a Django application, preferring editorial flexibility or ease of use.",
+      "criteria": {
+        "core": "Explicitly Django-based CMS.",
+        "preferred_detail": "Explicit flexibility or ease-of-use statement.",
+        "explicit_supporting_function": "None; alternate technology CMSs and mirror metadata do not establish Django integration."
+      },
+      "unknown_reason": "Generic website/CMS metadata does not establish Django support or a specific incompatible interface."
+    },
+    {
+      "case_id": "CP04-HV3-07",
+      "github_repository_id": 992325192,
+      "full_name": "joinly-ai/joinly",
+      "public_url": "https://github.com/joinly-ai/joinly",
+      "goal": "Provide video conferences through a web meeting service, preferring explicit browser rooms or web embedding.",
+      "criteria": {
+        "core": "Video/web conferencing service.",
+        "preferred_detail": "Explicit browser/web-app use or embedding.",
+        "explicit_supporting_function": "Conferencing-system installation contributes deployment support; transcription/meeting assistants are different functions."
+      },
+      "unknown_reason": "Meeting accessibility for AI/assistant topics does not establish a conferencing service."
+    },
+    {
+      "case_id": "CP04-HV3-08",
+      "github_repository_id": 1151051,
+      "full_name": "django-oscar/django-oscar",
+      "public_url": "https://github.com/django-oscar/django-oscar",
+      "goal": "Decouple a storefront using a headless commerce backend, preferring an explicit REST or GraphQL API.",
+      "criteria": {
+        "core": "Explicitly headless commerce/e-commerce backend.",
+        "preferred_detail": "Explicit REST/GraphQL/API interface.",
+        "explicit_supporting_function": "None; commerce/payment/headless-CMS metadata alone does not establish a headless commerce backend."
+      },
+      "unknown_reason": "Django commerce is explicit, but headless/backend separation is not established."
+    },
+    {
+      "case_id": "CP04-HV3-08",
+      "github_repository_id": 2179920,
+      "full_name": "woocommerce/woocommerce",
+      "public_url": "https://github.com/woocommerce/woocommerce",
+      "goal": "Decouple a storefront using a headless commerce backend, preferring an explicit REST or GraphQL API.",
+      "criteria": {
+        "core": "Explicitly headless commerce/e-commerce backend.",
+        "preferred_detail": "Explicit REST/GraphQL/API interface.",
+        "explicit_supporting_function": "None; commerce/payment/headless-CMS metadata alone does not establish a headless commerce backend."
+      },
+      "unknown_reason": "WordPress commerce is explicit, but headless/backend separation is not established."
+    },
+    {
+      "case_id": "CP04-HV3-08",
+      "github_repository_id": 2884111,
+      "full_name": "magento/magento2",
+      "public_url": "https://github.com/magento/magento2",
+      "goal": "Decouple a storefront using a headless commerce backend, preferring an explicit REST or GraphQL API.",
+      "criteria": {
+        "core": "Explicitly headless commerce/e-commerce backend.",
+        "preferred_detail": "Explicit REST/GraphQL/API interface.",
+        "explicit_supporting_function": "None; commerce/payment/headless-CMS metadata alone does not establish a headless commerce backend."
+      },
+      "unknown_reason": "Contributor instructions/commerce topics do not establish headless/API functionality."
+    },
+    {
+      "case_id": "CP04-HV3-08",
+      "github_repository_id": 6763587,
+      "full_name": "PrestaShop/PrestaShop",
+      "public_url": "https://github.com/PrestaShop/PrestaShop",
+      "goal": "Decouple a storefront using a headless commerce backend, preferring an explicit REST or GraphQL API.",
+      "criteria": {
+        "core": "Explicitly headless commerce/e-commerce backend.",
+        "preferred_detail": "Explicit REST/GraphQL/API interface.",
+        "explicit_supporting_function": "None; commerce/payment/headless-CMS metadata alone does not establish a headless commerce backend."
+      },
+      "unknown_reason": "Generic commerce platform metadata does not establish headless functionality."
+    },
+    {
+      "case_id": "CP04-HV3-08",
+      "github_repository_id": 30985840,
+      "full_name": "solidusio/solidus",
+      "public_url": "https://github.com/solidusio/solidus",
+      "goal": "Decouple a storefront using a headless commerce backend, preferring an explicit REST or GraphQL API.",
+      "criteria": {
+        "core": "Explicitly headless commerce/e-commerce backend.",
+        "preferred_detail": "Explicit REST/GraphQL/API interface.",
+        "explicit_supporting_function": "None; commerce/payment/headless-CMS metadata alone does not establish a headless commerce backend."
+      },
+      "unknown_reason": "Generic commerce framework metadata does not establish headless functionality."
+    },
+    {
+      "case_id": "CP04-HV3-08",
+      "github_repository_id": 127988011,
+      "full_name": "macrozheng/mall",
+      "public_url": "https://github.com/macrozheng/mall",
+      "goal": "Decouple a storefront using a headless commerce backend, preferring an explicit REST or GraphQL API.",
+      "criteria": {
+        "core": "Explicitly headless commerce/e-commerce backend.",
+        "preferred_detail": "Explicit REST/GraphQL/API interface.",
+        "explicit_supporting_function": "None; commerce/payment/headless-CMS metadata alone does not establish a headless commerce backend."
+      },
+      "unknown_reason": "Readable Chinese description supplies storefront/admin commerce but no explicit headless/API separation; identity cannot fill the gap."
+    },
+    {
+      "case_id": "CP04-HV3-08",
+      "github_repository_id": 131995661,
+      "full_name": "shopware/shopware",
+      "public_url": "https://github.com/shopware/shopware",
+      "goal": "Decouple a storefront using a headless commerce backend, preferring an explicit REST or GraphQL API.",
+      "criteria": {
+        "core": "Explicitly headless commerce/e-commerce backend.",
+        "preferred_detail": "Explicit REST/GraphQL/API interface.",
+        "explicit_supporting_function": "None; commerce/payment/headless-CMS metadata alone does not establish a headless commerce backend."
+      },
+      "unknown_reason": "Commerce/API-first/headless-CMS metadata does not explicitly establish headless commerce rather than content-only functionality."
+    },
+    {
+      "case_id": "CP04-HV3-08",
+      "github_repository_id": 234739976,
+      "full_name": "medusajs/medusa",
+      "public_url": "https://github.com/medusajs/medusa",
+      "goal": "Decouple a storefront using a headless commerce backend, preferring an explicit REST or GraphQL API.",
+      "criteria": {
+        "core": "Explicitly headless commerce/e-commerce backend.",
+        "preferred_detail": "Explicit REST/GraphQL/API interface.",
+        "explicit_supporting_function": "None; commerce/payment/headless-CMS metadata alone does not establish a headless commerce backend."
+      },
+      "unknown_reason": "Generic commerce platform metadata does not establish headless functionality."
+    },
+    {
+      "case_id": "CP04-HV3-09",
+      "github_repository_id": 159152904,
+      "full_name": "jeecgboot/JeecgBoot",
+      "public_url": "https://github.com/jeecgboot/JeecgBoot",
+      "goal": "Build an admin application over REST or GraphQL data APIs, preferring a React interface.",
+      "criteria": {
+        "core": "Admin/internal-tool builder with explicit API integration.",
+        "preferred_detail": "Explicit React interface/framework evidence.",
+        "explicit_supporting_function": "Admin scaffolding/database-management UI contributes an admin foundation without proving an API adapter."
+      },
+      "unknown_reason": "Generic low-code/code-generation/workflows do not establish an admin app or REST/GraphQL adapter."
+    },
+    {
+      "case_id": "CP04-HV3-09",
+      "github_repository_id": 306829688,
+      "full_name": "nocobase/nocobase",
+      "public_url": "https://github.com/nocobase/nocobase",
+      "goal": "Build an admin application over REST or GraphQL data APIs, preferring a React interface.",
+      "criteria": {
+        "core": "Admin/internal-tool builder with explicit API integration.",
+        "preferred_detail": "Explicit React interface/framework evidence.",
+        "explicit_supporting_function": "Admin scaffolding/database-management UI contributes an admin foundation without proving an API adapter."
+      },
+      "unknown_reason": "Admin/CRUD topics establish UI intent but do not establish REST/GraphQL integration."
+    },
+    {
+      "case_id": "CP04-HV3-09",
+      "github_repository_id": 352933140,
+      "full_name": "ToolJet/ToolJet",
+      "public_url": "https://github.com/ToolJet/ToolJet",
+      "goal": "Build an admin application over REST or GraphQL data APIs, preferring a React interface.",
+      "criteria": {
+        "core": "Admin/internal-tool builder with explicit API integration.",
+        "preferred_detail": "Explicit React interface/framework evidence.",
+        "explicit_supporting_function": "Admin scaffolding/database-management UI contributes an admin foundation without proving an API adapter."
+      },
+      "unknown_reason": "Internal applications/workflow generation do not establish REST/GraphQL integration."
+    },
+    {
+      "case_id": "CP04-HV3-10",
+      "github_repository_id": 17165658,
+      "full_name": "apache/spark",
+      "public_url": "https://github.com/apache/spark",
+      "goal": "Manipulate labeled/tabular data with a DataFrame library, preferring a Python interface.",
+      "criteria": {
+        "core": "Labeled/tabular DataFrame manipulation.",
+        "preferred_detail": "Explicit Python interface/stack evidence.",
+        "explicit_supporting_function": "Columnar interchange or scheduling with a DataFrame ecosystem contributes processing support; generic SQL engines/streaming systems are different functions."
+      },
+      "unknown_reason": "Large-scale processing/Python/SQL metadata does not explicitly establish a DataFrame interface."
+    },
+    {
+      "case_id": "CP04-HV3-10",
+      "github_repository_id": 20587599,
+      "full_name": "apache/flink",
+      "public_url": "https://github.com/apache/flink",
+      "goal": "Manipulate labeled/tabular data with a DataFrame library, preferring a Python interface.",
+      "criteria": {
+        "core": "Labeled/tabular DataFrame manipulation.",
+        "preferred_detail": "Explicit Python interface/stack evidence.",
+        "explicit_supporting_function": "Columnar interchange or scheduling with a DataFrame ecosystem contributes processing support; generic SQL engines/streaming systems are different functions."
+      },
+      "unknown_reason": "Name-only description/generic big-data/SQL/Python topics do not establish a DataFrame interface."
+    },
+    {
+      "case_id": "CP04-HV3-10",
+      "github_repository_id": 485548415,
+      "full_name": "Eventual-Inc/Daft",
+      "public_url": "https://github.com/Eventual-Inc/Daft",
+      "goal": "Manipulate labeled/tabular data with a DataFrame library, preferring a Python interface.",
+      "criteria": {
+        "core": "Labeled/tabular DataFrame manipulation.",
+        "preferred_detail": "Explicit Python interface/stack evidence.",
+        "explicit_supporting_function": "Columnar interchange or scheduling with a DataFrame ecosystem contributes processing support; generic SQL engines/streaming systems are different functions."
+      },
+      "unknown_reason": "Multimodal processing/Python/columnar topics do not explicitly establish a DataFrame interface."
+    },
+    {
+      "case_id": "CP04-HV3-11",
+      "github_repository_id": 437245741,
+      "full_name": "dragonflydb/dragonfly",
+      "public_url": "https://github.com/dragonflydb/dragonfly",
+      "goal": "Embed a key-value storage library, preferring ordered string key/value access.",
+      "criteria": {
+        "core": "Key-value storage as a library rather than distributed server.",
+        "preferred_detail": "Ordered mapping from string keys to string values.",
+        "explicit_supporting_function": "None; distributed cache servers have a different deployment function."
+      },
+      "unknown_reason": "Cache replacement/key-value topics do not explicitly establish library-versus-server integration."
+    },
+    {
+      "case_id": "CP04-HV3-12",
+      "github_repository_id": 1148753,
+      "full_name": "spring-projects/spring-framework",
+      "public_url": "https://github.com/spring-projects/spring-framework",
+      "goal": "Develop a Kotlin web service with a backend framework, preferring asynchronous APIs.",
+      "criteria": {
+        "core": "Kotlin-compatible web/backend framework with explicit Kotlin function/topic evidence.",
+        "preferred_detail": "Explicit async/asynchronous interface.",
+        "explicit_supporting_function": "None; alternate-language interfaces do not establish Kotlin integration. Generic JVM metadata without Kotlin evidence remains unknown."
+      },
+      "unknown_reason": "Generic JVM framework metadata does not establish Kotlin support."
+    },
+    {
+      "case_id": "CP04-HV3-12",
+      "github_repository_id": 6296790,
+      "full_name": "spring-projects/spring-boot",
+      "public_url": "https://github.com/spring-projects/spring-boot",
+      "goal": "Develop a Kotlin web service with a backend framework, preferring asynchronous APIs.",
+      "criteria": {
+        "core": "Kotlin-compatible web/backend framework with explicit Kotlin function/topic evidence.",
+        "preferred_detail": "Explicit async/asynchronous interface.",
+        "explicit_supporting_function": "None; alternate-language interfaces do not establish Kotlin integration. Generic JVM metadata without Kotlin evidence remains unknown."
+      },
+      "unknown_reason": "Service-framework description/Java topics do not establish Kotlin support."
+    },
+    {
+      "case_id": "CP04-HV3-12",
+      "github_repository_id": 139914932,
+      "full_name": "quarkusio/quarkus",
+      "public_url": "https://github.com/quarkusio/quarkus",
+      "goal": "Develop a Kotlin web service with a backend framework, preferring asynchronous APIs.",
+      "criteria": {
+        "core": "Kotlin-compatible web/backend framework with explicit Kotlin function/topic evidence.",
+        "preferred_detail": "Explicit async/asynchronous interface.",
+        "explicit_supporting_function": "None; alternate-language interfaces do not establish Kotlin integration. Generic JVM metadata without Kotlin evidence remains unknown."
+      },
+      "unknown_reason": "Generic Java/cloud-native metadata does not establish Kotlin support; external product knowledge is not evidence."
+    },
+    {
+      "case_id": "CP04-HV3-13",
+      "github_repository_id": 899787279,
+      "full_name": "ckreiling/mcp-server-docker",
+      "public_url": "https://github.com/ckreiling/mcp-server-docker",
+      "goal": "Define and run a multi-container application, preferring an explicit Docker interface.",
+      "criteria": {
+        "core": "Application-level definition and execution of multiple containers.",
+        "preferred_detail": "Explicit Docker interface.",
+        "explicit_supporting_function": "Container-based system assembly contributes runtime foundation; cluster operators, monitoring and VM wrappers are different functions."
+      },
+      "unknown_reason": "Generic Docker MCP-server metadata does not establish supported commands or multi-container definition/execution."
+    },
+    {
+      "case_id": "CP04-HV3-S01",
+      "github_repository_id": 33925906,
+      "full_name": "Vincit/objection.js",
+      "public_url": "https://github.com/Vincit/objection.js",
+      "goal": "Compare Python object-relational mapping components, preferring an asynchronous interface.",
+      "criteria": {
+        "core": "Explicit Python ORM/object-relational mapping contribution.",
+        "preferred_detail": "Explicit async/asyncio interface.",
+        "explicit_supporting_function": "SQL toolkit/code generation/schema editor contributes SQL/schema prerequisites without proving ORM runtime behavior."
+      },
+      "unknown_reason": "Descriptions/topics/languages are absent; identity/category cannot establish Python ORM functionality."
+    }
+  ],
+  "contains_private_project_context": false,
+  "promotion_ready": false
+}

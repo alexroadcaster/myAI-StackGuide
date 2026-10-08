@@ -222,7 +222,7 @@ class SolutionBlueprintTests(unittest.TestCase):
             data['records'][0]['integration_phases'].append(copy.deepcopy(data['records'][0]['integration_phases'][1]))
             candidate.write_text(json.dumps(data, ensure_ascii=False), encoding='utf-8')
             process = subprocess.run([sys.executable, '-B', str(ROOT / 'evals/plugin-v1/evaluate_solution_blueprint.py'),
-                '--blueprints', str(candidate)], cwd=ROOT, capture_output=True, text=True, timeout=30)
+                '--blueprints', str(candidate), '--instruction', str(ROOT / 'evals/plugin-v1/results/cp04-v3-2026-10-08/live-verification-instruction-baseline.md')], cwd=ROOT, capture_output=True, text=True, timeout=30)
             self.assertEqual(process.returncode, 1)
             receipt = json.loads(process.stdout)
             self.assertEqual(receipt['issues'][0]['category'], 'phase_identity')

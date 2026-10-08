@@ -1,0 +1,53 @@
+{
+  "schema_version": "cp04_independent_source_review_v1",
+  "task_id": "CP-04",
+  "reviewer": "cp04_astra_v3_review",
+  "model": "gpt-6-astra",
+  "reasoning_effort": "medium",
+  "recorded_by": "primary_from_returned_independent_review",
+  "oracle_sha256": "478c5d8449ffddcfc9db457f52c9f2d4ab1bee0e93dcbedde2bb7c26833e1786",
+  "protocol_sha256": "2bd0f28cab4bb66a3d252a22ca33a849a4b314003c52ba300aebc7e46595fe6f",
+  "validator_sha256": "6ba16caecda58426ee1a60adc007a283a54a6997299c7fe00f33e3c129343661",
+  "runner_sha256": "58b4b612f5c26b9a6059d105846084e1d8a798fe51eb5fe57a6bdc92ff13de56",
+  "verdict": "source_review_not_clear",
+  "accepted_for_capture": false,
+  "findings": [
+    {
+      "severity": "P2",
+      "case_id": "CP04-HV3-13",
+      "github_repository_id": 20580498,
+      "path": "evals/plugin-v1/quality-oracle-v3-source.json",
+      "line": 28953,
+      "finding": "Cluster scope does not justify Kubernetes grade zero for application-level multi-container definition and execution; Docker is preferred rather than mandatory.",
+      "required_resolution": "Qualify the exact repository against the unchanged functional core and detail; inspect other cluster-tool zero rationales for the same semantic error before freeze.",
+      "primary_sources": [
+        "https://github.com/kubernetes/kubernetes",
+        "https://kubernetes.io/docs/concepts/workloads/pods/"
+      ]
+    },
+    {
+      "severity": "P2",
+      "case_id": "CP04-HV3-06",
+      "path": "evals/plugin-v1/quality-oracle-v3-source.json",
+      "line": 10695,
+      "finding": "Integration with a Django application is broader than the declared Django-native CMS core. Alternate implementation languages alone do not disprove interoperability.",
+      "required_resolution": "Prospectively specify a native-Django goal or investigate the broader integration interfaces; preserve initial source and all unresolved evidence before capture."
+    }
+  ],
+  "checks": [
+    {
+      "command": ".venv/Scripts/python.exe -B -m unittest tests.test_plugin_quality_oracle_v3 tests.test_plugin_quality_runner_v3 -v",
+      "passed": 15,
+      "exit_code": 0
+    },
+    {
+      "check": "Read-only validator.load_source and comparison of all 15 initial goals/criteria/queries/universes/constraints/snapshot evidence",
+      "result": "pass"
+    }
+  ],
+  "files_modified_by_reviewer": [],
+  "prior_rankings_or_captures_read": false,
+  "retrieval_executed": false,
+  "human_calibration": false,
+  "promotion_ready": false
+}

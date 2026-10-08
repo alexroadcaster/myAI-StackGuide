@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
+import codecs
 import hashlib
 import importlib.util
 import json
+import math
 from pathlib import Path
 import re
 import sys
@@ -277,6 +279,260 @@ def _validate_inputs(
     )
 
 
+def _cards_from_verified_snapshot(
+    snapshot: dict[str, Any],
+    pins: dict[str, Any],
+    *,
+    expected_count: int,
+) -> dict[int, dict[str, Any]]:
+    """Normalize identities after the caller verifies exact snapshot bytes/pins.
+
+    This does not establish a trust anchor or load files. Production supplies its
+    fixed catalog count; an evaluator supplies its separately pinned fixture count.
+    """
+    if (
+        not isinstance(snapshot, dict)
+        or snapshot.get("schema_version") != pins["card_schema_version"]
+        or snapshot.get("activity_schema_version") != pins["activity_schema_version"]
+        or snapshot.get("catalog_snapshot_id") != pins["catalog_snapshot_id"]
+        or snapshot.get("source_sha256") != pins["source_sha256"]
+        or snapshot.get("taxonomy_sha256") != pins["taxonomy_sha256"]
+        or snapshot.get("corpus_kind") != pins["corpus_kind"]
+        or not isinstance(snapshot.get("cards"), list)
+        or not _is_int(expected_count)
+        or expected_count < 0
+        or len(snapshot["cards"]) != expected_count
+    ):
+        raise ValueError("catalog snapshot identity mismatch")
+    trusted: dict[int, dict[str, Any]] = {}
+    for card in snapshot["cards"]:
+        identity = card.get("identity") if isinstance(card, dict) else None
+        repository_id = identity.get("github_repository_id") if isinstance(identity, dict) else None
+        if not _is_int(repository_id) or repository_id < 1 or repository_id in trusted:
+            raise ValueError("catalog snapshot card identity mismatch")
+        trusted[repository_id] = card
+    return trusted
+
+
+def _select_verified_cards(
+    trusted: dict[int, dict[str, Any]],
+    cards_by_id: dict[Any, Any],
+    candidate_ids: list[int],
+) -> dict[int, dict[str, Any]]:
+    """Require canonical equality to cards normalized from verified snapshot bytes."""
+    output: dict[int, dict[str, Any]] = {}
+    for repository_id in candidate_ids:
+        supplied = cards_by_id.get(repository_id)
+        pinned = trusted.get(repository_id)
+        if (
+            not isinstance(supplied, dict)
+            or pinned is None
+            or _canonical_bytes(supplied) != _canonical_bytes(pinned)
+        ):
+            raise ValueError("supplied card does not match pinned catalog snapshot")
+        output[repository_id] = pinned
+    return output
+
+
+_SNAPSHOT_STREAM_KEYS = {
+    "activity_schema_version", "builder_version", "cards", "catalog_snapshot_id",
+    "corpus_kind", "field_contract_sha256", "schema_version", "source_sha256",
+    "source_snapshot_date", "taxonomy_sha256",
+}
+
+
+def _finite_json_float(value: str) -> float:
+    number = float(value)
+    if not math.isfinite(number):
+        raise ValueError("nonfinite snapshot number")
+    return number
+
+
+class _SnapshotJSONStream:
+    """Read one JSON value at a time while hashing all original UTF-8 bytes.
+
+    Consumed text is discarded before each read. Buffer size is bounded by the
+    current individual value plus one chunk, with the absolute file cap enforced
+    on every read. The caller iterates the cards array rather than decoding it.
+    """
+
+    def __init__(self, handle, *, max_bytes: int, chunk_bytes: int):
+        self.handle = handle
+        self.max_bytes = max_bytes
+        self.chunk_bytes = min(chunk_bytes, max_bytes)
+        self.byte_count = 0
+        self.digest = hashlib.sha256()
+        self.utf8 = codecs.getincrementaldecoder("utf-8")(errors="strict")
+        self.decoder = json.JSONDecoder(
+            parse_constant=lambda token: (_ for _ in ()).throw(ValueError(token)),
+            parse_float=_finite_json_float,
+        )
+        self.buffer = ""
+        self.position = 0
+        self.eof = False
+
+    def _fill(self) -> None:
+        self.buffer = self.buffer[self.position:]
+        self.position = 0
+        raw = self.handle.read(self.chunk_bytes)
+        self.byte_count += len(raw)
+        if self.byte_count > self.max_bytes:
+            raise ValueError("invalid catalog snapshot size")
+        self.digest.update(raw)
+        self.eof = not raw
+        self.buffer += self.utf8.decode(raw, final=self.eof)
+
+    def peek(self) -> str:
+        while True:
+            while self.position < len(self.buffer):
+                value = self.buffer[self.position]
+                if value not in " \t\r\n":
+                    return value
+                self.position += 1
+            if self.eof:
+                return ""
+            self._fill()
+
+    def take(self, expected: str) -> None:
+        if self.peek() != expected:
+            raise ValueError("invalid snapshot JSON delimiter")
+        self.position += 1
+
+    def value(self):
+        self.peek()
+        while True:
+            try:
+                value, end = self.decoder.raw_decode(self.buffer, self.position)
+            except json.JSONDecodeError:
+                if self.eof:
+                    raise
+                self._fill()
+                continue
+            if end == len(self.buffer) and not self.eof:
+                self._fill()
+                continue
+            if end < len(self.buffer) and self.buffer[end] not in ",]} \t\r\n:":
+                if self.eof:
+                    raise ValueError("invalid snapshot JSON value")
+                self._fill()
+                continue
+            self.position = end
+            return value
+
+
+def _stream_verified_snapshot_cards(
+    snapshot_path,
+    pins,
+    *,
+    expected_count,
+    max_bytes,
+    candidate_ids,
+    chunk_bytes=65536,
+):
+    """Validate a complete pinned snapshot while retaining requested cards only.
+
+    Callers establish exact pins first. This private representation reader covers
+    the frozen production and evaluator envelopes: these ten keys, scalar string
+    metadata and one cards array. Other envelopes, duplicate top-level keys and
+    structured metadata fail explicitly. No public trust mode or cap is added.
+    IDs for all cards remain for duplicate/count checks; only requested card
+    objects survive. One bounded full prehash precedes parsing, preserving the
+    public hash-before-JSON boundary. A second EOF hash uses the same handle and
+    rejects changed bytes; it does not claim atomicity against concurrent writes.
+    """
+    if (
+        not _is_int(expected_count) or expected_count < 0
+        or not _is_int(max_bytes) or max_bytes < 2
+        or not _is_int(chunk_bytes) or chunk_bytes < 1
+        or not isinstance(candidate_ids, list)
+        or any(not _is_int(value) or value < 1 for value in candidate_ids)
+    ):
+        raise ValueError("invalid snapshot streaming bounds")
+    path = Path(snapshot_path)
+    if not 2 <= path.stat().st_size <= max_bytes:
+        raise ValueError("invalid catalog snapshot size")
+    requested = set(candidate_ids)
+    selected = {}
+    seen_ids = set()
+    metadata = {}
+    seen_keys = set()
+    with path.open("rb") as handle:
+        prehash = hashlib.sha256()
+        byte_count = 0
+        while raw := handle.read(min(chunk_bytes, max_bytes)):
+            byte_count += len(raw)
+            if byte_count > max_bytes:
+                raise ValueError("invalid catalog snapshot size")
+            prehash.update(raw)
+        if byte_count < 2:
+            raise ValueError("invalid catalog snapshot size")
+        if prehash.hexdigest() != pins["cards_sha256"]:
+            raise ValueError("catalog snapshot hash mismatch")
+        handle.seek(0)
+        stream = _SnapshotJSONStream(handle, max_bytes=max_bytes, chunk_bytes=chunk_bytes)
+        stream.take("{")
+        while stream.peek() != "}":
+            key = stream.value()
+            if not isinstance(key, str) or key not in _SNAPSHOT_STREAM_KEYS or key in seen_keys:
+                raise ValueError("incompatible snapshot envelope")
+            seen_keys.add(key)
+            stream.take(":")
+            if key == "cards":
+                stream.take("[")
+                while stream.peek() != "]":
+                    if stream.peek() != "{":
+                        raise ValueError("catalog snapshot card identity mismatch")
+                    card = stream.value()
+                    identity = card.get("identity") if isinstance(card, dict) else None
+                    repository_id = identity.get("github_repository_id") if isinstance(identity, dict) else None
+                    if (
+                        not _is_int(repository_id) or repository_id < 1 or repository_id in seen_ids
+                        or card.get("schema_version") != pins["card_schema_version"]
+                        or card.get("corpus_kind") != pins["corpus_kind"]
+                    ):
+                        raise ValueError("catalog snapshot card identity mismatch")
+                    seen_ids.add(repository_id)
+                    if len(seen_ids) > expected_count:
+                        raise ValueError("catalog snapshot identity mismatch")
+                    if repository_id in requested:
+                        selected[repository_id] = card
+                    if stream.peek() == "]":
+                        break
+                    stream.take(",")
+                    if stream.peek() == "]":
+                        raise ValueError("invalid snapshot JSON delimiter")
+                stream.take("]")
+            else:
+                if stream.peek() != '"':
+                    raise ValueError("incompatible snapshot metadata")
+                metadata[key] = stream.value()
+            if stream.peek() == "}":
+                break
+            stream.take(",")
+            if stream.peek() == "}":
+                raise ValueError("invalid snapshot JSON delimiter")
+        stream.take("}")
+        if stream.peek():
+            raise ValueError("trailing snapshot JSON content")
+        if stream.digest.hexdigest() != pins["cards_sha256"]:
+            raise ValueError("catalog snapshot hash mismatch")
+    expected_metadata = {
+        "schema_version": pins["card_schema_version"],
+        "activity_schema_version": pins["activity_schema_version"],
+        "catalog_snapshot_id": pins["catalog_snapshot_id"],
+        "source_sha256": pins["source_sha256"],
+        "taxonomy_sha256": pins["taxonomy_sha256"],
+        "corpus_kind": pins["corpus_kind"],
+    }
+    if (
+        seen_keys != _SNAPSHOT_STREAM_KEYS or len(seen_ids) != expected_count
+        or any(metadata.get(key) != value for key, value in expected_metadata.items())
+        or set(selected) != requested
+    ):
+        raise ValueError("catalog snapshot identity mismatch")
+    return selected
+
+
 def _trusted_cards(
     pins: dict[str, Any],
     cards_by_id: dict[Any, Any],
@@ -287,49 +543,13 @@ def _trusted_cards(
         if pins != _trusted_manifest_pins():
             raise ValueError("retrieval pins do not match trusted catalog manifest")
         try:
-            size = SNAPSHOT_PATH.stat().st_size
-            if not 2 <= size <= MAX_SNAPSHOT_BYTES:
-                raise ValueError("invalid catalog snapshot size")
-            raw = SNAPSHOT_PATH.read_bytes()
-            if hashlib.sha256(raw).hexdigest() != pins["cards_sha256"]:
-                raise ValueError("catalog snapshot hash mismatch")
-            snapshot = json.loads(
-                raw.decode("utf-8"),
-                parse_constant=lambda token: (_ for _ in ()).throw(ValueError(token)),
+            trusted = _stream_verified_snapshot_cards(
+                SNAPSHOT_PATH, pins, expected_count=2500,
+                max_bytes=MAX_SNAPSHOT_BYTES, candidate_ids=candidate_ids,
             )
         except (OSError, UnicodeDecodeError, json.JSONDecodeError) as error:
             raise ValueError("catalog snapshot unavailable") from error
-        if (
-            not isinstance(snapshot, dict)
-            or snapshot.get("schema_version") != pins["card_schema_version"]
-            or snapshot.get("activity_schema_version") != pins["activity_schema_version"]
-            or snapshot.get("catalog_snapshot_id") != pins["catalog_snapshot_id"]
-            or snapshot.get("source_sha256") != pins["source_sha256"]
-            or snapshot.get("taxonomy_sha256") != pins["taxonomy_sha256"]
-            or snapshot.get("corpus_kind") != "catalog_snapshot"
-            or not isinstance(snapshot.get("cards"), list)
-            or len(snapshot["cards"]) != 2500
-        ):
-            raise ValueError("catalog snapshot identity mismatch")
-        trusted: dict[int, dict[str, Any]] = {}
-        for card in snapshot["cards"]:
-            identity = card.get("identity") if isinstance(card, dict) else None
-            repository_id = identity.get("github_repository_id") if isinstance(identity, dict) else None
-            if not _is_int(repository_id) or repository_id < 1 or repository_id in trusted:
-                raise ValueError("catalog snapshot card identity mismatch")
-            trusted[repository_id] = card
-        output: dict[int, dict[str, Any]] = {}
-        for repository_id in candidate_ids:
-            supplied = cards_by_id.get(repository_id)
-            pinned = trusted.get(repository_id)
-            if (
-                not isinstance(supplied, dict)
-                or pinned is None
-                or _canonical_bytes(supplied) != _canonical_bytes(pinned)
-            ):
-                raise ValueError("supplied card does not match pinned catalog snapshot")
-            output[repository_id] = pinned
-        return output
+        return _select_verified_cards(trusted, cards_by_id, candidate_ids)
 
     if corpus_kind == "synthetic_fixture":
         if pins != TRUSTED_SYNTHETIC_PINS:
@@ -365,6 +585,18 @@ def _serialized_size(pack: dict[str, Any]) -> int:
     return len(_canonical_bytes(pack))
 
 
+def _retrieval_candidate_ids(candidates) -> list[int]:
+    candidate_ids: list[int] = []
+    for expected_rank, candidate in enumerate(candidates, start=1):
+        if not isinstance(candidate, dict):
+            raise ValueError("invalid retrieval candidate")
+        repository_id = candidate.get("github_repository_id")
+        if not _is_int(repository_id) or repository_id < 1 or candidate.get("rank") != expected_rank:
+            raise ValueError("invalid retrieval candidate")
+        candidate_ids.append(repository_id)
+    return candidate_ids
+
+
 def build_evidence_pack(
     query,
     retrieval_result,
@@ -375,8 +607,37 @@ def build_evidence_pack(
     max_evidence_bytes,
 ):
     """Select primary then reference candidates under the actual compact-byte cap."""
-    card_limit, evidence_limit = _validate_inputs(
+    _validate_inputs(
         query, retrieval_result, cards_by_id, pack_id, max_cards, max_evidence_bytes
+    )
+    trusted_cards = {}
+    if retrieval_result["status"] == "ok":
+        candidate_ids = _retrieval_candidate_ids(retrieval_result["candidates"])
+        trusted_cards = _trusted_cards(retrieval_result["pins"], cards_by_id, candidate_ids)
+    return _build_evidence_pack_from_trusted_cards(
+        query, retrieval_result, trusted_cards, pack_id=pack_id,
+        max_cards=max_cards, max_evidence_bytes=max_evidence_bytes,
+    )
+
+
+def _build_evidence_pack_from_trusted_cards(
+    query,
+    retrieval_result,
+    trusted_cards,
+    *,
+    pack_id,
+    max_cards,
+    max_evidence_bytes,
+):
+    """Select already trusted canonical cards without establishing asset trust.
+
+    The public wrapper verifies snapshot pins and supplied-card equality first.
+    Isolated evaluators must verify their exact fixture and normalize identities
+    before entering this private seam. Binding, eligibility, ordering, caps and
+    candidate coverage still use the same production checks and selection.
+    """
+    card_limit, evidence_limit = _validate_inputs(
+        query, retrieval_result, trusted_cards, pack_id, max_cards, max_evidence_bytes
     )
     pack = _base_pack(query, retrieval_result, pack_id)
     status = retrieval_result["status"]
@@ -394,15 +655,7 @@ def build_evidence_pack(
         return pack
 
     candidates = retrieval_result["candidates"]
-    candidate_ids: list[int] = []
-    for expected_rank, candidate in enumerate(candidates, start=1):
-        if not isinstance(candidate, dict):
-            raise ValueError("invalid retrieval candidate")
-        repository_id = candidate.get("github_repository_id")
-        if not _is_int(repository_id) or repository_id < 1 or candidate.get("rank") != expected_rank:
-            raise ValueError("invalid retrieval candidate")
-        candidate_ids.append(repository_id)
-    trusted_cards = _trusted_cards(retrieval_result["pins"], cards_by_id, candidate_ids)
+    _retrieval_candidate_ids(candidates)
     seen_ids: set[int] = set()
     duplicate_ids: set[int] = set()
     normalized: list[tuple[dict[str, Any], dict[str, Any] | None, dict[str, Any] | None]] = []

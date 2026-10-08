@@ -1,0 +1,9 @@
+{
+  "schema_version": "cp04_actual_capacity_harness_failure_v1",
+  "failure_stage": "child source-map load before timing",
+  "reason": "generic scorer input limit too small for trusted production snapshot",
+  "declaration_sha256": "92d08d4824f11ffb55b56b55f15c2a3eb2389ab114e5098683567749ff0f73d4",
+  "measurement_completed": false,
+  "repair": "Use production MAX_SNAPSHOT_BYTES for explicitly pinned public snapshot only; no global cap change",
+  "promotion_ready": false
+}

@@ -2,6 +2,8 @@
 
 ## CP-04 Current Successor Evidence — 2026-10-08
 
+The [V3 continuation](docs/reports/cp04-v3-continuation-2026-10-08.md) owns current cache/shared-core/streaming tests, passing actual production and full synthetic capacity, and separately labeled host public-verification observations. Corrected source review/freeze completed; the single held-out capture returned all-arm no_go with explicit unknown coverage and backend/deployment relevance failures. V2 and initial full-parse failed receipts below remain historical results, not newly executed checks.
+
 The owner accepted the enriched recommendation format; the [blueprint evaluator report](docs/reports/cp04-blueprint-evaluator-2026-10-08.md) records its bounded executable continuation. This checks captured structure, source joins and planning arithmetic separately from retrieval relevance and natural-language/human usefulness. Its automated evidence ceiling is `contract_verified_only`; parent quality and lifecycle gates remain open.
 
 The [CP-04 v2 implementation report](docs/reports/cp04-v2-implementation-2026-10-08.md) owns prospective oracle/runner, complete actual FTS5/baseline captures, 2,500-card measurements, separate synthetic headroom failures, scoped cross-document helper repairs and blinded paired advice. Oracle 7/7, runner 17/17, separate headroom 3/3 and original contracts 48/48 pass; the scoped repair suite and join outcomes are pinned in runner evidence. Held-out global metrics pass; required file/media stratum and synthetic warm latency fail. `no_go`, human calibration and actual CP-11/15 gates remain explicit. Prior diagnostic/C8 evidence, frozen public bundle and protected configuration are preserved.

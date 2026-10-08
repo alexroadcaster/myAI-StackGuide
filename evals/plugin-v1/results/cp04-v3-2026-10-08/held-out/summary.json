@@ -1,0 +1,880 @@
+{
+  "arms": {
+    "baseline": {
+      "failed_gates": [
+        "required_source_strata",
+        "valid_all_raw_rankings_and_status"
+      ],
+      "gates": {
+        "candidate_not_worse_than_baseline_ndcg_delta_min": null,
+        "candidate_not_worse_than_baseline_recall_delta_min": null,
+        "complete_observed_cases": true,
+        "complete_semantic_cases": true,
+        "duplicate_canonical_ids": true,
+        "evidence_budgets": true,
+        "false_exclusions": true,
+        "hard_constraint_violations": true,
+        "held_out_macro_ndcg_at_12_min": null,
+        "held_out_macro_recall_at_12_min": null,
+        "pack_survival": true,
+        "required_source_strata": false,
+        "valid_all_raw_rankings_and_status": false
+      },
+      "macro": {
+        "complete": false,
+        "ndcg_at_12": null,
+        "recall_at_12": null
+      },
+      "pack_survival_rate": 1.0,
+      "source_supported_semantic_verdict": "no_go",
+      "strata": {
+        "container_domain_ids": {
+          "accounting_finance_erp": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "backend_baas_api": {
+            "complete": true,
+            "ndcg_at_12": 0.23133008269506616,
+            "recall_at_12": 0.2
+          },
+          "cms_content_knowledge": {
+            "complete": true,
+            "ndcg_at_12": 1.0,
+            "recall_at_12": 1.0
+          },
+          "communications_personal_ops": {
+            "complete": true,
+            "ndcg_at_12": 0.9486229362338457,
+            "recall_at_12": 1.0
+          },
+          "data_ingestion_etl_cdc": {
+            "complete": true,
+            "ndcg_at_12": 0.9278325249930147,
+            "recall_at_12": 0.875
+          },
+          "databases_storage_caching": {
+            "complete": true,
+            "ndcg_at_12": 1.0,
+            "recall_at_12": 1.0
+          },
+          "deployment_containers_paas": {
+            "complete": true,
+            "ndcg_at_12": 0.5965297774962932,
+            "recall_at_12": 0.5833333333333334
+          },
+          "developer_tools_cli_general": {
+            "complete": true,
+            "ndcg_at_12": 0.7314467750205518,
+            "recall_at_12": 0.75
+          },
+          "ecommerce_payments_revenue": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "files_media_storage": {
+            "complete": true,
+            "ndcg_at_12": 1.0,
+            "recall_at_12": 1.0
+          },
+          "frontend_frameworks_ui": {
+            "complete": true,
+            "ndcg_at_12": 0.9828422279067397,
+            "recall_at_12": 1.0
+          },
+          "operations_project_management": {
+            "complete": true,
+            "ndcg_at_12": 0.9345264069798025,
+            "recall_at_12": 1.0
+          },
+          "supply_chain_devsecops": {
+            "complete": true,
+            "ndcg_at_12": 0.9345922576097644,
+            "recall_at_12": 0.875
+          },
+          "testing_qa": {
+            "complete": true,
+            "ndcg_at_12": 0.8721093232359604,
+            "recall_at_12": 1.0
+          }
+        },
+        "tags": {
+          "baseline_cohort": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "dense_leaf": {
+            "complete": true,
+            "ndcg_at_12": 0.23133008269506616,
+            "recall_at_12": 0.2
+          },
+          "dual_descriptions": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "expansion_cohort": {
+            "complete": true,
+            "ndcg_at_12": 0.910366129734903,
+            "recall_at_12": 1.0
+          },
+          "lexical_en": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "lexical_ru": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "thin_leaf": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          }
+        }
+      },
+      "unmeasured_gates": [
+        "held_out_macro_recall_at_12_min",
+        "candidate_not_worse_than_baseline_recall_delta_min",
+        "held_out_macro_ndcg_at_12_min",
+        "candidate_not_worse_than_baseline_ndcg_delta_min"
+      ]
+    },
+    "candidate": {
+      "failed_gates": [
+        "required_source_strata",
+        "valid_all_raw_rankings_and_status"
+      ],
+      "gates": {
+        "candidate_not_worse_than_baseline_ndcg_delta_min": null,
+        "candidate_not_worse_than_baseline_recall_delta_min": null,
+        "complete_observed_cases": true,
+        "complete_semantic_cases": true,
+        "duplicate_canonical_ids": true,
+        "evidence_budgets": true,
+        "false_exclusions": true,
+        "hard_constraint_violations": true,
+        "held_out_macro_ndcg_at_12_min": null,
+        "held_out_macro_recall_at_12_min": null,
+        "pack_survival": true,
+        "required_source_strata": false,
+        "valid_all_raw_rankings_and_status": false
+      },
+      "macro": {
+        "complete": false,
+        "ndcg_at_12": null,
+        "recall_at_12": null
+      },
+      "pack_survival_rate": 1.0,
+      "source_supported_semantic_verdict": "no_go",
+      "strata": {
+        "container_domain_ids": {
+          "accounting_finance_erp": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "backend_baas_api": {
+            "complete": true,
+            "ndcg_at_12": 0.23133008269506616,
+            "recall_at_12": 0.2
+          },
+          "cms_content_knowledge": {
+            "complete": true,
+            "ndcg_at_12": 1.0,
+            "recall_at_12": 1.0
+          },
+          "communications_personal_ops": {
+            "complete": true,
+            "ndcg_at_12": 0.9486229362338457,
+            "recall_at_12": 1.0
+          },
+          "data_ingestion_etl_cdc": {
+            "complete": true,
+            "ndcg_at_12": 0.9278325249930147,
+            "recall_at_12": 0.875
+          },
+          "databases_storage_caching": {
+            "complete": true,
+            "ndcg_at_12": 1.0,
+            "recall_at_12": 1.0
+          },
+          "deployment_containers_paas": {
+            "complete": true,
+            "ndcg_at_12": 0.5965297774962932,
+            "recall_at_12": 0.5833333333333334
+          },
+          "developer_tools_cli_general": {
+            "complete": true,
+            "ndcg_at_12": 0.7314467750205518,
+            "recall_at_12": 0.75
+          },
+          "ecommerce_payments_revenue": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "files_media_storage": {
+            "complete": true,
+            "ndcg_at_12": 1.0,
+            "recall_at_12": 1.0
+          },
+          "frontend_frameworks_ui": {
+            "complete": true,
+            "ndcg_at_12": 0.9828422279067397,
+            "recall_at_12": 1.0
+          },
+          "operations_project_management": {
+            "complete": true,
+            "ndcg_at_12": 0.9345264069798025,
+            "recall_at_12": 1.0
+          },
+          "supply_chain_devsecops": {
+            "complete": true,
+            "ndcg_at_12": 0.9345922576097644,
+            "recall_at_12": 0.875
+          },
+          "testing_qa": {
+            "complete": true,
+            "ndcg_at_12": 0.8721093232359604,
+            "recall_at_12": 1.0
+          }
+        },
+        "tags": {
+          "baseline_cohort": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "dense_leaf": {
+            "complete": true,
+            "ndcg_at_12": 0.23133008269506616,
+            "recall_at_12": 0.2
+          },
+          "dual_descriptions": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "expansion_cohort": {
+            "complete": true,
+            "ndcg_at_12": 0.910366129734903,
+            "recall_at_12": 1.0
+          },
+          "lexical_en": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "lexical_ru": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "thin_leaf": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          }
+        }
+      },
+      "unmeasured_gates": [
+        "held_out_macro_recall_at_12_min",
+        "candidate_not_worse_than_baseline_recall_delta_min",
+        "held_out_macro_ndcg_at_12_min",
+        "candidate_not_worse_than_baseline_ndcg_delta_min"
+      ]
+    },
+    "control": {
+      "failed_gates": [
+        "required_source_strata",
+        "valid_all_raw_rankings_and_status"
+      ],
+      "gates": {
+        "candidate_not_worse_than_baseline_ndcg_delta_min": null,
+        "candidate_not_worse_than_baseline_recall_delta_min": null,
+        "complete_observed_cases": true,
+        "complete_semantic_cases": true,
+        "duplicate_canonical_ids": true,
+        "evidence_budgets": true,
+        "false_exclusions": true,
+        "hard_constraint_violations": true,
+        "held_out_macro_ndcg_at_12_min": null,
+        "held_out_macro_recall_at_12_min": null,
+        "pack_survival": true,
+        "required_source_strata": false,
+        "valid_all_raw_rankings_and_status": false
+      },
+      "macro": {
+        "complete": false,
+        "ndcg_at_12": null,
+        "recall_at_12": null
+      },
+      "pack_survival_rate": 1.0,
+      "source_supported_semantic_verdict": "no_go",
+      "strata": {
+        "container_domain_ids": {
+          "accounting_finance_erp": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "backend_baas_api": {
+            "complete": true,
+            "ndcg_at_12": 0.3666495063604039,
+            "recall_at_12": 0.2
+          },
+          "cms_content_knowledge": {
+            "complete": true,
+            "ndcg_at_12": 1.0,
+            "recall_at_12": 1.0
+          },
+          "communications_personal_ops": {
+            "complete": true,
+            "ndcg_at_12": 0.9486229362338457,
+            "recall_at_12": 1.0
+          },
+          "data_ingestion_etl_cdc": {
+            "complete": true,
+            "ndcg_at_12": 0.920408017099796,
+            "recall_at_12": 0.875
+          },
+          "databases_storage_caching": {
+            "complete": true,
+            "ndcg_at_12": 1.0,
+            "recall_at_12": 1.0
+          },
+          "deployment_containers_paas": {
+            "complete": true,
+            "ndcg_at_12": 0.7191437272744101,
+            "recall_at_12": 0.75
+          },
+          "developer_tools_cli_general": {
+            "complete": true,
+            "ndcg_at_12": 0.6275457972429491,
+            "recall_at_12": 0.75
+          },
+          "ecommerce_payments_revenue": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "files_media_storage": {
+            "complete": true,
+            "ndcg_at_12": 1.0,
+            "recall_at_12": 1.0
+          },
+          "frontend_frameworks_ui": {
+            "complete": true,
+            "ndcg_at_12": 0.6442869262030828,
+            "recall_at_12": 1.0
+          },
+          "operations_project_management": {
+            "complete": true,
+            "ndcg_at_12": 0.9438201052199039,
+            "recall_at_12": 1.0
+          },
+          "supply_chain_devsecops": {
+            "complete": true,
+            "ndcg_at_12": 0.9709953926394389,
+            "recall_at_12": 0.875
+          },
+          "testing_qa": {
+            "complete": true,
+            "ndcg_at_12": 0.9095333176489386,
+            "recall_at_12": 1.0
+          }
+        },
+        "tags": {
+          "baseline_cohort": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "dense_leaf": {
+            "complete": true,
+            "ndcg_at_12": 0.3666495063604039,
+            "recall_at_12": 0.2
+          },
+          "dual_descriptions": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "expansion_cohort": {
+            "complete": true,
+            "ndcg_at_12": 0.9290781269413921,
+            "recall_at_12": 1.0
+          },
+          "lexical_en": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "lexical_ru": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "thin_leaf": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          }
+        }
+      },
+      "unmeasured_gates": [
+        "held_out_macro_recall_at_12_min",
+        "candidate_not_worse_than_baseline_recall_delta_min",
+        "held_out_macro_ndcg_at_12_min",
+        "candidate_not_worse_than_baseline_ndcg_delta_min"
+      ]
+    }
+  },
+  "broader_gaps": [
+    "human calibration/usefulness",
+    "browser/RU-EN meaning/no-call switch",
+    "state/publication recovery",
+    "alias identity probes",
+    "container semantic queries",
+    "full deterministic route sweep",
+    "actual/synthetic capacity"
+  ],
+  "declaration_sha256": "d277abbfd106edff372bc48cce5854ef68dc780cedc75e9dc0fbe8a4a2ddeb53",
+  "diagnostic_records": [
+    {
+      "baseline": {
+        "controlled_input_bytes": 76873,
+        "detailed_card_ids": [
+          127320882,
+          52773157,
+          125342064,
+          192925833,
+          399495186,
+          790359,
+          8087816,
+          8594752,
+          193160679,
+          159271175,
+          337322967,
+          379865325
+        ],
+        "duplicate_canonical_ids": 0,
+        "evidence_pack_bytes": 76187,
+        "exclusions": [
+          {
+            "github_repository_id": 1625986,
+            "reason_codes": [
+              "candidate_budget"
+            ]
+          },
+          {
+            "github_repository_id": 13855476,
+            "reason_codes": [
+              "candidate_budget"
+            ]
+          },
+          {
+            "github_repository_id": 41609775,
+            "reason_codes": [
+              "candidate_budget"
+            ]
+          },
+          {
+            "github_repository_id": 7363211,
+            "reason_codes": [
+              "candidate_budget"
+            ]
+          },
+          {
+            "github_repository_id": 341139727,
+            "reason_codes": [
+              "candidate_budget"
+            ]
+          },
+          {
+            "github_repository_id": 3577919,
+            "reason_codes": [
+              "candidate_budget"
+            ]
+          },
+          {
+            "github_repository_id": 4164482,
+            "reason_codes": [
+              "candidate_budget"
+            ]
+          },
+          {
+            "github_repository_id": 667110339,
+            "reason_codes": [
+              "candidate_budget"
+            ]
+          },
+          {
+            "github_repository_id": 191655189,
+            "reason_codes": [
+              "candidate_budget"
+            ]
+          },
+          {
+            "github_repository_id": 33925906,
+            "reason_codes": [
+              "candidate_budget"
+            ]
+          }
+        ],
+        "false_exclusions": [],
+        "hard_constraint_violations": [],
+        "known_relevant_survived_pack": [
+          8087816,
+          127320882,
+          159271175,
+          193160679,
+          399495186
+        ],
+        "known_relevant_top12_retrieved": [
+          8087816,
+          127320882,
+          159271175,
+          193160679,
+          399495186
+        ],
+        "pack_survival_rate": 1.0,
+        "ranked_ids": [
+          127320882,
+          52773157,
+          125342064,
+          192925833,
+          399495186,
+          790359,
+          8087816,
+          8594752,
+          193160679,
+          159271175,
+          337322967,
+          379865325,
+          1625986,
+          13855476,
+          41609775,
+          7363211,
+          341139727,
+          3577919,
+          4164482,
+          667110339,
+          191655189,
+          33925906
+        ],
+        "ranking": {
+          "ranking": {
+            "ndcg_at_k": 0.7543742760925144,
+            "recall_at_k": 0.7142857142857143,
+            "relevant_count": 7
+          },
+          "reason": null,
+          "unjudged_ids": [],
+          "unknown_returned_ids": [],
+          "unknown_universe_count": 0,
+          "valid": true
+        },
+        "retrieval_status": "ok",
+        "unknown_raw_positions": []
+      },
+      "candidate": {
+        "controlled_input_bytes": 77051,
+        "detailed_card_ids": [
+          127320882,
+          52773157,
+          125342064,
+          192925833,
+          399495186,
+          790359,
+          8087816,
+          8594752,
+          193160679,
+          159271175,
+          337322967,
+          379865325
+        ],
+        "duplicate_canonical_ids": 0,
+        "evidence_pack_bytes": 76365,
+        "exclusions": [
+          {
+            "github_repository_id": 1625986,
+            "reason_codes": [
+              "candidate_budget"
+            ]
+          },
+          {
+            "github_repository_id": 13855476,
+            "reason_codes": [
+              "candidate_budget"
+            ]
+          },
+          {
+            "github_repository_id": 41609775,
+            "reason_codes": [
+              "candidate_budget"
+            ]
+          },
+          {
+            "github_repository_id": 7363211,
+            "reason_codes": [
+              "candidate_budget"
+            ]
+          },
+          {
+            "github_repository_id": 341139727,
+            "reason_codes": [
+              "candidate_budget"
+            ]
+          },
+          {
+            "github_repository_id": 3577919,
+            "reason_codes": [
+              "candidate_budget"
+            ]
+          },
+          {
+            "github_repository_id": 4164482,
+            "reason_codes": [
+              "candidate_budget"
+            ]
+          },
+          {
+            "github_repository_id": 667110339,
+            "reason_codes": [
+              "candidate_budget"
+            ]
+          },
+          {
+            "github_repository_id": 191655189,
+            "reason_codes": [
+              "candidate_budget"
+            ]
+          },
+          {
+            "github_repository_id": 33925906,
+            "reason_codes": [
+              "candidate_budget"
+            ]
+          }
+        ],
+        "false_exclusions": [],
+        "hard_constraint_violations": [],
+        "known_relevant_survived_pack": [
+          8087816,
+          127320882,
+          159271175,
+          193160679,
+          399495186
+        ],
+        "known_relevant_top12_retrieved": [
+          8087816,
+          127320882,
+          159271175,
+          193160679,
+          399495186
+        ],
+        "pack_survival_rate": 1.0,
+        "ranked_ids": [
+          127320882,
+          52773157,
+          125342064,
+          192925833,
+          399495186,
+          790359,
+          8087816,
+          8594752,
+          193160679,
+          159271175,
+          337322967,
+          379865325,
+          1625986,
+          13855476,
+          41609775,
+          7363211,
+          341139727,
+          3577919,
+          4164482,
+          667110339,
+          191655189,
+          33925906
+        ],
+        "ranking": {
+          "ranking": {
+            "ndcg_at_k": 0.7543742760925144,
+            "recall_at_k": 0.7142857142857143,
+            "relevant_count": 7
+          },
+          "reason": null,
+          "unjudged_ids": [],
+          "unknown_returned_ids": [],
+          "unknown_universe_count": 0,
+          "valid": true
+        },
+        "retrieval_status": "ok",
+        "unknown_raw_positions": []
+      },
+      "case_id": "CP04-HV3-S01",
+      "container_domain_ids": [],
+      "control": {
+        "controlled_input_bytes": 76926,
+        "detailed_card_ids": [
+          8087816,
+          127320882,
+          193160679,
+          159271175,
+          399495186,
+          125342064,
+          379865325,
+          192925833,
+          337322967,
+          52773157,
+          1625986,
+          790359
+        ],
+        "duplicate_canonical_ids": 0,
+        "evidence_pack_bytes": 76240,
+        "exclusions": [
+          {
+            "github_repository_id": 341139727,
+            "reason_codes": [
+              "candidate_budget"
+            ]
+          },
+          {
+            "github_repository_id": 667110339,
+            "reason_codes": [
+              "candidate_budget"
+            ]
+          },
+          {
+            "github_repository_id": 7363211,
+            "reason_codes": [
+              "candidate_budget"
+            ]
+          },
+          {
+            "github_repository_id": 4164482,
+            "reason_codes": [
+              "candidate_budget"
+            ]
+          },
+          {
+            "github_repository_id": 41609775,
+            "reason_codes": [
+              "candidate_budget"
+            ]
+          },
+          {
+            "github_repository_id": 13855476,
+            "reason_codes": [
+              "candidate_budget"
+            ]
+          },
+          {
+            "github_repository_id": 8594752,
+            "reason_codes": [
+              "candidate_budget"
+            ]
+          },
+          {
+            "github_repository_id": 191655189,
+            "reason_codes": [
+              "candidate_budget"
+            ]
+          },
+          {
+            "github_repository_id": 33925906,
+            "reason_codes": [
+              "candidate_budget"
+            ]
+          },
+          {
+            "github_repository_id": 3577919,
+            "reason_codes": [
+              "candidate_budget"
+            ]
+          }
+        ],
+        "false_exclusions": [],
+        "hard_constraint_violations": [],
+        "known_relevant_survived_pack": [
+          8087816,
+          127320882,
+          159271175,
+          193160679,
+          399495186
+        ],
+        "known_relevant_top12_retrieved": [
+          8087816,
+          127320882,
+          159271175,
+          193160679,
+          399495186
+        ],
+        "pack_survival_rate": 1.0,
+        "ranked_ids": [
+          8087816,
+          127320882,
+          193160679,
+          159271175,
+          399495186,
+          125342064,
+          379865325,
+          192925833,
+          337322967,
+          52773157,
+          1625986,
+          790359,
+          341139727,
+          667110339,
+          7363211,
+          4164482,
+          41609775,
+          13855476,
+          8594752,
+          191655189,
+          33925906,
+          3577919
+        ],
+        "ranking": {
+          "ranking": {
+            "ndcg_at_k": 0.7339614303673228,
+            "recall_at_k": 0.7142857142857143,
+            "relevant_count": 7
+          },
+          "reason": null,
+          "unjudged_ids": [],
+          "unknown_returned_ids": [],
+          "unknown_universe_count": 0,
+          "valid": true
+        },
+        "retrieval_status": "ok",
+        "unknown_raw_positions": []
+      },
+      "include_in_14_domain_macro": false,
+      "tags": [
+        "lexical_en",
+        "multiple_assignments_present",
+        "secondary_route_diagnostic",
+        "baseline_cohort",
+        "dual_descriptions",
+        "historical_alias_metadata_present",
+        "activity_unknown_not_adoption_evidence"
+      ]
+    }
+  ],
+  "human_calibrated": false,
+  "product_quality_verdict": "no_go",
+  "promotion_ready": false,
+  "record_count": 15,
+  "schema_version": "cp04_fresh_summary_v3",
+  "semantic_case_count": 14,
+  "unknown_universe_total": 3
+}

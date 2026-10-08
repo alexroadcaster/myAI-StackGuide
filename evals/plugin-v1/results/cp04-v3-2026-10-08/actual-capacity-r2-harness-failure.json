@@ -1,0 +1,9 @@
+{
+  "schema_version": "cp04_actual_capacity_harness_failure_v1",
+  "failure_stage": "pack status interpretation after first sample",
+  "reason": "evidence-pack successful status is ready, while harness expected retrieval-style ok",
+  "declaration_sha256": "814f50a81504577fdf7ff0b645a0d875d101797d3839ea7b9af4ddf8d90c58b7",
+  "measurement_completed": false,
+  "repair": "Accept ready/no_match according to evidence-pack contract; preserve failure and source; next measurement only after shared cores are frozen",
+  "promotion_ready": false
+}

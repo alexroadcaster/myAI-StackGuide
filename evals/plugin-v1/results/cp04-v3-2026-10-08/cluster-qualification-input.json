@@ -1,0 +1,103 @@
+{
+  "schema_version": "cp04_cluster_qualification_input_v1",
+  "input_oracle_sha256": "48f4799b751b2495e5727dffb6b1830cf367b5ec35c22aa28ec6a2c06377ed25",
+  "case_id": "CP04-HV3-13",
+  "records": [
+    {
+      "case_id": "CP04-HV3-13",
+      "github_repository_id": 43723161,
+      "repository": "helm/helm",
+      "repository_url": "https://github.com/helm/helm",
+      "graded_criteria": {
+        "core": "Application-level definition and execution of multiple containers.",
+        "preferred_detail": "Explicit Docker interface.",
+        "explicit_supporting_function": "Container-based system assembly contributes runtime foundation; cluster operators, monitoring and VM wrappers are different functions."
+      },
+      "unknown_reason": "Kubernetes package management is explicitly stated, but bounded metadata does not establish whether the package declaration/execution surface meets the application multi-container core. Cluster affiliation alone cannot establish unrelatedness; declared supporting assembly is also unestablished."
+    },
+    {
+      "case_id": "CP04-HV3-13",
+      "github_repository_id": 56353740,
+      "repository": "kubernetes/minikube",
+      "repository_url": "https://github.com/kubernetes/minikube",
+      "graded_criteria": {
+        "core": "Application-level definition and execution of multiple containers.",
+        "preferred_detail": "Explicit Docker interface.",
+        "explicit_supporting_function": "Container-based system assembly contributes runtime foundation; cluster operators, monitoring and VM wrappers are different functions."
+      },
+      "unknown_reason": "Running Kubernetes locally can provide an application host, but bounded metadata does not establish application-level multi-container declaration/execution or the declared assembly support. Local cluster scope alone cannot justify grade zero."
+    },
+    {
+      "case_id": "CP04-HV3-13",
+      "github_repository_id": 135516270,
+      "repository": "k3s-io/k3s",
+      "repository_url": "https://github.com/k3s-io/k3s",
+      "graded_criteria": {
+        "core": "Application-level definition and execution of multiple containers.",
+        "preferred_detail": "Explicit Docker interface.",
+        "explicit_supporting_function": "Container-based system assembly contributes runtime foundation; cluster operators, monitoring and VM wrappers are different functions."
+      },
+      "unknown_reason": "Lightweight Kubernetes is too sparse to establish the declared application core or assembly support. Do not inherit qualified upstream Kubernetes functions without source evidence for this exact repository, and do not infer unrelatedness from cluster scope."
+    },
+    {
+      "case_id": "CP04-HV3-13",
+      "github_repository_id": 148545807,
+      "repository": "kubernetes-sigs/kind",
+      "repository_url": "https://github.com/kubernetes-sigs/kind",
+      "graded_criteria": {
+        "core": "Application-level definition and execution of multiple containers.",
+        "preferred_detail": "Explicit Docker interface.",
+        "explicit_supporting_function": "Container-based system assembly contributes runtime foundation; cluster operators, monitoring and VM wrappers are different functions."
+      },
+      "unknown_reason": "Local Kubernetes test clusters are stated, but bounded metadata does not determine the application-level multi-container or supporting assembly contribution. Testing/cluster scope alone does not establish unrelatedness."
+    },
+    {
+      "case_id": "CP04-HV3-13",
+      "github_repository_id": 179063508,
+      "repository": "k3d-io/k3d",
+      "repository_url": "https://github.com/k3d-io/k3d",
+      "graded_criteria": {
+        "core": "Application-level definition and execution of multiple containers.",
+        "preferred_detail": "Explicit Docker interface.",
+        "explicit_supporting_function": "Container-based system assembly contributes runtime foundation; cluster operators, monitoring and VM wrappers are different functions."
+      },
+      "unknown_reason": "Running a Kubernetes distribution inside Docker is stated, but bounded metadata does not determine the declared application-level multi-container or assembly contribution. Do not inherit upstream functions or use cluster scope as exclusion."
+    },
+    {
+      "case_id": "CP04-HV3-13",
+      "github_repository_id": 900130551,
+      "repository": "Flux159/mcp-server-kubernetes",
+      "repository_url": "https://github.com/Flux159/mcp-server-kubernetes",
+      "graded_criteria": {
+        "core": "Application-level definition and execution of multiple containers.",
+        "preferred_detail": "Explicit Docker interface.",
+        "explicit_supporting_function": "Container-based system assembly contributes runtime foundation; cluster operators, monitoring and VM wrappers are different functions."
+      },
+      "unknown_reason": "Generic Kubernetes management commands could include application operations, but the supported commands and multi-container definition/execution surface are not stated. An MCP/cluster interface alone cannot establish unrelatedness."
+    },
+    {
+      "case_id": "CP04-HV3-13",
+      "github_repository_id": 953587943,
+      "repository": "rohitg00/kubectl-mcp-server",
+      "repository_url": "https://github.com/rohitg00/kubectl-mcp-server",
+      "graded_criteria": {
+        "core": "Application-level definition and execution of multiple containers.",
+        "preferred_detail": "Explicit Docker interface.",
+        "explicit_supporting_function": "Container-based system assembly contributes runtime foundation; cluster operators, monitoring and VM wrappers are different functions."
+      },
+      "unknown_reason": "Generic Kubernetes MCP-server metadata does not specify application commands or assembly contribution. A category/interface label cannot establish either a positive contribution or grade zero."
+    },
+    {
+      "case_id": "CP04-HV3-13",
+      "github_repository_id": 1137865761,
+      "repository": "skyhook-io/radar",
+      "repository_url": "https://github.com/skyhook-io/radar",
+      "graded_criteria": {
+        "core": "Application-level definition and execution of multiple containers.",
+        "preferred_detail": "Explicit Docker interface.",
+        "explicit_supporting_function": "Container-based system assembly contributes runtime foundation; cluster operators, monitoring and VM wrappers are different functions."
+      },
+      "unknown_reason": "The UI explicitly spans Helm/GitOps and monitoring/audits, so monitoring-only unrelatedness is not established. Bounded metadata does not specify the application-level multi-container or declared assembly contribution; retain unknown."
+    }
+  ]
+}

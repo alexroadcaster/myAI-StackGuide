@@ -1,0 +1,108 @@
+{
+  "candidate_top12_equals_literal_all_development_cases": true,
+  "capacity": "not_benchmarked",
+  "commands": [
+    {
+      "command": ".venv/Scripts/python.exe -B -m unittest discover -s tests -p test_plugin_coverage_rerank_v3.py -v",
+      "exit_code": 0,
+      "passed": 6,
+      "total": 6
+    },
+    {
+      "canonical_declaration_sha256": "a7f5c80ac975fdd384fc86fc519d44dfadc1dcceb90e0dd4dbb9ae03ee59a7ab",
+      "command": ".venv/Scripts/python.exe -B evals/plugin-v1/run_coverage_rerank_v3.py --predeclare",
+      "exit_code": 0
+    },
+    {
+      "command": ".venv/Scripts/python.exe -B evals/plugin-v1/run_coverage_rerank_v3.py --run-development",
+      "exit_code": 0,
+      "verdict": "development_candidate_only"
+    }
+  ],
+  "environment": {
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.14.6 (tags/v3.14.6:c63aec6, Jun 10 2026, 10:26:10) [MSC v.1944 64 bit (AMD64)]",
+    "sqlite": "3.50.4"
+  },
+  "evidence_kind": "observed_local_development_ablation",
+  "expected_red": {
+    "command": ".venv/Scripts/python.exe -B -m unittest discover -s tests -p test_plugin_coverage_rerank_v3.py -k coverage_counts -v",
+    "observed": "AssertionError: 0 != 6",
+    "repair": "Count exact term-field pairs over unchanged scorer field projection, including NFKC casefold and literal substring semantics."
+  },
+  "frozen_source_hashes_unchanged_after_capture": true,
+  "gates": {
+    "baseline_duplicate_canonical_ids": true,
+    "baseline_false_exclusions": true,
+    "baseline_hard_constraint_violations": true,
+    "baseline_pack_survival": true,
+    "baseline_valid_ranking_and_status": true,
+    "candidate_duplicate_canonical_ids": true,
+    "candidate_false_exclusions": true,
+    "candidate_hard_constraint_violations": true,
+    "candidate_pack_survival": true,
+    "candidate_valid_ranking_and_status": true,
+    "candidate_vs_baseline_ndcg_at_12": true,
+    "candidate_vs_baseline_recall_at_12": true,
+    "candidate_vs_control_ndcg_at_12": true,
+    "candidate_vs_control_recall_at_12": true,
+    "control_duplicate_canonical_ids": true,
+    "control_false_exclusions": true,
+    "control_hard_constraint_violations": true,
+    "control_pack_survival": true,
+    "control_valid_ranking_and_status": true,
+    "historical_control_equivalence": true,
+    "historical_literal_equivalence": true
+  },
+  "held_out": "not_run; future oracle/goals not sealed",
+  "human_calibrated": false,
+  "launcher_note": "Nonfatal Python launcher warning retained; final interpreter tests/capture succeeded.",
+  "literal_top12_missing_from_actual_pool": {
+    "CP04-V2-D01": [],
+    "CP04-V2-D02": [],
+    "CP04-V2-D03": [],
+    "CP04-V2-D04": [],
+    "CP04-V2-D05": [],
+    "CP04-V2-D06": [],
+    "CP04-V2-D07": [],
+    "CP04-V2-D08": [],
+    "CP04-V2-D09": [],
+    "CP04-V2-D10": []
+  },
+  "macro": {
+    "baseline": {
+      "complete": true,
+      "ndcg_at_12": 0.8745552065363883,
+      "recall_at_12": 0.8048992673992673
+    },
+    "candidate": {
+      "complete": true,
+      "ndcg_at_12": 0.8745552065363883,
+      "recall_at_12": 0.8048992673992673
+    },
+    "control": {
+      "complete": true,
+      "ndcg_at_12": 0.8129045657590117,
+      "recall_at_12": 0.7214926739926739
+    }
+  },
+  "max_candidate_controlled_input_bytes": 81225,
+  "next_owner": "Primary plus Catalog Architect for prospective raw/selected ranking contract; Product Planner for fresh source oracle/heldout freeze.",
+  "pool_membership_verified_all_cases": true,
+  "promotion_ready": false,
+  "residual_risks": [
+    "Exposed development labels include weak unknown positives unchanged.",
+    "An absent FTS pool ID cannot be recovered by coverage reranking.",
+    "Adapter placeholder selection order does not change or implement accepted C9 RRF runtime semantics.",
+    "Actual heldout strata, human calibration, capacity, recovery, browser and release remain separate gates."
+  ],
+  "schema_version": "cp04_coverage_rerank_execution_evidence_v3",
+  "sha256": {
+    "evals/plugin-v1/coverage-rerank-v3-contract.md": "41d69542449eba85666fe4e759b9958cbaae137770237bf85c80e9ec705c49d3",
+    "evals/plugin-v1/results/cp04-v3-2026-10-08/coverage-rerank-development/declaration.json": "2dccbcdd5a8b0f8cf1c6675bb93ceba540628b9390008c593bea74b427e89c35",
+    "evals/plugin-v1/results/cp04-v3-2026-10-08/coverage-rerank-development/development-observations.json": "ac44d73021bb273c13144c173aa079fbbf16080aa742d7aae1fd26c761231a3b",
+    "evals/plugin-v1/results/cp04-v3-2026-10-08/coverage-rerank-development/development-summary.json": "ceeb0e31afe08261f8024606abcd17ba3358dd3cda4edffd0e9a66135e8d83cd",
+    "evals/plugin-v1/run_coverage_rerank_v3.py": "a6a442e37c253026d9532fab0fba5e583ba3ac3402aeb7432dbf71712fcf529e",
+    "tests/test_plugin_coverage_rerank_v3.py": "c86bdbfc0dd32f5570a81c3af07c03c76bc3ddc5ad301133f0fb33e853d6f5ff"
+  }
+}

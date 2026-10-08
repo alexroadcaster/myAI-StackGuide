@@ -1,0 +1,1159 @@
+{
+  "schema_version": "cp04_public_qualification_v1",
+  "input_oracle_sha256": "c8d7cdbee232c84df1a136c25f0bcc6b5c2d25b8c243d0d42f38e672d1e07b7b",
+  "qualification_date": "2026-10-08",
+  "records": [
+    {
+      "case_id": "CP04-HV3-01",
+      "github_repository_id": 586920414,
+      "repository": "jdx/mise",
+      "requirement_checks": [
+        {
+          "criterion_kind": "core",
+          "criterion": "Node.js runtime version selection.",
+          "disposition": "supported",
+          "source_url": "https://github.com/jdx/mise",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "README explicitly installs and selects different Node.js versions per project."
+        },
+        {
+          "criterion_kind": "preferred_detail",
+          "criterion": "Explicit Windows support.",
+          "disposition": "supported",
+          "source_url": "https://github.com/jdx/mise",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "README includes Windows installation with winget and PowerShell shell setup."
+        },
+        {
+          "criterion_kind": "explicit_supporting_function",
+          "criterion": "None; package installation and shell environment management are distinct functions.",
+          "disposition": "unknown",
+          "source_url": "https://github.com/jdx/mise",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "No separate supporting function was qualified. This criterion is preserved verbatim and contributes no positive support."
+        }
+      ],
+      "adoption_fit": "unknown"
+    },
+    {
+      "case_id": "CP04-HV3-05",
+      "github_repository_id": 1864233,
+      "repository": "frappe/erpnext",
+      "requirement_checks": [
+        {
+          "criterion_kind": "core",
+          "criterion": "ERP stock/inventory management.",
+          "disposition": "supported",
+          "source_url": "https://github.com/frappe/erpnext",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "README Order Management explicitly tracks inventory levels and replenishes stock."
+        },
+        {
+          "criterion_kind": "preferred_detail",
+          "criterion": "Explicit purchase/order/supplier or warehouse functionality alongside inventory.",
+          "disposition": "supported",
+          "source_url": "https://github.com/frappe/erpnext",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "The same feature lists suppliers, shipments, sales orders and fulfillment alongside inventory."
+        },
+        {
+          "criterion_kind": "explicit_supporting_function",
+          "criterion": "None; generic ERP/accounting/CRM/HR labels cannot establish inventory support.",
+          "disposition": "unknown",
+          "source_url": "https://github.com/frappe/erpnext",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "No separate supporting function was qualified. This criterion is preserved verbatim and contributes no positive support."
+        }
+      ],
+      "adoption_fit": "unknown"
+    },
+    {
+      "case_id": "CP04-HV3-05",
+      "github_repository_id": 19745004,
+      "repository": "odoo/odoo",
+      "requirement_checks": [
+        {
+          "criterion_kind": "core",
+          "criterion": "ERP stock/inventory management.",
+          "disposition": "supported",
+          "source_url": "https://github.com/odoo/odoo",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "README explicitly includes Warehouse Management among integrated ERP applications; this supports stock/warehouse management at a documented feature level."
+        },
+        {
+          "criterion_kind": "preferred_detail",
+          "criterion": "Explicit purchase/order/supplier or warehouse functionality alongside inventory.",
+          "disposition": "supported",
+          "source_url": "https://github.com/odoo/odoo",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "Warehouse Management is explicitly named in the README. Purchasing details were not separately confirmed."
+        },
+        {
+          "criterion_kind": "explicit_supporting_function",
+          "criterion": "None; generic ERP/accounting/CRM/HR labels cannot establish inventory support.",
+          "disposition": "unknown",
+          "source_url": "https://github.com/odoo/odoo",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "No separate supporting function was qualified. This criterion is preserved verbatim and contributes no positive support."
+        }
+      ],
+      "adoption_fit": "unknown"
+    },
+    {
+      "case_id": "CP04-HV3-05",
+      "github_repository_id": 189829392,
+      "repository": "ever-co/ever-gauzy",
+      "requirement_checks": [
+        {
+          "criterion_kind": "core",
+          "criterion": "ERP stock/inventory management.",
+          "disposition": "supported",
+          "source_url": "https://github.com/ever-co/ever-gauzy",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "README explicitly lists ERP inventory, supply chain and production management."
+        },
+        {
+          "criterion_kind": "preferred_detail",
+          "criterion": "Explicit purchase/order/supplier or warehouse functionality alongside inventory.",
+          "disposition": "unknown",
+          "source_url": "https://github.com/ever-co/ever-gauzy",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "README lists organization vendors alongside inventory, but does not establish purchasing orders or warehouse operations. A vendor registry alone is insufficient."
+        },
+        {
+          "criterion_kind": "explicit_supporting_function",
+          "criterion": "None; generic ERP/accounting/CRM/HR labels cannot establish inventory support.",
+          "disposition": "unknown",
+          "source_url": "https://github.com/ever-co/ever-gauzy",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "No separate supporting function was qualified. This criterion is preserved verbatim and contributes no positive support."
+        }
+      ],
+      "adoption_fit": "unknown"
+    },
+    {
+      "case_id": "CP04-HV3-05",
+      "github_repository_id": 304981340,
+      "repository": "idurar/idurar-erp-crm",
+      "requirement_checks": [
+        {
+          "criterion_kind": "core",
+          "criterion": "ERP stock/inventory management.",
+          "disposition": "unknown",
+          "source_url": "https://github.com/idurar/idurar-erp-crm",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "README feature list covers invoices, payments, quotes and customers; a later broad description names inventory under Fair-Code. Inventory implementation scope is unresolved between these sections."
+        },
+        {
+          "criterion_kind": "preferred_detail",
+          "criterion": "Explicit purchase/order/supplier or warehouse functionality alongside inventory.",
+          "disposition": "unknown",
+          "source_url": "https://github.com/idurar/idurar-erp-crm",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "No explicit purchase, supplier or warehouse function was established from the inspected README."
+        },
+        {
+          "criterion_kind": "explicit_supporting_function",
+          "criterion": "None; generic ERP/accounting/CRM/HR labels cannot establish inventory support.",
+          "disposition": "unknown",
+          "source_url": "https://github.com/idurar/idurar-erp-crm",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "No separate supporting function was qualified. This criterion is preserved verbatim and contributes no positive support."
+        }
+      ],
+      "adoption_fit": "unknown"
+    },
+    {
+      "case_id": "CP04-HV3-06",
+      "github_repository_id": 100695,
+      "repository": "drupal/drupal",
+      "requirement_checks": [
+        {
+          "criterion_kind": "core",
+          "criterion": "Explicitly Django-based CMS.",
+          "disposition": "unsupported",
+          "source_url": "https://www.drupal.org/docs/getting-started/system-requirements/php-requirements",
+          "observed_at": "2026-10-08",
+          "source_kind": "official_docs",
+          "source_excerpt": "",
+          "concise_rationale": "Official core requirements establish PHP and its extensions. The inspected product is not a Django-based CMS; interoperability with Django was not evaluated."
+        },
+        {
+          "criterion_kind": "preferred_detail",
+          "criterion": "Explicit flexibility or ease-of-use statement.",
+          "disposition": "unknown",
+          "source_url": "https://github.com/drupal/drupal",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "README documents extensibility through modules; no explicit ease-of-use or flexibility assertion matching this detail was established."
+        },
+        {
+          "criterion_kind": "explicit_supporting_function",
+          "criterion": "None; alternate technology CMSs and mirror metadata do not establish Django integration.",
+          "disposition": "unknown",
+          "source_url": "https://github.com/drupal/drupal",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "No separate supporting function was qualified. This criterion is preserved verbatim and contributes no positive support."
+        }
+      ],
+      "adoption_fit": "unknown"
+    },
+    {
+      "case_id": "CP04-HV3-06",
+      "github_repository_id": 75645659,
+      "repository": "WordPress/wordpress-develop",
+      "requirement_checks": [
+        {
+          "criterion_kind": "core",
+          "criterion": "Explicitly Django-based CMS.",
+          "disposition": "unsupported",
+          "source_url": "https://github.com/WordPress/wordpress-develop",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "Upstream development README explicitly documents PHP test suites and WordPress core development. This is an alternate PHP stack, not a Django-based CMS."
+        },
+        {
+          "criterion_kind": "preferred_detail",
+          "criterion": "Explicit flexibility or ease-of-use statement.",
+          "disposition": "unknown",
+          "source_url": "https://github.com/WordPress/wordpress-develop",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "The development README does not establish an explicit editorial flexibility or ease-of-use claim."
+        },
+        {
+          "criterion_kind": "explicit_supporting_function",
+          "criterion": "None; alternate technology CMSs and mirror metadata do not establish Django integration.",
+          "disposition": "unknown",
+          "source_url": "https://github.com/WordPress/wordpress-develop",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "No separate supporting function was qualified. This criterion is preserved verbatim and contributes no positive support."
+        }
+      ],
+      "adoption_fit": "unknown"
+    },
+    {
+      "case_id": "CP04-HV3-06",
+      "github_repository_id": 126178683,
+      "repository": "halo-dev/halo",
+      "requirement_checks": [
+        {
+          "criterion_kind": "core",
+          "criterion": "Explicitly Django-based CMS.",
+          "disposition": "unknown",
+          "source_url": "https://github.com/halo-dev/halo",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "README establishes a website-building CMS but does not state Django-based implementation. Gradle file names alone were not used to determine incompatibility."
+        },
+        {
+          "criterion_kind": "preferred_detail",
+          "criterion": "Explicit flexibility or ease-of-use statement.",
+          "disposition": "supported",
+          "source_url": "https://github.com/halo-dev/halo",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "Chinese README explicitly describes Halo as powerful and easy to use; this is an upstream usability assertion, not measured usability."
+        },
+        {
+          "criterion_kind": "explicit_supporting_function",
+          "criterion": "None; alternate technology CMSs and mirror metadata do not establish Django integration.",
+          "disposition": "unknown",
+          "source_url": "https://github.com/halo-dev/halo",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "No separate supporting function was qualified. This criterion is preserved verbatim and contributes no positive support."
+        }
+      ],
+      "adoption_fit": "unknown"
+    },
+    {
+      "case_id": "CP04-HV3-07",
+      "github_repository_id": 992325192,
+      "repository": "joinly-ai/joinly",
+      "requirement_checks": [
+        {
+          "criterion_kind": "core",
+          "criterion": "Video/web conferencing service.",
+          "disposition": "unsupported",
+          "source_url": "https://github.com/joinly-ai/joinly",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "README describes an AI participant joining Zoom, Google Meet or Teams using meeting URLs. This is an assistant for existing conferences, not a video/web conferencing service."
+        },
+        {
+          "criterion_kind": "preferred_detail",
+          "criterion": "Explicit browser/web-app use or embedding.",
+          "disposition": "unknown",
+          "source_url": "https://github.com/joinly-ai/joinly",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "Joining third-party meeting links does not establish browser rooms, a web conferencing app, or embedding supplied by this repository."
+        },
+        {
+          "criterion_kind": "explicit_supporting_function",
+          "criterion": "Conferencing-system installation contributes deployment support; transcription/meeting assistants are different functions.",
+          "disposition": "unknown",
+          "source_url": "https://github.com/joinly-ai/joinly",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "No separate supporting function was qualified. This criterion is preserved verbatim and contributes no positive support."
+        }
+      ],
+      "adoption_fit": "unknown"
+    },
+    {
+      "case_id": "CP04-HV3-08",
+      "github_repository_id": 1151051,
+      "repository": "django-oscar/django-oscar",
+      "requirement_checks": [
+        {
+          "criterion_kind": "core",
+          "criterion": "Explicitly headless commerce/e-commerce backend.",
+          "disposition": "unknown",
+          "source_url": "https://github.com/django-oscar/django-oscar",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "README establishes Django commerce and a separate API extension; it does not explicitly establish this repository as a headless backend."
+        },
+        {
+          "criterion_kind": "preferred_detail",
+          "criterion": "Explicit REST/GraphQL/API interface.",
+          "disposition": "supported",
+          "source_url": "https://github.com/django-oscar/django-oscar",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "README explicitly links django-oscar-api as a RESTful JSON API extension. The extension is separate; availability here is documented integration, not a built-in API claim."
+        },
+        {
+          "criterion_kind": "explicit_supporting_function",
+          "criterion": "None; commerce/payment/headless-CMS metadata alone does not establish a headless commerce backend.",
+          "disposition": "unknown",
+          "source_url": "https://github.com/django-oscar/django-oscar",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "No separate supporting function was qualified. This criterion is preserved verbatim and contributes no positive support."
+        }
+      ],
+      "adoption_fit": "unknown"
+    },
+    {
+      "case_id": "CP04-HV3-08",
+      "github_repository_id": 2179920,
+      "repository": "woocommerce/woocommerce",
+      "requirement_checks": [
+        {
+          "criterion_kind": "core",
+          "criterion": "Explicitly headless commerce/e-commerce backend.",
+          "disposition": "supported",
+          "source_url": "https://developer.woocommerce.com/docs/apis/store-api/cart-tokens",
+          "observed_at": "2026-10-08",
+          "source_kind": "official_docs",
+          "source_excerpt": "",
+          "concise_rationale": "Official Store API documentation explicitly supports headless cart interaction with cart tokens."
+        },
+        {
+          "criterion_kind": "preferred_detail",
+          "criterion": "Explicit REST/GraphQL/API interface.",
+          "disposition": "supported",
+          "source_url": "https://developer.woocommerce.com/docs/apis/store-api/",
+          "observed_at": "2026-10-08",
+          "source_kind": "official_docs",
+          "source_excerpt": "",
+          "concise_rationale": "Official Store API documentation provides REST endpoints for customer cart, checkout and products."
+        },
+        {
+          "criterion_kind": "explicit_supporting_function",
+          "criterion": "None; commerce/payment/headless-CMS metadata alone does not establish a headless commerce backend.",
+          "disposition": "unknown",
+          "source_url": "https://github.com/woocommerce/woocommerce",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "No separate supporting function was qualified. This criterion is preserved verbatim and contributes no positive support."
+        }
+      ],
+      "adoption_fit": "unknown"
+    },
+    {
+      "case_id": "CP04-HV3-08",
+      "github_repository_id": 2884111,
+      "repository": "magento/magento2",
+      "requirement_checks": [
+        {
+          "criterion_kind": "core",
+          "criterion": "Explicitly headless commerce/e-commerce backend.",
+          "disposition": "supported",
+          "source_url": "https://developer.adobe.com/commerce/pwa-studio/guides/storefront-architecture/",
+          "observed_at": "2026-10-08",
+          "source_kind": "official_docs",
+          "source_excerpt": "",
+          "concise_rationale": "Official docs explicitly describe Magento Open Source as the backend service for a separate PWA storefront in a headless architecture."
+        },
+        {
+          "criterion_kind": "preferred_detail",
+          "criterion": "Explicit REST/GraphQL/API interface.",
+          "disposition": "supported",
+          "source_url": "https://developer.adobe.com/commerce/pwa-studio/guides/storefront-architecture/",
+          "observed_at": "2026-10-08",
+          "source_kind": "official_docs",
+          "source_excerpt": "",
+          "concise_rationale": "The same official architecture documents GraphQL and REST backend services for the detached storefront."
+        },
+        {
+          "criterion_kind": "explicit_supporting_function",
+          "criterion": "None; commerce/payment/headless-CMS metadata alone does not establish a headless commerce backend.",
+          "disposition": "unknown",
+          "source_url": "https://github.com/magento/magento2",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "No separate supporting function was qualified. This criterion is preserved verbatim and contributes no positive support."
+        }
+      ],
+      "adoption_fit": "unknown"
+    },
+    {
+      "case_id": "CP04-HV3-08",
+      "github_repository_id": 6763587,
+      "repository": "PrestaShop/PrestaShop",
+      "requirement_checks": [
+        {
+          "criterion_kind": "core",
+          "criterion": "Explicitly headless commerce/e-commerce backend.",
+          "disposition": "unknown",
+          "source_url": "https://github.com/PrestaShop/PrestaShop",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "README establishes an e-commerce platform. Native REST data access in official docs does not by itself establish a complete headless commerce backend."
+        },
+        {
+          "criterion_kind": "preferred_detail",
+          "criterion": "Explicit REST/GraphQL/API interface.",
+          "disposition": "supported",
+          "source_url": "https://devdocs.prestashop-project.org/9/modules/creation/external-services/",
+          "observed_at": "2026-10-08",
+          "source_kind": "official_docs",
+          "source_excerpt": "",
+          "concise_rationale": "Official docs explicitly identify the native webservice as a REST API for core database tables."
+        },
+        {
+          "criterion_kind": "explicit_supporting_function",
+          "criterion": "None; commerce/payment/headless-CMS metadata alone does not establish a headless commerce backend.",
+          "disposition": "unknown",
+          "source_url": "https://github.com/PrestaShop/PrestaShop",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "No separate supporting function was qualified. This criterion is preserved verbatim and contributes no positive support."
+        }
+      ],
+      "adoption_fit": "unknown"
+    },
+    {
+      "case_id": "CP04-HV3-08",
+      "github_repository_id": 30985840,
+      "repository": "solidusio/solidus",
+      "requirement_checks": [
+        {
+          "criterion_kind": "core",
+          "criterion": "Explicitly headless commerce/e-commerce backend.",
+          "disposition": "unknown",
+          "source_url": "https://github.com/solidusio/solidus",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "README explicitly permits solidus_core with a custom frontend, admin and API; the exact headless-backend criterion is not explicitly established by this source."
+        },
+        {
+          "criterion_kind": "preferred_detail",
+          "criterion": "Explicit REST/GraphQL/API interface.",
+          "disposition": "supported",
+          "source_url": "https://github.com/solidusio/solidus",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "README names solidus_api as a RESTful API gem. This does not itself confirm the headless core criterion."
+        },
+        {
+          "criterion_kind": "explicit_supporting_function",
+          "criterion": "None; commerce/payment/headless-CMS metadata alone does not establish a headless commerce backend.",
+          "disposition": "unknown",
+          "source_url": "https://github.com/solidusio/solidus",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "No separate supporting function was qualified. This criterion is preserved verbatim and contributes no positive support."
+        }
+      ],
+      "adoption_fit": "unknown"
+    },
+    {
+      "case_id": "CP04-HV3-08",
+      "github_repository_id": 127988011,
+      "repository": "macrozheng/mall",
+      "requirement_checks": [
+        {
+          "criterion_kind": "core",
+          "criterion": "Explicitly headless commerce/e-commerce backend.",
+          "disposition": "unknown",
+          "source_url": "https://github.com/macrozheng/mall",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "Chinese README distinguishes frontend applications and backend commerce interfaces, but does not explicitly identify the system as a headless backend."
+        },
+        {
+          "criterion_kind": "preferred_detail",
+          "criterion": "Explicit REST/GraphQL/API interface.",
+          "disposition": "supported",
+          "source_url": "https://github.com/macrozheng/mall",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "README architecture explicitly names mall-admin and mall-portal commerce interfaces and SpringDoc API documentation. API presence is supported, REST/GraphQL specificity remains unconfirmed."
+        },
+        {
+          "criterion_kind": "explicit_supporting_function",
+          "criterion": "None; commerce/payment/headless-CMS metadata alone does not establish a headless commerce backend.",
+          "disposition": "unknown",
+          "source_url": "https://github.com/macrozheng/mall",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "No separate supporting function was qualified. This criterion is preserved verbatim and contributes no positive support."
+        }
+      ],
+      "adoption_fit": "unknown"
+    },
+    {
+      "case_id": "CP04-HV3-08",
+      "github_repository_id": 131995661,
+      "repository": "shopware/shopware",
+      "requirement_checks": [
+        {
+          "criterion_kind": "core",
+          "criterion": "Explicitly headless commerce/e-commerce backend.",
+          "disposition": "supported",
+          "source_url": "https://github.com/shopware/shopware",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "README explicitly identifies Shopware 6 as an open headless commerce platform."
+        },
+        {
+          "criterion_kind": "preferred_detail",
+          "criterion": "Explicit REST/GraphQL/API interface.",
+          "disposition": "supported",
+          "source_url": "https://github.com/shopware/shopware",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "README explicitly states API-first. REST/GraphQL detail was not separately confirmed, but the criterion also accepts an API interface."
+        },
+        {
+          "criterion_kind": "explicit_supporting_function",
+          "criterion": "None; commerce/payment/headless-CMS metadata alone does not establish a headless commerce backend.",
+          "disposition": "unknown",
+          "source_url": "https://github.com/shopware/shopware",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "No separate supporting function was qualified. This criterion is preserved verbatim and contributes no positive support."
+        }
+      ],
+      "adoption_fit": "unknown"
+    },
+    {
+      "case_id": "CP04-HV3-08",
+      "github_repository_id": 234739976,
+      "repository": "medusajs/medusa",
+      "requirement_checks": [
+        {
+          "criterion_kind": "core",
+          "criterion": "Explicitly headless commerce/e-commerce backend.",
+          "disposition": "supported",
+          "source_url": "https://docs.medusajs.com/learn/introduction/architecture",
+          "observed_at": "2026-10-08",
+          "source_kind": "official_docs",
+          "source_excerpt": "",
+          "concise_rationale": "Official architecture explicitly identifies Medusa as headless commerce with storefronts consuming its API routes."
+        },
+        {
+          "criterion_kind": "preferred_detail",
+          "criterion": "Explicit REST/GraphQL/API interface.",
+          "disposition": "supported",
+          "source_url": "https://docs.medusajs.com/learn/introduction/architecture",
+          "observed_at": "2026-10-08",
+          "source_kind": "official_docs",
+          "source_excerpt": "",
+          "concise_rationale": "Official architecture describes HTTP API routes as the server entry point for commerce clients. REST reference search was retrieved but direct open failed; API support is established here."
+        },
+        {
+          "criterion_kind": "explicit_supporting_function",
+          "criterion": "None; commerce/payment/headless-CMS metadata alone does not establish a headless commerce backend.",
+          "disposition": "unknown",
+          "source_url": "https://github.com/medusajs/medusa",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "No separate supporting function was qualified. This criterion is preserved verbatim and contributes no positive support."
+        }
+      ],
+      "adoption_fit": "unknown"
+    },
+    {
+      "case_id": "CP04-HV3-09",
+      "github_repository_id": 159152904,
+      "repository": "jeecgboot/JeecgBoot",
+      "requirement_checks": [
+        {
+          "criterion_kind": "core",
+          "criterion": "Admin/internal-tool builder with explicit API integration.",
+          "disposition": "unknown",
+          "source_url": "https://github.com/jeecgboot/JeecgBoot",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "README establishes internal business-system generation and a separated Vue/Spring stack. Swagger tooling alone does not confirm the required API integration function."
+        },
+        {
+          "criterion_kind": "preferred_detail",
+          "criterion": "Explicit React interface/framework evidence.",
+          "disposition": "unsupported",
+          "source_url": "https://github.com/jeecgboot/JeecgBoot",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "README explicitly identifies the shipped frontend as Ant Design Vue, Vue3, TypeScript and Vite. A React interface is not established; custom adapters were not evaluated."
+        },
+        {
+          "criterion_kind": "explicit_supporting_function",
+          "criterion": "Admin scaffolding/database-management UI contributes an admin foundation without proving an API adapter.",
+          "disposition": "unknown",
+          "source_url": "https://github.com/jeecgboot/JeecgBoot",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "No separate supporting function was qualified. This criterion is preserved verbatim and contributes no positive support."
+        }
+      ],
+      "adoption_fit": "unknown"
+    },
+    {
+      "case_id": "CP04-HV3-09",
+      "github_repository_id": 306829688,
+      "repository": "nocobase/nocobase",
+      "requirement_checks": [
+        {
+          "criterion_kind": "core",
+          "criterion": "Admin/internal-tool builder with explicit API integration.",
+          "disposition": "supported",
+          "source_url": "https://docs.nocobase.com/plugin-development/client/",
+          "observed_at": "2026-10-08",
+          "source_kind": "official_docs",
+          "source_excerpt": "",
+          "concise_rationale": "Official documentation describes registering pages and blocks, calling backend APIs and mounting components in the visual configuration interface for the business-system builder."
+        },
+        {
+          "criterion_kind": "preferred_detail",
+          "criterion": "Explicit React interface/framework evidence.",
+          "disposition": "supported",
+          "source_url": "https://docs.nocobase.com/plugin-development/client/",
+          "observed_at": "2026-10-08",
+          "source_kind": "official_docs",
+          "source_excerpt": "",
+          "concise_rationale": "Official docs explicitly describe React components and React/Antd routes. The described client-v2 surface is under development and is not a production-readiness claim."
+        },
+        {
+          "criterion_kind": "explicit_supporting_function",
+          "criterion": "Admin scaffolding/database-management UI contributes an admin foundation without proving an API adapter.",
+          "disposition": "unknown",
+          "source_url": "https://github.com/nocobase/nocobase",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "No separate supporting function was qualified. This criterion is preserved verbatim and contributes no positive support."
+        }
+      ],
+      "adoption_fit": "unknown"
+    },
+    {
+      "case_id": "CP04-HV3-09",
+      "github_repository_id": 352933140,
+      "repository": "ToolJet/ToolJet",
+      "requirement_checks": [
+        {
+          "criterion_kind": "core",
+          "criterion": "Admin/internal-tool builder with explicit API integration.",
+          "disposition": "supported",
+          "source_url": "https://github.com/ToolJet/ToolJet",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "README explicitly describes building internal admin panels and operational apps on existing databases, APIs and SaaS systems."
+        },
+        {
+          "criterion_kind": "preferred_detail",
+          "criterion": "Explicit React interface/framework evidence.",
+          "disposition": "supported",
+          "source_url": "https://docs.tooljet.com/docs/app-builder/embed-app/private-app/",
+          "observed_at": "2026-10-08",
+          "source_kind": "official_docs",
+          "source_excerpt": "",
+          "concise_rationale": "Official embedding guide explicitly includes a React frontend integration tab. This supports a React integration interface, not a claim that every generated UI uses React."
+        },
+        {
+          "criterion_kind": "explicit_supporting_function",
+          "criterion": "Admin scaffolding/database-management UI contributes an admin foundation without proving an API adapter.",
+          "disposition": "unknown",
+          "source_url": "https://github.com/ToolJet/ToolJet",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "No separate supporting function was qualified. This criterion is preserved verbatim and contributes no positive support."
+        }
+      ],
+      "adoption_fit": "unknown"
+    },
+    {
+      "case_id": "CP04-HV3-10",
+      "github_repository_id": 17165658,
+      "repository": "apache/spark",
+      "requirement_checks": [
+        {
+          "criterion_kind": "core",
+          "criterion": "Labeled/tabular DataFrame manipulation.",
+          "disposition": "supported",
+          "source_url": "https://github.com/apache/spark",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "README explicitly includes Spark SQL for DataFrames and pandas API on Spark for data-analysis workloads."
+        },
+        {
+          "criterion_kind": "preferred_detail",
+          "criterion": "Explicit Python interface/stack evidence.",
+          "disposition": "supported",
+          "source_url": "https://github.com/apache/spark",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "README explicitly provides Python high-level APIs and a PySpark shell example."
+        },
+        {
+          "criterion_kind": "explicit_supporting_function",
+          "criterion": "Columnar interchange or scheduling with a DataFrame ecosystem contributes processing support; generic SQL engines/streaming systems are different functions.",
+          "disposition": "unknown",
+          "source_url": "https://github.com/apache/spark",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "No separate supporting function was qualified. This criterion is preserved verbatim and contributes no positive support."
+        }
+      ],
+      "adoption_fit": "unknown"
+    },
+    {
+      "case_id": "CP04-HV3-10",
+      "github_repository_id": 20587599,
+      "repository": "apache/flink",
+      "requirement_checks": [
+        {
+          "criterion_kind": "core",
+          "criterion": "Labeled/tabular DataFrame manipulation.",
+          "disposition": "unknown",
+          "source_url": "https://github.com/apache/flink",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "README establishes stream/batch processing; official Python docs establish Table conversion from pandas. These do not establish Flink itself as the requested DataFrame manipulation library."
+        },
+        {
+          "criterion_kind": "preferred_detail",
+          "criterion": "Explicit Python interface/stack evidence.",
+          "disposition": "supported",
+          "source_url": "https://nightlies.apache.org/flink/flink-docs-stable/api/python/reference/pyflink.table/api/pyflink.table.StreamTableEnvironment.from_pandas.html",
+          "observed_at": "2026-10-08",
+          "source_kind": "official_docs",
+          "source_excerpt": "",
+          "concise_rationale": "Official Python API signature takes a pandas DataFrame and returns a PyFlink Table. The retrieved documentation is a development-version projection, not a pinned release claim."
+        },
+        {
+          "criterion_kind": "explicit_supporting_function",
+          "criterion": "Columnar interchange or scheduling with a DataFrame ecosystem contributes processing support; generic SQL engines/streaming systems are different functions.",
+          "disposition": "supported",
+          "source_url": "https://nightlies.apache.org/flink/flink-docs-stable/api/python/reference/pyflink.table/api/pyflink.table.StreamTableEnvironment.from_pandas.html",
+          "observed_at": "2026-10-08",
+          "source_kind": "official_docs",
+          "source_excerpt": "",
+          "concise_rationale": "Official from_pandas API explicitly converts a pandas DataFrame into a PyFlink Table, contributing DataFrame-ecosystem processing support without proving the core library criterion."
+        }
+      ],
+      "adoption_fit": "unknown"
+    },
+    {
+      "case_id": "CP04-HV3-10",
+      "github_repository_id": 485548415,
+      "repository": "Eventual-Inc/Daft",
+      "requirement_checks": [
+        {
+          "criterion_kind": "core",
+          "criterion": "Labeled/tabular DataFrame manipulation.",
+          "disposition": "supported",
+          "source_url": "https://docs.daft.ai/en/stable/api/dataframe/",
+          "observed_at": "2026-10-08",
+          "source_kind": "official_docs",
+          "source_excerpt": "",
+          "concise_rationale": "Official DataFrame reference defines a table with typed columns and rows and provides select/filter/aggregation and column manipulation methods."
+        },
+        {
+          "criterion_kind": "preferred_detail",
+          "criterion": "Explicit Python interface/stack evidence.",
+          "disposition": "supported",
+          "source_url": "https://github.com/Eventual-Inc/Daft",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "README explicitly describes Python-native operation and pip installation requiring Python 3.10 or higher."
+        },
+        {
+          "criterion_kind": "explicit_supporting_function",
+          "criterion": "Columnar interchange or scheduling with a DataFrame ecosystem contributes processing support; generic SQL engines/streaming systems are different functions.",
+          "disposition": "unknown",
+          "source_url": "https://github.com/Eventual-Inc/Daft",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "No separate supporting function was qualified. This criterion is preserved verbatim and contributes no positive support."
+        }
+      ],
+      "adoption_fit": "unknown"
+    },
+    {
+      "case_id": "CP04-HV3-11",
+      "github_repository_id": 437245741,
+      "repository": "dragonflydb/dragonfly",
+      "requirement_checks": [
+        {
+          "criterion_kind": "core",
+          "criterion": "Key-value storage as a library rather than distributed server.",
+          "disposition": "unsupported",
+          "source_url": "https://github.com/dragonflydb/dragonfly",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "README describes a Redis/Memcached replacement configured with a connection port and bind address and evaluated as a server. This is a server deployment surface, not an embedded storage library."
+        },
+        {
+          "criterion_kind": "preferred_detail",
+          "criterion": "Ordered mapping from string keys to string values.",
+          "disposition": "unknown",
+          "source_url": "https://github.com/dragonflydb/dragonfly",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "No ordered string-to-string mapping guarantee was established from the inspected server README."
+        },
+        {
+          "criterion_kind": "explicit_supporting_function",
+          "criterion": "None; distributed cache servers have a different deployment function.",
+          "disposition": "unknown",
+          "source_url": "https://github.com/dragonflydb/dragonfly",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "No separate supporting function was qualified. This criterion is preserved verbatim and contributes no positive support."
+        }
+      ],
+      "adoption_fit": "unknown"
+    },
+    {
+      "case_id": "CP04-HV3-12",
+      "github_repository_id": 1148753,
+      "repository": "spring-projects/spring-framework",
+      "requirement_checks": [
+        {
+          "criterion_kind": "core",
+          "criterion": "Kotlin-compatible web/backend framework with explicit Kotlin function/topic evidence.",
+          "disposition": "supported",
+          "source_url": "https://docs.spring.io/spring-framework/reference/languages/kotlin/coroutines.html",
+          "observed_at": "2026-10-08",
+          "source_kind": "official_docs",
+          "source_excerpt": "",
+          "concise_rationale": "Official docs explicitly support Kotlin coroutines in Spring MVC/WebFlux controllers and functional web APIs."
+        },
+        {
+          "criterion_kind": "preferred_detail",
+          "criterion": "Explicit async/asynchronous interface.",
+          "disposition": "supported",
+          "source_url": "https://docs.spring.io/spring-framework/reference/languages/kotlin/coroutines.html",
+          "observed_at": "2026-10-08",
+          "source_kind": "official_docs",
+          "source_excerpt": "",
+          "concise_rationale": "Official docs explicitly cover asynchronous suspend computations and coroutine web interfaces."
+        },
+        {
+          "criterion_kind": "explicit_supporting_function",
+          "criterion": "None; alternate-language interfaces do not establish Kotlin integration. Generic JVM metadata without Kotlin evidence remains unknown.",
+          "disposition": "unknown",
+          "source_url": "https://github.com/spring-projects/spring-framework",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "No separate supporting function was qualified. This criterion is preserved verbatim and contributes no positive support."
+        }
+      ],
+      "adoption_fit": "unknown"
+    },
+    {
+      "case_id": "CP04-HV3-12",
+      "github_repository_id": 6296790,
+      "repository": "spring-projects/spring-boot",
+      "requirement_checks": [
+        {
+          "criterion_kind": "core",
+          "criterion": "Kotlin-compatible web/backend framework with explicit Kotlin function/topic evidence.",
+          "disposition": "supported",
+          "source_url": "https://docs.spring.io/spring-boot/reference/features/kotlin.html",
+          "observed_at": "2026-10-08",
+          "source_kind": "official_docs",
+          "source_excerpt": "",
+          "concise_rationale": "Official Kotlin Support docs describe Boot support through Spring Framework and provide web application examples."
+        },
+        {
+          "criterion_kind": "preferred_detail",
+          "criterion": "Explicit async/asynchronous interface.",
+          "disposition": "supported",
+          "source_url": "https://docs.spring.io/spring-boot/reference/features/kotlin.html",
+          "observed_at": "2026-10-08",
+          "source_kind": "official_docs",
+          "source_excerpt": "",
+          "concise_rationale": "Official docs manage Kotlin Coroutines dependencies, provide a reactor-coroutines dependency for reactive projects, and list a coroutines example. Async web implementation is supplied by Spring Framework."
+        },
+        {
+          "criterion_kind": "explicit_supporting_function",
+          "criterion": "None; alternate-language interfaces do not establish Kotlin integration. Generic JVM metadata without Kotlin evidence remains unknown.",
+          "disposition": "unknown",
+          "source_url": "https://github.com/spring-projects/spring-boot",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "No separate supporting function was qualified. This criterion is preserved verbatim and contributes no positive support."
+        }
+      ],
+      "adoption_fit": "unknown"
+    },
+    {
+      "case_id": "CP04-HV3-12",
+      "github_repository_id": 139914932,
+      "repository": "quarkusio/quarkus",
+      "requirement_checks": [
+        {
+          "criterion_kind": "core",
+          "criterion": "Kotlin-compatible web/backend framework with explicit Kotlin function/topic evidence.",
+          "disposition": "supported",
+          "source_url": "https://quarkus.io/guides/kotlin/",
+          "observed_at": "2026-10-08",
+          "source_kind": "official_docs",
+          "source_excerpt": "",
+          "concise_rationale": "Official Kotlin guide explicitly supplies first-class Kotlin support and REST resource/client extensions."
+        },
+        {
+          "criterion_kind": "preferred_detail",
+          "criterion": "Explicit async/asynchronous interface.",
+          "disposition": "supported",
+          "source_url": "https://quarkus.io/guides/kotlin/",
+          "observed_at": "2026-10-08",
+          "source_kind": "official_docs",
+          "source_excerpt": "",
+          "concise_rationale": "Official guide explicitly supports suspend signatures and explains asynchronous reactive execution using Kotlin coroutines."
+        },
+        {
+          "criterion_kind": "explicit_supporting_function",
+          "criterion": "None; alternate-language interfaces do not establish Kotlin integration. Generic JVM metadata without Kotlin evidence remains unknown.",
+          "disposition": "unknown",
+          "source_url": "https://github.com/quarkusio/quarkus",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "No separate supporting function was qualified. This criterion is preserved verbatim and contributes no positive support."
+        }
+      ],
+      "adoption_fit": "unknown"
+    },
+    {
+      "case_id": "CP04-HV3-13",
+      "github_repository_id": 899787279,
+      "repository": "ckreiling/mcp-server-docker",
+      "requirement_checks": [
+        {
+          "criterion_kind": "core",
+          "criterion": "Application-level definition and execution of multiple containers.",
+          "disposition": "supported",
+          "source_url": "https://github.com/ckreiling/mcp-server-docker",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "README documents docker_compose plan/apply and an application example deploying WordPress with a supporting MySQL container."
+        },
+        {
+          "criterion_kind": "preferred_detail",
+          "criterion": "Explicit Docker interface.",
+          "disposition": "supported",
+          "source_url": "https://github.com/ckreiling/mcp-server-docker",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "README explicitly manages Docker engines and containers with a Docker socket/daemon interface."
+        },
+        {
+          "criterion_kind": "explicit_supporting_function",
+          "criterion": "Container-based system assembly contributes runtime foundation; cluster operators, monitoring and VM wrappers are different functions.",
+          "disposition": "unknown",
+          "source_url": "https://github.com/ckreiling/mcp-server-docker",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "No separate supporting function was qualified. This criterion is preserved verbatim and contributes no positive support."
+        }
+      ],
+      "adoption_fit": "unknown"
+    },
+    {
+      "case_id": "CP04-HV3-S01",
+      "github_repository_id": 33925906,
+      "repository": "Vincit/objection.js",
+      "requirement_checks": [
+        {
+          "criterion_kind": "core",
+          "criterion": "Explicit Python ORM/object-relational mapping contribution.",
+          "disposition": "unsupported",
+          "source_url": "https://github.com/Vincit/objection.js",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "README explicitly identifies a Node.js ORM and relational query builder, with TypeScript support. The requested Python ORM integration is incompatible with this documented interface."
+        },
+        {
+          "criterion_kind": "preferred_detail",
+          "criterion": "Explicit async/asyncio interface.",
+          "disposition": "unknown",
+          "source_url": "https://github.com/Vincit/objection.js",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "README does not establish Python async/asyncio integration; a JavaScript async interface would not meet that preferred detail."
+        },
+        {
+          "criterion_kind": "explicit_supporting_function",
+          "criterion": "SQL toolkit/code generation/schema editor contributes SQL/schema prerequisites without proving ORM runtime behavior.",
+          "disposition": "unknown",
+          "source_url": "https://github.com/Vincit/objection.js",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "No separate supporting function was qualified. This criterion is preserved verbatim and contributes no positive support."
+        }
+      ],
+      "adoption_fit": "unknown"
+    }
+  ],
+  "evidence_ceiling": "Public upstream documentation assertions observed through built-in web retrieval. No installation, runtime behavior, license acceptance, security audit, adoption fit, ranking, curator promotion, or catalog refresh.",
+  "retrieval_method": "Bounded direct opens of the 29 supplied repositories; criterion-specific primary-domain searches and linked official documentation opens. No private Brief or candidate ranking inspected.",
+  "queries": [
+    "site.docs.spring.io spring framework Kotlin coroutines webflux",
+    "site:docs.spring.io spring boot Kotlin coroutines",
+    "site:quarkus.io/guides kotlin coroutines",
+    "site:docs.daft.ai DataFrame Python",
+    "site:developer.woocommerce.com headless REST Store API",
+    "site:developer.adobe.com/commerce headless GraphQL",
+    "site:devdocs.prestashop-project.org webservice API headless",
+    "site:docs.nocobase.com React REST API",
+    "site:docs.nocobase.com React API",
+    "site:docs.tooljet.com React frontend",
+    "site:developer.woocommerce.com headless Store API",
+    "site:docs.medusajs.com headless Store API",
+    "site:guides.solidus.io headless API",
+    "site:docs.halo.run Java Spring",
+    "site:www.drupal.org/docs PHP requirements",
+    "site:nightlies.apache.org/flink Python Table API pandas DataFrame"
+  ],
+  "metadata_gaps": {
+    "created_at": "unknown",
+    "pushed_at": "unknown",
+    "verified_commit_at": "unknown",
+    "verified_release_at": "unknown",
+    "license_verification": "not_assessed",
+    "repository_id_verification": "input_binding_only",
+    "observation_timestamp_semantics": "observed_at is the UTC retrieval date, not source update/push/commit/release date; search crawl ages are not repository activity."
+  },
+  "source_failures": [
+    {
+      "source_url": "https://docs.medusajs.com/api/store",
+      "outcome": "Direct open internal error; indexed primary snippet retrieved, but supported API check uses successfully opened architecture docs."
+    },
+    {
+      "source_url": "https://www.odoo.com/documentation/19.0/applications/inventory_and_mrp/inventory.html",
+      "outcome": "Direct open internal error; README explicitly documents Warehouse Management."
+    },
+    {
+      "source_url": "https://spring.io/guides/tutorials/spring-webflux-kotlin-rsocket/",
+      "outcome": "Direct open 404; no claim depends on this tutorial."
+    },
+    {
+      "source_url": "https://developer.adobe.com/commerce/pwa-studio/guides/architecture/",
+      "outcome": "Guessed docs path inaccessible; correct upstream Storefront architecture URL was subsequently opened."
+    }
+  ],
+  "promotion_ready": false,
+  "contains_private_project_context": false,
+  "next_owner": "Primary acceptance owner, then independent evidence reviewer; product planner binds accepted sources prospectively before oracle freeze."
+}

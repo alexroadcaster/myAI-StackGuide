@@ -1,0 +1,28 @@
+{
+  "schema_version": "cp04_independent_source_review_v1",
+  "task_id": "CP-04",
+  "reviewer": "cp04_final_astra_review",
+  "model": "gpt-6-astra",
+  "reasoning_effort": "medium",
+  "recorded_by": "primary_from_returned_independent_review",
+  "oracle_sha256": "a4e4884884e65439ddd865a0b92de4a59c821552cb5b9920aa4f18325858e753",
+  "protocol_sha256": "815310e0fafa21c7aa8cf67ef1765952c4de093e1beda250f16e1612051f14ad",
+  "validator_sha256": "6ba16caecda58426ee1a60adc007a283a54a6997299c7fe00f33e3c129343661",
+  "runner_sha256": "58b4b612f5c26b9a6059d105846084e1d8a798fe51eb5fe57a6bdc92ff13de56",
+  "verdict": "source_review_not_clear",
+  "accepted_for_capture": false,
+  "findings": [{
+    "severity": "P2",
+    "case_id": "CP04-HV3-13",
+    "github_repository_ids": [56353740, 135516270],
+    "finding": "Grade-2 rationale narrows Explicit Docker interface to an undeclared Docker-facing application-definition interface despite supported exact public checks and supported core.",
+    "required_resolution": "Consistently apply the existing broad criterion or prospectively amend its meaning before freeze.",
+    "primary_sources": ["https://docs.k3s.io/advanced#using-docker-as-the-container-runtime", "https://minikube.sigs.k8s.io/docs/start/"]
+  }],
+  "checks": [{"check": "Read-only validator.load_source plus stage preservation, grade deltas, counts and baseline SHA assertions", "exit_code": 0}],
+  "files_modified_by_reviewer": [],
+  "prior_rankings_or_captures_read": false,
+  "retrieval_executed": false,
+  "human_calibration": false,
+  "promotion_ready": false
+}

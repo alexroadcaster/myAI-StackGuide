@@ -2,12 +2,14 @@
 
 from __future__ import annotations
 
+from collections import OrderedDict
 import hashlib
 import json
 import math
 from pathlib import Path
 import re
 import sqlite3
+from threading import Lock
 from typing import Any
 import unicodedata
 import uuid
@@ -87,6 +89,11 @@ ID_RE = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$")
 ROUTE_RE = re.compile(r"^[a-z][a-z0-9_]{0,99}$")
 VARIANT_RE = re.compile(r"^q[1-3]$")
 FORBIDDEN_TERM_RE = re.compile(r'["\\*^:{}()\x00-\x1f\x7f]')
+
+# Process-local validation receipts only; never retain queries or result data.
+_BUNDLE_VALIDATION_CACHE_LIMIT = 8
+_BUNDLE_VALIDATION_CACHE: OrderedDict[tuple[str, str, str, str], None] = OrderedDict()
+_BUNDLE_VALIDATION_CACHE_LOCK = Lock()
 
 
 def _canonical_bytes(value: Any) -> bytes:
@@ -535,6 +542,42 @@ def _validate_bundle(connection: sqlite3.Connection, manifest: dict[str, Any], p
             raise ValueError("bundle metadata mismatch")
 
 
+def _validate_bundle_cached(
+    connection: sqlite3.Connection,
+    manifest: dict[str, Any],
+    policy: dict[str, Any],
+    index_path: Path,
+) -> None:
+    """Reuse a full validation only for the same physical bytes and context.
+
+    Callers must establish their manifest/policy trust boundary first. Every call
+    hashes the index; path/stat equality is never a validation receipt. Failed
+    checks are not cached. The uncached validator retains its direct-call role.
+    """
+    index_digest = _sha256_file(index_path)
+    key = (
+        index_digest,
+        hashlib.sha256(_canonical_bytes(manifest)).hexdigest(),
+        hashlib.sha256(_canonical_bytes(policy)).hexdigest(),
+        sqlite3.sqlite_version,
+    )
+    with _BUNDLE_VALIDATION_CACHE_LOCK:
+        if key in _BUNDLE_VALIDATION_CACHE:
+            _BUNDLE_VALIDATION_CACHE.move_to_end(key)
+            return
+
+    # Validate before classifying a byte mismatch so corrupt databases retain
+    # the existing explicit database-error result rather than a hash-only error.
+    _validate_bundle(connection, manifest, policy)
+    if index_digest != manifest["pins"]["index_sha256"]:
+        raise ValueError("index byte hash mismatch")
+    with _BUNDLE_VALIDATION_CACHE_LOCK:
+        _BUNDLE_VALIDATION_CACHE[key] = None
+        _BUNDLE_VALIDATION_CACHE.move_to_end(key)
+        while len(_BUNDLE_VALIDATION_CACHE) > _BUNDLE_VALIDATION_CACHE_LIMIT:
+            _BUNDLE_VALIDATION_CACHE.popitem(last=False)
+
+
 def _execute_variant(
     connection: sqlite3.Connection,
     match_query: str,
@@ -595,15 +638,34 @@ def retrieve(query, *, run_id, index_path, manifest_path, policy_path):
     if hashlib.sha256(policy_bytes).hexdigest() != pins["policy_sha256"]:
         return _failure(query, run_id, "index_incompatible", "index_incompatible", pins=pins)
 
+    return _retrieve_verified_bundle(
+        query, run_id=run_id, index_path=index_path, manifest=manifest, policy=policy
+    )
+
+
+def _retrieve_verified_bundle(query, *, run_id, index_path, manifest, policy):
+    """Execute the complete reader after the caller establishes asset trust.
+
+    This private seam does not load or accept manifests. Production enters only
+    after its fixed anchor and byte checks; an isolated evaluator must establish
+    its own exact fixture trust boundary before calling. Query/bundle validation,
+    physical index hashing and immutable read-only execution remain here.
+    """
+    run_id = _validated_run_id(run_id)
+    index_path = Path(index_path)
+    pins = manifest["pins"]
+    try:
+        validate_query(query, manifest=manifest, policy=policy)
+    except (TypeError, ValueError):
+        return _failure(query, run_id, "invalid_query", "invalid_query", pins=pins)
+
     uri = index_path.resolve().as_uri() + "?mode=ro&immutable=1"
     connection: sqlite3.Connection | None = None
     executed = 0
     retrieved_hits = 0
     try:
         connection = sqlite3.connect(uri, uri=True)
-        _validate_bundle(connection, manifest, policy)
-        if _sha256_file(index_path) != pins["index_sha256"]:
-            raise ValueError("index byte hash mismatch")
+        _validate_bundle_cached(connection, manifest, policy, index_path)
         connection.row_factory = sqlite3.Row
         route_id = query["taxonomy_route_id"]
         if route_id is not None:

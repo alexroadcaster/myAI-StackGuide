@@ -1,0 +1,62 @@
+{
+  "schema_version": "cp04_public_qualification_v1",
+  "input_oracle_sha256": "c8d7cdbee232c84df1a136c25f0bcc6b5c2d25b8c243d0d42f38e672d1e07b7b",
+  "qualification_date": "2026-10-08",
+  "records": [
+    {
+      "case_id": "CP04-HV3-13",
+      "github_repository_id": 20580498,
+      "repository": "kubernetes/kubernetes",
+      "requirement_checks": [
+        {
+          "criterion_kind": "core",
+          "criterion": "Application-level definition and execution of multiple containers.",
+          "disposition": "supported",
+          "source_url": "https://kubernetes.io/docs/concepts/workloads/pods/",
+          "observed_at": "2026-10-08",
+          "source_kind": "official_docs",
+          "source_excerpt": "",
+          "concise_rationale": "Official Pods docs explicitly describe an application composed of multiple cooperating containers, co-scheduled as one service unit. Pod specifications and templates define containers; kubectl apply creates Pods and workload controllers instantiate them. This establishes application-level multi-container definition and execution, beyond cluster infrastructure alone."
+        },
+        {
+          "criterion_kind": "preferred_detail",
+          "criterion": "Explicit Docker interface.",
+          "disposition": "unknown",
+          "source_url": "https://github.com/kubernetes/kubernetes",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "README requires a working Docker environment for source building, but that build prerequisite does not establish the requested Docker-facing application interface. The Pods page uses Kubernetes specifications and kubectl; Docker runtime compatibility or a Docker interface was not independently established."
+        },
+        {
+          "criterion_kind": "explicit_supporting_function",
+          "criterion": "Container-based system assembly contributes runtime foundation; cluster operators, monitoring and VM wrappers are different functions.",
+          "disposition": "supported",
+          "source_url": "https://github.com/kubernetes/kubernetes",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "README explicitly describes deployment, maintenance and scaling of containerized applications across hosts. This establishes a container-based application runtime foundation. The independently supported Pod function is application execution, rather than a monitoring tool, VM wrapper or cluster operator alone."
+        }
+      ],
+      "adoption_fit": "unknown"
+    }
+  ],
+  "metadata_gaps": {
+    "created_at": "unknown",
+    "pushed_at": "unknown",
+    "verified_commit_at": "unknown",
+    "verified_release_at": "unknown",
+    "license_verification": "not_assessed",
+    "repository_id_verification": "task_packet_binding_only",
+    "observation_timestamp_semantics": "observed_at is the UTC retrieval date, not source update/push/commit/release date; search crawl ages are not repository activity."
+  },
+  "qualification_scope": "One explicitly task-assigned existing routed repository; no candidate discovery expansion. Shared CP04-HV3-13 criteria are preserved from the pinned original qualification input. Repository identity is bound to the trusted task packet, not newly API-verified.",
+  "evidence_ceiling": "Primary public documentation assertions only. No ranking, relevance grade, adoption fit, activity verification, installed runtime execution, Docker compatibility proof, license acceptance, security audit, curator promotion, catalog refresh or canonical oracle mutation.",
+  "retrieval_method": "Built-in web direct opens of the task-provided upstream repository README and official Pods documentation, followed by in-page finds for multi-container application specifications and Docker build prerequisites.",
+  "queries": [],
+  "source_failures": [],
+  "promotion_ready": false,
+  "contains_private_project_context": false,
+  "next_owner": "Primary acceptance owner and independent semantic evidence reviewer, then source author for prospective oracle binding before freeze."
+}

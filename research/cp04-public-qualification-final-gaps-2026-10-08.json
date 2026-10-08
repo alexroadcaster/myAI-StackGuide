@@ -1,0 +1,268 @@
+{
+  "schema_version": "cp04_public_qualification_v1",
+  "input_oracle_sha256": "48f4799b751b2495e5727dffb6b1830cf367b5ec35c22aa28ec6a2c06377ed25",
+  "qualification_date": "2026-10-08",
+  "records": [
+    {
+      "case_id": "CP04-HV3-05",
+      "github_repository_id": 304981340,
+      "repository": "idurar/idurar-erp-crm",
+      "requirement_checks": [
+        {
+          "criterion_kind": "core",
+          "criterion": "ERP stock/inventory management.",
+          "disposition": "unknown",
+          "source_url": "https://github.com/idurar/idurar-erp-crm",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "README contains a broad inventory/HR slogan, but its concrete OSS feature list is invoice, payment, quote and customer management. The vendor edition matrix lists products/categories and order management only in paid editions and even conflicts with README on invoices in Community. No inspected source establishes stock quantities, stock movements or warehouse operations in this exact OSS repository. Inventory remains unresolved; omission is not a proof of absence."
+        },
+        {
+          "criterion_kind": "preferred_detail",
+          "criterion": "Explicit purchase/order/supplier or warehouse functionality alongside inventory.",
+          "disposition": "unknown",
+          "source_url": "https://www.idurarapp.com/de/",
+          "observed_at": "2026-10-08",
+          "source_kind": "official_docs",
+          "source_excerpt": "",
+          "concise_rationale": "The vendor matrix explicitly places products/categories and order management outside Community, but does not map stock/warehouse or purchasing capabilities to this exact repository. Its Community invoice claims also conflict with README. Paid-edition orders cannot be inherited into OSS, and inventory linkage is unestablished."
+        },
+        {
+          "criterion_kind": "explicit_supporting_function",
+          "criterion": "None; generic ERP/accounting/CRM/HR labels cannot establish inventory support.",
+          "disposition": "unknown",
+          "source_url": "https://github.com/idurar/idurar-erp-crm",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "The criterion declares no supporting function. ERP/accounting/CRM labels and generic extension capability cannot substitute for inventory evidence; no additional supporting function is graded."
+        }
+      ],
+      "adoption_fit": "unknown"
+    },
+    {
+      "case_id": "CP04-HV3-08",
+      "github_repository_id": 1151051,
+      "repository": "django-oscar/django-oscar",
+      "requirement_checks": [
+        {
+          "criterion_kind": "core",
+          "criterion": "Explicitly headless commerce/e-commerce backend.",
+          "disposition": "unknown",
+          "source_url": "https://github.com/django-oscar/django-oscar",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "README documents customizable Django commerce sites and explicitly lists django-oscar-api as a separate extension. The extension README requires installation of its own package and REST framework. This establishes a possible additional integration route, not native storefront/backend separation in the routed repository. Headless commerce core remains unknown rather than disproved."
+        },
+        {
+          "criterion_kind": "preferred_detail",
+          "criterion": "Explicit REST/GraphQL/API interface.",
+          "disposition": "unknown",
+          "source_url": "https://github.com/django-oscar/django-oscar-api",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "This README is a linked official extension, not the routed repository. It explicitly provides RESTful JSON API only after installing django-oscar-api and adding rest_framework/oscarapi and URL configuration. The addon interface is confirmed, but a native REST/GraphQL interface for django-oscar itself is unestablished; addon functionality is not silently inherited."
+        },
+        {
+          "criterion_kind": "explicit_supporting_function",
+          "criterion": "None; commerce/payment/headless-CMS metadata alone does not establish a headless commerce backend.",
+          "disposition": "unknown",
+          "source_url": "https://github.com/django-oscar/django-oscar",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "The criterion declares no supporting function. Commerce framework customization and payment extensions do not independently establish headless separation."
+        }
+      ],
+      "adoption_fit": "unknown"
+    },
+    {
+      "case_id": "CP04-HV3-08",
+      "github_repository_id": 6763587,
+      "repository": "PrestaShop/PrestaShop",
+      "requirement_checks": [
+        {
+          "criterion_kind": "core",
+          "criterion": "Explicitly headless commerce/e-commerce backend.",
+          "disposition": "unknown",
+          "source_url": "https://devdocs.prestashop-project.org/9/webservice/",
+          "observed_at": "2026-10-08",
+          "source_kind": "official_docs",
+          "source_excerpt": "",
+          "concise_rationale": "Official docs establish a native CRUD webservice that gives third-party tools access to shop data, with documented carts and other commerce resources. They do not establish a decoupled shopper storefront architecture or complete cart/checkout/order workflow independent of the native front office. An integration/data API alone is insufficient for the headless core; custom integration remains possible and unassessed."
+        },
+        {
+          "criterion_kind": "preferred_detail",
+          "criterion": "Explicit REST/GraphQL/API interface.",
+          "disposition": "supported",
+          "source_url": "https://devdocs.prestashop-project.org/9/webservice/getting-started/",
+          "observed_at": "2026-10-08",
+          "source_kind": "official_docs",
+          "source_excerpt": "",
+          "concise_rationale": "Official current developer docs explicitly describe the native webservice as REST over HTTP using XML/JSON and document creation, reads and updates at the shop API endpoint. This supports the API detail independently of the unresolved storefront architecture."
+        },
+        {
+          "criterion_kind": "explicit_supporting_function",
+          "criterion": "None; commerce/payment/headless-CMS metadata alone does not establish a headless commerce backend.",
+          "disposition": "unknown",
+          "source_url": "https://devdocs.prestashop-project.org/9/webservice/",
+          "observed_at": "2026-10-08",
+          "source_kind": "official_docs",
+          "source_excerpt": "",
+          "concise_rationale": "The criterion declares no supporting function. Native commerce resources and REST CRUD access alone cannot establish the separately required headless architecture."
+        }
+      ],
+      "adoption_fit": "unknown"
+    },
+    {
+      "case_id": "CP04-HV3-08",
+      "github_repository_id": 127988011,
+      "repository": "macrozheng/mall",
+      "requirement_checks": [
+        {
+          "criterion_kind": "core",
+          "criterion": "Explicitly headless commerce/e-commerce backend.",
+          "disposition": "supported",
+          "source_url": "https://github.com/macrozheng/mall-app-web",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "The frontend README linked by mall explicitly identifies frontend/backend separation, states all storefront interfaces reside in mall-portal, and permits a separately running client to select a local or online API base URL. Its product, cart, order and payment pages consume those backend APIs. This establishes decoupled commerce architecture for the routed mall backend through functional evidence rather than a literal headless headline; no API addon is installed into mall."
+        },
+        {
+          "criterion_kind": "preferred_detail",
+          "criterion": "Explicit REST/GraphQL/API interface.",
+          "disposition": "supported",
+          "source_url": "https://github.com/macrozheng/mall",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "README identifies mall-admin and mall-portal as management and storefront interface modules, links separate frontend projects, and lists API documentation tooling. The linked frontend README confirms its API requests target the native mall-portal backend via VITE_API_BASE_URL for product/cart/order functionality. This supports an explicit API interface; GraphQL is not claimed."
+        },
+        {
+          "criterion_kind": "explicit_supporting_function",
+          "criterion": "None; commerce/payment/headless-CMS metadata alone does not establish a headless commerce backend.",
+          "disposition": "unknown",
+          "source_url": "https://github.com/macrozheng/mall",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "The criterion declares no supporting function. Generic commerce metadata is insufficient; the core finding instead uses explicit frontend/backend separation and the linked native API role."
+        }
+      ],
+      "adoption_fit": "unknown"
+    },
+    {
+      "case_id": "CP04-HV3-13",
+      "github_repository_id": 1137865761,
+      "repository": "skyhook-io/radar",
+      "requirement_checks": [
+        {
+          "criterion_kind": "core",
+          "criterion": "Application-level definition and execution of multiple containers.",
+          "disposition": "supported",
+          "source_url": "https://github.com/skyhook-io/radar/blob/main/docs/mcp.md",
+          "observed_at": "2026-10-08",
+          "source_kind": "official_docs",
+          "source_excerpt": "",
+          "concise_rationale": "The official MCP guide explicitly documents apply_resource create/update from multi-document YAML, followed by submitted/live comparison, workload rollout and pod verification. It also documents container-specific handling for multi-container Pods and workload operations. This is a direct application declaration and execution interface on an existing cluster, not inherited from the Kubernetes name or Helm inspection alone. RBAC and supplied manifests remain prerequisites; operation was not executed."
+        },
+        {
+          "criterion_kind": "preferred_detail",
+          "criterion": "Explicit Docker interface.",
+          "disposition": "unknown",
+          "source_url": "https://github.com/skyhook-io/radar",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "README establishes Kubernetes, Helm and GitOps interfaces plus image registry inspection. Docker image packaging or Docker Hub filesystem access does not establish an explicit Docker application execution interface."
+        },
+        {
+          "criterion_kind": "explicit_supporting_function",
+          "criterion": "Container-based system assembly contributes runtime foundation; cluster operators, monitoring and VM wrappers are different functions.",
+          "disposition": "unsupported",
+          "source_url": "https://github.com/skyhook-io/radar",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "Radar operates existing Kubernetes resources and runtime through a UI/MCP interface. Its actual multi-document application apply function supports the core separately, but monitoring, diagnosis and operator commands do not assemble the container runtime foundation under this supporting criterion."
+        }
+      ],
+      "adoption_fit": "unknown"
+    }
+  ],
+  "metadata_gaps": {
+    "created_at": "unknown",
+    "pushed_at": "unknown",
+    "verified_commit_at": "unknown",
+    "verified_release_at": "unknown",
+    "license_verification": "not_assessed",
+    "repository_id_verification": "input_binding_only",
+    "observation_timestamp_semantics": "observed_at is the UTC retrieval date, not source update/push/commit/release date; search crawl ages are not repository activity."
+  },
+  "criterion_input_bindings": [
+    {
+      "path": "evals/plugin-v1/results/cp04-v3-2026-10-08/oracle-public-qualification-input.json",
+      "sha256": "261ff71bab03305deac10f25132f9e98a34f6d38b42ba1e7f358d87b9336c713",
+      "record_ids": [
+        304981340,
+        1151051,
+        6763587,
+        127988011
+      ]
+    },
+    {
+      "path": "evals/plugin-v1/results/cp04-v3-2026-10-08/cluster-qualification-input.json",
+      "sha256": "b64ff3df0b47e7c46ef29a1034ef4fdaa12b50691a7ea1444753a188264a9982",
+      "record_ids": [
+        1137865761
+      ]
+    }
+  ],
+  "qualification_scope": "Five exact assigned source gaps; initial criterion projections for four and cluster criterion projection for Radar, unchanged at the task-authorized corrected-source stage pin. Existing qualification artifacts remain immutable.",
+  "evidence_ceiling": "Primary public source assertions and bounded semantic interpretation only; no grades, ranking/results inspection, runtime execution, adoption acceptance, license/security acceptance, catalog refresh or promotion.",
+  "retrieval_method": "Built-in web upstream README opens, README-linked official docs and extensions, and two bounded rounds of targeted official-domain searches; source content treated only as evidence.",
+  "queries": [
+    "site.devdocs.prestashop-project.org/9 webservice headless carts orders",
+    "site.docs.oscarcommerce.com headless API django-oscar-api",
+    "site.www.macrozheng.com mall-portal 前后端分离 购物车 接口",
+    "site.idurarapp.com inventory open source enterprise",
+    "site:devdocs.prestashop-project.org headless webservice checkout storefront",
+    "site:idurarapp.com Community inventory purchasing warehouse"
+  ],
+  "source_failures": [
+    {
+      "source_url": "https://github.com/idurar/idurar-erp-crm/tree/master/doc",
+      "issue": "Linked GitHub directory retrieval returned Internal Error."
+    },
+    {
+      "source_url": "https://github.com/idurar/idurar-erp-crm/tree/master/features",
+      "issue": "Linked GitHub directory retrieval returned Internal Error."
+    },
+    {
+      "source_url": "https://cloud.idurarapp.com/",
+      "issue": "README-linked enterprise landing page returned no readable body."
+    }
+  ],
+  "source_conflicts": [
+    {
+      "repository": "idurar/idurar-erp-crm",
+      "issue": "README inventory/HR slogan exceeds concrete OSS features; vendor Community edition matrix also excludes invoices despite README listing them. Edition mapping and stock functionality remain unresolved."
+    }
+  ],
+  "remaining_decisive_gaps": [
+    "IDURAR: exact OSS edition documentation of stock quantities/movements and purchasing/warehouse integration, resolving vendor matrix versus README.",
+    "django-oscar: native headless/API contract in the routed repository, or separately accepted explicit addon dependency scope.",
+    "PrestaShop: documented decoupled storefront shopper/cart/checkout/order workflow using the native API."
+  ],
+  "assumptions": [
+    "Functional frontend/backend separation with native storefront APIs can establish headless architecture without the literal headless keyword.",
+    "Multi-document YAML create/apply with workload/pod verification establishes an application execution interface; existing cluster and RBAC prerequisites do not prove adoption fit."
+  ],
+  "promotion_ready": false,
+  "contains_private_project_context": false,
+  "next_owner": "Primary acceptance owner and independent Astra semantic evidence reviewer, then source author for prospective binding before freeze."
+}

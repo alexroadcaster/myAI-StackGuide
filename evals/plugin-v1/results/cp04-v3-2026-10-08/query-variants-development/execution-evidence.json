@@ -1,0 +1,88 @@
+{
+  "candidate_macro": {
+    "baseline": {
+      "complete": true,
+      "ndcg_at_12": 0.8745552065363883,
+      "recall_at_12": 0.8048992673992673
+    },
+    "candidate": {
+      "complete": true,
+      "ndcg_at_12": 0.8508662480744069,
+      "recall_at_12": 0.7643498168498168
+    },
+    "control": {
+      "complete": true,
+      "ndcg_at_12": 0.8129045657590117,
+      "recall_at_12": 0.7214926739926739
+    }
+  },
+  "capacity": "not_benchmarked; single-call durations diagnostic only",
+  "commands": [
+    {
+      "command": ".venv/Scripts/python.exe -B -m unittest discover -s tests -p test_plugin_query_variants_v3.py -v",
+      "exit_code": 0,
+      "tests_passed": 7,
+      "tests_total": 7
+    },
+    {
+      "canonical_declaration_sha256": "0a5b59e45067f4927d9ab15bed50268386e8a5c3062960fe032106d271a3187f",
+      "command": ".venv/Scripts/python.exe -B evals/plugin-v1/run_query_variants_v3.py --predeclare",
+      "exit_code": 0
+    },
+    {
+      "command": ".venv/Scripts/python.exe -B evals/plugin-v1/run_query_variants_v3.py --run-development",
+      "exit_code": 1,
+      "verdict": "development_no_go"
+    }
+  ],
+  "development_candidate_worth_heldout_review": false,
+  "environment_note": "Nonfatal Python launcher warning: Failed to find real location of C:\\Python314\\python.exe. Interpreter ran and final targeted tests/capture completed.",
+  "evidence_kind": "observed_local_development_ablation",
+  "expected_red": {
+    "command": ".venv/Scripts/python.exe -B -m unittest discover -s tests -p test_plugin_query_variants_v3.py -k disjoint -v",
+    "observed_failure": "AssertionError: ValueError not raised for empty partition",
+    "repair": "Reject empty/overlapping/injected/dropped terms before retrieval"
+  },
+  "failed_gates": [
+    "candidate_vs_baseline_recall_at_12",
+    "candidate_vs_baseline_ndcg_at_12"
+  ],
+  "frozen_source_hashes_unchanged_after_capture": true,
+  "held_out": "not_run; future cases are unsealed proposals",
+  "historical_control_equivalence": true,
+  "historical_literal_equivalence": true,
+  "human_calibrated": false,
+  "next_owner": "Primary records retained no_go; Product Planner freezes prospective source oracle and fresh heldout separately",
+  "owned_files": [
+    "evals/plugin-v1/run_query_variants_v3.py",
+    "evals/plugin-v1/query-variants-v3-contract.md",
+    "tests/test_plugin_query_variants_v3.py",
+    "evals/plugin-v1/results/cp04-v3-2026-10-08/query-variants-development/declaration.json",
+    "evals/plugin-v1/results/cp04-v3-2026-10-08/query-variants-development/development-observations.json",
+    "evals/plugin-v1/results/cp04-v3-2026-10-08/query-variants-development/development-summary.json"
+  ],
+  "promotion_ready": false,
+  "schema_version": "cp04_query_variants_execution_evidence_v3",
+  "setup_errors_retained": [
+    {
+      "kind": "test-first setup",
+      "observation": "New runner did not yet exist; zero tests ran. Not accepted RED."
+    },
+    {
+      "kind": "eval harness input",
+      "observation": "Default scorer oracle read cap too small; use existing V2 16MiB bounded oracle cap."
+    },
+    {
+      "kind": "eval harness query",
+      "observation": "Human variant IDs intent/context rejected by query contract; use q1/q2 and retain declared positional meaning."
+    }
+  ],
+  "sha256": {
+    "evals/plugin-v1/query-variants-v3-contract.md": "29a6e35f46ef056d32c82e0b92045260fa786353c5f8b62c90fc3fc9555ec897",
+    "evals/plugin-v1/results/cp04-v3-2026-10-08/query-variants-development/declaration.json": "50b376d64652db9a03983f07050c554e41c0c484f4612e3e3319f7ad3e3c4ed3",
+    "evals/plugin-v1/results/cp04-v3-2026-10-08/query-variants-development/development-observations.json": "71b99fe77460a3eab471c6a6471d32d5e509a0928929b2b51ce7b16fdd240092",
+    "evals/plugin-v1/results/cp04-v3-2026-10-08/query-variants-development/development-summary.json": "879f8f8bcd7781e295b6cc536665659d7f1753cad47f9ca47ce61669fb368e56",
+    "evals/plugin-v1/run_query_variants_v3.py": "1cd98727dbff593dfa33d1f38434bd526ae64cb68d3c996062c898d59ac82349",
+    "tests/test_plugin_query_variants_v3.py": "e9b17c3b52b0605023fc80698a77e5b38386400de877aca9420a96709036b67a"
+  }
+}

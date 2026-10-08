@@ -1,0 +1,149 @@
+{
+  "schema_version": "cp04_public_qualification_v1",
+  "input_oracle_sha256": "c8d7cdbee232c84df1a136c25f0bcc6b5c2d25b8c243d0d42f38e672d1e07b7b",
+  "qualification_date": "2026-10-08",
+  "records": [
+    {
+      "case_id": "CP04-HV3-06",
+      "github_repository_id": 126178683,
+      "repository": "halo-dev/halo",
+      "requirement_checks": [
+        {
+          "criterion_kind": "core",
+          "criterion": "Explicitly Django-based CMS.",
+          "disposition": "unsupported",
+          "source_url": "https://docs.halo.run/developer-guide/core/framework",
+          "observed_at": "2026-10-08",
+          "source_kind": "official_docs",
+          "source_excerpt": "",
+          "concise_rationale": "Official architecture text explicitly defines Halo as a Spring Boot Java Web application using Netty, Reactor, R2DBC and WebFlux. This documented implementation is incompatible with the requested Django-based CMS criterion; external interoperability was not assessed. Primary indexed page content was retrieved; direct open returned an internal error."
+        },
+        {
+          "criterion_kind": "preferred_detail",
+          "criterion": "Explicit flexibility or ease-of-use statement.",
+          "disposition": "supported",
+          "source_url": "https://github.com/halo-dev/halo",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "Chinese README explicitly describes Halo as powerful and easy to use; this is an upstream usability assertion, not measured usability."
+        },
+        {
+          "criterion_kind": "explicit_supporting_function",
+          "criterion": "None; alternate technology CMSs and mirror metadata do not establish Django integration.",
+          "disposition": "unknown",
+          "source_url": "https://github.com/halo-dev/halo",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "No separate supporting function was qualified. This criterion is preserved verbatim and contributes no positive support."
+        }
+      ],
+      "adoption_fit": "unknown"
+    },
+    {
+      "case_id": "CP04-HV3-08",
+      "github_repository_id": 30985840,
+      "repository": "solidusio/solidus",
+      "requirement_checks": [
+        {
+          "criterion_kind": "core",
+          "criterion": "Explicitly headless commerce/e-commerce backend.",
+          "disposition": "supported",
+          "source_url": "https://guides.solidus.io/advanced-solidus/extension-development/",
+          "observed_at": "2026-10-08",
+          "source_kind": "official_docs",
+          "source_excerpt": "",
+          "concise_rationale": "Official extension guide explicitly describes Solidus operating as a headless solution with separate storefronts interacting through REST or GraphQL. This establishes the commerce-backend role and decoupling, beyond API presence alone."
+        },
+        {
+          "criterion_kind": "preferred_detail",
+          "criterion": "Explicit REST/GraphQL/API interface.",
+          "disposition": "supported",
+          "source_url": "https://guides.solidus.io/advanced-solidus/extension-development/",
+          "observed_at": "2026-10-08",
+          "source_kind": "official_docs",
+          "source_excerpt": "",
+          "concise_rationale": "The same official guide explicitly identifies REST and GraphQL as interfaces between separate storefronts and the Solidus framework."
+        },
+        {
+          "criterion_kind": "explicit_supporting_function",
+          "criterion": "None; commerce/payment/headless-CMS metadata alone does not establish a headless commerce backend.",
+          "disposition": "unknown",
+          "source_url": "https://github.com/solidusio/solidus",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "No separate supporting function was qualified. This criterion is preserved verbatim and contributes no positive support."
+        }
+      ],
+      "adoption_fit": "unknown"
+    },
+    {
+      "case_id": "CP04-HV3-09",
+      "github_repository_id": 159152904,
+      "repository": "jeecgboot/JeecgBoot",
+      "requirement_checks": [
+        {
+          "criterion_kind": "core",
+          "criterion": "Admin/internal-tool builder with explicit API integration.",
+          "disposition": "supported",
+          "source_url": "https://github.com/jeecgboot/JeecgBoot/blob/main/README.en-US.md",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "English upstream README describes internal office/business-system builders and explicit client integration using unified RESTful interfaces and JWT. Combined with forms, reports, CRUD generation and menu permissions, this establishes the required internal-tool/API function."
+        },
+        {
+          "criterion_kind": "preferred_detail",
+          "criterion": "Explicit React interface/framework evidence.",
+          "disposition": "unsupported",
+          "source_url": "https://github.com/jeecgboot/JeecgBoot/blob/main/README.en-US.md",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "English upstream README explicitly identifies the frontend as Ant Design Vue, Vue3, TypeScript and Vite. The documented shipped interface is Vue; a React interface is not established and custom adapters were not evaluated."
+        },
+        {
+          "criterion_kind": "explicit_supporting_function",
+          "criterion": "Admin scaffolding/database-management UI contributes an admin foundation without proving an API adapter.",
+          "disposition": "supported",
+          "source_url": "https://github.com/jeecgboot/JeecgBoot/blob/main/README.en-US.md",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "English upstream README explicitly provides CRUD/menu scaffolding, online form builders, database models, reports and administrative permissions. These establish the supporting admin foundation; core API integration is independently supported by the interface section."
+        }
+      ],
+      "adoption_fit": "unknown"
+    }
+  ],
+  "metadata_gaps": {
+    "created_at": "unknown",
+    "pushed_at": "unknown",
+    "verified_commit_at": "unknown",
+    "verified_release_at": "unknown",
+    "license_verification": "not_assessed",
+    "repository_id_verification": "input_binding_only",
+    "observation_timestamp_semantics": "observed_at is the UTC retrieval date, not source update/push/commit/release date; search crawl ages are not repository activity."
+  },
+  "supersedes": {
+    "artifact": "research/cp04-public-qualification-2026-10-08.json",
+    "artifact_sha256": "e4cb74f805d9d8f178cc96eb96aff6d48eea2e65543da3653eb9361fde1df239",
+    "scope": "Only these three case/repository records and their requirement-check dispositions/bindings before prospective freeze. Original artifact remains immutable; all other records retain their prior evidence."
+  },
+  "evidence_ceiling": "Bounded primary public documentation qualification. No ranking, scores, adoption, license acceptance, security review, repository activity verification, installation, runtime behavior, curator promotion, catalog refresh or oracle modification.",
+  "retrieval_method": "Built-in web direct opens of the three task-provided sources and exact-domain primary search for the Halo architecture page after direct-open failure. Full indexed primary architecture content establishes Java/Spring facts; direct fetch remains unavailable.",
+  "queries": [
+    "site:docs.halo.run/developer-guide/core/framework Spring Boot Java"
+  ],
+  "source_failures": [
+    {
+      "source_url": "https://docs.halo.run/developer-guide/core/framework",
+      "outcome": "Direct open internal error. Exact primary-domain search returned the architecture page and its full indexed text, crawled three weeks before observation; retrieved content explicitly identifies Spring Boot Java Web/Netty/WebFlux. No claim of a successful direct fetch or verified current deployed release."
+    }
+  ],
+  "promotion_ready": false,
+  "contains_private_project_context": false,
+  "next_owner": "Primary acceptance owner, then independent evidence reviewer, then product planner for prospective source bindings before oracle freeze."
+}

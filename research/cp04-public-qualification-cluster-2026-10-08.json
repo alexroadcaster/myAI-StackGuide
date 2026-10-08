@@ -1,0 +1,334 @@
+{
+  "schema_version": "cp04_public_qualification_v1",
+  "input_oracle_sha256": "48f4799b751b2495e5727dffb6b1830cf367b5ec35c22aa28ec6a2c06377ed25",
+  "qualification_date": "2026-10-08",
+  "records": [
+    {
+      "case_id": "CP04-HV3-13",
+      "github_repository_id": 43723161,
+      "repository": "helm/helm",
+      "requirement_checks": [
+        {
+          "criterion_kind": "core",
+          "criterion": "Application-level definition and execution of multiple containers.",
+          "disposition": "supported",
+          "source_url": "https://helm.sh/docs/intro/introduction/",
+          "observed_at": "2026-10-08",
+          "source_kind": "official_docs",
+          "source_excerpt": "",
+          "concise_rationale": "Helm explicitly defines, installs and upgrades applications with many interdependent parts. Charts package related application manifests and dependencies into one installed release; the docs use WordPress plus MySQL and distinguish application operation from cluster operation. This establishes multi-container application declaration and execution through a pre-existing Kubernetes cluster."
+        },
+        {
+          "criterion_kind": "preferred_detail",
+          "criterion": "Explicit Docker interface.",
+          "disposition": "unknown",
+          "source_url": "https://helm.sh/docs/intro/introduction/",
+          "observed_at": "2026-10-08",
+          "source_kind": "official_docs",
+          "source_excerpt": "",
+          "concise_rationale": "The documented client and library communicate with the Kubernetes API server. Docker image references in the usage guide establish image inputs, not an explicit Docker engine or Docker-facing execution interface."
+        },
+        {
+          "criterion_kind": "explicit_supporting_function",
+          "criterion": "Container-based system assembly contributes runtime foundation; cluster operators, monitoring and VM wrappers are different functions.",
+          "disposition": "supported",
+          "source_url": "https://helm.sh/docs/intro/introduction/",
+          "observed_at": "2026-10-08",
+          "source_kind": "official_docs",
+          "source_excerpt": "",
+          "concise_rationale": "Charts assemble related application resources and dependencies for installation together. This is application system assembly on an existing runtime foundation; the docs explicitly put operating the cluster itself outside Helm scope."
+        }
+      ],
+      "adoption_fit": "unknown"
+    },
+    {
+      "case_id": "CP04-HV3-13",
+      "github_repository_id": 56353740,
+      "repository": "kubernetes/minikube",
+      "requirement_checks": [
+        {
+          "criterion_kind": "core",
+          "criterion": "Application-level definition and execution of multiple containers.",
+          "disposition": "supported",
+          "source_url": "https://minikube.sigs.k8s.io/docs/start/",
+          "observed_at": "2026-10-08",
+          "source_kind": "official_docs",
+          "source_excerpt": "",
+          "concise_rationale": "The official application tutorial supplies one YAML definition containing foo and bar container Pods, their Services and a shared Ingress, then applies it and verifies both routes. minikube provides or downloads kubectl and hosts the declared application. This exact-project example establishes definition and execution of multiple application containers, rather than merely assuming upstream capability."
+        },
+        {
+          "criterion_kind": "preferred_detail",
+          "criterion": "Explicit Docker interface.",
+          "disposition": "supported",
+          "source_url": "https://minikube.sigs.k8s.io/docs/start/",
+          "observed_at": "2026-10-08",
+          "source_kind": "official_docs",
+          "source_excerpt": "",
+          "concise_rationale": "The start guide explicitly supports a Docker container environment and documents Docker Desktop ingress access through minikube tunnel. This Docker-backed cluster interface is distinct from an application-level Docker Compose interface, which was not established."
+        },
+        {
+          "criterion_kind": "explicit_supporting_function",
+          "criterion": "Container-based system assembly contributes runtime foundation; cluster operators, monitoring and VM wrappers are different functions.",
+          "disposition": "supported",
+          "source_url": "https://minikube.sigs.k8s.io/docs/start/",
+          "observed_at": "2026-10-08",
+          "source_kind": "official_docs",
+          "source_excerpt": "",
+          "concise_rationale": "The Docker-backed route creates local Kubernetes and provides kubectl, networking, application services and ingress for the demonstrated container workloads. This contributes a container runtime foundation; VM drivers are alternative routes and do not alone establish this contribution."
+        }
+      ],
+      "adoption_fit": "unknown"
+    },
+    {
+      "case_id": "CP04-HV3-13",
+      "github_repository_id": 135516270,
+      "repository": "k3s-io/k3s",
+      "requirement_checks": [
+        {
+          "criterion_kind": "core",
+          "criterion": "Application-level definition and execution of multiple containers.",
+          "disposition": "supported",
+          "source_url": "https://docs.k3s.io/add-ons/helm",
+          "observed_at": "2026-10-08",
+          "source_kind": "official_docs",
+          "source_excerpt": "",
+          "concise_rationale": "K3s explicitly supports configurable application chart templates, bundles a controller that installs and reconfigures those charts, and auto-deploys manifest files. The repository additionally states automatic deployment of Kubernetes resources from local manifests. This provides an exact-project application declaration/execution interface for related chart resources, rather than relying on the lightweight Kubernetes label alone."
+        },
+        {
+          "criterion_kind": "preferred_detail",
+          "criterion": "Explicit Docker interface.",
+          "disposition": "supported",
+          "source_url": "https://docs.k3s.io/advanced",
+          "observed_at": "2026-10-08",
+          "source_kind": "official_docs",
+          "source_excerpt": "",
+          "concise_rationale": "The official Docker-runtime section documents the --docker option, embedded cri-dockerd communication with dockerd, and verification with docker ps. This is an explicit Docker runtime integration, not an inference from Dockerfiles; the application declaration remains Kubernetes manifests."
+        },
+        {
+          "criterion_kind": "explicit_supporting_function",
+          "criterion": "Container-based system assembly contributes runtime foundation; cluster operators, monitoring and VM wrappers are different functions.",
+          "disposition": "supported",
+          "source_url": "https://github.com/k3s-io/k3s",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "The distribution explicitly bundles containerd/runc, networking, DNS, ingress, load balancing, volumes and manifest deployment into one cohesive runtime. This assembles the container-based application foundation rather than only monitoring or exposing cluster-management commands."
+        }
+      ],
+      "adoption_fit": "unknown"
+    },
+    {
+      "case_id": "CP04-HV3-13",
+      "github_repository_id": 148545807,
+      "repository": "kubernetes-sigs/kind",
+      "requirement_checks": [
+        {
+          "criterion_kind": "core",
+          "criterion": "Application-level definition and execution of multiple containers.",
+          "disposition": "unknown",
+          "source_url": "https://kind.sigs.k8s.io/docs/user/quick-start/",
+          "observed_at": "2026-10-08",
+          "source_kind": "official_docs",
+          "source_excerpt": "",
+          "concise_rationale": "The guide loads my-app, my-db and my-cache images and documents kubectl apply for an application manifest. It establishes an application deployment workflow requiring separate kubectl, but does not show a combined multi-container application definition or its execution in the inspected example. Cluster creation and loading several images alone do not confirm the complete core; unrelatedness is not established."
+        },
+        {
+          "criterion_kind": "preferred_detail",
+          "criterion": "Explicit Docker interface.",
+          "disposition": "supported",
+          "source_url": "https://kind.sigs.k8s.io/docs/user/quick-start/",
+          "observed_at": "2026-10-08",
+          "source_kind": "official_docs",
+          "source_excerpt": "",
+          "concise_rationale": "The guide explicitly selects Docker as the node provider, exposes kind load docker-image, and inspects nodes using docker exec. These are direct Docker interfaces for cluster and image preparation; an application-level Docker Compose interface is unestablished."
+        },
+        {
+          "criterion_kind": "explicit_supporting_function",
+          "criterion": "Container-based system assembly contributes runtime foundation; cluster operators, monitoring and VM wrappers are different functions.",
+          "disposition": "supported",
+          "source_url": "https://github.com/kubernetes-sigs/kind",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "README describes node Docker images running Kubernetes components and packages that create and bootstrap clusters with kubeadm. This constructs a container-based local execution foundation; its cluster test focus does not by itself establish the separate application core."
+        }
+      ],
+      "adoption_fit": "unknown"
+    },
+    {
+      "case_id": "CP04-HV3-13",
+      "github_repository_id": 179063508,
+      "repository": "k3d-io/k3d",
+      "requirement_checks": [
+        {
+          "criterion_kind": "core",
+          "criterion": "Application-level definition and execution of multiple containers.",
+          "disposition": "unknown",
+          "source_url": "https://k3d.io/stable/usage/exposing_services/",
+          "observed_at": "2026-10-08",
+          "source_kind": "official_docs",
+          "source_excerpt": "",
+          "concise_rationale": "Official docs show a Docker-backed cluster, a single nginx deployment, its Service and Ingress applied through external kubectl. This proves an application-hosting workflow, but the inspected example does not define and execute a multiple-container application. Several cluster node containers are not application containers, so full core support remains unknown."
+        },
+        {
+          "criterion_kind": "preferred_detail",
+          "criterion": "Explicit Docker interface.",
+          "disposition": "supported",
+          "source_url": "https://github.com/k3d-io/k3d",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "README explicitly creates containerized k3s clusters using Docker; cluster create starts a k3s container and a load-balancer container and supplies kubeconfig. This is an operational Docker interface for the runtime foundation, not merely a source-build dependency."
+        },
+        {
+          "criterion_kind": "explicit_supporting_function",
+          "criterion": "Container-based system assembly contributes runtime foundation; cluster operators, monitoring and VM wrappers are different functions.",
+          "disposition": "supported",
+          "source_url": "https://github.com/k3d-io/k3d",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "The documented cluster creation assembles a running k3s container plus a load-balancer container and connects kubectl via kubeconfig. This supplies a container-based execution foundation; cluster node assembly is supporting evidence only and does not substitute for an application definition."
+        }
+      ],
+      "adoption_fit": "unknown"
+    },
+    {
+      "case_id": "CP04-HV3-13",
+      "github_repository_id": 900130551,
+      "repository": "Flux159/mcp-server-kubernetes",
+      "requirement_checks": [
+        {
+          "criterion_kind": "core",
+          "criterion": "Application-level definition and execution of multiple containers.",
+          "disposition": "supported",
+          "source_url": "https://github.com/Flux159/mcp-server-kubernetes",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "README explicitly applies YAML manifests, creates resources, manages deployment rollouts and installs Helm charts with custom values; helm_template_apply executes generated templates. These are direct application definition/execution interfaces for related container workloads, not merely a generic cluster label. They require an existing Kubernetes cluster and chart/manifests supplied by the user; no runtime execution was tested."
+        },
+        {
+          "criterion_kind": "preferred_detail",
+          "criterion": "Explicit Docker interface.",
+          "disposition": "unknown",
+          "source_url": "https://github.com/Flux159/mcp-server-kubernetes",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "The functional interface is kubectl and Helm against an existing cluster. Docker commands shown for optional Jaeger tracing do not establish a Docker application runtime interface."
+        },
+        {
+          "criterion_kind": "explicit_supporting_function",
+          "criterion": "Container-based system assembly contributes runtime foundation; cluster operators, monitoring and VM wrappers are different functions.",
+          "disposition": "unsupported",
+          "source_url": "https://github.com/Flux159/mcp-server-kubernetes",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "README describes an MCP command interface connecting to an existing Kubernetes cluster. It can deploy application manifests, but does not assemble the container runtime foundation; node operations and troubleshooting are cluster-management functions explicitly distinguished by this supporting criterion."
+        }
+      ],
+      "adoption_fit": "unknown"
+    },
+    {
+      "case_id": "CP04-HV3-13",
+      "github_repository_id": 953587943,
+      "repository": "rohitg00/kubectl-mcp-server",
+      "requirement_checks": [
+        {
+          "criterion_kind": "core",
+          "criterion": "Application-level definition and execution of multiple containers.",
+          "disposition": "supported",
+          "source_url": "https://github.com/rohitg00/kubectl-mcp-server",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "The supported-tool table explicitly lists manifest apply/create, deployment creation and rollout, Helm chart creation and dependency handling, and chart installation/template application. Together these expose application declarations and their execution for related container workloads on an existing cluster. This finding is based on exact operations, not the MCP category or inherited Kubernetes functionality; tool behavior was not executed."
+        },
+        {
+          "criterion_kind": "preferred_detail",
+          "criterion": "Explicit Docker interface.",
+          "disposition": "unknown",
+          "source_url": "https://github.com/rohitg00/kubectl-mcp-server",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "The inspected tool table exposes Kubernetes and Helm operations. It does not establish a direct Docker application runtime interface; installation/container packaging would not by itself satisfy the preference."
+        },
+        {
+          "criterion_kind": "explicit_supporting_function",
+          "criterion": "Container-based system assembly contributes runtime foundation; cluster operators, monitoring and VM wrappers are different functions.",
+          "disposition": "unsupported",
+          "source_url": "https://github.com/rohitg00/kubectl-mcp-server",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "The tool table describes operations against an existing cluster, including diagnostics and node management. Application-deployment commands support the core separately, but the MCP server itself does not provide container-based runtime assembly; this is an operator interface under the supporting criterion."
+        }
+      ],
+      "adoption_fit": "unknown"
+    },
+    {
+      "case_id": "CP04-HV3-13",
+      "github_repository_id": 1137865761,
+      "repository": "skyhook-io/radar",
+      "requirement_checks": [
+        {
+          "criterion_kind": "core",
+          "criterion": "Application-level definition and execution of multiple containers.",
+          "disposition": "unknown",
+          "source_url": "https://github.com/skyhook-io/radar",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "README explicitly changes regular/init-container images in workload templates with rollout progress and upgrades existing Helm releases. This is more than monitoring. However, the inspected docs do not establish creation or submission of a complete multi-container application definition; Helm release inspection and upgrade alone do not confirm the full core."
+        },
+        {
+          "criterion_kind": "preferred_detail",
+          "criterion": "Explicit Docker interface.",
+          "disposition": "unknown",
+          "source_url": "https://github.com/skyhook-io/radar",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "The documented functional interface is Kubernetes resources, Helm and GitOps. Docker Hub image inspection is a registry function and does not establish a Docker application execution interface."
+        },
+        {
+          "criterion_kind": "explicit_supporting_function",
+          "criterion": "Container-based system assembly contributes runtime foundation; cluster operators, monitoring and VM wrappers are different functions.",
+          "disposition": "unsupported",
+          "source_url": "https://github.com/skyhook-io/radar",
+          "observed_at": "2026-10-08",
+          "source_kind": "upstream_readme",
+          "source_excerpt": "",
+          "concise_rationale": "README describes a Kubernetes UI/MCP operator with topology, diagnostics, release operations and workload mutation against existing clusters. These functions do not assemble the container runtime foundation. Helm/GitOps writes prevent a monitoring-only characterization, but do not turn the UI into the supporting assembly function."
+        }
+      ],
+      "adoption_fit": "unknown"
+    }
+  ],
+  "metadata_gaps": {
+    "created_at": "unknown",
+    "pushed_at": "unknown",
+    "verified_commit_at": "unknown",
+    "verified_release_at": "unknown",
+    "license_verification": "not_assessed",
+    "repository_id_verification": "input_binding_only",
+    "observation_timestamp_semantics": "observed_at is the UTC retrieval date, not source update/push/commit/release date; search crawl ages are not repository activity."
+  },
+  "qualification_input_sha256": "b64ff3df0b47e7c46ef29a1034ef4fdaa12b50691a7ea1444753a188264a9982",
+  "qualification_scope": "Eight exact routed repositories and all three unchanged CP04-HV3-13 criteria from the stage-pinned qualification input; no candidate discovery expansion.",
+  "evidence_ceiling": "Current primary public source assertions and bounded semantic interpretation only. No relevance grade, adoption acceptance, activity verification, installed runtime check, security/license acceptance, catalog refresh, promotion or canonical oracle edit.",
+  "retrieval_method": "Built-in web direct upstream README opens and linked official documentation; in-page finds and bounded navigation only.",
+  "queries": [],
+  "source_failures": [
+    {
+      "source_url": "https://k3d.io/",
+      "issue": "Direct open returned only a redirect placeholder. The README-linked stable project and usage documentation were readable and used instead."
+    }
+  ],
+  "promotion_ready": false,
+  "contains_private_project_context": false,
+  "next_owner": "Primary acceptance owner and independent Astra semantic evidence reviewer, then source author for prospective source binding before freeze."
+}
