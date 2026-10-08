@@ -1,0 +1,39 @@
+{
+  "causal_effects_isolated": false,
+  "checked_at": "2026-10-08T17:59:19.833954+00:00",
+  "command": "work/cp04-flashrank-venv/Scripts/python.exe -B evals/plugin-v1/run_flashrank_configured.py --run-development",
+  "configuration": {
+    "batch_size": 8,
+    "enable_cpu_mem_arena": false,
+    "enable_mem_pattern": false,
+    "execution_provider": "CPUExecutionProvider",
+    "intra_op_num_threads": 4,
+    "max_pair_tokens": 512,
+    "tokenizer": "WordPiece_from_pinned_vocab_txt"
+  },
+  "declared_sources_unchanged": true,
+  "file_hashes": {
+    "declaration.json": "4ce10419e31401cdf4504fb7421734dc9a8e3c2d3e45dab83cb45567002111d6",
+    "observations.json": "b131a4f33f0ca5dd5ea513330d009773d984c05c5f148349724d70140130ff01",
+    "summary.json": "9ec17a19ea6eb161d860833e2a24e1640101d64bb5d151c77bfaa7484e89a04d"
+  },
+  "identity_and_order_checks": 20,
+  "native_vocab_alignment": "all 105879 token IDs checked at initialization",
+  "observed_exit_code": 1,
+  "onnx_word_embedding_shape": [
+    105879,
+    768
+  ],
+  "prior_captures_unchanged": true,
+  "promotion_ready": false,
+  "review_kind": "explicit_primary_self_review",
+  "schema_version": "cp04_configured_execution_receipt_v1",
+  "source_hash_count": 26,
+  "tests": {
+    "configured_native": 3,
+    "pip_check": "passed",
+    "prior_adapter": 10,
+    "skips": 0
+  },
+  "verdict": "development_no_go"
+}

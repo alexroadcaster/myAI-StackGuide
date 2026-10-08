@@ -8,6 +8,10 @@ Evaluate whether bounded local SQLite FTS5 retrieval and relevant authorized pro
 
 ## Promotion Rule
 
+Latest package comparison: [source-qualified capability report](docs/reports/cp04-capability-package-2026-10-08.md) measures original FTS/literal against both methods on an independently pinned enriched bundle. Kotlin known-positive coverage improves, but both candidate arms fail original literal non-regression. Preserve original grades/thresholds and exposed-case status. Verified fixture seams do not activate a canonical trust anchor. Source enrichment alone is not recommendation-quality acceptance.
+
+Latest CP-04 comparison: [ready-model and source-enrichment report](docs/reports/cp04-ready-model-comparison-2026-10-08.md) retains all development no-go arms. TinyBERT resource improvements and exposed Kotlin supported-positive coverage are separate from general non-regression, unknown resolution and fresh held-out/human acceptance. RRF/field labels and CPU batching are evaluated methods, not automatic quality gains. No threshold or frozen judgment was changed.
+
 A recommendation behavior change can be promoted only when:
 
 - deterministic schema and boundary checks pass;
@@ -177,6 +181,12 @@ compatibility validation against corresponding schemas/examples and independent
 synthetic judgments; the current scorer gate passes at `synthetic_compatibility_only` as recorded above. This owner-authorized CP-03 addendum includes the bounded CP-04 C8/scorer join, not all CP-04 held-out calibration.
 
 ## Baseline And Evidence
+
+- Corrected model comparison: [configured FlashRank report](docs/reports/cp04-flashrank-configured-2026-10-08.md) freezes a separate26-source packet before one same-case capture, retaining the earlier failure. Native vocabulary, batching and CPU settings changed together; improved metrics/resources cannot be causally assigned to one change alone. EN still fails control nDCG and literal comparisons; RU still fails all quality comparisons. No threshold/label change, exposed-case promotion, new held-out, human or Russian lexical acceptance. Parent no_go remains.
+
+- Observed ready-made experiment: [FlashRank development report](docs/reports/cp04-flashrank-prototype-2026-10-08.md) retains ten exposed V2 cases, one fixed FTS pool per case and EN/RU goal-based selection. Both model arms regress against FTS control and literal baseline; all non-regression failures are retained. No held-out judgments were used, changed or newly accepted. Russian goal scoring on English lexical queries is separate from Russian lexical relevance and human presentation parity. Tokenizer/config vocabulary inconsistency is a post-capture hypothesis, not a causal quality verdict. Parent remains no_go, promotion_ready=false.
+
+- Next experiment: the [ready-made CP-04 continuation](docs/plan/2026-08-30-codex-plugin-v1-implementation-plan.md#ready-made-continuation--owner-direction-2026-10-08) starts with FlashRank as a development comparator, separating retrieved-pool coverage, ranking, claim/source support and human usefulness. Freeze baseline, enrichment and reranking arms before acceptance; exposed V3 remains regression-only. Any offline metric reference must match the current exponential gain and tie semantics and retain invalidation from unknown judgments. ALCE/RAGChecker are supporting evaluation references, not executed graders. RU/EN rich explanations and the accepted human rubric remain independent gates; choosing a package does not change no_go or promotion_ready.
 
 - Baseline: actual frozen 2,500-card corpus; `run_quality_v2.py` compares the unchanged FTS5 candidate and literal-field/filter baseline against a prospectively frozen complete routed oracle. The [current CP-04 v2 report](docs/reports/cp04-v2-implementation-2026-10-08.md) owns exact declarations, captures, measurements and remaining gates. The original diagnostic report and protocol remain historical.
 - Eval scorer: `evaluate_retrieval.py` remains a provider-free C8 captured-result compatibility scorer; the separate real runner emits `cp04_quality_observation_v1` without changing C8 schemas. The original quality plan/rubric remain frozen historical protocol artifacts, including their execution/calibration status fields; current execution state lives in the new result packet.

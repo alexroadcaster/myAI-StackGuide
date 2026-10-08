@@ -1,0 +1,115 @@
+{
+  "schema_version": "1.0.0",
+  "status": "candidate_not_promoted",
+  "selection_basis": "Source-qualified development slice: Kotlin backend, browser testing, uploader, metadata and portfolio optimization. Exposed development cases; not independent held-out evidence.",
+  "facts": [
+    {
+      "github_repository_id": 1148753,
+      "full_name": "spring-projects/spring-framework",
+      "capability": "Kotlin coroutines in Spring MVC and WebFlux controllers and WebFlux functional server APIs.",
+      "source_url": "https://github.com/spring-projects/spring-framework/blob/main/framework-docs/modules/ROOT/pages/languages/kotlin/coroutines.adoc",
+      "observed_on": "2026-10-08",
+      "scope": "Requires kotlinx-coroutines-core and kotlinx-coroutines-reactor.",
+      "limitations": "Upstream capability evidence does not establish project-version compatibility, implementation time or integration readiness."
+    },
+    {
+      "github_repository_id": 6296790,
+      "full_name": "spring-projects/spring-boot",
+      "capability": "Kotlin application support and Kotlin dependency management through Spring Framework and related Spring projects.",
+      "source_url": "https://github.com/spring-projects/spring-boot/blob/main/documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/features/kotlin.adoc",
+      "observed_on": "2026-10-08",
+      "scope": "Requires Kotlin libraries and compiler configuration.",
+      "limitations": "Upstream capability evidence does not establish project-version compatibility, implementation time or integration readiness."
+    },
+    {
+      "github_repository_id": 139914932,
+      "full_name": "quarkusio/quarkus",
+      "capability": "Kotlin REST service development using Quarkus Kotlin and REST extensions.",
+      "source_url": "https://github.com/quarkusio/quarkus/blob/main/docs/src/main/asciidoc/kotlin.adoc",
+      "observed_on": "2026-10-08",
+      "scope": "Requires quarkus-kotlin, REST extensions and Kotlin compiler configuration.",
+      "limitations": "Upstream capability evidence does not establish project-version compatibility, implementation time or integration readiness."
+    },
+    {
+      "github_repository_id": 124230204,
+      "full_name": "micronaut-projects/micronaut-core",
+      "capability": "Kotlin JVM application development with an HTTP server and HTTP routing.",
+      "source_url": "https://github.com/micronaut-projects/micronaut-core",
+      "observed_on": "2026-10-08",
+      "scope": "Selected HTTP server components must be configured.",
+      "limitations": "Upstream capability evidence does not establish project-version compatibility, implementation time or integration readiness."
+    },
+    {
+      "github_repository_id": 40136600,
+      "full_name": "ktorio/ktor",
+      "capability": "Kotlin asynchronous client and server application development with coroutines.",
+      "source_url": "https://github.com/ktorio/ktor",
+      "observed_on": "2026-10-08",
+      "scope": "Requires selection of a server engine and application plugins.",
+      "limitations": "Upstream capability evidence does not establish project-version compatibility, implementation time or integration readiness."
+    },
+    {
+      "github_repository_id": 221981891,
+      "full_name": "microsoft/playwright",
+      "capability": "Browser automation and end-to-end testing across Chromium, Firefox and WebKit using one API.",
+      "source_url": "https://github.com/microsoft/playwright",
+      "observed_on": "2026-10-08",
+      "scope": "Browser installation and a test runner configuration are separate setup steps.",
+      "limitations": "Upstream capability evidence does not establish project-version compatibility, implementation time or integration readiness."
+    },
+    {
+      "github_repository_id": 31629751,
+      "full_name": "cypress-io/cypress",
+      "capability": "End-to-end browser testing and component testing for web applications.",
+      "source_url": "https://github.com/cypress-io/cypress",
+      "observed_on": "2026-10-08",
+      "scope": "End-to-end and component test configuration depend on the application.",
+      "limitations": "Upstream capability evidence does not establish project-version compatibility, implementation time or integration readiness."
+    },
+    {
+      "github_repository_id": 90796663,
+      "full_name": "puppeteer/puppeteer",
+      "capability": "JavaScript browser automation API for Chrome and Firefox, headless by default.",
+      "source_url": "https://github.com/puppeteer/puppeteer",
+      "observed_on": "2026-10-08",
+      "scope": "A browser automation library requires a separate regression test suite.",
+      "limitations": "Upstream capability evidence does not establish project-version compatibility, implementation time or integration readiness."
+    },
+    {
+      "github_repository_id": 7613257,
+      "full_name": "SeleniumHQ/selenium",
+      "capability": "Browser automation through WebDriver with bindings for multiple programming languages.",
+      "source_url": "https://github.com/SeleniumHQ/selenium",
+      "observed_on": "2026-10-08",
+      "scope": "Requires browser and driver configuration plus an application test suite.",
+      "limitations": "Upstream capability evidence does not establish project-version compatibility, implementation time or integration readiness."
+    },
+    {
+      "github_repository_id": 46273445,
+      "full_name": "transloadit/uppy",
+      "capability": "Browser JavaScript file uploader with React integration and resumable upload through its Tus plugin.",
+      "source_url": "https://github.com/transloadit/uppy",
+      "observed_on": "2026-10-08",
+      "scope": "Tus uploads require a compatible endpoint; remote imports require the separate Companion server.",
+      "limitations": "Upstream capability evidence does not establish project-version compatibility, implementation time or integration readiness."
+    },
+    {
+      "github_repository_id": 132751855,
+      "full_name": "exiftool/exiftool",
+      "capability": "Read and write EXIF and other file metadata using a Perl library or command-line application.",
+      "source_url": "https://github.com/exiftool/exiftool",
+      "observed_on": "2026-10-08",
+      "scope": "Supported formats and tag write support must be checked for selected files.",
+      "limitations": "Upstream capability evidence does not establish project-version compatibility, implementation time or integration readiness."
+    },
+    {
+      "github_repository_id": 135300551,
+      "full_name": "PyPortfolio/PyPortfolioOpt",
+      "capability": "Python portfolio optimization with mean-variance, Black-Litterman and risk-parity methods.",
+      "source_url": "https://github.com/PyPortfolio/PyPortfolioOpt",
+      "observed_on": "2026-10-08",
+      "scope": "Requires user-provided market data and model assumptions; it is not a brokerage execution service.",
+      "limitations": "Upstream capability evidence does not establish project-version compatibility, implementation time or integration readiness."
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "development_macros": {
+    "after": {
+      "complete": true,
+      "ndcg_at_12": 0.8120443299528809,
+      "recall_at_12": 0.7214926739926739
+    },
+    "before": {
+      "complete": true,
+      "ndcg_at_12": 0.8129045657590117,
+      "recall_at_12": 0.7214926739926739
+    }
+  },
+  "promotion_ready": false,
+  "regression": {
+    "after_supported_positive_pool": 5,
+    "after_supported_positive_top12": 3,
+    "before_supported_positive_pool": 2,
+    "before_supported_positive_top12": 1,
+    "case_id": "CP04-HV3-12",
+    "metrics": null,
+    "positive_count": 5,
+    "ranks": [
+      {
+        "after_rank": 6,
+        "before_rank": null,
+        "full_name": "spring-projects/spring-framework",
+        "github_repository_id": 1148753
+      },
+      {
+        "after_rank": 19,
+        "before_rank": null,
+        "full_name": "spring-projects/spring-boot",
+        "github_repository_id": 6296790
+      },
+      {
+        "after_rank": 17,
+        "before_rank": null,
+        "full_name": "quarkusio/quarkus",
+        "github_repository_id": 139914932
+      },
+      {
+        "after_rank": 4,
+        "before_rank": 16,
+        "full_name": "micronaut-projects/micronaut-core",
+        "github_repository_id": 124230204
+      },
+      {
+        "after_rank": 1,
+        "before_rank": 1,
+        "full_name": "ktorio/ktor",
+        "github_repository_id": 40136600
+      }
+    ],
+    "reason": "exposed regression; unresolved universe unknowns retained"
+  },
+  "source_index_unchanged": true
+}

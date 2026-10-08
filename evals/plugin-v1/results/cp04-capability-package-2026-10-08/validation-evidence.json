@@ -1,0 +1,33 @@
+{
+  "schema_version": "cp04_capability_validation_v1",
+  "checks": {
+    "package_tests": {
+      "passed": 3,
+      "failed": 0
+    },
+    "fixture_trust_tests": {
+      "passed": 2,
+      "failed": 0
+    },
+    "all_cards_and_activity_schemas": 2500,
+    "four_asset_and_receipt_byte_reproduction": true,
+    "declaration_source_hashes": 26,
+    "independent_macro_recalculation": true,
+    "default_package_parity": true,
+    "python_ast_files": 4,
+    "report_links": 11,
+    "control_plane_validator": "ok",
+    "git_diff_check": "pass; LF/CRLF warnings only"
+  },
+  "checked_file_sha256": {
+    "data/plugin_capability_enrichment.json": "a75ceb1ce252d0f28cfb739886fda39c13dc8b18493a2dccf8a93e845656f094",
+    "specs/catalog/capability-enrichment.schema.json": "7dc3479bf90fc2607b2f023f546f26728455b4279e568455b73dd1d0539fc05b",
+    "scripts/build_plugin_capability_package.py": "19f5cff0b8da6212288f73f59913c0c31f0e34fc025e1da849b7d769bbc754e8",
+    "evals/plugin-v1/run_capability_package.py": "cbd1c5d9e064a24c11949d27a976454869f731f4233f080446ac321d27a10ecb",
+    "evals/plugin-v1/capability-package-contract.md": "3b885dab56cbb54483376b70848dc35b8004a365ce01ff3d1f42bd47a4844a6e",
+    "tests/test_plugin_capability_package.py": "2d8d172423885ddec9cafa619d24fc70d703d5617e519152612ce7cb12941c42",
+    "tests/test_plugin_capability_evaluator.py": "a575e8aa0da89d4efb61b8ee50ab5df7e7eb014cc3e490a529e1c6e775f5a374",
+    "docs/reports/cp04-capability-package-2026-10-08.md": "0d670162e8a759fec37eed428749054b6280d32ef9c0beb84890c671c9cbc902"
+  },
+  "promotion_ready": false
+}

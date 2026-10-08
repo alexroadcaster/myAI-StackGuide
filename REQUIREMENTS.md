@@ -48,6 +48,8 @@ CP-02 selects the local design; CP-03 schemas and presentation/publication joins
 
 ## Goal
 
+CP-04 implementation direction: follow the [ready-made continuation](docs/plan/2026-08-30-codex-plugin-v1-implementation-plan.md#ready-made-continuation--owner-direction-2026-10-08) for R06–R08/R12/R14/R15. Reuse an existing ranking component first; verify candidate coverage, source-supported project fit and the accepted stack/technical/architecture/product explanation separately. This direction does not change the canonical lexical retrieval requirement or establish quality acceptance.
+
 Enable a user to build or modernize a solution faster by integrating suitable OSS, beginning with an idea or local project and ending with a persisted Brief, offline comparison and actionable integration handoff. SQLite FTS5 retrieves a bounded evidence set; the model never needs the whole catalog. No measured speedup or runtime readiness is claimed yet.
 
 ## Historical Requirement Registry

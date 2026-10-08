@@ -1,0 +1,796 @@
+{
+  "arms": {
+    "terms_labels_pure": {
+      "development_candidate_worth_heldout_review": false,
+      "failed_gates": [
+        "candidate_vs_baseline_recall_at_12",
+        "candidate_vs_baseline_ndcg_at_12"
+      ],
+      "gates": {
+        "baseline_duplicate_canonical_ids": true,
+        "baseline_false_exclusions": true,
+        "baseline_hard_constraint_violations": true,
+        "baseline_pack_survival": true,
+        "baseline_valid_ranking_and_status": true,
+        "candidate_duplicate_canonical_ids": true,
+        "candidate_false_exclusions": true,
+        "candidate_hard_constraint_violations": true,
+        "candidate_pack_survival": true,
+        "candidate_valid_ranking_and_status": true,
+        "candidate_vs_baseline_ndcg_at_12": false,
+        "candidate_vs_baseline_recall_at_12": false,
+        "candidate_vs_control_ndcg_at_12": true,
+        "candidate_vs_control_recall_at_12": true,
+        "control_duplicate_canonical_ids": true,
+        "control_false_exclusions": true,
+        "control_hard_constraint_violations": true,
+        "control_pack_survival": true,
+        "control_valid_ranking_and_status": true,
+        "historical_control_equivalence": true,
+        "historical_literal_equivalence": true
+      },
+      "held_out": "not_run; proposed future cases are not sealed",
+      "human_calibration": false,
+      "inference_median_ms": 150.03820000129053,
+      "inference_p95_ms": 352.76819999853615,
+      "macro": {
+        "baseline": {
+          "complete": true,
+          "ndcg_at_12": 0.8745552065363883,
+          "recall_at_12": 0.8048992673992673
+        },
+        "candidate": {
+          "complete": true,
+          "ndcg_at_12": 0.8299158958783508,
+          "recall_at_12": 0.7841117216117216
+        },
+        "control": {
+          "complete": true,
+          "ndcg_at_12": 0.8129045657590117,
+          "recall_at_12": 0.7214926739926739
+        }
+      },
+      "per_case": [
+        {
+          "baseline": {
+            "ranking": {
+              "ndcg_at_k": 0.9190835409556711,
+              "recall_at_k": 0.7692307692307693,
+              "relevant_count": 13
+            },
+            "reason": null,
+            "unjudged_ids": [],
+            "valid": true
+          },
+          "candidate": {
+            "ranking": {
+              "ndcg_at_k": 0.8809783548545571,
+              "recall_at_k": 0.6923076923076923,
+              "relevant_count": 13
+            },
+            "reason": null,
+            "unjudged_ids": [],
+            "valid": true
+          },
+          "case_id": "CP04-V2-D01",
+          "control": {
+            "ranking": {
+              "ndcg_at_k": 0.8215699602351754,
+              "recall_at_k": 0.6923076923076923,
+              "relevant_count": 13
+            },
+            "reason": null,
+            "unjudged_ids": [],
+            "valid": true
+          }
+        },
+        {
+          "baseline": {
+            "ranking": {
+              "ndcg_at_k": 0.8108838084257347,
+              "recall_at_k": 1.0,
+              "relevant_count": 4
+            },
+            "reason": null,
+            "unjudged_ids": [],
+            "valid": true
+          },
+          "candidate": {
+            "ranking": {
+              "ndcg_at_k": 0.9327693081210748,
+              "recall_at_k": 0.75,
+              "relevant_count": 4
+            },
+            "reason": null,
+            "unjudged_ids": [],
+            "valid": true
+          },
+          "case_id": "CP04-V2-D02",
+          "control": {
+            "ranking": {
+              "ndcg_at_k": 0.8108838084257347,
+              "recall_at_k": 1.0,
+              "relevant_count": 4
+            },
+            "reason": null,
+            "unjudged_ids": [],
+            "valid": true
+          }
+        },
+        {
+          "baseline": {
+            "ranking": {
+              "ndcg_at_k": 0.8478444548826087,
+              "recall_at_k": 0.5714285714285714,
+              "relevant_count": 14
+            },
+            "reason": null,
+            "unjudged_ids": [],
+            "valid": true
+          },
+          "candidate": {
+            "ranking": {
+              "ndcg_at_k": 0.6218064769551708,
+              "recall_at_k": 0.5,
+              "relevant_count": 14
+            },
+            "reason": null,
+            "unjudged_ids": [],
+            "valid": true
+          },
+          "case_id": "CP04-V2-D03",
+          "control": {
+            "ranking": {
+              "ndcg_at_k": 0.7204432024989319,
+              "recall_at_k": 0.5,
+              "relevant_count": 14
+            },
+            "reason": null,
+            "unjudged_ids": [],
+            "valid": true
+          }
+        },
+        {
+          "baseline": {
+            "ranking": {
+              "ndcg_at_k": 0.8941459801978876,
+              "recall_at_k": 0.6666666666666666,
+              "relevant_count": 3
+            },
+            "reason": null,
+            "unjudged_ids": [],
+            "valid": true
+          },
+          "candidate": {
+            "ranking": {
+              "ndcg_at_k": 0.9457147895126969,
+              "recall_at_k": 1.0,
+              "relevant_count": 3
+            },
+            "reason": null,
+            "unjudged_ids": [],
+            "valid": true
+          },
+          "case_id": "CP04-V2-D04",
+          "control": {
+            "ranking": {
+              "ndcg_at_k": 0.8609101556836468,
+              "recall_at_k": 0.3333333333333333,
+              "relevant_count": 3
+            },
+            "reason": null,
+            "unjudged_ids": [],
+            "valid": true
+          }
+        },
+        {
+          "baseline": {
+            "ranking": {
+              "ndcg_at_k": 0.9631405415421671,
+              "recall_at_k": 1.0,
+              "relevant_count": 4
+            },
+            "reason": null,
+            "unjudged_ids": [],
+            "valid": true
+          },
+          "candidate": {
+            "ranking": {
+              "ndcg_at_k": 0.7389922427196742,
+              "recall_at_k": 1.0,
+              "relevant_count": 4
+            },
+            "reason": null,
+            "unjudged_ids": [],
+            "valid": true
+          },
+          "case_id": "CP04-V2-D05",
+          "control": {
+            "ranking": {
+              "ndcg_at_k": 0.9490863792262451,
+              "recall_at_k": 1.0,
+              "relevant_count": 4
+            },
+            "reason": null,
+            "unjudged_ids": [],
+            "valid": true
+          }
+        },
+        {
+          "baseline": {
+            "ranking": {
+              "ndcg_at_k": 1.0,
+              "recall_at_k": 1.0,
+              "relevant_count": 2
+            },
+            "reason": null,
+            "unjudged_ids": [],
+            "valid": true
+          },
+          "candidate": {
+            "ranking": {
+              "ndcg_at_k": 1.0,
+              "recall_at_k": 1.0,
+              "relevant_count": 2
+            },
+            "reason": null,
+            "unjudged_ids": [],
+            "valid": true
+          },
+          "case_id": "CP04-V2-D06",
+          "control": {
+            "ranking": {
+              "ndcg_at_k": 1.0,
+              "recall_at_k": 1.0,
+              "relevant_count": 2
+            },
+            "reason": null,
+            "unjudged_ids": [],
+            "valid": true
+          }
+        },
+        {
+          "baseline": {
+            "ranking": {
+              "ndcg_at_k": 0.781227389335824,
+              "recall_at_k": 0.875,
+              "relevant_count": 8
+            },
+            "reason": null,
+            "unjudged_ids": [],
+            "valid": true
+          },
+          "candidate": {
+            "ranking": {
+              "ndcg_at_k": 0.6505122992164483,
+              "recall_at_k": 0.875,
+              "relevant_count": 8
+            },
+            "reason": null,
+            "unjudged_ids": [],
+            "valid": true
+          },
+          "case_id": "CP04-V2-D07",
+          "control": {
+            "ranking": {
+              "ndcg_at_k": 0.659179862617231,
+              "recall_at_k": 0.875,
+              "relevant_count": 8
+            },
+            "reason": null,
+            "unjudged_ids": [],
+            "valid": true
+          }
+        },
+        {
+          "baseline": {
+            "ranking": {
+              "ndcg_at_k": 0.6909871873635038,
+              "recall_at_k": 0.5,
+              "relevant_count": 14
+            },
+            "reason": null,
+            "unjudged_ids": [],
+            "valid": true
+          },
+          "candidate": {
+            "ranking": {
+              "ndcg_at_k": 0.6122883484130744,
+              "recall_at_k": 0.35714285714285715,
+              "relevant_count": 14
+            },
+            "reason": null,
+            "unjudged_ids": [],
+            "valid": true
+          },
+          "case_id": "CP04-V2-D08",
+          "control": {
+            "ranking": {
+              "ndcg_at_k": 0.52016890465836,
+              "recall_at_k": 0.35714285714285715,
+              "relevant_count": 14
+            },
+            "reason": null,
+            "unjudged_ids": [],
+            "valid": true
+          }
+        },
+        {
+          "baseline": {
+            "ranking": {
+              "ndcg_at_k": 0.8518827205215341,
+              "recall_at_k": 0.6666666666666666,
+              "relevant_count": 15
+            },
+            "reason": null,
+            "unjudged_ids": [],
+            "valid": true
+          },
+          "candidate": {
+            "ranking": {
+              "ndcg_at_k": 0.9266478058851731,
+              "recall_at_k": 0.6666666666666666,
+              "relevant_count": 15
+            },
+            "reason": null,
+            "unjudged_ids": [],
+            "valid": true
+          },
+          "case_id": "CP04-V2-D09",
+          "control": {
+            "ranking": {
+              "ndcg_at_k": 0.8195181252967975,
+              "recall_at_k": 0.6,
+              "relevant_count": 15
+            },
+            "reason": null,
+            "unjudged_ids": [],
+            "valid": true
+          }
+        },
+        {
+          "baseline": {
+            "ranking": {
+              "ndcg_at_k": 0.9863564421389511,
+              "recall_at_k": 1.0,
+              "relevant_count": 7
+            },
+            "reason": null,
+            "unjudged_ids": [],
+            "valid": true
+          },
+          "candidate": {
+            "ranking": {
+              "ndcg_at_k": 0.9894493331056383,
+              "recall_at_k": 1.0,
+              "relevant_count": 7
+            },
+            "reason": null,
+            "unjudged_ids": [],
+            "valid": true
+          },
+          "case_id": "CP04-V2-D10",
+          "control": {
+            "ranking": {
+              "ndcg_at_k": 0.9672852589479946,
+              "recall_at_k": 0.8571428571428571,
+              "relevant_count": 7
+            },
+            "reason": null,
+            "unjudged_ids": [],
+            "valid": true
+          }
+        }
+      ],
+      "promotion_ready": false,
+      "record_count": 10,
+      "schema_version": "cp04_query_variants_summary_v3",
+      "verdict": "development_no_go"
+    },
+    "terms_labels_rrf": {
+      "development_candidate_worth_heldout_review": false,
+      "failed_gates": [
+        "candidate_vs_baseline_recall_at_12",
+        "candidate_vs_baseline_ndcg_at_12"
+      ],
+      "gates": {
+        "baseline_duplicate_canonical_ids": true,
+        "baseline_false_exclusions": true,
+        "baseline_hard_constraint_violations": true,
+        "baseline_pack_survival": true,
+        "baseline_valid_ranking_and_status": true,
+        "candidate_duplicate_canonical_ids": true,
+        "candidate_false_exclusions": true,
+        "candidate_hard_constraint_violations": true,
+        "candidate_pack_survival": true,
+        "candidate_valid_ranking_and_status": true,
+        "candidate_vs_baseline_ndcg_at_12": false,
+        "candidate_vs_baseline_recall_at_12": false,
+        "candidate_vs_control_ndcg_at_12": true,
+        "candidate_vs_control_recall_at_12": true,
+        "control_duplicate_canonical_ids": true,
+        "control_false_exclusions": true,
+        "control_hard_constraint_violations": true,
+        "control_pack_survival": true,
+        "control_valid_ranking_and_status": true,
+        "historical_control_equivalence": true,
+        "historical_literal_equivalence": true
+      },
+      "held_out": "not_run; proposed future cases are not sealed",
+      "human_calibration": false,
+      "inference_median_ms": 150.03820000129053,
+      "inference_p95_ms": 352.76819999853615,
+      "macro": {
+        "baseline": {
+          "complete": true,
+          "ndcg_at_12": 0.8745552065363883,
+          "recall_at_12": 0.8048992673992673
+        },
+        "candidate": {
+          "complete": true,
+          "ndcg_at_12": 0.8345634711535685,
+          "recall_at_12": 0.7543498168498168
+        },
+        "control": {
+          "complete": true,
+          "ndcg_at_12": 0.8129045657590117,
+          "recall_at_12": 0.7214926739926739
+        }
+      },
+      "per_case": [
+        {
+          "baseline": {
+            "ranking": {
+              "ndcg_at_k": 0.9190835409556711,
+              "recall_at_k": 0.7692307692307693,
+              "relevant_count": 13
+            },
+            "reason": null,
+            "unjudged_ids": [],
+            "valid": true
+          },
+          "candidate": {
+            "ranking": {
+              "ndcg_at_k": 0.8353461190095817,
+              "recall_at_k": 0.6923076923076923,
+              "relevant_count": 13
+            },
+            "reason": null,
+            "unjudged_ids": [],
+            "valid": true
+          },
+          "case_id": "CP04-V2-D01",
+          "control": {
+            "ranking": {
+              "ndcg_at_k": 0.8215699602351754,
+              "recall_at_k": 0.6923076923076923,
+              "relevant_count": 13
+            },
+            "reason": null,
+            "unjudged_ids": [],
+            "valid": true
+          }
+        },
+        {
+          "baseline": {
+            "ranking": {
+              "ndcg_at_k": 0.8108838084257347,
+              "recall_at_k": 1.0,
+              "relevant_count": 4
+            },
+            "reason": null,
+            "unjudged_ids": [],
+            "valid": true
+          },
+          "candidate": {
+            "ranking": {
+              "ndcg_at_k": 0.9621952593739453,
+              "recall_at_k": 1.0,
+              "relevant_count": 4
+            },
+            "reason": null,
+            "unjudged_ids": [],
+            "valid": true
+          },
+          "case_id": "CP04-V2-D02",
+          "control": {
+            "ranking": {
+              "ndcg_at_k": 0.8108838084257347,
+              "recall_at_k": 1.0,
+              "relevant_count": 4
+            },
+            "reason": null,
+            "unjudged_ids": [],
+            "valid": true
+          }
+        },
+        {
+          "baseline": {
+            "ranking": {
+              "ndcg_at_k": 0.8478444548826087,
+              "recall_at_k": 0.5714285714285714,
+              "relevant_count": 14
+            },
+            "reason": null,
+            "unjudged_ids": [],
+            "valid": true
+          },
+          "candidate": {
+            "ranking": {
+              "ndcg_at_k": 0.6295114263528749,
+              "recall_at_k": 0.5,
+              "relevant_count": 14
+            },
+            "reason": null,
+            "unjudged_ids": [],
+            "valid": true
+          },
+          "case_id": "CP04-V2-D03",
+          "control": {
+            "ranking": {
+              "ndcg_at_k": 0.7204432024989319,
+              "recall_at_k": 0.5,
+              "relevant_count": 14
+            },
+            "reason": null,
+            "unjudged_ids": [],
+            "valid": true
+          }
+        },
+        {
+          "baseline": {
+            "ranking": {
+              "ndcg_at_k": 0.8941459801978876,
+              "recall_at_k": 0.6666666666666666,
+              "relevant_count": 3
+            },
+            "reason": null,
+            "unjudged_ids": [],
+            "valid": true
+          },
+          "candidate": {
+            "ranking": {
+              "ndcg_at_k": 0.8997082865674074,
+              "recall_at_k": 0.6666666666666666,
+              "relevant_count": 3
+            },
+            "reason": null,
+            "unjudged_ids": [],
+            "valid": true
+          },
+          "case_id": "CP04-V2-D04",
+          "control": {
+            "ranking": {
+              "ndcg_at_k": 0.8609101556836468,
+              "recall_at_k": 0.3333333333333333,
+              "relevant_count": 3
+            },
+            "reason": null,
+            "unjudged_ids": [],
+            "valid": true
+          }
+        },
+        {
+          "baseline": {
+            "ranking": {
+              "ndcg_at_k": 0.9631405415421671,
+              "recall_at_k": 1.0,
+              "relevant_count": 4
+            },
+            "reason": null,
+            "unjudged_ids": [],
+            "valid": true
+          },
+          "candidate": {
+            "ranking": {
+              "ndcg_at_k": 0.9696394913947073,
+              "recall_at_k": 1.0,
+              "relevant_count": 4
+            },
+            "reason": null,
+            "unjudged_ids": [],
+            "valid": true
+          },
+          "case_id": "CP04-V2-D05",
+          "control": {
+            "ranking": {
+              "ndcg_at_k": 0.9490863792262451,
+              "recall_at_k": 1.0,
+              "relevant_count": 4
+            },
+            "reason": null,
+            "unjudged_ids": [],
+            "valid": true
+          }
+        },
+        {
+          "baseline": {
+            "ranking": {
+              "ndcg_at_k": 1.0,
+              "recall_at_k": 1.0,
+              "relevant_count": 2
+            },
+            "reason": null,
+            "unjudged_ids": [],
+            "valid": true
+          },
+          "candidate": {
+            "ranking": {
+              "ndcg_at_k": 1.0,
+              "recall_at_k": 1.0,
+              "relevant_count": 2
+            },
+            "reason": null,
+            "unjudged_ids": [],
+            "valid": true
+          },
+          "case_id": "CP04-V2-D06",
+          "control": {
+            "ranking": {
+              "ndcg_at_k": 1.0,
+              "recall_at_k": 1.0,
+              "relevant_count": 2
+            },
+            "reason": null,
+            "unjudged_ids": [],
+            "valid": true
+          }
+        },
+        {
+          "baseline": {
+            "ranking": {
+              "ndcg_at_k": 0.781227389335824,
+              "recall_at_k": 0.875,
+              "relevant_count": 8
+            },
+            "reason": null,
+            "unjudged_ids": [],
+            "valid": true
+          },
+          "candidate": {
+            "ranking": {
+              "ndcg_at_k": 0.6347276533258495,
+              "recall_at_k": 0.875,
+              "relevant_count": 8
+            },
+            "reason": null,
+            "unjudged_ids": [],
+            "valid": true
+          },
+          "case_id": "CP04-V2-D07",
+          "control": {
+            "ranking": {
+              "ndcg_at_k": 0.659179862617231,
+              "recall_at_k": 0.875,
+              "relevant_count": 8
+            },
+            "reason": null,
+            "unjudged_ids": [],
+            "valid": true
+          }
+        },
+        {
+          "baseline": {
+            "ranking": {
+              "ndcg_at_k": 0.6909871873635038,
+              "recall_at_k": 0.5,
+              "relevant_count": 14
+            },
+            "reason": null,
+            "unjudged_ids": [],
+            "valid": true
+          },
+          "candidate": {
+            "ranking": {
+              "ndcg_at_k": 0.5408398295328389,
+              "recall_at_k": 0.2857142857142857,
+              "relevant_count": 14
+            },
+            "reason": null,
+            "unjudged_ids": [],
+            "valid": true
+          },
+          "case_id": "CP04-V2-D08",
+          "control": {
+            "ranking": {
+              "ndcg_at_k": 0.52016890465836,
+              "recall_at_k": 0.35714285714285715,
+              "relevant_count": 14
+            },
+            "reason": null,
+            "unjudged_ids": [],
+            "valid": true
+          }
+        },
+        {
+          "baseline": {
+            "ranking": {
+              "ndcg_at_k": 0.8518827205215341,
+              "recall_at_k": 0.6666666666666666,
+              "relevant_count": 15
+            },
+            "reason": null,
+            "unjudged_ids": [],
+            "valid": true
+          },
+          "candidate": {
+            "ranking": {
+              "ndcg_at_k": 0.9058443097675142,
+              "recall_at_k": 0.6666666666666666,
+              "relevant_count": 15
+            },
+            "reason": null,
+            "unjudged_ids": [],
+            "valid": true
+          },
+          "case_id": "CP04-V2-D09",
+          "control": {
+            "ranking": {
+              "ndcg_at_k": 0.8195181252967975,
+              "recall_at_k": 0.6,
+              "relevant_count": 15
+            },
+            "reason": null,
+            "unjudged_ids": [],
+            "valid": true
+          }
+        },
+        {
+          "baseline": {
+            "ranking": {
+              "ndcg_at_k": 0.9863564421389511,
+              "recall_at_k": 1.0,
+              "relevant_count": 7
+            },
+            "reason": null,
+            "unjudged_ids": [],
+            "valid": true
+          },
+          "candidate": {
+            "ranking": {
+              "ndcg_at_k": 0.9678223362109671,
+              "recall_at_k": 0.8571428571428571,
+              "relevant_count": 7
+            },
+            "reason": null,
+            "unjudged_ids": [],
+            "valid": true
+          },
+          "case_id": "CP04-V2-D10",
+          "control": {
+            "ranking": {
+              "ndcg_at_k": 0.9672852589479946,
+              "recall_at_k": 0.8571428571428571,
+              "relevant_count": 7
+            },
+            "reason": null,
+            "unjudged_ids": [],
+            "valid": true
+          }
+        }
+      ],
+      "promotion_ready": false,
+      "record_count": 10,
+      "schema_version": "cp04_query_variants_summary_v3",
+      "verdict": "development_no_go"
+    }
+  },
+  "declaration_sha256": "3942ba12e46f29e6bb2524b06e4bd5433f2603bc5a850e8859ff3068f7a75b49",
+  "model": "tiny",
+  "promotion_ready": false,
+  "resources": {
+    "capacity_acceptance": false,
+    "method": "separate process per model/settings; complete ten pools; repeats share process; not final capacity acceptance",
+    "peak_working_set_bytes": 205242368,
+    "samples_per_arm": 30,
+    "startup_ms": 1073.0039000045508
+  },
+  "settings": {
+    "arena": false,
+    "batch": 4,
+    "length_buckets": false,
+    "max_length": 512,
+    "memory_pattern": false,
+    "threads": 4
+  }
+}

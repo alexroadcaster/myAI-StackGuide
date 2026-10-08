@@ -1,0 +1,30 @@
+{
+  "checked_at": "2026-10-08T17:44:15.151832+00:00",
+  "command": "work/cp04-flashrank-venv/Scripts/python.exe -B evals/plugin-v1/run_flashrank_development.py --run-development",
+  "declared_source_hashes_unchanged": true,
+  "file_hashes": {
+    "declaration.json": "d5567d3790c562e2e7b65c7d8f9e3923c0a062932b5b6c094e08b6fc0d673a3c",
+    "observations.json": "3d18e300dcf8dd90b8b8c106161869f48c2d590b1a255b7930e3ade0f5ed61bd",
+    "summary.json": "58de5de19238309f6ebfdf79eced043e2ba364685fba8ed35bd0f992f0a267b3",
+    "tokenizer-diagnostic.json": "b9cb23cb2e87cab0072e4055a8682224433605d8532310e4e8ee5c044943d239"
+  },
+  "frozen_v3_observations_unchanged": true,
+  "identity_permutation_and_score_order_checks": 20,
+  "observed_exit_code": 1,
+  "promotion_ready": false,
+  "review_findings": [
+    "Both goal languages fail quality non-regression; not shipped",
+    "Peak working set and measured latency unsuitable for current local limits",
+    "Config/tokenizer vocabulary mismatch needs artifact qualification; causation unproven",
+    "RU goals evaluated on original EN lexical queries; no RU lexical acceptance"
+  ],
+  "review_kind": "explicit_primary_self_review; no independent agent or human calibration",
+  "schema_version": "cp04_flashrank_execution_receipt_v1",
+  "tests": {
+    "existing_coverage": 6,
+    "existing_retrieval_with_workspace_temp": 18,
+    "new_adapter": 10,
+    "pip_check": "passed"
+  },
+  "verdict": "development_no_go"
+}

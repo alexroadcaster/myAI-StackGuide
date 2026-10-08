@@ -1,0 +1,48 @@
+{
+  "complete_permutations_checked": 260,
+  "current_declared_source_checks": 67,
+  "historical_configured_source_checks": 26,
+  "model_receipts_verified": [
+    "tiny",
+    "mini"
+  ],
+  "outputs": {
+    "declaration.json": "bceba1c33f1cb4873772fdea2d3d9487424382ac3d663fcecb0651da53c015a6",
+    "enriched-kotlin-rerank/declaration.json": "663046da9b53625a8ffc0a1442344a91e501f8445ff0d094eb02fd824cac1277",
+    "enriched-kotlin-rerank/observations.json": "9ee8a28017e007d6cef1b2d6955455f03bd8ed750a312eab0b128f193abfaa40",
+    "mini/observations.json": "ec2235354c0b7d660b4033dbe79dbd834c15498bd54674e29b16bd0e7159f1db",
+    "mini/summary.json": "1d65f703c2de5493a439265a944bcbe759182f6574921ff0e1f3b9d78f29f0e6",
+    "model-graph-diagnostic.json": "4d18ffe2e31c79323fc3546c4b4db87c87f8c34e430f40acee106d34b3246845",
+    "source-coverage-v2/declaration.json": "6aac4de1013c2fd3f90a58bad900319c7d2387aa396400ddb76b1ea98428291d",
+    "source-coverage-v2/observations.json": "2f6444da5920017cc8cb8e2a80e570f38d5c6cf9004121d60058ab901c5789c0",
+    "source-coverage-v2/summary.json": "4bb8719879c1e00322e3c00e5b7b534f200d88fced276a7467a53c456ffddc0e",
+    "source-coverage/declaration.json": "3e4d96c2c21248d91462df466307144848cdd2baeb16f98dc3aec41865e8c66c",
+    "source-coverage/setup-failure.json": "fb1083b1bddf775bef01737bd6bb64b2d4d87936cbc942948e085df68cc1687c",
+    "tiny-b4-t2-buckets0/observations.json": "a79c71f3bf83eea9901b23e2d28b958f0664ee521a343baacb24194aed56ce6d",
+    "tiny-b4-t2-buckets0/summary.json": "652007f67939b932dd8fb7ed201629fbb22e761f6688d91eb091e701f372c0e7",
+    "tiny-b4-t4-buckets0/observations.json": "8b795673ad2d84f5bdd7383253c7dadbf595a4ee23bed68b9cb1602ae4040671",
+    "tiny-b4-t4-buckets0/summary.json": "adccb254691d16e015172f69006abf22d1d173e908f7ad397962aa778abc448c",
+    "tiny-b8-t2-buckets0/observations.json": "597bca2c5bb365fefc95e33b9147cb781a4841e3f363f2d602e2e391bf5c2d9f",
+    "tiny-b8-t2-buckets0/summary.json": "6193afdfee9fff4e53a9cdda98a5523564cf75b88b0441e72b4164d6e2b588e2",
+    "tiny-b8-t4-buckets0/observations.json": "8187d773bc59a568eaabd52fd2060bccc15ac8a0775f8874fd986459074f5a9f",
+    "tiny-b8-t4-buckets0/summary.json": "fd15c001b150ce4725a7ce820a8cf5ce156fb6114f8ca8b10cb6a128a6c28121",
+    "tiny-b8-t4-buckets1/observations.json": "c8cada09d39ba14c47e4b28b07a961b9630bb42f5a21b4c156eaccb2ca3b6846",
+    "tiny-b8-t4-buckets1/summary.json": "19a3ac7e93f591bb3db591be7e4c722df581bd4ec830f289751fc91e62e1d5ba",
+    "tiny/observations.json": "55295560a8ca0ee030802c6d92075255b7525854bdcc2442f4d9b8ab59a2e465",
+    "tiny/summary.json": "1807cdf35820df65f13234de246f51f9c0a8891ce8fe603f9c31a77b9423c400"
+  },
+  "promotion_ready": false,
+  "python_ast_files": [
+    "evals/plugin-v1/run_flashrank_comparison.py",
+    "evals/plugin-v1/run_source_coverage_comparison.py",
+    "evals/plugin-v1/run_source_enriched_rerank.py",
+    "tests/test_plugin_flashrank_comparison.py",
+    "tests/test_plugin_source_coverage_comparison.py"
+  ],
+  "status": "verified_experimental_not_promoted",
+  "tests": {
+    "enrichment": 2,
+    "flashrank": 17,
+    "skips": 0
+  }
+}

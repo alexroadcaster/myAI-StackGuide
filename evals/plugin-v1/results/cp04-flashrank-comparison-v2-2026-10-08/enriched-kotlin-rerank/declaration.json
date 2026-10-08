@@ -1,0 +1,42 @@
+{
+  "goal": "Develop a Kotlin web service with a backend framework, preferring asynchronous APIs.",
+  "method": "TinyBERT EN goal/plain projection on original versus source-enriched pools/cards; equal RRF diagnostic; exact permutations",
+  "metrics": "supported-positive coverage only; unknowns retained; no macro or promotion",
+  "model": {
+    "archive_sha256": "752eddf1c5ece3c5e6115e9ab52eb3b16436bbf9b3a091cbb62b5b8eadc47105",
+    "files": {
+      "config.json": "2144195e107cd7ea61556478e7add12986ebfbc3085f924fc0b90c2410604879",
+      "flashrank-TinyBERT-L-2-v2.onnx": "a2b09fb0de692c052a55f4165c9461377b4a31115673b7adb428503d69109196",
+      "special_tokens_map.json": "303df45a03609e4ead04bc3dc1536d0ab19b5358db685b6f3da123d05ec200e3",
+      "tokenizer.json": "ce64fce797c24f68df90b40a3f74f579b336a493db14bd583fd520ea0d8c9a98",
+      "tokenizer_config.json": "eaf913a687e8eed3010b6479d0d84631038212aa50c14d9b812e08cbc891d925"
+    },
+    "license_scope": "model repository metadata; not adoption approval",
+    "model": "ms-marco-TinyBERT-L-2-v2",
+    "revision": "858a1ac046a05663a35367eac852d7f76feeefdd",
+    "source_url": "https://huggingface.co/prithivida/flashrank/resolve/858a1ac046a05663a35367eac852d7f76feeefdd/ms-marco-TinyBERT-L-2-v2.zip",
+    "upstream_license": "cc-by-sa-4.0"
+  },
+  "promotion_ready": false,
+  "rrf_k": 60,
+  "schema_version": "cp04_enriched_composition_v1",
+  "settings": {
+    "arena": false,
+    "batch": 8,
+    "max_length": 512,
+    "memory_pattern": false,
+    "threads": 4
+  },
+  "sources": {
+    "evals/plugin-v1/quality-oracle-v3-source.json": "7a3d4423a0999cdd8d71280ecf37362c6440ea93a19be0564786b8d7b785b9fa",
+    "evals/plugin-v1/results/cp04-flashrank-comparison-v2-2026-10-08/source-coverage-v2/declaration.json": "6aac4de1013c2fd3f90a58bad900319c7d2387aa396400ddb76b1ea98428291d",
+    "evals/plugin-v1/results/cp04-flashrank-comparison-v2-2026-10-08/source-coverage-v2/observations.json": "2f6444da5920017cc8cb8e2a80e570f38d5c6cf9004121d60058ab901c5789c0",
+    "evals/plugin-v1/run_flashrank_comparison.py": "0acc6e51f3f20b209cb5d55f384e73940917b4bf771a69073c2fcc29fc38e5e2",
+    "evals/plugin-v1/run_flashrank_configured.py": "62d9642717b43f632c9a8e0998a95adf0c338398ca3aa8f10f5d3655d703ef76",
+    "evals/plugin-v1/run_flashrank_development.py": "6b1c59ef35689559e9162379b4e09957a34ec69a94cc968850d879a786308be5",
+    "evals/plugin-v1/run_source_coverage_comparison.py": "149afe3b512273b9ed1ba916a2b769c8174d01c9191d54aa3bd0f2ac5883ccb1",
+    "evals/plugin-v1/run_source_enriched_rerank.py": "d355e009b796b2b90d6a9ee272d63f1a0cf5a6a28d36c3961b0273063fc27c0c",
+    "plugins/myai-stackguide/assets/catalog.snapshot.json": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+    "research/cp04-search-capability-enrichment-2026-10-08.json": "74bc1591511117b134a81e3b8a037933fd1497250e02168ec2fd7a126f14e073"
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "schema_version": "cp04_development_capability_facts_v1",
+  "status": "source_qualified_experimental_not_catalog_promoted",
+  "observed_on": "2026-10-08",
+  "selection_basis": "Qualified Kotlin backend alternatives across the exposed backend regression; not independent held-out data or full-catalog enrichment",
+  "facts": [
+    {
+      "github_repository_id": 1148753,
+      "full_name": "spring-projects/spring-framework",
+      "capability": "Kotlin application support. Kotlin coroutines are supported in Spring MVC and WebFlux controllers and WebFlux functional server APIs.",
+      "source_url": "https://docs.spring.io/spring-framework/reference/languages/kotlin/coroutines.html",
+      "additional_source_url": "https://docs.spring.io/spring-framework/reference/languages/kotlin.html",
+      "observed_on": "2026-10-08",
+      "scope": "Spring Framework MVC/WebFlux; coroutine dependencies are required",
+      "limitations": "Does not establish compatibility with a particular project version, deployment or integration readiness"
+    },
+    {
+      "github_repository_id": 6296790,
+      "full_name": "spring-projects/spring-boot",
+      "capability": "Kotlin application support through Spring Framework and related Spring projects, with project generation and Kotlin dependency management.",
+      "source_url": "https://github.com/spring-projects/spring-boot/blob/main/documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/features/kotlin.adoc",
+      "observed_on": "2026-10-08",
+      "scope": "Spring Boot and its Spring project dependencies; Kotlin libraries/compiler configuration required",
+      "limitations": "Does not imply every Spring module is installed or every project version is compatible"
+    },
+    {
+      "github_repository_id": 139914932,
+      "full_name": "quarkusio/quarkus",
+      "capability": "Kotlin REST service development using the Quarkus Kotlin and REST extensions.",
+      "source_url": "https://quarkus.io/guides/kotlin/",
+      "observed_on": "2026-10-08",
+      "scope": "quarkus-kotlin plus Quarkus REST extensions, with Kotlin compiler configuration",
+      "limitations": "Extension support is not proof of compatibility with a user's selected extension versions"
+    },
+    {
+      "github_repository_id": 124230204,
+      "full_name": "micronaut-projects/micronaut-core",
+      "capability": "Kotlin JVM application support, HTTP server applications and HTTP routing.",
+      "source_url": "https://github.com/micronaut-projects/micronaut-core",
+      "observed_on": "2026-10-08",
+      "scope": "Micronaut framework; selected HTTP server/runtime components must be configured",
+      "limitations": "No claim of measured startup, memory, coroutine coverage or project-specific integration readiness"
+    },
+    {
+      "github_repository_id": 40136600,
+      "full_name": "ktorio/ktor",
+      "capability": "Kotlin coroutine-based asynchronous client and server application development.",
+      "source_url": "https://ktor.io/",
+      "observed_on": "2026-10-08",
+      "scope": "Ktor client/server libraries; selected server engine and plugins must be configured",
+      "limitations": "Does not establish complete application features or compatibility of selected plugins"
+    }
+  ]
+}

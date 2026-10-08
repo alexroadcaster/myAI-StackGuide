@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Source-qualified public capability candidate input",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "status",
+    "selection_basis",
+    "facts"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "status": {
+      "const": "candidate_not_promoted"
+    },
+    "selection_basis": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 600
+    },
+    "facts": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 100,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "github_repository_id",
+          "full_name",
+          "capability",
+          "source_url",
+          "observed_on",
+          "scope",
+          "limitations"
+        ],
+        "properties": {
+          "github_repository_id": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "full_name": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$"
+          },
+          "capability": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 600
+          },
+          "scope": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 600
+          },
+          "limitations": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 600
+          },
+          "source_url": {
+            "type": "string",
+            "maxLength": 500,
+            "pattern": "^https://github\\.com/[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+(?:/blob/[^\\s?#]+)?$"
+          },
+          "observed_on": {
+            "type": "string",
+            "format": "date"
+          }
+        }
+      }
+    }
+  }
+}

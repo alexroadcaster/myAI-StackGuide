@@ -1,0 +1,257 @@
+{
+  "cases": [
+    {
+      "compact": "browser; testing; automation; Chromium; WebKit; Firefox",
+      "en": "Compare tools for cross-engine browser regression testing across Chromium, Firefox and WebKit.",
+      "id": "CP04-V2-D01",
+      "ru": "Сравнить инструменты регрессионного тестирования браузеров Chromium, Firefox и WebKit.",
+      "sha256": "f1a0a8aef1d7f9860e00dd5fcd8596fa91d29f70852ce803c67ad7ef8147bb05"
+    },
+    {
+      "compact": "React Native; mobile; integration; testing; verification",
+      "en": "Verify a React Native mobile application with integration tests or a mobile automation API.",
+      "id": "CP04-V2-D02",
+      "ru": "Проверить приложение React Native интеграционными тестами или API автоматизации мобильных приложений.",
+      "sha256": "cb4d577a0bd4e3a56ce8db33737558e332c4fdb7ffb88278f1eec7a459057a80"
+    },
+    {
+      "compact": "React; UI; component; components; library; libraries",
+      "en": "Compare reusable React UI component collections for a web application; do not confuse icons or tooling with components.",
+      "id": "CP04-V2-D03",
+      "ru": "Выбрать коллекцию готовых компонентов React для веб-приложения; отличать компоненты от иконок и инструментов разработки.",
+      "sha256": "f5a2c2cd81199672457babe556c47a57a4f425b3ea44c3c0e9ff108a7e450472"
+    },
+    {
+      "compact": "component; components; isolation; isolated; documenting; testing",
+      "en": "Introduce a workflow for building, documenting and testing UI components in isolation.",
+      "id": "CP04-V2-D04",
+      "ru": "Внедрить разработку, документирование и тестирование UI-компонентов в изоляции.",
+      "sha256": "676bb25a0ace4be10ad15380b980dc5e62c0b18213988b5658c24a973d018019"
+    },
+    {
+      "compact": "Go; HTTP; router; routing; web; framework; frameworks",
+      "en": "Modernize a Go HTTP API with a reusable web framework or composable router.",
+      "id": "CP04-V2-D05",
+      "ru": "Модернизировать HTTP API на Go с помощью веб-фреймворка или модульного маршрутизатора.",
+      "sha256": "675a83cae8865b8926cb36a0ba3303dbaf75dc35e9faf871286dd8a46f55d3eb"
+    },
+    {
+      "compact": ".NET; dotnet; ASP.NET; web; framework; enterprise",
+      "en": "Compare .NET web application frameworks including opinionated enterprise scaffolding.",
+      "id": "CP04-V2-D06",
+      "ru": "Сравнить веб-фреймворки .NET, включая готовый каркас корпоративного приложения.",
+      "sha256": "502370bc8df20b00804a6d6e610c84352607ea977c18655f480981495a76f50f"
+    },
+    {
+      "compact": "resumable; upload; uploads; protocol; chunk; chunked",
+      "en": "Recover interrupted large-file uploads using a resumable transfer protocol, not a general file manager.",
+      "id": "CP04-V2-D07",
+      "ru": "Возобновлять прерванную загрузку больших файлов с помощью протокола передачи, а не файлового менеджера.",
+      "sha256": "e88bfab19c1bdf85a6261e3cc8bee1f628f40575102bff0f542cd205a75d7633"
+    },
+    {
+      "compact": "browser; JavaScript; uploader; upload; uploading; React",
+      "en": "Add a browser JavaScript upload widget with a React integration where possible.",
+      "id": "CP04-V2-D08",
+      "ru": "Добавить браузерный JavaScript-компонент загрузки файлов, желательно с интеграцией React.",
+      "sha256": "4cc793fc75fee45141abc2a28068ee6a7c7235792301228d7c1c217b09d721df"
+    },
+    {
+      "compact": "Exif; metadata; image; images; audio; video; tags",
+      "en": "Extract EXIF and media tags from local image/audio/video files; avoid data-warehouse catalog platforms.",
+      "id": "CP04-V2-D09",
+      "ru": "Извлекать EXIF и медиатеги локальных изображений, аудио и видео; исключить каталоги хранилищ аналитических данных.",
+      "sha256": "2805660f4a3ffab40bd842447227cda6f8fb63ded621c965ca81ecc1342dc07d"
+    },
+    {
+      "compact": "portfolio; portfolios; optimization; optimisation; allocation; risk",
+      "en": "Evaluate portfolio optimization libraries for quantitative research, distinguishing budgeting and live broker execution.",
+      "id": "CP04-V2-D10",
+      "ru": "Выбрать библиотеку оптимизации инвестиционного портфеля для количественных исследований; отличать бюджетирование и подключение к брокеру.",
+      "sha256": "878476f1da8913e058556af1817b478eed4c358d5f340e10c9953a30cd7fd139"
+    }
+  ],
+  "held_out": "not_run; exposed development only",
+  "inputs": [
+    "goal_plain",
+    "terms_plain",
+    "terms_labels",
+    "ru_goal_plain"
+  ],
+  "method": "same frozen EN lexical pools; goal/terms/public labels; pure and equal RRF; direct RU diagnostic; no translation execution",
+  "model_receipts": {
+    "mini": {
+      "archive_sha256": "bdd3772b651ffc34f70e414049285bb55ccc6d1b8e29d0640f836d44f70ec77a",
+      "files": {
+        "config.json": "2144195e107cd7ea61556478e7add12986ebfbc3085f924fc0b90c2410604879",
+        "flashrank-MiniLM-L-12-v2_Q.onnx": "d3dd7b09fcf06b0c070081d6819b5effbb40b667bcad78b2d7543400271141d1",
+        "special_tokens_map.json": "303df45a03609e4ead04bc3dc1536d0ab19b5358db685b6f3da123d05ec200e3",
+        "tokenizer.json": "ce64fce797c24f68df90b40a3f74f579b336a493db14bd583fd520ea0d8c9a98",
+        "tokenizer_config.json": "eaf913a687e8eed3010b6479d0d84631038212aa50c14d9b812e08cbc891d925"
+      },
+      "license_scope": "model repository metadata; not adoption approval",
+      "model": "ms-marco-MiniLM-L-12-v2",
+      "revision": "858a1ac046a05663a35367eac852d7f76feeefdd",
+      "source_url": "https://huggingface.co/prithivida/flashrank/resolve/858a1ac046a05663a35367eac852d7f76feeefdd/ms-marco-MiniLM-L-12-v2.zip",
+      "upstream_license": "cc-by-sa-4.0"
+    },
+    "tiny": {
+      "archive_sha256": "752eddf1c5ece3c5e6115e9ab52eb3b16436bbf9b3a091cbb62b5b8eadc47105",
+      "files": {
+        "config.json": "2144195e107cd7ea61556478e7add12986ebfbc3085f924fc0b90c2410604879",
+        "flashrank-TinyBERT-L-2-v2.onnx": "a2b09fb0de692c052a55f4165c9461377b4a31115673b7adb428503d69109196",
+        "special_tokens_map.json": "303df45a03609e4ead04bc3dc1536d0ab19b5358db685b6f3da123d05ec200e3",
+        "tokenizer.json": "ce64fce797c24f68df90b40a3f74f579b336a493db14bd583fd520ea0d8c9a98",
+        "tokenizer_config.json": "eaf913a687e8eed3010b6479d0d84631038212aa50c14d9b812e08cbc891d925"
+      },
+      "license_scope": "model repository metadata; not adoption approval",
+      "model": "ms-marco-TinyBERT-L-2-v2",
+      "revision": "858a1ac046a05663a35367eac852d7f76feeefdd",
+      "source_url": "https://huggingface.co/prithivida/flashrank/resolve/858a1ac046a05663a35367eac852d7f76feeefdd/ms-marco-TinyBERT-L-2-v2.zip",
+      "upstream_license": "cc-by-sa-4.0"
+    }
+  },
+  "packages": {
+    "FlashRank": "0.2.10",
+    "PyYAML": "6.0.3",
+    "anyio": "4.15.1",
+    "attrs": "26.1.0",
+    "certifi": "2026.7.22",
+    "charset-normalizer": "3.5.2",
+    "click": "8.5.0",
+    "colorama": "0.4.6",
+    "filelock": "4.0.12",
+    "flatbuffers": "25.12.19",
+    "fsspec": "2026.9.0",
+    "h11": "0.16.0",
+    "httpcore": "1.0.9",
+    "httpx": "0.28.1",
+    "huggingface_hub": "1.33.0",
+    "idna": "3.20",
+    "jsonschema": "4.26.0",
+    "jsonschema-specifications": "2025.9.1",
+    "ml_dtypes": "0.6.0",
+    "numpy": "2.5.3",
+    "onnx": "1.20.1",
+    "onnxruntime": "1.30.0",
+    "packaging": "26.3",
+    "pip": "25.1.1",
+    "protobuf": "7.36.2",
+    "psutil": "7.2.2",
+    "referencing": "0.37.0",
+    "requests": "2.34.2",
+    "rpds-py": "2026.9.1",
+    "tokenizers": "0.23.2",
+    "tqdm": "4.70.1",
+    "typing_extensions": "4.16.0",
+    "urllib3": "2.8.0"
+  },
+  "performance": {
+    "grid": [
+      [
+        4,
+        2,
+        false
+      ],
+      [
+        8,
+        2,
+        false
+      ],
+      [
+        4,
+        4,
+        false
+      ],
+      [
+        8,
+        4,
+        false
+      ],
+      [
+        8,
+        4,
+        true
+      ]
+    ],
+    "input": "terms_labels",
+    "model": "tiny",
+    "repeats": 3
+  },
+  "pins": {
+    "activity_schema_version": "2.0.0",
+    "card_schema_version": "2.0.0",
+    "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+    "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+    "corpus_kind": "catalog_snapshot",
+    "index_format_version": 3,
+    "index_sha256": "9678f5e265e4e3a33df3818f94c509c60728e994051ee72ec2050b0b093306c4",
+    "policy_sha256": "ff6e8444c4664492bb099f0819b2d284aa5c28f0d44c7a745c63f434c3489dbf",
+    "retrieval_policy_version": "2.1.0",
+    "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+    "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+  },
+  "promotion_ready": false,
+  "rrf_k": 60,
+  "schema_version": "cp04_ready_comparison_v1",
+  "settings": {
+    "arena": false,
+    "batch": 8,
+    "max_length": 512,
+    "memory_pattern": false,
+    "threads": 4
+  },
+  "sources": {
+    "evals/plugin-v1/evaluate_retrieval.py": "f9fafc3cb449f73fdbf5f568f126e2ca06577f1aadc733241fd1275a6d4d2c48",
+    "evals/plugin-v1/flashrank-comparison-contract.md": "4c086a384625248544cc06c870e7d9fb3b54293d0a93e41a996fcd3606be231d",
+    "evals/plugin-v1/quality-judgments-v2.json": "0835113d073a681b69f91970629e03b9c29d334e4a1fc9e430db1d71ce281496",
+    "evals/plugin-v1/quality-plan-v2.json": "f8e2ee678a582a7136b3664b62766dc5b4d58d8c3609c702f9622e3134597ad5",
+    "evals/plugin-v1/quality-plan.json": "cb2765fda7c90693212bb96041ea21c5eb4743607002cb3c89f0dfdb2ef695e3",
+    "evals/plugin-v1/query-variants-v3-contract.md": "29a6e35f46ef056d32c82e0b92045260fa786353c5f8b62c90fc3fc9555ec897",
+    "evals/plugin-v1/results/cp04-flashrank-2026-10-08/configured/observations.json": "b131a4f33f0ca5dd5ea513330d009773d984c05c5f148349724d70140130ff01",
+    "evals/plugin-v1/results/cp04-flashrank-2026-10-08/configured/summary.json": "9ec17a19ea6eb161d860833e2a24e1640101d64bb5d151c77bfaa7484e89a04d",
+    "evals/plugin-v1/results/cp04-v2-2026-10-08/development-observations.json": "c8f014de13425f6c783443f1f4ec298c3496f40b8079c06800f7328c99c15ee3",
+    "evals/plugin-v1/results/cp04-v2-2026-10-08/held_out-observations.json": "75e9e8e2346b3c57599fc12836ac917cd1eaa85e6bfa42c1771df4b2263114e7",
+    "evals/plugin-v1/run_flashrank_comparison.py": "1412738d6483d6bc17584f84e6236f40b163c1dfcbbd52e9fa219f88bafdf2dd",
+    "evals/plugin-v1/run_flashrank_configured.py": "62d9642717b43f632c9a8e0998a95adf0c338398ca3aa8f10f5d3655d703ef76",
+    "evals/plugin-v1/run_flashrank_development.py": "6b1c59ef35689559e9162379b4e09957a34ec69a94cc968850d879a786308be5",
+    "evals/plugin-v1/run_quality.py": "e6ba2970a955319f5cc6d5c06b554d911263ed7f00bbe8bd17347aad8e80a321",
+    "evals/plugin-v1/run_quality_v2.py": "fb4e6399caa40c4e57a5006a78ee39bd064dab0d1d40880cb35c15b6b1d6813a",
+    "evals/plugin-v1/run_query_variants_v3.py": "1cd98727dbff593dfa33d1f38434bd526ae64cb68d3c996062c898d59ac82349",
+    "plugins/myai-stackguide/assets/catalog.search-manifest.json": "1d090b0e2e56f4c7cd38276d0d8b08be2436e0c75b77649cf00d32c13cb9497f",
+    "plugins/myai-stackguide/assets/catalog.search.sqlite": "9678f5e265e4e3a33df3818f94c509c60728e994051ee72ec2050b0b093306c4",
+    "plugins/myai-stackguide/assets/catalog.snapshot.json": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+    "plugins/myai-stackguide/assets/retrieval-policy.json": "ff6e8444c4664492bb099f0819b2d284aa5c28f0d44c7a745c63f434c3489dbf",
+    "plugins/myai-stackguide/scripts/context_pack.py": "688f7abd3721d0ac515ce1eb3f04714cd7f397dfbb65bf3345ac5b13d15803e2",
+    "plugins/myai-stackguide/scripts/matcher.py": "c560158f15390f662e55eac39e9ffc31fd983a9af8c5086a234fbec0280933c2",
+    "plugins/myai-stackguide/scripts/retrieval.py": "dccc5c5a1fb980f5d407a4acadf5a054d04d9efa69cc32e7d27fedce85c3ba2b",
+    "specs/catalog/taxonomy.yaml": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f",
+    "specs/retrieval/retrieval-policy.json": "ff6e8444c4664492bb099f0819b2d284aa5c28f0d44c7a745c63f434c3489dbf",
+    "tests/test_plugin_flashrank_comparison.py": "792148e5e8c21128093ceecc8c7ed95b411f26aecaa7f9c19676aa59768bfa81",
+    "tests/test_plugin_query_variants_v3.py": "e9b17c3b52b0605023fc80698a77e5b38386400de877aca9420a96709036b67a"
+  },
+  "thresholds": {
+    "actual_cold_p95_ms_max": 250,
+    "actual_warm_p95_ms_max": 100,
+    "alias_success_rate_min": 1.0,
+    "candidate_not_worse_than_baseline_ndcg_delta_min": 0.0,
+    "candidate_not_worse_than_baseline_recall_delta_min": 0.0,
+    "container_route_coverage_min": 14,
+    "duplicate_canonical_ids_max": 0,
+    "evidence_pack_survival_rate_min": 0.9,
+    "false_exclusions_max": 0,
+    "hard_constraint_violations_max": 0,
+    "held_out_macro_ndcg_at_12_min": 0.65,
+    "held_out_macro_recall_at_12_min": 0.75,
+    "human_critical_dimension_min": 1,
+    "human_critical_failures_max": 0,
+    "human_total_min": 16,
+    "index_bytes_max": 67108864,
+    "leaf_route_coverage_min": 111,
+    "peak_memory_bytes_max": 268435456,
+    "required_stratum_ndcg_at_12_min": 0.5,
+    "required_stratum_recall_at_12_min": 0.6,
+    "synthetic_cold_p95_ms_max": 500,
+    "synthetic_warm_p95_ms_max": 200
+  }
+}
