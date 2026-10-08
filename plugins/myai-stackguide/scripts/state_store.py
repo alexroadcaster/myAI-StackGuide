@@ -259,7 +259,11 @@ def validate_state(state: Any, *, writable: bool = False) -> dict[str, Any]:
     answers = intake.get("answers")
     if not isinstance(questions, list) or not isinstance(answers, list) or len(questions) > 10 or len(answers) > 10:
         raise StateError("state_invalid")
-    if intake.get("questions_asked") != len(questions):
+    legacy_ledger = version == "1.0.0" and "questions" not in intake
+    asked = intake.get("questions_asked")
+    if not isinstance(asked, int) or isinstance(asked, bool) or not 0 <= asked <= 10:
+        raise StateError("state_invalid")
+    if not legacy_ledger and asked != len(questions):
         raise StateError("state_invalid")
     if [item.get("ordinal") for item in questions if isinstance(item, dict)] != list(range(1, len(questions) + 1)):
         raise StateError("state_invalid")
@@ -268,6 +272,7 @@ def validate_state(state: Any, *, writable: bool = False) -> dict[str, Any]:
         raise StateError("state_invalid")
     answer_questions: set[str] = set()
     answer_ids: set[str] = set()
+    legacy_ordinals: set[int] = set()
     for answer in answers:
         if not isinstance(answer, dict) or answer.get("run_id") != state["run_id"]:
             raise StateError("state_invalid")
@@ -309,31 +314,47 @@ def validate_state(state: Any, *, writable: bool = False) -> dict[str, Any]:
             if (answer_revision == 1 and marker is not None) or (answer_revision >= 2 and not valid_marker):
                 raise StateError("state_invalid")
         question_id = answer.get("question_id")
-        if question_id not in ledger or ledger[question_id].get("ordinal") != answer.get("ordinal"):
+        if legacy_ledger:
+            # Retained v1 has no question-text ledger or completion_reason.
+            # Validate its recorded IDs/ordinals without inventing questions;
+            # writable=True already rejects this branch above.
+            ordinal = answer.get("ordinal")
+            if (not isinstance(question_id, str) or not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9._:-]{0,127}", question_id)
+                    or not isinstance(ordinal, int) or isinstance(ordinal, bool) or not 1 <= ordinal <= asked
+                    or ordinal in legacy_ordinals):
+                raise StateError("state_invalid")
+            legacy_ordinals.add(ordinal)
+        elif question_id not in ledger or ledger[question_id].get("ordinal") != answer.get("ordinal"):
             raise StateError("state_invalid")
         if question_id in answer_questions or answer.get("answer_id") in answer_ids:
             raise StateError("state_invalid")
         answer_questions.add(question_id)
         answer_ids.add(answer.get("answer_id"))
     pending = intake.get("pending_question_id")
-    if pending is not None and (pending not in ledger or pending in answer_questions):
+    if legacy_ledger and (len(answers) > asked or (pending is not None and (
+            not isinstance(pending, str) or not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9._:-]{0,127}", pending)))):
         raise StateError("state_invalid")
-    if set(ledger) != answer_questions | ({pending} if pending is not None else set()):
+    if pending is not None and ((not legacy_ledger and pending not in ledger) or pending in answer_questions):
+        raise StateError("state_invalid")
+    if not legacy_ledger and set(ledger) != answer_questions | ({pending} if pending is not None else set()):
         raise StateError("state_invalid")
     intake_status = intake.get("status")
     expected_action = {
         "asking": "answer_question",
         "cancelled": "resume_or_finalize",
     }.get(intake_status)
+    legacy_empty = legacy_ledger and asked == 0 and not answers and pending is None
+    if intake_status == "asking" and legacy_empty:
+        expected_action = "clarification_required"
     if expected_action and intake.get("next_action") != expected_action:
         raise StateError("state_invalid")
-    if intake_status == "asking" and pending is None:
+    if intake_status == "asking" and pending is None and not legacy_empty:
         raise StateError("state_invalid")
     if intake_status in ("ready", "cancelled") and pending is not None:
         raise StateError("state_invalid")
     if intake_status == "ready" and (
         not any(answer.get("status") == "answered" for answer in answers)
-        or not intake.get("completion_reason")
+        or (not legacy_ledger and not intake.get("completion_reason"))
     ):
         raise StateError("state_invalid")
     status, phase = state.get("status"), state.get("phase")
@@ -631,10 +652,19 @@ def published_receipt(root: Path) -> dict[str, Any] | None:
     }
 
 
-def render_fixture(state: dict[str, Any]) -> bytes:
+def render_fixture(state: dict[str, Any], *, history_runs: dict[str, Any] | None = None) -> bytes:
     """CP-10 renderer adapter; retain the CP-07 receipt and failure-injection seam."""
 
     validate_state(state)
+    if history_runs is not None:
+        ledger = {entry["run_id"]: entry for entry in state["history"]}
+        if not isinstance(history_runs, dict) or not set(history_runs) <= set(ledger):
+            raise StateError("render_failed")
+        for run_id, historical in history_runs.items():
+            validate_state(historical)
+            if (historical["run_id"] != run_id or historical["revision"] != ledger[run_id]["final_revision"]
+                    or historical["status"] != ledger[run_id]["status"]):
+                raise StateError("render_failed")
     presentation = state.get("presentation") or {}
     metadata = {
         "owner": HTML_OWNER,
@@ -652,7 +682,7 @@ def render_fixture(state: dict[str, Any]) -> bytes:
             raise ValueError("renderer unavailable")
         renderer = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(renderer)
-        body = renderer.render_report(state)
+        body = renderer.render_report(state, history_runs=history_runs)
     except (OSError, ImportError, ValueError) as error:
         raise StateError("render_failed") from error
     data = marker + b"\n" + body
@@ -666,7 +696,31 @@ def publish(project_root: Path, captured: dict[str, Any]) -> dict[str, Any]:
 
     captured_stamp = state_stamp(captured)
     try:
-        rendered = render_fixture(captured)
+        validate_state(captured)
+        if captured.get("history"):
+            # Read only ledger-selected immutable files under the existing root
+            # and byte/entry caps. Missing detail is explicit; corrupt detail
+            # fails publication rather than masquerading as a valid summary.
+            root = output_root(project_root, create=False)
+            _inventory(root)
+            runs = root / "runs"
+            history_runs = {}
+            if runs.exists():
+                _ensure_plain_directory(runs, create=False)
+                for entry in captured["history"]:
+                    path = runs / f"{entry['run_id']}.json"
+                    if not path.exists():
+                        continue
+                    historical = strict_json_bytes(_validate_regular_file(path, max_bytes=MAX_STATE_BYTES))
+                    validate_state(historical)
+                    if (historical["run_id"] != entry["run_id"]
+                            or historical["revision"] != entry["final_revision"]
+                            or historical["status"] != entry["status"]):
+                        raise StateError("history_integrity")
+                    history_runs[entry["run_id"]] = historical
+            rendered = render_fixture(captured, history_runs=history_runs)
+        else:
+            rendered = render_fixture(captured)
     except StateError:
         root = output_root(project_root, create=False)
         previous = published_receipt(root)

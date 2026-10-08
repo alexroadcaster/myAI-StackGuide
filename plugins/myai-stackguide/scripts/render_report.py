@@ -1,6 +1,6 @@
 """Pure CP-10 HTML projection; CP-07 alone owns filesystem publication.
 
-Checkpoint C projects seven source-bound views. No raw state JSON is embedded.
+All eight views project saved sources. No raw state JSON is embedded.
 """
 
 from __future__ import annotations
@@ -56,6 +56,15 @@ UI_KEYS = frozenset(VIEWS) | {
     "stop_conditions", "execution_authority", "permission_changes", "affected_components",
     "no_matrix_cell", "source_not_execution", "pack_status", "reason_codes",
     "blocked_candidate", "reference_candidate", "unassigned_card", "source_snapshot_date", "built_at",
+    "current_run", "run_id", "content_revision", "render_revision", "prior_publication",
+    "artifact_ledger", "current_artifact", "rendered_artifact", "immutable_artifact",
+    "finalized_runs", "no_history", "history_detail_unavailable", "predecessor",
+    "final_revision", "history_original", "history_request", "provenance_replay",
+    "schema_version", "replay_note", "recovery", "recovery_snapshot", "recovery_request",
+    "storage_privacy", "state_bytes", "state_limit", "html_limit", "root_usage_unknown",
+    "privacy_note", "presentation_revision", "source_content_revision", "default_locale",
+    "translation_coverage", "legacy_notice", "saved_corrections", "history_immutable",
+    "copy_action", "copy_done", "copy_manual", "copy_hint",
 }
 
 
@@ -140,6 +149,11 @@ class ViewContent:
 
     def items(self, values: list[str], empty: str = "unknown") -> str:
         return '<ul class="item-list">' + ''.join(f'<li>{item}</li>' for item in values) + '</ul>' if values else self.t(empty)
+
+    def copy_action(self, target: str) -> str:
+        return (f'<button type="button" class="copy-button" hidden data-copy-target="{target}" '
+                f'data-copy-feedback="{target}-feedback">{self.t("copy_action")}</button>'
+                f'<p id="{target}-feedback" role="status" aria-live="polite">{self.t("copy_hint")}</p>')
 
     def claim(self, pointer: str, claim: dict[str, Any] | None) -> str:
         if not isinstance(claim, dict):
@@ -503,7 +517,9 @@ class ViewContent:
                         f"/memo/comparison_details/cells/{index}/next_check", cell["next_check"]) + '</small>'
                 entries.append(f'<td>{content}</td>')
             rows.append(f'<tr><th scope="row">{self.literal(criterion)}</th>{"".join(entries)}</tr>')
-        matrix = ('<div class="matrix-scroll"><table><thead><tr><th scope="col">' + self.t("decision_matrix")
+        matrix = ('<div class="matrix-scroll" tabindex="0" role="region" '
+                  f'aria-label="{_escape(self.dictionaries[self.locale]["decision_matrix"])}" '
+                  'data-i18n-aria="decision_matrix"><table><thead><tr><th scope="col">' + self.t("decision_matrix")
                   + '</th>' + ''.join(f'<th scope="col">{name}</th>' for _, name in columns)
                   + '</tr></thead><tbody>' + ''.join(rows) + '</tbody></table></div>') if rows else self.t("no_comparison_details")
         reasoning = '<dl class="detail-list">' + ''.join([
@@ -624,10 +640,94 @@ class ViewContent:
                 + self.group("rollback", self._narrative_items("/memo/integration_plan/rollback", plan.get("rollback", [])))
                 + self.group("coding_handoff", '<div id="coding-handoff" class="copy-panel" tabindex="0">'
                              + '<dl class="detail-list">' + ''.join(handoff_rows) + '</dl></div>'
+                             + self.copy_action("coding-handoff")
                              + f'<p class="source-meta">{self.t("handoff_instruction")}</p>'))
 
 
-def render_report(state: dict[str, Any]) -> bytes:
+    def history(self) -> str:
+        """Project ledger-selected validated runs, never infer detail from IDs."""
+        state = self.state
+        policy = json.loads((Path(__file__).resolve().parents[3] /
+                             "specs/artifact/project-artifact-state.schema.json").read_text(
+                                 encoding="utf-8"))["$defs"]["storagePolicy"]["const"]
+        current = ''.join(self.row(label, self.literal(value)) for label, value in (
+            ("run_id", state["run_id"]), ("revision", state["revision"]),
+            ("content_revision", state.get("content_revision")), ("phase", state["phase"]),
+            ("status", state["status"]), ("saved_at", state["updated_at"]),
+            ("brief_version", (state.get("brief") or {}).get("brief_version")),
+            ("render_revision", state["revision"]), ("prior_publication", state.get("html_revision")),
+        ))
+        artifacts = ''.join(self.row(label, self.literal(policy[key])) for label, key in (
+            ("current_artifact", "current_file"), ("rendered_artifact", "html_file"),
+            ("immutable_artifact", "history_pattern"),
+        ))
+        runs = []
+        for index, entry in enumerate(state["history"]):
+            historical = self.history_runs.get(entry["run_id"])
+            details = ''.join(self.row(label, self.literal(value)) for label, value in (
+                ("run_id", entry["run_id"]), ("final_revision", entry["final_revision"]),
+                ("status", entry["status"]),
+            ))
+            if historical:
+                # Historical narrative uses its own presentation identity/revision.
+                # Do not bind it to the current run's translation dictionary entries.
+                old = ViewContent(historical, self.locale, self.dictionaries)
+                details += old.row("predecessor", old.literal(historical.get("predecessor_run_id")))
+                details += old.row("recommendation_summary", old.narrative(
+                    "/memo/summary", (historical.get("memo") or {}).get("summary")))
+                if historical["schema_version"] == "1.0.0":
+                    details += f'<p class="notice">{self.t("legacy_notice")}</p>'
+            else:
+                details += f'<p class="notice">{self.t("history_detail_unavailable")}</p>'
+            request_id = f"history-request-{index}"
+            runs.append('<article class="candidate"><dl class="detail-list">' + details + '</dl>'
+                        + f'<div id="{request_id}" class="copy-panel" tabindex="0">'
+                        + self.t("history_request") + ' ' + self.literal(entry["run_id"]) + '</div>'
+                        + self.copy_action(request_id) + '</article>')
+        manifest = state.get("index_manifest") or {}
+        provenance = self.row("schema_version", self.literal(state["schema_version"]))
+        # Only scalar public pins are exposed; never serialize private run objects.
+        for key, value in sorted(manifest.items()):
+            if isinstance(value, (str, int)) and not isinstance(value, bool):
+                provenance += f'<div class="field"><dt>{self.literal(key)}</dt><dd>{self.literal(value)}</dd></div>'
+        for section in ("pins", "route_registry"):
+            for key, value in sorted((manifest.get(section) or {}).items()):
+                if isinstance(value, (str, int)) and not isinstance(value, bool):
+                    provenance += f'<div class="field"><dt>{self.literal(section + "/" + key)}</dt><dd>{self.literal(value)}</dd></div>'
+        query = (state.get("request") or {}).get("query") or {}
+        terms = query.get("terms", []) + [term for variant in query.get("variants", []) for term in variant.get("terms", [])]
+        provenance += self.row("query", self.items([self.literal(item) for item in terms]))
+        corrections = [self.literal(event.get("correction_id")) + ' · ' + ', '.join(
+            self.literal(item) for item in event.get("invalidates", [])) for event in state.get("corrections", [])]
+        presentation = state.get("presentation") or {}
+        state_bytes = len(json.dumps(state, ensure_ascii=False, sort_keys=True,
+                                    separators=(",", ":"), allow_nan=False).encode("utf-8"))
+        storage = ''.join(self.row(label, self.literal(value)) for label, value in (
+            ("state_bytes", state_bytes), ("state_limit", policy["max_state_bytes"]),
+            ("html_limit", policy["max_html_bytes"]), ("default_locale", presentation.get("default_locale", "ru")),
+            ("source_language", presentation.get("source_locale")),
+            ("presentation_revision", presentation.get("presentation_revision")),
+            ("source_content_revision", presentation.get("source_content_revision")),
+        ))
+        for locale, coverage in (presentation.get("coverage") or {}).items():
+            storage += self.row("translation_coverage", self.literal(locale) + ' · ' +
+                                self.literal(json.dumps(coverage, ensure_ascii=False, sort_keys=True)))
+        legacy = f'<p class="notice">{self.t("legacy_notice")}</p>' if state["schema_version"] == "1.0.0" else ''
+        return (self.group("current_run", legacy + '<dl class="detail-list">' + current + '</dl>')
+                + self.group("artifact_ledger", '<dl class="detail-list">' + artifacts + '</dl>')
+                + self.group("finalized_runs", ''.join(runs) if runs else self.t("no_history"))
+                + f'<p>{self.t("history_immutable")}</p>'
+                + self.group("saved_corrections", self.items(corrections))
+                + self.group("provenance_replay", '<dl class="detail-list">' + provenance + '</dl>'
+                             + f'<p class="source-meta">{self.t("replay_note")}</p>')
+                + self.group("recovery", f'<p class="notice">{self.t("recovery_snapshot")}</p>'
+                             + '<div id="recovery-request" class="copy-panel" tabindex="0">'
+                             + self.t("recovery_request") + '</div>' + self.copy_action("recovery-request"))
+                + self.group("storage_privacy", '<dl class="detail-list">' + storage + '</dl>'
+                             + f'<p>{self.t("root_usage_unknown")}</p><p>{self.t("privacy_note")}</p>'))
+
+
+def render_report(state: dict[str, Any], *, history_runs: dict[str, Any] | None = None) -> bytes:
     """Render a validated snapshot without state writes, retrieval or translation."""
     try:
         dictionaries = load_locales()
@@ -636,6 +736,7 @@ def render_report(state: dict[str, Any]) -> bytes:
             raise ValueError("invalid saved locale")
         labels = dictionaries[locale]
         content = ViewContent(state, locale, dictionaries)
+        content.history_runs = history_runs or {}
 
         def text(key: str) -> str:
             return f'<span data-i18n="{key}">{html.escape(labels[key])}</span>'
@@ -647,13 +748,13 @@ def render_report(state: dict[str, Any]) -> bytes:
         sources = {
             "goal": state.get("brief"), "questions": state["intake"], "scan": state.get("scan"),
             "context": state.get("brief"), "options": state.get("memo"), "compare": state.get("memo"),
-            "integration": (state.get("memo") or {}).get("integration_plan"), "history": state.get("history"),
+            "integration": (state.get("memo") or {}).get("integration_plan"), "history": state,
         }
         sections = []
         for index, view in enumerate(VIEWS, 1):
             availability = "saved" if sources[view] else "missing"
             details = ""
-            if view in ("goal", "questions", "scan", "context", "options", "compare", "integration"):
+            if view in VIEWS:
                 details = getattr(content, view)()
                 if view == "questions":
                     details = (f'<p class="source-meta">{text("questions_count")}: '

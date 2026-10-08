@@ -1,0 +1,28 @@
+{
+  "schema_version": "cp04_owner_format_acceptance_v1",
+  "task_id": "CP-04",
+  "accepted_by": "project_owner",
+  "evidence_kind": "explicit_owner_acceptance_of_response_format",
+  "accepted_scope": [
+    "Project-specific repository or set rationale",
+    "Proposed stack and technical/architectural/product explanation",
+    "Covered problems and remaining implementation work",
+    "Justified complexity and assumption-bound phased implementation estimates",
+    "Equivalent-scope reuse/custom/current comparison"
+  ],
+  "acceptance_status": "owner_accepted_format",
+  "accepted_artifact_sha256": {
+    "plugins/myai-stackguide/skills/myai-stackguide/SKILL.md": "5f55458d649183e4869c7571cde3d19dfae55b7a19bf573008ea3eb4b1f26148",
+    "evals/plugin-v1/results/cp04-v2-2026-10-08/solution-blueprint-explanations.json": "b205752d0f315a4a35a79092c73b759e44ff62dd46ea863255ff88a493091482",
+    "docs/reports/cp04-solution-blueprint-examples-2026-10-08.md": "f4e7f1f9233487da3312cc329e53562ac1fc67906478cd9bfde1b2d7425f0db6"
+  },
+  "does_not_accept": [
+    "All per-case rubric dimensions",
+    "Precision of planning estimates or measured time saved",
+    "Frozen retrieval oracle/failed relevance or performance gates",
+    "Actual writer/browser/host/release lifecycle"
+  ],
+  "human_rubric_calibrated": false,
+  "promotion_ready": false,
+  "parent_quality_verdict": "no_go"
+}

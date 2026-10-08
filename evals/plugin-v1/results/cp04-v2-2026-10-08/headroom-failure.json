@@ -1,0 +1,11 @@
+{
+  "command": ".venv/Scripts/python.exe -B evals/plugin-v1/run_quality_v2.py --measure-headroom",
+  "exit_code": 2,
+  "fixture_sha256": "b9a7f941640a031c6dd7c351d2106955c9c6607014eb8638852764af3acf5293",
+  "observed_tool_process_exit_code": 1,
+  "promotion_ready": false,
+  "reason": "Production reader hardcoded TRUSTED_MANIFEST_SHA256 rejects isolated synthetic manifest before validation. Isolated manifest and bundle validators passed separate diagnostic. No bypass or runtime edit.",
+  "runtime_status": "index_incompatible",
+  "schema_version": "cp04_headroom_failure_v2",
+  "stage": "first_cold_sample"
+}

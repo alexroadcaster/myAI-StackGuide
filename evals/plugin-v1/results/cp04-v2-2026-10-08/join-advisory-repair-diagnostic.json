@@ -1,0 +1,36 @@
+{
+  "answer_expected_state_revisions": [
+    0
+  ],
+  "case_id": "CP04-V2-D05",
+  "component": "state_store.output_root containment before lock/commit",
+  "diagnostic_setup_failure": "Initial read used generic scorer limit; corrected to original harness16MiB capture-specific bound before validation. No writer or capture rerun.",
+  "project_fixture_entries": [
+    {
+      "bytes": null,
+      "kind": "directory",
+      "path": "docs"
+    },
+    {
+      "bytes": null,
+      "kind": "directory",
+      "path": "docs\\myai-stackguide"
+    }
+  ],
+  "promotion_ready": false,
+  "read_only_reconstruction": true,
+  "readonly_writer_validate_state_passed": true,
+  "reason": "invalid_root",
+  "schema_and_helper_relations_passed": true,
+  "schema_version": "cp04_join_writer_validation_diagnostic_v2",
+  "source_sha256": "cbf22c94f291241f531bb13392cb9e6d98196b4a569586034f1fe89f623b0222",
+  "state_revision": 1,
+  "trace": [
+    {
+      "file": "plugins\\myai-stackguide\\scripts\\state_store.py",
+      "function": "validate_project_root",
+      "line": 129
+    }
+  ],
+  "writer_called_by_diagnostic": false
+}

@@ -51,6 +51,115 @@ The exact 2,500-card corpus is the future relevance/capacity run. A separately l
 
 The registered RU/EN presentation case is distinct from lexical RU/EN retrieval. Future reviewers compare RU and EN against the same canonical capture and preserve IDs/order, constraints, roles, evidence, negation, uncertainty and execution authority. The display switch must make no scan/retrieval/model/translation/network/domain-write call. CP-03 static checks do not prove browser state preservation or semantic equivalence; CP-11/15 must capture those results.
 
-## Evidence Ceiling And Future Capture Rule
+## Historical Design Evidence Ceiling And Future C8 Capture Rule
 
-The frozen plan completes CP-04 design only. No actual CP-09 route or CP-11 capture exists, no model/provider was called, no 2,500/10,000 performance run was executed, and no browser or human result was observed. Therefore `promotion_ready=false` is mandatory. CP-11 must produce the actual pinned C9 captures and baseline records without altering held-out judgments; CP-15 independently applies the human/RU-EN/usefulness rubric. Any capture-schema extension needs its separately owned contract and provenance review before scoring.
+At design freeze the plan completed CP-04 design only: no actual quality route, performance, browser or human result was observed. The existing C8 schemas still admit only synthetic captures. CP-11 captures require their separately owned C8 schema/provenance extension; the diagnostic runner below does not alter or relabel that contract. CP-15 independently applies human/RU-EN/usefulness acceptance. `promotion_ready=false` remains mandatory.
+
+## CP-04 Frozen-v1 Actual Diagnostic Runner (2026-10-08)
+
+`run_quality.py` executes the exact public 2,500-card bundle offline through existing
+`retrieval.retrieve` and `context_pack.build_evidence_pack`. It has no model,
+provider, install, network, writer, renderer or index rebuild path. Its independent
+envelopes are `cp04_quality_declaration_v1`, `cp04_quality_observation_v1` and
+`cp04_quality_summary_v1`; none is a C8 result or product promotion evidence.
+
+Predeclared mapping: `target_category_id` becomes `taxonomy_route_id`, exact frozen
+`query_terms` form one `q1` OR variant, and `query_locale` becomes `language`.
+The six optional hard constraints remain empty/null. The frozen default archived,
+availability and unknown-evidence behavior is applied by the existing matcher and
+pack builder; no persona or goal is converted into inferred constraints. Both
+routes use the same taxonomy registry membership and numeric identity dedupe;
+baseline filtering includes primary and secondary assignments. No outputs are
+filtered to `judgment_pool_ids`.
+
+The existing literal baseline retains its default limit of 60. Its explicit upper
+ceiling now reads `limits.max_retrieved_hits` from the canonical retrieval policy,
+so the frozen plan's explicit 150 limit is accepted without changing ranking,
+normalization, fields or tie rules. Its internal packing adapter carries literal
+rank and monotonically decreasing placeholder RRF values solely to reuse the
+unchanged pack selector. Those values are not observed BM25/RRF scores; the
+baseline is never represented as an executed FTS5 C9 capture.
+
+Complete raw returned rankings must be independently judged, including IDs beyond
+rank 12. An unjudged ID yields `ranking=null`, `incomplete_judgments` and `no_go`;
+no grade zero, rank compaction or omitted-case macro average is permitted. Typed
+retrieval failure likewise yields null ranking, while a valid zero-hit query with
+positive judgments scores zero. Official development/held-out macro Recall@12 and
+nDCG@12 are null if any case lacks complete ranking or a metric denominator.
+Separate `known_pool_recall_at_12_diagnostic` values describe observed positive-ID
+coverage only and never satisfy the frozen quality thresholds.
+
+Predeclared pack survival denominator: independently grade-positive, non-denied
+IDs present in the raw top 12. The numerator is those same IDs present in the final
+detailed pack. Both counts are recorded; unknown relevance and unretrieved IDs do
+not establish survival. Constraint errors use independent frozen allowed/denied
+facts and are explicitly limited to that judgment pool; budget exclusions remain
+separate. Historical alias success means its source-pinned numeric target occurs
+in raw top 12 and a denied target does not occur in the pack. Alias-only recall is
+separate from useful allowed recommendations and translation meaning.
+
+Every required tag and container is reported separately for all/development/
+held-out, with missing cases null. Actual route-registry counts cover the 111
+categories and 14 containers structurally; this does not claim that all those
+runtime routes were queried. Actual quality queries are listed separately.
+
+Measurement: 30 cold samples use separate local Python processes and immutable
+SQLite connections, with `perf_counter_ns` around `retrieval.retrieve` only.
+Process startup/import time is outside that timer. Thirty warm samples use one
+process after one discarded query; the existing runtime opens a new immutable
+connection per call. Cases cycle in frozen order, so these percentiles describe a
+mixed workload, not a per-query SLA. Percentiles use nearest rank `ceil(p*n)`.
+OS cache is not flushed and prior validation/capture has warmed it. Runtime/
+OS/architecture/processor, index size, process-lifetime Windows
+`GetProcessMemoryInfo PeakWorkingSetSize`, raw samples and exact canonical UTF-8
+query/pack bytes are retained. Process peak includes capture preparation and is
+not an isolated SQLite allocation measure. Brief/context allocations are absent;
+the measured controlled input is query plus pack. Token counts and provider cost
+are null. The 10,000-row synthetic headroom corpus belongs to the separate CP-11
+lane and is not rebuilt here.
+
+Commands are declared before the first capture; the plan hash is canonical JSON:
+
+```powershell
+.venv/Scripts/python.exe -B -m unittest discover -s tests -p test_plugin_quality_runner.py -v
+.venv/Scripts/python.exe -B evals/plugin-v1/run_quality.py --predeclare --plan-sha256 e895c54ef78505ca6bcbe12edd7385d43351b78dfd915a238cd20ea7a9bcdaa7
+.venv/Scripts/python.exe -B evals/plugin-v1/run_quality.py --run --plan-sha256 e895c54ef78505ca6bcbe12edd7385d43351b78dfd915a238cd20ea7a9bcdaa7
+```
+
+`--predeclare` validates the plan and pins, then exclusively creates
+`results/cp04-2026-10-08/declaration.json` with commands, measurement, thresholds,
+source hashes and pins. `--run` requires exact equality with that declaration and
+exclusively creates observations/performance/summary/artifact-hash files, preserving
+earlier captures and independently owned recommendation/review files. Observation
+records retain case/query hashes, raw numeric ranks, full actual C9 result and pack,
+literal baseline IDs/pack, exclusions, coverage and bytes. Output directory is
+fixed inside the assigned repository result lane. Exit 0 means valid declaration
+or a complete local diagnostic requiring owner acceptance; exit 1 means retained
+`no_go` observations; exit 2 means invalid input/protocol or unavailable check.
+
+Human oracle calibration, same-canonical RU/EN meaning, browser/no-call switching,
+saved/published recovery, synthetic headroom and broad CP-11 integration remain
+separate gates. Agent self-review and agent-only independent review must retain
+their identities and cannot be labeled human acceptance.
+
+### Measurement-only repair declared before resume
+
+The first capture retained all 24 cases, including valid `no_match` results that
+fail the frozen expected `ok` status. The timing controller incorrectly aborted
+when encountering such a zero-hit result. The bounded repair accepts `ok` and
+`no_match` as measurable samples while leaving the quality mismatch gate intact.
+It does not change terms, labels, ranks, pins, thresholds or pack selection.
+
+`--predeclare-measurement-amendment` exclusively creates
+`measurement-amendment.json`, binding exact original observation bytes and original
+declaration/capture-producing source hashes separately from current measurement
+source hashes. Only the runner and this contract may differ from the original
+source tuple. `--resume-measurement` requires exact amendment equality and original
+observation hash; it reuses those saved records to produce performance and summary,
+without recapturing or overwriting queries/rankings/packs. Valid zero-hit timing
+samples retain their status; expected-status mismatch remains a failed gate.
+
+```powershell
+.venv/Scripts/python.exe -B evals/plugin-v1/run_quality.py --predeclare-measurement-amendment --plan-sha256 e895c54ef78505ca6bcbe12edd7385d43351b78dfd915a238cd20ea7a9bcdaa7
+.venv/Scripts/python.exe -B evals/plugin-v1/run_quality.py --resume-measurement --plan-sha256 e895c54ef78505ca6bcbe12edd7385d43351b78dfd915a238cd20ea7a9bcdaa7
+```

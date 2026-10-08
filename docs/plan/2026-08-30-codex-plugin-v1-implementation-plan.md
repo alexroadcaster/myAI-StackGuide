@@ -336,6 +336,7 @@ The preceding Completion report is preserved first-pass history. This report rec
 
 - Task: CP-04 — define retrieval and integration-usefulness evaluation contracts
 - Status: in_progress
+- Current evidence: `partially_verified`; successor v2 oracle/runner implementation and complete actual comparison are measured locally with `no_go`, not full task acceptance. The [current CP-04 report](../reports/cp04-v2-implementation-2026-10-08.md) owns source pins, complete results, scoped validator repairs, stratum/headroom failures, blinded advice and remaining human/CP-11 gates. Historical completion reports below are retained unchanged.
 - Schema version: task_matrix_plan_v1
 - Timezone: Europe/Moscow
 - Plan trigger: Owner revision 2026-08-31: local SQLite FTS5, relevant context, activity-aware evidence and actionable OSS integration. This task remains within the local product path.
@@ -363,7 +364,7 @@ The preceding Completion report is preserved first-pass history. This report rec
 - Docs update path: Product Planner updates PLAN.md/task status; Quality Evaluator records TEST.md/EVALS.md evidence; Docs Maintainer appends RUNLOG.md after handoff. No unsupported completion claim.
 - Rollback: Undo only owned changes; preserve prior valid state, finalized history and compatible package/index. No automatic deletion, Git reset, permission weakening or silent retrieval fallback.
 - Stop conditions: Unexpected sensitive data or side effects, ownership overlap, incompatible accepted contract, unsafe containment, failed mandatory evidence or missing required external authorization. Routine relevant reads are not failures; report useful partial results when safe.
-- Next step: Finish actual corpus/judgments, lexical baseline, held-out split, thresholds and human RU/EN/usefulness calibration before CP-11/15 quality runs; CP-05 aligns team behavior separately.
+- Next step: Preserve original and successor v2 captures/declarations and no_go. Obtain actual human calibration/owner relevance review, including H03 unknown-relevance limitation. A further oracle/search iteration must prospectively version changes and use fresh unexposed held-out cases. Resolve required-stratum and synthetic warm latency failures; CP-11 supplies actual host/lifecycle evidence and CP-15 acceptance. Neither agent scores nor numeric performance waive those gates.
 
 - Current compatibility evidence: Both C8 schemas and scorer passed all 27 v1 tests; both CLI gates passed for four synthetic v1 captures, and independent review repeated that suite. This remains historical v1 compatibility evidence. Before new baseline/held-out work, CP-04 must migrate the four captures and compatibility join to the paired v2 card/policy/index pins and re-run the same positive/no-match/denied/missing-index gates. Held-out corpus, baseline, human calibration and quality thresholds remain open. The Completion report below preserves the original planning record.
 
@@ -660,12 +661,12 @@ Completion status: `implemented_verified` at the synthetic contract-compatibilit
 ### Task `CP-10`
 
 - Task: CP-10 — render offline decisions with integration plan and coding handoff
-- Status: in_progress; CP-10-A/B implemented_local, partially_verified (browser checkpoints pending)
+- Status: implemented_local, partially_verified; CP-10 A-D code complete, mandatory browser acceptance pending
 - Schema version: task_matrix_plan_v1
 - Timezone: Europe/Moscow
 - Plan trigger: Owner revision 2026-08-31: local SQLite FTS5, relevant context, activity-aware evidence and actionable OSS integration. This task remains within the local product path.
 - Validator target: detailed task blocks
-- Date and time of task implementation: pending_execution_timestamp
+- Date and time of task implementation: A-C 2026-09-23; D 2026-10-08 (Europe/Moscow; browser acceptance pending)
 - Depends on: CP-03, CP-05, CP-07
 - Blocks: CP-11, CP-15
 - Source: Owner decisions 2026-08-31; active PRD R05, R07, R10, R13; accepted CP-02 ADRs and Section 3 registries. R15 session workspace/localization amendment and linked design addendum.
@@ -679,6 +680,7 @@ Completion status: `implemented_verified` at the synthetic contract-compatibilit
 - Session workspace / R15 (planned): A: shell, eight-view navigation and embedded RU/EN dictionaries; B: Goal/Questions/Scan/Context; C: Options/Compare/Integration; D: History/recovery and full states. Implement the design subsection inventory, stable local fragment/comparison/disclosure, original-language and partial-translation labels, lang/focus and no-JS/clipboard fallback. Dynamic prose comes from the validated canonical result, not independent renderer recommendations. Language control makes no network, filesystem, scan or model call; concept approval is already complete.
 - CP-10-A checkpoint (2026-09-23): Primary implemented the renderer/template/paired dictionaries and sequential CP-07 adapter, plus `tests/test_plugin_artifact.py`, without delegation. The isolated CLI publishes the real shell at the existing path; all eight targets, saved-default-language no-JS markup, explicit unavailable/unimplemented detail, state metadata and next Codex action are present. Artifact checks 5/5 and intake checks 9/9 pass; JavaScript syntax and focused diff checks pass. Browser `file:` navigation was denied by the available browser policy, so actual switching/navigation/visual acceptance remains unverified. At the A checkpoint, B-D were unimplemented. See RUNLOG for the unrelated legacy state-test expectation drift and rollback.
 - CP-10-B checkpoint (2026-09-23): Primary implemented source-bound Goal, Questions, Scan and Context views in the existing renderer with exact RU/EN labels and per-field narrative display from saved presentation entries. Current data, unknowns, observed facts, inferences, answer/evidence refs, partial coverage, policy ceilings, correction impact and requested-but-unread sources remain distinct. Static dictionaries reject missing keys; a consumed translation with a stale source digest fails rendering and preserves the prior publication. Artifact tests passed 7/7, intake tests 9/9, extracted JavaScript syntax and focused diff checks passed, and the isolated CLI rendered the accepted synthetic full-state fixture at the same HTML path. Actual browser switching, layout and user usefulness remain unverified because local `file:` navigation is blocked by the available browser policy; C-D remain unimplemented. See RUNLOG for the precise evidence ceiling and rollback.
+- CP-10-D checkpoint (2026-10-08): History now projects current/render-target/prior-observed revisions, canonical artifact roles, finalized run summaries from ledger-selected validated immutable files, provenance pins/query terms, recorded corrections, recovery instructions and storage/language metadata. Missing historical detail is explicit; invalid run/revision/status binding fails rendering and preserves the prior HTML. The bounded CP-07 adapter reads history only; no state/schema/policy migration or second writer was added. Retained state 1.0.0 reads no longer require the absent 1.1.0 question ledger/completion reason, while writes remain rejected. Copy buttons provide explicit manual selection fallback; narrow effective desktop viewport and print rules are implemented. Artifact checks passed 16/16; the joined artifact/intake/state run passed 31/31 before the final focused artifact additions. A synthetic eight-view preview was published through CP-07; extracted JavaScript passed node --check. Browser, layout/200%/print interaction and human translation/usefulness acceptance remain unverified under the recorded URL-policy refusal. CP-10 is partially_verified, not fully accepted.
 - Verification gates: Targeted test_plugin_artifact.py and one useful fixture/browser checkpoint per A-D slice, then one complete V-UI eight-view RU/EN review. Record evidence-to-state parity and failed-publication recovery; Product Planner checks founder/engineer usefulness. CP-11 proves actual lifecycle routing.
 - Risks / approval gates: Preserve pre-existing dirty work and source-owned boundaries. Public research is read-only; sensitive scope, credentials, material cost, external writes, publication and destructive operations follow actual authorization. Selected caps and ranking quality are not yet measured.
 - Complexity: M
@@ -694,15 +696,15 @@ Completion status: `implemented_verified` at the synthetic contract-compatibilit
 
 #### Completion report
 
-- status: planned
-- what was done: Task contract and dependencies revised on 2026-08-31; no task implementation executed by this plan revision.
-- files touched / work locations: Planning/control/ADR documentation only; future owned outputs are listed above.
-- technical value delivered: Implementation benefit not claimed; planned result is Deterministic escaped projection of committed state, with explicit evidence and invalidation.
-- product value delivered: User outcome not measured; planned result is Users can hand the result to a coding agent instead of redoing research and planning.
-- actual implementation date and time: pending_execution_timestamp
-- verification evidence: Current documentation checks belong in RUNLOG.md; no task-specific runtime, schema, index, model or release pass claimed.
-- residual risks: Upstream acceptance and task-specific evidence remain open. Remote extension and vectors are not prerequisites.
-- follow-up: CP-11 joins real retrieval; CP-15 independently reviews local usefulness/privacy/UI.
+- status: implemented_local, partially_verified
+- what was done: All CP-10 A-D code is implemented; History/recovery and the bounded history-reader join were completed on 2026-10-08. Browser acceptance remains an unmet mandatory gate.
+- files touched / work locations: render_report.py, state_store.py, status-template.html, assets/locales/ru.json and en.json, tests/test_plugin_artifact.py; ignored synthetic preview at .codex-tmp/cp10-d-preview/docs/myai-stackguide/status.html.
+- technical value delivered: Eight escaped offline views from committed state; validated immutable history detail, truthful revision/recovery metadata, RU/EN dictionaries and manual copy fallback.
+- product value delivered: A reviewable saved decision and integration handoff; human usefulness and translation equivalence are not yet accepted.
+- actual implementation date and time: A-C 2026-09-23; D 2026-10-08 (Europe/Moscow).
+- verification evidence: Artifact 16/16; preceding joined artifact/intake/state 31/31; extracted JavaScript syntax and focused diff checks. See TEST.md and RUNLOG.md for environment and command provenance.
+- residual risks: Existing browser URL-policy refusal prevents mandatory interaction, focus, 200% zoom, print, layout and rendered language-parity evidence. No alternate browser/URL/CDP route was attempted. CP-04 relevance, CP-11 actual lifecycle, CP-15 usefulness/privacy and CP-16 release remain open.
+- follow-up: Obtain permitted rendered acceptance for CP-10, then CP-11 subject to CP-04 readiness; no remote prerequisite.
 
 ### Task `CP-11`
 

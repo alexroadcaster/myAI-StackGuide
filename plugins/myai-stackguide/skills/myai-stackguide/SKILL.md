@@ -35,6 +35,38 @@ remote service, or silently use another engine. Recommendations and displayed
 commands are proposals. Execute an integration only after a separate explicit
 implementation request under its actual authorization boundary.
 
+Lead each recommendation with why it helps this project's confirmed technical,
+architectural and product goals. Connect a goal or constraint from the Brief to
+a source-supported repository capability, its proposed place in the existing
+system, and the expected project benefit. Mark inferred benefits and unverified
+compatibility explicitly; never invent project facts or promise measured savings.
+Explain why the option is preferable to a relevant alternative or keeping the
+current component, what integration/operation trade-off it introduces, and which
+condition would reverse the choice. If the Brief does not settle that comparison,
+give a conditional preference and ask the smallest decision-changing question.
+If the evidence cannot justify a preference, say so and name the decisive unknown.
+For a proposed set, explain each member's distinct role, how they connect and why
+the set adds value over a single component; same-role alternatives are choices,
+not a set to install together. Finish with a concrete check of the decisive
+unknown. Keep the explanation readable for the user's role; technical eligibility
+labels and retrieval rank are evidence details, not the reason for the choice.
+
+Describe the proposed solution stack: retained and new components, distinct roles,
+connections and data boundaries. Separate the technical work, proposed architecture
+and product outcome; identify problems the repository covers and work the project
+team still owns. Explain implementation complexity through concrete drivers such
+as compatibility, data migration, security boundaries, operations and rollback.
+Give approximate implementation ranges when a planning scenario is supportable:
+state scope, prerequisites, team/experience assumptions, confidence and phases;
+distinguish engineering effort, elapsed working time and external waiting. Label
+these as planning estimates, not measured results or delivery commitments. Separate
+a first validation slice from complete adoption; if project facts are insufficient,
+give a clearly conditional scenario or mark the total unknown and ask for the
+decisive scope fact. Compare reuse with equivalent-scope custom development and
+the current/native solution, including integration, dependency and ongoing
+maintenance costs. Do not assume reuse wins or invent time/cost savings, proven
+reliability or unsupported repository features.
+
 RU/EN presentation is one view of one canonical result. A display-language
 change does not scan, retrieve, call a model, or write domain state. Missing
 translation remains explicit and canonical technical literals stay unchanged.

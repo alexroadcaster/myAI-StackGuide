@@ -1,0 +1,2358 @@
+{
+  "schema_version": "cp04_solution_blueprint_explanation_packet_v1",
+  "task_id": "CP-04",
+  "evidence_kind": "observed_agent_authored_solution_composition_from_frozen_actual_captures",
+  "status": "needs_independent_and_human_review",
+  "parent_lifecycle": "in_progress/partially_verified/no_go",
+  "action_state": "proposed_not_executed",
+  "human_response": null,
+  "human_calibrated": false,
+  "promotion_ready": false,
+  "authoring_protocol": {
+    "candidate_instruction_explicitly_read": true,
+    "evaluation_criteria_disclosed_in_task": true,
+    "activation_or_routing_test": false,
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "model_identity_basis": "Loaded product_planner role; no independent provider trace or suitability comparison.",
+    "tokens": null,
+    "cost_usd": null,
+    "inference_latency_ms": null,
+    "authoring_tool_failure": "One oversized Windows -c command failed before execution with launcher error 206. Repaired by writing only owned JSON through apply_patch and using a shorter deterministic binding/Markdown command."
+  },
+  "limitations": [
+    "Planning ranges are low-confidence expert assumptions, not measured results, comparative savings or delivery commitments.",
+    "Repository facts are the frozen 2026-09-01 snapshot, not current upstream verification.",
+    "Actual project architecture, compatibility, license suitability, operating behavior and upstream maintenance quality remain unknown.",
+    "H15 complete adoption effort and elapsed time remain unknown; D05 covers only an illustrative five-route branch.",
+    "No installed plugin routing/activation, browser switching, integration, time or human usefulness proof.",
+    "C8/C9 schemas, frozen captures, retrieval judgments, thresholds and previous explanation artifacts remain unchanged."
+  ],
+  "records": [
+    {
+      "case_id": "CP04-V2-D05",
+      "decision": "Inspect current/native routing first. Inspect Chi if clearer routing needs composition unavailable in the current solution; Gin remains a separate alternative for broader HTTP-framework requirements.",
+      "hypothetical_assumptions": [
+        "Illustrative scope only: at most five simple HTTP routes and one experienced Go engineer.",
+        "Compatible existing handlers and selected-version interfaces; a license acceptable to this project. These are unverified prerequisites.",
+        "Existing request/response contracts, tests, CI and staging are available and reusable; none is a confirmed project fact.",
+        "No business-rule, authorization, database, stored-data or frontend migration. Existing behavior and ownership remain.",
+        "Sequential full allocation, eight engineering hours per engineer-day, no parallelism. Approval/access/review waits are unknown and additional."
+      ],
+      "stack": [
+        {
+          "member": "Existing Go HTTP server and handlers",
+          "state": "retained_if_present",
+          "role": "Current endpoint behavior; actual interfaces unknown."
+        },
+        {
+          "member": "Project business logic, authorization and data/storage components",
+          "state": "retained_if_present",
+          "role": "Project-owned behavior and data; no migration included."
+        },
+        {
+          "member": "go-chi/chi",
+          "github_repository_id": 44344606,
+          "state": "proposed_new_conditional",
+          "role": "One composable routing foundation if current/native routing is insufficient."
+        },
+        {
+          "member": "Existing contract tests, CI and staging",
+          "state": "retained_hypothetically_available",
+          "role": "Assumed regression and validation surfaces; availability unknown."
+        },
+        {
+          "member": "gin-gonic/gin",
+          "github_repository_id": 20904437,
+          "state": "alternative_not_joint_install",
+          "role": "HTTP-framework alternative if requirements broaden; outside the Chi estimate."
+        }
+      ],
+      "technical": {
+        "source_supported_coverage": [
+          "Chi: lightweight composable router for Go HTTP services.",
+          "Gin: Go HTTP framework intended for REST APIs, web applications and microservices."
+        ],
+        "proposed_work": [
+          "Inventory current/native routes and endpoint contracts; verify version, interfaces and license.",
+          "Adapt one synthetic endpoint and compare status, required headers and body.",
+          "Only after pilot success, adapt remaining routes within five-route scope.",
+          "Use assumed existing regression/CI/staging, pin dependency and prepare a reversible route change."
+        ],
+        "unsupported_claims": [
+          "Chi net/http compatibility, specific middleware, security features or supplied test coverage.",
+          "Project speed advantage from Gin's source-reported performance language or 40-times claim."
+        ]
+      },
+      "architecture": {
+        "status": "conditional_not_observed",
+        "proposed_flow": "Client -> current HTTP server -> one router -> existing handlers -> project business/data components.",
+        "data_ownership": "Existing project components retain business and stored-data authority in this hypothetical route-only change; actual owners require inspection. The router receives no new data authority.",
+        "boundary": "Keep existing access checks and request/response contracts. Required authorization/database/frontend/data migration invalidates this estimate."
+      },
+      "product": {
+        "confirmed_goal": "Clearer routing while preserving request/response behavior.",
+        "benefit_hypothesis": "Composable route organization may make endpoint changes easier to review while preserving client behavior; no productivity or performance gain is measured.",
+        "validation_output": "One endpoint expected/observed status, required headers and response body; mismatch and adaptation list before wider change."
+      },
+      "problem_coverage": {
+        "reuse_covers": "A described routing foundation, conditional on actual compatibility and license.",
+        "remaining_project_work": [
+          "Endpoint contracts and client expectations",
+          "Handler adaptation, business rules and authorization",
+          "Existing middleware/data interfaces and error behavior",
+          "Project regression tests, version pinning, staging, rollout preparation, rollback and ongoing dependency review"
+        ]
+      },
+      "complexity": {
+        "level": "medium",
+        "status": "expert_planning_assumption",
+        "drivers": [
+          "HTTP contract and interface adaptation",
+          "Preserved access/middleware boundary",
+          "Version/license and reversible regression/staging checks"
+        ],
+        "lower_if": [
+          "One route with verified direct compatibility and existing contract coverage."
+        ],
+        "higher_or_reestimate_if": [
+          "More than five or complex routes",
+          "Incompatible handlers/middleware",
+          "Missing contracts/tests/CI/staging",
+          "Authorization/database/frontend/data migration",
+          "Broader framework requirements"
+        ]
+      },
+      "time_estimate": {
+        "kind": "expert_assumption_not_measured_or_binding",
+        "confidence": "low",
+        "scope": "Conditional adoption of at most five simple routes; not whole-application modernization or the Gin branch.",
+        "team_size": 1,
+        "hours_per_engineer_day": 8,
+        "aggregation": "Sum phase lower/upper effort bounds, sequentially with no parallelism.",
+        "first_validation": {
+          "included_phases": [
+            "discover",
+            "one_endpoint_pilot"
+          ],
+          "effort_engineer_hours": [
+            6,
+            12
+          ],
+          "effort_engineer_days_8h": [
+            0.75,
+            1.5
+          ],
+          "elapsed_working_days_excluding_waits": [
+            1,
+            2
+          ]
+        },
+        "full_scoped_adoption": {
+          "included_phases": [
+            "discover",
+            "one_endpoint_pilot",
+            "remaining_routes",
+            "regression_staging_rollback"
+          ],
+          "effort_engineer_hours": [
+            16,
+            32
+          ],
+          "effort_engineer_days_8h": [
+            2,
+            4
+          ],
+          "elapsed_working_days_excluding_waits": [
+            2,
+            4
+          ]
+        },
+        "remaining_after_pilot": {
+          "effort_engineer_hours": [
+            10,
+            20
+          ],
+          "effort_engineer_days_8h": [
+            1.25,
+            2.5
+          ]
+        },
+        "elapsed_rounding": "Each positive hours/8 bound rounded up to a whole working day, assuming uninterrupted full allocation.",
+        "external_waiting_working_days": null,
+        "actual_start_to_finish_working_days": null,
+        "waiting_note": "Unknown access, approval, review and availability waits are additional; no completion date is promised. Full scoped adoption includes the pilot, never added twice."
+      },
+      "integration_phases": [
+        {
+          "phase_id": "discover",
+          "labels": {
+            "ru": "Уточнение и предпосылки",
+            "en": "Discovery and prerequisites"
+          },
+          "effort_engineer_hours": [
+            2,
+            4
+          ],
+          "purpose": "Current/native sufficiency, contract inventory, version/license/interface and test/staging checks.",
+          "exit": "Named scope and compatibility gaps."
+        },
+        {
+          "phase_id": "one_endpoint_pilot",
+          "labels": {
+            "ru": "Пилот одного endpoint",
+            "en": "One-endpoint pilot"
+          },
+          "effort_engineer_hours": [
+            4,
+            8
+          ],
+          "purpose": "One synthetic endpoint preserving status/headers/body.",
+          "exit": "Expected/observed table; pass or stop on mismatch."
+        },
+        {
+          "phase_id": "remaining_routes",
+          "labels": {
+            "ru": "Оставшиеся маршруты",
+            "en": "Remaining routes"
+          },
+          "effort_engineer_hours": [
+            4,
+            8
+          ],
+          "purpose": "Remaining routes only after pilot success, within five-route scope.",
+          "exit": "Reviewed routing changes preserve business/auth/data behavior."
+        },
+        {
+          "phase_id": "regression_staging_rollback",
+          "labels": {
+            "ru": "Регрессии, staging, откат",
+            "en": "Regression, staging, rollback"
+          },
+          "effort_engineer_hours": [
+            6,
+            12
+          ],
+          "purpose": "Assumed existing checks/staging, version pin and reversible change.",
+          "exit": "Scoped evidence and revert plan; no production deployment implied."
+        }
+      ],
+      "reuse_custom_current_comparison": [
+        {
+          "option": "Retain/refactor current or standard/native routing",
+          "same_scope": "Up to five simple routes with preserved HTTP contracts.",
+          "advantage": "No new dependency if sufficient.",
+          "remaining_cost": "Route organization, project checks and upkeep remain.",
+          "condition": "Assess first; choose if it meets the need with acceptable work."
+        },
+        {
+          "option": "Reuse Chi routing foundation",
+          "same_scope": "The same routing boundary; no whole-framework build.",
+          "advantage": "May avoid building a routing foundation when composition is needed.",
+          "remaining_cost": "Interface adaptation, license/dependency review, pinning, regression and ongoing compatibility. Upstream quality/reliability unknown.",
+          "condition": "Current/native insufficient and pilot passes; no numeric savings claim."
+        },
+        {
+          "option": "Project-owned custom routing layer",
+          "same_scope": "Only required dispatch/composition for the same routes, not an entire web framework.",
+          "advantage": "Can meet a demonstrated narrow unmet requirement.",
+          "remaining_cost": "Team designs edge behavior, tests and future maintenance; native primitives may suffice.",
+          "condition": "Only if current/native and compatible reuse cannot cover the need. No measured custom timeline or effort multiplier."
+        },
+        {
+          "option": "Gin",
+          "same_scope": "Alternative HTTP boundary requiring separate scope if framework needs broaden.",
+          "advantage": "Source-supported HTTP-framework positioning.",
+          "remaining_cost": "Unknown adaptation and compatibility; not estimated by this Chi scenario.",
+          "condition": "Requirements first; not jointly installed with Chi."
+        }
+      ],
+      "decisive_next_question": "What is needed beyond routing, and can one endpoint contract plus current handler/middleware interfaces be supplied?",
+      "rollback": "Retain old route configuration/code and contract fixtures. Stop on mismatch; preserve business/auth/data behavior. No deployment or revert executed.",
+      "presentation": {
+        "ru": [
+          {
+            "title": "Решение и границы",
+            "body": "Для более понятной маршрутизации Go API сначала проверьте, можно ли решить задачу нынешними или стандартными средствами. Если нет, изучите Chi: источник описывает лёгкий составной маршрутизатор [D05-E2]. Его возможная польза — яснее организовать маршруты и облегчить проверку изменений, сохранив запросы и ответы. Это гипотеза, а не измеренная экономия. Gin — альтернатива, если потребуется более широкий HTTP framework [D05-E1]; вместе их устанавливать не предлагается."
+          },
+          {
+            "title": "Предлагаемый стек",
+            "body": "Условная схема: клиент → нынешний Go HTTP server → один выбранный маршрутизатор → существующие обработчики → логика и данные проекта. Сохраняются имеющиеся бизнес-правила, проверки доступа и хранилище; новые права на данные маршрутизатору не назначаются. Реальная архитектура неизвестна: перед изменением нужно подтвердить эти границы. Тесты контрактов, CI и staging сохраняются, только если уже есть. Новым компонентом в сценарии становится Chi; Gin не входит в его оценку."
+          },
+          {
+            "title": "Техническая работа и польза продукту",
+            "body": "Источник подтверждает назначение маршрутизатора, но не совместимость Chi с net/http, конкретные middleware, функции безопасности или готовое тестовое покрытие. Повторное использование касается основы маршрутизации. Команда всё равно описывает контракт endpoint, адаптирует обработчики, сохраняет авторизацию и бизнес-правила, проверяет интерфейсы данных и ошибки, пишет нужные регрессионные проверки и готовит эксплуатацию. Сначала один искусственный запрос должен дать прежние статус, обязательные заголовки и тело; выход — ожидаемые/полученные значения и расхождения. Так архитектурное изменение связывается с пользой: клиентское поведение остаётся понятным и проверяемым. Измерений скорости нет; заявление Gin «до 40 раз» не является сравнением для этого API."
+          },
+          {
+            "title": "Сложность и допущения оценки",
+            "body": "Сложность условно средняя: нужно совместить интерфейсы, сохранить HTTP-контракт и проверки доступа, проверить версию/лицензию и обеспечить откат. Это сценарий для одного опытного Go-инженера и максимум пяти простых маршрутов. Предполагаются совместимые обработчики, допустимая лицензия выбранной версии, готовые контракты, тесты, CI и staging; всё перечисленное требует подтверждения. Перенос авторизации, базы, данных, frontend и бизнес-правил исключён из этой оценки. Один совместимый маршрут может снизить сложность; больше маршрутов, сложные middleware, отсутствие тестов или необходимость миграции требуют пересчёта."
+          },
+          {
+            "title": "Приблизительное время",
+            "body": "Ниже экспертный план с низкой уверенностью, не измерение и не обещание срока. Исследование 2–4 часа и один endpoint 4–8 часов вместе образуют первый пилот: 6–12 инженерных часов, или 0.75–1.5 инженерного дня по 8 часов. Условное внедрение в пределах пяти маршрутов, включая этот пилот, — 16–32 часа, или 2–4 инженерных дня. При полной последовательной занятости это примерно 1–2 рабочих дня для пилота и 2–4 для всего указанного объёма. Остаток после пилота — 10–20 часов; пилот повторно не прибавляется. Ожидание доступа, согласований и review неизвестно и добавляется отдельно; фактический срок от начала до конца неизвестен."
+          },
+          {
+            "title": "Почему использовать готовое решение",
+            "body": "При достаточных нынешних/стандартных средствах их сохранение предпочтительнее новой зависимости. Chi может избавить от разработки основы маршрутизации, если составная организация действительно нужна, но добавляет интеграцию, фиксацию версии и будущие проверки совместимости. Качество сопровождения upstream неизвестно. Альтернатива с нуля — узкий собственный слой маршрутов того же объёма, не целый framework: команда сама отвечает за крайние случаи, тесты и поддержку. Он оправдан лишь при доказанной потребности, которую существующие варианты не закрывают. Численной экономии или множителя нет. Следующий вопрос: что нужно сверх маршрутизации и можно ли предоставить контракт одного endpoint? После проверки сохраните старые маршруты и предложите обратимый пилот. Внедрение, тесты и deployment не выполнялись."
+          }
+        ],
+        "en": [
+          {
+            "title": "Decision and scope",
+            "body": "For clearer Go API routing, first check whether current or standard/native facilities can solve the problem. If they cannot, inspect Chi: the source describes a lightweight composable router [D05-E2]. Potential value is clearer route organization and easier change review while preserving requests and responses. This is a hypothesis, not measured savings. Gin is an alternative if a broader HTTP framework is needed [D05-E1]; joint installation is not proposed."
+          },
+          {
+            "title": "Proposed stack",
+            "body": "Conditional flow: client → current Go HTTP server → one chosen router → existing handlers → project logic and data. Existing business rules, authorization checks and storage remain; the router receives no new data authority. Actual architecture is unknown, so verify these boundaries before changing them. Contract tests, CI and staging are retained only if present. Chi is the proposed new component in this scenario; Gin is outside its estimate."
+          },
+          {
+            "title": "Technical work and product benefit",
+            "body": "The source supports router positioning, not Chi net/http compatibility, specific middleware, security features or supplied test coverage. Reuse covers a routing foundation. The team still defines endpoint contracts, adapts handlers, preserves authorization/business rules, checks data interfaces and errors, adds necessary regression checks and prepares operations. First, one synthetic request must produce the previous status, required headers and body; output expected/observed values and mismatches. This connects architecture work to a product hypothesis: client behavior remains understandable and verifiable. Speed is unmeasured; Gin's up-to-40-times claim is not a comparison for this API."
+          },
+          {
+            "title": "Complexity and estimate assumptions",
+            "body": "Complexity is conditionally medium: align interfaces, preserve HTTP contracts and access checks, verify version/license and provide rollback. The scenario assumes one experienced Go engineer and at most five simple routes. Compatible handlers, an acceptable selected-version license, existing contracts, tests, CI and staging are all hypothetical prerequisites requiring confirmation. Authorization, database, stored-data, frontend and business-rule migration are excluded from this estimate. One compatible route may lower complexity; more routes, complex middleware, missing tests or migration needs require re-estimation."
+          },
+          {
+            "title": "Approximate time",
+            "body": "The phase table is an expert plan with low confidence, not measurement or a delivery promise. Discovery at 2–4 hours plus one endpoint at 4–8 hours makes the first pilot 6–12 engineer-hours, or 0.75–1.5 eight-hour engineer-days. Conditional adoption within five routes, including that pilot, is 16–32 hours, or 2–4 engineer-days. With sequential full allocation, allow approximately 1–2 working days for the pilot and 2–4 for the whole stated scope. Remaining work after the pilot is 10–20 hours; do not add the pilot twice. Access, approval and review waits are unknown and additional; actual start-to-finish time is unknown."
+          },
+          {
+            "title": "Why reuse",
+            "body": "Retain current/native facilities if sufficient rather than adding a dependency. Chi may avoid building a routing foundation if composition is needed, but introduces integration, version pinning and future compatibility checks. Upstream maintenance quality is unknown. Building from scratch means a narrow project-owned routing layer of equivalent scope, not an entire framework: the team owns edge behavior, tests and maintenance. Justify it only for demonstrated needs existing options cannot cover. No numeric savings or multiplier is claimed. Next question: what is needed beyond routing, and can one endpoint contract be supplied? Then retain old routes and propose a reversible pilot. Integration, tests and deployment have not been executed."
+          }
+        ]
+      },
+      "synthetic_context": "A synthetic Go HTTP API needs clearer routing. Compare adoption surfaces, preserve request/response behavior, and propose one isolated endpoint regression test.",
+      "persona": "backend engineer",
+      "confirmed_goals": [
+        "Modernize a Go HTTP API with clearer routing."
+      ],
+      "confirmed_constraints": [
+        "Preserve request/response behavior; propose one isolated endpoint regression test."
+      ],
+      "unknowns": {
+        "technical": [
+          "Existing router/framework, Go version, handler/middleware interfaces, request/response contract"
+        ],
+        "architectural": [
+          "Whether replacement is limited to routing or needs a broader HTTP framework"
+        ],
+        "product": [
+          "Affected client behavior, endpoint success criteria and allowable migration effort"
+        ]
+      },
+      "source_projection": {
+        "action_state": "proposed_not_executed",
+        "detailed_card_ids": [
+          20904437,
+          44344606,
+          105379569,
+          438384984,
+          372172254,
+          31504491,
+          234231371,
+          394929332,
+          138597372,
+          596892,
+          7548986,
+          237159
+        ],
+        "goal": "Modernize a Go HTTP API with a reusable web framework or composable router.",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "9678f5e265e4e3a33df3818f94c509c60728e994051ee72ec2050b0b093306c4",
+          "policy_sha256": "ff6e8444c4664492bb099f0819b2d284aa5c28f0d44c7a745c63f434c3489dbf",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        },
+        "ranked_ids": [
+          20904437,
+          44344606,
+          105379569,
+          438384984,
+          372172254,
+          31504491,
+          234231371,
+          394929332,
+          138597372,
+          596892,
+          7548986,
+          237159,
+          4164482,
+          40136600,
+          69495170,
+          1148753,
+          1864194,
+          40772809,
+          16072585,
+          17620347,
+          1863329,
+          160919119,
+          75505125,
+          458058,
+          124230204,
+          2609642,
+          8514,
+          435625572,
+          80945428,
+          6296790,
+          78452015,
+          139914932,
+          11551538,
+          952098631
+        ],
+        "reference_options": [
+          {
+            "activity": {
+              "last_commit_at": "2026-08-15T05:44:19Z",
+              "last_release_at": "2026-02-28T10:12:25Z",
+              "observed_at": "2026-09-01T02:26:31.329420Z"
+            },
+            "adoption_fit": "unknown",
+            "descriptions": {
+              "catalog": "Gin is a high-performance HTTP web framework written in Go. It provides a Martini-like API but with significantly better performance—up to 40 times faster—thanks to httprouter. Gin is designed for building REST APIs, web applications, and microservices.",
+              "catalog_origin": "upstream",
+              "upstream": "Gin is a high-performance HTTP web framework written in Go. It provides a Martini-like API but with significantly better performance—up to 40 times faster—thanks to httprouter. Gin is designed for building REST APIs, web applications, and microservices."
+            },
+            "evidence": [
+              {
+                "evidence_id": "ev-catalog-card",
+                "fields": [
+                  "/identity",
+                  "/catalog",
+                  "/descriptions",
+                  "/classifications",
+                  "/delivery",
+                  "/advisory",
+                  "/provenance"
+                ],
+                "observed_at": "2026-09-01T02:26:31.329420Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/20904437",
+                "verification": "derived_reviewed"
+              },
+              {
+                "evidence_id": "ev-catalog-repository",
+                "fields": [
+                  "/repository",
+                  "/activity"
+                ],
+                "observed_at": "2026-09-01T02:26:31.329420Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/20904437",
+                "verification": "source_reported"
+              }
+            ],
+            "full_name": "gin-gonic/gin",
+            "github_repository_id": 20904437,
+            "required_verifications": [
+              "Verify the advisory fit fields against source-backed public evidence."
+            ],
+            "retrieval_rank": 1,
+            "role": "reference_only",
+            "sources": [
+              {
+                "observed_at": "2026-09-01T02:26:31.329420Z",
+                "source_id": "src-catalog-snapshot",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/20904437",
+                "verification": "derived_reviewed"
+              }
+            ],
+            "url": "https://github.com/gin-gonic/gin"
+          },
+          {
+            "activity": {
+              "last_commit_at": "2026-08-31T10:53:31Z",
+              "last_release_at": "2026-08-20T10:04:47Z",
+              "observed_at": "2026-09-01T02:27:07.589415Z"
+            },
+            "adoption_fit": "unknown",
+            "descriptions": {
+              "catalog": "lightweight, idiomatic and composable router for building Go HTTP services",
+              "catalog_origin": "upstream",
+              "upstream": "lightweight, idiomatic and composable router for building Go HTTP services"
+            },
+            "evidence": [
+              {
+                "evidence_id": "ev-catalog-card",
+                "fields": [
+                  "/identity",
+                  "/catalog",
+                  "/descriptions",
+                  "/classifications",
+                  "/delivery",
+                  "/advisory",
+                  "/provenance"
+                ],
+                "observed_at": "2026-09-01T02:27:07.589415Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/44344606",
+                "verification": "derived_reviewed"
+              },
+              {
+                "evidence_id": "ev-catalog-repository",
+                "fields": [
+                  "/repository",
+                  "/activity"
+                ],
+                "observed_at": "2026-09-01T02:27:07.589415Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/44344606",
+                "verification": "source_reported"
+              }
+            ],
+            "full_name": "go-chi/chi",
+            "github_repository_id": 44344606,
+            "required_verifications": [
+              "Verify the advisory fit fields against source-backed public evidence."
+            ],
+            "retrieval_rank": 2,
+            "role": "reference_only",
+            "sources": [
+              {
+                "observed_at": "2026-09-01T02:27:07.589415Z",
+                "source_id": "src-catalog-snapshot",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/44344606",
+                "verification": "derived_reviewed"
+              }
+            ],
+            "url": "https://github.com/go-chi/chi"
+          }
+        ],
+        "source_mode": "catalog_only",
+        "unknown_facts": [
+          "compatibility",
+          "adoption fit",
+          "selected-version requirements",
+          "current GitHub activity"
+        ]
+      },
+      "capture_binding": {
+        "case_sha256": "39548186672b0a3b0fcf0c38c52cfbce4c7ef10d80fe18e0c6dd8da8bff36ba0",
+        "controlled_input_bytes": 77845,
+        "full_capture_sha256": "b6149ccf4f88de919a2e6213b62db390eceeb5855e0ce76f794fd32e7cf0b608",
+        "observation_file_sha256": "c8f014de13425f6c783443f1f4ec298c3496f40b8079c06800f7328c99c15ee3",
+        "observation_path": "evals/plugin-v1/results/cp04-v2-2026-10-08/development-observations.json",
+        "pack_sha256": "8793578b12eeb0f21261cc8a20bf3d381649d69b68fd1a9292737bf3a19cf085",
+        "query_bytes": 689,
+        "query_sha256": "a5ea3515449acaba687837efb3a685d13e9398e0db340bd15bf0a4fda62bff67",
+        "result_sha256": "ffd6c1f685e735ed53d918b7ecc82ae3b12623f70b7ed219a17837a39d20a952",
+        "selected_source_projection_bytes": 4712,
+        "selected_source_projection_sha256": "a05b2850043d5dd4c874f5d339c113dd81b3f23cc53c94dcc2c9ec4d7b7a4195",
+        "source_pack_bytes": 77156
+      },
+      "selected_ids": [
+        20904437,
+        44344606
+      ],
+      "canonical_roles": [
+        {
+          "github_repository_id": 20904437,
+          "role": "reference_only",
+          "adoption_fit": "unknown",
+          "source_refs": [
+            {
+              "observed_at": "2026-09-01T02:26:31.329420Z",
+              "source_id": "src-catalog-snapshot",
+              "source_kind": "catalog_snapshot",
+              "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/20904437",
+              "verification": "derived_reviewed"
+            }
+          ],
+          "evidence_refs": [
+            {
+              "evidence_id": "ev-catalog-card",
+              "fields": [
+                "/identity",
+                "/catalog",
+                "/descriptions",
+                "/classifications",
+                "/delivery",
+                "/advisory",
+                "/provenance"
+              ],
+              "observed_at": "2026-09-01T02:26:31.329420Z",
+              "source_kind": "catalog_snapshot",
+              "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/20904437",
+              "verification": "derived_reviewed"
+            },
+            {
+              "evidence_id": "ev-catalog-repository",
+              "fields": [
+                "/repository",
+                "/activity"
+              ],
+              "observed_at": "2026-09-01T02:26:31.329420Z",
+              "source_kind": "catalog_snapshot",
+              "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/20904437",
+              "verification": "source_reported"
+            }
+          ]
+        },
+        {
+          "github_repository_id": 44344606,
+          "role": "reference_only",
+          "adoption_fit": "unknown",
+          "source_refs": [
+            {
+              "observed_at": "2026-09-01T02:27:07.589415Z",
+              "source_id": "src-catalog-snapshot",
+              "source_kind": "catalog_snapshot",
+              "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/44344606",
+              "verification": "derived_reviewed"
+            }
+          ],
+          "evidence_refs": [
+            {
+              "evidence_id": "ev-catalog-card",
+              "fields": [
+                "/identity",
+                "/catalog",
+                "/descriptions",
+                "/classifications",
+                "/delivery",
+                "/advisory",
+                "/provenance"
+              ],
+              "observed_at": "2026-09-01T02:27:07.589415Z",
+              "source_kind": "catalog_snapshot",
+              "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/44344606",
+              "verification": "derived_reviewed"
+            },
+            {
+              "evidence_id": "ev-catalog-repository",
+              "fields": [
+                "/repository",
+                "/activity"
+              ],
+              "observed_at": "2026-09-01T02:27:07.589415Z",
+              "source_kind": "catalog_snapshot",
+              "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/44344606",
+              "verification": "source_reported"
+            }
+          ]
+        }
+      ],
+      "evidence_labels": [
+        {
+          "evidence_label": "D05-E1",
+          "github_repository_id": 20904437,
+          "capability_source_field": "/descriptions/upstream",
+          "capability_binding": {
+            "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/20904437",
+            "evidence_id": "ev-catalog-card",
+            "field": "/descriptions/upstream"
+          }
+        },
+        {
+          "evidence_label": "D05-E2",
+          "github_repository_id": 44344606,
+          "capability_source_field": "/descriptions/upstream",
+          "capability_binding": {
+            "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/44344606",
+            "evidence_id": "ev-catalog-card",
+            "field": "/descriptions/upstream"
+          }
+        }
+      ],
+      "action_state": "proposed_not_executed",
+      "human_response": null,
+      "human_calibrated": false,
+      "promotion_ready": false,
+      "compatibility": "unknown",
+      "project_benefit_measured": false,
+      "presentation_bindings": {
+        "ru": {
+          "selected_ids": [
+            20904437,
+            44344606
+          ],
+          "canonical_roles": [
+            {
+              "github_repository_id": 20904437,
+              "role": "reference_only",
+              "adoption_fit": "unknown",
+              "source_refs": [
+                {
+                  "observed_at": "2026-09-01T02:26:31.329420Z",
+                  "source_id": "src-catalog-snapshot",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/20904437",
+                  "verification": "derived_reviewed"
+                }
+              ],
+              "evidence_refs": [
+                {
+                  "evidence_id": "ev-catalog-card",
+                  "fields": [
+                    "/identity",
+                    "/catalog",
+                    "/descriptions",
+                    "/classifications",
+                    "/delivery",
+                    "/advisory",
+                    "/provenance"
+                  ],
+                  "observed_at": "2026-09-01T02:26:31.329420Z",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/20904437",
+                  "verification": "derived_reviewed"
+                },
+                {
+                  "evidence_id": "ev-catalog-repository",
+                  "fields": [
+                    "/repository",
+                    "/activity"
+                  ],
+                  "observed_at": "2026-09-01T02:26:31.329420Z",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/20904437",
+                  "verification": "source_reported"
+                }
+              ]
+            },
+            {
+              "github_repository_id": 44344606,
+              "role": "reference_only",
+              "adoption_fit": "unknown",
+              "source_refs": [
+                {
+                  "observed_at": "2026-09-01T02:27:07.589415Z",
+                  "source_id": "src-catalog-snapshot",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/44344606",
+                  "verification": "derived_reviewed"
+                }
+              ],
+              "evidence_refs": [
+                {
+                  "evidence_id": "ev-catalog-card",
+                  "fields": [
+                    "/identity",
+                    "/catalog",
+                    "/descriptions",
+                    "/classifications",
+                    "/delivery",
+                    "/advisory",
+                    "/provenance"
+                  ],
+                  "observed_at": "2026-09-01T02:27:07.589415Z",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/44344606",
+                  "verification": "derived_reviewed"
+                },
+                {
+                  "evidence_id": "ev-catalog-repository",
+                  "fields": [
+                    "/repository",
+                    "/activity"
+                  ],
+                  "observed_at": "2026-09-01T02:27:07.589415Z",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/44344606",
+                  "verification": "source_reported"
+                }
+              ]
+            }
+          ],
+          "capture_binding": {
+            "case_sha256": "39548186672b0a3b0fcf0c38c52cfbce4c7ef10d80fe18e0c6dd8da8bff36ba0",
+            "controlled_input_bytes": 77845,
+            "full_capture_sha256": "b6149ccf4f88de919a2e6213b62db390eceeb5855e0ce76f794fd32e7cf0b608",
+            "observation_file_sha256": "c8f014de13425f6c783443f1f4ec298c3496f40b8079c06800f7328c99c15ee3",
+            "observation_path": "evals/plugin-v1/results/cp04-v2-2026-10-08/development-observations.json",
+            "pack_sha256": "8793578b12eeb0f21261cc8a20bf3d381649d69b68fd1a9292737bf3a19cf085",
+            "query_bytes": 689,
+            "query_sha256": "a5ea3515449acaba687837efb3a685d13e9398e0db340bd15bf0a4fda62bff67",
+            "result_sha256": "ffd6c1f685e735ed53d918b7ecc82ae3b12623f70b7ed219a17837a39d20a952",
+            "selected_source_projection_bytes": 4712,
+            "selected_source_projection_sha256": "a05b2850043d5dd4c874f5d339c113dd81b3f23cc53c94dcc2c9ec4d7b7a4195",
+            "source_pack_bytes": 77156
+          },
+          "hypothetical_assumptions": [
+            "Illustrative scope only: at most five simple HTTP routes and one experienced Go engineer.",
+            "Compatible existing handlers and selected-version interfaces; a license acceptable to this project. These are unverified prerequisites.",
+            "Existing request/response contracts, tests, CI and staging are available and reusable; none is a confirmed project fact.",
+            "No business-rule, authorization, database, stored-data or frontend migration. Existing behavior and ownership remain.",
+            "Sequential full allocation, eight engineering hours per engineer-day, no parallelism. Approval/access/review waits are unknown and additional."
+          ],
+          "time_estimate": {
+            "kind": "expert_assumption_not_measured_or_binding",
+            "confidence": "low",
+            "scope": "Conditional adoption of at most five simple routes; not whole-application modernization or the Gin branch.",
+            "team_size": 1,
+            "hours_per_engineer_day": 8,
+            "aggregation": "Sum phase lower/upper effort bounds, sequentially with no parallelism.",
+            "first_validation": {
+              "included_phases": [
+                "discover",
+                "one_endpoint_pilot"
+              ],
+              "effort_engineer_hours": [
+                6,
+                12
+              ],
+              "effort_engineer_days_8h": [
+                0.75,
+                1.5
+              ],
+              "elapsed_working_days_excluding_waits": [
+                1,
+                2
+              ]
+            },
+            "full_scoped_adoption": {
+              "included_phases": [
+                "discover",
+                "one_endpoint_pilot",
+                "remaining_routes",
+                "regression_staging_rollback"
+              ],
+              "effort_engineer_hours": [
+                16,
+                32
+              ],
+              "effort_engineer_days_8h": [
+                2,
+                4
+              ],
+              "elapsed_working_days_excluding_waits": [
+                2,
+                4
+              ]
+            },
+            "remaining_after_pilot": {
+              "effort_engineer_hours": [
+                10,
+                20
+              ],
+              "effort_engineer_days_8h": [
+                1.25,
+                2.5
+              ]
+            },
+            "elapsed_rounding": "Each positive hours/8 bound rounded up to a whole working day, assuming uninterrupted full allocation.",
+            "external_waiting_working_days": null,
+            "actual_start_to_finish_working_days": null,
+            "waiting_note": "Unknown access, approval, review and availability waits are additional; no completion date is promised. Full scoped adoption includes the pilot, never added twice."
+          },
+          "integration_phases": [
+            {
+              "phase_id": "discover",
+              "labels": {
+                "ru": "Уточнение и предпосылки",
+                "en": "Discovery and prerequisites"
+              },
+              "effort_engineer_hours": [
+                2,
+                4
+              ],
+              "purpose": "Current/native sufficiency, contract inventory, version/license/interface and test/staging checks.",
+              "exit": "Named scope and compatibility gaps."
+            },
+            {
+              "phase_id": "one_endpoint_pilot",
+              "labels": {
+                "ru": "Пилот одного endpoint",
+                "en": "One-endpoint pilot"
+              },
+              "effort_engineer_hours": [
+                4,
+                8
+              ],
+              "purpose": "One synthetic endpoint preserving status/headers/body.",
+              "exit": "Expected/observed table; pass or stop on mismatch."
+            },
+            {
+              "phase_id": "remaining_routes",
+              "labels": {
+                "ru": "Оставшиеся маршруты",
+                "en": "Remaining routes"
+              },
+              "effort_engineer_hours": [
+                4,
+                8
+              ],
+              "purpose": "Remaining routes only after pilot success, within five-route scope.",
+              "exit": "Reviewed routing changes preserve business/auth/data behavior."
+            },
+            {
+              "phase_id": "regression_staging_rollback",
+              "labels": {
+                "ru": "Регрессии, staging, откат",
+                "en": "Regression, staging, rollback"
+              },
+              "effort_engineer_hours": [
+                6,
+                12
+              ],
+              "purpose": "Assumed existing checks/staging, version pin and reversible change.",
+              "exit": "Scoped evidence and revert plan; no production deployment implied."
+            }
+          ],
+          "action_state": "proposed_not_executed"
+        },
+        "en": {
+          "selected_ids": [
+            20904437,
+            44344606
+          ],
+          "canonical_roles": [
+            {
+              "github_repository_id": 20904437,
+              "role": "reference_only",
+              "adoption_fit": "unknown",
+              "source_refs": [
+                {
+                  "observed_at": "2026-09-01T02:26:31.329420Z",
+                  "source_id": "src-catalog-snapshot",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/20904437",
+                  "verification": "derived_reviewed"
+                }
+              ],
+              "evidence_refs": [
+                {
+                  "evidence_id": "ev-catalog-card",
+                  "fields": [
+                    "/identity",
+                    "/catalog",
+                    "/descriptions",
+                    "/classifications",
+                    "/delivery",
+                    "/advisory",
+                    "/provenance"
+                  ],
+                  "observed_at": "2026-09-01T02:26:31.329420Z",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/20904437",
+                  "verification": "derived_reviewed"
+                },
+                {
+                  "evidence_id": "ev-catalog-repository",
+                  "fields": [
+                    "/repository",
+                    "/activity"
+                  ],
+                  "observed_at": "2026-09-01T02:26:31.329420Z",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/20904437",
+                  "verification": "source_reported"
+                }
+              ]
+            },
+            {
+              "github_repository_id": 44344606,
+              "role": "reference_only",
+              "adoption_fit": "unknown",
+              "source_refs": [
+                {
+                  "observed_at": "2026-09-01T02:27:07.589415Z",
+                  "source_id": "src-catalog-snapshot",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/44344606",
+                  "verification": "derived_reviewed"
+                }
+              ],
+              "evidence_refs": [
+                {
+                  "evidence_id": "ev-catalog-card",
+                  "fields": [
+                    "/identity",
+                    "/catalog",
+                    "/descriptions",
+                    "/classifications",
+                    "/delivery",
+                    "/advisory",
+                    "/provenance"
+                  ],
+                  "observed_at": "2026-09-01T02:27:07.589415Z",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/44344606",
+                  "verification": "derived_reviewed"
+                },
+                {
+                  "evidence_id": "ev-catalog-repository",
+                  "fields": [
+                    "/repository",
+                    "/activity"
+                  ],
+                  "observed_at": "2026-09-01T02:27:07.589415Z",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/44344606",
+                  "verification": "source_reported"
+                }
+              ]
+            }
+          ],
+          "capture_binding": {
+            "case_sha256": "39548186672b0a3b0fcf0c38c52cfbce4c7ef10d80fe18e0c6dd8da8bff36ba0",
+            "controlled_input_bytes": 77845,
+            "full_capture_sha256": "b6149ccf4f88de919a2e6213b62db390eceeb5855e0ce76f794fd32e7cf0b608",
+            "observation_file_sha256": "c8f014de13425f6c783443f1f4ec298c3496f40b8079c06800f7328c99c15ee3",
+            "observation_path": "evals/plugin-v1/results/cp04-v2-2026-10-08/development-observations.json",
+            "pack_sha256": "8793578b12eeb0f21261cc8a20bf3d381649d69b68fd1a9292737bf3a19cf085",
+            "query_bytes": 689,
+            "query_sha256": "a5ea3515449acaba687837efb3a685d13e9398e0db340bd15bf0a4fda62bff67",
+            "result_sha256": "ffd6c1f685e735ed53d918b7ecc82ae3b12623f70b7ed219a17837a39d20a952",
+            "selected_source_projection_bytes": 4712,
+            "selected_source_projection_sha256": "a05b2850043d5dd4c874f5d339c113dd81b3f23cc53c94dcc2c9ec4d7b7a4195",
+            "source_pack_bytes": 77156
+          },
+          "hypothetical_assumptions": [
+            "Illustrative scope only: at most five simple HTTP routes and one experienced Go engineer.",
+            "Compatible existing handlers and selected-version interfaces; a license acceptable to this project. These are unverified prerequisites.",
+            "Existing request/response contracts, tests, CI and staging are available and reusable; none is a confirmed project fact.",
+            "No business-rule, authorization, database, stored-data or frontend migration. Existing behavior and ownership remain.",
+            "Sequential full allocation, eight engineering hours per engineer-day, no parallelism. Approval/access/review waits are unknown and additional."
+          ],
+          "time_estimate": {
+            "kind": "expert_assumption_not_measured_or_binding",
+            "confidence": "low",
+            "scope": "Conditional adoption of at most five simple routes; not whole-application modernization or the Gin branch.",
+            "team_size": 1,
+            "hours_per_engineer_day": 8,
+            "aggregation": "Sum phase lower/upper effort bounds, sequentially with no parallelism.",
+            "first_validation": {
+              "included_phases": [
+                "discover",
+                "one_endpoint_pilot"
+              ],
+              "effort_engineer_hours": [
+                6,
+                12
+              ],
+              "effort_engineer_days_8h": [
+                0.75,
+                1.5
+              ],
+              "elapsed_working_days_excluding_waits": [
+                1,
+                2
+              ]
+            },
+            "full_scoped_adoption": {
+              "included_phases": [
+                "discover",
+                "one_endpoint_pilot",
+                "remaining_routes",
+                "regression_staging_rollback"
+              ],
+              "effort_engineer_hours": [
+                16,
+                32
+              ],
+              "effort_engineer_days_8h": [
+                2,
+                4
+              ],
+              "elapsed_working_days_excluding_waits": [
+                2,
+                4
+              ]
+            },
+            "remaining_after_pilot": {
+              "effort_engineer_hours": [
+                10,
+                20
+              ],
+              "effort_engineer_days_8h": [
+                1.25,
+                2.5
+              ]
+            },
+            "elapsed_rounding": "Each positive hours/8 bound rounded up to a whole working day, assuming uninterrupted full allocation.",
+            "external_waiting_working_days": null,
+            "actual_start_to_finish_working_days": null,
+            "waiting_note": "Unknown access, approval, review and availability waits are additional; no completion date is promised. Full scoped adoption includes the pilot, never added twice."
+          },
+          "integration_phases": [
+            {
+              "phase_id": "discover",
+              "labels": {
+                "ru": "Уточнение и предпосылки",
+                "en": "Discovery and prerequisites"
+              },
+              "effort_engineer_hours": [
+                2,
+                4
+              ],
+              "purpose": "Current/native sufficiency, contract inventory, version/license/interface and test/staging checks.",
+              "exit": "Named scope and compatibility gaps."
+            },
+            {
+              "phase_id": "one_endpoint_pilot",
+              "labels": {
+                "ru": "Пилот одного endpoint",
+                "en": "One-endpoint pilot"
+              },
+              "effort_engineer_hours": [
+                4,
+                8
+              ],
+              "purpose": "One synthetic endpoint preserving status/headers/body.",
+              "exit": "Expected/observed table; pass or stop on mismatch."
+            },
+            {
+              "phase_id": "remaining_routes",
+              "labels": {
+                "ru": "Оставшиеся маршруты",
+                "en": "Remaining routes"
+              },
+              "effort_engineer_hours": [
+                4,
+                8
+              ],
+              "purpose": "Remaining routes only after pilot success, within five-route scope.",
+              "exit": "Reviewed routing changes preserve business/auth/data behavior."
+            },
+            {
+              "phase_id": "regression_staging_rollback",
+              "labels": {
+                "ru": "Регрессии, staging, откат",
+                "en": "Regression, staging, rollback"
+              },
+              "effort_engineer_hours": [
+                6,
+                12
+              ],
+              "purpose": "Assumed existing checks/staging, version pin and reversible change.",
+              "exit": "Scoped evidence and revert plan; no production deployment implied."
+            }
+          ],
+          "action_state": "proposed_not_executed"
+        }
+      },
+      "narrative_word_counts": {
+        "ru": 484,
+        "en": 509
+      }
+    },
+    {
+      "case_id": "CP04-V2-H15",
+      "decision": "Full solution and adoption timeline unknown until devices, offline actions and import needs are established. Propose discovery and one synthetic application validation only.",
+      "hypothetical_assumptions": [
+        "One experienced engineer familiar with local application setup; one operator available to describe the workflow.",
+        "One chosen app on one device, ten synthetic transactions with predetermined totals, documented selected-version setup/export/recovery if verified.",
+        "No real financial import, accounts, sync activation, custom financial logic or multi-device setup; workflow remains undocumented.",
+        "Sequential full allocation, eight hours per engineer-day. Operator availability, setup blockers, missing documentation and external waiting unknown."
+      ],
+      "stack": [
+        {
+          "member": "Current workflow and original records",
+          "state": "retained_if_present",
+          "role": "Remain authoritative; actual storage and import/export unknown."
+        },
+        {
+          "member": "One finance application",
+          "state": "proposed_new_conditional",
+          "role": "BeeCount OR Actual OR my-budget; alternatives for one household-budget slot."
+        },
+        {
+          "member": "Ten synthetic transactions and expected totals",
+          "state": "proposed_validation_fixture",
+          "role": "Disposable project-owned test data, not real financial information."
+        },
+        {
+          "member": "Selected version's storage/export/backup path",
+          "state": "unknown_prerequisite",
+          "role": "Verify before data ownership or migration can be planned."
+        }
+      ],
+      "technical": {
+        "source_supported_coverage": [
+          "BeeCount catalog: local-first bookkeeping on iOS/Android/Web and named sync options.",
+          "Actual upstream: local-first personal finance application.",
+          "my-budget catalog: offline cross-platform budgeting built with Electron."
+        ],
+        "proposed_work": [
+          "Clarify devices, disconnected tasks and current data formats.",
+          "Verify one selected version/device, license, setup and export/recovery documentation.",
+          "Propose synthetic entry/reopen/total/export/recovery checks."
+        ],
+        "unsupported_claims": [
+          "Local-first proves required disconnected behavior.",
+          "Confirmed import formats, financial rules, compatibility, maintenance quality or recovery guarantee."
+        ]
+      },
+      "architecture": {
+        "status": "not_settled_conditional",
+        "proposed_flow": "Operator -> one selected app -> verified storage/export path; current records remain outside the pilot.",
+        "data_ownership": "Current records remain authoritative; no switch proposed. Actual owners/location and future import/export boundary need clarification.",
+        "boundary": "One-device synthetic validation only; real migration, sync and accounts are unscoped."
+      },
+      "product": {
+        "confirmed_goal": "Household budgeting with local-first/offline needs, not market trading.",
+        "benefit_hypothesis": "Required budgeting actions may become available on required devices without a connection; unverified.",
+        "validation_output": "Device/action/import matrix; selected-version prerequisites; expected/observed totals, reopening and documented recovery."
+      },
+      "problem_coverage": {
+        "reuse_covers": "Household finance/bookkeeping application positioning, conditional on actual required workflow.",
+        "remaining_project_work": [
+          "Workflow/financial-rule acceptance",
+          "Version/license/device/support verification",
+          "Data-format mapping, reconciliation and backup/recovery",
+          "Business-specific logic, security/account boundaries and integrations if required",
+          "Real-data migration, training and future support after separately scoped adoption"
+        ]
+      },
+      "complexity": {
+        "level": "unknown_for_full_adoption",
+        "discovery_level": "low",
+        "synthetic_single_device_pilot_level": "medium_conditional",
+        "status": "expert_planning_assumption",
+        "drivers": [
+          "Bounded interview/inventory for discovery",
+          "Setup, disconnected persistence and recovery for pilot",
+          "Import correctness, sync and operator needs for full adoption"
+        ],
+        "higher_or_reestimate_if": [
+          "Unsupported device or undocumented offline/recovery behavior",
+          "Unknown import or reconciliation requirements",
+          "Multiple devices, sync or accounts",
+          "Missing setup documentation or required financial logic"
+        ]
+      },
+      "time_estimate": {
+        "kind": "expert_assumption_not_measured_or_binding",
+        "confidence": "low_for_discovery_and_pilot; full_adoption_unknown",
+        "scope": "Discovery plus conditional one-device synthetic validation, not full migration.",
+        "team_size": 1,
+        "hours_per_engineer_day": 8,
+        "aggregation": "Sum phase lower/upper bounds, sequentially with no parallelism.",
+        "first_validation": {
+          "included_phases": [
+            "scope_discovery",
+            "synthetic_app_validation"
+          ],
+          "effort_engineer_hours": [
+            6,
+            12
+          ],
+          "effort_engineer_days_8h": [
+            0.75,
+            1.5
+          ],
+          "elapsed_working_days_excluding_waits": [
+            1,
+            2
+          ]
+        },
+        "discovery_only": {
+          "effort_engineer_hours": [
+            2,
+            4
+          ],
+          "effort_engineer_days_8h": [
+            0.25,
+            0.5
+          ]
+        },
+        "full_scoped_adoption": null,
+        "elapsed_rounding": "Each positive hours/8 bound rounded up to a whole working day under full allocation.",
+        "external_waiting_working_days": null,
+        "actual_start_to_finish_working_days": null,
+        "waiting_note": "Range assumes one device, verified documented setup/recovery and operator availability. Full adoption, blockers and waiting excluded; no delivery date or budget established."
+      },
+      "integration_phases": [
+        {
+          "phase_id": "scope_discovery",
+          "labels": {
+            "ru": "Уточнение объёма",
+            "en": "Scope discovery"
+          },
+          "effort_engineer_hours": [
+            2,
+            4
+          ],
+          "purpose": "Required devices/offline tasks/current-data formats; choose one candidate or retain current workflow.",
+          "exit": "Known/gap matrix; no automatic app selection."
+        },
+        {
+          "phase_id": "synthetic_app_validation",
+          "labels": {
+            "ru": "Условный искусственный пилот",
+            "en": "Conditional synthetic pilot"
+          },
+          "effort_engineer_hours": [
+            4,
+            8
+          ],
+          "purpose": "If prerequisites confirmed: one device, ten synthetic entries, offline reopen/totals and documented export/recovery.",
+          "exit": "Expected/observed outcomes, pass or stop; basis for new adoption scope."
+        }
+      ],
+      "reuse_custom_current_comparison": [
+        {
+          "option": "Retain current/local/native workflow",
+          "same_scope": "Only required household actions, not a trading platform.",
+          "advantage": "May avoid a new app and import for simple needs.",
+          "remaining_cost": "Correctness, offline and backup verification remain; sufficiency unknown.",
+          "condition": "Prefer if it covers clarified needs."
+        },
+        {
+          "option": "One compatible finance app",
+          "same_scope": "Same required household actions/devices.",
+          "advantage": "May reuse finance-application foundation rather than create ledger UX/persistence.",
+          "remaining_cost": "Setup, license/support, formats, correctness, backup and migration remain; actual features unverified.",
+          "condition": "Requirements and synthetic checks first; no joint installation."
+        },
+        {
+          "option": "Custom household-budget application",
+          "same_scope": "Same required actions/devices, not an entire finance platform.",
+          "advantage": "Can meet a demonstrated unmet task.",
+          "remaining_cost": "Transaction model, calculations, persistence, recovery, UI, tests and maintenance owned by team; scope too weak for totals or savings.",
+          "condition": "Only if current/native and compatible apps fail the need."
+        }
+      ],
+      "decisive_next_question": "Which devices and disconnected tasks are mandatory, and what data must be imported in which format?",
+      "rollback": "Keep current workflow and original records authoritative; no real records, sync or accounts in the proposed pilot. Preserve synthetic data on failure.",
+      "presentation": {
+        "ru": [
+          {
+            "title": "Решение и стек",
+            "body": "Для домашнего бюджета сначала определите устройства, обязательные действия без сети и данные для импорта. Пока полный стек и срок внедрения неизвестны. Условный стек проверки — одно приложение, одно выбранное устройство, десять искусственных операций и проверяемый путь хранения/выгрузки. Нынешний учёт и исходные записи остаются авторитетными; переключение данных не предлагается."
+          },
+          {
+            "title": "Три альтернативы одной роли",
+            "body": "BeeCount описан как local-first учёт на iOS/Android/Web с вариантами синхронизации [H15-E1]; Actual — local-first приложение личных финансов [H15-E2]; my-budget — offline-бюджет на Electron [H15-E3]. При обязательных мобильных/web-устройствах изучайте BeeCount; при настольной работе без сети — my-budget; Actual рассматривайте для общего сценария личных финансов. Все предпочтения условны. Local-first не гарантирует нужное offline-поведение. Вместе приложения не образуют полезный стек: они претендуют на одно место бюджета."
+          },
+          {
+            "title": "Покрытие, архитектура и сложность",
+            "body": "Предлагаемая связь — человек → одно приложение → подтверждённое хранилище/выгрузка. Возможная польза — вести нужный бюджет на нужном устройстве без подключения; это гипотеза. Источники подтверждают назначение приложений, не нужные финансовые правила, импорт, восстановление или совместимость. Команда проверяет версию, лицензию, поддержку, правильность расчётов и резервную копию; будущие миграция, обучение и интеграции требуют отдельного плана. Сложность полной задачи неизвестна. Уточнение условно простое; один пилот — средней сложности из-за установки, offline-сохранения и восстановления. Несколько устройств, синхронизация, неподдерживаемый формат импорта или отсутствующая документация меняют оценку."
+          },
+          {
+            "title": "Время и выбор против разработки с нуля",
+            "body": "Только для условной проверки: один опытный инженер, доступный пользователь, одно устройство и документированные установка/выгрузка/восстановление. Уточнение 2–4 часа плюс искусственный пилот 4–8 часов — 6–12 инженерных часов, 0.75–1.5 дня по 8 часов, примерно 1–2 рабочих дня полной занятости без ожиданий. Уверенность низкая; срок полной миграции и ожидания неизвестны. Сохраните нынешний/local/native учёт, если он достаточен. Готовое приложение может заменить создание основы учёта, но не проверки данных и обслуживание. Собственная реализация тех же действий добавит модель операций, расчёты, сохранение, восстановление, UI и тесты; численной экономии нет. Следующий вопрос — устройства, offline-действия и формат импорта. Затем предложите сверку искусственных сумм, повторное открытие без сети и документированное восстановление. При неудаче сохраните нынешний учёт. Реальные данные, синхронизация и пилот не задействованы."
+          }
+        ],
+        "en": [
+          {
+            "title": "Decision and stack",
+            "body": "For household budgeting, first define required devices, disconnected tasks and data to import. The complete stack and adoption timeline are unknown. A conditional validation stack is one app, one selected device, ten synthetic transactions and a verifiable storage/export path. Current bookkeeping and original records remain authoritative; no data-authority switch is proposed."
+          },
+          {
+            "title": "Three alternatives for one role",
+            "body": "BeeCount is described as local-first bookkeeping on iOS/Android/Web with sync options [H15-E1]; Actual as a local-first personal finance app [H15-E2]; my-budget as offline Electron budgeting [H15-E3]. Inspect BeeCount for mandatory mobile/web devices, my-budget for disconnected desktop use, and Actual for general personal finance. All preferences are conditional. Local-first does not guarantee required offline behavior. Together they are not a justified stack: they compete for one budgeting slot."
+          },
+          {
+            "title": "Coverage, architecture and complexity",
+            "body": "Proposed flow: person → one app → verified storage/export. Required budgeting on the required device without a connection is a hypothetical benefit. Sources establish application positioning, not required financial rules, imports, recovery or compatibility. The team checks version, license, support, calculation correctness and backup; future migration, training and integrations need separate planning. Full-task complexity is unknown. Discovery is conditionally low; one pilot is medium because setup, disconnected persistence and recovery need checking. Multiple devices, sync, unsupported imports or missing documentation change the estimate."
+          },
+          {
+            "title": "Time and reuse versus custom work",
+            "body": "For validation only: one experienced engineer, an available operator, one device and documented setup/export/recovery. Discovery at 2–4 hours plus a synthetic pilot at 4–8 is 6–12 engineer-hours, 0.75–1.5 eight-hour engineer-days, approximately 1–2 fully allocated working days excluding waits. Confidence is low; full migration time and waits are unknown. Retain current/local/native bookkeeping if sufficient. An app may reuse a bookkeeping foundation, but not remove data checks or upkeep. Equivalent custom tasks add a transaction model, calculations, persistence, recovery, UI and tests; no numeric savings are established. Next question: devices, offline tasks and import format. Then propose synthetic-total reconciliation, disconnected reopening and documented recovery. On failure retain current bookkeeping. Real data, sync and the pilot have not been used."
+          }
+        ]
+      },
+      "synthetic_context": "An undocumented household budget workflow needs local-first/offline storage. Release/maintenance/compatibility are unknown; ask focused questions before migration and use synthetic transactions.",
+      "persona": "low-context operator",
+      "confirmed_goals": [
+        "Household budgeting with local-first/offline storage; do not substitute a market trading engine."
+      ],
+      "confirmed_constraints": [
+        "Workflow is undocumented; ask focused questions before migration and use synthetic transactions."
+      ],
+      "unknowns": {
+        "technical": [
+          "Target OS/device, import/export formats, required disconnected behavior, selected-version compatibility"
+        ],
+        "architectural": [
+          "One-device storage versus cross-device sync, hosting, backup and recovery requirements"
+        ],
+        "product": [
+          "Household budgeting tasks, need for mobile/web access, acceptable maintenance burden"
+        ]
+      },
+      "source_projection": {
+        "action_state": "proposed_not_executed",
+        "detailed_card_ids": [
+          1051440251,
+          304836585,
+          486815039,
+          701017456,
+          21298446,
+          173851397,
+          473710288,
+          326749266,
+          97858693,
+          1092021426,
+          272827254,
+          167737827
+        ],
+        "goal": "Compare local-first or offline household finance applications; avoid substituting market trading engines.",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "9678f5e265e4e3a33df3818f94c509c60728e994051ee72ec2050b0b093306c4",
+          "policy_sha256": "ff6e8444c4664492bb099f0819b2d284aa5c28f0d44c7a745c63f434c3489dbf",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        },
+        "ranked_ids": [
+          1051440251,
+          304836585,
+          486815039,
+          701017456,
+          21298446,
+          173851397,
+          473710288,
+          326749266,
+          97858693,
+          1092021426,
+          272827254,
+          167737827,
+          430008947,
+          424920574,
+          406570392,
+          346887069,
+          737898780,
+          474376253,
+          532977861,
+          177860947,
+          887597422,
+          461239566,
+          357671824,
+          19388764,
+          20107959,
+          1130076953,
+          143284193,
+          50063599,
+          1191195886,
+          95870855,
+          531026987,
+          60379729,
+          342126120,
+          198669252,
+          3810626,
+          11934420,
+          184420323,
+          5103141,
+          23209140,
+          48418599,
+          239389449,
+          674484441,
+          198832400,
+          288048368,
+          693262773,
+          1146075858,
+          461335313,
+          1312554298,
+          188438191,
+          63773246,
+          589385734,
+          14759456,
+          28904322,
+          46142401,
+          135300551,
+          89801027,
+          339376987,
+          537869276,
+          84404972,
+          1048320382,
+          226144726,
+          187455140,
+          763842651,
+          1115093974,
+          180137089,
+          539526271,
+          901529145,
+          27251463,
+          33702544,
+          282653872,
+          110684325,
+          244460835,
+          29273084,
+          217872093,
+          170544934,
+          23468876,
+          161977394,
+          376093856,
+          479235940,
+          527993624,
+          600544354,
+          27703983,
+          163788469,
+          132754148,
+          333850832,
+          294371636,
+          166674659,
+          55360541,
+          1124295269,
+          287463830
+        ],
+        "reference_options": [
+          {
+            "activity": {
+              "last_commit_at": "2026-08-31T12:08:34Z",
+              "last_release_at": "2026-08-31T12:31:37Z",
+              "observed_at": "2026-09-01T08:36:43.059696Z"
+            },
+            "adoption_fit": "unknown",
+            "descriptions": {
+              "catalog": "Local-first bookkeeping for iOS/Android/Web · Self-hosted cloud + iCloud/WebDAV/S3 sync · AI capture · MCP | 本地优先的跨端记账 · 自建云 + iCloud/WebDAV/S3 同步 · AI 记账 · MCP",
+              "catalog_origin": "upstream",
+              "upstream": null
+            },
+            "evidence": [
+              {
+                "evidence_id": "ev-catalog-card",
+                "fields": [
+                  "/identity",
+                  "/catalog",
+                  "/descriptions",
+                  "/classifications",
+                  "/delivery",
+                  "/advisory",
+                  "/provenance"
+                ],
+                "observed_at": "2026-09-01T08:36:43.059696Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/1051440251",
+                "verification": "derived_reviewed"
+              },
+              {
+                "evidence_id": "ev-catalog-repository",
+                "fields": [
+                  "/repository",
+                  "/activity"
+                ],
+                "observed_at": "2026-09-01T08:36:43.059696Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/1051440251",
+                "verification": "source_reported"
+              }
+            ],
+            "full_name": "TNT-Likely/BeeCount",
+            "github_repository_id": 1051440251,
+            "required_verifications": [
+              "Verify the advisory fit fields against source-backed public evidence."
+            ],
+            "retrieval_rank": 1,
+            "role": "reference_only",
+            "sources": [
+              {
+                "observed_at": "2026-09-01T08:36:43.059696Z",
+                "source_id": "src-catalog-snapshot",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/1051440251",
+                "verification": "derived_reviewed"
+              }
+            ],
+            "url": "https://github.com/TNT-Likely/BeeCount"
+          },
+          {
+            "activity": {
+              "last_commit_at": "2026-09-01T02:30:38Z",
+              "last_release_at": "2026-08-07T21:17:24Z",
+              "observed_at": "2026-09-01T03:54:41.712996Z"
+            },
+            "adoption_fit": "unknown",
+            "descriptions": {
+              "catalog": null,
+              "catalog_origin": null,
+              "upstream": "A local-first personal finance app. Contribute to actualbudget/actual development by creating an account on GitHub."
+            },
+            "evidence": [
+              {
+                "evidence_id": "ev-catalog-card",
+                "fields": [
+                  "/identity",
+                  "/catalog",
+                  "/descriptions",
+                  "/classifications",
+                  "/delivery",
+                  "/advisory",
+                  "/provenance"
+                ],
+                "observed_at": "2026-09-01T03:54:41.712996Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/486815039",
+                "verification": "derived_reviewed"
+              },
+              {
+                "evidence_id": "ev-catalog-repository",
+                "fields": [
+                  "/repository",
+                  "/activity"
+                ],
+                "observed_at": "2026-09-01T03:54:41.712996Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/486815039",
+                "verification": "source_reported"
+              }
+            ],
+            "full_name": "actualbudget/actual",
+            "github_repository_id": 486815039,
+            "required_verifications": [
+              "Verify the advisory fit fields against source-backed public evidence."
+            ],
+            "retrieval_rank": 3,
+            "role": "reference_only",
+            "sources": [
+              {
+                "observed_at": "2026-09-01T03:54:41.712996Z",
+                "source_id": "src-catalog-snapshot",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/486815039",
+                "verification": "derived_reviewed"
+              }
+            ],
+            "url": "https://github.com/actualbudget/actual"
+          },
+          {
+            "activity": {
+              "last_commit_at": "2022-07-27T19:10:15Z",
+              "last_release_at": null,
+              "observed_at": "2026-09-01T08:39:48.569486Z"
+            },
+            "adoption_fit": "unknown",
+            "descriptions": {
+              "catalog": "Free, open source offline cross-platform budgeting solution built with Electron.",
+              "catalog_origin": "upstream",
+              "upstream": null
+            },
+            "evidence": [
+              {
+                "evidence_id": "ev-catalog-card",
+                "fields": [
+                  "/identity",
+                  "/catalog",
+                  "/descriptions",
+                  "/classifications",
+                  "/delivery",
+                  "/advisory",
+                  "/provenance"
+                ],
+                "observed_at": "2026-09-01T08:39:48.569486Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/173851397",
+                "verification": "derived_reviewed"
+              },
+              {
+                "evidence_id": "ev-catalog-repository",
+                "fields": [
+                  "/repository",
+                  "/activity"
+                ],
+                "observed_at": "2026-09-01T08:39:48.569486Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/173851397",
+                "verification": "source_reported"
+              }
+            ],
+            "full_name": "reZach/my-budget",
+            "github_repository_id": 173851397,
+            "required_verifications": [
+              "Verify the advisory fit fields against source-backed public evidence."
+            ],
+            "retrieval_rank": 6,
+            "role": "reference_only",
+            "sources": [
+              {
+                "observed_at": "2026-09-01T08:39:48.569486Z",
+                "source_id": "src-catalog-snapshot",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/173851397",
+                "verification": "derived_reviewed"
+              }
+            ],
+            "url": "https://github.com/reZach/my-budget"
+          }
+        ],
+        "source_mode": "catalog_only",
+        "unknown_facts": [
+          "compatibility",
+          "adoption fit",
+          "selected-version requirements",
+          "current GitHub activity"
+        ]
+      },
+      "capture_binding": {
+        "case_sha256": "fde1e2dd73f345ea2e29d8eb9600f02f7735bb89d69e4f12a362856950fe8965",
+        "controlled_input_bytes": 80124,
+        "full_capture_sha256": "17d69bfbfb232d131949c4ceb535a4d13e3a0b1faca0a7302aa1861a2dabe058",
+        "observation_file_sha256": "75e9e8e2346b3c57599fc12836ac917cd1eaa85e6bfa42c1771df4b2263114e7",
+        "observation_path": "evals/plugin-v1/results/cp04-v2-2026-10-08/held_out-observations.json",
+        "pack_sha256": "5df069a044b2a70c60b6ac0a7f3689cd381378039dd2376dd3a3cfc4ecec7ecd",
+        "query_bytes": 707,
+        "query_sha256": "8d41c9dc6d650e457d7f4dd862bb4085feefe29df459be1fd3ccdbf57a1e48a7",
+        "result_sha256": "2b32d54f4b32eafe82eeb33786dd2c39f992417e4ce4ca3b5fc2ea9f5cb30a44",
+        "selected_source_projection_bytes": 6057,
+        "selected_source_projection_sha256": "d1de21f732dd468018036ea8da3a9be0eb9bc8069db5b02f3124234aa63bd782",
+        "source_pack_bytes": 79417
+      },
+      "selected_ids": [
+        1051440251,
+        486815039,
+        173851397
+      ],
+      "canonical_roles": [
+        {
+          "github_repository_id": 1051440251,
+          "role": "reference_only",
+          "adoption_fit": "unknown",
+          "source_refs": [
+            {
+              "observed_at": "2026-09-01T08:36:43.059696Z",
+              "source_id": "src-catalog-snapshot",
+              "source_kind": "catalog_snapshot",
+              "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/1051440251",
+              "verification": "derived_reviewed"
+            }
+          ],
+          "evidence_refs": [
+            {
+              "evidence_id": "ev-catalog-card",
+              "fields": [
+                "/identity",
+                "/catalog",
+                "/descriptions",
+                "/classifications",
+                "/delivery",
+                "/advisory",
+                "/provenance"
+              ],
+              "observed_at": "2026-09-01T08:36:43.059696Z",
+              "source_kind": "catalog_snapshot",
+              "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/1051440251",
+              "verification": "derived_reviewed"
+            },
+            {
+              "evidence_id": "ev-catalog-repository",
+              "fields": [
+                "/repository",
+                "/activity"
+              ],
+              "observed_at": "2026-09-01T08:36:43.059696Z",
+              "source_kind": "catalog_snapshot",
+              "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/1051440251",
+              "verification": "source_reported"
+            }
+          ]
+        },
+        {
+          "github_repository_id": 486815039,
+          "role": "reference_only",
+          "adoption_fit": "unknown",
+          "source_refs": [
+            {
+              "observed_at": "2026-09-01T03:54:41.712996Z",
+              "source_id": "src-catalog-snapshot",
+              "source_kind": "catalog_snapshot",
+              "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/486815039",
+              "verification": "derived_reviewed"
+            }
+          ],
+          "evidence_refs": [
+            {
+              "evidence_id": "ev-catalog-card",
+              "fields": [
+                "/identity",
+                "/catalog",
+                "/descriptions",
+                "/classifications",
+                "/delivery",
+                "/advisory",
+                "/provenance"
+              ],
+              "observed_at": "2026-09-01T03:54:41.712996Z",
+              "source_kind": "catalog_snapshot",
+              "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/486815039",
+              "verification": "derived_reviewed"
+            },
+            {
+              "evidence_id": "ev-catalog-repository",
+              "fields": [
+                "/repository",
+                "/activity"
+              ],
+              "observed_at": "2026-09-01T03:54:41.712996Z",
+              "source_kind": "catalog_snapshot",
+              "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/486815039",
+              "verification": "source_reported"
+            }
+          ]
+        },
+        {
+          "github_repository_id": 173851397,
+          "role": "reference_only",
+          "adoption_fit": "unknown",
+          "source_refs": [
+            {
+              "observed_at": "2026-09-01T08:39:48.569486Z",
+              "source_id": "src-catalog-snapshot",
+              "source_kind": "catalog_snapshot",
+              "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/173851397",
+              "verification": "derived_reviewed"
+            }
+          ],
+          "evidence_refs": [
+            {
+              "evidence_id": "ev-catalog-card",
+              "fields": [
+                "/identity",
+                "/catalog",
+                "/descriptions",
+                "/classifications",
+                "/delivery",
+                "/advisory",
+                "/provenance"
+              ],
+              "observed_at": "2026-09-01T08:39:48.569486Z",
+              "source_kind": "catalog_snapshot",
+              "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/173851397",
+              "verification": "derived_reviewed"
+            },
+            {
+              "evidence_id": "ev-catalog-repository",
+              "fields": [
+                "/repository",
+                "/activity"
+              ],
+              "observed_at": "2026-09-01T08:39:48.569486Z",
+              "source_kind": "catalog_snapshot",
+              "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/173851397",
+              "verification": "source_reported"
+            }
+          ]
+        }
+      ],
+      "evidence_labels": [
+        {
+          "evidence_label": "H15-E1",
+          "github_repository_id": 1051440251,
+          "capability_source_field": "/descriptions/catalog",
+          "capability_binding": {
+            "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/1051440251",
+            "evidence_id": "ev-catalog-card",
+            "field": "/descriptions/catalog"
+          }
+        },
+        {
+          "evidence_label": "H15-E2",
+          "github_repository_id": 486815039,
+          "capability_source_field": "/descriptions/upstream",
+          "capability_binding": {
+            "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/486815039",
+            "evidence_id": "ev-catalog-card",
+            "field": "/descriptions/upstream"
+          }
+        },
+        {
+          "evidence_label": "H15-E3",
+          "github_repository_id": 173851397,
+          "capability_source_field": "/descriptions/catalog",
+          "capability_binding": {
+            "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/173851397",
+            "evidence_id": "ev-catalog-card",
+            "field": "/descriptions/catalog"
+          }
+        }
+      ],
+      "action_state": "proposed_not_executed",
+      "human_response": null,
+      "human_calibrated": false,
+      "promotion_ready": false,
+      "compatibility": "unknown",
+      "project_benefit_measured": false,
+      "presentation_bindings": {
+        "ru": {
+          "selected_ids": [
+            1051440251,
+            486815039,
+            173851397
+          ],
+          "canonical_roles": [
+            {
+              "github_repository_id": 1051440251,
+              "role": "reference_only",
+              "adoption_fit": "unknown",
+              "source_refs": [
+                {
+                  "observed_at": "2026-09-01T08:36:43.059696Z",
+                  "source_id": "src-catalog-snapshot",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/1051440251",
+                  "verification": "derived_reviewed"
+                }
+              ],
+              "evidence_refs": [
+                {
+                  "evidence_id": "ev-catalog-card",
+                  "fields": [
+                    "/identity",
+                    "/catalog",
+                    "/descriptions",
+                    "/classifications",
+                    "/delivery",
+                    "/advisory",
+                    "/provenance"
+                  ],
+                  "observed_at": "2026-09-01T08:36:43.059696Z",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/1051440251",
+                  "verification": "derived_reviewed"
+                },
+                {
+                  "evidence_id": "ev-catalog-repository",
+                  "fields": [
+                    "/repository",
+                    "/activity"
+                  ],
+                  "observed_at": "2026-09-01T08:36:43.059696Z",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/1051440251",
+                  "verification": "source_reported"
+                }
+              ]
+            },
+            {
+              "github_repository_id": 486815039,
+              "role": "reference_only",
+              "adoption_fit": "unknown",
+              "source_refs": [
+                {
+                  "observed_at": "2026-09-01T03:54:41.712996Z",
+                  "source_id": "src-catalog-snapshot",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/486815039",
+                  "verification": "derived_reviewed"
+                }
+              ],
+              "evidence_refs": [
+                {
+                  "evidence_id": "ev-catalog-card",
+                  "fields": [
+                    "/identity",
+                    "/catalog",
+                    "/descriptions",
+                    "/classifications",
+                    "/delivery",
+                    "/advisory",
+                    "/provenance"
+                  ],
+                  "observed_at": "2026-09-01T03:54:41.712996Z",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/486815039",
+                  "verification": "derived_reviewed"
+                },
+                {
+                  "evidence_id": "ev-catalog-repository",
+                  "fields": [
+                    "/repository",
+                    "/activity"
+                  ],
+                  "observed_at": "2026-09-01T03:54:41.712996Z",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/486815039",
+                  "verification": "source_reported"
+                }
+              ]
+            },
+            {
+              "github_repository_id": 173851397,
+              "role": "reference_only",
+              "adoption_fit": "unknown",
+              "source_refs": [
+                {
+                  "observed_at": "2026-09-01T08:39:48.569486Z",
+                  "source_id": "src-catalog-snapshot",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/173851397",
+                  "verification": "derived_reviewed"
+                }
+              ],
+              "evidence_refs": [
+                {
+                  "evidence_id": "ev-catalog-card",
+                  "fields": [
+                    "/identity",
+                    "/catalog",
+                    "/descriptions",
+                    "/classifications",
+                    "/delivery",
+                    "/advisory",
+                    "/provenance"
+                  ],
+                  "observed_at": "2026-09-01T08:39:48.569486Z",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/173851397",
+                  "verification": "derived_reviewed"
+                },
+                {
+                  "evidence_id": "ev-catalog-repository",
+                  "fields": [
+                    "/repository",
+                    "/activity"
+                  ],
+                  "observed_at": "2026-09-01T08:39:48.569486Z",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/173851397",
+                  "verification": "source_reported"
+                }
+              ]
+            }
+          ],
+          "capture_binding": {
+            "case_sha256": "fde1e2dd73f345ea2e29d8eb9600f02f7735bb89d69e4f12a362856950fe8965",
+            "controlled_input_bytes": 80124,
+            "full_capture_sha256": "17d69bfbfb232d131949c4ceb535a4d13e3a0b1faca0a7302aa1861a2dabe058",
+            "observation_file_sha256": "75e9e8e2346b3c57599fc12836ac917cd1eaa85e6bfa42c1771df4b2263114e7",
+            "observation_path": "evals/plugin-v1/results/cp04-v2-2026-10-08/held_out-observations.json",
+            "pack_sha256": "5df069a044b2a70c60b6ac0a7f3689cd381378039dd2376dd3a3cfc4ecec7ecd",
+            "query_bytes": 707,
+            "query_sha256": "8d41c9dc6d650e457d7f4dd862bb4085feefe29df459be1fd3ccdbf57a1e48a7",
+            "result_sha256": "2b32d54f4b32eafe82eeb33786dd2c39f992417e4ce4ca3b5fc2ea9f5cb30a44",
+            "selected_source_projection_bytes": 6057,
+            "selected_source_projection_sha256": "d1de21f732dd468018036ea8da3a9be0eb9bc8069db5b02f3124234aa63bd782",
+            "source_pack_bytes": 79417
+          },
+          "hypothetical_assumptions": [
+            "One experienced engineer familiar with local application setup; one operator available to describe the workflow.",
+            "One chosen app on one device, ten synthetic transactions with predetermined totals, documented selected-version setup/export/recovery if verified.",
+            "No real financial import, accounts, sync activation, custom financial logic or multi-device setup; workflow remains undocumented.",
+            "Sequential full allocation, eight hours per engineer-day. Operator availability, setup blockers, missing documentation and external waiting unknown."
+          ],
+          "time_estimate": {
+            "kind": "expert_assumption_not_measured_or_binding",
+            "confidence": "low_for_discovery_and_pilot; full_adoption_unknown",
+            "scope": "Discovery plus conditional one-device synthetic validation, not full migration.",
+            "team_size": 1,
+            "hours_per_engineer_day": 8,
+            "aggregation": "Sum phase lower/upper bounds, sequentially with no parallelism.",
+            "first_validation": {
+              "included_phases": [
+                "scope_discovery",
+                "synthetic_app_validation"
+              ],
+              "effort_engineer_hours": [
+                6,
+                12
+              ],
+              "effort_engineer_days_8h": [
+                0.75,
+                1.5
+              ],
+              "elapsed_working_days_excluding_waits": [
+                1,
+                2
+              ]
+            },
+            "discovery_only": {
+              "effort_engineer_hours": [
+                2,
+                4
+              ],
+              "effort_engineer_days_8h": [
+                0.25,
+                0.5
+              ]
+            },
+            "full_scoped_adoption": null,
+            "elapsed_rounding": "Each positive hours/8 bound rounded up to a whole working day under full allocation.",
+            "external_waiting_working_days": null,
+            "actual_start_to_finish_working_days": null,
+            "waiting_note": "Range assumes one device, verified documented setup/recovery and operator availability. Full adoption, blockers and waiting excluded; no delivery date or budget established."
+          },
+          "integration_phases": [
+            {
+              "phase_id": "scope_discovery",
+              "labels": {
+                "ru": "Уточнение объёма",
+                "en": "Scope discovery"
+              },
+              "effort_engineer_hours": [
+                2,
+                4
+              ],
+              "purpose": "Required devices/offline tasks/current-data formats; choose one candidate or retain current workflow.",
+              "exit": "Known/gap matrix; no automatic app selection."
+            },
+            {
+              "phase_id": "synthetic_app_validation",
+              "labels": {
+                "ru": "Условный искусственный пилот",
+                "en": "Conditional synthetic pilot"
+              },
+              "effort_engineer_hours": [
+                4,
+                8
+              ],
+              "purpose": "If prerequisites confirmed: one device, ten synthetic entries, offline reopen/totals and documented export/recovery.",
+              "exit": "Expected/observed outcomes, pass or stop; basis for new adoption scope."
+            }
+          ],
+          "action_state": "proposed_not_executed"
+        },
+        "en": {
+          "selected_ids": [
+            1051440251,
+            486815039,
+            173851397
+          ],
+          "canonical_roles": [
+            {
+              "github_repository_id": 1051440251,
+              "role": "reference_only",
+              "adoption_fit": "unknown",
+              "source_refs": [
+                {
+                  "observed_at": "2026-09-01T08:36:43.059696Z",
+                  "source_id": "src-catalog-snapshot",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/1051440251",
+                  "verification": "derived_reviewed"
+                }
+              ],
+              "evidence_refs": [
+                {
+                  "evidence_id": "ev-catalog-card",
+                  "fields": [
+                    "/identity",
+                    "/catalog",
+                    "/descriptions",
+                    "/classifications",
+                    "/delivery",
+                    "/advisory",
+                    "/provenance"
+                  ],
+                  "observed_at": "2026-09-01T08:36:43.059696Z",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/1051440251",
+                  "verification": "derived_reviewed"
+                },
+                {
+                  "evidence_id": "ev-catalog-repository",
+                  "fields": [
+                    "/repository",
+                    "/activity"
+                  ],
+                  "observed_at": "2026-09-01T08:36:43.059696Z",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/1051440251",
+                  "verification": "source_reported"
+                }
+              ]
+            },
+            {
+              "github_repository_id": 486815039,
+              "role": "reference_only",
+              "adoption_fit": "unknown",
+              "source_refs": [
+                {
+                  "observed_at": "2026-09-01T03:54:41.712996Z",
+                  "source_id": "src-catalog-snapshot",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/486815039",
+                  "verification": "derived_reviewed"
+                }
+              ],
+              "evidence_refs": [
+                {
+                  "evidence_id": "ev-catalog-card",
+                  "fields": [
+                    "/identity",
+                    "/catalog",
+                    "/descriptions",
+                    "/classifications",
+                    "/delivery",
+                    "/advisory",
+                    "/provenance"
+                  ],
+                  "observed_at": "2026-09-01T03:54:41.712996Z",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/486815039",
+                  "verification": "derived_reviewed"
+                },
+                {
+                  "evidence_id": "ev-catalog-repository",
+                  "fields": [
+                    "/repository",
+                    "/activity"
+                  ],
+                  "observed_at": "2026-09-01T03:54:41.712996Z",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/486815039",
+                  "verification": "source_reported"
+                }
+              ]
+            },
+            {
+              "github_repository_id": 173851397,
+              "role": "reference_only",
+              "adoption_fit": "unknown",
+              "source_refs": [
+                {
+                  "observed_at": "2026-09-01T08:39:48.569486Z",
+                  "source_id": "src-catalog-snapshot",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/173851397",
+                  "verification": "derived_reviewed"
+                }
+              ],
+              "evidence_refs": [
+                {
+                  "evidence_id": "ev-catalog-card",
+                  "fields": [
+                    "/identity",
+                    "/catalog",
+                    "/descriptions",
+                    "/classifications",
+                    "/delivery",
+                    "/advisory",
+                    "/provenance"
+                  ],
+                  "observed_at": "2026-09-01T08:39:48.569486Z",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/173851397",
+                  "verification": "derived_reviewed"
+                },
+                {
+                  "evidence_id": "ev-catalog-repository",
+                  "fields": [
+                    "/repository",
+                    "/activity"
+                  ],
+                  "observed_at": "2026-09-01T08:39:48.569486Z",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/173851397",
+                  "verification": "source_reported"
+                }
+              ]
+            }
+          ],
+          "capture_binding": {
+            "case_sha256": "fde1e2dd73f345ea2e29d8eb9600f02f7735bb89d69e4f12a362856950fe8965",
+            "controlled_input_bytes": 80124,
+            "full_capture_sha256": "17d69bfbfb232d131949c4ceb535a4d13e3a0b1faca0a7302aa1861a2dabe058",
+            "observation_file_sha256": "75e9e8e2346b3c57599fc12836ac917cd1eaa85e6bfa42c1771df4b2263114e7",
+            "observation_path": "evals/plugin-v1/results/cp04-v2-2026-10-08/held_out-observations.json",
+            "pack_sha256": "5df069a044b2a70c60b6ac0a7f3689cd381378039dd2376dd3a3cfc4ecec7ecd",
+            "query_bytes": 707,
+            "query_sha256": "8d41c9dc6d650e457d7f4dd862bb4085feefe29df459be1fd3ccdbf57a1e48a7",
+            "result_sha256": "2b32d54f4b32eafe82eeb33786dd2c39f992417e4ce4ca3b5fc2ea9f5cb30a44",
+            "selected_source_projection_bytes": 6057,
+            "selected_source_projection_sha256": "d1de21f732dd468018036ea8da3a9be0eb9bc8069db5b02f3124234aa63bd782",
+            "source_pack_bytes": 79417
+          },
+          "hypothetical_assumptions": [
+            "One experienced engineer familiar with local application setup; one operator available to describe the workflow.",
+            "One chosen app on one device, ten synthetic transactions with predetermined totals, documented selected-version setup/export/recovery if verified.",
+            "No real financial import, accounts, sync activation, custom financial logic or multi-device setup; workflow remains undocumented.",
+            "Sequential full allocation, eight hours per engineer-day. Operator availability, setup blockers, missing documentation and external waiting unknown."
+          ],
+          "time_estimate": {
+            "kind": "expert_assumption_not_measured_or_binding",
+            "confidence": "low_for_discovery_and_pilot; full_adoption_unknown",
+            "scope": "Discovery plus conditional one-device synthetic validation, not full migration.",
+            "team_size": 1,
+            "hours_per_engineer_day": 8,
+            "aggregation": "Sum phase lower/upper bounds, sequentially with no parallelism.",
+            "first_validation": {
+              "included_phases": [
+                "scope_discovery",
+                "synthetic_app_validation"
+              ],
+              "effort_engineer_hours": [
+                6,
+                12
+              ],
+              "effort_engineer_days_8h": [
+                0.75,
+                1.5
+              ],
+              "elapsed_working_days_excluding_waits": [
+                1,
+                2
+              ]
+            },
+            "discovery_only": {
+              "effort_engineer_hours": [
+                2,
+                4
+              ],
+              "effort_engineer_days_8h": [
+                0.25,
+                0.5
+              ]
+            },
+            "full_scoped_adoption": null,
+            "elapsed_rounding": "Each positive hours/8 bound rounded up to a whole working day under full allocation.",
+            "external_waiting_working_days": null,
+            "actual_start_to_finish_working_days": null,
+            "waiting_note": "Range assumes one device, verified documented setup/recovery and operator availability. Full adoption, blockers and waiting excluded; no delivery date or budget established."
+          },
+          "integration_phases": [
+            {
+              "phase_id": "scope_discovery",
+              "labels": {
+                "ru": "Уточнение объёма",
+                "en": "Scope discovery"
+              },
+              "effort_engineer_hours": [
+                2,
+                4
+              ],
+              "purpose": "Required devices/offline tasks/current-data formats; choose one candidate or retain current workflow.",
+              "exit": "Known/gap matrix; no automatic app selection."
+            },
+            {
+              "phase_id": "synthetic_app_validation",
+              "labels": {
+                "ru": "Условный искусственный пилот",
+                "en": "Conditional synthetic pilot"
+              },
+              "effort_engineer_hours": [
+                4,
+                8
+              ],
+              "purpose": "If prerequisites confirmed: one device, ten synthetic entries, offline reopen/totals and documented export/recovery.",
+              "exit": "Expected/observed outcomes, pass or stop; basis for new adoption scope."
+            }
+          ],
+          "action_state": "proposed_not_executed"
+        }
+      },
+      "narrative_word_counts": {
+        "ru": 307,
+        "en": 318
+      }
+    }
+  ],
+  "instruction_file": "plugins/myai-stackguide/skills/myai-stackguide/SKILL.md",
+  "instruction_sha256": "5f55458d649183e4869c7571cde3d19dfae55b7a19bf573008ea3eb4b1f26148",
+  "baseline_file": "evals/plugin-v1/results/cp04-v2-2026-10-08/solution-blueprint-baseline.json",
+  "baseline_sha256": "7142f6c6cf825433ec50a2597b0e22964a79ec7b77822674faf7e31df489f8e5",
+  "input_file": "evals/plugin-v1/results/cp04-v2-2026-10-08/project-fit-explanations.json",
+  "input_sha256": "32e7f42a8535d32ab429a42b0d3c176060b73e5232ebf3f7a995f9937ab46856",
+  "source_file_sha256": {
+    "plugins/myai-stackguide/skills/myai-stackguide/SKILL.md": "5f55458d649183e4869c7571cde3d19dfae55b7a19bf573008ea3eb4b1f26148",
+    "evals/plugin-v1/results/cp04-v2-2026-10-08/solution-blueprint-baseline.json": "7142f6c6cf825433ec50a2597b0e22964a79ec7b77822674faf7e31df489f8e5",
+    "evals/plugin-v1/results/cp04-v2-2026-10-08/project-fit-explanations.json": "32e7f42a8535d32ab429a42b0d3c176060b73e5232ebf3f7a995f9937ab46856",
+    "docs/PRODUCT_REQUIREMENTS.md": "b7221bab1def0feb0aa1d1397d0c73d2e2b7a0311ffaa8dc666498251f5dba33",
+    "EVALS.md": "3635402f2dd90fc4189847f83c27c98b20f61906414873dce07abb420f459502",
+    "docs/plan/plugin-v1-team-contracts.md": "f0128a424548713e764b0fae8103dd4b48ce80b0ea2e74dcc7a51356fb74935a",
+    ".agents/skills/design-recommendation-evals/SKILL.md": "ea8c1b2c92f57453dbdd769ccc95a13b9b2ec9939705ea2114a1e8cfa6ae615d"
+  },
+  "review": {
+    "self_review": "Conditional facts, equivalent scope, complexity, arithmetic, paired meaning and action boundaries checked; independent review pending.",
+    "independent_reviewer": "Astra evidence_reviewer assigned by primary",
+    "independent_review_status": "pending",
+    "numeric_scores": null
+  }
+}

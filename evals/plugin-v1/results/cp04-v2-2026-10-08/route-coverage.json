@@ -1,0 +1,2496 @@
+{
+  "all_passed": true,
+  "expected_routes": 126,
+  "pins": {
+    "activity_schema_version": "2.0.0",
+    "card_schema_version": "2.0.0",
+    "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+    "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+    "corpus_kind": "catalog_snapshot",
+    "index_format_version": 3,
+    "index_sha256": "9678f5e265e4e3a33df3818f94c509c60728e994051ee72ec2050b0b093306c4",
+    "policy_sha256": "ff6e8444c4664492bb099f0819b2d284aa5c28f0d44c7a745c63f434c3489dbf",
+    "retrieval_policy_version": "2.1.0",
+    "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+    "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+  },
+  "records": [
+    {
+      "bounded": true,
+      "candidate_count": 32,
+      "canonical_ids": [
+        16309,
+        29273084,
+        1131513930,
+        304836585,
+        51411118,
+        288048368,
+        1146075858,
+        849406496,
+        532977861,
+        63773246,
+        406570392,
+        486815039,
+        28904322,
+        272827254,
+        20021038,
+        89801027,
+        424920574,
+        537869276,
+        1048320382,
+        887597422,
+        97858693,
+        1009628866,
+        539526271,
+        123909654,
+        1115093974,
+        155289518,
+        333850832,
+        21298446,
+        1957456,
+        217872093,
+        166674659,
+        473710288
+      ],
+      "latency_ms": 31.087,
+      "no_duplicate_ids": true,
+      "query_sha256": "41bf2b943c8a3ad349bf6f11e83d4cbb22764045cf908024d9585ab74446b9f2",
+      "reason_codes": [],
+      "route_id": "accounting_finance_erp",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 6,
+      "canonical_ids": [
+        16309,
+        51411118,
+        20021038,
+        1009628866,
+        123909654,
+        155289518
+      ],
+      "latency_ms": 30.605,
+      "no_duplicate_ids": true,
+      "query_sha256": "56c2a2df3264074aade18829b39d4215d4efeb87489566c8240bf71ad91f1a2c",
+      "reason_codes": [],
+      "route_id": "accounting_invoicing",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 5,
+      "canonical_ids": [
+        927890076,
+        951601187,
+        922709376,
+        1101234405,
+        936036852
+      ],
+      "latency_ms": 29.9908,
+      "no_duplicate_ids": true,
+      "query_sha256": "5c7baf0032a5f4008361cb3af5785aaf8eb789f10d4dcf60ec64ea88a8987770",
+      "reason_codes": [],
+      "route_id": "agent_protocols_interop",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 12,
+      "canonical_ids": [
+        1075372545,
+        881569514,
+        951543275,
+        1155681980,
+        1179959183,
+        1333065091,
+        1182216394,
+        1217522067,
+        599320067,
+        680120071,
+        1146738089,
+        1133901637
+      ],
+      "latency_ms": 29.9296,
+      "no_duplicate_ids": true,
+      "query_sha256": "dcc8493339ab6abd47c0d29ed84c8a228eb2541732face72fa7b751273a5b632",
+      "reason_codes": [],
+      "route_id": "agent_runtime_orchestration",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 3,
+      "canonical_ids": [
+        666299222,
+        739667828,
+        574523116
+      ],
+      "latency_ms": 29.9433,
+      "no_duplicate_ids": true,
+      "query_sha256": "6a650e65259dfd94d949038bd7ac0d7074ca8060b09a7a3e5c4c08ae19b88214",
+      "reason_codes": [],
+      "route_id": "ai_application_ui",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 3,
+      "canonical_ids": [
+        950213855,
+        311683390,
+        952977008
+      ],
+      "latency_ms": 30.7423,
+      "no_duplicate_ids": true,
+      "query_sha256": "bf77510968831906c58e805aaee7b3c0a97454d827576b3ad7a61608796303a0",
+      "reason_codes": [],
+      "route_id": "ai_security_guardrails_redteam",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 5,
+      "canonical_ids": [
+        39464018,
+        280363952,
+        4473517,
+        235901813,
+        194870085
+      ],
+      "latency_ms": 31.2121,
+      "no_duplicate_ids": true,
+      "query_sha256": "830a6e8c4897c30caacd2940d98232df04bb2f150ae39528792e5387670d078e",
+      "reason_codes": [],
+      "route_id": "analytics_bi_reporting",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 4,
+      "canonical_ids": [
+        2544305,
+        60344592,
+        85806183,
+        8426406
+      ],
+      "latency_ms": 29.7932,
+      "no_duplicate_ids": true,
+      "query_sha256": "e3b6534b100d65f0db30676afe2ed90edc414f9d00542039197e37a306048bf2",
+      "reason_codes": [],
+      "route_id": "api_contract_testing",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 5,
+      "canonical_ids": [
+        38307428,
+        2055965,
+        162690887,
+        2006876,
+        1362490
+      ],
+      "latency_ms": 29.8314,
+      "no_duplicate_ids": true,
+      "query_sha256": "a5ba6a8c17e46f647cd0b506bad7461dcafbec45d39e7fbb2ba36782a4ed5729",
+      "reason_codes": [],
+      "route_id": "api_graphql_rpc",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 2,
+      "canonical_ids": [
+        10567197,
+        10187082
+      ],
+      "latency_ms": 29.7163,
+      "no_duplicate_ids": true,
+      "query_sha256": "b35bb5369c44b44c483341646d5e41af8dfca40bd44db52e027e03050ee70741",
+      "reason_codes": [],
+      "route_id": "application_paas",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 9,
+      "canonical_ids": [
+        279488921,
+        168782501,
+        105262714,
+        501372599,
+        104739489,
+        135321861,
+        125619154,
+        48610662,
+        36071697
+      ],
+      "latency_ms": 29.6513,
+      "no_duplicate_ids": true,
+      "query_sha256": "91f89198a23fbf50e8b00eab07576c1cb40962eb853560fb75cb7d3e162c33b8",
+      "reason_codes": [],
+      "route_id": "auth_identity_access",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 6,
+      "canonical_ids": [
+        44027524,
+        108761645,
+        997890921,
+        861892731,
+        280567579,
+        306829688
+      ],
+      "latency_ms": 32.5072,
+      "no_duplicate_ids": true,
+      "query_sha256": "842345e01fea6094a5f340a882880be918f420cd4cf40dee96e3eaf527733568",
+      "reason_codes": [],
+      "route_id": "automation_workflows_nocode",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 7,
+      "canonical_ids": [
+        214587193,
+        337414495,
+        180190854,
+        769023213,
+        510607652,
+        50603846,
+        1028159967
+      ],
+      "latency_ms": 30.8769,
+      "no_duplicate_ids": true,
+      "query_sha256": "48f14255c15820254a77c5cc5a95f406e1100ab2fe292a41d412d08d65f72f4e",
+      "reason_codes": [],
+      "route_id": "baas_platforms",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 16,
+      "canonical_ids": [
+        7548986,
+        20904437,
+        394929332,
+        952098631,
+        17620347,
+        80945428,
+        1863329,
+        214587193,
+        337414495,
+        40772809,
+        180190854,
+        105379569,
+        769023213,
+        510607652,
+        50603846,
+        1028159967
+      ],
+      "latency_ms": 30.7352,
+      "no_duplicate_ids": true,
+      "query_sha256": "737d734600461fdf1c54e49f7588c4e185e534225174c75a3f332382e6f6fb85",
+      "reason_codes": [],
+      "route_id": "backend_baas_api",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 9,
+      "canonical_ids": [
+        7548986,
+        20904437,
+        394929332,
+        952098631,
+        17620347,
+        80945428,
+        1863329,
+        40772809,
+        105379569
+      ],
+      "latency_ms": 30.5009,
+      "no_duplicate_ids": true,
+      "query_sha256": "44d059d491d72e0ea2d20208cefdb132d6d4294b2999e349817fdf3ce00b20e9",
+      "reason_codes": [],
+      "route_id": "backend_frameworks",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 11,
+      "canonical_ids": [
+        7613257,
+        79921099,
+        956283541,
+        235431922,
+        221981891,
+        860252770,
+        899184149,
+        998796026,
+        1146413571,
+        870189331,
+        66670819
+      ],
+      "latency_ms": 31.5933,
+      "no_duplicate_ids": true,
+      "query_sha256": "6523c9090e7faf92728fdacfda48c7f9b7bcd8fe42334fdb08a797f18c18cf2a",
+      "reason_codes": [],
+      "route_id": "browser_computer_use",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 11,
+      "canonical_ids": [
+        7613257,
+        221981891,
+        199141711,
+        31629751,
+        125568868,
+        230096072,
+        232162578,
+        291930234,
+        61308714,
+        1146193768,
+        442096414
+      ],
+      "latency_ms": 30.277,
+      "no_duplicate_ids": true,
+      "query_sha256": "c8e00e2e988e5d8af99f9712b5a9480f7c308d49164a25f85d80da1ac0e3d537",
+      "reason_codes": [],
+      "route_id": "browser_mobile_testing",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 6,
+      "canonical_ids": [
+        133442384,
+        599431918,
+        3678731,
+        20929025,
+        75821432,
+        945551361
+      ],
+      "latency_ms": 29.7362,
+      "no_duplicate_ids": true,
+      "query_sha256": "a203c7abfe112646ae6a3cd4b80a76e7a681b0cc89e02f264d472d4921d29b3d",
+      "reason_codes": [],
+      "route_id": "build_systems_toolchains",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 3,
+      "canonical_ids": [
+        437245741,
+        775743011,
+        11225014
+      ],
+      "latency_ms": 29.5613,
+      "no_duplicate_ids": true,
+      "query_sha256": "2730665a9108d274e09bed0d5b3f4913a5926f57a6d2a99d9962f20199311db0",
+      "reason_codes": [],
+      "route_id": "caches_key_value_stores",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 7,
+      "canonical_ids": [
+        177033748,
+        146641150,
+        179344069,
+        50365232,
+        246903803,
+        36502,
+        72495579
+      ],
+      "latency_ms": 29.8011,
+      "no_duplicate_ids": true,
+      "query_sha256": "3593bc2983398293c7ab568995c8660c4c9f702b2bb412626437c893d79adccf",
+      "reason_codes": [],
+      "route_id": "ci_cd_release",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 6,
+      "canonical_ids": [
+        1319183,
+        75645659,
+        7122594,
+        16479108,
+        327089870,
+        65252
+      ],
+      "latency_ms": 29.8835,
+      "no_duplicate_ids": true,
+      "query_sha256": "44d0a860da680a879bb7cf706d27d3d33d8ce91596633de9b5aeb1f5900f68b6",
+      "reason_codes": [],
+      "route_id": "cms_content_knowledge",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 3,
+      "canonical_ids": [
+        17689377,
+        671654508,
+        304830226
+      ],
+      "latency_ms": 29.8234,
+      "no_duplicate_ids": true,
+      "query_sha256": "c855653c52f253e679b2300e58c95e84f4270d71d8d3f4f59d27cda29627e3e5",
+      "reason_codes": [],
+      "route_id": "code_quality",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 15,
+      "canonical_ids": [
+        977795489,
+        926861272,
+        950338765,
+        1178493295,
+        900744587,
+        1146413571,
+        1162099055,
+        1039237865,
+        1033268244,
+        1033865617,
+        780737106,
+        1183888342,
+        1084853233,
+        1196527539,
+        952977008
+      ],
+      "latency_ms": 30.2618,
+      "no_duplicate_ids": true,
+      "query_sha256": "1acaf54d488d297d397c13b4bc54d076bed7e87131c7b544ce3418111f7dc40f",
+      "reason_codes": [],
+      "route_id": "coding_agents_devex",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 9,
+      "canonical_ids": [
+        39487546,
+        65848095,
+        1529160,
+        60243197,
+        896417211,
+        266231149,
+        519859998,
+        838659679,
+        1204488303
+      ],
+      "latency_ms": 29.8303,
+      "no_duplicate_ids": true,
+      "query_sha256": "a868bacba27f7ade3c45223f1c8cccf556f7e765c9096f87dd4e5a5c6ac3f770",
+      "reason_codes": [],
+      "route_id": "collaboration_knowledge",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 7,
+      "canonical_ids": [
+        144494851,
+        110445107,
+        39487546,
+        684382,
+        79585104,
+        15225670,
+        943286066
+      ],
+      "latency_ms": 30.1862,
+      "no_duplicate_ids": true,
+      "query_sha256": "b492618230c377c757286bf15aef8435dc503f8c7381cdbd500ed8c242fd1d54",
+      "reason_codes": [],
+      "route_id": "communications_personal_ops",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 8,
+      "canonical_ids": [
+        133251103,
+        83363132,
+        7691631,
+        269336148,
+        743140652,
+        91074692,
+        953587943,
+        1137865761
+      ],
+      "latency_ms": 33.8001,
+      "no_duplicate_ids": true,
+      "query_sha256": "c9bfe94ac1d04193c75f9421b1abbf25c85feda955d19519060b894c09353e1e",
+      "reason_codes": [],
+      "route_id": "container_platforms",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 5,
+      "canonical_ids": [
+        1319183,
+        75645659,
+        7122594,
+        16479108,
+        327089870
+      ],
+      "latency_ms": 31.4893,
+      "no_duplicate_ids": true,
+      "query_sha256": "eb7e6bb6224b75035b872ca29e7da2cfe749dd9cd620fd548ab628ac1609fadb",
+      "reason_codes": [],
+      "route_id": "content_management_systems",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 2,
+      "canonical_ids": [
+        7569578,
+        891110939
+      ],
+      "latency_ms": 29.6439,
+      "no_duplicate_ids": true,
+      "query_sha256": "e9580908fba4db9d013e30b0a4f122c292138c960a4d0651d00ec7d0ba2215e0",
+      "reason_codes": [],
+      "route_id": "content_social_community",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 3,
+      "canonical_ids": [
+        3898922,
+        33225130,
+        155852027
+      ],
+      "latency_ms": 30.3405,
+      "no_duplicate_ids": true,
+      "query_sha256": "740d12592333f18fc0cc5340a05d3c6a2ef7ad158716e6fa24edd02c5af601f0",
+      "reason_codes": [],
+      "route_id": "customer_support_success",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 31,
+      "canonical_ids": [
+        2716160,
+        8231332,
+        139907613,
+        1000455779,
+        513743595,
+        406651459,
+        5427753,
+        8154497,
+        32035790,
+        320936145,
+        15639771,
+        787908531,
+        181301257,
+        5797013,
+        206427,
+        84824846,
+        186647681,
+        200468551,
+        40671758,
+        53121406,
+        176398139,
+        1099382137,
+        631431061,
+        1180257966,
+        616949450,
+        282861218,
+        211301839,
+        137223122,
+        383922649,
+        4661744,
+        572470098
+      ],
+      "latency_ms": 30.0722,
+      "no_duplicate_ids": true,
+      "query_sha256": "153e407a56c8e448fadbbe96e00f5a0e4810d3292c9b6b1558ad56d3084f8388",
+      "reason_codes": [],
+      "route_id": "data_catalogs_lineage",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 3,
+      "canonical_ids": [
+        99412308,
+        285012857,
+        947516890
+      ],
+      "latency_ms": 31.6232,
+      "no_duplicate_ids": true,
+      "query_sha256": "7d9de3988aad5ed118256d8c80ce0a89b02bb68acd985d3c61afd8b1966ffc3a",
+      "reason_codes": [],
+      "route_id": "data_ingestion_connectors",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 42,
+      "canonical_ids": [
+        2716160,
+        71932349,
+        17165658,
+        8231332,
+        139907613,
+        99412308,
+        327859577,
+        1000455779,
+        29261473,
+        513743595,
+        406651459,
+        5427753,
+        8154497,
+        32035790,
+        2310495,
+        182849188,
+        24528468,
+        320936145,
+        15639771,
+        787908531,
+        181301257,
+        285012857,
+        5797013,
+        206427,
+        84824846,
+        186647681,
+        200468551,
+        40671758,
+        53121406,
+        176398139,
+        1099382137,
+        631431061,
+        1180257966,
+        21827146,
+        947516890,
+        616949450,
+        282861218,
+        211301839,
+        137223122,
+        383922649,
+        4661744,
+        572470098
+      ],
+      "latency_ms": 30.9633,
+      "no_duplicate_ids": true,
+      "query_sha256": "416a57a442c8952add79f35f315d2b75288f9a25e957322e77ef5d028988e7b1",
+      "reason_codes": [],
+      "route_id": "data_ingestion_etl_cdc",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 5,
+      "canonical_ids": [
+        327859577,
+        29261473,
+        2310495,
+        182849188,
+        21827146
+      ],
+      "latency_ms": 29.7545,
+      "no_duplicate_ids": true,
+      "query_sha256": "dd0ebb7e20034de9c77651dd15923d24d2ea07b747e27d2fa5cfd41adce7c4a9",
+      "reason_codes": [],
+      "route_id": "data_lakes_object_storage",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 3,
+      "canonical_ids": [
+        71932349,
+        17165658,
+        24528468
+      ],
+      "latency_ms": 29.7771,
+      "no_duplicate_ids": true,
+      "query_sha256": "0d40cbcccede6f562dba452e2682fa6557a9deff9c5e4bae78b3489cc1bc00e9",
+      "reason_codes": [],
+      "route_id": "data_processing_compute",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 3,
+      "canonical_ids": [
+        898128804,
+        960484071,
+        1142800652
+      ],
+      "latency_ms": 30.3145,
+      "no_duplicate_ids": true,
+      "query_sha256": "7c383c8d0fbabd0b2d23f0988b51d531206ea1e72af1a39e31648cec64ac6e79",
+      "reason_codes": [],
+      "route_id": "database_clients_admin",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 10,
+      "canonical_ids": [
+        4044891,
+        84240850,
+        436658287,
+        143344440,
+        927442,
+        422821402,
+        60246359,
+        24494032,
+        19257422,
+        19816070
+      ],
+      "latency_ms": 30.0843,
+      "no_duplicate_ids": true,
+      "query_sha256": "3f350eecabb4e57bd7a36857a25bd9c5a537aab6203f3a0898685eb91b9029b9",
+      "reason_codes": [],
+      "route_id": "database_engines",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 16,
+      "canonical_ids": [
+        4044891,
+        84240850,
+        436658287,
+        143344440,
+        927442,
+        422821402,
+        60246359,
+        437245741,
+        24494032,
+        775743011,
+        19257422,
+        898128804,
+        960484071,
+        19816070,
+        11225014,
+        1142800652
+      ],
+      "latency_ms": 30.1502,
+      "no_duplicate_ids": true,
+      "query_sha256": "df4ce51e70716eff894b8636e33f3c3e2d2ba2683af808ffe7bd5455777caf01",
+      "reason_codes": [],
+      "route_id": "databases_storage_caching",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 36,
+      "canonical_ids": [
+        81018897,
+        292016444,
+        147035039,
+        172628505,
+        771808616,
+        148221325,
+        92254860,
+        22489033,
+        546752231,
+        616643637,
+        389571254,
+        67186968,
+        272587927,
+        60705895,
+        156289428,
+        11008076,
+        52206290,
+        653595084,
+        136914524,
+        247029769,
+        333421996,
+        685444668,
+        94317993,
+        31570906,
+        1102015506,
+        613731840,
+        648474263,
+        320426156,
+        294870762,
+        475505735,
+        536490220,
+        289107293,
+        192640529,
+        362500938,
+        186255460,
+        430732065
+      ],
+      "latency_ms": 30.3379,
+      "no_duplicate_ids": true,
+      "query_sha256": "e6e705da749a9acce29f38c5f58c529c79af0d88d5cde99718acc6dc04889947",
+      "reason_codes": [],
+      "route_id": "datasets_synthetic_labeling",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 17,
+      "canonical_ids": [
+        48378947,
+        133251103,
+        83363132,
+        7691631,
+        10567197,
+        3638964,
+        108278,
+        269336148,
+        743140652,
+        17728164,
+        91074692,
+        721767116,
+        953587943,
+        10187082,
+        20619036,
+        1390248,
+        1137865761
+      ],
+      "latency_ms": 31.322,
+      "no_duplicate_ids": true,
+      "query_sha256": "675f12b138b28b72fdf6a002755c5f98740eb84103e859c34109d4d422c4ff47",
+      "reason_codes": [],
+      "route_id": "deployment_containers_paas",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 1,
+      "canonical_ids": [
+        1070285775
+      ],
+      "latency_ms": 59.6558,
+      "no_duplicate_ids": true,
+      "query_sha256": "913c2cab1fc759931d7d25d8abeec1aff02fe5053949466f413dc120f4fff972",
+      "reason_codes": [],
+      "route_id": "design_brand_uiux",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 24,
+      "canonical_ids": [
+        486125557,
+        502193049,
+        268424739,
+        133442384,
+        233130089,
+        130464961,
+        671832156,
+        13807606,
+        599431918,
+        82933315,
+        90793418,
+        17689377,
+        53631945,
+        3678731,
+        172378503,
+        340547520,
+        671654508,
+        20929025,
+        75821432,
+        24268127,
+        304830226,
+        945551361,
+        914173426,
+        291137
+      ],
+      "latency_ms": 58.6018,
+      "no_duplicate_ids": true,
+      "query_sha256": "e94e6b05214ad63634435a718e61b40424c4548ae4ea70c9be6d230d748d543c",
+      "reason_codes": [],
+      "route_id": "developer_tools_cli_general",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 2,
+      "canonical_ids": [
+        486125557,
+        82933315
+      ],
+      "latency_ms": 58.5361,
+      "no_duplicate_ids": true,
+      "query_sha256": "8a95142bcc82a177577702268312394d11319e4003795ac2232960bacd1a8fce",
+      "reason_codes": [],
+      "route_id": "development_environments",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 1,
+      "canonical_ids": [
+        281519510
+      ],
+      "latency_ms": 59.8483,
+      "no_duplicate_ids": true,
+      "query_sha256": "876411c5f39153a59686bbfef519331c04f68b28530c0fbb6f6c9bd490f74e62",
+      "reason_codes": [],
+      "route_id": "distributed_training_acceleration",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 3,
+      "canonical_ids": [
+        905450127,
+        262296122,
+        925434317
+      ],
+      "latency_ms": 56.3308,
+      "no_duplicate_ids": true,
+      "query_sha256": "530be7a15c3b97f8db4b2b29f50f236c051a746747089781dfbdd5f5cc163684",
+      "reason_codes": [],
+      "route_id": "document_ai_ocr_parsing",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 2,
+      "canonical_ids": [
+        458648791,
+        210702427
+      ],
+      "latency_ms": 54.0802,
+      "no_duplicate_ids": true,
+      "query_sha256": "3d49917df7a0b71f4525fd8e2b9d69c73dff8ff5c4bcfc2ce221c227b757b3c0",
+      "reason_codes": [],
+      "route_id": "document_management_processing",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 1,
+      "canonical_ids": [
+        65252
+      ],
+      "latency_ms": 55.9835,
+      "no_duplicate_ids": true,
+      "query_sha256": "90efa2de566776977a48033e0a09c01a30ec6d22316c1bde08bb285b558d672c",
+      "reason_codes": [],
+      "route_id": "documentation_site_generators",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 8,
+      "canonical_ids": [
+        621902641,
+        18586705,
+        114730000,
+        2179920,
+        131995661,
+        19971572,
+        1203556545,
+        175471189
+      ],
+      "latency_ms": 55.8148,
+      "no_duplicate_ids": true,
+      "query_sha256": "acc5818a78eed84d121bb14a1b1ad230569d91bfa5be5698cdf65b56cef36d18",
+      "reason_codes": [],
+      "route_id": "ecommerce_payments_revenue",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 3,
+      "canonical_ids": [
+        18586705,
+        2179920,
+        131995661
+      ],
+      "latency_ms": 54.1347,
+      "no_duplicate_ids": true,
+      "query_sha256": "70f6ee4c3ad88be1ded22e1ba787baa7db0e548e392e0fe6e252b013877f863f",
+      "reason_codes": [],
+      "route_id": "ecommerce_platforms",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 9,
+      "canonical_ids": [
+        685709378,
+        385700649,
+        843570824,
+        192631273,
+        1296688895,
+        1321790489,
+        999128119,
+        286898814,
+        996722787
+      ],
+      "latency_ms": 55.0659,
+      "no_duplicate_ids": true,
+      "query_sha256": "ca979c6b63813b4ce7988ec7f4bffff6898d2f9cd11a21bfb9ef7b4f6268a884",
+      "reason_codes": [],
+      "route_id": "edge_on_device_ai",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 2,
+      "canonical_ids": [
+        268424739,
+        340547520
+      ],
+      "latency_ms": 56.3923,
+      "no_duplicate_ids": true,
+      "query_sha256": "e23d74a02a670be133bb70e58788a91c28e9c29f2c9cc5088c28b8d30827d09f",
+      "reason_codes": [],
+      "route_id": "editors_ides",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 4,
+      "canonical_ids": [
+        117591846,
+        1464380,
+        88740103,
+        193833307
+      ],
+      "latency_ms": 56.9255,
+      "no_duplicate_ids": true,
+      "query_sha256": "ac0410e5d97b3c08227e624f5b2e2effe1716e920a2c19397a894ee1416cfa17",
+      "reason_codes": [],
+      "route_id": "email_notifications",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 1,
+      "canonical_ids": [
+        704543233
+      ],
+      "latency_ms": 61.2178,
+      "no_duplicate_ids": true,
+      "query_sha256": "eec5e03b272d6cab667ddb740ae357b0ad75b4e2ff664f102549c8db3b655bce",
+      "reason_codes": [],
+      "route_id": "embeddings_reranking",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 1,
+      "canonical_ids": [
+        1957456
+      ],
+      "latency_ms": 59.2912,
+      "no_duplicate_ids": true,
+      "query_sha256": "72450d605b912b9ea223620499af1656ee547ba6d41a1b5522c08b76462cc796",
+      "reason_codes": [],
+      "route_id": "erp_business_suites",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 0,
+      "canonical_ids": [],
+      "latency_ms": 55.3901,
+      "no_duplicate_ids": true,
+      "query_sha256": "a8e6d55d697d16a39a4a1d9cef289a7379ba53158e30346d8c0642e6da56935b",
+      "reason_codes": [
+        "no_hits"
+      ],
+      "route_id": "evals_benchmarks",
+      "status": "no_match"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 2,
+      "canonical_ids": [
+        11759482,
+        23727790
+      ],
+      "latency_ms": 54.8141,
+      "no_duplicate_ids": true,
+      "query_sha256": "2a6e0e684c90d6673e95c3b5e265d5b3d7ae374721204f329ffbd960b29457cf",
+      "reason_codes": [],
+      "route_id": "feature_flags_config",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 5,
+      "canonical_ids": [
+        42332863,
+        60243197,
+        4999959,
+        410749029,
+        323965659
+      ],
+      "latency_ms": 62.9804,
+      "no_duplicate_ids": true,
+      "query_sha256": "c37e76b1d116480f033ed16ec94f4ddbfbf5e6a96ec43a4ada89ec947f60f264",
+      "reason_codes": [],
+      "route_id": "file_management_sync",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 40,
+      "canonical_ids": [
+        33494170,
+        13428264,
+        16685880,
+        355522545,
+        520259184,
+        124406046,
+        126347767,
+        61704407,
+        292720676,
+        1231342524,
+        62006693,
+        106279637,
+        360936748,
+        509970897,
+        686856844,
+        85556526,
+        90628954,
+        19105307,
+        34218418,
+        38025845,
+        63791110,
+        76937227,
+        31770106,
+        199281128,
+        123954139,
+        109131327,
+        3602669,
+        107331617,
+        12594863,
+        282368459,
+        389941102,
+        114383946,
+        241396824,
+        257791501,
+        439649936,
+        30316422,
+        61244279,
+        240488592,
+        178645430,
+        17659600
+      ],
+      "latency_ms": 72.8869,
+      "no_duplicate_ids": true,
+      "query_sha256": "fd127da14e1028c79ec0618835832f70f6d50861cbc146c486f11284e1a45d6b",
+      "reason_codes": [],
+      "route_id": "file_upload_infrastructure",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 51,
+      "canonical_ids": [
+        42332863,
+        33494170,
+        307260205,
+        13428264,
+        16685880,
+        355522545,
+        520259184,
+        60243197,
+        458648791,
+        4999959,
+        124406046,
+        126347767,
+        61704407,
+        187961907,
+        292720676,
+        1231342524,
+        62006693,
+        106279637,
+        360936748,
+        509970897,
+        686856844,
+        85556526,
+        90628954,
+        19105307,
+        34218418,
+        38025845,
+        63791110,
+        76937227,
+        31770106,
+        199281128,
+        210702427,
+        123954139,
+        109131327,
+        3602669,
+        41889031,
+        107331617,
+        410749029,
+        35780977,
+        12594863,
+        282368459,
+        323965659,
+        389941102,
+        114383946,
+        241396824,
+        257791501,
+        439649936,
+        30316422,
+        61244279,
+        240488592,
+        178645430,
+        17659600
+      ],
+      "latency_ms": 56.2072,
+      "no_duplicate_ids": true,
+      "query_sha256": "d158ddbcd4d0ee3383972fd7f8459d392d9e358810e7670d86481ad3eae7a220",
+      "reason_codes": [],
+      "route_id": "files_media_storage",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 2,
+      "canonical_ids": [
+        1131513930,
+        849406496
+      ],
+      "latency_ms": 56.7097,
+      "no_duplicate_ids": true,
+      "query_sha256": "da8109eb52d2248fc6ffcb6859bee7a8a9a54de802dbf46b0832021c00919fea",
+      "reason_codes": [],
+      "route_id": "financial_market_tools",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 0,
+      "canonical_ids": [],
+      "latency_ms": 59.5804,
+      "no_duplicate_ids": true,
+      "query_sha256": "55b9adb2dbfe1d4a09487b896b880548f7b3ef0dd5973094c1922d0579f12c99",
+      "reason_codes": [
+        "no_hits"
+      ],
+      "route_id": "forms_validation",
+      "status": "no_match"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 1,
+      "canonical_ids": [
+        834369920
+      ],
+      "latency_ms": 65.9471,
+      "no_duplicate_ids": true,
+      "query_sha256": "6241af5be6274200039d604393966da1fa752d891e996fea08f52f81f4c83c4b",
+      "reason_codes": [],
+      "route_id": "foundation_models",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 24,
+      "canonical_ids": [
+        36535156,
+        84835535,
+        327628682,
+        157846876,
+        11507163,
+        106017343,
+        130884470,
+        137078487,
+        281319253,
+        9185792,
+        304120355,
+        54994103,
+        1301140808,
+        9309093,
+        585146387,
+        60537144,
+        208362715,
+        270722949,
+        202890778,
+        165670309,
+        243546335,
+        60630844,
+        5239185,
+        26066727
+      ],
+      "latency_ms": 62.3236,
+      "no_duplicate_ids": true,
+      "query_sha256": "adc5adf6c5c8ca062a69ae3216fdf900a0d1de053a29fb08a6346976527a1809",
+      "reason_codes": [],
+      "route_id": "frontend_frameworks_ui",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 3,
+      "canonical_ids": [
+        36535156,
+        304120355,
+        165670309
+      ],
+      "latency_ms": 61.2091,
+      "no_duplicate_ids": true,
+      "query_sha256": "6f48ef6a95183f520897f8bfc8b23028522b9fadab1dbc5b358662764a40ae73",
+      "reason_codes": [],
+      "route_id": "frontend_state_data",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 2,
+      "canonical_ids": [
+        130884470,
+        137078487
+      ],
+      "latency_ms": 63.902,
+      "no_duplicate_ids": true,
+      "query_sha256": "d588a2869c0085d5c0456486a9a19fa8c40c192a0d09b07c4cdcaeca933c8a9f",
+      "reason_codes": [],
+      "route_id": "frontend_web_frameworks",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 2,
+      "canonical_ids": [
+        62009759,
+        1092407718
+      ],
+      "latency_ms": 70.0975,
+      "no_duplicate_ids": true,
+      "query_sha256": "8bcd27e83ff1a2accd72fc5e2215dc5d506ecfd82ee95b021d17e10cd3a0cdfa",
+      "reason_codes": [],
+      "route_id": "fundraising_investor_relations",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 3,
+      "canonical_ids": [
+        234798675,
+        1051990253,
+        950564038
+      ],
+      "latency_ms": 57.8403,
+      "no_duplicate_ids": true,
+      "query_sha256": "4d9853a50dd42b7ef31cd715264b7e135563d9b72efde1af8463619b7cb5b748",
+      "reason_codes": [],
+      "route_id": "game_engines",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 14,
+      "canonical_ids": [
+        15866170,
+        112261191,
+        2528254,
+        268015482,
+        531351287,
+        1137327132,
+        86997096,
+        469797351,
+        107540288,
+        271888852,
+        236836976,
+        694266896,
+        238931093,
+        1188762020
+      ],
+      "latency_ms": 55.9099,
+      "no_duplicate_ids": true,
+      "query_sha256": "b2e0d6e7d1c6d7e785b9f3f95b51e171177dffc3da4d551b84af3d3f4f5d58cb",
+      "reason_codes": [],
+      "route_id": "governance_policy_compliance",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 4,
+      "canonical_ids": [
+        157846876,
+        9185792,
+        1301140808,
+        26066727
+      ],
+      "latency_ms": 55.5465,
+      "no_duplicate_ids": true,
+      "query_sha256": "1f0be886b6fae425287eb04d0950819c026dbecf11a8562e158a2826fea1e989",
+      "reason_codes": [],
+      "route_id": "graphics_visualization",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 2,
+      "canonical_ids": [
+        638872610,
+        837911756
+      ],
+      "latency_ms": 60.0281,
+      "no_duplicate_ids": true,
+      "query_sha256": "1c58f13cf3490d0aacec0f8d440b282a05747df191f8eba9bd2aa908aa94176c",
+      "reason_codes": [],
+      "route_id": "hr_recruiting_people_ops",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 2,
+      "canonical_ids": [
+        589831718,
+        695864515
+      ],
+      "latency_ms": 58.2514,
+      "no_duplicate_ids": true,
+      "query_sha256": "a15679cc1eadf4b278935af91ddc11d684c7022fe135f2bf548e1c6ddce80a01",
+      "reason_codes": [],
+      "route_id": "image_video_generation",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 8,
+      "canonical_ids": [
+        587499842,
+        993521808,
+        235860204,
+        308638334,
+        265612440,
+        599320067,
+        680120071,
+        599547518
+      ],
+      "latency_ms": 61.5668,
+      "no_duplicate_ids": true,
+      "query_sha256": "401875c1b9e7e22c34e89672af295266cdb973252ece221b0ef472dfdb4757bd",
+      "reason_codes": [],
+      "route_id": "inference_model_serving",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 4,
+      "canonical_ids": [
+        3638964,
+        108278,
+        17728164,
+        1390248
+      ],
+      "latency_ms": 54.5692,
+      "no_duplicate_ids": true,
+      "query_sha256": "57006f9dc86fd3ceff99c93a515c622306d6384de9034522aec2602d743419c0",
+      "reason_codes": [],
+      "route_id": "infrastructure_automation",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 0,
+      "canonical_ids": [],
+      "latency_ms": 56.0099,
+      "no_duplicate_ids": true,
+      "query_sha256": "727a5f3daf783924f2f0d2a1c7c8e0e71be0788b18439805a07a468a0798dac7",
+      "reason_codes": [
+        "no_hits"
+      ],
+      "route_id": "infrastructure_security",
+      "status": "no_match"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 5,
+      "canonical_ids": [
+        108761645,
+        63226588,
+        331293626,
+        88464704,
+        306829688
+      ],
+      "latency_ms": 56.8474,
+      "no_duplicate_ids": true,
+      "query_sha256": "51adf92e06d38ac40e01b3556e0f32372bdf61d3e81db3174f01e622fc3f6e02",
+      "reason_codes": [],
+      "route_id": "internal_tools_builders",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 8,
+      "canonical_ids": [
+        1031059905,
+        2649214,
+        198466472,
+        977795489,
+        778431525,
+        1039237865,
+        1166102148,
+        1200597263
+      ],
+      "latency_ms": 54.854,
+      "no_duplicate_ids": true,
+      "query_sha256": "215f33e30a98e41c4b11f53dc83c22dcbb57d3609aa2aa4fc0b668ebb9873081",
+      "reason_codes": [],
+      "route_id": "knowledge_graphs",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 24,
+      "canonical_ids": [
+        896335270,
+        91277330,
+        19415064,
+        21540759,
+        21289110,
+        4578002,
+        311525798,
+        54346799,
+        655459367,
+        720853375,
+        902041585,
+        1052050442,
+        32484381,
+        90563585,
+        1010681419,
+        753750990,
+        960225366,
+        1078079172,
+        229764465,
+        21700699,
+        48246447,
+        1084853233,
+        906251482,
+        1229284184
+      ],
+      "latency_ms": 55.8201,
+      "no_duplicate_ids": true,
+      "query_sha256": "503d72b9895df8ea5a05ba3343d1cef6f3c218109b81336d59722cb7187d56ef",
+      "reason_codes": [],
+      "route_id": "learning_reference_resources",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 0,
+      "canonical_ids": [],
+      "latency_ms": 56.0791,
+      "no_duplicate_ids": true,
+      "query_sha256": "3b0920246bf34ce7ac7243c8a31d1ba82c4fef644b13e91d1520e22e7bb0f093",
+      "reason_codes": [
+        "no_hits"
+      ],
+      "route_id": "legal_contracts_compliance",
+      "status": "no_match"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 1,
+      "canonical_ids": [
+        682080300
+      ],
+      "latency_ms": 69.1003,
+      "no_duplicate_ids": true,
+      "query_sha256": "fafba92edce2a109b0c331bbc74620d0294cab968246c1c109de901ad1cf7a00",
+      "reason_codes": [],
+      "route_id": "llm_gateways_routing_caching",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 5,
+      "canonical_ids": [
+        376492865,
+        54400687,
+        466909944,
+        168341860,
+        139870214
+      ],
+      "latency_ms": 55.4376,
+      "no_duplicate_ids": true,
+      "query_sha256": "a316752c49e7d3e4c36bff80cfe3b6aed3b7df8f4aadf60549320536593f1583",
+      "reason_codes": [],
+      "route_id": "load_performance_testing",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 19,
+      "canonical_ids": [
+        47859258,
+        377085885,
+        538564726,
+        49780288,
+        325218878,
+        682486345,
+        303975,
+        531051081,
+        184304089,
+        525004931,
+        669830822,
+        981013591,
+        762303728,
+        210626964,
+        447609265,
+        62640065,
+        1051086270,
+        872775739,
+        307191665
+      ],
+      "latency_ms": 54.146,
+      "no_duplicate_ids": true,
+      "query_sha256": "ba34f85fd9e0f0fc13e404f8e2d9934eb7d51005bebf78b85cb0f8ebcd6dc095",
+      "reason_codes": [],
+      "route_id": "low_code_ai_builders",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 1,
+      "canonical_ids": [
+        1130564872
+      ],
+      "latency_ms": 56.7721,
+      "no_duplicate_ids": true,
+      "query_sha256": "6e1b53287ce82fc1344b6844b42db7d2c9968f3cc42d995efdb4e41ab066f9de",
+      "reason_codes": [],
+      "route_id": "market_research_competitive_intel",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 4,
+      "canonical_ids": [
+        269325451,
+        887031138,
+        1152014594,
+        70271182
+      ],
+      "latency_ms": 75.6433,
+      "no_duplicate_ids": true,
+      "query_sha256": "f283f4282c5f2329f0586c4a6b967f809841d328609375efec91a62833aabd68",
+      "reason_codes": [],
+      "route_id": "marketing_growth_seo",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 8,
+      "canonical_ids": [
+        992778031,
+        927890076,
+        896594784,
+        957412694,
+        1176469774,
+        762304524,
+        936036852,
+        979886407
+      ],
+      "latency_ms": 54.4255,
+      "no_duplicate_ids": true,
+      "query_sha256": "ce2c52eca2765f3102da2616f5ed41614a0a60b747f65260081fad4d91987510",
+      "reason_codes": [],
+      "route_id": "mcp_integrations",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 1,
+      "canonical_ids": [
+        187961907
+      ],
+      "latency_ms": 54.2128,
+      "no_duplicate_ids": true,
+      "query_sha256": "c47c1673de8a210ce91bb5c957419f9a14655611448e999e9dcfac56767a114d",
+      "reason_codes": [],
+      "route_id": "media_libraries_readers",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 3,
+      "canonical_ids": [
+        307260205,
+        41889031,
+        35780977
+      ],
+      "latency_ms": 55.0835,
+      "no_duplicate_ids": true,
+      "query_sha256": "6765c045236ded0ee9b0aa127a80f8a5581d5d2a3ac2b3e9113502b536cb860a",
+      "reason_codes": [],
+      "route_id": "media_processing_playback",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 13,
+      "canonical_ids": [
+        1074561042,
+        1085635946,
+        977795489,
+        933700399,
+        965353278,
+        1203558071,
+        974157595,
+        1128123594,
+        1196527539,
+        1232322871,
+        1204488303,
+        1025381911,
+        1122669244
+      ],
+      "latency_ms": 52.8437,
+      "no_duplicate_ids": true,
+      "query_sha256": "562b12557740f50a8c89b74ebfae2b5ff9adb3c2a480293c064feb48a16a92aa",
+      "reason_codes": [],
+      "route_id": "memory_context_systems",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 4,
+      "canonical_ids": [
+        144494851,
+        110445107,
+        39487546,
+        79585104
+      ],
+      "latency_ms": 60.0544,
+      "no_duplicate_ids": true,
+      "query_sha256": "c5a1f1c58d17e59925429f311bc5f47bc5ab220898687707cad077be1b28a9f6",
+      "reason_codes": [],
+      "route_id": "messaging_chat",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 4,
+      "canonical_ids": [
+        122299416,
+        308444913,
+        71932349,
+        182067506
+      ],
+      "latency_ms": 55.0825,
+      "no_duplicate_ids": true,
+      "query_sha256": "7c53992cecf5c0325e5a9bdc3a1453a66a36766e7d16333fd4cb584144b9d9d9",
+      "reason_codes": [],
+      "route_id": "mlops_tracking_registry",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 9,
+      "canonical_ids": [
+        140759707,
+        48009214,
+        29028775,
+        196701619,
+        293498508,
+        12256376,
+        140687430,
+        184456251,
+        1031912724
+      ],
+      "latency_ms": 55.4209,
+      "no_duplicate_ids": true,
+      "query_sha256": "7b9cabdd9cdcafe9ee79710fd48a813140c1b64d62018ea0ef5a4efb879fd252",
+      "reason_codes": [],
+      "route_id": "mobile_desktop_frameworks",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 1,
+      "canonical_ids": [
+        1046864201
+      ],
+      "latency_ms": 56.8285,
+      "no_duplicate_ids": true,
+      "query_sha256": "605bf2fab852df16d44933d9708b966657fc892156260568f58ac29e6c779c3e",
+      "reason_codes": [],
+      "route_id": "multi_agent_frameworks",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 3,
+      "canonical_ids": [
+        48378947,
+        721767116,
+        20619036
+      ],
+      "latency_ms": 56.0677,
+      "no_duplicate_ids": true,
+      "query_sha256": "23264ff4a45e94e474d9d8afe260f23befddb4846ce8597f30ced521bc299c1c",
+      "reason_codes": [],
+      "route_id": "network_proxies_gateways",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 0,
+      "canonical_ids": [],
+      "latency_ms": 56.0232,
+      "no_duplicate_ids": true,
+      "query_sha256": "ee3e3f775914f62bc9090261ddb8f6060b114365938329ab49aba5c8f36b014c",
+      "reason_codes": [
+        "no_hits"
+      ],
+      "route_id": "observability_llmops",
+      "status": "no_match"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 11,
+      "canonical_ids": [
+        56342508,
+        236055696,
+        146327667,
+        2909429,
+        382496361,
+        596377730,
+        39464018,
+        280363952,
+        326404870,
+        4473517,
+        235901813
+      ],
+      "latency_ms": 56.052,
+      "no_duplicate_ids": true,
+      "query_sha256": "711c042d4665cb842e725c030454ac221a283f34ad690fb8a732832f14576dd3",
+      "reason_codes": [],
+      "route_id": "observability_monitoring",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 9,
+      "canonical_ids": [
+        108761645,
+        29745084,
+        63226588,
+        583598619,
+        331293626,
+        88464704,
+        6899875,
+        568098118,
+        306829688
+      ],
+      "latency_ms": 57.6573,
+      "no_duplicate_ids": true,
+      "query_sha256": "888dcc202a5ece3d6df3a63fabb60b36a85a96b5558d5f16678ad50f321f6ffb",
+      "reason_codes": [],
+      "route_id": "operations_project_management",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 5,
+      "canonical_ids": [
+        337322967,
+        41609775,
+        341139727,
+        8594752,
+        7363211
+      ],
+      "latency_ms": 61.7332,
+      "no_duplicate_ids": true,
+      "query_sha256": "d6da4c29cb173eccad53d63f1e5043e609ad52fd3e5024af1c478d16da7d05ff",
+      "reason_codes": [],
+      "route_id": "orm_data_access",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 1,
+      "canonical_ids": [
+        24268127
+      ],
+      "latency_ms": 66.2237,
+      "no_duplicate_ids": true,
+      "query_sha256": "02c85659a6fce4d8a5a827476100383dab53511f237310ccfe3d7706e55c87a1",
+      "reason_codes": [],
+      "route_id": "package_version_management",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 0,
+      "canonical_ids": [],
+      "latency_ms": 77.8522,
+      "no_duplicate_ids": true,
+      "query_sha256": "7e17b46ff21690a33206de72ac2538423e69674c9901fa48e60854153e989657",
+      "reason_codes": [
+        "no_hits"
+      ],
+      "route_id": "payment_processing_sdks",
+      "status": "no_match"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 23,
+      "canonical_ids": [
+        29273084,
+        304836585,
+        288048368,
+        1146075858,
+        532977861,
+        63773246,
+        406570392,
+        486815039,
+        28904322,
+        272827254,
+        89801027,
+        424920574,
+        537869276,
+        1048320382,
+        887597422,
+        97858693,
+        539526271,
+        1115093974,
+        333850832,
+        21298446,
+        217872093,
+        166674659,
+        473710288
+      ],
+      "latency_ms": 54.2184,
+      "no_duplicate_ids": true,
+      "query_sha256": "b8033d9e9bf36e15deee5ce382d64c44fcdb175103c83310bbc7dd632070e2f6",
+      "reason_codes": [],
+      "route_id": "personal_finance",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 3,
+      "canonical_ids": [
+        1313966068,
+        159495816,
+        200590949
+      ],
+      "latency_ms": 56.1175,
+      "no_duplicate_ids": true,
+      "query_sha256": "0b82d83ca945b7d0b670eea6581efbfa3c99628f61c52eafed261dc2de387071",
+      "reason_codes": [],
+      "route_id": "product_management_feedback",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 4,
+      "canonical_ids": [
+        29745084,
+        583598619,
+        6899875,
+        568098118
+      ],
+      "latency_ms": 58.87,
+      "no_duplicate_ids": true,
+      "query_sha256": "f269da194e5fbc0549772b4e44dd90e7839112a8592bf89c121057cec00eeb50",
+      "reason_codes": [],
+      "route_id": "project_task_management",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 2,
+      "canonical_ids": [
+        1135847870,
+        574523116
+      ],
+      "latency_ms": 55.7878,
+      "no_duplicate_ids": true,
+      "query_sha256": "9150172acb377508f53c5adc809797ac50fae2013ab49ba3d948840a48f9afa1",
+      "reason_codes": [],
+      "route_id": "prompt_context_engineering",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 7,
+      "canonical_ids": [
+        2211243,
+        2703394,
+        92827980,
+        139199684,
+        33884891,
+        309512982,
+        33208063
+      ],
+      "latency_ms": 58.2613,
+      "no_duplicate_ids": true,
+      "query_sha256": "e90cca8d6ebc15fa0f3edfe4761d62b2a19751944d61b1b81502e112d5188712",
+      "reason_codes": [],
+      "route_id": "queues_streaming_messaging",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 11,
+      "canonical_ids": [
+        1024118326,
+        605673387,
+        691347156,
+        730534580,
+        942756187,
+        778431525,
+        917628875,
+        1138087766,
+        991431142,
+        92111509,
+        998732712
+      ],
+      "latency_ms": 56.3563,
+      "no_duplicate_ids": true,
+      "query_sha256": "7d1ac77aeeb883df666974d6bf850afb24f000fad42b4def6fe0e73a526d13fc",
+      "reason_codes": [],
+      "route_id": "rag_knowledge_apps",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 0,
+      "canonical_ids": [],
+      "latency_ms": 57.718,
+      "no_duplicate_ids": true,
+      "query_sha256": "f9ee526d9929f2c03f7dd5d2671e2143e83dcfae2e5493e3ece4fcc64c4a8a67",
+      "reason_codes": [
+        "no_hits"
+      ],
+      "route_id": "research_agents_deep_research",
+      "status": "no_match"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 4,
+      "canonical_ids": [
+        749647889,
+        896146306,
+        680120071,
+        780737106
+      ],
+      "latency_ms": 65.1195,
+      "no_duplicate_ids": true,
+      "query_sha256": "71cf29c65690db9116fd7f35dc99ebc7446c2c75000e73283f8ff75079042625",
+      "reason_codes": [],
+      "route_id": "research_papers_science",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 1,
+      "canonical_ids": [
+        952088451
+      ],
+      "latency_ms": 58.913,
+      "no_duplicate_ids": true,
+      "query_sha256": "f0e30357b6dd812e5a41bf52b27e603306d96444174511ba9f204fa32594991b",
+      "reason_codes": [],
+      "route_id": "robotics_embodied_ai",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 5,
+      "canonical_ids": [
+        808178636,
+        72872051,
+        30856851,
+        1059830812,
+        86949514
+      ],
+      "latency_ms": 59.0862,
+      "no_duplicate_ids": true,
+      "query_sha256": "676668745fd1cc21d24be3ed4ac865906cbf7d32bfa56d056f249fc4a560eec3",
+      "reason_codes": [],
+      "route_id": "sales_crm_lead_generation",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 3,
+      "canonical_ids": [
+        753490180,
+        1033268244,
+        762304524
+      ],
+      "latency_ms": 59.9441,
+      "no_duplicate_ids": true,
+      "query_sha256": "2a28aa9b0547f7d944e6e8228da39b6a518cd6b259eec3e699f3906a093ad874",
+      "reason_codes": [],
+      "route_id": "sandboxed_code_execution",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 1,
+      "canonical_ids": [
+        943286066
+      ],
+      "latency_ms": 55.8555,
+      "no_duplicate_ids": true,
+      "query_sha256": "11003a7a79b65501a837833408e33d3b30f074572de66ea6b00c77d309285328",
+      "reason_codes": [],
+      "route_id": "scheduling_personal_productivity",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 14,
+      "canonical_ids": [
+        30231828,
+        18893367,
+        118311747,
+        66387122,
+        529502,
+        434218673,
+        49412556,
+        14681876,
+        357241735,
+        130688011,
+        1009504831,
+        937346388,
+        956842312,
+        66670819
+      ],
+      "latency_ms": 73.5097,
+      "no_duplicate_ids": true,
+      "query_sha256": "2a9e3dd9a8583d5e2b1d32c3b49a9b08cf9b318b9a534b1e5aac869bed491e35",
+      "reason_codes": [],
+      "route_id": "search_hybrid_retrieval",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 5,
+      "canonical_ids": [
+        252813491,
+        267713284,
+        961915719,
+        1129086590,
+        959903176
+      ],
+      "latency_ms": 59.2896,
+      "no_duplicate_ids": true,
+      "query_sha256": "d7ecdd64272a13a83e04310e8af5b05ed528b6ef60e9957bce74f1cd3f3c2769",
+      "reason_codes": [],
+      "route_id": "security_testing",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 6,
+      "canonical_ids": [
+        59531400,
+        267054247,
+        131129792,
+        262126497,
+        5663857,
+        950213855
+      ],
+      "latency_ms": 61.7726,
+      "no_duplicate_ids": true,
+      "query_sha256": "1582845047b349ad59936f3d11d7a63f28f6bb2c9431aca7b698131e8f74b69e",
+      "reason_codes": [],
+      "route_id": "software_supply_chain_security",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 3,
+      "canonical_ids": [
+        707441527,
+        188660663,
+        806709826
+      ],
+      "latency_ms": 72.4141,
+      "no_duplicate_ids": true,
+      "query_sha256": "5279296a24a3508bd27d97848723d7262d8497aff901a90e8dbf0260eb3e4281",
+      "reason_codes": [],
+      "route_id": "speech_voice_audio",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 5,
+      "canonical_ids": [
+        621902641,
+        114730000,
+        19971572,
+        1203556545,
+        175471189
+      ],
+      "latency_ms": 81.4046,
+      "no_duplicate_ids": true,
+      "query_sha256": "4a6ec767776c23f1de8ff9b7b997cc1616263977606545ac584927eb86a82a02",
+      "reason_codes": [],
+      "route_id": "subscription_billing",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 11,
+      "canonical_ids": [
+        59531400,
+        267054247,
+        131129792,
+        252813491,
+        262126497,
+        267713284,
+        5663857,
+        961915719,
+        950213855,
+        1129086590,
+        959903176
+      ],
+      "latency_ms": 69.6917,
+      "no_duplicate_ids": true,
+      "query_sha256": "e117722035899dcc02a85c0cdcbc42f4e3bcd35a38bdfad0c937e448f27e6426",
+      "reason_codes": [],
+      "route_id": "supply_chain_devsecops",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 10,
+      "canonical_ids": [
+        502193049,
+        233130089,
+        130464961,
+        671832156,
+        13807606,
+        90793418,
+        53631945,
+        172378503,
+        914173426,
+        291137
+      ],
+      "latency_ms": 57.2322,
+      "no_duplicate_ids": true,
+      "query_sha256": "da0d401fd63101be626e2081ed309a0dd2a20c2b77188d269aefa56e2f6cbde4",
+      "reason_codes": [],
+      "route_id": "terminals_shells",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 22,
+      "canonical_ids": [
+        12332444,
+        2544305,
+        7613257,
+        376492865,
+        54400687,
+        6247705,
+        466909944,
+        221981891,
+        199141711,
+        60344592,
+        31629751,
+        125568868,
+        85806183,
+        168341860,
+        230096072,
+        232162578,
+        139870214,
+        291930234,
+        8426406,
+        61308714,
+        1146193768,
+        442096414
+      ],
+      "latency_ms": 57.7028,
+      "no_duplicate_ids": true,
+      "query_sha256": "957d271e6ceb28cd2049bc147180f37c83b0d06238f72ec86960a73b0eef139a",
+      "reason_codes": [],
+      "route_id": "testing_qa",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 22,
+      "canonical_ids": [
+        778281287,
+        169991845,
+        569937782,
+        626790707,
+        646489141,
+        392708700,
+        201314421,
+        646537482,
+        679091311,
+        700724064,
+        607845880,
+        1222120468,
+        1240872088,
+        1243340887,
+        878416567,
+        1069235905,
+        783744120,
+        718873539,
+        843003613,
+        973621150,
+        1162516847,
+        715806751
+      ],
+      "latency_ms": 57.4914,
+      "no_duplicate_ids": true,
+      "query_sha256": "59cf686ec8950b693c6159fcb691cebd291bcd4d49bcf4cb2b2364284f523a91",
+      "reason_codes": [],
+      "route_id": "training_finetuning_alignment",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 15,
+      "canonical_ids": [
+        84835535,
+        327628682,
+        11507163,
+        106017343,
+        281319253,
+        54994103,
+        9309093,
+        585146387,
+        60537144,
+        208362715,
+        270722949,
+        202890778,
+        243546335,
+        60630844,
+        5239185
+      ],
+      "latency_ms": 57.5597,
+      "no_duplicate_ids": true,
+      "query_sha256": "59fa09edc7e00b9c73c7a158fea409575a819f92aec88a8384e77e492271eb26",
+      "reason_codes": [],
+      "route_id": "ui_component_libraries",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 6,
+      "canonical_ids": [
+        778556932,
+        3955647,
+        966185288,
+        253222599,
+        307843105,
+        766341786
+      ],
+      "latency_ms": 54.4306,
+      "no_duplicate_ids": true,
+      "query_sha256": "ba00455668abe69177191f71e6c0af7f97a17b35d708bc73b1c65a003b7eadf7",
+      "reason_codes": [],
+      "route_id": "uncategorized_review",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 2,
+      "canonical_ids": [
+        12332444,
+        6247705
+      ],
+      "latency_ms": 53.9704,
+      "no_duplicate_ids": true,
+      "query_sha256": "cf115914e4125f6f80b8a9acb3d6aed16b8a240ba198c2133371e8eb9756a16f",
+      "reason_codes": [],
+      "route_id": "unit_component_testing",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 7,
+      "canonical_ids": [
+        81227005,
+        789538509,
+        930632525,
+        1110443421,
+        1192555574,
+        208728772,
+        55072677
+      ],
+      "latency_ms": 54.3858,
+      "no_duplicate_ids": true,
+      "query_sha256": "16bcdb8c41b8d108b84c61f66d9c16dd3faae7d515ea6d22cb262c9ac8aa3a25",
+      "reason_codes": [],
+      "route_id": "vector_databases_search",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 2,
+      "canonical_ids": [
+        684382,
+        15225670
+      ],
+      "latency_ms": 54.7836,
+      "no_duplicate_ids": true,
+      "query_sha256": "e4c4d837ea32c0bb7b8572c3c4163be8e5347b87b22f1128f7cdc1214771def1",
+      "reason_codes": [],
+      "route_id": "video_conferencing",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 3,
+      "canonical_ids": [
+        860252770,
+        749647889,
+        870189331
+      ],
+      "latency_ms": 55.2903,
+      "no_duplicate_ids": true,
+      "query_sha256": "b737a7e931ea812502b857198e0c8171bedc199e01d58203d942c620aaa96864",
+      "reason_codes": [],
+      "route_id": "vision_multimodal",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 2,
+      "canonical_ids": [
+        872119017,
+        905004409
+      ],
+      "latency_ms": 59.4031,
+      "no_duplicate_ids": true,
+      "query_sha256": "e7e2285b9ac4ef06e7dfb988ef13129026a0a4f736c392386560e3a2d2f1f1bc",
+      "reason_codes": [],
+      "route_id": "web_crawling_data_ingestion",
+      "status": "ok"
+    },
+    {
+      "bounded": true,
+      "candidate_count": 1,
+      "canonical_ids": [
+        1033865617
+      ],
+      "latency_ms": 57.5386,
+      "no_duplicate_ids": true,
+      "query_sha256": "4a438dc799ceddd78797e97c1e87b02dca2e8728c6cd735fefaa2b19068a5235",
+      "reason_codes": [],
+      "route_id": "workflow_state_machines_durable_agents",
+      "status": "ok"
+    }
+  ],
+  "schema_version": "cp04_runtime_route_coverage_v2",
+  "semantic_quality": false
+}

@@ -1,0 +1,22 @@
+{
+  "command": ".venv/Scripts/python.exe -B evals/plugin-v1/capture_quality_join_v2_repair.py",
+  "frozen_runner_declaration_sha256": "d10e0773d3e17e79b4acbc1b70e050b846143d4aa8f401b1d572ce006ebbac47",
+  "only_state_correction": "observations.gaps=[]; existing synthetic/no-private-inspection assumptions retained",
+  "original_join_declaration_sha256": "fe3045e4a33585def93c24f9b6d623d2b725527265a1fd73350b5d176469bb1c",
+  "original_join_failure_sha256": "ff848a59a9c69b1e1d5f28b19bc085e26dc30bc8270ca3d4a0a61c0c60185ba7",
+  "output_mapping": "join-* -> join-repair-*; preserve original files",
+  "promotion_ready": false,
+  "reason": "Original synthetic Brief observations.gaps contains a string; schema requires typed objects.",
+  "repair_source_sha256": "f4febec635f2144bc746cdf14217ccc78dc1553fd435a90eb2084c5d6d374343",
+  "schema_version": "cp04_join_fixture_repair_amendment_v2",
+  "unchanged": [
+    "actual query/result/pack bytes",
+    "schemas",
+    "relation validators",
+    "runtime source",
+    "locked writer",
+    "publisher",
+    "retrieval judgments",
+    "thresholds"
+  ]
+}

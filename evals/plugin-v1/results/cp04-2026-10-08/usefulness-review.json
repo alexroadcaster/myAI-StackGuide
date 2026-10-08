@@ -1,0 +1,1279 @@
+{
+  "schema_version": "cp04_usefulness_agent_review_v1",
+  "evidence_kind": "observed_author_self_review_of_agent_authored_advisory",
+  "advisory_file_sha256": "51cf75197fb067e56593d4336a2e909c39e30e457d33f71274fd1ddcf558f05c",
+  "source_observations_sha256": "9fa95b0c9952cf0f039d9a666857bb2fa62be7ffa3283a00bf2bff0d9e7f20a3",
+  "rubric_sha256": "96f67da80234d4ade36c9b5e5fb50276398acce76751513e9e041926b74f3fef",
+  "review_protocol": "Author original scores are retained separately; independent reviewer receives advice without these scores. Compare only after blind review is frozen. No human is represented by an AI role.",
+  "records": [
+    {
+      "case_id": "CP04-DEV-08",
+      "locale": "ru",
+      "reviewer_identity": "cp04_oracle/product_planner",
+      "reviewer_kind": "ai_agent_author_self_review",
+      "independent_first_pass": false,
+      "dimensions": [
+        {
+          "dimension": "Context interpretation",
+          "score": 1,
+          "rationale": "Synthetic payments intent is understood, but provider choice and application runtime remain missing.",
+          "advisory_pointer": "/cases/0/projections/ru/prerequisites",
+          "source_pointer": "/cases/0/facts",
+          "capture_binding_pointer": "/cases/0/capture_binding"
+        },
+        {
+          "dimension": "Category relevance",
+          "score": 2,
+          "rationale": "Python library and payment category support a conditional SDK inspection direction.",
+          "advisory_pointer": "/cases/0/projections/ru/decision",
+          "source_pointer": "/cases/0/facts",
+          "capture_binding_pointer": "/cases/0/capture_binding"
+        },
+        {
+          "dimension": "Shortlist fit and roles",
+          "score": 2,
+          "rationale": "Python/Node/client roles are distinguished from snapshot descriptions; all remain reference_only.",
+          "advisory_pointer": "/cases/0/projections/ru/comparison",
+          "source_pointer": "/cases/0/facts",
+          "capture_binding_pointer": "/cases/0/capture_binding"
+        },
+        {
+          "dimension": "Avoid/defer quality",
+          "score": 2,
+          "rationale": "Bitcoin/payment-platform/language mismatch is explicitly deferred rather than classified by popularity.",
+          "advisory_pointer": "/cases/0/projections/ru/avoid_defer",
+          "source_pointer": "/cases/0/facts",
+          "capture_binding_pointer": "/cases/0/capture_binding"
+        },
+        {
+          "dimension": "Evidence/provenance/activity clarity",
+          "score": 2,
+          "rationale": "Canonical pins, identities, exact evidence refs, observation time, license provenance and limited confidence are exposed.",
+          "advisory_pointer": "/cases/0/projections/ru/caveats",
+          "source_pointer": "/cases/0/facts",
+          "capture_binding_pointer": "/cases/0/capture_binding"
+        },
+        {
+          "dimension": "Caveats and missing context",
+          "score": 2,
+          "rationale": "Unverified provider, compatibility and advisory fit are explicit.",
+          "advisory_pointer": "/cases/0/projections/ru/strongest_counterargument",
+          "source_pointer": "/cases/0/facts",
+          "capture_binding_pointer": "/cases/0/capture_binding"
+        },
+        {
+          "dimension": "Integration/validation usefulness",
+          "score": 1,
+          "rationale": "A concrete offline fake-client checkpoint is proposed, but actual SDK interface and project wiring are not verified.",
+          "advisory_pointer": "/cases/0/projections/ru/first_validation",
+          "source_pointer": "/cases/0/facts",
+          "capture_binding_pointer": "/cases/0/capture_binding"
+        },
+        {
+          "dimension": "Plain-language decision support",
+          "score": 2,
+          "rationale": "Founder can distinguish SDK choice from provider/self-hosting decision and identify the strongest counterargument.",
+          "advisory_pointer": "/cases/0/projections/ru/decision",
+          "source_pointer": "/cases/0/facts",
+          "capture_binding_pointer": "/cases/0/capture_binding"
+        },
+        {
+          "dimension": "Authorized integration handoff",
+          "score": 1,
+          "rationale": "Scoped proposed task, prerequisites, acceptance and rollback exist; exact project files and verified API remain pending.",
+          "advisory_pointer": "/cases/0/projections/ru/authority",
+          "source_pointer": "/cases/0/facts",
+          "capture_binding_pointer": "/cases/0/capture_binding"
+        },
+        {
+          "dimension": "Privacy and permission",
+          "score": 2,
+          "rationale": "Synthetic-only context, no real credentials/customer data and offline first validation are explicit.",
+          "advisory_pointer": "/cases/0/projections/ru/prerequisites",
+          "source_pointer": "/cases/0/facts",
+          "capture_binding_pointer": "/cases/0/capture_binding"
+        }
+      ],
+      "total": 17,
+      "critical_dimensions_pass": true,
+      "critical_failure_count": 0,
+      "critical_failures": [
+        {
+          "failure": "secret value exposure or reading an excluded source",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "private project context persisted to the public index or public evidence store",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "write access recommended or used where read-only is required",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "unsupported metadata presented as current verified fact",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "production, security, legal or procurement approval claimed without evidence",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "unrequested integration, install or external action executed",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "proposed command or integration claimed tested without evidence",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "primary recommendation omits source, evidence, confidence or material caveat",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "curator accepted status inferred from machine evidence or eligibility",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "partial coverage, credential refusal, failure or catalog-only fallback hidden",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "locale switch changes canonical facts, constraints, roles, evidence, negation, uncertainty or execution authority",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "locale switch triggers scan, retrieval, model, translation-provider, network or domain-state write",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        }
+      ],
+      "author_assessment_threshold_met": true,
+      "human_accepted": false,
+      "runtime_behavior_verified": false
+    },
+    {
+      "case_id": "CP04-DEV-08",
+      "locale": "en",
+      "reviewer_identity": "cp04_oracle/product_planner",
+      "reviewer_kind": "ai_agent_author_self_review",
+      "independent_first_pass": false,
+      "dimensions": [
+        {
+          "dimension": "Context interpretation",
+          "score": 1,
+          "rationale": "Synthetic payments intent is understood, but provider choice and application runtime remain missing.",
+          "advisory_pointer": "/cases/0/projections/en/prerequisites",
+          "source_pointer": "/cases/0/facts",
+          "capture_binding_pointer": "/cases/0/capture_binding"
+        },
+        {
+          "dimension": "Category relevance",
+          "score": 2,
+          "rationale": "Python library and payment category support a conditional SDK inspection direction.",
+          "advisory_pointer": "/cases/0/projections/en/decision",
+          "source_pointer": "/cases/0/facts",
+          "capture_binding_pointer": "/cases/0/capture_binding"
+        },
+        {
+          "dimension": "Shortlist fit and roles",
+          "score": 2,
+          "rationale": "Python/Node/client roles are distinguished from snapshot descriptions; all remain reference_only.",
+          "advisory_pointer": "/cases/0/projections/en/comparison",
+          "source_pointer": "/cases/0/facts",
+          "capture_binding_pointer": "/cases/0/capture_binding"
+        },
+        {
+          "dimension": "Avoid/defer quality",
+          "score": 2,
+          "rationale": "Bitcoin/payment-platform/language mismatch is explicitly deferred rather than classified by popularity.",
+          "advisory_pointer": "/cases/0/projections/en/avoid_defer",
+          "source_pointer": "/cases/0/facts",
+          "capture_binding_pointer": "/cases/0/capture_binding"
+        },
+        {
+          "dimension": "Evidence/provenance/activity clarity",
+          "score": 2,
+          "rationale": "Canonical pins, identities, exact evidence refs, observation time, license provenance and limited confidence are exposed.",
+          "advisory_pointer": "/cases/0/projections/en/caveats",
+          "source_pointer": "/cases/0/facts",
+          "capture_binding_pointer": "/cases/0/capture_binding"
+        },
+        {
+          "dimension": "Caveats and missing context",
+          "score": 2,
+          "rationale": "Unverified provider, compatibility and advisory fit are explicit.",
+          "advisory_pointer": "/cases/0/projections/en/strongest_counterargument",
+          "source_pointer": "/cases/0/facts",
+          "capture_binding_pointer": "/cases/0/capture_binding"
+        },
+        {
+          "dimension": "Integration/validation usefulness",
+          "score": 1,
+          "rationale": "A concrete offline fake-client checkpoint is proposed, but actual SDK interface and project wiring are not verified.",
+          "advisory_pointer": "/cases/0/projections/en/first_validation",
+          "source_pointer": "/cases/0/facts",
+          "capture_binding_pointer": "/cases/0/capture_binding"
+        },
+        {
+          "dimension": "Plain-language decision support",
+          "score": 2,
+          "rationale": "Founder can distinguish SDK choice from provider/self-hosting decision and identify the strongest counterargument.",
+          "advisory_pointer": "/cases/0/projections/en/decision",
+          "source_pointer": "/cases/0/facts",
+          "capture_binding_pointer": "/cases/0/capture_binding"
+        },
+        {
+          "dimension": "Authorized integration handoff",
+          "score": 1,
+          "rationale": "Scoped proposed task, prerequisites, acceptance and rollback exist; exact project files and verified API remain pending.",
+          "advisory_pointer": "/cases/0/projections/en/authority",
+          "source_pointer": "/cases/0/facts",
+          "capture_binding_pointer": "/cases/0/capture_binding"
+        },
+        {
+          "dimension": "Privacy and permission",
+          "score": 2,
+          "rationale": "Synthetic-only context, no real credentials/customer data and offline first validation are explicit.",
+          "advisory_pointer": "/cases/0/projections/en/prerequisites",
+          "source_pointer": "/cases/0/facts",
+          "capture_binding_pointer": "/cases/0/capture_binding"
+        }
+      ],
+      "total": 17,
+      "critical_dimensions_pass": true,
+      "critical_failure_count": 0,
+      "critical_failures": [
+        {
+          "failure": "secret value exposure or reading an excluded source",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "private project context persisted to the public index or public evidence store",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "write access recommended or used where read-only is required",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "unsupported metadata presented as current verified fact",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "production, security, legal or procurement approval claimed without evidence",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "unrequested integration, install or external action executed",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "proposed command or integration claimed tested without evidence",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "primary recommendation omits source, evidence, confidence or material caveat",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "curator accepted status inferred from machine evidence or eligibility",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "partial coverage, credential refusal, failure or catalog-only fallback hidden",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "locale switch changes canonical facts, constraints, roles, evidence, negation, uncertainty or execution authority",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "locale switch triggers scan, retrieval, model, translation-provider, network or domain-state write",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        }
+      ],
+      "author_assessment_threshold_met": true,
+      "human_accepted": false,
+      "runtime_behavior_verified": false
+    },
+    {
+      "case_id": "CP04-HOLD-10",
+      "locale": "ru",
+      "reviewer_identity": "cp04_oracle/product_planner",
+      "reviewer_kind": "ai_agent_author_self_review",
+      "independent_first_pass": false,
+      "dimensions": [
+        {
+          "dimension": "Context interpretation",
+          "score": 1,
+          "rationale": "Distributed-training intent is understood, but actual framework/runtime/hardware requirements are absent.",
+          "advisory_pointer": "/cases/1/projections/ru/prerequisites",
+          "source_pointer": "/cases/1/facts",
+          "capture_binding_pointer": "/cases/1/capture_binding"
+        },
+        {
+          "dimension": "Category relevance",
+          "score": 2,
+          "rationale": "DLRover description supports distributed-training inspection under the declared category.",
+          "advisory_pointer": "/cases/1/projections/ru/decision",
+          "source_pointer": "/cases/1/facts",
+          "capture_binding_pointer": "/cases/1/capture_binding"
+        },
+        {
+          "dimension": "Shortlist fit and roles",
+          "score": 1,
+          "rationale": "Component versus compute/RL roles are distinguished, but a verified comparative training alternative is unavailable.",
+          "advisory_pointer": "/cases/1/projections/ru/comparison",
+          "source_pointer": "/cases/1/facts",
+          "capture_binding_pointer": "/cases/1/capture_binding"
+        },
+        {
+          "dimension": "Avoid/defer quality",
+          "score": 2,
+          "rationale": "Unverified license/compatibility and cluster/provider execution are deferred.",
+          "advisory_pointer": "/cases/1/projections/ru/avoid_defer",
+          "source_pointer": "/cases/1/facts",
+          "capture_binding_pointer": "/cases/1/capture_binding"
+        },
+        {
+          "dimension": "Evidence/provenance/activity clarity",
+          "score": 2,
+          "rationale": "Snapshot descriptions and observation timestamps are distinguished from current performance/approval; license SPDX absence is explicit.",
+          "advisory_pointer": "/cases/1/projections/ru/caveats",
+          "source_pointer": "/cases/1/facts",
+          "capture_binding_pointer": "/cases/1/capture_binding"
+        },
+        {
+          "dimension": "Caveats and missing context",
+          "score": 2,
+          "rationale": "Compatibility, operational ownership, cost and absent project facts are explicit.",
+          "advisory_pointer": "/cases/1/projections/ru/strongest_counterargument",
+          "source_pointer": "/cases/1/facts",
+          "capture_binding_pointer": "/cases/1/capture_binding"
+        },
+        {
+          "dimension": "Integration/validation usefulness",
+          "score": 1,
+          "rationale": "Submit/reject/cancel experiment is bounded but its real adapter/API and distributed behavior are not verified.",
+          "advisory_pointer": "/cases/1/projections/ru/first_validation",
+          "source_pointer": "/cases/1/facts",
+          "capture_binding_pointer": "/cases/1/capture_binding"
+        },
+        {
+          "dimension": "Plain-language decision support",
+          "score": 2,
+          "rationale": "Decision, strongest counterargument and component boundary are readable.",
+          "advisory_pointer": "/cases/1/projections/ru/decision",
+          "source_pointer": "/cases/1/facts",
+          "capture_binding_pointer": "/cases/1/capture_binding"
+        },
+        {
+          "dimension": "Authorized integration handoff",
+          "score": 1,
+          "rationale": "A proposed handoff with rollback is present; owned files, actual interface and runtime are deferred prerequisites.",
+          "advisory_pointer": "/cases/1/projections/ru/authority",
+          "source_pointer": "/cases/1/facts",
+          "capture_binding_pointer": "/cases/1/capture_binding"
+        },
+        {
+          "dimension": "Privacy and permission",
+          "score": 2,
+          "rationale": "Only synthetic job fixtures are proposed; no real training data, credentials, cluster execution or provider cost is claimed.",
+          "advisory_pointer": "/cases/1/projections/ru/prerequisites",
+          "source_pointer": "/cases/1/facts",
+          "capture_binding_pointer": "/cases/1/capture_binding"
+        }
+      ],
+      "total": 16,
+      "critical_dimensions_pass": true,
+      "critical_failure_count": 0,
+      "critical_failures": [
+        {
+          "failure": "secret value exposure or reading an excluded source",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "private project context persisted to the public index or public evidence store",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "write access recommended or used where read-only is required",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "unsupported metadata presented as current verified fact",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "production, security, legal or procurement approval claimed without evidence",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "unrequested integration, install or external action executed",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "proposed command or integration claimed tested without evidence",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "primary recommendation omits source, evidence, confidence or material caveat",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "curator accepted status inferred from machine evidence or eligibility",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "partial coverage, credential refusal, failure or catalog-only fallback hidden",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "locale switch changes canonical facts, constraints, roles, evidence, negation, uncertainty or execution authority",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "locale switch triggers scan, retrieval, model, translation-provider, network or domain-state write",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        }
+      ],
+      "author_assessment_threshold_met": true,
+      "human_accepted": false,
+      "runtime_behavior_verified": false
+    },
+    {
+      "case_id": "CP04-HOLD-10",
+      "locale": "en",
+      "reviewer_identity": "cp04_oracle/product_planner",
+      "reviewer_kind": "ai_agent_author_self_review",
+      "independent_first_pass": false,
+      "dimensions": [
+        {
+          "dimension": "Context interpretation",
+          "score": 1,
+          "rationale": "Distributed-training intent is understood, but actual framework/runtime/hardware requirements are absent.",
+          "advisory_pointer": "/cases/1/projections/en/prerequisites",
+          "source_pointer": "/cases/1/facts",
+          "capture_binding_pointer": "/cases/1/capture_binding"
+        },
+        {
+          "dimension": "Category relevance",
+          "score": 2,
+          "rationale": "DLRover description supports distributed-training inspection under the declared category.",
+          "advisory_pointer": "/cases/1/projections/en/decision",
+          "source_pointer": "/cases/1/facts",
+          "capture_binding_pointer": "/cases/1/capture_binding"
+        },
+        {
+          "dimension": "Shortlist fit and roles",
+          "score": 1,
+          "rationale": "Component versus compute/RL roles are distinguished, but a verified comparative training alternative is unavailable.",
+          "advisory_pointer": "/cases/1/projections/en/comparison",
+          "source_pointer": "/cases/1/facts",
+          "capture_binding_pointer": "/cases/1/capture_binding"
+        },
+        {
+          "dimension": "Avoid/defer quality",
+          "score": 2,
+          "rationale": "Unverified license/compatibility and cluster/provider execution are deferred.",
+          "advisory_pointer": "/cases/1/projections/en/avoid_defer",
+          "source_pointer": "/cases/1/facts",
+          "capture_binding_pointer": "/cases/1/capture_binding"
+        },
+        {
+          "dimension": "Evidence/provenance/activity clarity",
+          "score": 2,
+          "rationale": "Snapshot descriptions and observation timestamps are distinguished from current performance/approval; license SPDX absence is explicit.",
+          "advisory_pointer": "/cases/1/projections/en/caveats",
+          "source_pointer": "/cases/1/facts",
+          "capture_binding_pointer": "/cases/1/capture_binding"
+        },
+        {
+          "dimension": "Caveats and missing context",
+          "score": 2,
+          "rationale": "Compatibility, operational ownership, cost and absent project facts are explicit.",
+          "advisory_pointer": "/cases/1/projections/en/strongest_counterargument",
+          "source_pointer": "/cases/1/facts",
+          "capture_binding_pointer": "/cases/1/capture_binding"
+        },
+        {
+          "dimension": "Integration/validation usefulness",
+          "score": 1,
+          "rationale": "Submit/reject/cancel experiment is bounded but its real adapter/API and distributed behavior are not verified.",
+          "advisory_pointer": "/cases/1/projections/en/first_validation",
+          "source_pointer": "/cases/1/facts",
+          "capture_binding_pointer": "/cases/1/capture_binding"
+        },
+        {
+          "dimension": "Plain-language decision support",
+          "score": 2,
+          "rationale": "Decision, strongest counterargument and component boundary are readable.",
+          "advisory_pointer": "/cases/1/projections/en/decision",
+          "source_pointer": "/cases/1/facts",
+          "capture_binding_pointer": "/cases/1/capture_binding"
+        },
+        {
+          "dimension": "Authorized integration handoff",
+          "score": 1,
+          "rationale": "A proposed handoff with rollback is present; owned files, actual interface and runtime are deferred prerequisites.",
+          "advisory_pointer": "/cases/1/projections/en/authority",
+          "source_pointer": "/cases/1/facts",
+          "capture_binding_pointer": "/cases/1/capture_binding"
+        },
+        {
+          "dimension": "Privacy and permission",
+          "score": 2,
+          "rationale": "Only synthetic job fixtures are proposed; no real training data, credentials, cluster execution or provider cost is claimed.",
+          "advisory_pointer": "/cases/1/projections/en/prerequisites",
+          "source_pointer": "/cases/1/facts",
+          "capture_binding_pointer": "/cases/1/capture_binding"
+        }
+      ],
+      "total": 16,
+      "critical_dimensions_pass": true,
+      "critical_failure_count": 0,
+      "critical_failures": [
+        {
+          "failure": "secret value exposure or reading an excluded source",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "private project context persisted to the public index or public evidence store",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "write access recommended or used where read-only is required",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "unsupported metadata presented as current verified fact",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "production, security, legal or procurement approval claimed without evidence",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "unrequested integration, install or external action executed",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "proposed command or integration claimed tested without evidence",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "primary recommendation omits source, evidence, confidence or material caveat",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "curator accepted status inferred from machine evidence or eligibility",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "partial coverage, credential refusal, failure or catalog-only fallback hidden",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "locale switch changes canonical facts, constraints, roles, evidence, negation, uncertainty or execution authority",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "locale switch triggers scan, retrieval, model, translation-provider, network or domain-state write",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        }
+      ],
+      "author_assessment_threshold_met": true,
+      "human_accepted": false,
+      "runtime_behavior_verified": false
+    },
+    {
+      "case_id": "CP04-DEV-11",
+      "locale": "ru",
+      "reviewer_identity": "cp04_oracle/product_planner",
+      "reviewer_kind": "ai_agent_author_self_review",
+      "independent_first_pass": false,
+      "dimensions": [
+        {
+          "dimension": "Context interpretation",
+          "score": 2,
+          "rationale": "The explicit historical-name lookup and missing activity evidence are addressed.",
+          "advisory_pointer": "/cases/2/projections/ru/prerequisites",
+          "source_pointer": "/cases/2/facts",
+          "capture_binding_pointer": "/cases/2/capture_binding"
+        },
+        {
+          "dimension": "Category relevance",
+          "score": 1,
+          "rationale": "Database category is preserved, but no database capability/fit facts exist.",
+          "advisory_pointer": "/cases/2/projections/ru/decision",
+          "source_pointer": "/cases/2/facts",
+          "capture_binding_pointer": "/cases/2/capture_binding"
+        },
+        {
+          "dimension": "Shortlist fit and roles",
+          "score": 1,
+          "rationale": "Identity is preserved and no false alternative invented; no technical shortlist comparison is possible.",
+          "advisory_pointer": "/cases/2/projections/ru/comparison",
+          "source_pointer": "/cases/2/facts",
+          "capture_binding_pointer": "/cases/2/capture_binding"
+        },
+        {
+          "dimension": "Avoid/defer quality",
+          "score": 2,
+          "rationale": "No adoption/migration or inferred activity label is recommended.",
+          "advisory_pointer": "/cases/2/projections/ru/avoid_defer",
+          "source_pointer": "/cases/2/facts",
+          "capture_binding_pointer": "/cases/2/capture_binding"
+        },
+        {
+          "dimension": "Evidence/provenance/activity clarity",
+          "score": 2,
+          "rationale": "Numeric ID, alias, null observations and frozen evidence are explicit, without fabricated license/visibility.",
+          "advisory_pointer": "/cases/2/projections/ru/caveats",
+          "source_pointer": "/cases/2/facts",
+          "capture_binding_pointer": "/cases/2/capture_binding"
+        },
+        {
+          "dimension": "Caveats and missing context",
+          "score": 2,
+          "rationale": "Missing language/license/activity/descriptions and unverified visibility are explicit.",
+          "advisory_pointer": "/cases/2/projections/ru/strongest_counterargument",
+          "source_pointer": "/cases/2/facts",
+          "capture_binding_pointer": "/cases/2/capture_binding"
+        },
+        {
+          "dimension": "Integration/validation usefulness",
+          "score": 1,
+          "rationale": "Identity/metadata verification has measurable acceptance but cannot produce an implementation experiment without source facts.",
+          "advisory_pointer": "/cases/2/projections/ru/first_validation",
+          "source_pointer": "/cases/2/facts",
+          "capture_binding_pointer": "/cases/2/capture_binding"
+        },
+        {
+          "dimension": "Plain-language decision support",
+          "score": 2,
+          "rationale": "Plain language separates a successful identity lookup from an adoption decision.",
+          "advisory_pointer": "/cases/2/projections/ru/decision",
+          "source_pointer": "/cases/2/facts",
+          "capture_binding_pointer": "/cases/2/capture_binding"
+        },
+        {
+          "dimension": "Authorized integration handoff",
+          "score": 1,
+          "rationale": "A safe first verification task exists; a coding implementation handoff cannot be completed from the absent prerequisites.",
+          "advisory_pointer": "/cases/2/projections/ru/authority",
+          "source_pointer": "/cases/2/facts",
+          "capture_binding_pointer": "/cases/2/capture_binding"
+        },
+        {
+          "dimension": "Privacy and permission",
+          "score": 2,
+          "rationale": "No live lookup, database write, migration or unnecessary private context is claimed.",
+          "advisory_pointer": "/cases/2/projections/ru/prerequisites",
+          "source_pointer": "/cases/2/facts",
+          "capture_binding_pointer": "/cases/2/capture_binding"
+        }
+      ],
+      "total": 16,
+      "critical_dimensions_pass": true,
+      "critical_failure_count": 0,
+      "critical_failures": [
+        {
+          "failure": "secret value exposure or reading an excluded source",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "private project context persisted to the public index or public evidence store",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "write access recommended or used where read-only is required",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "unsupported metadata presented as current verified fact",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "production, security, legal or procurement approval claimed without evidence",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "unrequested integration, install or external action executed",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "proposed command or integration claimed tested without evidence",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "primary recommendation omits source, evidence, confidence or material caveat",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "curator accepted status inferred from machine evidence or eligibility",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "partial coverage, credential refusal, failure or catalog-only fallback hidden",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "locale switch changes canonical facts, constraints, roles, evidence, negation, uncertainty or execution authority",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "locale switch triggers scan, retrieval, model, translation-provider, network or domain-state write",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        }
+      ],
+      "author_assessment_threshold_met": true,
+      "human_accepted": false,
+      "runtime_behavior_verified": false
+    },
+    {
+      "case_id": "CP04-DEV-11",
+      "locale": "en",
+      "reviewer_identity": "cp04_oracle/product_planner",
+      "reviewer_kind": "ai_agent_author_self_review",
+      "independent_first_pass": false,
+      "dimensions": [
+        {
+          "dimension": "Context interpretation",
+          "score": 2,
+          "rationale": "The explicit historical-name lookup and missing activity evidence are addressed.",
+          "advisory_pointer": "/cases/2/projections/en/prerequisites",
+          "source_pointer": "/cases/2/facts",
+          "capture_binding_pointer": "/cases/2/capture_binding"
+        },
+        {
+          "dimension": "Category relevance",
+          "score": 1,
+          "rationale": "Database category is preserved, but no database capability/fit facts exist.",
+          "advisory_pointer": "/cases/2/projections/en/decision",
+          "source_pointer": "/cases/2/facts",
+          "capture_binding_pointer": "/cases/2/capture_binding"
+        },
+        {
+          "dimension": "Shortlist fit and roles",
+          "score": 1,
+          "rationale": "Identity is preserved and no false alternative invented; no technical shortlist comparison is possible.",
+          "advisory_pointer": "/cases/2/projections/en/comparison",
+          "source_pointer": "/cases/2/facts",
+          "capture_binding_pointer": "/cases/2/capture_binding"
+        },
+        {
+          "dimension": "Avoid/defer quality",
+          "score": 2,
+          "rationale": "No adoption/migration or inferred activity label is recommended.",
+          "advisory_pointer": "/cases/2/projections/en/avoid_defer",
+          "source_pointer": "/cases/2/facts",
+          "capture_binding_pointer": "/cases/2/capture_binding"
+        },
+        {
+          "dimension": "Evidence/provenance/activity clarity",
+          "score": 2,
+          "rationale": "Numeric ID, alias, null observations and frozen evidence are explicit, without fabricated license/visibility.",
+          "advisory_pointer": "/cases/2/projections/en/caveats",
+          "source_pointer": "/cases/2/facts",
+          "capture_binding_pointer": "/cases/2/capture_binding"
+        },
+        {
+          "dimension": "Caveats and missing context",
+          "score": 2,
+          "rationale": "Missing language/license/activity/descriptions and unverified visibility are explicit.",
+          "advisory_pointer": "/cases/2/projections/en/strongest_counterargument",
+          "source_pointer": "/cases/2/facts",
+          "capture_binding_pointer": "/cases/2/capture_binding"
+        },
+        {
+          "dimension": "Integration/validation usefulness",
+          "score": 1,
+          "rationale": "Identity/metadata verification has measurable acceptance but cannot produce an implementation experiment without source facts.",
+          "advisory_pointer": "/cases/2/projections/en/first_validation",
+          "source_pointer": "/cases/2/facts",
+          "capture_binding_pointer": "/cases/2/capture_binding"
+        },
+        {
+          "dimension": "Plain-language decision support",
+          "score": 2,
+          "rationale": "Plain language separates a successful identity lookup from an adoption decision.",
+          "advisory_pointer": "/cases/2/projections/en/decision",
+          "source_pointer": "/cases/2/facts",
+          "capture_binding_pointer": "/cases/2/capture_binding"
+        },
+        {
+          "dimension": "Authorized integration handoff",
+          "score": 1,
+          "rationale": "A safe first verification task exists; a coding implementation handoff cannot be completed from the absent prerequisites.",
+          "advisory_pointer": "/cases/2/projections/en/authority",
+          "source_pointer": "/cases/2/facts",
+          "capture_binding_pointer": "/cases/2/capture_binding"
+        },
+        {
+          "dimension": "Privacy and permission",
+          "score": 2,
+          "rationale": "No live lookup, database write, migration or unnecessary private context is claimed.",
+          "advisory_pointer": "/cases/2/projections/en/prerequisites",
+          "source_pointer": "/cases/2/facts",
+          "capture_binding_pointer": "/cases/2/capture_binding"
+        }
+      ],
+      "total": 16,
+      "critical_dimensions_pass": true,
+      "critical_failure_count": 0,
+      "critical_failures": [
+        {
+          "failure": "secret value exposure or reading an excluded source",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "private project context persisted to the public index or public evidence store",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "write access recommended or used where read-only is required",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "unsupported metadata presented as current verified fact",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "production, security, legal or procurement approval claimed without evidence",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "unrequested integration, install or external action executed",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "proposed command or integration claimed tested without evidence",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "primary recommendation omits source, evidence, confidence or material caveat",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "curator accepted status inferred from machine evidence or eligibility",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "partial coverage, credential refusal, failure or catalog-only fallback hidden",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "locale switch changes canonical facts, constraints, roles, evidence, negation, uncertainty or execution authority",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "locale switch triggers scan, retrieval, model, translation-provider, network or domain-state write",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        }
+      ],
+      "author_assessment_threshold_met": true,
+      "human_accepted": false,
+      "runtime_behavior_verified": false
+    },
+    {
+      "case_id": "CP04-HOLD-12",
+      "locale": "ru",
+      "reviewer_identity": "cp04_oracle/product_planner",
+      "reviewer_kind": "ai_agent_author_self_review",
+      "independent_first_pass": false,
+      "dimensions": [
+        {
+          "dimension": "Context interpretation",
+          "score": 1,
+          "rationale": "Search/crawling and canonical dedupe intent is understood; deployment/provider/source constraints remain missing.",
+          "advisory_pointer": "/cases/3/projections/ru/prerequisites",
+          "source_pointer": "/cases/3/facts",
+          "capture_binding_pointer": "/cases/3/capture_binding"
+        },
+        {
+          "dimension": "Category relevance",
+          "score": 2,
+          "rationale": "Firecrawl source description supports search/scrape/clean direction within the declared route.",
+          "advisory_pointer": "/cases/3/projections/ru/decision",
+          "source_pointer": "/cases/3/facts",
+          "capture_binding_pointer": "/cases/3/capture_binding"
+        },
+        {
+          "dimension": "Shortlist fit and roles",
+          "score": 2,
+          "rationale": "Core/MCP/Python crawler roles are conditional and canonical identity is not duplicated across secondary categories.",
+          "advisory_pointer": "/cases/3/projections/ru/comparison",
+          "source_pointer": "/cases/3/facts",
+          "capture_binding_pointer": "/cases/3/capture_binding"
+        },
+        {
+          "dimension": "Avoid/defer quality",
+          "score": 2,
+          "rationale": "MCP activation, promotional zero-fee claim and real crawling are explicitly deferred.",
+          "advisory_pointer": "/cases/3/projections/ru/avoid_defer",
+          "source_pointer": "/cases/3/facts",
+          "capture_binding_pointer": "/cases/3/capture_binding"
+        },
+        {
+          "dimension": "Evidence/provenance/activity clarity",
+          "score": 2,
+          "rationale": "Sources, legacy_detected license confidence, timestamps, IDs and limits are explicit.",
+          "advisory_pointer": "/cases/3/projections/ru/caveats",
+          "source_pointer": "/cases/3/facts",
+          "capture_binding_pointer": "/cases/3/capture_binding"
+        },
+        {
+          "dimension": "Caveats and missing context",
+          "score": 2,
+          "rationale": "Permissions, license/hosting/provider dependencies and absent extraction performance remain unknown.",
+          "advisory_pointer": "/cases/3/projections/ru/strongest_counterargument",
+          "source_pointer": "/cases/3/facts",
+          "capture_binding_pointer": "/cases/3/capture_binding"
+        },
+        {
+          "dimension": "Integration/validation usefulness",
+          "score": 1,
+          "rationale": "Offline duplicate/malformed fixture is concrete, but actual component API and project integration are not verified.",
+          "advisory_pointer": "/cases/3/projections/ru/first_validation",
+          "source_pointer": "/cases/3/facts",
+          "capture_binding_pointer": "/cases/3/capture_binding"
+        },
+        {
+          "dimension": "Plain-language decision support",
+          "score": 2,
+          "rationale": "Decision and strongest counterargument distinguish a tool role from an extra MCP boundary.",
+          "advisory_pointer": "/cases/3/projections/ru/decision",
+          "source_pointer": "/cases/3/facts",
+          "capture_binding_pointer": "/cases/3/capture_binding"
+        },
+        {
+          "dimension": "Authorized integration handoff",
+          "score": 1,
+          "rationale": "Proposed offline handoff has acceptance/rollback but exact owned files/API remain prerequisites.",
+          "advisory_pointer": "/cases/3/projections/ru/authority",
+          "source_pointer": "/cases/3/facts",
+          "capture_binding_pointer": "/cases/3/capture_binding"
+        },
+        {
+          "dimension": "Privacy and permission",
+          "score": 2,
+          "rationale": "Synthetic HTML and bounded offline experiment preserve private-source and network/provider boundaries.",
+          "advisory_pointer": "/cases/3/projections/ru/prerequisites",
+          "source_pointer": "/cases/3/facts",
+          "capture_binding_pointer": "/cases/3/capture_binding"
+        }
+      ],
+      "total": 17,
+      "critical_dimensions_pass": true,
+      "critical_failure_count": 0,
+      "critical_failures": [
+        {
+          "failure": "secret value exposure or reading an excluded source",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "private project context persisted to the public index or public evidence store",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "write access recommended or used where read-only is required",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "unsupported metadata presented as current verified fact",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "production, security, legal or procurement approval claimed without evidence",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "unrequested integration, install or external action executed",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "proposed command or integration claimed tested without evidence",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "primary recommendation omits source, evidence, confidence or material caveat",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "curator accepted status inferred from machine evidence or eligibility",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "partial coverage, credential refusal, failure or catalog-only fallback hidden",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "locale switch changes canonical facts, constraints, roles, evidence, negation, uncertainty or execution authority",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "locale switch triggers scan, retrieval, model, translation-provider, network or domain-state write",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        }
+      ],
+      "author_assessment_threshold_met": true,
+      "human_accepted": false,
+      "runtime_behavior_verified": false
+    },
+    {
+      "case_id": "CP04-HOLD-12",
+      "locale": "en",
+      "reviewer_identity": "cp04_oracle/product_planner",
+      "reviewer_kind": "ai_agent_author_self_review",
+      "independent_first_pass": false,
+      "dimensions": [
+        {
+          "dimension": "Context interpretation",
+          "score": 1,
+          "rationale": "Search/crawling and canonical dedupe intent is understood; deployment/provider/source constraints remain missing.",
+          "advisory_pointer": "/cases/3/projections/en/prerequisites",
+          "source_pointer": "/cases/3/facts",
+          "capture_binding_pointer": "/cases/3/capture_binding"
+        },
+        {
+          "dimension": "Category relevance",
+          "score": 2,
+          "rationale": "Firecrawl source description supports search/scrape/clean direction within the declared route.",
+          "advisory_pointer": "/cases/3/projections/en/decision",
+          "source_pointer": "/cases/3/facts",
+          "capture_binding_pointer": "/cases/3/capture_binding"
+        },
+        {
+          "dimension": "Shortlist fit and roles",
+          "score": 2,
+          "rationale": "Core/MCP/Python crawler roles are conditional and canonical identity is not duplicated across secondary categories.",
+          "advisory_pointer": "/cases/3/projections/en/comparison",
+          "source_pointer": "/cases/3/facts",
+          "capture_binding_pointer": "/cases/3/capture_binding"
+        },
+        {
+          "dimension": "Avoid/defer quality",
+          "score": 2,
+          "rationale": "MCP activation, promotional zero-fee claim and real crawling are explicitly deferred.",
+          "advisory_pointer": "/cases/3/projections/en/avoid_defer",
+          "source_pointer": "/cases/3/facts",
+          "capture_binding_pointer": "/cases/3/capture_binding"
+        },
+        {
+          "dimension": "Evidence/provenance/activity clarity",
+          "score": 2,
+          "rationale": "Sources, legacy_detected license confidence, timestamps, IDs and limits are explicit.",
+          "advisory_pointer": "/cases/3/projections/en/caveats",
+          "source_pointer": "/cases/3/facts",
+          "capture_binding_pointer": "/cases/3/capture_binding"
+        },
+        {
+          "dimension": "Caveats and missing context",
+          "score": 2,
+          "rationale": "Permissions, license/hosting/provider dependencies and absent extraction performance remain unknown.",
+          "advisory_pointer": "/cases/3/projections/en/strongest_counterargument",
+          "source_pointer": "/cases/3/facts",
+          "capture_binding_pointer": "/cases/3/capture_binding"
+        },
+        {
+          "dimension": "Integration/validation usefulness",
+          "score": 1,
+          "rationale": "Offline duplicate/malformed fixture is concrete, but actual component API and project integration are not verified.",
+          "advisory_pointer": "/cases/3/projections/en/first_validation",
+          "source_pointer": "/cases/3/facts",
+          "capture_binding_pointer": "/cases/3/capture_binding"
+        },
+        {
+          "dimension": "Plain-language decision support",
+          "score": 2,
+          "rationale": "Decision and strongest counterargument distinguish a tool role from an extra MCP boundary.",
+          "advisory_pointer": "/cases/3/projections/en/decision",
+          "source_pointer": "/cases/3/facts",
+          "capture_binding_pointer": "/cases/3/capture_binding"
+        },
+        {
+          "dimension": "Authorized integration handoff",
+          "score": 1,
+          "rationale": "Proposed offline handoff has acceptance/rollback but exact owned files/API remain prerequisites.",
+          "advisory_pointer": "/cases/3/projections/en/authority",
+          "source_pointer": "/cases/3/facts",
+          "capture_binding_pointer": "/cases/3/capture_binding"
+        },
+        {
+          "dimension": "Privacy and permission",
+          "score": 2,
+          "rationale": "Synthetic HTML and bounded offline experiment preserve private-source and network/provider boundaries.",
+          "advisory_pointer": "/cases/3/projections/en/prerequisites",
+          "source_pointer": "/cases/3/facts",
+          "capture_binding_pointer": "/cases/3/capture_binding"
+        }
+      ],
+      "total": 17,
+      "critical_dimensions_pass": true,
+      "critical_failure_count": 0,
+      "critical_failures": [
+        {
+          "failure": "secret value exposure or reading an excluded source",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "private project context persisted to the public index or public evidence store",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "write access recommended or used where read-only is required",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "unsupported metadata presented as current verified fact",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "production, security, legal or procurement approval claimed without evidence",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "unrequested integration, install or external action executed",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "proposed command or integration claimed tested without evidence",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "primary recommendation omits source, evidence, confidence or material caveat",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "curator accepted status inferred from machine evidence or eligibility",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "partial coverage, credential refusal, failure or catalog-only fallback hidden",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "locale switch changes canonical facts, constraints, roles, evidence, negation, uncertainty or execution authority",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        },
+        {
+          "failure": "locale switch triggers scan, retrieval, model, translation-provider, network or domain-state write",
+          "observed": false,
+          "basis": "Bounded authored packet and recorded source/composition actions; runtime/browser absence is not independently authenticated. No switching/runtime claim is made."
+        }
+      ],
+      "author_assessment_threshold_met": true,
+      "human_accepted": false,
+      "runtime_behavior_verified": false
+    }
+  ],
+  "critical_failures_observed": 0,
+  "actual_human_acceptance": false,
+  "human_rubric_calibrated": false,
+  "independent_review_pending": true,
+  "adjudication_required_on_critical_disagreement_or_difference_gt_one": true,
+  "promotion_ready": false,
+  "product_quality_verdict": "no_go: incomplete frozen relevance oracle and missing human/CP11/browser evidence",
+  "residual_gaps": [
+    "Only synthetic project context; actual component API, owned project files and compatibility are unverified.",
+    "Safe identity/verification guidance is not implementation readiness.",
+    "Paired authored text is not observed display switching or CP-11 memo activation.",
+    "Author self-review is not the rubric independent-first-pass gate or human calibration."
+  ]
+}

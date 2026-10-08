@@ -1,0 +1,73 @@
+{
+  "alias_success": "alias target in raw top12; denied alias target excluded from detail pack",
+  "baseline": "literal-field-or-v1; shared taxonomy route and matcher/context_pack; explicit policy candidate cap",
+  "bytes": "canonical compact sorted-key UTF-8 query and pack; controlled input=query+pack; no Brief/context",
+  "commands": [
+    ".venv/Scripts/python.exe -B evals/plugin-v1/run_quality.py --predeclare --plan-sha256 e895c54ef78505ca6bcbe12edd7385d43351b78dfd915a238cd20ea7a9bcdaa7",
+    ".venv/Scripts/python.exe -B evals/plugin-v1/run_quality.py --run --plan-sha256 e895c54ef78505ca6bcbe12edd7385d43351b78dfd915a238cd20ea7a9bcdaa7"
+  ],
+  "human_review": "not executed",
+  "latency": {
+    "case_schedule": "round robin in frozen case order",
+    "cold": "new process/connection each sample; timer surrounds retrieval.retrieve only",
+    "percentile": "nearest rank ceil(p*n); no OS cache flush",
+    "repetitions": 30,
+    "warm": "one process; discard one warmup; new immutable connection per retrieve call"
+  },
+  "memory": "Windows GetProcessMemoryInfo PeakWorkingSetSize, process-lifetime peak; null elsewhere",
+  "pack_survival": "known grade>0 non-denied IDs in raw top12 that survive detail pack / same retrieved IDs",
+  "pins": {
+    "activity_schema_version": "2.0.0",
+    "card_schema_version": "2.0.0",
+    "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+    "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+    "corpus_kind": "catalog_snapshot",
+    "index_format_version": 3,
+    "index_sha256": "9678f5e265e4e3a33df3818f94c509c60728e994051ee72ec2050b0b093306c4",
+    "policy_sha256": "ff6e8444c4664492bb099f0819b2d284aa5c28f0d44c7a745c63f434c3489dbf",
+    "retrieval_policy_version": "2.1.0",
+    "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+    "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+  },
+  "provider_cost_usd": null,
+  "quality_plan_sha256": "e895c54ef78505ca6bcbe12edd7385d43351b78dfd915a238cd20ea7a9bcdaa7",
+  "query_mapping": "target_category_id->taxonomy_route_id; exact query_terms in q1 OR; empty hard constraints",
+  "schema_version": "cp04_quality_declaration_v1",
+  "source_hashes": {
+    "evals/plugin-v1/evaluate_retrieval.py": "f9fafc3cb449f73fdbf5f568f126e2ca06577f1aadc733241fd1275a6d4d2c48",
+    "evals/plugin-v1/run_quality.py": "b31a0bebaae6c0826481fafe9ebb9ef442adc66f779aff167737e9097266a98a",
+    "evals/plugin-v1/runner-contract.md": "f9c610b9349b0ffde202b9a228f197075aa2953a491aaae935504e51fa2b2717",
+    "plugins/myai-stackguide/scripts/context_pack.py": "3fa33b8fc9f778f0d09388b10ad104546d0c0036f93127532b37c97501f50966",
+    "plugins/myai-stackguide/scripts/matcher.py": "c560158f15390f662e55eac39e9ffc31fd983a9af8c5086a234fbec0280933c2",
+    "plugins/myai-stackguide/scripts/retrieval.py": "8ced779b5340c00ba150a8fcdec03235e61c033618c400d795ab85a75740f22d",
+    "specs/retrieval/retrieval-policy.json": "ff6e8444c4664492bb099f0819b2d284aa5c28f0d44c7a745c63f434c3489dbf"
+  },
+  "strata": "all frozen required tags and container domains, separately all/development/held_out; missing=null",
+  "synthetic_headroom": "not executed; separate CP-11 lane",
+  "thresholds": {
+    "actual_cold_p95_ms_max": 250,
+    "actual_warm_p95_ms_max": 100,
+    "alias_success_rate_min": 1.0,
+    "candidate_not_worse_than_baseline_ndcg_delta_min": 0.0,
+    "candidate_not_worse_than_baseline_recall_delta_min": 0.0,
+    "container_route_coverage_min": 14,
+    "duplicate_canonical_ids_max": 0,
+    "evidence_pack_survival_rate_min": 0.9,
+    "false_exclusions_max": 0,
+    "hard_constraint_violations_max": 0,
+    "held_out_macro_ndcg_at_12_min": 0.65,
+    "held_out_macro_recall_at_12_min": 0.75,
+    "human_critical_dimension_min": 1,
+    "human_critical_failures_max": 0,
+    "human_total_min": 16,
+    "index_bytes_max": 67108864,
+    "leaf_route_coverage_min": 111,
+    "peak_memory_bytes_max": 268435456,
+    "required_stratum_ndcg_at_12_min": 0.5,
+    "required_stratum_recall_at_12_min": 0.6,
+    "synthetic_cold_p95_ms_max": 500,
+    "synthetic_warm_p95_ms_max": 200
+  },
+  "tokens": null,
+  "unknown_judgments": "null official ranking/macro; preserve actual ranks and unjudged IDs; no_go"
+}

@@ -1,0 +1,1145 @@
+{
+  "alias_success_rate": 1.0,
+  "all_leaf_container_runtime_routes": "not_run; registry counts are structural index evidence",
+  "browser_and_no_call_locale_switch": "not_observed",
+  "constraint_totals_judged_pool_only": {
+    "duplicate_canonical_ids": 0,
+    "false_exclusions": 0,
+    "hard_constraint_violations": 0
+  },
+  "diagnostic_known_pool_recall": {
+    "development": {
+      "baseline": 0.6666666666666666,
+      "candidate": 0.625
+    },
+    "held_out": {
+      "baseline": 0.25,
+      "candidate": 0.375
+    }
+  },
+  "evidence_pack_survival_known_pool": 1.0,
+  "executed_quality_routes": [
+    "accounting_invoicing",
+    "api_contract_testing",
+    "application_paas",
+    "baas_platforms",
+    "coding_agents_devex",
+    "data_lakes_object_storage",
+    "database_engines",
+    "datasets_synthetic_labeling",
+    "documentation_site_generators",
+    "editors_ides",
+    "embeddings_reranking",
+    "file_upload_infrastructure",
+    "forms_validation",
+    "llm_gateways_routing_caching",
+    "media_libraries_readers",
+    "observability_llmops",
+    "payment_processing_sdks",
+    "project_task_management",
+    "research_agents_deep_research",
+    "scheduling_personal_productivity",
+    "security_testing",
+    "training_finetuning_alignment",
+    "web_crawling_data_ingestion",
+    "workflow_state_machines_durable_agents"
+  ],
+  "failed_gates": [
+    "candidate_status_matches"
+  ],
+  "gates": {
+    "actual_cold_p95_ms_max": true,
+    "actual_warm_p95_ms_max": true,
+    "alias_success_rate_min": true,
+    "candidate_not_worse_than_baseline_ndcg_delta_min": null,
+    "candidate_not_worse_than_baseline_recall_delta_min": null,
+    "candidate_status_matches": false,
+    "container_registry_coverage": true,
+    "duplicate_canonical_ids": true,
+    "evidence_pack_survival_rate_min": true,
+    "false_exclusions": true,
+    "hard_constraint_violations": true,
+    "held_out_macro_ndcg_at_12_min": null,
+    "held_out_macro_recall_at_12_min": null,
+    "held_out_required_strata": null,
+    "index_bytes_max": true,
+    "leaf_registry_coverage": true,
+    "peak_memory_bytes_max": true
+  },
+  "human_usefulness": "not_observed",
+  "incomplete_judgment_cases": [
+    "CP04-DEV-01",
+    "CP04-DEV-03",
+    "CP04-DEV-04",
+    "CP04-DEV-06",
+    "CP04-DEV-08",
+    "CP04-DEV-09",
+    "CP04-DEV-12",
+    "CP04-HOLD-04",
+    "CP04-HOLD-05",
+    "CP04-HOLD-06",
+    "CP04-HOLD-07",
+    "CP04-HOLD-10",
+    "CP04-HOLD-12"
+  ],
+  "macro": {
+    "development": {
+      "baseline": {
+        "complete": false,
+        "ndcg_at_12": null,
+        "recall_at_12": null
+      },
+      "candidate": {
+        "complete": false,
+        "ndcg_at_12": null,
+        "recall_at_12": null
+      }
+    },
+    "held_out": {
+      "baseline": {
+        "complete": false,
+        "ndcg_at_12": null,
+        "recall_at_12": null
+      },
+      "candidate": {
+        "complete": false,
+        "ndcg_at_12": null,
+        "recall_at_12": null
+      }
+    }
+  },
+  "measurement_amendment_sha256": "e606f3a43318cc55745c82e25918a189e501193644ff1e82992a3462e09794eb",
+  "original_observations_sha256": "9fa95b0c9952cf0f039d9a666857bb2fa62be7ffa3283a00bf2bff0d9e7f20a3",
+  "paired_ru_en_meaning": "not_observed",
+  "pins": {
+    "activity_schema_version": "2.0.0",
+    "card_schema_version": "2.0.0",
+    "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+    "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+    "corpus_kind": "catalog_snapshot",
+    "index_format_version": 3,
+    "index_sha256": "9678f5e265e4e3a33df3818f94c509c60728e994051ee72ec2050b0b093306c4",
+    "policy_sha256": "ff6e8444c4664492bb099f0819b2d284aa5c28f0d44c7a745c63f434c3489dbf",
+    "retrieval_policy_version": "2.1.0",
+    "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+    "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+  },
+  "pool_oracle_human_accepted": false,
+  "promotion_ready": false,
+  "quality_plan_sha256": "e895c54ef78505ca6bcbe12edd7385d43351b78dfd915a238cd20ea7a9bcdaa7",
+  "record_count": 24,
+  "registry_route_counts": {
+    "category": 111,
+    "container": 14,
+    "review_bucket": 1
+  },
+  "rubric_calibrated": false,
+  "schema_version": "cp04_quality_summary_v1",
+  "state_publication_recovery": "not_in_this_runner",
+  "strata": {
+    "all": {
+      "container_domain_ids": {
+        "accounting_finance_erp": {
+          "baseline": {
+            "complete": true,
+            "ndcg_at_12": 0.7871546029909718,
+            "recall_at_12": 0.5
+          },
+          "candidate": {
+            "complete": true,
+            "ndcg_at_12": 0.7871546029909718,
+            "recall_at_12": 0.5
+          },
+          "case_count": 1
+        },
+        "backend_baas_api": {
+          "baseline": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "candidate": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "case_count": 1
+        },
+        "cms_content_knowledge": {
+          "baseline": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "candidate": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "case_count": 1
+        },
+        "communications_personal_ops": {
+          "baseline": {
+            "complete": true,
+            "ndcg_at_12": 0.7871546029909718,
+            "recall_at_12": 0.5
+          },
+          "candidate": {
+            "complete": true,
+            "ndcg_at_12": 0.7871546029909718,
+            "recall_at_12": 0.5
+          },
+          "case_count": 1
+        },
+        "data_ingestion_etl_cdc": {
+          "baseline": {
+            "complete": true,
+            "ndcg_at_12": 0.0,
+            "recall_at_12": 0.0
+          },
+          "candidate": {
+            "complete": true,
+            "ndcg_at_12": 0.0,
+            "recall_at_12": 0.0
+          },
+          "case_count": 1
+        },
+        "databases_storage_caching": {
+          "baseline": {
+            "complete": true,
+            "ndcg_at_12": 0.7871546029909718,
+            "recall_at_12": 0.5
+          },
+          "candidate": {
+            "complete": true,
+            "ndcg_at_12": 0.7871546029909718,
+            "recall_at_12": 0.5
+          },
+          "case_count": 1
+        },
+        "deployment_containers_paas": {
+          "baseline": {
+            "complete": true,
+            "ndcg_at_12": 0.0,
+            "recall_at_12": 0.0
+          },
+          "candidate": {
+            "complete": true,
+            "ndcg_at_12": 0.7871546029909718,
+            "recall_at_12": 0.5
+          },
+          "case_count": 1
+        },
+        "developer_tools_cli_general": {
+          "baseline": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "candidate": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "case_count": 1
+        },
+        "ecommerce_payments_revenue": {
+          "baseline": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "candidate": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "case_count": 1
+        },
+        "files_media_storage": {
+          "baseline": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "candidate": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "case_count": 1
+        },
+        "frontend_frameworks_ui": {
+          "baseline": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "candidate": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "case_count": 1
+        },
+        "operations_project_management": {
+          "baseline": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "candidate": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "case_count": 1
+        },
+        "supply_chain_devsecops": {
+          "baseline": {
+            "complete": true,
+            "ndcg_at_12": 0.0,
+            "recall_at_12": 0.0
+          },
+          "candidate": {
+            "complete": true,
+            "ndcg_at_12": 0.0,
+            "recall_at_12": 0.0
+          },
+          "case_count": 1
+        },
+        "testing_qa": {
+          "baseline": {
+            "complete": true,
+            "ndcg_at_12": 0.7871546029909718,
+            "recall_at_12": 0.5
+          },
+          "candidate": {
+            "complete": true,
+            "ndcg_at_12": 0.7871546029909718,
+            "recall_at_12": 0.5
+          },
+          "case_count": 1
+        }
+      },
+      "tags": {
+        "activity_unknown": {
+          "baseline": {
+            "complete": true,
+            "ndcg_at_12": 0.7871546029909718,
+            "recall_at_12": 0.5
+          },
+          "candidate": {
+            "complete": true,
+            "ndcg_at_12": 0.7871546029909718,
+            "recall_at_12": 0.5
+          },
+          "case_count": 1
+        },
+        "baseline_cohort": {
+          "baseline": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "candidate": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "case_count": 21
+        },
+        "container_union": {
+          "baseline": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "candidate": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "case_count": 14
+        },
+        "dense_leaf": {
+          "baseline": {
+            "complete": true,
+            "ndcg_at_12": 0.19678865074774296,
+            "recall_at_12": 0.125
+          },
+          "candidate": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "case_count": 4
+        },
+        "dual_descriptions": {
+          "baseline": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "candidate": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "case_count": 9
+        },
+        "expansion_cohort": {
+          "baseline": {
+            "complete": true,
+            "ndcg_at_12": 0.0,
+            "recall_at_12": 0.0
+          },
+          "candidate": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "case_count": 4
+        },
+        "historical_alias": {
+          "baseline": {
+            "complete": true,
+            "ndcg_at_12": 0.7871546029909718,
+            "recall_at_12": 0.5
+          },
+          "candidate": {
+            "complete": true,
+            "ndcg_at_12": 0.7871546029909718,
+            "recall_at_12": 0.5
+          },
+          "case_count": 5
+        },
+        "lexical_en": {
+          "baseline": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "candidate": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "case_count": 22
+        },
+        "lexical_ru": {
+          "baseline": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "candidate": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "case_count": 2
+        },
+        "secondary_dedupe": {
+          "baseline": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "candidate": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "case_count": 3
+        },
+        "thin_leaf": {
+          "baseline": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "candidate": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "case_count": 15
+        }
+      }
+    },
+    "development": {
+      "container_domain_ids": {
+        "accounting_finance_erp": {
+          "baseline": {
+            "complete": true,
+            "ndcg_at_12": 0.7871546029909718,
+            "recall_at_12": 0.5
+          },
+          "candidate": {
+            "complete": true,
+            "ndcg_at_12": 0.7871546029909718,
+            "recall_at_12": 0.5
+          },
+          "case_count": 1
+        },
+        "backend_baas_api": {
+          "baseline": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "candidate": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "case_count": 1
+        },
+        "cms_content_knowledge": {
+          "baseline": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "candidate": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "case_count": 1
+        },
+        "communications_personal_ops": {
+          "baseline": {
+            "complete": true,
+            "ndcg_at_12": 0.7871546029909718,
+            "recall_at_12": 0.5
+          },
+          "candidate": {
+            "complete": true,
+            "ndcg_at_12": 0.7871546029909718,
+            "recall_at_12": 0.5
+          },
+          "case_count": 1
+        },
+        "data_ingestion_etl_cdc": {
+          "baseline": {
+            "complete": true,
+            "ndcg_at_12": 0.0,
+            "recall_at_12": 0.0
+          },
+          "candidate": {
+            "complete": true,
+            "ndcg_at_12": 0.0,
+            "recall_at_12": 0.0
+          },
+          "case_count": 1
+        },
+        "databases_storage_caching": {
+          "baseline": {
+            "complete": true,
+            "ndcg_at_12": 0.7871546029909718,
+            "recall_at_12": 0.5
+          },
+          "candidate": {
+            "complete": true,
+            "ndcg_at_12": 0.7871546029909718,
+            "recall_at_12": 0.5
+          },
+          "case_count": 1
+        },
+        "deployment_containers_paas": {
+          "baseline": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "candidate": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "case_count": 0
+        },
+        "developer_tools_cli_general": {
+          "baseline": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "candidate": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "case_count": 1
+        },
+        "ecommerce_payments_revenue": {
+          "baseline": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "candidate": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "case_count": 1
+        },
+        "files_media_storage": {
+          "baseline": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "candidate": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "case_count": 1
+        },
+        "frontend_frameworks_ui": {
+          "baseline": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "candidate": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "case_count": 1
+        },
+        "operations_project_management": {
+          "baseline": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "candidate": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "case_count": 1
+        },
+        "supply_chain_devsecops": {
+          "baseline": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "candidate": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "case_count": 0
+        },
+        "testing_qa": {
+          "baseline": {
+            "complete": true,
+            "ndcg_at_12": 0.7871546029909718,
+            "recall_at_12": 0.5
+          },
+          "candidate": {
+            "complete": true,
+            "ndcg_at_12": 0.7871546029909718,
+            "recall_at_12": 0.5
+          },
+          "case_count": 1
+        }
+      },
+      "tags": {
+        "activity_unknown": {
+          "baseline": {
+            "complete": true,
+            "ndcg_at_12": 0.7871546029909718,
+            "recall_at_12": 0.5
+          },
+          "candidate": {
+            "complete": true,
+            "ndcg_at_12": 0.7871546029909718,
+            "recall_at_12": 0.5
+          },
+          "case_count": 1
+        },
+        "baseline_cohort": {
+          "baseline": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "candidate": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "case_count": 12
+        },
+        "container_union": {
+          "baseline": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "candidate": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "case_count": 12
+        },
+        "dense_leaf": {
+          "baseline": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "candidate": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "case_count": 0
+        },
+        "dual_descriptions": {
+          "baseline": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "candidate": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "case_count": 7
+        },
+        "expansion_cohort": {
+          "baseline": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "candidate": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "case_count": 0
+        },
+        "historical_alias": {
+          "baseline": {
+            "complete": true,
+            "ndcg_at_12": 0.7871546029909718,
+            "recall_at_12": 0.5
+          },
+          "candidate": {
+            "complete": true,
+            "ndcg_at_12": 0.7871546029909718,
+            "recall_at_12": 0.5
+          },
+          "case_count": 4
+        },
+        "lexical_en": {
+          "baseline": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "candidate": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "case_count": 11
+        },
+        "lexical_ru": {
+          "baseline": {
+            "complete": true,
+            "ndcg_at_12": 0.7871546029909718,
+            "recall_at_12": 0.5
+          },
+          "candidate": {
+            "complete": true,
+            "ndcg_at_12": 0.7871546029909718,
+            "recall_at_12": 0.5
+          },
+          "case_count": 1
+        },
+        "secondary_dedupe": {
+          "baseline": {
+            "complete": true,
+            "ndcg_at_12": 0.7871546029909718,
+            "recall_at_12": 0.5
+          },
+          "candidate": {
+            "complete": true,
+            "ndcg_at_12": 0.7871546029909718,
+            "recall_at_12": 0.5
+          },
+          "case_count": 1
+        },
+        "thin_leaf": {
+          "baseline": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "candidate": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "case_count": 9
+        }
+      }
+    },
+    "held_out": {
+      "container_domain_ids": {
+        "accounting_finance_erp": {
+          "baseline": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "candidate": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "case_count": 0
+        },
+        "backend_baas_api": {
+          "baseline": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "candidate": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "case_count": 0
+        },
+        "cms_content_knowledge": {
+          "baseline": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "candidate": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "case_count": 0
+        },
+        "communications_personal_ops": {
+          "baseline": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "candidate": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "case_count": 0
+        },
+        "data_ingestion_etl_cdc": {
+          "baseline": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "candidate": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "case_count": 0
+        },
+        "databases_storage_caching": {
+          "baseline": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "candidate": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "case_count": 0
+        },
+        "deployment_containers_paas": {
+          "baseline": {
+            "complete": true,
+            "ndcg_at_12": 0.0,
+            "recall_at_12": 0.0
+          },
+          "candidate": {
+            "complete": true,
+            "ndcg_at_12": 0.7871546029909718,
+            "recall_at_12": 0.5
+          },
+          "case_count": 1
+        },
+        "developer_tools_cli_general": {
+          "baseline": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "candidate": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "case_count": 0
+        },
+        "ecommerce_payments_revenue": {
+          "baseline": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "candidate": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "case_count": 0
+        },
+        "files_media_storage": {
+          "baseline": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "candidate": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "case_count": 0
+        },
+        "frontend_frameworks_ui": {
+          "baseline": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "candidate": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "case_count": 0
+        },
+        "operations_project_management": {
+          "baseline": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "candidate": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "case_count": 0
+        },
+        "supply_chain_devsecops": {
+          "baseline": {
+            "complete": true,
+            "ndcg_at_12": 0.0,
+            "recall_at_12": 0.0
+          },
+          "candidate": {
+            "complete": true,
+            "ndcg_at_12": 0.0,
+            "recall_at_12": 0.0
+          },
+          "case_count": 1
+        },
+        "testing_qa": {
+          "baseline": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "candidate": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "case_count": 0
+        }
+      },
+      "tags": {
+        "activity_unknown": {
+          "baseline": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "candidate": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "case_count": 0
+        },
+        "baseline_cohort": {
+          "baseline": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "candidate": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "case_count": 9
+        },
+        "container_union": {
+          "baseline": {
+            "complete": true,
+            "ndcg_at_12": 0.0,
+            "recall_at_12": 0.0
+          },
+          "candidate": {
+            "complete": true,
+            "ndcg_at_12": 0.3935773014954859,
+            "recall_at_12": 0.25
+          },
+          "case_count": 2
+        },
+        "dense_leaf": {
+          "baseline": {
+            "complete": true,
+            "ndcg_at_12": 0.19678865074774296,
+            "recall_at_12": 0.125
+          },
+          "candidate": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "case_count": 4
+        },
+        "dual_descriptions": {
+          "baseline": {
+            "complete": true,
+            "ndcg_at_12": 0.0,
+            "recall_at_12": 0.0
+          },
+          "candidate": {
+            "complete": true,
+            "ndcg_at_12": 0.3935773014954859,
+            "recall_at_12": 0.25
+          },
+          "case_count": 2
+        },
+        "expansion_cohort": {
+          "baseline": {
+            "complete": true,
+            "ndcg_at_12": 0.0,
+            "recall_at_12": 0.0
+          },
+          "candidate": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "case_count": 4
+        },
+        "historical_alias": {
+          "baseline": {
+            "complete": true,
+            "ndcg_at_12": 0.7871546029909718,
+            "recall_at_12": 0.5
+          },
+          "candidate": {
+            "complete": true,
+            "ndcg_at_12": 0.7871546029909718,
+            "recall_at_12": 0.5
+          },
+          "case_count": 1
+        },
+        "lexical_en": {
+          "baseline": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "candidate": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "case_count": 11
+        },
+        "lexical_ru": {
+          "baseline": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "candidate": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "case_count": 1
+        },
+        "secondary_dedupe": {
+          "baseline": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "candidate": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "case_count": 2
+        },
+        "thin_leaf": {
+          "baseline": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "candidate": {
+            "complete": false,
+            "ndcg_at_12": null,
+            "recall_at_12": null
+          },
+          "case_count": 6
+        }
+      }
+    }
+  },
+  "survival_denominator": 22,
+  "survival_numerator": 22,
+  "synthetic_10k_headroom": "not_run",
+  "unmeasured_gates": [
+    "held_out_macro_recall_at_12_min",
+    "candidate_not_worse_than_baseline_recall_delta_min",
+    "held_out_macro_ndcg_at_12_min",
+    "candidate_not_worse_than_baseline_ndcg_delta_min",
+    "held_out_required_strata"
+  ],
+  "verdict": "no_go"
+}

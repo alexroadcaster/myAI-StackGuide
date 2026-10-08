@@ -139,7 +139,9 @@ section dl.detail-list { display: block; }
 .matrix-scroll th:first-child { min-width: 150px; }
 .matrix-scroll thead { background: #eaf3ff; }
 .copy-panel { padding: 16px 20px; border: 1px solid #b9cee9; border-radius: 16px; background: #f3f8ff; user-select: text; }
-.copy-panel:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+.copy-panel:focus-visible, .matrix-scroll:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+.copy-button { margin: 10px 0; padding: 8px 16px; border: 1px solid #b9cee9; border-radius: 12px; background: #fff; color: var(--accent); }
+code { overflow-wrap: anywhere; white-space: pre-wrap; }
 [hidden] { display: none !important; }
 @supports ((backdrop-filter: blur(24px)) or (-webkit-backdrop-filter: blur(24px))) {
   header, aside, .next {
@@ -156,6 +158,14 @@ section dl.detail-list { display: block; }
 }
 @media (prefers-reduced-motion: reduce) {
   nav a, .languages button { transition: none; }
+}
+/* A narrow effective viewport also occurs on desktop at 200% zoom. */
+@media (max-width: 760px) {
+  .layout { grid-template-columns: minmax(0, 1fr); }
+  nav { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .detail-list .field { grid-template-columns: minmax(0, 1fr); }
+  header { padding: 16px; }
+  h1 { font-size: 2rem; }
 }
 @media (prefers-reduced-transparency: reduce), (prefers-contrast: more) {
   body { background: #edf1f8; }
@@ -176,6 +186,10 @@ section dl.detail-list { display: block; }
   main { max-width: none; padding: 0; }
   section[hidden] { display: block !important; }
   section { break-inside: avoid; }
+  .copy-button { display: none; }
+  .matrix-scroll { overflow: visible; border: 0; }
+  .matrix-scroll table { min-width: 0; table-layout: fixed; }
+  .matrix-scroll th, .matrix-scroll td, .matrix-scroll th:first-child { min-width: 0; padding: 6px; }
   section, .summary, .next, .notice {
     background: white; box-shadow: none; border-color: #bbb; color: black;
     -webkit-backdrop-filter: none; backdrop-filter: none;
@@ -203,9 +217,34 @@ section dl.detail-list { display: block; }
   const sections = [...document.querySelectorAll("main > section")];
   const links = [...document.querySelectorAll("[data-view]")];
   const buttons = [...document.querySelectorAll("[data-locale]")];
+  document.querySelectorAll("[data-copy-target]").forEach(button => {
+    button.hidden = false;
+    button.addEventListener("click", async () => {
+      const target = document.getElementById(button.dataset.copyTarget);
+      const feedback = document.getElementById(button.dataset.copyFeedback);
+      if (!target || !feedback) return;
+      let key = "copy_manual";
+      try {
+        if (!navigator.clipboard || !navigator.clipboard.writeText) throw new Error("unavailable");
+        await navigator.clipboard.writeText(target.innerText);
+        key = "copy_done";
+      } catch (_) {
+        // Selection works without clipboard permission; no legacy execCommand.
+        const range = document.createRange();
+        range.selectNodeContents(target);
+        const selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+        target.focus();
+      }
+      feedback.dataset.i18n = key;
+      feedback.textContent = dictionaries[currentLocale][key];
+    });
+  });
   const validView = value => sections.some(section => section.id === value);
   let currentView = "goal", currentLocale = savedLocale;
   function applyFragment() {
+    const previousView = currentView;
     const raw = location.hash.slice(1);
     const params = new URLSearchParams(raw);
     const requested = raw === "main" ? currentView : (params.get("view") || raw);
@@ -235,6 +274,7 @@ section dl.detail-list { display: block; }
     });
     // Back/forward must not leave focus inside a now-hidden panel.
     if (document.activeElement.closest("section[hidden]")) document.getElementById(currentView).focus();
+    else if (previousView !== currentView && document.activeElement.matches("[data-view]")) document.getElementById(currentView).focus();
   }
   buttons.forEach(button => button.addEventListener("click", () => {
     location.hash = `view=${currentView}&lang=${button.dataset.locale}`;

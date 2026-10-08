@@ -1,0 +1,74 @@
+{
+  "schema_version": "cp04_solution_blueprint_review_v1",
+  "review_kind": "prospective_same_case_static_model_review_not_blind",
+  "reviewer_model_requested": "gpt-6-astra",
+  "reviewer_effort_requested": "medium",
+  "recorded_by": "primary_from_frozen_read_only_Astra_handoff",
+  "criteria": [
+    "Stack and retained/new component roles are explicit; alternatives are not installed together.",
+    "Technical work, proposed architecture/data boundaries and product outcome are connected to known goals.",
+    "Problems solved and work remaining to the project team are separated.",
+    "Complexity explains concrete drivers and scope-changing unknowns.",
+    "Time ranges are assumption-bound planning estimates with confidence, phase/scope/person-hour/person-day/calendar distinctions and dependencies, not measured delivery commitments.",
+    "Build-from-scratch comparison uses equivalent scope, includes native/existing alternative and ongoing maintenance; no unsupported quantified savings.",
+    "RU/EN preserves sources, conditions, estimates and action boundaries."
+  ],
+  "matrix": {
+    "CP04-V2-D05": [
+      "improved",
+      "improved",
+      "improved",
+      "improved",
+      "improved",
+      "improved",
+      "unchanged"
+    ],
+    "CP04-V2-H15": [
+      "improved",
+      "improved",
+      "improved",
+      "improved",
+      "improved",
+      "improved",
+      "unchanged"
+    ]
+  },
+  "critical_errors_observed": [],
+  "nonblocking_findings": [
+    "Custom development can also be justified by documented control/lifecycle-cost advantages; the narrow D05 case does not establish those needs.",
+    "H15 remains substantial for a nontechnical reader."
+  ],
+  "checks": {
+    "same_source_context_fields_per_case": 8,
+    "case_count": 2,
+    "phase_arithmetic": "pass",
+    "hour_day_calendar_conversion": "pass",
+    "pilot_included_once": "pass",
+    "RU_EN_metadata_estimates": "equal",
+    "Markdown_JSON_sections": "equal",
+    "prior_artifacts_preserved": true,
+    "protected_hashes_unchanged": 41,
+    "focused_diff_check": "pass"
+  },
+  "validation_setup_repair": "Primary first parity helper assumed string sections; new sections are title/body objects. Corrected bounded parser and reran successfully, without artifact edits.",
+  "estimate_limits": [
+    "Uncalibrated expert planning scenarios with low confidence, not measured implementation time.",
+    "D05 <=5 simple routes, one experienced engineer and hypothetical compatible interfaces/tests/CI/staging; no broader Gin, auth/database/frontend migration estimate.",
+    "Full D0516\u201332 hours includes discovery/endpoint pilot6\u201312 once; engineering effort2\u20134 eight-hour days, full allocation excludes unknown waits.",
+    "H15 full adoption and total elapsed time unknown;6\u201312 hours only discovery/conditional one-device synthetic validation."
+  ],
+  "activation_limits": [
+    "Explicit instruction read and same-agent follow-up composition, static source/parity review; not fresh installed-plugin activation or runtime proof.",
+    "No integration/tests/deployment executed; no demonstrated time saved or positive complementary-new-stack eval."
+  ],
+  "human_calibrated": false,
+  "promotion_ready": false,
+  "parent_status": "in_progress / partially_verified / no_go",
+  "artifact_sha256": {
+    "plugins\\myai-stackguide\\skills\\myai-stackguide\\SKILL.md": "5f55458d649183e4869c7571cde3d19dfae55b7a19bf573008ea3eb4b1f26148",
+    "evals\\plugin-v1\\results\\cp04-v2-2026-10-08\\solution-blueprint-explanations.json": "b205752d0f315a4a35a79092c73b759e44ff62dd46ea863255ff88a493091482",
+    "docs\\reports\\cp04-solution-blueprint-examples-2026-10-08.md": "f4e7f1f9233487da3312cc329e53562ac1fc67906478cd9bfde1b2d7425f0db6"
+  },
+  "tokens": null,
+  "provider_cost_usd": null
+}

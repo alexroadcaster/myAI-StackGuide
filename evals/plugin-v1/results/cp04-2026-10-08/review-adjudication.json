@@ -1,0 +1,26 @@
+{
+  "schema_version": "cp04_agent_review_comparison_v1",
+  "evidence_kind": "primary_comparison_after_blind_review_freeze",
+  "recommendation_sha256": "51cf75197fb067e56593d4336a2e909c39e30e457d33f71274fd1ddcf558f05c",
+  "author_review": "usefulness-review.json",
+  "blind_review": "independent-review.json",
+  "comparisons": [
+    {"case_id":"CP04-DEV-08","author_ru":17,"blind_ru":16,"author_en":17,"blind_en":16},
+    {"case_id":"CP04-HOLD-10","author_ru":16,"blind_ru":19,"author_en":16,"blind_en":19},
+    {"case_id":"CP04-DEV-11","author_ru":16,"blind_ru":20,"author_en":16,"blind_en":20},
+    {"case_id":"CP04-HOLD-12","author_ru":17,"blind_ru":18,"author_en":17,"blind_en":19}
+  ],
+  "maximum_per_dimension_difference": 1,
+  "critical_failure_disagreements": [],
+  "critical_dimension_pass_disagreements": [],
+  "total_score_disagreements_retained": true,
+  "disposition": "Preserve both original score sets without averaging or choosing a calibrated truth. Higher independent authority scores assess explicit bounded prerequisites/proposed state; lower author scores treat absent owned files/API as incomplete. Higher DEV-11 independent scores assess useful identity verification for an identity-lookup goal, not an adoption recommendation. Total differences greater than one are retained calibration questions for the human rubric owner; human calibration remains open.",
+  "locale_call_check_disposition": "Author reports no observed violation; independent reviewer uses null because browser switching was not observed. Browser/no-call proof remains unverified.",
+  "content_findings_disposition": "Retain Python/provider contingency and plain-language/integration gaps as noncritical advice findings; do not edit the evaluated artifact after scoring.",
+  "runner_review": "Independent reviewer repeated 13 runner tests, verified five original result artifact hashes, original capture/measurement provenance separation and preservation of no_go. No remaining blocking code P1/P2 found in the assigned runner.",
+  "hardware_metadata": "machine/processor strings unavailable; observed numeric performance is limited to recorded Windows/Python environment, full hardware inventory not proven",
+  "actual_human_acceptance": false,
+  "rubric_calibrated": false,
+  "quality_verdict": "no_go",
+  "promotion_ready": false
+}

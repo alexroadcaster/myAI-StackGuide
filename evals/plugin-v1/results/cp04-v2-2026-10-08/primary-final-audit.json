@@ -1,0 +1,36 @@
+{
+  "schema_version": "cp04_primary_final_audit_v2",
+  "task_status": "in_progress",
+  "evidence_status": "partially_verified",
+  "verdict": "no_go",
+  "promotion_ready": false,
+  "human_response": null,
+  "human_calibrated": false,
+  "protected_file_count": 41,
+  "protected_files_changed": [],
+  "report_local_links_valid": true,
+  "checks": {
+    "oracle": 7,
+    "runner": 17,
+    "headroom": 3,
+    "final_scoped_contracts": 20,
+    "final_existing_contracts": 48
+  },
+  "evidence_ceiling": "Actual2500 candidate/baseline local capture; evaluator-only synthetic SQL headroom; static agent advice; writer entry blocked before lock/commit.",
+  "failed_gates": [
+    "held_out_files_media_storage_recall",
+    "synthetic_warm_p95"
+  ],
+  "unverified_gates": [
+    "human_calibration",
+    "production_10k_reader_card_pack",
+    "actual_host_CP11_lifecycle",
+    "browser_RU_EN_no_call_switch"
+  ],
+  "environment_blocker": "Fixture canonical path PermissionError WinError5 before writer lock/commit; no saved state/HTML.",
+  "linked_files_sha256": {
+    "docs\\reports\\cp04-v2-implementation-2026-10-08.md": "46c296f5d66dd5ec19526a147446eb9e545df4e4b83c2215c8bb4e990996184c",
+    "docs\\reports\\cp04-v2-human-review-2026-10-08.md": "bca490fcdb933c9211dde6ff8625914241ea1d20fe4447228d25e8ec7ee2ff29"
+  },
+  "runner_artifact_hash_receipt_sha256": "94e5f67a3c45b6a7291f519656b976d1a6fcdda837ba795657b18d7b8561da8b"
+}

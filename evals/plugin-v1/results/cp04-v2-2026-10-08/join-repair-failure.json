@@ -1,0 +1,14 @@
+{
+  "actual_capture_unchanged": true,
+  "command": ".venv/Scripts/python.exe -B evals/plugin-v1/capture_quality_join_v2_repair.py",
+  "failure_stage": "required cross-document check_bundle before LockedStore.commit",
+  "json_schema_passed": true,
+  "next_owner": "catalog_architect and quality_evaluator",
+  "promotion_ready": false,
+  "publication_called": false,
+  "reason": "contradictory duplicate evidence",
+  "schema_version": "cp04_actual_writer_join_failure_v2",
+  "source": "tests/test_plugin_contracts.py:634-655 canonical_evidence globally keys card-local evidence_id",
+  "verdict": "contract_join_blocked",
+  "writer_called": false
+}

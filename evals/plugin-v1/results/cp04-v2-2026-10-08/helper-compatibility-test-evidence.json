@@ -1,0 +1,48 @@
+{
+  "commands": [
+    ".venv/Scripts/python.exe -B -m unittest discover -s tests -p test_plugin_evidence_scope.py",
+    ".venv/Scripts/python.exe -B -m unittest discover -s tests -p test_plugin_contracts.py"
+  ],
+  "final_green": {
+    "contract_cases": 48,
+    "exit_codes": [
+      0,
+      0
+    ],
+    "scope_cases": 20
+  },
+  "fixture_classification": "actual public catalog and frozen D05 capture; adversarial copies remain test-only",
+  "observed_red": [
+    {
+      "error_count": 1,
+      "failure": "actual unchanged D05 missing advisory rejected as unsupported advisory_evidence outcome",
+      "suite_cases": 17
+    },
+    {
+      "error_count": 3,
+      "failures": [
+        "complete sourced identity_validated stage incorrectly treated as advisory failure",
+        "partial coverage insufficient_evidence rejected as missing mandatory_fact_unknown",
+        "unknown verification insufficient_evidence rejected as missing mandatory_fact_unknown"
+      ],
+      "suite_cases": 19
+    }
+  ],
+  "prior_identity_source_red": [
+    "contradictory duplicate evidence",
+    "catalog acceptance provenance",
+    "activity source-field conflation"
+  ],
+  "promotion_ready": false,
+  "public_assets_changed": false,
+  "runtime_changed": false,
+  "schema_version": "cp04_helper_compatibility_test_evidence_v2",
+  "source_hashes": {
+    "data/catalog_manifest.json": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+    "plugins/myai-stackguide/scripts/matcher.py": "c560158f15390f662e55eac39e9ffc31fd983a9af8c5086a234fbec0280933c2",
+    "scripts/build_plugin_catalog.py": "f815921938dddf7d520857ae6cd69a09fb64f2258f74b6fce96bbb769a595ccd",
+    "specs/catalog/candidate-eligibility.schema.json": "d8d30d9784b1b0eff059f1836d5040f2c9833cfe59640b1447deef6b04387fff",
+    "tests/test_plugin_contracts.py": "78a52ccfeb0c4e159236230de97d04aafc6306d16db9b024273492bea9f939ef",
+    "tests/test_plugin_evidence_scope.py": "99b033f5abeac93866080b8f274e5ad7b889d3f3c748fe5e851d4532fd3ed63d"
+  }
+}

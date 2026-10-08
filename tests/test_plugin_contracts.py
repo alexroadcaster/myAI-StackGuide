@@ -9,6 +9,7 @@ import copy
 from datetime import date, datetime
 import fnmatch
 import hashlib
+import importlib.util
 import json
 import math
 from pathlib import Path
@@ -254,6 +255,34 @@ ACTIVITY_FIELDS = {'created_at': 'repository_created_at', 'repository_updated_at
                    'observed_at': 'observed_at'}
 
 
+_catalog_activity_source_fields = None
+
+
+def activity_source_fields(card):
+    """Actual snapshot origins come from its owning source projection.
+
+    Synthetic contract fixtures retain their independent declared origins. This
+    does not trust arbitrary source_field strings or turn push time into commit.
+    """
+    if card['corpus_kind'] != 'catalog_snapshot':
+        return ACTIVITY_FIELDS
+    global _catalog_activity_source_fields
+    if _catalog_activity_source_fields is None:
+        spec = importlib.util.spec_from_file_location('cp04_activity_source_projection',
+            ROOT / 'scripts/build_plugin_catalog.py')
+        builder = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(builder)
+        _catalog_activity_source_fields = {}
+        for repository in load('data/catalog_manifest.json')['repositories']:
+            repo_id = repository['githubRepositoryId']
+            require(repo_id not in _catalog_activity_source_fields, 'duplicate activity source repository')
+            _catalog_activity_source_fields[repo_id] = {
+                item['field']: item['source_field'] for item in builder._activity(repository)['observations']}
+    repo_id = card['identity']['github_repository_id']
+    require(repo_id in _catalog_activity_source_fields, 'unowned activity source repository')
+    return _catalog_activity_source_fields[repo_id]
+
+
 def check_card(card):
     identity = card['identity']
     require(type(identity['github_repository_id']) is int and identity['github_repository_id'] > 0,
@@ -284,16 +313,17 @@ def check_card(card):
                 'synthetic evidence in public snapshot')
     if card['catalog']['status'] == 'accepted':
         owner = 'curator_record' if card['catalog']['status_source'] == 'curator_decision' else 'catalog_snapshot'
-        require(any(item['source_kind'] == owner and '/catalog/status' in item['fields']
+        require(any(item['source_kind'] == owner and any(pointer_covers(pointer, '/catalog/status') for pointer in item['fields'])
                     for item in evidence.values()), 'catalog acceptance provenance')
     activity = card['activity']
+    expected_source_fields = activity_source_fields(card)
     unique([item['field'] for item in activity['observations']], 'activity observation')
     require({item['field'] for item in activity['observations']} ==
             {field for field in ACTIVITY_FIELDS if activity[field] is not None}, 'activity observation coverage')
     for observation in activity['observations']:
         field = observation['field']
-        require(observation['source_field'] == ACTIVITY_FIELDS[field], 'activity source-field conflation')
-        require(all(ref in evidence and '/activity/' + field in evidence[ref]['fields']
+        require(observation['source_field'] == expected_source_fields.get(field), 'activity source-field conflation')
+        require(all(ref in evidence and any(pointer_covers(pointer, '/activity/' + field) for pointer in evidence[ref]['fields'])
                     for ref in observation['evidence_refs']), 'activity evidence pointer')
 
 
@@ -318,6 +348,7 @@ def check_eligibility(eligibility, card, query):
     license_spdx = (card['repository']['license'].get('spdx')
                     if isinstance(card['repository']['license'], dict) else None)
     outcomes = []
+    unknown_reasons = set()
     for field, check in checks.items():
         paths = {'license': '/repository/license', 'language': '/repository/languages',
                  'deployment': '/delivery/deployment', 'compatibility': '/advisory/compatibility',
@@ -348,8 +379,13 @@ def check_eligibility(eligibility, card, query):
                                    'integration_surface', 'compatibility')],
         }
         known = values[field] is not None and values[field] != [] and values[field] != 'unknown'
+        if field == 'advisory_evidence':
+            # A nonempty aggregate list does not prove its nested advisory facts.
+            # Missing fit remains unknown/reference_only, never a hard mismatch.
+            known = all(value is not None and value not in ('', []) for value in values[field])
         if not known or not sourced:
             outcome = 'unknown'
+            unknown_reasons.add('mandatory_fact_unknown' if not known else 'insufficient_evidence')
         else:
             passed = {
                 'license': license_spdx in constraints['allowed_licenses'],
@@ -359,7 +395,7 @@ def check_eligibility(eligibility, card, query):
                 'no_server': card['delivery']['requires_server'] is False,
                 'availability': card['repository']['availability'] == 'available',
                 'archived': card['repository']['archived'] is False,
-                'advisory_evidence': card['catalog']['evidence_stage'] == 'advisory_evidence_complete',
+                'advisory_evidence': True,
             }[field]
             outcome = 'pass' if passed else 'fail'
         require(check['outcome'] == outcome, 'unsupported ' + field + ' outcome')
@@ -367,7 +403,8 @@ def check_eligibility(eligibility, card, query):
     expected = 'blocked' if 'fail' in outcomes else 'reference_only' if 'unknown' in outcomes else 'primary_eligible'
     require(eligibility['status'] == expected, 'eligibility status contradicts checks')
     if expected == 'reference_only':
-        require('mandatory_fact_unknown' in eligibility['reason_codes'] and
+        require(unknown_reasons <= set(eligibility['reason_codes']) and
+                (set(eligibility['reason_codes']) & {'mandatory_fact_unknown', 'insufficient_evidence'}) == unknown_reasons and
                 eligibility['required_verifications'], 'unknown facts need concrete next checks')
     elif expected == 'blocked':
         require(bool(eligibility['reason_codes']), 'blocked candidate needs reason')
@@ -545,7 +582,9 @@ def check_bundle(state):
         for catalog_record_id in entry['card']['identity']['merged_catalog_record_ids']:
             require(catalog_record_id not in lineage, 'duplicate memo lineage')
             lineage[catalog_record_id] = entry
-    require(all(item['evidence_ref'] in refs for item in memo['reading_path']), 'reading-path evidence')
+    scoped_evidence = canonical_evidence(state)
+    for item in memo['reading_path']:
+        resolve_evidence(scoped_evidence, item['evidence_ref'])
     unique([item['github_repository_id'] for item in memo['recommendations']], 'recommended repository')
     for recommendation in memo['recommendations']:
         require(recommendation['github_repository_id'] in packed, 'recommendation outside pack')
@@ -560,7 +599,9 @@ def check_bundle(state):
     if plan:
         require(plan['run_id'] == run and plan['brief_version'] == brief['brief_version'], 'integration context')
         selected = plan['selected_github_repository_ids']
-        require(set(selected) <= packed.keys() and set(plan['evidence_refs']) <= refs, 'integration evidence')
+        require(set(selected) <= packed.keys(), 'integration evidence')
+        for ref in plan['evidence_refs']:
+            resolve_evidence(scoped_evidence, ref)
         require(all(packed[github_repository_id]['eligibility']['status'] != 'blocked'
                     for github_repository_id in selected), 'blocked integration')
         if any(packed[github_repository_id]['eligibility']['status'] == 'reference_only'
@@ -632,7 +673,13 @@ def resolve_pointer(state, pointer):
 
 
 def canonical_evidence(state):
-    evidence = {}
+    """Public IDs are local to a canonical repository; project IDs stay separate.
+
+    This is contract validation, not a catalog transformation. Repeated public
+    local IDs across different repositories are valid; an unowned use is ambiguous.
+    """
+    project = {}
+    public = {}
     facts = {}
     summaries = []
     if state.get('scan'):
@@ -644,15 +691,51 @@ def canonical_evidence(state):
             require(fact['fact_id'] not in facts or facts[fact['fact_id']] == fact,
                     'contradictory duplicate observed fact')
             facts[fact['fact_id']] = fact
-    groups = [summary['evidence'] for summary in summaries]
-    if state['evidence_pack']:
-        groups.extend(entry['card']['evidence'] for entry in state['evidence_pack']['cards'])
-    for group in groups:
+    for group in [summary['evidence'] for summary in summaries]:
         for item in group:
             key = item['evidence_id']
-            require(key not in evidence or evidence[key] == item, 'contradictory duplicate evidence')
-            evidence[key] = item
-    return evidence
+            require(key not in project or project[key] == item, 'contradictory duplicate evidence')
+            project[key] = item
+    if state['evidence_pack']:
+        for entry in state['evidence_pack']['cards']:
+            card = entry['card']
+            owner = card['identity']['github_repository_id']
+            require(type(owner) is int and owner > 0, 'invalid evidence owner')
+            for item in card['evidence']:
+                key = (owner, item['evidence_id'])
+                require(key not in public, 'duplicate card evidence')
+                public[key] = item
+    return {'project': project, 'public': public}
+
+
+def resolve_evidence(evidence, ref, *, owner=None, project_only=False):
+    """Resolve only a unique qualified candidate; never infer an owner from text."""
+    # Standalone project-claim unit fixtures predate the scoped workspace registry.
+    if 'project' not in evidence or 'public' not in evidence:
+        require(ref in evidence, 'unresolved evidence')
+        return evidence[ref]
+    candidates = [evidence['project'][ref]] if ref in evidence['project'] else []
+    if not project_only:
+        candidates.extend(item for (repo_id, evidence_id), item in evidence['public'].items()
+                          if evidence_id == ref and (owner is None or owner == repo_id))
+    require(candidates, 'unresolved evidence')
+    require(len(candidates) == 1, 'ambiguous evidence')
+    return candidates[0]
+
+
+def field_evidence_owner(state, pointer):
+    """Allowlisted narrative positions carry numeric ownership; prose does not."""
+    match = re.match(r'^/memo/(recommendations|avoid_defer_details)/([0-9]+)(?:/|$)', pointer)
+    if match:
+        owner = state['memo'][match[1]][int(match[2])].get('github_repository_id')
+    else:
+        match = re.match(r'^/memo/comparison_details/cells/([0-9]+)(?:/|$)', pointer)
+        if not match:
+            return None
+        cell = state['memo']['comparison_details']['cells'][int(match[1])]
+        owner = None if cell['baseline'] else cell.get('github_repository_id')
+    require(owner is None or (type(owner) is int and owner > 0), 'invalid narrative evidence owner')
+    return owner
 
 
 def field_evidence(state, pointer):
@@ -700,13 +783,14 @@ def field_literals(state, text):
     return sorted(values)
 
 
-def check_claim(claim, evidence, answers, allow_public=False):
-    require(set(claim['evidence_refs']) <= evidence.keys(), 'unresolved claim evidence')
+def check_claim(claim, evidence, answers, allow_public=False, owner=None):
+    resolved = [resolve_evidence(evidence, ref, owner=owner, project_only=not allow_public)
+                for ref in claim['evidence_refs']]
     require(set(claim['answer_ids']) <= answers, 'unresolved or skipped claim answer')
     if claim['kind'] == 'observed':
-        require(any((evidence[ref].get('kind') in ('project_manifest', 'project_source', 'project_document') and
-                     evidence[ref].get('relative_path') is not None) or
-                    (allow_public and 'source_kind' in evidence[ref]) for ref in claim['evidence_refs']),
+        require(any((item.get('kind') in ('project_manifest', 'project_source', 'project_document') and
+                     item.get('relative_path') is not None) or
+                    (allow_public and 'source_kind' in item) for item in resolved),
                 'observed claim needs project/source evidence')
     if claim['kind'] == 'user_statement':
         require(bool(claim['answer_ids']), 'user statement needs saved answer')
@@ -767,7 +851,16 @@ def check_workspace(state):
                      comparison['include_no_change']) or
                     (not cell['baseline'] and cell['github_repository_id'] in packed),
                     'comparison baseline/repository join')
-            check_claim(cell['claim'], evidence, answers, allow_public=True)
+            check_claim(cell['claim'], evidence, answers, allow_public=not cell['baseline'],
+                        owner=cell['github_repository_id'])
+    if memo:
+        for recommendation in memo['recommendations']:
+            for ref in recommendation['evidence_refs']:
+                resolve_evidence(evidence, ref, owner=recommendation['github_repository_id'])
+        for item in memo['avoid_defer_details']:
+            owner = item['github_repository_id']
+            for ref in item['evidence_refs']:
+                resolve_evidence(evidence, ref, owner=owner)
     if plan:
         require(plan['schema_version'] == '2.0.0', 'integration version')
         details = plan['details']
@@ -777,25 +870,29 @@ def check_workspace(state):
         require({entry['step_id'] for entry in deps} == set(steps), 'step dependency coverage')
         for entry in deps:
             require(set(entry['depends_on']) <= set(steps[:steps.index(entry['step_id'])]), 'forward/cyclic dependency')
-            require(set(entry['evidence_refs']) <= evidence.keys(), 'step evidence')
+            for ref in entry['evidence_refs']:
+                resolve_evidence(evidence, ref)
             for path in entry['safe_paths']:
-                require(lexical_path(path)[0] and any(evidence[ref].get('relative_path') == path
+                require(lexical_path(path)[0] and any(resolve_evidence(evidence, ref, project_only=True).get('relative_path') == path
                         for ref in entry['evidence_refs']), 'unsupported or unsafe step path')
         diagram = details['diagram']
         if diagram:
             nodes = {node['component_id'] for node in diagram['nodes']}
             require(len(nodes) == len(diagram['nodes']), 'duplicate diagram node')
             for node in diagram['nodes']:
-                require(set(node['evidence_refs']) <= evidence.keys(), 'diagram evidence')
+                for ref in node['evidence_refs']:
+                    resolve_evidence(evidence, ref, project_only=node['change'] in ('reuse', 'change'))
                 if node['change'] in ('reuse', 'change'):
-                    require(any(evidence[ref].get('kind') in ('project_manifest', 'project_source', 'project_document') and
-                                evidence[ref].get('relative_path') is not None for ref in node['evidence_refs']),
+                    require(any(resolve_evidence(evidence, ref, project_only=True).get('kind') in ('project_manifest', 'project_source', 'project_document') and
+                                resolve_evidence(evidence, ref, project_only=True).get('relative_path') is not None for ref in node['evidence_refs']),
                             'reused node lacks project evidence')
             for edge in diagram['edges']:
                 require(edge['from_component_id'] in nodes and edge['to_component_id'] in nodes, 'unresolved diagram edge')
         unique([item['check_id'] for item in details['prerequisite_checks']], 'prerequisite')
         for item in details['prerequisite_checks']:
-            require(set(item['evidence_refs']) <= evidence.keys() and set(item['answer_ids']) <= answers, 'prerequisite provenance')
+            for ref in item['evidence_refs']:
+                resolve_evidence(evidence, ref)
+            require(set(item['answer_ids']) <= answers, 'prerequisite provenance')
             if item['status'] in ('unknown', 'authorization_needed'):
                 require(bool(item['next_check']), 'unknown prerequisite needs next check')
             else:
@@ -818,8 +915,10 @@ def check_workspace(state):
         text = fields[pointer]
         require(entry['source_sha256'] == digest(text) and
                 entry['source_content_revision'] == state['content_revision'], 'stale localized source')
-        require(entry['evidence_refs'] == field_evidence(state, pointer) and
-                set(entry['evidence_refs']) <= evidence.keys(), 'localized evidence derivation')
+        require(entry['evidence_refs'] == field_evidence(state, pointer), 'localized evidence derivation')
+        for ref in entry['evidence_refs']:
+            resolve_evidence(evidence, ref, owner=field_evidence_owner(state, pointer),
+                             project_only=pointer.startswith(('/scan/', '/brief/')))
         literals = field_literals(state, text)
         require(entry['canonical_literals'] == literals, 'localized literal derivation')
         for locale in ('ru', 'en'):

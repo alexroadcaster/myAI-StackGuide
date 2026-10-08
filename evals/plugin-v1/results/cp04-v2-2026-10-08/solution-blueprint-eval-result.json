@@ -1,0 +1,62 @@
+{
+  "case_count": 2,
+  "case_observations": [
+    {
+      "case_id": "CP04-V2-D05",
+      "first_validation_engineer_hours": [
+        6,
+        12
+      ],
+      "full_scope_unknown": false,
+      "full_scoped_adoption_engineer_hours": [
+        16,
+        32
+      ],
+      "phase_ids": [
+        "discover",
+        "one_endpoint_pilot",
+        "remaining_routes",
+        "regression_staging_rollback"
+      ],
+      "pilot_count_in_first_validation": 1
+    },
+    {
+      "case_id": "CP04-V2-H15",
+      "first_validation_engineer_hours": [
+        6,
+        12
+      ],
+      "full_scope_unknown": true,
+      "full_scoped_adoption_engineer_hours": null,
+      "phase_ids": [
+        "scope_discovery",
+        "synthetic_app_validation"
+      ],
+      "pilot_count_in_first_validation": 1
+    }
+  ],
+  "estimate_calibrated": false,
+  "evaluator_source_hashes": {
+    "evals/plugin-v1/evaluate_solution_blueprint.py": "b1eeaf28b655a79dfd72a43b516a833d3de5811d3e34dc7c4fb6de3855207902",
+    "evals/plugin-v1/solution-blueprint-eval-contract.md": "9380b05aa504bb110473679a085006d04b954db737d05448faf991039d441720",
+    "tests/test_plugin_solution_blueprint_eval.py": "08713124ccc95441f904d525ffbbf7d0f99472b7a3560a547ae74dd53991abb1"
+  },
+  "human_calibrated": false,
+  "input_byte_hashes": {
+    "acceptance": "cb7dfae5f5083e2f272cde564739997e3bd2566576739aad1d7ffff6ed57db6a",
+    "blueprints": "b205752d0f315a4a35a79092c73b759e44ff62dd46ea863255ff88a493091482",
+    "instruction": "5f55458d649183e4869c7571cde3d19dfae55b7a19bf573008ea3eb4b1f26148",
+    "source": "32e7f42a8535d32ab429a42b0d3c176060b73e5232ebf3f7a995f9937ab46856"
+  },
+  "installed_runtime_verified": false,
+  "issues": [],
+  "limitations": [
+    "architecture_complexity_locale_semantics_unverified",
+    "natural_language_meaning_privacy_usefulness_and_estimates_unverified"
+  ],
+  "owner_format_accepted": true,
+  "promotion_ready": false,
+  "schema_version": "cp04_solution_blueprint_eval_v1",
+  "semantic_review_required": true,
+  "verdict": "contract_verified_only"
+}

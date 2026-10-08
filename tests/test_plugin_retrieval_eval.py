@@ -123,6 +123,27 @@ class QualityPlanContractCases(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'baseline terms'):
             EVAL.lexical_baseline(cards, [], 12)
 
+    def test_literal_baseline_accepts_the_frozen_policy_candidate_ceiling(self):
+        policy = EVAL.load_json(ROOT / 'specs/retrieval/retrieval-policy.json')
+        ceiling = policy['limits']['max_retrieved_hits']
+        card = {
+            'identity': {'github_repository_id': 1, 'full_name': 'test/editor',
+                         'full_name_aliases': []},
+            'descriptions': {'upstream': None, 'catalog': None},
+            'repository': {'topics': []}, 'classifications': [],
+            'advisory': {'use_cases': [], 'integration_surface': None, 'best_for': []},
+        }
+        cards = []
+        for repository_id in range(1, ceiling + 2):
+            item = copy.deepcopy(card)
+            item['identity']['github_repository_id'] = repository_id
+            cards.append(item)
+        self.assertEqual(EVAL.lexical_baseline(cards, ['editor'], ceiling),
+                         list(range(1, ceiling + 1)))
+        self.assertEqual(len(EVAL.lexical_baseline(cards, ['editor'])), 60)
+        with self.assertRaisesRegex(ValueError, 'baseline limit'):
+            EVAL.lexical_baseline(cards, ['editor'], ceiling + 1)
+
     def test_quality_plan_cli_is_validation_only(self):
         path = str(ROOT / 'evals/plugin-v1/quality-plan.json')
         with patch('builtins.print'):

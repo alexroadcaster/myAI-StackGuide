@@ -1,4 +1,4 @@
-"""CP-10-A shell acceptance through the existing publication boundary."""
+"""CP-10 eight-view acceptance through the existing publication boundary."""
 
 import copy
 import json
@@ -205,6 +205,121 @@ class ArtifactShell(unittest.TestCase):
             panel = markup.split(f'id="{view}"', 1)[1].split("</section>", 1)[0]
             self.assertIn('data-i18n="missing"', panel)
         self.assertIn('data-i18n="no_memo"', markup.split('id="options"', 1)[1].split("</section>", 1)[0])
+
+    def test_history_projects_revisions_without_claiming_later_publication(self):
+        before = copy.deepcopy(self.state)
+        for locale in ("ru", "en"):
+            self.state["presentation"]["default_locale"] = locale
+            markup = store.render_fixture(self.state).decode("utf-8")
+            panel = markup.split('id="history"', 1)[1].split("</section>", 1)[0]
+            self.assertNotIn('data-i18n="pending_view"', panel)
+            for value in (self.state["run_id"], "state.json", "status.html", "runs/{run_id}.json",
+                          'data-i18n="prior_publication"', 'data-i18n="recovery_snapshot"',
+                          'data-i18n="no_history"', 'data-i18n="root_usage_unknown"'):
+                self.assertIn(value, panel)
+        self.state["presentation"]["default_locale"] = before["presentation"]["default_locale"]
+        self.assertEqual(self.state, before)
+
+    def test_history_reads_only_validated_finalized_runs_and_preserves_files(self):
+        corpus = json.loads((ROOT / "tests/fixtures/plugin_contracts.json").read_text(encoding="utf-8"))
+        historical = copy.deepcopy(corpus["workspace_positive"]["artifact/project-artifact-state.schema.json"])
+        historical["status"] = "finalized"
+        entry = {"run_id": historical["run_id"], "final_revision": historical["revision"], "status": "finalized"}
+        self.state["history"] = [entry]
+        with tempfile.TemporaryDirectory() as directory:
+            project = Path(directory)
+            with store.locked_store(project, create=True) as writer:
+                writer.ensure_history(historical)
+                writer.commit(self.state, None)
+            path = project / store.OUTPUT_RELATIVE / "runs" / f'{historical["run_id"]}.json'
+            original = path.read_bytes()
+            self.assertEqual(store.publish(project, self.state)["publication_status"], "current")
+            markup = (project / store.OUTPUT_RELATIVE / store.HTML_NAME).read_text(encoding="utf-8")
+            panel = markup.split('id="history"', 1)[1].split("</section>", 1)[0]
+            self.assertIn(historical["memo"]["summary"], panel)
+            self.assertEqual(path.read_bytes(), original)
+            previous = (project / store.OUTPUT_RELATIVE / store.HTML_NAME).read_bytes()
+            broken = copy.deepcopy(historical)
+            broken["revision"] += 1
+            path.write_bytes(store.canonical_json_bytes(broken))
+            result = store.publish(project, self.state)
+            self.assertEqual(result["failure_reason"], "render_failed")
+            self.assertEqual((project / store.OUTPUT_RELATIVE / store.HTML_NAME).read_bytes(), previous)
+
+    def test_missing_history_detail_is_explicit_not_a_fabricated_summary(self):
+        self.state["history"] = [{"run_id": "12345678-1234-4234-8234-123456789abc",
+                                  "final_revision": 2, "status": "finalized_incomplete"}]
+        with tempfile.TemporaryDirectory() as directory:
+            project = Path(directory)
+            with store.locked_store(project, create=True) as writer:
+                writer.commit(self.state, None)
+            self.assertEqual(store.publish(project, self.state)["publication_status"], "current")
+            markup = (project / store.OUTPUT_RELATIVE / store.HTML_NAME).read_text(encoding="utf-8")
+            self.assertIn('data-i18n="history_detail_unavailable"', markup)
+
+    def test_history_shows_exact_pins_query_and_read_only_legacy(self):
+        corpus = json.loads((ROOT / "tests/fixtures/plugin_contracts.json").read_text(encoding="utf-8"))
+        state = corpus["workspace_positive"]["artifact/project-artifact-state.schema.json"]
+        markup = store.render_fixture(state).decode("utf-8")
+        panel = markup.split('id="history"', 1)[1].split("</section>", 1)[0]
+        self.assertIn(state["index_manifest"]["pins"]["index_sha256"], panel)
+        self.assertIn("fulltext", panel)
+        legacy = corpus["positive"]["artifact/project-artifact-state.schema.json"]
+        original = copy.deepcopy(legacy)
+        legacy_markup = store.render_fixture(legacy).decode("utf-8")
+        self.assertIn('data-i18n="legacy_notice"', legacy_markup)
+        self.assertEqual(legacy, original)
+        with self.assertRaises(store.StateError):
+            store.validate_state(legacy, writable=True)
+        malformed = copy.deepcopy(legacy)
+        malformed["intake"]["answers"][0]["ordinal"] = 11
+        with self.assertRaises(store.StateError):
+            store.render_fixture(malformed)
+        empty = copy.deepcopy(legacy)
+        empty["phase"] = "intake"
+        for key in ("brief", "selection", "request", "retrieval", "evidence_pack", "memo"):
+            empty[key] = None
+        empty["intake"].update(status="asking", questions_asked=0, answers=[],
+                                pending_question_id=None, next_action="clarification_required")
+        self.assertIn('data-i18n="legacy_notice"', store.render_fixture(empty).decode("utf-8"))
+        with self.assertRaises(store.StateError):
+            store.render_fixture(self.state, history_runs={legacy["run_id"]: legacy})
+
+    def test_overflow_does_not_replace_html_and_copy_fallback_is_available(self):
+        with tempfile.TemporaryDirectory() as directory:
+            project = Path(directory)
+            with store.locked_store(project, create=True) as writer:
+                writer.commit(self.state, None)
+            store.publish(project, self.state)
+            path = project / store.OUTPUT_RELATIVE / store.HTML_NAME
+            original = path.read_bytes()
+            real_spec_loader = store.importlib.util.spec_from_file_location
+            def oversized_renderer(*args, **kwargs):
+                spec = real_spec_loader(*args, **kwargs)
+                original_exec = spec.loader.exec_module
+                def execute(module):
+                    original_exec(module)
+                    module.render_report = lambda *a, **kw: b"x" * (store.MAX_HTML_BYTES + 1)
+                spec.loader.exec_module = execute
+                return spec
+            with patch.object(store.importlib.util, "spec_from_file_location", side_effect=oversized_renderer):
+                failed = store.publish(project, self.state)
+            self.assertEqual(failed["failure_reason"], "render_failed")
+            self.assertEqual(path.read_bytes(), original)
+            markup = original.decode("utf-8")
+            self.assertIn('hidden data-copy-target="recovery-request"', markup)
+            self.assertIn('data-i18n="copy_hint"', markup)
+            self.assertIn('role="status" aria-live="polite"', markup)
+
+    def test_long_hostile_history_narrative_is_escaped_and_does_not_embed_state(self):
+        corpus = json.loads((ROOT / "tests/fixtures/plugin_contracts.json").read_text(encoding="utf-8"))
+        state = copy.deepcopy(corpus["workspace_positive"]["artifact/project-artifact-state.schema.json"])
+        state["memo"]["summary"] = "Ж" * 2000 + '</script><img src=x onerror=alert(1)>'
+        state["presentation"]["fields"] = []
+        markup = store.render_fixture(state).decode("utf-8")
+        self.assertNotIn('</script><img', markup)
+        self.assertIn('&lt;/script&gt;&lt;img', markup)
+        self.assertNotIn('"sanitized_value":', markup)
 
     def test_blocked_and_unassigned_pack_cards_are_not_promoted(self):
         corpus = json.loads((ROOT / "tests/fixtures/plugin_contracts.json").read_text(encoding="utf-8"))

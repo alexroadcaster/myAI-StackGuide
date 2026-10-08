@@ -1,5 +1,11 @@
 # TEST.md
 
+## CP-04 Current Successor Evidence — 2026-10-08
+
+The owner accepted the enriched recommendation format; the [blueprint evaluator report](docs/reports/cp04-blueprint-evaluator-2026-10-08.md) records its bounded executable continuation. This checks captured structure, source joins and planning arithmetic separately from retrieval relevance and natural-language/human usefulness. Its automated evidence ceiling is `contract_verified_only`; parent quality and lifecycle gates remain open.
+
+The [CP-04 v2 implementation report](docs/reports/cp04-v2-implementation-2026-10-08.md) owns prospective oracle/runner, complete actual FTS5/baseline captures, 2,500-card measurements, separate synthetic headroom failures, scoped cross-document helper repairs and blinded paired advice. Oracle 7/7, runner 17/17, separate headroom 3/3 and original contracts 48/48 pass; the scoped repair suite and join outcomes are pinned in runner evidence. Held-out global metrics pass; required file/media stratum and synthetic warm latency fail. `no_go`, human calibration and actual CP-11/15 gates remain explicit. Prior diagnostic/C8 evidence, frozen public bundle and protected configuration are preserved.
+
 Verification strategy for the myAI-StackGuide control plane and local SQLite FTS5/integration slice. Owner revision: 2026-09-01. Future test registries below are not execution evidence.
 
 ## Evidence Policy
@@ -57,6 +63,15 @@ Execute the contract and scorer gates from the repository through the project-lo
 All commands exited 0 in the current CP-09 closeout: CP-03 passed 48/48, C8 passed 33/33 and both scorer CLI gates passed. The full gates cover Draft 2020-12 meta-validation, offline references, formats, legacy/current version branches, positive/negative instances, nested byte budgets and complete scorer envelope/CLI checks, including CLI exits 0/1/2 on valid/pass, valid/failing and invalid inputs. Earlier missing-dependency and temporary-path failures remain historical evidence in RUNLOG; they are resolved by the pinned project-local environment, not converted into expected RED or skip.
 
 Byte annotations and cross-document joins require explicit checks beyond JSON Schema. The referenced structurally legal >12 KiB card inside a <160 KiB pack is now a passing C8 byte regression. Synthetic HTML bytes validate a fixture receipt only, not rendering, atomic writes, locks or installed-plugin behavior. YAML policies use the JSON-compatible YAML 1.2 subset; no YAML parser was added. [Validator documentation](https://python-jsonschema.readthedocs.io/en/stable/validate/) and [offline referencing](https://python-jsonschema.readthedocs.io/en/stable/referencing/) distinguish standards/format/reference validation from custom checks. CP-03 is verified at contract level; full CP-04 quality calibration and all runtime/browser/usefulness gates remain open.
+
+## CP-10-D Local Implementation Evidence (2026-10-08)
+
+- Observable RED: the new History check failed because the panel still rendered `pending_view`. A second provenance regression failed because nested manifest pins were absent; both passed after implementing their owning projection.
+- Final targeted command: `.venv/Scripts/python.exe -B -m unittest tests.test_plugin_artifact -q` passed **16/16**, covering early RU/EN/no-JS structure, exact pins/query, missing and mismatched immutable history, legacy read-only/empty compatibility and write rejection, escaped long hostile text, byte overflow preserving prior HTML, stale rendering, failed publication and copy fallback markup. These are local renderer/writer checks, not observed browser interactions.
+- Preceding regression command: `.venv/Scripts/python.exe -B -m unittest tests.test_plugin_artifact tests.test_plugin_intake tests.test_plugin_state -q` passed **31/31**. The final targeted artifact rerun followed the additional history-input validation and focus markup; the unchanged intake/state results are retained as preceding evidence.
+- Restricted Windows runs encountered WinError 5 in temporary-directory creation/resolve. One workspace-temp rerun still hit resolve denial; the permitted execution outside the restricted process passed. Checks set process-local TEMP/TMP to `.codex-tmp/cp10-d-tests`, without changing ACLs or product containment.
+- Synthetic accepted fixture and one immutable historical run were published through the CP-07 writer to `.codex-tmp/cp10-d-preview/docs/myai-stackguide/status.html`; publication was current. Extracted inline script passed `node --check .codex-tmp/cp10-d-tests/template.js`.
+- CP-10 A-D is `implemented_local, partially_verified`. The earlier browser URL-policy refusal remains an unmet mandatory gate; no alternate browser/URL/CDP route was used. RU/EN interaction, layout at 1280/1440/1920 and 200% zoom, keyboard/focus, clipboard denial, no-JS/print appearance and human meaning/usefulness remain pending rendered acceptance. Static markup and syntax are not browser proof.
 
 ## Remaining Session Workspace And RU-EN Checks
 

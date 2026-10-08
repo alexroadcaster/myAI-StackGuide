@@ -165,7 +165,8 @@ def _baseline_fields(card):
 
 def lexical_baseline(card_values, terms, limit=60):
     """Simple declared literal baseline; it is not the SQLite FTS5 candidate route."""
-    require(type(limit) is int and 1 <= limit <= 60, 'invalid baseline limit')
+    ceiling = load_json(ROOT / 'specs/retrieval/retrieval-policy.json')['limits']['max_retrieved_hits']
+    require(type(limit) is int and 1 <= limit <= ceiling, 'invalid baseline limit')
     require(terms and len(terms) <= 8 and all(isinstance(term, str) and term.strip() for term in terms),
             'invalid baseline terms')
     normalized_terms = [unicodedata.normalize('NFKC', term).casefold() for term in terms]

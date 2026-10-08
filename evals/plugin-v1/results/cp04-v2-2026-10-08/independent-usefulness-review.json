@@ -1,0 +1,137 @@
+{
+  "schema_version": "cp04_independent_usefulness_review_v2",
+  "reviewer_kind": "agent",
+  "reviewer_role": "evidence_reviewer",
+  "recorded_by": "primary_agent_from_frozen_independent_handoff",
+  "advice_sha256": "c71f2799c86ebd725545825715f8dc32441f33a31f03f132dc52311f59a99377",
+  "human_packet_sha256": "bca490fcdb933c9211dde6ff8625914241ea1d20fe4447228d25e8ec7ee2ff29",
+  "author_scores_seen_before_freeze": false,
+  "dimensions_source": "EVALS.md",
+  "scores": {
+    "H03": {
+      "ru": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        1,
+        2,
+        2
+      ],
+      "en": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ]
+    },
+    "D05": {
+      "ru": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        1,
+        1,
+        2,
+        2
+      ],
+      "en": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        1,
+        2,
+        2,
+        2
+      ]
+    },
+    "H15": {
+      "ru": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        1,
+        1,
+        2
+      ],
+      "en": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        1,
+        2
+      ]
+    },
+    "H11": {
+      "ru": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        1,
+        2,
+        2
+      ],
+      "en": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ]
+    }
+  },
+  "critical_text_failures_observed": [],
+  "findings": [
+    "RU readability: English terminology density; H15 grammatical case errors.",
+    "D05 first validation defers regression test until option approval.",
+    "H15 adds unnecessary approval for an ordinary pilot test change."
+  ],
+  "binding_checks": "Exact capture/query/result/pack/case hashes, pins, IDs/order and bounded source projection independently matched.",
+  "source_projection_bytes": [
+    4299,
+    4712,
+    6057,
+    6171
+  ],
+  "tests_independently_observed": {
+    "scoped_evidence": 14,
+    "existing_contracts": 48
+  },
+  "supersedes_draft_scores": true,
+  "human_calibrated": false,
+  "browser_verified": false,
+  "promotion_ready": false
+}

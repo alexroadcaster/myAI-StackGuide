@@ -1,0 +1,2127 @@
+{
+  "schema_version": "cp04_project_fit_explanation_packet_v1",
+  "task_id": "CP-04",
+  "evidence_kind": "observed_agent_authored_composition_from_frozen_actual_captures",
+  "status": "needs_independent_and_human_review",
+  "action_state": "proposed_not_executed",
+  "human_response": null,
+  "human_calibrated": false,
+  "promotion_ready": false,
+  "authoring_protocol": {
+    "candidate_instruction_explicitly_read": true,
+    "evaluation_criteria_disclosed_in_task": true,
+    "historical_advice_used_as_composition_input": false,
+    "input_projection_note": "One exploratory print unintentionally included historical presentation. New compositions use synthetic_context, canonical.goal and canonical.reference_options only; no prior ratings were read or used.",
+    "activation_or_routing_test": false,
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "model_identity_basis": "Loaded product_planner role contract; no separate provider trace or model suitability comparison.",
+    "tokens": null,
+    "cost_usd": null,
+    "inference_latency_ms": null
+  },
+  "limitations": [
+    "The project contexts are synthetic; repository facts and retrieval bindings are from frozen actual local captures.",
+    "All source roles remain reference_only and adoption fit remains unknown; conditional inspection preference is not promotion to primary_eligible.",
+    "Project benefit is a hypothesis, compatibility is unverified, and no integration or proposed validation was executed.",
+    "Snapshot observation, commit and release dates are retained independently and do not verify current upstream activity or operability.",
+    "Explicit instruction reading and new agent compositions do not prove installed plugin discovery, routing, activation, browser switching or human usefulness.",
+    "This explanation packet does not change C8/C9 schemas, frozen retrieval judgments, thresholds, rank order, captures or prior advisory scores."
+  ],
+  "records": [
+    {
+      "case_id": "CP04-V2-H03",
+      "confirmed_goals": [
+        "Replace scattered household photo folders with self-hosted photo and video management."
+      ],
+      "confirmed_constraints": [
+        "Use a disposable synthetic dataset; do not copy personal images."
+      ],
+      "unknowns": {
+        "technical": [
+          "Photo/video formats, existing storage, required import/export and metadata behavior"
+        ],
+        "architectural": [
+          "Hosting location, capacity, maintenance owner, backup and recovery path"
+        ],
+        "product": [
+          "Whether mixed photo/video management is essential, or photo organization/AI assistance is the real priority"
+        ]
+      },
+      "conditional_decision": "Inspect Immich first if the confirmed mixed photo/video and self-hosting goal remains decisive. Prefer inspecting PhotoPrism if the priority changes to an AI-assisted photo workflow and its deployment/data needs are verified. Keep folders if organization alone solves the problem.",
+      "set_assessment": "Same-role alternatives for one household media-management slot; no source-supported complementary connection or incremental value from installing both. Validate one component first to isolate import, recovery and operating burden.",
+      "proposals": [
+        {
+          "github_repository_id": 455229168,
+          "evidence_label": "H03-E1",
+          "confirmed_capability": "The snapshot description identifies self-hosted photo and video management.",
+          "capability_source_field": "/descriptions/upstream",
+          "proposed_architectural_role": "One candidate media-management service replacing the workflow around scattered folders; current storage integration is unknown.",
+          "expected_project_benefit_hypothesis": "A single place for managing the mixed collection may reduce fragmentation; organization and time saved are not measured.",
+          "tradeoff": "A hosted service introduces setup, upkeep and recovery responsibilities; requirements and cost are unknown.",
+          "alternative_comparison": "Its stated media scope more directly matches the mixed photo/video goal than PhotoPrism's photos description; this does not prove better import or usability.",
+          "preference_reversal": "Photo-only AI assistance becomes the priority and PhotoPrism passes the required workflow checks, or keeping folders already meets the need.",
+          "decisive_next_check": "Confirm whether videos must be managed together with photos, then verify the chosen version's requirements and documented import/recovery path for one synthetic image and video.",
+          "compatibility": "unknown",
+          "project_benefit_measured": false,
+          "action_state": "proposed_not_executed",
+          "canonical_role": "reference_only",
+          "adoption_fit": "unknown",
+          "evidence_refs": [
+            {
+              "evidence_id": "ev-catalog-card",
+              "fields": [
+                "/identity",
+                "/catalog",
+                "/descriptions",
+                "/classifications",
+                "/delivery",
+                "/advisory",
+                "/provenance"
+              ],
+              "observed_at": "2026-09-01T02:32:57.430310Z",
+              "source_kind": "catalog_snapshot",
+              "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/455229168",
+              "verification": "derived_reviewed"
+            },
+            {
+              "evidence_id": "ev-catalog-repository",
+              "fields": [
+                "/repository",
+                "/activity"
+              ],
+              "observed_at": "2026-09-01T02:32:57.430310Z",
+              "source_kind": "catalog_snapshot",
+              "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/455229168",
+              "verification": "source_reported"
+            }
+          ],
+          "source_refs": [
+            {
+              "observed_at": "2026-09-01T02:32:57.430310Z",
+              "source_id": "src-catalog-snapshot",
+              "source_kind": "catalog_snapshot",
+              "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/455229168",
+              "verification": "derived_reviewed"
+            }
+          ],
+          "capability_binding": {
+            "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/455229168",
+            "evidence_id": "ev-catalog-card",
+            "field": "/descriptions/upstream"
+          }
+        },
+        {
+          "github_repository_id": 119160553,
+          "evidence_label": "H03-E2",
+          "confirmed_capability": "The snapshot describes an AI-powered photos application; specific AI, video and deployment behavior is not established.",
+          "capability_source_field": "/descriptions/upstream",
+          "proposed_architectural_role": "Alternative application for the same photo-management slot, conditional on deployment and mixed-media requirements.",
+          "expected_project_benefit_hypothesis": "AI assistance may help the photo organization goal if a needed task is supported; that task and benefit are unmeasured.",
+          "tradeoff": "Required AI behavior, video coverage, self-hosting and data recovery need verification before assessing operating burden.",
+          "alternative_comparison": "Consider before Immich only when a specific AI-assisted photo task outweighs mixed-media scope; folders remain the simpler option if sufficient.",
+          "preference_reversal": "Mixed photo/video management remains essential and PhotoPrism cannot verify that requirement.",
+          "decisive_next_check": "Name one required AI-assisted photo task and verify its presence and deployment/data requirements in the selected version; report supported, absent or unknown.",
+          "compatibility": "unknown",
+          "project_benefit_measured": false,
+          "action_state": "proposed_not_executed",
+          "canonical_role": "reference_only",
+          "adoption_fit": "unknown",
+          "evidence_refs": [
+            {
+              "evidence_id": "ev-catalog-card",
+              "fields": [
+                "/identity",
+                "/catalog",
+                "/descriptions",
+                "/classifications",
+                "/delivery",
+                "/advisory",
+                "/provenance"
+              ],
+              "observed_at": "2026-09-01T03:00:12.907875Z",
+              "source_kind": "catalog_snapshot",
+              "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/119160553",
+              "verification": "derived_reviewed"
+            },
+            {
+              "evidence_id": "ev-catalog-repository",
+              "fields": [
+                "/repository",
+                "/activity"
+              ],
+              "observed_at": "2026-09-01T03:00:12.907875Z",
+              "source_kind": "catalog_snapshot",
+              "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/119160553",
+              "verification": "source_reported"
+            }
+          ],
+          "source_refs": [
+            {
+              "observed_at": "2026-09-01T03:00:12.907875Z",
+              "source_id": "src-catalog-snapshot",
+              "source_kind": "catalog_snapshot",
+              "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/119160553",
+              "verification": "derived_reviewed"
+            }
+          ],
+          "capability_binding": {
+            "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/119160553",
+            "evidence_id": "ev-catalog-card",
+            "field": "/descriptions/upstream"
+          }
+        }
+      ],
+      "presentation": {
+        "ru": [
+          "Сначала изучите Immich: ваша цель — собрать разрозненные семейные фото и видео в самостоятельно размещаемом сервисе, а описание прямо соответствует этому назначению [H03-E1]. Его возможная роль — один сервис управления коллекцией. Уменьшение разрозненности работы — гипотеза; экономия времени не измерена. Цена перехода — настройка, обслуживание и восстановление данных; требования неизвестны.",
+          "PhotoPrism — альтернативное приложение для фотографий с AI [H03-E2]. Изучайте его первым, если важнее конкретная задача организации фото с помощью AI. Польза гипотетическая: нужная функция, видео и самостоятельное размещение не подтверждены. Если видео обязательны и поддержка не подтвердится, предпочтение возвращается к Immich. Если достаточно упорядочить папки, новый сервис может не понадобиться.",
+          "Неизвестны форматы, нынешнее хранилище, место размещения, ответственный за обслуживание и резервная копия. Оба приложения претендуют на одну роль; ценность совместной установки не показана. Один пилот позволит связать результат и затраты с выбранным приложением. Совместимость пока неизвестна.",
+          "Следующий вопрос: обязательна общая работа с видео и фото или важнее конкретная AI-задача? По документации выбранной версии проверьте требования и путь загрузки/восстановления одного искусственного изображения и видео либо наличие названной AI-функции. Результат — «поддерживается», «не поддерживается» или «неизвестно» по каждому требованию. Затем можно предложить изолированный пилот; личные изображения не нужны. Это варианты для изучения, внедрение и проверки не выполнялись."
+        ],
+        "en": [
+          "Inspect Immich first: your goal is to bring scattered household photos and videos into a self-hosted service, and its description directly matches that purpose [H03-E1]. Its potential role is one collection-management service. Reduced fragmentation is a hypothesis; time savings are unmeasured. The trade-off is setup, maintenance and recovery responsibility; requirements are unknown.",
+          "PhotoPrism is an alternative AI-powered photos application [H03-E2]. Inspect it first if a specific AI-assisted photo organization task matters more. Benefit is hypothetical: the required feature, video behavior and self-hosting are unverified. If videos remain essential and support cannot be confirmed, preference returns to Immich. If organizing folders is enough, another service may be unnecessary.",
+          "Formats, current storage, hosting location, maintenance owner and backup are unknown. Both applications compete for one role; joint installation value has not been shown. One pilot would attribute results and burden to the chosen application. Compatibility remains unknown.",
+          "Next question: is joint photo/video management essential, or is a specific AI task more important? Check chosen-version documentation for requirements and an import/recovery path for one synthetic image and video, or the named AI feature. Record supported, unsupported or unknown per requirement. An isolated pilot can then be proposed; personal images are unnecessary. These are investigation options; integration and proposed checks have not been executed."
+        ]
+      },
+      "synthetic_context": "A household photo collection has scattered folders. Compare two source-supported options and define a disposable validation dataset without copying personal images.",
+      "persona": "non-technical founder",
+      "selected_ids": [
+        455229168,
+        119160553
+      ],
+      "capture_binding": {
+        "case_sha256": "401fe32342a45cf755413686ea22006065058350a235479870410f94f6430597",
+        "controlled_input_bytes": 14937,
+        "full_capture_sha256": "f70fa3fa0e68bb72bed9872f1f5f5d448df445b17c67ebbdbb824b85d5f36a2f",
+        "observation_file_sha256": "75e9e8e2346b3c57599fc12836ac917cd1eaa85e6bfa42c1771df4b2263114e7",
+        "observation_path": "evals/plugin-v1/results/cp04-v2-2026-10-08/held_out-observations.json",
+        "pack_sha256": "d09c7df3dfd1b2acfd37d34cd973fe5303faaacd1551c4d82a51811190c377a8",
+        "query_bytes": 684,
+        "query_sha256": "27903098781fc8ae43c4c144bc3833628c5e93c7979abb49b8e13b78015ee517",
+        "result_sha256": "4bfa45e8d3c67e404194dfd8a2330b16fe66d5d2a246d426488581ac62d6a7b4",
+        "selected_source_projection_bytes": 4299,
+        "selected_source_projection_sha256": "3ed4d78482530b68c7435bbc3bf6f6ca8db0704c24eff5973769a9ecdfdf28f8",
+        "source_pack_bytes": 14253
+      },
+      "source_projection": {
+        "action_state": "proposed_not_executed",
+        "detailed_card_ids": [
+          455229168,
+          119160553
+        ],
+        "goal": "Replace scattered photo folders with a self-hosted photo and video management service.",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "9678f5e265e4e3a33df3818f94c509c60728e994051ee72ec2050b0b093306c4",
+          "policy_sha256": "ff6e8444c4664492bb099f0819b2d284aa5c28f0d44c7a745c63f434c3489dbf",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        },
+        "ranked_ids": [
+          455229168,
+          119160553
+        ],
+        "reference_options": [
+          {
+            "activity": {
+              "last_commit_at": "2026-08-31T18:32:11Z",
+              "last_release_at": "2026-07-29T14:20:10Z",
+              "observed_at": "2026-09-01T02:32:57.430310Z"
+            },
+            "adoption_fit": "unknown",
+            "descriptions": {
+              "catalog": "High performance self-hosted photo and video management solution.",
+              "catalog_origin": "upstream",
+              "upstream": "High performance self-hosted photo and video management solution."
+            },
+            "evidence": [
+              {
+                "evidence_id": "ev-catalog-card",
+                "fields": [
+                  "/identity",
+                  "/catalog",
+                  "/descriptions",
+                  "/classifications",
+                  "/delivery",
+                  "/advisory",
+                  "/provenance"
+                ],
+                "observed_at": "2026-09-01T02:32:57.430310Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/455229168",
+                "verification": "derived_reviewed"
+              },
+              {
+                "evidence_id": "ev-catalog-repository",
+                "fields": [
+                  "/repository",
+                  "/activity"
+                ],
+                "observed_at": "2026-09-01T02:32:57.430310Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/455229168",
+                "verification": "source_reported"
+              }
+            ],
+            "full_name": "immich-app/immich",
+            "github_repository_id": 455229168,
+            "required_verifications": [
+              "Verify the advisory fit fields against source-backed public evidence."
+            ],
+            "retrieval_rank": 1,
+            "role": "reference_only",
+            "sources": [
+              {
+                "observed_at": "2026-09-01T02:32:57.430310Z",
+                "source_id": "src-catalog-snapshot",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/455229168",
+                "verification": "derived_reviewed"
+              }
+            ],
+            "url": "https://github.com/immich-app/immich"
+          },
+          {
+            "activity": {
+              "last_commit_at": "2026-08-31T17:59:59Z",
+              "last_release_at": "2026-07-28T12:45:22Z",
+              "observed_at": "2026-09-01T03:00:12.907875Z"
+            },
+            "adoption_fit": "unknown",
+            "descriptions": {
+              "catalog": "AI-Powered Photos App 🌈💎✨",
+              "catalog_origin": "upstream",
+              "upstream": "AI-Powered Photos App 🌈💎✨"
+            },
+            "evidence": [
+              {
+                "evidence_id": "ev-catalog-card",
+                "fields": [
+                  "/identity",
+                  "/catalog",
+                  "/descriptions",
+                  "/classifications",
+                  "/delivery",
+                  "/advisory",
+                  "/provenance"
+                ],
+                "observed_at": "2026-09-01T03:00:12.907875Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/119160553",
+                "verification": "derived_reviewed"
+              },
+              {
+                "evidence_id": "ev-catalog-repository",
+                "fields": [
+                  "/repository",
+                  "/activity"
+                ],
+                "observed_at": "2026-09-01T03:00:12.907875Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/119160553",
+                "verification": "source_reported"
+              }
+            ],
+            "full_name": "photoprism/photoprism",
+            "github_repository_id": 119160553,
+            "required_verifications": [
+              "Verify the advisory fit fields against source-backed public evidence."
+            ],
+            "retrieval_rank": 2,
+            "role": "reference_only",
+            "sources": [
+              {
+                "observed_at": "2026-09-01T03:00:12.907875Z",
+                "source_id": "src-catalog-snapshot",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/119160553",
+                "verification": "derived_reviewed"
+              }
+            ],
+            "url": "https://github.com/photoprism/photoprism"
+          }
+        ],
+        "source_mode": "catalog_only",
+        "unknown_facts": [
+          "compatibility",
+          "adoption fit",
+          "selected-version requirements",
+          "current GitHub activity"
+        ]
+      },
+      "action_state": "proposed_not_executed",
+      "human_response": null,
+      "human_calibrated": false,
+      "promotion_ready": false,
+      "compatibility": "unknown",
+      "project_benefit_measured": false,
+      "presentation_bindings": {
+        "ru": {
+          "selected_ids": [
+            455229168,
+            119160553
+          ],
+          "canonical_roles": [
+            {
+              "github_repository_id": 455229168,
+              "role": "reference_only"
+            },
+            {
+              "github_repository_id": 119160553,
+              "role": "reference_only"
+            }
+          ],
+          "capture_binding": {
+            "case_sha256": "401fe32342a45cf755413686ea22006065058350a235479870410f94f6430597",
+            "controlled_input_bytes": 14937,
+            "full_capture_sha256": "f70fa3fa0e68bb72bed9872f1f5f5d448df445b17c67ebbdbb824b85d5f36a2f",
+            "observation_file_sha256": "75e9e8e2346b3c57599fc12836ac917cd1eaa85e6bfa42c1771df4b2263114e7",
+            "observation_path": "evals/plugin-v1/results/cp04-v2-2026-10-08/held_out-observations.json",
+            "pack_sha256": "d09c7df3dfd1b2acfd37d34cd973fe5303faaacd1551c4d82a51811190c377a8",
+            "query_bytes": 684,
+            "query_sha256": "27903098781fc8ae43c4c144bc3833628c5e93c7979abb49b8e13b78015ee517",
+            "result_sha256": "4bfa45e8d3c67e404194dfd8a2330b16fe66d5d2a246d426488581ac62d6a7b4",
+            "selected_source_projection_bytes": 4299,
+            "selected_source_projection_sha256": "3ed4d78482530b68c7435bbc3bf6f6ca8db0704c24eff5973769a9ecdfdf28f8",
+            "source_pack_bytes": 14253
+          },
+          "action_state": "proposed_not_executed",
+          "compatibility": "unknown",
+          "project_benefit_measured": false
+        },
+        "en": {
+          "selected_ids": [
+            455229168,
+            119160553
+          ],
+          "canonical_roles": [
+            {
+              "github_repository_id": 455229168,
+              "role": "reference_only"
+            },
+            {
+              "github_repository_id": 119160553,
+              "role": "reference_only"
+            }
+          ],
+          "capture_binding": {
+            "case_sha256": "401fe32342a45cf755413686ea22006065058350a235479870410f94f6430597",
+            "controlled_input_bytes": 14937,
+            "full_capture_sha256": "f70fa3fa0e68bb72bed9872f1f5f5d448df445b17c67ebbdbb824b85d5f36a2f",
+            "observation_file_sha256": "75e9e8e2346b3c57599fc12836ac917cd1eaa85e6bfa42c1771df4b2263114e7",
+            "observation_path": "evals/plugin-v1/results/cp04-v2-2026-10-08/held_out-observations.json",
+            "pack_sha256": "d09c7df3dfd1b2acfd37d34cd973fe5303faaacd1551c4d82a51811190c377a8",
+            "query_bytes": 684,
+            "query_sha256": "27903098781fc8ae43c4c144bc3833628c5e93c7979abb49b8e13b78015ee517",
+            "result_sha256": "4bfa45e8d3c67e404194dfd8a2330b16fe66d5d2a246d426488581ac62d6a7b4",
+            "selected_source_projection_bytes": 4299,
+            "selected_source_projection_sha256": "3ed4d78482530b68c7435bbc3bf6f6ca8db0704c24eff5973769a9ecdfdf28f8",
+            "source_pack_bytes": 14253
+          },
+          "action_state": "proposed_not_executed",
+          "compatibility": "unknown",
+          "project_benefit_measured": false
+        }
+      },
+      "narrative_word_counts": {
+        "ru": 196,
+        "en": 210
+      }
+    },
+    {
+      "case_id": "CP04-V2-D05",
+      "confirmed_goals": [
+        "Modernize a Go HTTP API with clearer routing."
+      ],
+      "confirmed_constraints": [
+        "Preserve request/response behavior; propose one isolated endpoint regression test."
+      ],
+      "unknowns": {
+        "technical": [
+          "Existing router/framework, Go version, handler/middleware interfaces, request/response contract"
+        ],
+        "architectural": [
+          "Whether replacement is limited to routing or needs a broader HTTP framework"
+        ],
+        "product": [
+          "Affected client behavior, endpoint success criteria and allowable migration effort"
+        ]
+      },
+      "conditional_decision": "Inspect Chi first if clearer routing alone is the problem; inspect Gin first if requirements establish a broader HTTP framework need. Keep the current router if it meets the need and switching adds no demonstrated value.",
+      "set_assessment": "Same-role alternatives for the API's HTTP entry/routing boundary, not a set. One endpoint and one candidate isolate changed behavior and adoption effort.",
+      "proposals": [
+        {
+          "github_repository_id": 20904437,
+          "evidence_label": "D05-E1",
+          "confirmed_capability": "The snapshot identifies a Go HTTP web framework intended for REST APIs, web applications and microservices. Its performance language is source-reported, not a project measurement.",
+          "capability_source_field": "/descriptions/upstream",
+          "proposed_architectural_role": "Alternative framework at the HTTP request-handling boundary; existing handler/middleware integration is unknown.",
+          "expected_project_benefit_hypothesis": "A framework approach may meet broader HTTP needs if those needs are established; no missing framework capability is inferred from the Brief.",
+          "tradeoff": "Adopting a broader framework may require changes beyond routing; exact interfaces and migration work are unknown.",
+          "alternative_comparison": "Prefer investigating Gin over Chi only when broader framework requirements justify the scope; no measured speed advantage is available.",
+          "preference_reversal": "Only clearer routing is needed or framework adoption changes the existing endpoint contract unnecessarily.",
+          "decisive_next_check": "List the required behavior beyond routing and compare the selected Gin version's interfaces with one existing endpoint before proposing a contract regression test.",
+          "compatibility": "unknown",
+          "project_benefit_measured": false,
+          "action_state": "proposed_not_executed",
+          "canonical_role": "reference_only",
+          "adoption_fit": "unknown",
+          "evidence_refs": [
+            {
+              "evidence_id": "ev-catalog-card",
+              "fields": [
+                "/identity",
+                "/catalog",
+                "/descriptions",
+                "/classifications",
+                "/delivery",
+                "/advisory",
+                "/provenance"
+              ],
+              "observed_at": "2026-09-01T02:26:31.329420Z",
+              "source_kind": "catalog_snapshot",
+              "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/20904437",
+              "verification": "derived_reviewed"
+            },
+            {
+              "evidence_id": "ev-catalog-repository",
+              "fields": [
+                "/repository",
+                "/activity"
+              ],
+              "observed_at": "2026-09-01T02:26:31.329420Z",
+              "source_kind": "catalog_snapshot",
+              "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/20904437",
+              "verification": "source_reported"
+            }
+          ],
+          "source_refs": [
+            {
+              "observed_at": "2026-09-01T02:26:31.329420Z",
+              "source_id": "src-catalog-snapshot",
+              "source_kind": "catalog_snapshot",
+              "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/20904437",
+              "verification": "derived_reviewed"
+            }
+          ],
+          "capability_binding": {
+            "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/20904437",
+            "evidence_id": "ev-catalog-card",
+            "field": "/descriptions/upstream"
+          }
+        },
+        {
+          "github_repository_id": 44344606,
+          "evidence_label": "D05-E2",
+          "confirmed_capability": "The snapshot describes a lightweight composable router for Go HTTP services.",
+          "capability_source_field": "/descriptions/upstream",
+          "proposed_architectural_role": "Candidate replacement at the routing boundary of the existing Go HTTP API; exact interface compatibility is unknown.",
+          "expected_project_benefit_hypothesis": "Composable routing may organize routes more clearly while keeping the proposed change focused; lower effort is not measured or guaranteed.",
+          "tradeoff": "A router may leave broader framework requirements unresolved; middleware/handler adaptation must be checked.",
+          "alternative_comparison": "The stated router scope matches clearer routing more directly than Gin's broader framework description, provided additional framework needs are absent.",
+          "preference_reversal": "Broader HTTP framework requirements are demonstrated or Chi cannot preserve the selected endpoint contract.",
+          "decisive_next_check": "Compare one existing route's handler/middleware requirements with the selected Chi version, then propose a synthetic request/status/header/body regression check.",
+          "compatibility": "unknown",
+          "project_benefit_measured": false,
+          "action_state": "proposed_not_executed",
+          "canonical_role": "reference_only",
+          "adoption_fit": "unknown",
+          "evidence_refs": [
+            {
+              "evidence_id": "ev-catalog-card",
+              "fields": [
+                "/identity",
+                "/catalog",
+                "/descriptions",
+                "/classifications",
+                "/delivery",
+                "/advisory",
+                "/provenance"
+              ],
+              "observed_at": "2026-09-01T02:27:07.589415Z",
+              "source_kind": "catalog_snapshot",
+              "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/44344606",
+              "verification": "derived_reviewed"
+            },
+            {
+              "evidence_id": "ev-catalog-repository",
+              "fields": [
+                "/repository",
+                "/activity"
+              ],
+              "observed_at": "2026-09-01T02:27:07.589415Z",
+              "source_kind": "catalog_snapshot",
+              "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/44344606",
+              "verification": "source_reported"
+            }
+          ],
+          "source_refs": [
+            {
+              "observed_at": "2026-09-01T02:27:07.589415Z",
+              "source_id": "src-catalog-snapshot",
+              "source_kind": "catalog_snapshot",
+              "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/44344606",
+              "verification": "derived_reviewed"
+            }
+          ],
+          "capability_binding": {
+            "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/44344606",
+            "evidence_id": "ev-catalog-card",
+            "field": "/descriptions/upstream"
+          }
+        }
+      ],
+      "presentation": {
+        "ru": [
+          "Сначала изучите Chi, если нужна только более понятная маршрутизация Go HTTP API: описание подтверждает лёгкий составной маршрутизатор [D05-E2]. Предполагаемая роль — слой маршрутов API. Возможная польза — яснее организовать маршруты и ограничить область изменения; это гипотеза, усилия не измерены. Риск — оставить более широкие требования нерешёнными.",
+          "Gin — альтернативный Go HTTP framework для REST API, веб-приложений и микросервисов [D05-E1]. Изучайте его первым, если нужен более широкий framework: он мог бы занять границу обработки HTTP-запросов, но такая потребность пока неизвестна; переход может затронуть больше кода. Совместимость обработчиков и middleware у обоих неизвестна. Описание не доказывает совместимость Chi с net/http, а заявленное автором Gin ускорение до 40 раз не измерено для вашего API и не сравнивает его с Chi.",
+          "Запросы и ответы требуется сохранить. Неизвестны нынешний маршрутизатор, версии, интерфейсы, потребности клиентов и допустимые усилия. Потребность в framework или нарушение контракта endpoint меняют предпочтение Chi. Если нынешний маршрутизатор достаточен, сохраняйте его. Оба кандидата занимают одну границу; польза совместной установки не показана. Один endpoint ограничит риск и позволит оценить переход.",
+          "Следующий вопрос: что нужно сверх маршрутов? Для одного endpoint зафиксируйте контракт и проверьте интерфейсы выбранной версии. Затем предложите изолированный тест: искусственный запрос должен сохранить статус, обязательные заголовки и тело. Выход — таблица совпадений/расхождений и нужные адаптации. Это варианты для изучения; внедрение и тест не выполнялись."
+        ],
+        "en": [
+          "Inspect Chi first if clearer Go HTTP API routing is the only need: its description confirms a lightweight composable router [D05-E2]. Its proposed role is the API routing layer. Clearer routes and a focused change are potential benefits, not measured improvements or effort savings. Its trade-off is leaving broader requirements unresolved.",
+          "Gin is an alternative Go HTTP framework for REST APIs, web applications and microservices [D05-E1]. Inspect it first if a broader framework is needed: it could occupy the HTTP request-handling boundary, but that need is unknown; adoption may affect more code. Handler/middleware compatibility is unknown for both. The description does not prove Chi's net/http compatibility; Gin's source-reported 40-times speed claim is neither measured for your API nor a comparison with Chi.",
+          "Requests and responses must be preserved. Current router, versions, interfaces, client needs and allowable effort are unknown. A framework requirement or endpoint-contract failure reverses the Chi preference. Keep the current router if sufficient. Both candidates occupy one boundary; joint installation benefit is unproven. One endpoint limits risk and makes adoption effort assessable.",
+          "Next question: what is needed beyond routing? Freeze one endpoint contract and check chosen-version interfaces. Then propose an isolated test: a synthetic request must preserve status, required headers and body. Output a match/mismatch table and required adaptations. These are investigation options; integration and the test have not been executed."
+        ]
+      },
+      "synthetic_context": "A synthetic Go HTTP API needs clearer routing. Compare adoption surfaces, preserve request/response behavior, and propose one isolated endpoint regression test.",
+      "persona": "backend engineer",
+      "selected_ids": [
+        20904437,
+        44344606
+      ],
+      "capture_binding": {
+        "case_sha256": "39548186672b0a3b0fcf0c38c52cfbce4c7ef10d80fe18e0c6dd8da8bff36ba0",
+        "controlled_input_bytes": 77845,
+        "full_capture_sha256": "b6149ccf4f88de919a2e6213b62db390eceeb5855e0ce76f794fd32e7cf0b608",
+        "observation_file_sha256": "c8f014de13425f6c783443f1f4ec298c3496f40b8079c06800f7328c99c15ee3",
+        "observation_path": "evals/plugin-v1/results/cp04-v2-2026-10-08/development-observations.json",
+        "pack_sha256": "8793578b12eeb0f21261cc8a20bf3d381649d69b68fd1a9292737bf3a19cf085",
+        "query_bytes": 689,
+        "query_sha256": "a5ea3515449acaba687837efb3a685d13e9398e0db340bd15bf0a4fda62bff67",
+        "result_sha256": "ffd6c1f685e735ed53d918b7ecc82ae3b12623f70b7ed219a17837a39d20a952",
+        "selected_source_projection_bytes": 4712,
+        "selected_source_projection_sha256": "a05b2850043d5dd4c874f5d339c113dd81b3f23cc53c94dcc2c9ec4d7b7a4195",
+        "source_pack_bytes": 77156
+      },
+      "source_projection": {
+        "action_state": "proposed_not_executed",
+        "detailed_card_ids": [
+          20904437,
+          44344606,
+          105379569,
+          438384984,
+          372172254,
+          31504491,
+          234231371,
+          394929332,
+          138597372,
+          596892,
+          7548986,
+          237159
+        ],
+        "goal": "Modernize a Go HTTP API with a reusable web framework or composable router.",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "9678f5e265e4e3a33df3818f94c509c60728e994051ee72ec2050b0b093306c4",
+          "policy_sha256": "ff6e8444c4664492bb099f0819b2d284aa5c28f0d44c7a745c63f434c3489dbf",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        },
+        "ranked_ids": [
+          20904437,
+          44344606,
+          105379569,
+          438384984,
+          372172254,
+          31504491,
+          234231371,
+          394929332,
+          138597372,
+          596892,
+          7548986,
+          237159,
+          4164482,
+          40136600,
+          69495170,
+          1148753,
+          1864194,
+          40772809,
+          16072585,
+          17620347,
+          1863329,
+          160919119,
+          75505125,
+          458058,
+          124230204,
+          2609642,
+          8514,
+          435625572,
+          80945428,
+          6296790,
+          78452015,
+          139914932,
+          11551538,
+          952098631
+        ],
+        "reference_options": [
+          {
+            "activity": {
+              "last_commit_at": "2026-08-15T05:44:19Z",
+              "last_release_at": "2026-02-28T10:12:25Z",
+              "observed_at": "2026-09-01T02:26:31.329420Z"
+            },
+            "adoption_fit": "unknown",
+            "descriptions": {
+              "catalog": "Gin is a high-performance HTTP web framework written in Go. It provides a Martini-like API but with significantly better performance—up to 40 times faster—thanks to httprouter. Gin is designed for building REST APIs, web applications, and microservices.",
+              "catalog_origin": "upstream",
+              "upstream": "Gin is a high-performance HTTP web framework written in Go. It provides a Martini-like API but with significantly better performance—up to 40 times faster—thanks to httprouter. Gin is designed for building REST APIs, web applications, and microservices."
+            },
+            "evidence": [
+              {
+                "evidence_id": "ev-catalog-card",
+                "fields": [
+                  "/identity",
+                  "/catalog",
+                  "/descriptions",
+                  "/classifications",
+                  "/delivery",
+                  "/advisory",
+                  "/provenance"
+                ],
+                "observed_at": "2026-09-01T02:26:31.329420Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/20904437",
+                "verification": "derived_reviewed"
+              },
+              {
+                "evidence_id": "ev-catalog-repository",
+                "fields": [
+                  "/repository",
+                  "/activity"
+                ],
+                "observed_at": "2026-09-01T02:26:31.329420Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/20904437",
+                "verification": "source_reported"
+              }
+            ],
+            "full_name": "gin-gonic/gin",
+            "github_repository_id": 20904437,
+            "required_verifications": [
+              "Verify the advisory fit fields against source-backed public evidence."
+            ],
+            "retrieval_rank": 1,
+            "role": "reference_only",
+            "sources": [
+              {
+                "observed_at": "2026-09-01T02:26:31.329420Z",
+                "source_id": "src-catalog-snapshot",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/20904437",
+                "verification": "derived_reviewed"
+              }
+            ],
+            "url": "https://github.com/gin-gonic/gin"
+          },
+          {
+            "activity": {
+              "last_commit_at": "2026-08-31T10:53:31Z",
+              "last_release_at": "2026-08-20T10:04:47Z",
+              "observed_at": "2026-09-01T02:27:07.589415Z"
+            },
+            "adoption_fit": "unknown",
+            "descriptions": {
+              "catalog": "lightweight, idiomatic and composable router for building Go HTTP services",
+              "catalog_origin": "upstream",
+              "upstream": "lightweight, idiomatic and composable router for building Go HTTP services"
+            },
+            "evidence": [
+              {
+                "evidence_id": "ev-catalog-card",
+                "fields": [
+                  "/identity",
+                  "/catalog",
+                  "/descriptions",
+                  "/classifications",
+                  "/delivery",
+                  "/advisory",
+                  "/provenance"
+                ],
+                "observed_at": "2026-09-01T02:27:07.589415Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/44344606",
+                "verification": "derived_reviewed"
+              },
+              {
+                "evidence_id": "ev-catalog-repository",
+                "fields": [
+                  "/repository",
+                  "/activity"
+                ],
+                "observed_at": "2026-09-01T02:27:07.589415Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/44344606",
+                "verification": "source_reported"
+              }
+            ],
+            "full_name": "go-chi/chi",
+            "github_repository_id": 44344606,
+            "required_verifications": [
+              "Verify the advisory fit fields against source-backed public evidence."
+            ],
+            "retrieval_rank": 2,
+            "role": "reference_only",
+            "sources": [
+              {
+                "observed_at": "2026-09-01T02:27:07.589415Z",
+                "source_id": "src-catalog-snapshot",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/44344606",
+                "verification": "derived_reviewed"
+              }
+            ],
+            "url": "https://github.com/go-chi/chi"
+          }
+        ],
+        "source_mode": "catalog_only",
+        "unknown_facts": [
+          "compatibility",
+          "adoption fit",
+          "selected-version requirements",
+          "current GitHub activity"
+        ]
+      },
+      "action_state": "proposed_not_executed",
+      "human_response": null,
+      "human_calibrated": false,
+      "promotion_ready": false,
+      "compatibility": "unknown",
+      "project_benefit_measured": false,
+      "presentation_bindings": {
+        "ru": {
+          "selected_ids": [
+            20904437,
+            44344606
+          ],
+          "canonical_roles": [
+            {
+              "github_repository_id": 20904437,
+              "role": "reference_only"
+            },
+            {
+              "github_repository_id": 44344606,
+              "role": "reference_only"
+            }
+          ],
+          "capture_binding": {
+            "case_sha256": "39548186672b0a3b0fcf0c38c52cfbce4c7ef10d80fe18e0c6dd8da8bff36ba0",
+            "controlled_input_bytes": 77845,
+            "full_capture_sha256": "b6149ccf4f88de919a2e6213b62db390eceeb5855e0ce76f794fd32e7cf0b608",
+            "observation_file_sha256": "c8f014de13425f6c783443f1f4ec298c3496f40b8079c06800f7328c99c15ee3",
+            "observation_path": "evals/plugin-v1/results/cp04-v2-2026-10-08/development-observations.json",
+            "pack_sha256": "8793578b12eeb0f21261cc8a20bf3d381649d69b68fd1a9292737bf3a19cf085",
+            "query_bytes": 689,
+            "query_sha256": "a5ea3515449acaba687837efb3a685d13e9398e0db340bd15bf0a4fda62bff67",
+            "result_sha256": "ffd6c1f685e735ed53d918b7ecc82ae3b12623f70b7ed219a17837a39d20a952",
+            "selected_source_projection_bytes": 4712,
+            "selected_source_projection_sha256": "a05b2850043d5dd4c874f5d339c113dd81b3f23cc53c94dcc2c9ec4d7b7a4195",
+            "source_pack_bytes": 77156
+          },
+          "action_state": "proposed_not_executed",
+          "compatibility": "unknown",
+          "project_benefit_measured": false
+        },
+        "en": {
+          "selected_ids": [
+            20904437,
+            44344606
+          ],
+          "canonical_roles": [
+            {
+              "github_repository_id": 20904437,
+              "role": "reference_only"
+            },
+            {
+              "github_repository_id": 44344606,
+              "role": "reference_only"
+            }
+          ],
+          "capture_binding": {
+            "case_sha256": "39548186672b0a3b0fcf0c38c52cfbce4c7ef10d80fe18e0c6dd8da8bff36ba0",
+            "controlled_input_bytes": 77845,
+            "full_capture_sha256": "b6149ccf4f88de919a2e6213b62db390eceeb5855e0ce76f794fd32e7cf0b608",
+            "observation_file_sha256": "c8f014de13425f6c783443f1f4ec298c3496f40b8079c06800f7328c99c15ee3",
+            "observation_path": "evals/plugin-v1/results/cp04-v2-2026-10-08/development-observations.json",
+            "pack_sha256": "8793578b12eeb0f21261cc8a20bf3d381649d69b68fd1a9292737bf3a19cf085",
+            "query_bytes": 689,
+            "query_sha256": "a5ea3515449acaba687837efb3a685d13e9398e0db340bd15bf0a4fda62bff67",
+            "result_sha256": "ffd6c1f685e735ed53d918b7ecc82ae3b12623f70b7ed219a17837a39d20a952",
+            "selected_source_projection_bytes": 4712,
+            "selected_source_projection_sha256": "a05b2850043d5dd4c874f5d339c113dd81b3f23cc53c94dcc2c9ec4d7b7a4195",
+            "source_pack_bytes": 77156
+          },
+          "action_state": "proposed_not_executed",
+          "compatibility": "unknown",
+          "project_benefit_measured": false
+        }
+      },
+      "narrative_word_counts": {
+        "ru": 211,
+        "en": 223
+      }
+    },
+    {
+      "case_id": "CP04-V2-H15",
+      "confirmed_goals": [
+        "Household budgeting with local-first/offline storage; do not substitute a market trading engine."
+      ],
+      "confirmed_constraints": [
+        "Workflow is undocumented; ask focused questions before migration and use synthetic transactions."
+      ],
+      "unknowns": {
+        "technical": [
+          "Target OS/device, import/export formats, required disconnected behavior, selected-version compatibility"
+        ],
+        "architectural": [
+          "One-device storage versus cross-device sync, hosting, backup and recovery requirements"
+        ],
+        "product": [
+          "Household budgeting tasks, need for mobile/web access, acceptable maintenance burden"
+        ]
+      },
+      "conditional_decision": "No unconditional preference. Inspect my-budget first if confirmed need is a desktop budgeting workflow that must work disconnected; inspect BeeCount first if iOS/Android/Web bookkeeping is required; inspect Actual if general local-first personal finance is sufficient. Verify actual offline behavior in every branch.",
+      "set_assessment": "Same-role alternatives for one household finance application; no supported incremental value from duplicate ledgers or installing all three. One synthetic workflow in one candidate makes persistence and data recovery observable.",
+      "proposals": [
+        {
+          "github_repository_id": 1051440251,
+          "evidence_label": "H15-E1",
+          "confirmed_capability": "Catalog description identifies local-first bookkeeping for iOS/Android/Web and named sync options; upstream description remains null.",
+          "capability_source_field": "/descriptions/catalog",
+          "proposed_architectural_role": "Alternative household bookkeeping application for multiple named device surfaces; sync is an optional branch, not an activated integration.",
+          "expected_project_benefit_hypothesis": "The named device coverage may fit household entry across devices if required; workflow and disconnected behavior are unmeasured.",
+          "tradeoff": "If sync is required, its setup and recovery add questions; no provider or sync is enabled by this recommendation.",
+          "alternative_comparison": "More explicit device coverage than Actual's general local-first description; my-budget has more explicit offline Electron positioning.",
+          "preference_reversal": "Only a disconnected desktop workflow is needed or BeeCount fails the selected-device persistence/recovery requirements.",
+          "decisive_next_check": "Confirm required devices and sync, then check selected-version prerequisites and propose disconnected synthetic-entry/reopen/export checks on the required device.",
+          "compatibility": "unknown",
+          "project_benefit_measured": false,
+          "action_state": "proposed_not_executed",
+          "canonical_role": "reference_only",
+          "adoption_fit": "unknown",
+          "evidence_refs": [
+            {
+              "evidence_id": "ev-catalog-card",
+              "fields": [
+                "/identity",
+                "/catalog",
+                "/descriptions",
+                "/classifications",
+                "/delivery",
+                "/advisory",
+                "/provenance"
+              ],
+              "observed_at": "2026-09-01T08:36:43.059696Z",
+              "source_kind": "catalog_snapshot",
+              "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/1051440251",
+              "verification": "derived_reviewed"
+            },
+            {
+              "evidence_id": "ev-catalog-repository",
+              "fields": [
+                "/repository",
+                "/activity"
+              ],
+              "observed_at": "2026-09-01T08:36:43.059696Z",
+              "source_kind": "catalog_snapshot",
+              "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/1051440251",
+              "verification": "source_reported"
+            }
+          ],
+          "source_refs": [
+            {
+              "observed_at": "2026-09-01T08:36:43.059696Z",
+              "source_id": "src-catalog-snapshot",
+              "source_kind": "catalog_snapshot",
+              "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/1051440251",
+              "verification": "derived_reviewed"
+            }
+          ],
+          "capability_binding": {
+            "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/1051440251",
+            "evidence_id": "ev-catalog-card",
+            "field": "/descriptions/catalog"
+          }
+        },
+        {
+          "github_repository_id": 486815039,
+          "evidence_label": "H15-E2",
+          "confirmed_capability": "Upstream description identifies a local-first personal finance application; catalog description remains null.",
+          "capability_source_field": "/descriptions/upstream",
+          "proposed_architectural_role": "Alternative application for one household finance workflow; device and storage/deployment placement need clarification.",
+          "expected_project_benefit_hypothesis": "Personal finance focus may match household budgeting without selecting a trading engine; exact tasks and local behavior need verification.",
+          "tradeoff": "A general local-first description leaves offline behavior, devices and recovery unknown, so initial documentation/workflow validation is needed.",
+          "alternative_comparison": "Investigate if general local-first personal finance is the requirement; source evidence cannot rank it above BeeCount's device coverage or my-budget's offline claim.",
+          "preference_reversal": "A required device or disconnected task fails, or another candidate verifies those requirements with less acceptable operating burden.",
+          "decisive_next_check": "Name the required budgeting task/device and verify chosen-version support; propose creating and reopening synthetic transactions disconnected with checked totals and recovery output.",
+          "compatibility": "unknown",
+          "project_benefit_measured": false,
+          "action_state": "proposed_not_executed",
+          "canonical_role": "reference_only",
+          "adoption_fit": "unknown",
+          "evidence_refs": [
+            {
+              "evidence_id": "ev-catalog-card",
+              "fields": [
+                "/identity",
+                "/catalog",
+                "/descriptions",
+                "/classifications",
+                "/delivery",
+                "/advisory",
+                "/provenance"
+              ],
+              "observed_at": "2026-09-01T03:54:41.712996Z",
+              "source_kind": "catalog_snapshot",
+              "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/486815039",
+              "verification": "derived_reviewed"
+            },
+            {
+              "evidence_id": "ev-catalog-repository",
+              "fields": [
+                "/repository",
+                "/activity"
+              ],
+              "observed_at": "2026-09-01T03:54:41.712996Z",
+              "source_kind": "catalog_snapshot",
+              "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/486815039",
+              "verification": "source_reported"
+            }
+          ],
+          "source_refs": [
+            {
+              "observed_at": "2026-09-01T03:54:41.712996Z",
+              "source_id": "src-catalog-snapshot",
+              "source_kind": "catalog_snapshot",
+              "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/486815039",
+              "verification": "derived_reviewed"
+            }
+          ],
+          "capability_binding": {
+            "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/486815039",
+            "evidence_id": "ev-catalog-card",
+            "field": "/descriptions/upstream"
+          }
+        },
+        {
+          "github_repository_id": 173851397,
+          "evidence_label": "H15-E3",
+          "confirmed_capability": "Catalog description identifies an offline cross-platform budgeting solution built with Electron; upstream description and release date remain null.",
+          "capability_source_field": "/descriptions/catalog",
+          "proposed_architectural_role": "Alternative budgeting application for a conditional desktop/disconnected workflow; platform compatibility is unknown.",
+          "expected_project_benefit_hypothesis": "The stated offline budgeting scope may fit entry without a connection; actual disconnected persistence/recovery remains unverified.",
+          "tradeoff": "Electron/platform prerequisites and maintenance/release evidence need checking. The old observed commit alone neither establishes operability nor rejects the option.",
+          "alternative_comparison": "Its description is more explicit about offline operation than BeeCount/Actual's local-first positioning, but it does not prove better offline behavior.",
+          "preference_reversal": "Mobile/web or sync becomes essential, or selected-version compatibility, disconnected behavior or recovery fails.",
+          "decisive_next_check": "Confirm desktop OS and mandatory disconnected tasks; verify the chosen version's support and propose synthetic create/reopen/export/recovery checks with expected totals.",
+          "compatibility": "unknown",
+          "project_benefit_measured": false,
+          "action_state": "proposed_not_executed",
+          "canonical_role": "reference_only",
+          "adoption_fit": "unknown",
+          "evidence_refs": [
+            {
+              "evidence_id": "ev-catalog-card",
+              "fields": [
+                "/identity",
+                "/catalog",
+                "/descriptions",
+                "/classifications",
+                "/delivery",
+                "/advisory",
+                "/provenance"
+              ],
+              "observed_at": "2026-09-01T08:39:48.569486Z",
+              "source_kind": "catalog_snapshot",
+              "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/173851397",
+              "verification": "derived_reviewed"
+            },
+            {
+              "evidence_id": "ev-catalog-repository",
+              "fields": [
+                "/repository",
+                "/activity"
+              ],
+              "observed_at": "2026-09-01T08:39:48.569486Z",
+              "source_kind": "catalog_snapshot",
+              "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/173851397",
+              "verification": "source_reported"
+            }
+          ],
+          "source_refs": [
+            {
+              "observed_at": "2026-09-01T08:39:48.569486Z",
+              "source_id": "src-catalog-snapshot",
+              "source_kind": "catalog_snapshot",
+              "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/173851397",
+              "verification": "derived_reviewed"
+            }
+          ],
+          "capability_binding": {
+            "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/173851397",
+            "evidence_id": "ev-catalog-card",
+            "field": "/descriptions/catalog"
+          }
+        }
+      ],
+      "presentation": {
+        "ru": [
+          "Для домашнего бюджета пока нельзя выбрать победителя: неизвестны устройство и обязательные действия без сети. Если нужен настольный бюджет без подключения, сначала изучите my-budget: каталог прямо описывает offline-приложение на Electron [H15-E3]. Его роль — одно приложение бюджета; возможная польза — вести учёт без подключения. Это гипотеза: фактическая работа, совместимость и восстановление неизвестны. Требования платформы и поддержку версии нужно проверить; обязательный мобильный/web-доступ или провал offline-проверки меняют выбор.",
+          "BeeCount описан как local-first учёт на iOS/Android/Web с вариантами синхронизации [H15-E1]. Для обязательного ввода на этих устройствах это более явное соответствие, чем описание Actual или настольная роль my-budget. Польза нескольких устройств гипотетическая; нужная синхронизация добавит настройку и восстановление. Если достаточно одного компьютера без сети, предпочтение исчезает. Синхронизация не включается.",
+          "Actual — local-first приложение личных финансов [H15-E2], альтернатива для той же роли домашнего бюджета. Возможное соответствие общим задачам финансов — гипотеза; описание не подтверждает нужные устройства, функции или offline-поведение. Выберите другой вариант, если обязательное действие не поддерживается. Local-first не гарантирует работу без сети. Для my-budget commit в снимке датирован 2022-07-27, release неизвестен: это повод проверить поддержку, а не отвергнуть приложение.",
+          "Неизвестны задачи бюджета, форматы обмена и резервная копия. Все три занимают одну роль; совместная установка не обоснована. Один пилот позволит связать результат с выбранным приложением. Следующий вопрос: какие устройства обязательны; без сети нужен просмотр или также ввод и повторное открытие? После проверки требований версии предложите искусственные операции с известной суммой: ввод без сети, закрытие/открытие, сверка, документированные выгрузка/восстановление. Выход — поддерживается/не поддерживается/неизвестно по каждому действию. При неудаче сохраните текущий учёт и тестовые данные. Это варианты для изучения; перенос реальных финансов и пилот не выполнялись."
+        ],
+        "en": [
+          "No household-budget winner is justified yet: required devices and disconnected tasks are unknown. If disconnected desktop budgeting is required, inspect my-budget first: the catalog explicitly describes an offline Electron application [H15-E3]. Its role is one budgeting application; disconnected bookkeeping is a hypothetical benefit. Actual behavior, compatibility and recovery are unknown. Check platform prerequisites and version support; required mobile/web access or a failed offline check reverses preference.",
+          "BeeCount is described as local-first bookkeeping on iOS/Android/Web with sync options [H15-E1]. Required entry on those devices is a clearer fit than Actual’s description or my-budget’s proposed desktop role. Cross-device benefit is hypothetical; required sync adds setup/recovery work. If one disconnected computer suffices, the preference disappears. Sync is not enabled.",
+          "Actual is a local-first personal finance application [H15-E2], an alternative for the same household-budget role. General finance fit is hypothetical; required devices, features and offline behavior are unverified. Reverse preference if a mandatory task fails. Local-first does not guarantee disconnected operation. For my-budget, the snapshot commit is dated 2022-07-27 and release is unknown: check support rather than rejecting it.",
+          "Budget tasks, exchange formats and backup are unknown. All three occupy one role; joint installation is unsupported. One pilot would attribute results to one application. Next question: which devices are mandatory; must disconnected use support viewing only, or entry/reopening too? After checking version requirements, propose synthetic transactions with a known total: disconnected entry, close/reopen, reconciliation, documented export/recovery. Output supported/unsupported/unknown per task. On failure retain current bookkeeping and test data. These are investigation options; real-finance migration and the pilot have not been executed."
+        ]
+      },
+      "synthetic_context": "An undocumented household budget workflow needs local-first/offline storage. Release/maintenance/compatibility are unknown; ask focused questions before migration and use synthetic transactions.",
+      "persona": "low-context operator",
+      "selected_ids": [
+        1051440251,
+        486815039,
+        173851397
+      ],
+      "capture_binding": {
+        "case_sha256": "fde1e2dd73f345ea2e29d8eb9600f02f7735bb89d69e4f12a362856950fe8965",
+        "controlled_input_bytes": 80124,
+        "full_capture_sha256": "17d69bfbfb232d131949c4ceb535a4d13e3a0b1faca0a7302aa1861a2dabe058",
+        "observation_file_sha256": "75e9e8e2346b3c57599fc12836ac917cd1eaa85e6bfa42c1771df4b2263114e7",
+        "observation_path": "evals/plugin-v1/results/cp04-v2-2026-10-08/held_out-observations.json",
+        "pack_sha256": "5df069a044b2a70c60b6ac0a7f3689cd381378039dd2376dd3a3cfc4ecec7ecd",
+        "query_bytes": 707,
+        "query_sha256": "8d41c9dc6d650e457d7f4dd862bb4085feefe29df459be1fd3ccdbf57a1e48a7",
+        "result_sha256": "2b32d54f4b32eafe82eeb33786dd2c39f992417e4ce4ca3b5fc2ea9f5cb30a44",
+        "selected_source_projection_bytes": 6057,
+        "selected_source_projection_sha256": "d1de21f732dd468018036ea8da3a9be0eb9bc8069db5b02f3124234aa63bd782",
+        "source_pack_bytes": 79417
+      },
+      "source_projection": {
+        "action_state": "proposed_not_executed",
+        "detailed_card_ids": [
+          1051440251,
+          304836585,
+          486815039,
+          701017456,
+          21298446,
+          173851397,
+          473710288,
+          326749266,
+          97858693,
+          1092021426,
+          272827254,
+          167737827
+        ],
+        "goal": "Compare local-first or offline household finance applications; avoid substituting market trading engines.",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "9678f5e265e4e3a33df3818f94c509c60728e994051ee72ec2050b0b093306c4",
+          "policy_sha256": "ff6e8444c4664492bb099f0819b2d284aa5c28f0d44c7a745c63f434c3489dbf",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        },
+        "ranked_ids": [
+          1051440251,
+          304836585,
+          486815039,
+          701017456,
+          21298446,
+          173851397,
+          473710288,
+          326749266,
+          97858693,
+          1092021426,
+          272827254,
+          167737827,
+          430008947,
+          424920574,
+          406570392,
+          346887069,
+          737898780,
+          474376253,
+          532977861,
+          177860947,
+          887597422,
+          461239566,
+          357671824,
+          19388764,
+          20107959,
+          1130076953,
+          143284193,
+          50063599,
+          1191195886,
+          95870855,
+          531026987,
+          60379729,
+          342126120,
+          198669252,
+          3810626,
+          11934420,
+          184420323,
+          5103141,
+          23209140,
+          48418599,
+          239389449,
+          674484441,
+          198832400,
+          288048368,
+          693262773,
+          1146075858,
+          461335313,
+          1312554298,
+          188438191,
+          63773246,
+          589385734,
+          14759456,
+          28904322,
+          46142401,
+          135300551,
+          89801027,
+          339376987,
+          537869276,
+          84404972,
+          1048320382,
+          226144726,
+          187455140,
+          763842651,
+          1115093974,
+          180137089,
+          539526271,
+          901529145,
+          27251463,
+          33702544,
+          282653872,
+          110684325,
+          244460835,
+          29273084,
+          217872093,
+          170544934,
+          23468876,
+          161977394,
+          376093856,
+          479235940,
+          527993624,
+          600544354,
+          27703983,
+          163788469,
+          132754148,
+          333850832,
+          294371636,
+          166674659,
+          55360541,
+          1124295269,
+          287463830
+        ],
+        "reference_options": [
+          {
+            "activity": {
+              "last_commit_at": "2026-08-31T12:08:34Z",
+              "last_release_at": "2026-08-31T12:31:37Z",
+              "observed_at": "2026-09-01T08:36:43.059696Z"
+            },
+            "adoption_fit": "unknown",
+            "descriptions": {
+              "catalog": "Local-first bookkeeping for iOS/Android/Web · Self-hosted cloud + iCloud/WebDAV/S3 sync · AI capture · MCP | 本地优先的跨端记账 · 自建云 + iCloud/WebDAV/S3 同步 · AI 记账 · MCP",
+              "catalog_origin": "upstream",
+              "upstream": null
+            },
+            "evidence": [
+              {
+                "evidence_id": "ev-catalog-card",
+                "fields": [
+                  "/identity",
+                  "/catalog",
+                  "/descriptions",
+                  "/classifications",
+                  "/delivery",
+                  "/advisory",
+                  "/provenance"
+                ],
+                "observed_at": "2026-09-01T08:36:43.059696Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/1051440251",
+                "verification": "derived_reviewed"
+              },
+              {
+                "evidence_id": "ev-catalog-repository",
+                "fields": [
+                  "/repository",
+                  "/activity"
+                ],
+                "observed_at": "2026-09-01T08:36:43.059696Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/1051440251",
+                "verification": "source_reported"
+              }
+            ],
+            "full_name": "TNT-Likely/BeeCount",
+            "github_repository_id": 1051440251,
+            "required_verifications": [
+              "Verify the advisory fit fields against source-backed public evidence."
+            ],
+            "retrieval_rank": 1,
+            "role": "reference_only",
+            "sources": [
+              {
+                "observed_at": "2026-09-01T08:36:43.059696Z",
+                "source_id": "src-catalog-snapshot",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/1051440251",
+                "verification": "derived_reviewed"
+              }
+            ],
+            "url": "https://github.com/TNT-Likely/BeeCount"
+          },
+          {
+            "activity": {
+              "last_commit_at": "2026-09-01T02:30:38Z",
+              "last_release_at": "2026-08-07T21:17:24Z",
+              "observed_at": "2026-09-01T03:54:41.712996Z"
+            },
+            "adoption_fit": "unknown",
+            "descriptions": {
+              "catalog": null,
+              "catalog_origin": null,
+              "upstream": "A local-first personal finance app. Contribute to actualbudget/actual development by creating an account on GitHub."
+            },
+            "evidence": [
+              {
+                "evidence_id": "ev-catalog-card",
+                "fields": [
+                  "/identity",
+                  "/catalog",
+                  "/descriptions",
+                  "/classifications",
+                  "/delivery",
+                  "/advisory",
+                  "/provenance"
+                ],
+                "observed_at": "2026-09-01T03:54:41.712996Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/486815039",
+                "verification": "derived_reviewed"
+              },
+              {
+                "evidence_id": "ev-catalog-repository",
+                "fields": [
+                  "/repository",
+                  "/activity"
+                ],
+                "observed_at": "2026-09-01T03:54:41.712996Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/486815039",
+                "verification": "source_reported"
+              }
+            ],
+            "full_name": "actualbudget/actual",
+            "github_repository_id": 486815039,
+            "required_verifications": [
+              "Verify the advisory fit fields against source-backed public evidence."
+            ],
+            "retrieval_rank": 3,
+            "role": "reference_only",
+            "sources": [
+              {
+                "observed_at": "2026-09-01T03:54:41.712996Z",
+                "source_id": "src-catalog-snapshot",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/486815039",
+                "verification": "derived_reviewed"
+              }
+            ],
+            "url": "https://github.com/actualbudget/actual"
+          },
+          {
+            "activity": {
+              "last_commit_at": "2022-07-27T19:10:15Z",
+              "last_release_at": null,
+              "observed_at": "2026-09-01T08:39:48.569486Z"
+            },
+            "adoption_fit": "unknown",
+            "descriptions": {
+              "catalog": "Free, open source offline cross-platform budgeting solution built with Electron.",
+              "catalog_origin": "upstream",
+              "upstream": null
+            },
+            "evidence": [
+              {
+                "evidence_id": "ev-catalog-card",
+                "fields": [
+                  "/identity",
+                  "/catalog",
+                  "/descriptions",
+                  "/classifications",
+                  "/delivery",
+                  "/advisory",
+                  "/provenance"
+                ],
+                "observed_at": "2026-09-01T08:39:48.569486Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/173851397",
+                "verification": "derived_reviewed"
+              },
+              {
+                "evidence_id": "ev-catalog-repository",
+                "fields": [
+                  "/repository",
+                  "/activity"
+                ],
+                "observed_at": "2026-09-01T08:39:48.569486Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/173851397",
+                "verification": "source_reported"
+              }
+            ],
+            "full_name": "reZach/my-budget",
+            "github_repository_id": 173851397,
+            "required_verifications": [
+              "Verify the advisory fit fields against source-backed public evidence."
+            ],
+            "retrieval_rank": 6,
+            "role": "reference_only",
+            "sources": [
+              {
+                "observed_at": "2026-09-01T08:39:48.569486Z",
+                "source_id": "src-catalog-snapshot",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/173851397",
+                "verification": "derived_reviewed"
+              }
+            ],
+            "url": "https://github.com/reZach/my-budget"
+          }
+        ],
+        "source_mode": "catalog_only",
+        "unknown_facts": [
+          "compatibility",
+          "adoption fit",
+          "selected-version requirements",
+          "current GitHub activity"
+        ]
+      },
+      "action_state": "proposed_not_executed",
+      "human_response": null,
+      "human_calibrated": false,
+      "promotion_ready": false,
+      "compatibility": "unknown",
+      "project_benefit_measured": false,
+      "presentation_bindings": {
+        "ru": {
+          "selected_ids": [
+            1051440251,
+            486815039,
+            173851397
+          ],
+          "canonical_roles": [
+            {
+              "github_repository_id": 1051440251,
+              "role": "reference_only"
+            },
+            {
+              "github_repository_id": 486815039,
+              "role": "reference_only"
+            },
+            {
+              "github_repository_id": 173851397,
+              "role": "reference_only"
+            }
+          ],
+          "capture_binding": {
+            "case_sha256": "fde1e2dd73f345ea2e29d8eb9600f02f7735bb89d69e4f12a362856950fe8965",
+            "controlled_input_bytes": 80124,
+            "full_capture_sha256": "17d69bfbfb232d131949c4ceb535a4d13e3a0b1faca0a7302aa1861a2dabe058",
+            "observation_file_sha256": "75e9e8e2346b3c57599fc12836ac917cd1eaa85e6bfa42c1771df4b2263114e7",
+            "observation_path": "evals/plugin-v1/results/cp04-v2-2026-10-08/held_out-observations.json",
+            "pack_sha256": "5df069a044b2a70c60b6ac0a7f3689cd381378039dd2376dd3a3cfc4ecec7ecd",
+            "query_bytes": 707,
+            "query_sha256": "8d41c9dc6d650e457d7f4dd862bb4085feefe29df459be1fd3ccdbf57a1e48a7",
+            "result_sha256": "2b32d54f4b32eafe82eeb33786dd2c39f992417e4ce4ca3b5fc2ea9f5cb30a44",
+            "selected_source_projection_bytes": 6057,
+            "selected_source_projection_sha256": "d1de21f732dd468018036ea8da3a9be0eb9bc8069db5b02f3124234aa63bd782",
+            "source_pack_bytes": 79417
+          },
+          "action_state": "proposed_not_executed",
+          "compatibility": "unknown",
+          "project_benefit_measured": false
+        },
+        "en": {
+          "selected_ids": [
+            1051440251,
+            486815039,
+            173851397
+          ],
+          "canonical_roles": [
+            {
+              "github_repository_id": 1051440251,
+              "role": "reference_only"
+            },
+            {
+              "github_repository_id": 486815039,
+              "role": "reference_only"
+            },
+            {
+              "github_repository_id": 173851397,
+              "role": "reference_only"
+            }
+          ],
+          "capture_binding": {
+            "case_sha256": "fde1e2dd73f345ea2e29d8eb9600f02f7735bb89d69e4f12a362856950fe8965",
+            "controlled_input_bytes": 80124,
+            "full_capture_sha256": "17d69bfbfb232d131949c4ceb535a4d13e3a0b1faca0a7302aa1861a2dabe058",
+            "observation_file_sha256": "75e9e8e2346b3c57599fc12836ac917cd1eaa85e6bfa42c1771df4b2263114e7",
+            "observation_path": "evals/plugin-v1/results/cp04-v2-2026-10-08/held_out-observations.json",
+            "pack_sha256": "5df069a044b2a70c60b6ac0a7f3689cd381378039dd2376dd3a3cfc4ecec7ecd",
+            "query_bytes": 707,
+            "query_sha256": "8d41c9dc6d650e457d7f4dd862bb4085feefe29df459be1fd3ccdbf57a1e48a7",
+            "result_sha256": "2b32d54f4b32eafe82eeb33786dd2c39f992417e4ce4ca3b5fc2ea9f5cb30a44",
+            "selected_source_projection_bytes": 6057,
+            "selected_source_projection_sha256": "d1de21f732dd468018036ea8da3a9be0eb9bc8069db5b02f3124234aa63bd782",
+            "source_pack_bytes": 79417
+          },
+          "action_state": "proposed_not_executed",
+          "compatibility": "unknown",
+          "project_benefit_measured": false
+        }
+      },
+      "narrative_word_counts": {
+        "ru": 257,
+        "en": 257
+      }
+    },
+    {
+      "case_id": "CP04-V2-H11",
+      "confirmed_goals": [
+        "Store telemetry metrics/time series and compare specialized engines with analytical databases."
+      ],
+      "confirmed_constraints": [
+        "Synthetic telemetry context; preserve one evidence basis, unknowns, prerequisites and proposed-only status in RU/EN."
+      ],
+      "unknowns": {
+        "technical": [
+          "Event schema, required window aggregates, ingest/query interfaces, rate and retention"
+        ],
+        "architectural": [
+          "Existing database, whether PostgreSQL is used, permission to install extensions, hosting and recovery requirements"
+        ],
+        "product": [
+          "Required latency, correctness expectations, duplicate/late-event rules and acceptable operating burden"
+        ]
+      },
+      "conditional_decision": "Inspect InfluxDB first if metrics/events define the required storage role; consider QuestDB for a verified general time-series workload. Prefer investigating TimescaleDB only if an existing suitable PostgreSQL environment and extension permission are confirmed. Without workload/current-storage facts no adoption winner is justified.",
+      "set_assessment": "Same-role alternatives for one telemetry storage boundary. No source-supported division of work, cross-database connection or benefit from installing all three. One synthetic ingest/query slice isolates correctness and adoption burden.",
+      "proposals": [
+        {
+          "github_repository_id": 13124802,
+          "evidence_label": "H11-E1",
+          "confirmed_capability": "The snapshot identifies a datastore for metrics, events and real-time analytics; scale and latency are not measured here.",
+          "capability_source_field": "/descriptions/upstream",
+          "proposed_architectural_role": "Candidate telemetry datastore behind the service's ingest/query boundary; connection to current storage is unknown.",
+          "expected_project_benefit_hypothesis": "Metrics/events positioning may align with the known service purpose if required queries and correctness can be supported.",
+          "tradeoff": "Adoption requires verified ingest/query adaptation, hosting and recovery; effort and comparative operating cost are unknown.",
+          "alternative_comparison": "Its explicit metrics/events scope is the first inspection match, while QuestDB's description is broader time-series scope; no superiority in load/cost is established.",
+          "preference_reversal": "It fails required aggregates or duplicate/late-event rules, or suitable existing PostgreSQL with extension permission makes the TimescaleDB path viable.",
+          "decisive_next_check": "Define one event schema, window aggregate and duplicate/late-event rule; check selected-version interfaces and propose a synthetic ingest/query correctness slice.",
+          "compatibility": "unknown",
+          "project_benefit_measured": false,
+          "action_state": "proposed_not_executed",
+          "canonical_role": "reference_only",
+          "adoption_fit": "unknown",
+          "evidence_refs": [
+            {
+              "evidence_id": "ev-catalog-card",
+              "fields": [
+                "/identity",
+                "/catalog",
+                "/descriptions",
+                "/classifications",
+                "/delivery",
+                "/advisory",
+                "/provenance"
+              ],
+              "observed_at": "2026-09-01T02:33:10.288560Z",
+              "source_kind": "catalog_snapshot",
+              "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/13124802",
+              "verification": "derived_reviewed"
+            },
+            {
+              "evidence_id": "ev-catalog-repository",
+              "fields": [
+                "/repository",
+                "/activity"
+              ],
+              "observed_at": "2026-09-01T02:33:10.288560Z",
+              "source_kind": "catalog_snapshot",
+              "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/13124802",
+              "verification": "source_reported"
+            }
+          ],
+          "source_refs": [
+            {
+              "observed_at": "2026-09-01T02:33:10.288560Z",
+              "source_id": "src-catalog-snapshot",
+              "source_kind": "catalog_snapshot",
+              "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/13124802",
+              "verification": "derived_reviewed"
+            }
+          ],
+          "capability_binding": {
+            "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/13124802",
+            "evidence_id": "ev-catalog-card",
+            "field": "/descriptions/upstream"
+          }
+        },
+        {
+          "github_repository_id": 84240850,
+          "evidence_label": "H11-E2",
+          "confirmed_capability": "The snapshot identifies a time-series database for real-time analytics packaged as a Postgres extension; its performance wording is not a measurement.",
+          "capability_source_field": "/descriptions/upstream",
+          "proposed_architectural_role": "Conditional extension in an existing suitable PostgreSQL storage environment; that environment and permission are not confirmed.",
+          "expected_project_benefit_hypothesis": "If PostgreSQL already exists and extensions are allowed, an extension route may reuse part of the existing storage operation; compatibility, cost and effort are unmeasured.",
+          "tradeoff": "Requires compatible PostgreSQL and extension authorization/support, plus workload and recovery validation; adding PostgreSQL solely for this option has no established benefit.",
+          "alternative_comparison": "Investigate before the other datastore alternatives only when existing PostgreSQL and permission are confirmed; otherwise its proposed placement lacks a prerequisite.",
+          "preference_reversal": "PostgreSQL is absent/incompatible, extensions are forbidden, or required workload behavior fails.",
+          "decisive_next_check": "Confirm existing PostgreSQL version and extension permission; output confirmed/absent/unknown and allowed/forbidden/unknown before any extension pilot.",
+          "compatibility": "unknown",
+          "project_benefit_measured": false,
+          "action_state": "proposed_not_executed",
+          "canonical_role": "reference_only",
+          "adoption_fit": "unknown",
+          "evidence_refs": [
+            {
+              "evidence_id": "ev-catalog-card",
+              "fields": [
+                "/identity",
+                "/catalog",
+                "/descriptions",
+                "/classifications",
+                "/delivery",
+                "/advisory",
+                "/provenance"
+              ],
+              "observed_at": "2026-09-01T03:35:42.751481Z",
+              "source_kind": "catalog_snapshot",
+              "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/84240850",
+              "verification": "derived_reviewed"
+            },
+            {
+              "evidence_id": "ev-catalog-repository",
+              "fields": [
+                "/repository",
+                "/activity"
+              ],
+              "observed_at": "2026-09-01T03:35:42.751481Z",
+              "source_kind": "catalog_snapshot",
+              "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/84240850",
+              "verification": "source_reported"
+            }
+          ],
+          "source_refs": [
+            {
+              "observed_at": "2026-09-01T03:35:42.751481Z",
+              "source_id": "src-catalog-snapshot",
+              "source_kind": "catalog_snapshot",
+              "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/84240850",
+              "verification": "derived_reviewed"
+            }
+          ],
+          "capability_binding": {
+            "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/84240850",
+            "evidence_id": "ev-catalog-card",
+            "field": "/descriptions/upstream"
+          }
+        },
+        {
+          "github_repository_id": 19257422,
+          "evidence_label": "H11-E3",
+          "confirmed_capability": "The snapshot identifies an open-source time-series database; performance is not measured here.",
+          "capability_source_field": "/descriptions/upstream",
+          "proposed_architectural_role": "Alternative datastore at the same telemetry ingest/query boundary; API and existing architecture compatibility are unknown.",
+          "expected_project_benefit_hypothesis": "Time-series focus may fit time-window analysis if selected-version queries and correctness match the workload.",
+          "tradeoff": "An alternative storage engine needs verified ingestion/query adaptation and operating/recovery requirements; load and cost differences are unknown.",
+          "alternative_comparison": "Consider over InfluxDB if the actual query/correctness slice fits QuestDB better; source descriptions alone do not establish this. TimescaleDB needs its separate PostgreSQL prerequisite.",
+          "preference_reversal": "Required queries or event rules fail, or another candidate/current storage verifies the same need with acceptable burden.",
+          "decisive_next_check": "Check the required aggregate and duplicate/late-event rules against selected-version behavior, then propose the same synthetic ingest/query slice.",
+          "compatibility": "unknown",
+          "project_benefit_measured": false,
+          "action_state": "proposed_not_executed",
+          "canonical_role": "reference_only",
+          "adoption_fit": "unknown",
+          "evidence_refs": [
+            {
+              "evidence_id": "ev-catalog-card",
+              "fields": [
+                "/identity",
+                "/catalog",
+                "/descriptions",
+                "/classifications",
+                "/delivery",
+                "/advisory",
+                "/provenance"
+              ],
+              "observed_at": "2026-09-01T03:21:50.862142Z",
+              "source_kind": "catalog_snapshot",
+              "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/19257422",
+              "verification": "derived_reviewed"
+            },
+            {
+              "evidence_id": "ev-catalog-repository",
+              "fields": [
+                "/repository",
+                "/activity"
+              ],
+              "observed_at": "2026-09-01T03:21:50.862142Z",
+              "source_kind": "catalog_snapshot",
+              "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/19257422",
+              "verification": "source_reported"
+            }
+          ],
+          "source_refs": [
+            {
+              "observed_at": "2026-09-01T03:21:50.862142Z",
+              "source_id": "src-catalog-snapshot",
+              "source_kind": "catalog_snapshot",
+              "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/19257422",
+              "verification": "derived_reviewed"
+            }
+          ],
+          "capability_binding": {
+            "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/19257422",
+            "evidence_id": "ev-catalog-card",
+            "field": "/descriptions/upstream"
+          }
+        }
+      ],
+      "presentation": {
+        "ru": [
+          "Начните с изучения InfluxDB, если главное — хранить метрики и события: описание прямо совпадает с этой задачей [H11-E1]. Его предполагаемая роль — хранилище за границей приёма данных и запросов. Соответствие нужной аналитике — гипотеза; интерфейсы, эксплуатация и восстановление неизвестны. Победителя для внедрения пока выбрать нельзя: Brief не определяет запросы и нынешнюю базу.",
+          "QuestDB описан как база временных рядов [H11-E3], альтернатива на той же границе. Возможная польза — анализ временных окон, если обязательные запросы поддерживаются; это гипотеза. Предпочтите его InfluxDB, если одинаковая проверка покажет лучшее соответствие запросам и правилам событий. Описание этого не доказывает; адаптация интерфейсов и обслуживание неизвестны. Провал обязательного сценария меняет предпочтение любого кандидата.",
+          "TimescaleDB — база временных рядов в форме расширения Postgres [H11-E2]. Изучайте его первым только при подтверждённых существующем совместимом PostgreSQL и разрешении на расширения. Тогда он мог бы использовать существующее хранилище и часть его эксплуатации; выгода и совместимость неизвестны. Brief не подтверждает PostgreSQL. Отсутствие, несовместимая версия, запрет расширений или провал сценария меняют выбор.",
+          "Неизвестны схема, частота записи, срок хранения, агрегаты, допустимая задержка и правила дубликатов/поздних событий. Скорость, нагрузка и стоимость не сравнивались. Если нынешняя база достаточна, сохраняйте её. Все три — альтернативы одному хранилищу; польза совместной установки не показана. Один пилот позволит связать результат с движком.",
+          "Следующий вопрос: есть ли PostgreSQL и разрешены ли расширения; какой оконный агрегат и правила событий обязательны? Зафиксируйте подтверждено/отсутствует/неизвестно и разрешено/запрещено/неизвестно. Проверьте документацию версии, затем предложите искусственные события с известным агрегатом, дубликатом и поздним событием. Выход — ожидаемые/полученные значения, обработка каждого события и сохранность после перезапуска. При несовпадении сохраните нынешнюю базу и тестовые данные. Это варианты для изучения; подключение, миграция и проверки не выполнялись."
+        ],
+        "en": [
+          "Inspect InfluxDB first if metrics/events are the priority: its description directly matches that task [H11-E1]. Its proposed role is storage behind ingestion and queries. Fit to required analytics is hypothetical; interfaces, operation and recovery are unknown. No adoption winner is justified: the Brief does not define queries or current storage.",
+          "QuestDB is described as a time-series database [H11-E3], an alternative at the same boundary. Time-window analysis is a potential benefit if required queries are supported, not an observed result. Prefer it over InfluxDB if the same check shows better query/event-rule fit. Descriptions do not prove that; interface adaptation and upkeep are unknown. Failure of a mandatory scenario reverses any candidate preference.",
+          "TimescaleDB is a time-series database packaged as a Postgres extension [H11-E2]. Inspect it first only with confirmed existing compatible PostgreSQL and extension permission. It could reuse existing storage and part of its operation; benefit and compatibility are unknown. The Brief does not establish PostgreSQL. Absence, incompatible versions, forbidden extensions or workload failure reverses preference.",
+          "Schema, write rate, retention, aggregates, acceptable latency and duplicate/late-event rules are unknown. Speed, load and cost were not compared. Keep current storage if sufficient. All three are alternatives for one datastore; joint installation value is unproven. One pilot attributes results to an engine.",
+          "Next question: is PostgreSQL present and are extensions allowed; which window aggregate and event rules are mandatory? Record confirmed/absent/unknown and allowed/forbidden/unknown. Check version documentation, then propose synthetic events with a known aggregate, duplicate and late event. Output expected/observed values, handling per event and restart persistence. On mismatch retain current storage and test data. These are investigation options; connection, migration and checks have not been executed."
+        ]
+      },
+      "synthetic_context": "A synthetic telemetry service needs metrics/time-series storage. Produce paired RU/EN recommendations with the same evidence, unknowns, prerequisites and proposed-only execution status.",
+      "persona": "Russian-speaking engineer",
+      "selected_ids": [
+        13124802,
+        84240850,
+        19257422
+      ],
+      "capture_binding": {
+        "case_sha256": "942408b0dfc13ee4b5291cccc779454529b76cbfc5392ddc5d9d09bd43f4892d",
+        "controlled_input_bytes": 41479,
+        "full_capture_sha256": "f4de9527cc2c4d5d309915584644fb6c8fbd520cb52ac25060fa99b384bf105f",
+        "observation_file_sha256": "75e9e8e2346b3c57599fc12836ac917cd1eaa85e6bfa42c1771df4b2263114e7",
+        "observation_path": "evals/plugin-v1/results/cp04-v2-2026-10-08/held_out-observations.json",
+        "pack_sha256": "af679bc0249c2b82bc38d7d58c33011c49b90f3017c4b4337232845c03e98364",
+        "query_bytes": 699,
+        "query_sha256": "1996e070e44a4fd3b23a3de28af4d5e3952b741fe0a9f3cec1e3a66bf19e8ff1",
+        "result_sha256": "f9613ce72a2a3abba86dd9395df76b0612a77a5ee6e8f85f09f6d8998a11c7d7",
+        "selected_source_projection_bytes": 6171,
+        "selected_source_projection_sha256": "b7bee8bf986f3b695ce982c00bd12a99823471f8f33a4d3548deea5e9f674202",
+        "source_pack_bytes": 40780
+      },
+      "source_projection": {
+        "action_state": "proposed_not_executed",
+        "detailed_card_ids": [
+          13124802,
+          84240850,
+          19257422,
+          60246359,
+          138754790,
+          41986369
+        ],
+        "goal": "Хранить метрики и временные ряды, сравнить специализированные движки с аналитическими базами.",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "9678f5e265e4e3a33df3818f94c509c60728e994051ee72ec2050b0b093306c4",
+          "policy_sha256": "ff6e8444c4664492bb099f0819b2d284aa5c28f0d44c7a745c63f434c3489dbf",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        },
+        "ranked_ids": [
+          13124802,
+          84240850,
+          19257422,
+          60246359,
+          138754790,
+          41986369
+        ],
+        "reference_options": [
+          {
+            "activity": {
+              "last_commit_at": "2026-08-17T19:26:01Z",
+              "last_release_at": "2026-06-17T21:13:41Z",
+              "observed_at": "2026-09-01T02:33:10.288560Z"
+            },
+            "adoption_fit": "unknown",
+            "descriptions": {
+              "catalog": "Scalable datastore for metrics, events, and real-time analytics",
+              "catalog_origin": "upstream",
+              "upstream": "Scalable datastore for metrics, events, and real-time analytics"
+            },
+            "evidence": [
+              {
+                "evidence_id": "ev-catalog-card",
+                "fields": [
+                  "/identity",
+                  "/catalog",
+                  "/descriptions",
+                  "/classifications",
+                  "/delivery",
+                  "/advisory",
+                  "/provenance"
+                ],
+                "observed_at": "2026-09-01T02:33:10.288560Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/13124802",
+                "verification": "derived_reviewed"
+              },
+              {
+                "evidence_id": "ev-catalog-repository",
+                "fields": [
+                  "/repository",
+                  "/activity"
+                ],
+                "observed_at": "2026-09-01T02:33:10.288560Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/13124802",
+                "verification": "source_reported"
+              }
+            ],
+            "full_name": "influxdata/influxdb",
+            "github_repository_id": 13124802,
+            "required_verifications": [
+              "Verify the advisory fit fields against source-backed public evidence."
+            ],
+            "retrieval_rank": 1,
+            "role": "reference_only",
+            "sources": [
+              {
+                "observed_at": "2026-09-01T02:33:10.288560Z",
+                "source_id": "src-catalog-snapshot",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/13124802",
+                "verification": "derived_reviewed"
+              }
+            ],
+            "url": "https://github.com/influxdata/influxdb"
+          },
+          {
+            "activity": {
+              "last_commit_at": "2026-08-31T19:42:28Z",
+              "last_release_at": "2026-08-18T08:48:11Z",
+              "observed_at": "2026-09-01T03:35:42.751481Z"
+            },
+            "adoption_fit": "unknown",
+            "descriptions": {
+              "catalog": "A time-series database for high-performance real-time analytics packaged as a Postgres extension",
+              "catalog_origin": "upstream",
+              "upstream": "A time-series database for high-performance real-time analytics packaged as a Postgres extension"
+            },
+            "evidence": [
+              {
+                "evidence_id": "ev-catalog-card",
+                "fields": [
+                  "/identity",
+                  "/catalog",
+                  "/descriptions",
+                  "/classifications",
+                  "/delivery",
+                  "/advisory",
+                  "/provenance"
+                ],
+                "observed_at": "2026-09-01T03:35:42.751481Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/84240850",
+                "verification": "derived_reviewed"
+              },
+              {
+                "evidence_id": "ev-catalog-repository",
+                "fields": [
+                  "/repository",
+                  "/activity"
+                ],
+                "observed_at": "2026-09-01T03:35:42.751481Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/84240850",
+                "verification": "source_reported"
+              }
+            ],
+            "full_name": "timescale/timescaledb",
+            "github_repository_id": 84240850,
+            "required_verifications": [
+              "Verify the advisory fit fields against source-backed public evidence."
+            ],
+            "retrieval_rank": 2,
+            "role": "reference_only",
+            "sources": [
+              {
+                "observed_at": "2026-09-01T03:35:42.751481Z",
+                "source_id": "src-catalog-snapshot",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/84240850",
+                "verification": "derived_reviewed"
+              }
+            ],
+            "url": "https://github.com/timescale/timescaledb"
+          },
+          {
+            "activity": {
+              "last_commit_at": "2026-08-31T14:48:33Z",
+              "last_release_at": "2026-08-24T13:55:02Z",
+              "observed_at": "2026-09-01T03:21:50.862142Z"
+            },
+            "adoption_fit": "unknown",
+            "descriptions": {
+              "catalog": "QuestDB is a high performance, open-source, time-series database",
+              "catalog_origin": "upstream",
+              "upstream": "QuestDB is a high performance, open-source, time-series database"
+            },
+            "evidence": [
+              {
+                "evidence_id": "ev-catalog-card",
+                "fields": [
+                  "/identity",
+                  "/catalog",
+                  "/descriptions",
+                  "/classifications",
+                  "/delivery",
+                  "/advisory",
+                  "/provenance"
+                ],
+                "observed_at": "2026-09-01T03:21:50.862142Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/19257422",
+                "verification": "derived_reviewed"
+              },
+              {
+                "evidence_id": "ev-catalog-repository",
+                "fields": [
+                  "/repository",
+                  "/activity"
+                ],
+                "observed_at": "2026-09-01T03:21:50.862142Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/19257422",
+                "verification": "source_reported"
+              }
+            ],
+            "full_name": "questdb/questdb",
+            "github_repository_id": 19257422,
+            "required_verifications": [
+              "Verify the advisory fit fields against source-backed public evidence."
+            ],
+            "retrieval_rank": 3,
+            "role": "reference_only",
+            "sources": [
+              {
+                "observed_at": "2026-09-01T03:21:50.862142Z",
+                "source_id": "src-catalog-snapshot",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/19257422",
+                "verification": "derived_reviewed"
+              }
+            ],
+            "url": "https://github.com/questdb/questdb"
+          }
+        ],
+        "source_mode": "catalog_only",
+        "unknown_facts": [
+          "compatibility",
+          "adoption fit",
+          "selected-version requirements",
+          "current GitHub activity"
+        ]
+      },
+      "action_state": "proposed_not_executed",
+      "human_response": null,
+      "human_calibrated": false,
+      "promotion_ready": false,
+      "compatibility": "unknown",
+      "project_benefit_measured": false,
+      "presentation_bindings": {
+        "ru": {
+          "selected_ids": [
+            13124802,
+            84240850,
+            19257422
+          ],
+          "canonical_roles": [
+            {
+              "github_repository_id": 13124802,
+              "role": "reference_only"
+            },
+            {
+              "github_repository_id": 84240850,
+              "role": "reference_only"
+            },
+            {
+              "github_repository_id": 19257422,
+              "role": "reference_only"
+            }
+          ],
+          "capture_binding": {
+            "case_sha256": "942408b0dfc13ee4b5291cccc779454529b76cbfc5392ddc5d9d09bd43f4892d",
+            "controlled_input_bytes": 41479,
+            "full_capture_sha256": "f4de9527cc2c4d5d309915584644fb6c8fbd520cb52ac25060fa99b384bf105f",
+            "observation_file_sha256": "75e9e8e2346b3c57599fc12836ac917cd1eaa85e6bfa42c1771df4b2263114e7",
+            "observation_path": "evals/plugin-v1/results/cp04-v2-2026-10-08/held_out-observations.json",
+            "pack_sha256": "af679bc0249c2b82bc38d7d58c33011c49b90f3017c4b4337232845c03e98364",
+            "query_bytes": 699,
+            "query_sha256": "1996e070e44a4fd3b23a3de28af4d5e3952b741fe0a9f3cec1e3a66bf19e8ff1",
+            "result_sha256": "f9613ce72a2a3abba86dd9395df76b0612a77a5ee6e8f85f09f6d8998a11c7d7",
+            "selected_source_projection_bytes": 6171,
+            "selected_source_projection_sha256": "b7bee8bf986f3b695ce982c00bd12a99823471f8f33a4d3548deea5e9f674202",
+            "source_pack_bytes": 40780
+          },
+          "action_state": "proposed_not_executed",
+          "compatibility": "unknown",
+          "project_benefit_measured": false
+        },
+        "en": {
+          "selected_ids": [
+            13124802,
+            84240850,
+            19257422
+          ],
+          "canonical_roles": [
+            {
+              "github_repository_id": 13124802,
+              "role": "reference_only"
+            },
+            {
+              "github_repository_id": 84240850,
+              "role": "reference_only"
+            },
+            {
+              "github_repository_id": 19257422,
+              "role": "reference_only"
+            }
+          ],
+          "capture_binding": {
+            "case_sha256": "942408b0dfc13ee4b5291cccc779454529b76cbfc5392ddc5d9d09bd43f4892d",
+            "controlled_input_bytes": 41479,
+            "full_capture_sha256": "f4de9527cc2c4d5d309915584644fb6c8fbd520cb52ac25060fa99b384bf105f",
+            "observation_file_sha256": "75e9e8e2346b3c57599fc12836ac917cd1eaa85e6bfa42c1771df4b2263114e7",
+            "observation_path": "evals/plugin-v1/results/cp04-v2-2026-10-08/held_out-observations.json",
+            "pack_sha256": "af679bc0249c2b82bc38d7d58c33011c49b90f3017c4b4337232845c03e98364",
+            "query_bytes": 699,
+            "query_sha256": "1996e070e44a4fd3b23a3de28af4d5e3952b741fe0a9f3cec1e3a66bf19e8ff1",
+            "result_sha256": "f9613ce72a2a3abba86dd9395df76b0612a77a5ee6e8f85f09f6d8998a11c7d7",
+            "selected_source_projection_bytes": 6171,
+            "selected_source_projection_sha256": "b7bee8bf986f3b695ce982c00bd12a99823471f8f33a4d3548deea5e9f674202",
+            "source_pack_bytes": 40780
+          },
+          "action_state": "proposed_not_executed",
+          "compatibility": "unknown",
+          "project_benefit_measured": false
+        }
+      },
+      "narrative_word_counts": {
+        "ru": 263,
+        "en": 273
+      }
+    }
+  ],
+  "instruction_file": "plugins/myai-stackguide/skills/myai-stackguide/SKILL.md",
+  "instruction_sha256": "21ff59a7cb0465ab6f8307b29427096d369f2470d231ba410a8de95707d6246e",
+  "previously_read_instruction_sha256": "2e6765c803ad18941884f8d399942ec2ea336bd3e6e5d100216bbadcedc282ab",
+  "final_instruction_reread_before_composition_freeze": true,
+  "baseline_file": "evals/plugin-v1/results/cp04-v2-2026-10-08/project-fit-baseline.json",
+  "baseline_sha256": "0d59ad368e2b98e22334cac7ae5d6d1b86a75f4d51a15c6145cddbe2b37ced18",
+  "input_file": "evals/plugin-v1/results/cp04-v2-2026-10-08/recommendation-calibration.json",
+  "input_sha256": "c71f2799c86ebd725545825715f8dc32441f33a31f03f132dc52311f59a99377",
+  "source_observation_hashes": {
+    "development-observations.json": "c8f014de13425f6c783443f1f4ec298c3496f40b8079c06800f7328c99c15ee3",
+    "held_out-observations.json": "75e9e8e2346b3c57599fc12836ac917cd1eaa85e6bfa42c1771df4b2263114e7"
+  },
+  "plan_sha256": "f26446a472148fd6a880a8b9d38eab03ded261c5f32cea69569fc3b344b47a44",
+  "sources_read": [
+    "plugins/myai-stackguide/skills/myai-stackguide/SKILL.md",
+    "evals/plugin-v1/results/cp04-v2-2026-10-08/project-fit-baseline.json",
+    "evals/plugin-v1/results/cp04-v2-2026-10-08/recommendation-calibration.json",
+    "docs/PRODUCT_REQUIREMENTS.md",
+    "EVALS.md",
+    "PLAN.md",
+    "docs/plan/plugin-v1-team-contracts.md",
+    ".codex/TEAM.md",
+    ".codex/artifact-templates/agent-task-packet.md",
+    ".codex/agent-eval-workflow.md",
+    "evals/plugin-v1/runner-contract.md",
+    ".agents/skills/design-recommendation-evals/SKILL.md",
+    ".agents/skills/review-advisory-evidence/SKILL.md"
+  ],
+  "source_file_sha256": {
+    "plugins/myai-stackguide/skills/myai-stackguide/SKILL.md": "21ff59a7cb0465ab6f8307b29427096d369f2470d231ba410a8de95707d6246e",
+    "evals/plugin-v1/results/cp04-v2-2026-10-08/project-fit-baseline.json": "0d59ad368e2b98e22334cac7ae5d6d1b86a75f4d51a15c6145cddbe2b37ced18",
+    "evals/plugin-v1/results/cp04-v2-2026-10-08/recommendation-calibration.json": "c71f2799c86ebd725545825715f8dc32441f33a31f03f132dc52311f59a99377",
+    "docs/PRODUCT_REQUIREMENTS.md": "db961f10455bc221ebe5cdde0f30b6db4c44399ee2e4822062ceb09f00dd2fdd",
+    "EVALS.md": "25bea9304bd9355aa828a306451d2cfa6bd117be574d96d378d0e1c5ac314cd1",
+    "PLAN.md": "a79ebfb8f635fd08b684b451d53545596c72bd81d79813874441b17fda549075",
+    "docs/plan/plugin-v1-team-contracts.md": "f0128a424548713e764b0fae8103dd4b48ce80b0ea2e74dcc7a51356fb74935a",
+    ".codex/TEAM.md": "cbd737fa66bedd78de6a7999751b26725a5cf00a15668d05c844c1715d4854fc",
+    ".codex/artifact-templates/agent-task-packet.md": "8989222a6c662a79d333f32e1d9dba023bf138f4a68efcec3da50fa8f3de2a2d",
+    ".codex/agent-eval-workflow.md": "c442c95dc03cd0ba5a6b3b820bc887b599a8faa8ad54f725e295eb6f71b7cc1a",
+    "evals/plugin-v1/runner-contract.md": "9c52f1d2cd91dd3cd365f3abb56ecc0b09670e3a82ceaa695a8762a70208fea8",
+    ".agents/skills/design-recommendation-evals/SKILL.md": "ea8c1b2c92f57453dbdd769ccc95a13b9b2ec9939705ea2114a1e8cfa6ae615d",
+    ".agents/skills/review-advisory-evidence/SKILL.md": "1ea8433afabfd9cde263323a2cb3cf6ad161f38f1923d53fb5252bec7d71055d"
+  },
+  "review": {
+    "self_review": "Source scope, hypotheses, conditional choice, role/authority and paired meaning explicitly reviewed; independent review pending.",
+    "independent_reviewer": "evidence_reviewer Astra; assigned by primary",
+    "independent_review_status": "pending",
+    "numeric_scores": null,
+    "human_response": null,
+    "human_calibrated": false,
+    "promotion_ready": false
+  }
+}

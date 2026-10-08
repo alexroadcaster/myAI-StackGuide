@@ -1,0 +1,20 @@
+{
+  "schema_version": "cp04_agent_usefulness_adjudication_v2",
+  "recorded_by": "primary_agent_from_independent_reviewer_handoff",
+  "review_kind": "agent_only",
+  "blind_review_sha256": "7be8339a82cafa423eb18c96d47bac73c2c33631d251d2e5a6722eb961fa8ba9",
+  "author_review_sha256": "6e308f415e56987638a4935a197f2aa073008e37816830a5a365bd11d3a7b498",
+  "author_disclosed_only_after_blind_freeze": true,
+  "author_scores_are_paired_not_locale_specific": true,
+  "differences": {
+    "H03": "Author20; reviewer RU19/EN20: RU plain language English density.",
+    "D05": "Author19 Plain1/Integration2; reviewer RU18/EN19, Integration1 both locales; EN Plain2. Equal EN total masks dimension disagreement.",
+    "H15": "Author20; reviewer RU18/EN19: authority1 both locales for redundant approval; RU plain language1 for grammatical cases/calques.",
+    "H11": "Author19 Plain1; reviewer RU19/EN20, agrees RU; EN plain language2."
+  },
+  "decision": "Preserve independent per-locale distinctions and author scores separately pending human review; no averaging or after-freeze text changes.",
+  "critical_text_failures_observed": [],
+  "human_response": null,
+  "human_calibrated": false,
+  "promotion_ready": false
+}

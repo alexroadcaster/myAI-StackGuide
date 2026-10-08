@@ -1,0 +1,39 @@
+{
+  "browser_observed": false,
+  "case_id": "CP04-V2-D05",
+  "commands": [
+    ".venv/Scripts/python.exe -B evals/plugin-v1/capture_quality_join_v2.py"
+  ],
+  "cp11_complete": false,
+  "human_acceptance": false,
+  "observation_file_sha256": "c8f014de13425f6c783443f1f4ec298c3496f40b8079c06800f7328c99c15ee3",
+  "pack_sha256": "8793578b12eeb0f21261cc8a20bf3d381649d69b68fd1a9292737bf3a19cf085",
+  "pins": {
+    "activity_schema_version": "2.0.0",
+    "card_schema_version": "2.0.0",
+    "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+    "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+    "corpus_kind": "catalog_snapshot",
+    "index_format_version": 3,
+    "index_sha256": "9678f5e265e4e3a33df3818f94c509c60728e994051ee72ec2050b0b093306c4",
+    "policy_sha256": "ff6e8444c4664492bb099f0819b2d284aa5c28f0d44c7a745c63f434c3489dbf",
+    "retrieval_policy_version": "2.1.0",
+    "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+    "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+  },
+  "plan_sha256": "f26446a472148fd6a880a8b9d38eab03ded261c5f32cea69569fc3b344b47a44",
+  "proposed_advice": "conditional guidance with no adoption recommendations or executed integration",
+  "query_sha256": "a5ea3515449acaba687837efb3a685d13e9398e0db340bd15bf0a4fda62bff67",
+  "repair_amendment_sha256": "eb58c6fc17c2ed4483963ca9bc46217147bc4b6daf52921ae4c1199788f7e641",
+  "result_sha256": "ffd6c1f685e735ed53d918b7ecc82ae3b12623f70b7ed219a17837a39d20a952",
+  "schema_version": "cp04_actual_writer_join_declaration_v2",
+  "scope": "actual public producer capture -> synthetic Brief -> offline schema/relations -> owned locked writer -> HTML publication -> read resume",
+  "source_hashes": {
+    "evals/plugin-v1/capture_quality_join_v2.py": "33e62b9c4e61f1df4e732a28d0c04ade6c70ebf20accad47a284b0b0d057840a",
+    "evals/plugin-v1/capture_quality_join_v2_repair.py": "f4febec635f2144bc746cdf14217ccc78dc1553fd435a90eb2084c5d6d374343",
+    "plugins/myai-stackguide/scripts/render_report.py": "2875b67ac48b8dd69f065584c493f38be7d6669056090aafb3c9d9db49717eb7",
+    "plugins/myai-stackguide/scripts/state_store.py": "cbf22c94f291241f531bb13392cb9e6d98196b4a569586034f1fe89f623b0222",
+    "tests/fixtures/plugin_contracts.json": "706e31ad5925f2fc681bbaf37828abc1c8ab358964e61aa522b41ed5f454285a",
+    "tests/test_plugin_contracts.py": "6df36da868cd3228d6a6690aaf7555d5f32a93a31183ccdd482c2acec65c3094"
+  }
+}

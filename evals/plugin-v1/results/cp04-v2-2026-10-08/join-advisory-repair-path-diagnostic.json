@@ -1,0 +1,25 @@
+{
+  "acl_changes": false,
+  "case_id": "CP04-V2-D05",
+  "component": "Windows pathlib.Path.resolve(strict=True) on owned synthetic project",
+  "diagnostic_distinction": "Original exception stack was not captured; later read-only diagnostics identify canonical path access failure, not a semantic state validation failure.",
+  "directory_entries": [
+    "docs/",
+    "docs/myai-stackguide/"
+  ],
+  "elevation": false,
+  "exception_type": "PermissionError",
+  "file_entries": [],
+  "fixture_alias": ".codex-tmp/cp04-v2-join-advisory-project",
+  "html_published": false,
+  "later_readonly_root_validation_reason": "invalid_root",
+  "original_join_reason": "state_invalid",
+  "promotion_ready": false,
+  "read_resume_observed": false,
+  "reason": "Access is denied",
+  "schema_relations_and_readonly_validate_state_passed": true,
+  "schema_version": "cp04_join_canonical_path_failure_v2",
+  "state_saved": false,
+  "winerror": 5,
+  "writer_retries_after_final_attempt": 0
+}

@@ -1,0 +1,82 @@
+{
+  "schema_version": "cp04_project_fit_review_v1",
+  "reviewer_kind": "model",
+  "requested_model": "gpt-6-astra",
+  "requested_reasoning_effort": "medium",
+  "review_kind": "prospective_same_capture_qualitative_comparison_not_blind",
+  "recorded_by": "primary_from_frozen_read_only_Astra_handoff",
+  "human_feedback_kind": "Owner clarified that end users must understand project-specific technical, architectural and product usefulness; prior explanation was unclear. No per-case acceptance scores inferred.",
+  "criteria": [
+    "Confirmed goal and project constraint are distinguished from unknowns.",
+    "Source-supported capability explains mechanism and expected project benefit; unmeasured benefit is a hypothesis.",
+    "Conditional comparison explains preference and when it reverses.",
+    "Architecture placement, integration cost and set member roles are explained or explicitly unknown.",
+    "A concrete next check resolves a decision-changing uncertainty.",
+    "RU/EN preserves facts, uncertainty, roles and proposed status; plain language is persona-appropriate."
+  ],
+  "matrix": {
+    "CP04-V2-H03": [
+      "unchanged",
+      "improved",
+      "improved",
+      "improved",
+      "improved",
+      "improved"
+    ],
+    "CP04-V2-D05": [
+      "unchanged",
+      "improved",
+      "improved",
+      "improved",
+      "improved",
+      "improved"
+    ],
+    "CP04-V2-H15": [
+      "unchanged",
+      "improved",
+      "improved",
+      "improved",
+      "improved",
+      "improved"
+    ],
+    "CP04-V2-H11": [
+      "unchanged",
+      "improved",
+      "improved",
+      "improved",
+      "improved",
+      "improved"
+    ]
+  },
+  "regressions_observed": [],
+  "critical_invented_project_source_parity_action_errors_observed": [],
+  "checks": {
+    "exact_canonical_source_context_capture_selected_id_joins": 4,
+    "exact_proposal_evidence_source_references": 10,
+    "primary_locale_markdown_text_parity": 8,
+    "primary_protected_hashes_unchanged": 41,
+    "git_diff_check": "pass"
+  },
+  "nonblocking_findings": [
+    "H15 remains long/dense for a low-context operator; foreground device/offline question and show the relevant conditional branch."
+  ],
+  "limits": [
+    "Model-authored fresh-context compositions after explicit instruction reads plus static review; not installed-plugin routing or activation.",
+    "Comparison is not blinded and not a controlled causal attribution to prompt alone.",
+    "All four examples are same-role alternatives; complementary sets lack a positive worked-case evaluation.",
+    "Project benefits, compatibility and time/cost/performance improvements are not measured.",
+    "Old retrieval judgments and numerical advisory grades remain frozen; failed CP04 gates are not waived."
+  ],
+  "human_calibrated": false,
+  "promotion_ready": false,
+  "parent_task_status": "in_progress",
+  "parent_evidence_status": "partially_verified",
+  "parent_quality_verdict": "no_go",
+  "tokens": null,
+  "provider_cost_usd": null,
+  "artifact_sha256": {
+    "plugins\\myai-stackguide\\skills\\myai-stackguide\\SKILL.md": "21ff59a7cb0465ab6f8307b29427096d369f2470d231ba410a8de95707d6246e",
+    "evals\\plugin-v1\\results\\cp04-v2-2026-10-08\\project-fit-explanations.json": "32e7f42a8535d32ab429a42b0d3c176060b73e5232ebf3f7a995f9937ab46856",
+    "docs\\reports\\cp04-project-fit-examples-2026-10-08.md": "7b86340383f6f551fdd575ce0a52175494accf126b5159749c25c626a2365b39"
+  }
+}

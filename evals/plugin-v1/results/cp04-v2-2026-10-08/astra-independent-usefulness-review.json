@@ -1,0 +1,144 @@
+{
+  "schema_version": "cp04_astra_blind_review_v1",
+  "task_id": "CP-04",
+  "reviewer_kind": "model",
+  "requested_model": "gpt-6-astra",
+  "requested_reasoning_effort": "medium",
+  "recorded_by": "primary_from_frozen_fresh_context_reviewer_handoff",
+  "prior_scores_seen_before_freeze": false,
+  "advice_sha256": "c71f2799c86ebd725545825715f8dc32441f33a31f03f132dc52311f59a99377",
+  "human_packet_sha256": "bca490fcdb933c9211dde6ff8625914241ea1d20fe4447228d25e8ec7ee2ff29",
+  "dimensions": [
+    "context",
+    "category",
+    "shortlist_roles",
+    "avoid_defer",
+    "evidence_provenance_activity",
+    "caveats",
+    "integration_validation_reading_path",
+    "plain_language",
+    "authorized_handoff",
+    "privacy_permissions"
+  ],
+  "scores": {
+    "H03": {
+      "ru": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        1,
+        1,
+        2,
+        2
+      ],
+      "en": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        1,
+        1,
+        2,
+        2
+      ]
+    },
+    "D05": {
+      "ru": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        1,
+        1,
+        2,
+        2
+      ],
+      "en": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        1,
+        2,
+        2,
+        2
+      ]
+    },
+    "H15": {
+      "ru": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        1,
+        1,
+        2,
+        2
+      ],
+      "en": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        1,
+        1,
+        2,
+        2
+      ]
+    },
+    "H11": {
+      "ru": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        1,
+        1,
+        2,
+        2
+      ],
+      "en": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        1,
+        2,
+        2,
+        2
+      ]
+    }
+  },
+  "critical_failures_observed": [],
+  "binding_checks": {
+    "capture_observation_pack_hashes_equal": 12,
+    "expected": 12
+  },
+  "findings": [
+    "H15 RU grammatical errors and jargon for low-context reader.",
+    "H03 founder explanations contain unexplained specialist terms in both languages.",
+    "All four reading paths remain generic repository/version documentation, reducing integration/validation usefulness."
+  ],
+  "fact_negation_authority_reversals_observed": false,
+  "human_calibrated": false,
+  "promotion_ready": false,
+  "tokens": null,
+  "provider_cost_usd": null
+}

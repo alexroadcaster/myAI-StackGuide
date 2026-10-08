@@ -1,0 +1,56 @@
+{
+  "schema_version": "cp04_blueprint_evaluator_independent_review_v1",
+  "reviewer": "cp04_astra_independent",
+  "requested_model": "gpt-6-astra",
+  "requested_reasoning_effort": "medium",
+  "review_scope": "Frozen captured D05/H15 evaluator, tests, contract and receipt; read-only source review and bounded in-memory tests",
+  "reviewed_sha256": {
+    "evals/plugin-v1/evaluate_solution_blueprint.py": "b1eeaf28b655a79dfd72a43b516a833d3de5811d3e34dc7c4fb6de3855207902",
+    "tests/test_plugin_solution_blueprint_eval.py": "08713124ccc95441f904d525ffbbf7d0f99472b7a3560a547ae74dd53991abb1",
+    "evals/plugin-v1/solution-blueprint-eval-contract.md": "9380b05aa504bb110473679a085006d04b954db737d05448faf991039d441720",
+    "evals/plugin-v1/results/cp04-v2-2026-10-08/solution-blueprint-eval-result.json": "59e886da369ff2610fce78189350ad8bbd3d938fe19f647d9b74a95c3d36e2a8"
+  },
+  "verdict": "no_blocking_findings_within_declared_profile",
+  "blocking_findings": [],
+  "independent_execution": {
+    "method": "Project .venv Python -B, 15 pure in-memory unittest methods; two test_cli methods excluded to avoid file writes",
+    "test_count": 15,
+    "passed": 15,
+    "exit_code": 0,
+    "elapsed_seconds": 0.244,
+    "files_touched": [],
+    "network_or_browser_used": false
+  },
+  "confirmed": [
+    "External trusted source and acceptance pins; CLI byte pins; candidate bytes may vary",
+    "Exact immutable source/context, repository ownership and reference-only roles",
+    "Bool/numeric distinction and bounded finite-number handling",
+    "Unique phases, pilot inclusion, sums, hours/day, calendar ceiling, remaining effort and H15 unknown total",
+    "Locale bindings compare with canonical data, not just each other",
+    "Explicit bounded input paths; metadata paths and source references never followed",
+    "Sanitized typed errors and exclusive output creation",
+    "contract_verified_only with semantic review required and false promotion/calibration/installed flags"
+  ],
+  "nonblocking_limitations": [
+    {
+      "code": "repository_bundle_only",
+      "location": "evals/plugin-v1/evaluate_solution_blueprint.py:405",
+      "detail": "Provenance hashing reads evaluator/test/contract source files outside the typed input handler. The verified repository bundle contains them. A future standalone package missing these files could abort instead of returning invalid_input; standalone distribution robustness is unverified."
+    },
+    {
+      "code": "semantic_review_required",
+      "detail": "Presence of three comparison options is not proof of their meanings. Narrative source faithfulness, privacy, usefulness, forecast accuracy and architecture/complexity locale meaning remain outside deterministic verification."
+    },
+    {
+      "code": "frozen_profile_only",
+      "detail": "New cases require an explicit profile update. Positive complementary-set quality is not established by these same-role-alternative examples."
+    }
+  ],
+  "owner_format_accepted": true,
+  "human_calibrated": false,
+  "estimate_calibrated": false,
+  "installed_runtime_verified": false,
+  "promotion_ready": false,
+  "parent_quality_verdict": "no_go",
+  "tokens_and_cost": null
+}
