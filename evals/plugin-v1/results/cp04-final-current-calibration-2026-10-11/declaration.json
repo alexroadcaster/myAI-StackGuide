@@ -1,0 +1,41 @@
+{
+  "schema_version": "cp04_current_calibration_declaration_v1",
+  "source_hashes": {
+    "evals/plugin-v1/run_final_current_calibration.py": "93a2fb2b9ced4fde922d29de4c9b698cd9b68d48d0f5a33e0ed4b22ce3eab9d5",
+    "evals/plugin-v1/results/cp04-2026-10-08/recommendation-calibration.json": "51cf75197fb067e56593d4336a2e909c39e30e457d33f71274fd1ddcf558f05c",
+    "evals/plugin-v1/results/cp04-final-answers-repair-2026-10-11/cases.json": "50ffcd56a49e7ede8cd2bd14bbb22c596361ed53d33aee7b71afdffe2eea856a",
+    "plugins/myai-stackguide/skills/myai-stackguide/SKILL.md": "709675d47ac3837a9e1f86789d523d1d646761b810b811d03732435dd5050c5a",
+    "evals/plugin-v1/final-answer.schema.json": "6b42babdc4e2b66ac72753eb30ad6fb7d82a645bc6f9df6404a81d6110124fee",
+    "evals/plugin-v1/rubric.json": "96f67da80234d4ade36c9b5e5fb50276398acce76751513e9e041926b74f3fef",
+    ".codex/config.toml": "5691850c7dd4679723f95ac806b9419de29b85f1b418ad823056587fd872b612",
+    "evals/plugin-v1/run_brief_dialogue.py": "7b0b8f53f071ccbfeb7772b01f5759bd1905da268cb79f0dd06e46dded8aeb35",
+    "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/cases.json": "54bd6b14cdc70fd8a19d9ca3bbc597d720a80ddd031f9596dd061773d6f39b19",
+    "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/host-sources.json": "e5c5d140967a1db6ddf6716aa33a3b15ec2db40d43610f8483b09c7cc8a98f1b",
+    "plugins/myai-stackguide/scripts/recommendation_request.py": "3c3d188d51d5c6da55de2fc1655874d15f4919cecae9bea40fa71810d3084ad9",
+    "plugins/myai-stackguide/scripts/request_guard.py": "e6745044d2e90a17b830bc6ba7d14a46ea7b7ba7a7ca2141a2b97d3b9639d775",
+    "plugins/myai-stackguide/scripts/retrieval.py": "6cd0a8012ed47374afee68c957a7369020775562d21b0d8b2649ec3b850f14dd",
+    "plugins/myai-stackguide/scripts/context_pack.py": "0dd03df31580b3980275aa42fcdae01e3d446986e9e32995879f4502c1198276",
+    "plugins/myai-stackguide/scripts/context.py": "e47623d6c3147c7702d3d5b3565bcd651838b2d107ae105a996989cf60fc29dd",
+    "plugins/myai-stackguide/scripts/answer_presentation.py": "36e1a95b8a29185b7f63bdfb5edc5e93fbd6530e3b20b0274b032b115206e537",
+    "plugins/myai-stackguide/assets/catalog.snapshot.json": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+    "plugins/myai-stackguide/assets/catalog.search.sqlite": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+    "plugins/myai-stackguide/assets/catalog.search-manifest.json": "4c1c9eccf6df60d92da5d780a8152ce3fb00e43ccbf80e8ed01c3c660135a1bb",
+    "plugins/myai-stackguide/assets/retrieval-policy.json": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b"
+  },
+  "canonical_case_sha256": "14946503b84ca82ddaadf3f85961ee6acf4dd34de4bc83f562e0e77e6eb04961",
+  "model_selection": "Inherited repository configuration, no model/effort override",
+  "configured_model": "gpt-6.1-sol",
+  "configured_effort": "high",
+  "prompt_recipe": "Frozen driver prompt function; EN input additionally binds actual completed RU JSON",
+  "russian_prompt_sha256": {
+    "CP04-DEV-08": "164f04db0827902903d463018031ade71365ad6255c99d9b4df552b45a1d04f2",
+    "CP04-HOLD-10": "030cb0c70cbc177d83894e30ead7adfe9f88ecba1c893739612a7c8152ea2eb4",
+    "CP04-DEV-11": "3a12d37c6fa7b78751d632e755d4fc6540315086f40983fcc6fc79baa4ba71eb",
+    "CP04-HOLD-12": "21cd735b5a7c4e1014708e6f5eaba6e1ecfb5dfcf41def3a502752a0e56fe252"
+  },
+  "scope": "Four existing human calibration cases; fixed provided interpretation; actual current production COUNT/C9/guard/pack and eight actual CLI compositions. No fresh interpretation/dialogue or grades.",
+  "max_actual_model_calls": 8,
+  "max_concurrent_calls": 2,
+  "human_acceptance": false,
+  "promotion_ready": false
+}

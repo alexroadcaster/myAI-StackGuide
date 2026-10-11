@@ -1,6 +1,6 @@
 {
   "schema_version": "2.1.0",
-  "policy_id": "fts5-local-v2.1",
+  "policy_id": "fts5-local-v2.1-source-text-underfill-2026-10-11",
   "source_mode": "catalog_only",
   "retrieval_engine": "sqlite_fts5",
   "tokenizer": "unicode61",
@@ -10,15 +10,15 @@
   "prefix_queries": false,
   "model_supplied_sql": false,
   "field_weights": {
-    "full_name": 5.0,
-    "full_name_aliases": 5.0,
+    "full_name": 0.25,
+    "full_name_aliases": 0.25,
     "upstream_description": 3.0,
     "catalog_description": 3.0,
-    "topics": 3.0,
-    "category_labels": 1.0,
-    "use_cases": 3.0,
-    "integration_surface": 3.0,
-    "best_for": 2.0
+    "topics": 1.0,
+    "category_labels": 0.25,
+    "use_cases": 1.0,
+    "integration_surface": 1.0,
+    "best_for": 1.0
   },
   "rank_fusion": {
     "method": "rrf",
@@ -85,6 +85,24 @@
       "terms": [
         "search",
         "поиск"
+      ]
+    },
+    {
+      "canonical": "tasks",
+      "terms": [
+        "задачи"
+      ]
+    },
+    {
+      "canonical": "sprints",
+      "terms": [
+        "спринты"
+      ]
+    },
+    {
+      "canonical": "project",
+      "terms": [
+        "проект"
       ]
     }
   ],

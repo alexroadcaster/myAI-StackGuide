@@ -1,0 +1,29 @@
+{
+  "schema_version": "cp04_host_final_mapping_binding_v1",
+  "checks": "passed",
+  "contract_sha256": "d9851beb9692039906602380fedea1d95ec3a5b9dd7489f5d0cb2b75edb56d48",
+  "source_questions_sha256": "bbcc1b9eb3613f4496ea7bd659825de5f2cfaa24399ff527e12a7fe4eb223f56",
+  "host_prospective_plan_sha256": "aceba6767fafcadf0f937de9bb078b2474894b036d3966635747c1e77177b475",
+  "architect_binding": {
+    "source_hashes": {
+      "specs/retrieval/candidate-decision.schema.json": "83373eb4ec2b0f8270d4d7e6750bc1419591151338c023f018670214ec278f92",
+      "specs/retrieval/candidate-decision-contract.md": "21106a3d580672f1b86caaad6edec82d9e53f0e11e6b4689439ce909961d3bc6"
+    },
+    "outer_schema_version": "1.0.0",
+    "method": "host_codex_full_pool_v1"
+  },
+  "product_review_sha256": "6890589ecc69732236b800f9326af58dba621b66c0418b1e9c3013b31cc1f8e8",
+  "supersedes_only_mapping_binding": "static-validation.json retains prior authored mapping hash",
+  "rank_or_model_calls": 0,
+  "source_adoption_limits": [
+    {
+      "github_repository_id": 23405758,
+      "url": "https://github.com/google/leveldb",
+      "fact": "LevelDB README describes very limited maintenance; embedded ordered-storage role does not establish adoption readiness.",
+      "attribution": "Independent evidence reviewer primary README read, relayed by root 2026-10-11",
+      "numeric_grade_changed": false
+    }
+  ],
+  "human_acceptance": false,
+  "promotion_ready": false
+}

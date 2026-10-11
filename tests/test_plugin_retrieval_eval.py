@@ -2,6 +2,7 @@
 
 import copy
 import importlib.util
+import hashlib
 import math
 import tempfile
 import unittest
@@ -54,7 +55,12 @@ class MetricGoldenCases(unittest.TestCase):
 class QualityPlanContractCases(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
+        # Validate unchanged quality rules against the active tuple without
+        # rewriting the historical frozen plan or its captures.
         cls.plan = EVAL.load_json(ROOT / 'evals/plugin-v1/quality-plan.json')
+        manifest_path = ROOT / cls.plan['artifacts']['manifest_path']
+        cls.plan['pins'] = EVAL.load_json(manifest_path)['pins']
+        cls.plan['artifacts']['manifest_sha256'] = hashlib.sha256(manifest_path.read_bytes()).hexdigest()
 
     def invalid_plan(self, mutate, message):
         plan = copy.deepcopy(self.plan)
@@ -145,10 +151,11 @@ class QualityPlanContractCases(unittest.TestCase):
             EVAL.lexical_baseline(cards, ['editor'], ceiling + 1)
 
     def test_quality_plan_cli_is_validation_only(self):
-        path = str(ROOT / 'evals/plugin-v1/quality-plan.json')
-        with patch('builtins.print'):
-            self.assertEqual(EVAL.main(['--quality-plan', path]), 0)
-            self.assertEqual(EVAL.main(['--quality-plan', path, '--results', 'unused.json']), 2)
+        with tempfile.TemporaryDirectory() as directory, patch('builtins.print'):
+            path = Path(directory) / 'active-plan.json'
+            path.write_bytes(EVAL.canonical(self.plan))
+            self.assertEqual(EVAL.main(['--quality-plan', str(path)]), 0)
+            self.assertEqual(EVAL.main(['--quality-plan', str(path), '--results', 'unused.json']), 2)
 
 
 class CaptureSemanticCases(unittest.TestCase):
@@ -203,7 +210,7 @@ class CapturedContractCases(unittest.TestCase):
         cls.captures = EVAL.load_json(ROOT / 'tests/fixtures/plugin_retrieval_eval.json')
 
     def grade(self, captures=None, cases=None):
-        return EVAL.evaluate(cases or self.cases, captures or self.captures, self.contracts)
+        return EVAL.evaluate(cases or self.cases, captures or self.captures, self.contracts, policy_source='tests/fixtures/plugin_retrieval_policy.json')
 
     def invalid(self, mutate, message=None):
         captures = copy.deepcopy(self.captures)
@@ -382,7 +389,7 @@ class CapturedContractCases(unittest.TestCase):
         cases = copy.deepcopy(self.cases)
         cases['cases'][0]['index_manifest']['built_at'] = '2026-99-99T00:00:00Z'
         with self.assertRaisesRegex(ValueError, 'schema validation'):
-            EVAL.validate_cases(cases, self.contracts)
+            EVAL.validate_cases(cases, self.contracts, policy_source='tests/fixtures/plugin_retrieval_policy.json')
 
     def test_case_pin_corruption_and_duplicate_judgments(self):
         for mutate in [lambda c: c.update(contract_set_sha256='f' * 64),
@@ -391,7 +398,7 @@ class CapturedContractCases(unittest.TestCase):
             cases = copy.deepcopy(self.cases)
             mutate(cases)
             with self.assertRaises(ValueError):
-                EVAL.validate_cases(cases, self.contracts)
+                EVAL.validate_cases(cases, self.contracts, policy_source='tests/fixtures/plugin_retrieval_policy.json')
 
     def test_mandatory_constraint_cannot_have_missing_target(self):
         for key, value in [('allowed_licenses', []), ('languages', []), ('deployment', []),
@@ -399,24 +406,34 @@ class CapturedContractCases(unittest.TestCase):
             cases = copy.deepcopy(self.cases)
             cases['cases'][0]['query']['constraints'][key] = value
             with self.subTest(key=key), self.assertRaisesRegex(ValueError, 'mandatory'):
-                EVAL.validate_cases(cases, self.contracts)
+                EVAL.validate_cases(cases, self.contracts, policy_source='tests/fixtures/plugin_retrieval_policy.json')
 
     def test_presentation_case_identity_join(self):
         cases = copy.deepcopy(self.cases)
         cases['presentation_cases'][0]['canonical_case_id'] = 'nonexistent'
         with self.assertRaisesRegex(ValueError, 'canonical presentation'):
-            EVAL.validate_cases(cases, self.contracts)
+            EVAL.validate_cases(cases, self.contracts, policy_source='tests/fixtures/plugin_retrieval_policy.json')
         cases = copy.deepcopy(self.cases)
         cases['presentation_cases'].append(copy.deepcopy(cases['presentation_cases'][0]))
         with self.assertRaisesRegex(ValueError, 'duplicate presentation'):
-            EVAL.validate_cases(cases, self.contracts)
+            EVAL.validate_cases(cases, self.contracts, policy_source='tests/fixtures/plugin_retrieval_policy.json')
+
+    def test_frozen_policy_requires_explicit_owner_and_rejects_mixed_or_arbitrary_sources(self):
+        with self.assertRaisesRegex(ValueError, 'query policy pin'):
+            EVAL.validate_cases(self.cases, self.contracts)
+        with self.assertRaisesRegex(ValueError, 'unsupported policy source'):
+            EVAL.validate_cases(self.cases, self.contracts, policy_source='arbitrary.json')
+        mixed = copy.deepcopy(self.cases)
+        mixed['cases'][0]['query']['policy_sha256'] = EVAL.fixture_policy_hash('specs/retrieval/retrieval-policy.json')
+        with self.assertRaisesRegex(ValueError, 'query policy pin'):
+            EVAL.validate_cases(mixed, self.contracts, policy_source='tests/fixtures/plugin_retrieval_policy.json')
 
     def test_cli_reports_success_failure_invalid_without_file_writes(self):
         with patch('builtins.print'):
-            self.assertEqual(EVAL.main(['--cases', str(ROOT / 'evals/plugin-v1/cases.json')]), 0)
-            self.assertEqual(EVAL.main(['--cases', str(ROOT / 'evals/plugin-v1/cases.json'),
+            self.assertEqual(EVAL.main(['--policy-source', 'tests/fixtures/plugin_retrieval_policy.json', '--cases', str(ROOT / 'evals/plugin-v1/cases.json')]), 0)
+            self.assertEqual(EVAL.main(['--policy-source', 'tests/fixtures/plugin_retrieval_policy.json', '--cases', str(ROOT / 'evals/plugin-v1/cases.json'),
                                        '--results', str(ROOT / 'tests/fixtures/plugin_retrieval_eval.json')]), 0)
-            self.assertEqual(EVAL.main(['--cases', 'does-not-exist.json']), 2)
+            self.assertEqual(EVAL.main(['--policy-source', 'tests/fixtures/plugin_retrieval_policy.json', '--cases', 'does-not-exist.json']), 2)
 
 
 if __name__ == '__main__':

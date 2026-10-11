@@ -1,0 +1,512 @@
+{
+  "schema_version": "cp04_final_summary_v1",
+  "verdict": "no_go",
+  "promotion_ready": false,
+  "evidence_kind": "observed_local_brief_retrieval_source_judged_agent_proxy",
+  "plan_sha256": "56579b4e01eb5a3a353c788c216576973ce9825adf9c2409fd58302dac5d78c6",
+  "candidate_macro": {
+    "recall_at_k": 0.9437102371312898,
+    "ndcg_at_k": 0.9286707562588494
+  },
+  "original_literal_macro": {
+    "recall_at_k": 0.8846710307236624,
+    "ndcg_at_k": 0.9141533166401362
+  },
+  "strata": {
+    "thin_leaf": {
+      "case_ids": [
+        "FINAL-HOLD-01",
+        "FINAL-HOLD-03",
+        "FINAL-HOLD-04",
+        "FINAL-HOLD-05",
+        "FINAL-HOLD-06",
+        "FINAL-HOLD-08",
+        "FINAL-HOLD-10",
+        "FINAL-HOLD-11",
+        "FINAL-HOLD-13",
+        "INDEPENDENT-HOLD-01",
+        "INDEPENDENT-HOLD-02",
+        "INDEPENDENT-HOLD-03",
+        "INDEPENDENT-HOLD-07",
+        "INDEPENDENT-HOLD-11",
+        "INDEPENDENT-HOLD-12",
+        "INDEPENDENT-HOLD-14"
+      ],
+      "candidate": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.921832875175296
+      },
+      "baseline": {
+        "recall_at_k": 0.9541666666666666,
+        "ndcg_at_k": 0.9295992836702399
+      }
+    },
+    "dense_leaf": {
+      "case_ids": [
+        "FINAL-HOLD-02",
+        "FINAL-HOLD-07",
+        "FINAL-HOLD-12",
+        "INDEPENDENT-HOLD-04"
+      ],
+      "candidate": {
+        "recall_at_k": 0.8328947368421052,
+        "ndcg_at_k": 0.906346733350702
+      },
+      "baseline": {
+        "recall_at_k": 0.8197368421052631,
+        "ndcg_at_k": 0.9036450957633564
+      }
+    },
+    "baseline_cohort": {
+      "case_ids": [
+        "FINAL-HOLD-01",
+        "FINAL-HOLD-02",
+        "FINAL-HOLD-03",
+        "FINAL-HOLD-04",
+        "FINAL-HOLD-05",
+        "FINAL-HOLD-06",
+        "FINAL-HOLD-07",
+        "FINAL-HOLD-08",
+        "FINAL-HOLD-09",
+        "FINAL-HOLD-10",
+        "FINAL-HOLD-11",
+        "FINAL-HOLD-12",
+        "FINAL-HOLD-13",
+        "FINAL-HOLD-14",
+        "INDEPENDENT-HOLD-01",
+        "INDEPENDENT-HOLD-02",
+        "INDEPENDENT-HOLD-03",
+        "INDEPENDENT-HOLD-04",
+        "INDEPENDENT-HOLD-05",
+        "INDEPENDENT-HOLD-06",
+        "INDEPENDENT-HOLD-07",
+        "INDEPENDENT-HOLD-08",
+        "INDEPENDENT-HOLD-09",
+        "INDEPENDENT-HOLD-10",
+        "INDEPENDENT-HOLD-11",
+        "INDEPENDENT-HOLD-12",
+        "INDEPENDENT-HOLD-13",
+        "INDEPENDENT-HOLD-14"
+      ],
+      "candidate": {
+        "recall_at_k": 0.9437102371312898,
+        "ndcg_at_k": 0.9286707562588494
+      },
+      "baseline": {
+        "recall_at_k": 0.8846710307236624,
+        "ndcg_at_k": 0.9141533166401362
+      }
+    },
+    "expansion_cohort": {
+      "case_ids": [
+        "FINAL-HOLD-02",
+        "FINAL-HOLD-07",
+        "INDEPENDENT-HOLD-05"
+      ],
+      "candidate": {
+        "recall_at_k": 0.7002699055330633,
+        "ndcg_at_k": 0.8550060011912582
+      },
+      "baseline": {
+        "recall_at_k": 0.6058029689608637,
+        "ndcg_at_k": 0.7813241373077958
+      }
+    },
+    "dual_descriptions": {
+      "case_ids": [
+        "FINAL-HOLD-01",
+        "FINAL-HOLD-02",
+        "FINAL-HOLD-03",
+        "FINAL-HOLD-04",
+        "FINAL-HOLD-06",
+        "FINAL-HOLD-07",
+        "FINAL-HOLD-08",
+        "FINAL-HOLD-09",
+        "FINAL-HOLD-10",
+        "FINAL-HOLD-11",
+        "FINAL-HOLD-12",
+        "FINAL-HOLD-13",
+        "FINAL-HOLD-14",
+        "INDEPENDENT-HOLD-01",
+        "INDEPENDENT-HOLD-02",
+        "INDEPENDENT-HOLD-03",
+        "INDEPENDENT-HOLD-04",
+        "INDEPENDENT-HOLD-05",
+        "INDEPENDENT-HOLD-06",
+        "INDEPENDENT-HOLD-07",
+        "INDEPENDENT-HOLD-08",
+        "INDEPENDENT-HOLD-09",
+        "INDEPENDENT-HOLD-10",
+        "INDEPENDENT-HOLD-11",
+        "INDEPENDENT-HOLD-12",
+        "INDEPENDENT-HOLD-13",
+        "INDEPENDENT-HOLD-14"
+      ],
+      "candidate": {
+        "recall_at_k": 0.9416254310991152,
+        "ndcg_at_k": 0.935070893328516
+      },
+      "baseline": {
+        "recall_at_k": 0.8803995874171313,
+        "ndcg_at_k": 0.9170147446228276
+      }
+    },
+    "secondary_dedupe": {
+      "case_ids": [
+        "FINAL-HOLD-02",
+        "FINAL-HOLD-05",
+        "FINAL-HOLD-07",
+        "FINAL-HOLD-12",
+        "INDEPENDENT-HOLD-09"
+      ],
+      "candidate": {
+        "recall_at_k": 0.8663157894736842,
+        "ndcg_at_k": 0.8745519981413862
+      },
+      "baseline": {
+        "recall_at_k": 0.8557894736842104,
+        "ndcg_at_k": 0.8859908097958689
+      }
+    },
+    "container_union": {
+      "case_ids": [
+        "FINAL-HOLD-07",
+        "INDEPENDENT-HOLD-07"
+      ],
+      "candidate": {
+        "recall_at_k": 0.85,
+        "ndcg_at_k": 0.8998726900656102
+      },
+      "baseline": {
+        "recall_at_k": 0.85,
+        "ndcg_at_k": 0.9029837149505903
+      }
+    },
+    "lexical_ru": {
+      "case_ids": [
+        "FINAL-HOLD-03",
+        "FINAL-HOLD-05",
+        "FINAL-HOLD-09",
+        "INDEPENDENT-HOLD-05",
+        "INDEPENDENT-HOLD-07"
+      ],
+      "candidate": {
+        "recall_at_k": 0.9538461538461538,
+        "ndcg_at_k": 0.9242118008396414
+      },
+      "baseline": {
+        "recall_at_k": 0.7804195804195804,
+        "ndcg_at_k": 0.8304198149282328
+      }
+    },
+    "lexical_en": {
+      "case_ids": [
+        "FINAL-HOLD-01",
+        "FINAL-HOLD-02",
+        "FINAL-HOLD-03",
+        "FINAL-HOLD-04",
+        "FINAL-HOLD-05",
+        "FINAL-HOLD-06",
+        "FINAL-HOLD-07",
+        "FINAL-HOLD-08",
+        "FINAL-HOLD-09",
+        "FINAL-HOLD-10",
+        "FINAL-HOLD-11",
+        "FINAL-HOLD-12",
+        "FINAL-HOLD-13",
+        "FINAL-HOLD-14",
+        "INDEPENDENT-HOLD-01",
+        "INDEPENDENT-HOLD-02",
+        "INDEPENDENT-HOLD-03",
+        "INDEPENDENT-HOLD-04",
+        "INDEPENDENT-HOLD-06",
+        "INDEPENDENT-HOLD-08",
+        "INDEPENDENT-HOLD-09",
+        "INDEPENDENT-HOLD-10",
+        "INDEPENDENT-HOLD-11",
+        "INDEPENDENT-HOLD-12",
+        "INDEPENDENT-HOLD-13",
+        "INDEPENDENT-HOLD-14"
+      ],
+      "candidate": {
+        "recall_at_k": 0.9482559950171285,
+        "ndcg_at_k": 0.9275873535194251
+      },
+      "baseline": {
+        "recall_at_k": 0.8935510508385002,
+        "ndcg_at_k": 0.9196898995897762
+      }
+    },
+    "activity_unknown": {
+      "case_ids": [
+        "FINAL-HOLD-01",
+        "FINAL-HOLD-02",
+        "FINAL-HOLD-03",
+        "FINAL-HOLD-05",
+        "FINAL-HOLD-07",
+        "FINAL-HOLD-08",
+        "FINAL-HOLD-09",
+        "FINAL-HOLD-10",
+        "FINAL-HOLD-12",
+        "FINAL-HOLD-13",
+        "FINAL-HOLD-14",
+        "INDEPENDENT-HOLD-01",
+        "INDEPENDENT-HOLD-02",
+        "INDEPENDENT-HOLD-03",
+        "INDEPENDENT-HOLD-04",
+        "INDEPENDENT-HOLD-05",
+        "INDEPENDENT-HOLD-06",
+        "INDEPENDENT-HOLD-07",
+        "INDEPENDENT-HOLD-08",
+        "INDEPENDENT-HOLD-09",
+        "INDEPENDENT-HOLD-10",
+        "INDEPENDENT-HOLD-11",
+        "INDEPENDENT-HOLD-12",
+        "INDEPENDENT-HOLD-13",
+        "INDEPENDENT-HOLD-14"
+      ],
+      "candidate": {
+        "recall_at_k": 0.9369554655870445,
+        "ndcg_at_k": 0.9341113963430295
+      },
+      "baseline": {
+        "recall_at_k": 0.8708315544105019,
+        "ndcg_at_k": 0.9159579801487727
+      }
+    },
+    "developer_tools_cli_general": {
+      "case_ids": [
+        "FINAL-HOLD-01",
+        "INDEPENDENT-HOLD-01"
+      ],
+      "candidate": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.9582413777484061
+      },
+      "baseline": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.9110278653408472
+      }
+    },
+    "testing_qa": {
+      "case_ids": [
+        "FINAL-HOLD-02",
+        "INDEPENDENT-HOLD-02"
+      ],
+      "candidate": {
+        "recall_at_k": 0.8157894736842105,
+        "ndcg_at_k": 0.8908283726473599
+      },
+      "baseline": {
+        "recall_at_k": 0.7894736842105263,
+        "ndcg_at_k": 0.8849132067657077
+      }
+    },
+    "files_media_storage": {
+      "case_ids": [
+        "FINAL-HOLD-03",
+        "INDEPENDENT-HOLD-03"
+      ],
+      "candidate": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.9972727022289976
+      },
+      "baseline": {
+        "recall_at_k": 0.8,
+        "ndcg_at_k": 0.9740203568849501
+      }
+    },
+    "frontend_frameworks_ui": {
+      "case_ids": [
+        "FINAL-HOLD-04",
+        "INDEPENDENT-HOLD-04"
+      ],
+      "candidate": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.9531009416079974
+      },
+      "baseline": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.9576432086819515
+      }
+    },
+    "accounting_finance_erp": {
+      "case_ids": [
+        "FINAL-HOLD-05",
+        "INDEPENDENT-HOLD-05"
+      ],
+      "candidate": {
+        "recall_at_k": 0.8846153846153846,
+        "ndcg_at_k": 0.8346279096538243
+      },
+      "baseline": {
+        "recall_at_k": 0.7692307692307692,
+        "ndcg_at_k": 0.7745645089420852
+      }
+    },
+    "cms_content_knowledge": {
+      "case_ids": [
+        "FINAL-HOLD-06",
+        "INDEPENDENT-HOLD-06"
+      ],
+      "candidate": {
+        "recall_at_k": 0.9285714285714286,
+        "ndcg_at_k": 0.8271443024289611
+      },
+      "baseline": {
+        "recall_at_k": 0.9285714285714286,
+        "ndcg_at_k": 0.8473822966210751
+      }
+    },
+    "communications_personal_ops": {
+      "case_ids": [
+        "FINAL-HOLD-07",
+        "INDEPENDENT-HOLD-07"
+      ],
+      "candidate": {
+        "recall_at_k": 0.85,
+        "ndcg_at_k": 0.8998726900656102
+      },
+      "baseline": {
+        "recall_at_k": 0.85,
+        "ndcg_at_k": 0.9029837149505903
+      }
+    },
+    "ecommerce_payments_revenue": {
+      "case_ids": [
+        "FINAL-HOLD-08",
+        "INDEPENDENT-HOLD-08"
+      ],
+      "candidate": {
+        "recall_at_k": 0.9285714285714286,
+        "ndcg_at_k": 0.980500644754406
+      },
+      "baseline": {
+        "recall_at_k": 0.9285714285714286,
+        "ndcg_at_k": 0.980500644754406
+      }
+    },
+    "operations_project_management": {
+      "case_ids": [
+        "FINAL-HOLD-09",
+        "INDEPENDENT-HOLD-09"
+      ],
+      "candidate": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.972472830381366
+      },
+      "baseline": {
+        "recall_at_k": 0.6818181818181819,
+        "ndcg_at_k": 0.7960849848346263
+      }
+    },
+    "data_ingestion_etl_cdc": {
+      "case_ids": [
+        "FINAL-HOLD-10",
+        "INDEPENDENT-HOLD-10"
+      ],
+      "candidate": {
+        "recall_at_k": 0.9615384615384616,
+        "ndcg_at_k": 0.9306583247674958
+      },
+      "baseline": {
+        "recall_at_k": 0.9615384615384616,
+        "ndcg_at_k": 0.9838625639031751
+      }
+    },
+    "databases_storage_caching": {
+      "case_ids": [
+        "FINAL-HOLD-11",
+        "INDEPENDENT-HOLD-11"
+      ],
+      "candidate": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.9879618067953051
+      },
+      "baseline": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.961396441830354
+      }
+    },
+    "backend_baas_api": {
+      "case_ids": [
+        "FINAL-HOLD-12",
+        "INDEPENDENT-HOLD-12"
+      ],
+      "candidate": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "baseline": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 1.0
+      }
+    },
+    "deployment_containers_paas": {
+      "case_ids": [
+        "FINAL-HOLD-13",
+        "INDEPENDENT-HOLD-13"
+      ],
+      "candidate": {
+        "recall_at_k": 0.8928571428571428,
+        "ndcg_at_k": 0.9910425417544821
+      },
+      "baseline": {
+        "recall_at_k": 0.7261904761904762,
+        "ndcg_at_k": 0.9732835607140917
+      }
+    },
+    "supply_chain_devsecops": {
+      "case_ids": [
+        "FINAL-HOLD-14",
+        "INDEPENDENT-HOLD-14"
+      ],
+      "candidate": {
+        "recall_at_k": 0.95,
+        "ndcg_at_k": 0.7776661427896794
+      },
+      "baseline": {
+        "recall_at_k": 0.95,
+        "ndcg_at_k": 0.8504830787380471
+      }
+    }
+  },
+  "gates": {
+    "held_out_macro_recall_at_12_min": true,
+    "baseline_non_regression_recall_at_k": true,
+    "held_out_macro_ndcg_at_12_min": true,
+    "baseline_non_regression_ndcg_at_k": true,
+    "required_strata": true,
+    "hard_constraint_violations": true,
+    "false_exclusions": true,
+    "duplicate_canonical_ids": true,
+    "alias_success_rate_min": true,
+    "evidence_pack_survival_rate_min": true,
+    "all_statuses_match": true,
+    "container_registry_coverage": true,
+    "leaf_registry_coverage": true
+  },
+  "incomplete_oracle_cases": [],
+  "measured_route_case_count": 30,
+  "registry_counts": {
+    "container": 14,
+    "category": 111
+  },
+  "known_pool_survival_diagnostic": {
+    "numerator": 195,
+    "denominator": 195
+  },
+  "official_pack_survival": 1.0,
+  "adjacent_gaps": [
+    "human oracle calibration",
+    "same-canonical RU/EN meaning and usefulness",
+    "browser no-call switching",
+    "state/publication recovery",
+    "fresh host interpretation behavior",
+    "headroom capacity not rerun here",
+    "Fresh prospective retrieval acceptance after exposed rank calibration",
+    "Human acceptance and browser no-call/state recovery"
+  ],
+  "interpretation_limit": "Preauthored interpretation evaluates deterministic Brief/FTS wiring, not real host interpretation/model behavior. Source sparse facts and all unknowns retained. Human acceptance absent; prior failed held-out is not waived.",
+  "first_capture_at": "2026-10-11T10:29:41.027772+00:00"
+}

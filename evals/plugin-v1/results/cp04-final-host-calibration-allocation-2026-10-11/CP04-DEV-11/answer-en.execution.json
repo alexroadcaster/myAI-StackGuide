@@ -1,0 +1,44 @@
+{
+  "command": [
+    "C:\\Users\\user\\AppData\\Roaming\\npm\\codex.cmd",
+    "exec",
+    "--ephemeral",
+    "--sandbox",
+    "read-only",
+    "--json",
+    "--output-schema",
+    "C:\\Users\\user\\Desktop\\project\\github_research\\agentic-engineering-catalog\\evals\\plugin-v1\\final-answer.schema.json",
+    "--output-last-message",
+    "C:\\Users\\user\\Desktop\\project\\github_research\\agentic-engineering-catalog\\evals\\plugin-v1\\results\\cp04-final-host-calibration-allocation-2026-10-11\\CP04-DEV-11\\answer-en.response.json",
+    "-"
+  ],
+  "exit_code": 0,
+  "failure": null,
+  "elapsed_seconds": 35.07598360002157,
+  "model_override": false,
+  "effort_override": false,
+  "actual_model": null,
+  "model_unknown_reason": "CLI events omit model identity",
+  "actual_effort": null,
+  "effort_unknown_reason": "Inherited config; CLI events do not attest effective effort",
+  "available_usage": [
+    {
+      "input_tokens": 67722,
+      "cached_input_tokens": 24704,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 1084,
+      "reasoning_output_tokens": 62
+    }
+  ],
+  "usage_unknown_reason": null,
+  "cost": null,
+  "cost_unknown_reason": "CLI does not report billed cost",
+  "remote_peak_rss": null,
+  "remote_rss_unknown_reason": "Unavailable from host CLI",
+  "model_tool_items": [],
+  "event_parse_errors": [],
+  "completion_trace": true,
+  "prompt_sha256": "8c62fe47279cc5326c7f5269d4958619a5222742b286bfbb8f049bbdb513320d",
+  "response_sha256": "69924537d423be3f1fa60d1d046b7d4400e7bca46d44aa5391eb4cb1ea614b80",
+  "events_sha256": "6f480a408d1c0d5d0db04cd758f2a51d6b66dba49002ffe855326a0d48167b61"
+}

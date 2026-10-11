@@ -1,0 +1,29 @@
+{
+  "answer_markdown": "For a search by the historical name `greptimedb/greptimedb`, I recommend considering [GreptimeTeam/greptimedb](https://github.com/GreptimeTeam/greptimedb): the supplied card links both names to the same repository. This is a recommendation for source verification; there is insufficient evidence to recommend adoption yet. The catalog classifies GreptimeDB under Database Engines, but its implementation language, license, interfaces and fit for the target workload are unknown. The practical benefit now is to find the intended project without substituting another engine and to preserve evidence gaps. First place in decision_order reflects host preference, not proven functionality or compatibility.\n\nA possible architecture after confirming the interfaces: synthetic records → application adapter → isolated GreptimeDB instance → validation results. This is a proposed design; its operability has not been established. It would allow a specific storage and retrieval scenario to be checked; performance improvements, reliability and savings are unproven. The team still owns version selection, dependency verification, schema design, integration, error handling, recovery and maintenance. An equivalent-scope comparison requires fixing the same operations, data and correctness criteria for GreptimeDB, a custom component and the current/native solution. The existing path is unknown, so a winner cannot be determined. Complexity depends on these requirements; the catalog's `intermediate` is not an effort estimate.\n\nThe evidence belongs to the 2026-09-01 snapshot. GreptimeDB's latest commit and release dates are unknown, and `last_synced_at` from 2026-08-11 denotes synchronization, not development activity. Empty or truncated fields do not prove an absence of capabilities; eligibility remains `reference_only`. The supplied host reads dated 2026-10-11 concern other projects, do not confirm GreptimeDB and do not update catalog eligibility. The pack is limited: 12 of 24 candidates are available. Because of `candidate_budget`, coverage has been lost for `realm/realm-kotlin`, `apache/cassandra`, `timescale/timescaledb`, `questdb/questdb`, `FerretDB/FerretDB`, `apple/foundationdb`, `influxdata/influxdb`, `scylladb/scylladb`, `sqlite/sqlite`, `pingcap/tidb`, `MariaDB/server`, `postgres/postgres`; these are exclusion details, not recommendations or evidence of weak fit.\n\nThe proposed reversible first validation is source qualification only in scenario `CP04-DEV-11-first-validation`: a hypothetical budget of 4–8 engineer-hours with low confidence, one engineer familiar with the target application and its component interface, at 8 hours per engineer-day. Before integration, the workload, existing path, language/platform, chosen version and license must be confirmed. The concrete check is to match the historical name to the canonical repository, check the documentation for the chosen version and record confirmed interfaces, limitations and available activity evidence, keeping unknowns explicit. An incompatible interface or unacceptable license would reverse the preference for adoption. Full adoption effort and elapsed calendar time are unknown. All steps have status `proposed_not_executed`: no credentials, paid provider, production data or installation. Since the existing path is unknown, the trial must remain isolated and must not affect authoritative data or queues; integration requires a separate explicit request.",
+  "recommended_ids": [
+    480217156
+  ],
+  "cited_urls": [
+    "https://github.com/GreptimeTeam/greptimedb"
+  ],
+  "planning_binding": {
+    "planning_sha256": "50c039bb8191e3ac9598d89c9577eb212786307cd5ee40af0a3793b3d5fecdaf",
+    "scenario_id": "CP04-DEV-11-first-validation",
+    "assumptions": {
+      "prerequisites": [
+        "Confirm target workload, existing path, language/platform, chosen version and license before any integration.",
+        "Only an isolated synthetic fixture or source-qualification exercise is proposed; no credentials, paid provider, production data or installation."
+      ],
+      "team_experience": "One engineer familiar with the target application and its component interface.",
+      "confidence": "low",
+      "hours_per_engineer_day": 8,
+      "allocated_engineers": 1
+    },
+    "first_validation": {
+      "min": 4,
+      "max": 8
+    },
+    "total_engineer_hours": null,
+    "elapsed_working_days": null
+  }
+}

@@ -1,5 +1,7 @@
 # TEST.md
 
+Current CP-04 verification (2026-10-11): [canonical closure report](docs/reports/cp04-final-closure-2026-10-11.md) records26/26 allocation helper checks and85/85 native inventory/evaluator compatibility. Current60 local retained-order replays,30cold/30warm resource samples, actual4orders+8answers and independent source/protocol/numerical/usefulness/meaning reviews pass. No automatic retry/fallback or SQLite writes occurred; original missing-ID and one-card failures remain immutable. Sole CP-04 pending gate: actual human calibration, distinct from browser, CP-11 lifecycle and release.
+
 CP-04 Brief-bound entry-point checks and actual dialogue traces are recorded in [the bilingual report](docs/reports/cp04-brief-dialogue-2026-10-11.md). Brief tests6/6, retrieval18/18, matching5/5 and active bundle parity pass. Codex contracts11/13 pass; two unchanged model-baseline expectations conflict with current configuration and remain recorded. Actual CLI calls remain read-only, with synthetic history; persisted writer/desktop lifecycle is outside this evidence.
 
 ## CP-04 Current Successor Evidence — 2026-10-08

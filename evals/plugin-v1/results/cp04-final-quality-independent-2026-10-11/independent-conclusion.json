@@ -1,0 +1,449 @@
+{
+  "schema_version": "cp04_final_summary_v1",
+  "verdict": "no_go",
+  "promotion_ready": false,
+  "evidence_kind": "newly_frozen_functional_queries_mixed_source_exposure",
+  "plan_sha256": "1c05adda0a4523cfa681dc669b912295007a2503a142553737e040337f2a2b33",
+  "candidate_macro": {
+    "recall_at_k": 0.8972527472527473,
+    "ndcg_at_k": 0.9088797285696061
+  },
+  "original_literal_macro": {
+    "recall_at_k": 0.8972527472527473,
+    "ndcg_at_k": 0.9357909189616664
+  },
+  "strata": {
+    "thin_leaf": {
+      "case_ids": [
+        "INDEPENDENT-HOLD-01",
+        "INDEPENDENT-HOLD-02",
+        "INDEPENDENT-HOLD-03",
+        "INDEPENDENT-HOLD-07",
+        "INDEPENDENT-HOLD-11",
+        "INDEPENDENT-HOLD-12",
+        "INDEPENDENT-HOLD-14"
+      ],
+      "candidate": {
+        "recall_at_k": 0.9428571428571428,
+        "ndcg_at_k": 0.8975733106055872
+      },
+      "baseline": {
+        "recall_at_k": 0.9428571428571428,
+        "ndcg_at_k": 0.9366690518573476
+      }
+    },
+    "dense_leaf": {
+      "case_ids": [
+        "INDEPENDENT-HOLD-04"
+      ],
+      "candidate": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.9737576937588317
+      },
+      "baseline": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.9828422279067397
+      }
+    },
+    "baseline_cohort": {
+      "case_ids": [
+        "INDEPENDENT-HOLD-01",
+        "INDEPENDENT-HOLD-02",
+        "INDEPENDENT-HOLD-03",
+        "INDEPENDENT-HOLD-04",
+        "INDEPENDENT-HOLD-05",
+        "INDEPENDENT-HOLD-06",
+        "INDEPENDENT-HOLD-07",
+        "INDEPENDENT-HOLD-08",
+        "INDEPENDENT-HOLD-09",
+        "INDEPENDENT-HOLD-10",
+        "INDEPENDENT-HOLD-11",
+        "INDEPENDENT-HOLD-12",
+        "INDEPENDENT-HOLD-13",
+        "INDEPENDENT-HOLD-14"
+      ],
+      "candidate": {
+        "recall_at_k": 0.8972527472527473,
+        "ndcg_at_k": 0.9088797285696061
+      },
+      "baseline": {
+        "recall_at_k": 0.8972527472527473,
+        "ndcg_at_k": 0.9357909189616664
+      }
+    },
+    "expansion_cohort": {
+      "case_ids": [
+        "INDEPENDENT-HOLD-05"
+      ],
+      "candidate": {
+        "recall_at_k": 0.5384615384615384,
+        "ndcg_at_k": 0.7138869228011865
+      },
+      "baseline": {
+        "recall_at_k": 0.5384615384615384,
+        "ndcg_at_k": 0.7122342567767014
+      }
+    },
+    "dual_descriptions": {
+      "case_ids": [
+        "INDEPENDENT-HOLD-01",
+        "INDEPENDENT-HOLD-02",
+        "INDEPENDENT-HOLD-03",
+        "INDEPENDENT-HOLD-04",
+        "INDEPENDENT-HOLD-05",
+        "INDEPENDENT-HOLD-06",
+        "INDEPENDENT-HOLD-07",
+        "INDEPENDENT-HOLD-08",
+        "INDEPENDENT-HOLD-09",
+        "INDEPENDENT-HOLD-10",
+        "INDEPENDENT-HOLD-11",
+        "INDEPENDENT-HOLD-12",
+        "INDEPENDENT-HOLD-13",
+        "INDEPENDENT-HOLD-14"
+      ],
+      "candidate": {
+        "recall_at_k": 0.8972527472527473,
+        "ndcg_at_k": 0.9088797285696061
+      },
+      "baseline": {
+        "recall_at_k": 0.8972527472527473,
+        "ndcg_at_k": 0.9357909189616664
+      }
+    },
+    "secondary_dedupe": {
+      "case_ids": [
+        "INDEPENDENT-HOLD-09"
+      ],
+      "candidate": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.9438220076416048
+      },
+      "baseline": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.9613211327251899
+      }
+    },
+    "container_union": {
+      "case_ids": [
+        "INDEPENDENT-HOLD-07"
+      ],
+      "candidate": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.9721212198129313
+      },
+      "baseline": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.9721212198129313
+      }
+    },
+    "lexical_ru": {
+      "case_ids": [
+        "INDEPENDENT-HOLD-05",
+        "INDEPENDENT-HOLD-07"
+      ],
+      "candidate": {
+        "recall_at_k": 0.7692307692307692,
+        "ndcg_at_k": 0.8430040713070589
+      },
+      "baseline": {
+        "recall_at_k": 0.7692307692307692,
+        "ndcg_at_k": 0.8421777382948163
+      }
+    },
+    "lexical_en": {
+      "case_ids": [
+        "INDEPENDENT-HOLD-01",
+        "INDEPENDENT-HOLD-02",
+        "INDEPENDENT-HOLD-03",
+        "INDEPENDENT-HOLD-04",
+        "INDEPENDENT-HOLD-06",
+        "INDEPENDENT-HOLD-08",
+        "INDEPENDENT-HOLD-09",
+        "INDEPENDENT-HOLD-10",
+        "INDEPENDENT-HOLD-11",
+        "INDEPENDENT-HOLD-12",
+        "INDEPENDENT-HOLD-13",
+        "INDEPENDENT-HOLD-14"
+      ],
+      "candidate": {
+        "recall_at_k": 0.9185897435897435,
+        "ndcg_at_k": 0.9198590047800305
+      },
+      "baseline": {
+        "recall_at_k": 0.9185897435897435,
+        "ndcg_at_k": 0.9513931157394747
+      }
+    },
+    "activity_unknown": {
+      "case_ids": [
+        "INDEPENDENT-HOLD-01",
+        "INDEPENDENT-HOLD-02",
+        "INDEPENDENT-HOLD-03",
+        "INDEPENDENT-HOLD-04",
+        "INDEPENDENT-HOLD-05",
+        "INDEPENDENT-HOLD-06",
+        "INDEPENDENT-HOLD-07",
+        "INDEPENDENT-HOLD-08",
+        "INDEPENDENT-HOLD-09",
+        "INDEPENDENT-HOLD-10",
+        "INDEPENDENT-HOLD-11",
+        "INDEPENDENT-HOLD-12",
+        "INDEPENDENT-HOLD-13",
+        "INDEPENDENT-HOLD-14"
+      ],
+      "candidate": {
+        "recall_at_k": 0.8972527472527473,
+        "ndcg_at_k": 0.9088797285696061
+      },
+      "baseline": {
+        "recall_at_k": 0.8972527472527473,
+        "ndcg_at_k": 0.9357909189616664
+      }
+    },
+    "developer_tools_cli_general": {
+      "case_ids": [
+        "INDEPENDENT-HOLD-01"
+      ],
+      "candidate": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.9320088550187923
+      },
+      "baseline": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.9565557524561504
+      }
+    },
+    "testing_qa": {
+      "case_ids": [
+        "INDEPENDENT-HOLD-02"
+      ],
+      "candidate": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.8775483935699409
+      },
+      "baseline": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.9719344684729788
+      }
+    },
+    "files_media_storage": {
+      "case_ids": [
+        "INDEPENDENT-HOLD-03"
+      ],
+      "candidate": {
+        "recall_at_k": 0.6,
+        "ndcg_at_k": 0.9480407137699002
+      },
+      "baseline": {
+        "recall_at_k": 0.6,
+        "ndcg_at_k": 0.9480407137699002
+      }
+    },
+    "frontend_frameworks_ui": {
+      "case_ids": [
+        "INDEPENDENT-HOLD-04"
+      ],
+      "candidate": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.9737576937588317
+      },
+      "baseline": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.9828422279067397
+      }
+    },
+    "accounting_finance_erp": {
+      "case_ids": [
+        "INDEPENDENT-HOLD-05"
+      ],
+      "candidate": {
+        "recall_at_k": 0.5384615384615384,
+        "ndcg_at_k": 0.7138869228011865
+      },
+      "baseline": {
+        "recall_at_k": 0.5384615384615384,
+        "ndcg_at_k": 0.7122342567767014
+      }
+    },
+    "cms_content_knowledge": {
+      "case_ids": [
+        "INDEPENDENT-HOLD-06"
+      ],
+      "candidate": {
+        "recall_at_k": 0.8571428571428571,
+        "ndcg_at_k": 0.9204408798046172
+      },
+      "baseline": {
+        "recall_at_k": 0.8571428571428571,
+        "ndcg_at_k": 0.9298654204948177
+      }
+    },
+    "communications_personal_ops": {
+      "case_ids": [
+        "INDEPENDENT-HOLD-07"
+      ],
+      "candidate": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.9721212198129313
+      },
+      "baseline": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.9721212198129313
+      }
+    },
+    "ecommerce_payments_revenue": {
+      "case_ids": [
+        "INDEPENDENT-HOLD-08"
+      ],
+      "candidate": {
+        "recall_at_k": 0.8571428571428571,
+        "ndcg_at_k": 1.0
+      },
+      "baseline": {
+        "recall_at_k": 0.8571428571428571,
+        "ndcg_at_k": 1.0
+      }
+    },
+    "operations_project_management": {
+      "case_ids": [
+        "INDEPENDENT-HOLD-09"
+      ],
+      "candidate": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.9438220076416048
+      },
+      "baseline": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.9613211327251899
+      }
+    },
+    "data_ingestion_etl_cdc": {
+      "case_ids": [
+        "INDEPENDENT-HOLD-10"
+      ],
+      "candidate": {
+        "recall_at_k": 0.9230769230769231,
+        "ndcg_at_k": 0.9087090215531134
+      },
+      "baseline": {
+        "recall_at_k": 0.9230769230769231,
+        "ndcg_at_k": 0.96772512780635
+      }
+    },
+    "databases_storage_caching": {
+      "case_ids": [
+        "INDEPENDENT-HOLD-11"
+      ],
+      "candidate": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.9909553371413427
+      },
+      "baseline": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.922792883660708
+      }
+    },
+    "backend_baas_api": {
+      "case_ids": [
+        "INDEPENDENT-HOLD-12"
+      ],
+      "candidate": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "baseline": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 1.0
+      }
+    },
+    "deployment_containers_paas": {
+      "case_ids": [
+        "INDEPENDENT-HOLD-13"
+      ],
+      "candidate": {
+        "recall_at_k": 0.7857142857142857,
+        "ndcg_at_k": 0.9806865001760198
+      },
+      "baseline": {
+        "recall_at_k": 0.7857142857142857,
+        "ndcg_at_k": 0.9904013367520977
+      }
+    },
+    "supply_chain_devsecops": {
+      "case_ids": [
+        "INDEPENDENT-HOLD-14"
+      ],
+      "candidate": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.5623386549262038
+      },
+      "baseline": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.785238324828764
+      }
+    }
+  },
+  "gates": {
+    "held_out_macro_recall_at_12_min": true,
+    "baseline_non_regression_recall_at_k": true,
+    "held_out_macro_ndcg_at_12_min": true,
+    "baseline_non_regression_ndcg_at_k": false,
+    "required_strata": false,
+    "hard_constraint_violations": true,
+    "false_exclusions": true,
+    "duplicate_canonical_ids": true,
+    "alias_success_rate_min": true,
+    "evidence_pack_survival_rate_min": true,
+    "all_statuses_match": true,
+    "container_registry_coverage": true,
+    "leaf_registry_coverage": true
+  },
+  "incomplete_oracle_cases": [],
+  "measured_route_case_count": 15,
+  "registry_counts": {
+    "container": 14,
+    "category": 111
+  },
+  "known_pool_survival_diagnostic": {
+    "numerator": 112,
+    "denominator": 112
+  },
+  "official_pack_survival": 1.0,
+  "adjacent_gaps": [
+    "human oracle calibration",
+    "same-canonical RU/EN meaning and usefulness",
+    "browser no-call switching",
+    "state/publication recovery",
+    "fresh host interpretation behavior",
+    "headroom capacity not rerun here"
+  ],
+  "interpretation_limit": "Preauthored interpretation evaluates deterministic Brief/FTS wiring, not real host interpretation/model behavior. Source sparse facts and all unknowns retained. Human acceptance absent; prior failed held-out is not waived.",
+  "first_capture_at": "2026-10-11T10:02:09.206984+00:00",
+  "source_exposure": {
+    "new_semantic_cases": 14,
+    "semantic_source_judgments": 205,
+    "disjoint_ids_relative_to_original184": 173,
+    "seen_scheduling_ids": 6,
+    "identity_probe_judgments": 1,
+    "primary_role_clarifications": 23,
+    "unknown_role_grades": 0,
+    "globally_unseen_repositories": false,
+    "seen_communications_ids": 32,
+    "role_unknown_grades": 0,
+    "container_union_route": "communications_personal_ops",
+    "secondary_placement_route": "internal_tools_builders",
+    "expansion_cohort_route": "accounting_invoicing"
+  },
+  "globally_unseen_repositories": false,
+  "disjoint_source_13case_macro": {
+    "recall_at_k": 0.8893491124260355,
+    "ndcg_at_k": 0.9040149984739656
+  },
+  "seen_source_new_goal_macro": {
+    "recall_at_k": 1.0,
+    "ndcg_at_k": 0.9721212198129313
+  },
+  "source_review_sha256": "15ed6b8751682a2df6830f820fdc52cb0620c205cf3797f88d8f34ba1be7fe05",
+  "retrieval_gates_pass": false,
+  "acceptance_limit": "Numerical grades remain quality-owner agent judgments. Independent review approves source facts/coverage/goal relevance only. Broader historical exposure possible; human usefulness and browser acceptance remain open."
+}

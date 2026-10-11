@@ -1,0 +1,3788 @@
+{
+  "scope": "Underfilled chat case: prepared Brief plus COUNT, pinned route metadata, required atoms and leaf terms and final C9 retrieval; guard/pack one separate diagnostic. Existing C9 ceilings applied conservatively to this larger timed seam; no end-to-end/model SLA",
+  "python": "3.13.5",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "processor": "",
+  "cold_definition": "30 new read-only processes/connections; OS cache not flushed, process launch excluded",
+  "warm_definition": "same process/immutable index after one discarded warmup",
+  "cold_samples": [
+    {
+      "ms": 56.710799981374294,
+      "prepare_count_ms": 45.45249999500811,
+      "c9_ms": 11.259699997026473,
+      "status": "ok",
+      "query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+      "query_derivation": {
+        "original_terms": [
+          "team chat",
+          "asynchronous",
+          "messages"
+        ],
+        "original_match_count": 4,
+        "added_route_terms": [
+          "communications",
+          "personal"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "added_term_origins": [
+          {
+            "term": "team",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "chat",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "messaging",
+            "source_kind": "pinned_taxonomy_route_member",
+            "source": "messaging_chat"
+          },
+          {
+            "term": "communications",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          },
+          {
+            "term": "personal",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          }
+        ],
+        "original_query_sha256": "f7c21d2d881180e6bfe9692a109a9e1e33d9238a33afcd88e4cd46f6bc244a4f",
+        "final_query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 47063040
+    },
+    {
+      "ms": 58.23900000541471,
+      "prepare_count_ms": 46.893299993826076,
+      "c9_ms": 11.346999992383644,
+      "status": "ok",
+      "query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+      "query_derivation": {
+        "original_terms": [
+          "team chat",
+          "asynchronous",
+          "messages"
+        ],
+        "original_match_count": 4,
+        "added_route_terms": [
+          "communications",
+          "personal"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "added_term_origins": [
+          {
+            "term": "team",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "chat",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "messaging",
+            "source_kind": "pinned_taxonomy_route_member",
+            "source": "messaging_chat"
+          },
+          {
+            "term": "communications",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          },
+          {
+            "term": "personal",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          }
+        ],
+        "original_query_sha256": "f7c21d2d881180e6bfe9692a109a9e1e33d9238a33afcd88e4cd46f6bc244a4f",
+        "final_query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 46751744
+    },
+    {
+      "ms": 56.3691999996081,
+      "prepare_count_ms": 44.848800025647506,
+      "c9_ms": 11.521599983097985,
+      "status": "ok",
+      "query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+      "query_derivation": {
+        "original_terms": [
+          "team chat",
+          "asynchronous",
+          "messages"
+        ],
+        "original_match_count": 4,
+        "added_route_terms": [
+          "communications",
+          "personal"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "added_term_origins": [
+          {
+            "term": "team",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "chat",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "messaging",
+            "source_kind": "pinned_taxonomy_route_member",
+            "source": "messaging_chat"
+          },
+          {
+            "term": "communications",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          },
+          {
+            "term": "personal",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          }
+        ],
+        "original_query_sha256": "f7c21d2d881180e6bfe9692a109a9e1e33d9238a33afcd88e4cd46f6bc244a4f",
+        "final_query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 46874624
+    },
+    {
+      "ms": 55.264800001168624,
+      "prepare_count_ms": 44.02259999187663,
+      "c9_ms": 11.243500019190833,
+      "status": "ok",
+      "query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+      "query_derivation": {
+        "original_terms": [
+          "team chat",
+          "asynchronous",
+          "messages"
+        ],
+        "original_match_count": 4,
+        "added_route_terms": [
+          "communications",
+          "personal"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "added_term_origins": [
+          {
+            "term": "team",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "chat",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "messaging",
+            "source_kind": "pinned_taxonomy_route_member",
+            "source": "messaging_chat"
+          },
+          {
+            "term": "communications",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          },
+          {
+            "term": "personal",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          }
+        ],
+        "original_query_sha256": "f7c21d2d881180e6bfe9692a109a9e1e33d9238a33afcd88e4cd46f6bc244a4f",
+        "final_query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 46850048
+    },
+    {
+      "ms": 57.78259999351576,
+      "prepare_count_ms": 47.02510000788607,
+      "c9_ms": 10.758799995528534,
+      "status": "ok",
+      "query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+      "query_derivation": {
+        "original_terms": [
+          "team chat",
+          "asynchronous",
+          "messages"
+        ],
+        "original_match_count": 4,
+        "added_route_terms": [
+          "communications",
+          "personal"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "added_term_origins": [
+          {
+            "term": "team",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "chat",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "messaging",
+            "source_kind": "pinned_taxonomy_route_member",
+            "source": "messaging_chat"
+          },
+          {
+            "term": "communications",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          },
+          {
+            "term": "personal",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          }
+        ],
+        "original_query_sha256": "f7c21d2d881180e6bfe9692a109a9e1e33d9238a33afcd88e4cd46f6bc244a4f",
+        "final_query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 46882816
+    },
+    {
+      "ms": 55.33070000819862,
+      "prepare_count_ms": 44.02840000693686,
+      "c9_ms": 11.303399980533868,
+      "status": "ok",
+      "query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+      "query_derivation": {
+        "original_terms": [
+          "team chat",
+          "asynchronous",
+          "messages"
+        ],
+        "original_match_count": 4,
+        "added_route_terms": [
+          "communications",
+          "personal"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "added_term_origins": [
+          {
+            "term": "team",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "chat",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "messaging",
+            "source_kind": "pinned_taxonomy_route_member",
+            "source": "messaging_chat"
+          },
+          {
+            "term": "communications",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          },
+          {
+            "term": "personal",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          }
+        ],
+        "original_query_sha256": "f7c21d2d881180e6bfe9692a109a9e1e33d9238a33afcd88e4cd46f6bc244a4f",
+        "final_query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 46723072
+    },
+    {
+      "ms": 57.0828000199981,
+      "prepare_count_ms": 45.61120001017116,
+      "c9_ms": 11.474200000520796,
+      "status": "ok",
+      "query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+      "query_derivation": {
+        "original_terms": [
+          "team chat",
+          "asynchronous",
+          "messages"
+        ],
+        "original_match_count": 4,
+        "added_route_terms": [
+          "communications",
+          "personal"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "added_term_origins": [
+          {
+            "term": "team",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "chat",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "messaging",
+            "source_kind": "pinned_taxonomy_route_member",
+            "source": "messaging_chat"
+          },
+          {
+            "term": "communications",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          },
+          {
+            "term": "personal",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          }
+        ],
+        "original_query_sha256": "f7c21d2d881180e6bfe9692a109a9e1e33d9238a33afcd88e4cd46f6bc244a4f",
+        "final_query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 46927872
+    },
+    {
+      "ms": 58.415800012880936,
+      "prepare_count_ms": 46.78870001225732,
+      "c9_ms": 11.628199979895726,
+      "status": "ok",
+      "query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+      "query_derivation": {
+        "original_terms": [
+          "team chat",
+          "asynchronous",
+          "messages"
+        ],
+        "original_match_count": 4,
+        "added_route_terms": [
+          "communications",
+          "personal"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "added_term_origins": [
+          {
+            "term": "team",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "chat",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "messaging",
+            "source_kind": "pinned_taxonomy_route_member",
+            "source": "messaging_chat"
+          },
+          {
+            "term": "communications",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          },
+          {
+            "term": "personal",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          }
+        ],
+        "original_query_sha256": "f7c21d2d881180e6bfe9692a109a9e1e33d9238a33afcd88e4cd46f6bc244a4f",
+        "final_query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 46911488
+    },
+    {
+      "ms": 57.22950000199489,
+      "prepare_count_ms": 45.95790000166744,
+      "c9_ms": 11.272999981883913,
+      "status": "ok",
+      "query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+      "query_derivation": {
+        "original_terms": [
+          "team chat",
+          "asynchronous",
+          "messages"
+        ],
+        "original_match_count": 4,
+        "added_route_terms": [
+          "communications",
+          "personal"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "added_term_origins": [
+          {
+            "term": "team",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "chat",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "messaging",
+            "source_kind": "pinned_taxonomy_route_member",
+            "source": "messaging_chat"
+          },
+          {
+            "term": "communications",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          },
+          {
+            "term": "personal",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          }
+        ],
+        "original_query_sha256": "f7c21d2d881180e6bfe9692a109a9e1e33d9238a33afcd88e4cd46f6bc244a4f",
+        "final_query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 47026176
+    },
+    {
+      "ms": 56.06339999940246,
+      "prepare_count_ms": 44.702100014546886,
+      "c9_ms": 11.362699995515868,
+      "status": "ok",
+      "query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+      "query_derivation": {
+        "original_terms": [
+          "team chat",
+          "asynchronous",
+          "messages"
+        ],
+        "original_match_count": 4,
+        "added_route_terms": [
+          "communications",
+          "personal"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "added_term_origins": [
+          {
+            "term": "team",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "chat",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "messaging",
+            "source_kind": "pinned_taxonomy_route_member",
+            "source": "messaging_chat"
+          },
+          {
+            "term": "communications",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          },
+          {
+            "term": "personal",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          }
+        ],
+        "original_query_sha256": "f7c21d2d881180e6bfe9692a109a9e1e33d9238a33afcd88e4cd46f6bc244a4f",
+        "final_query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 47116288
+    },
+    {
+      "ms": 56.846899999072775,
+      "prepare_count_ms": 44.90160002023913,
+      "c9_ms": 11.946299986448139,
+      "status": "ok",
+      "query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+      "query_derivation": {
+        "original_terms": [
+          "team chat",
+          "asynchronous",
+          "messages"
+        ],
+        "original_match_count": 4,
+        "added_route_terms": [
+          "communications",
+          "personal"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "added_term_origins": [
+          {
+            "term": "team",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "chat",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "messaging",
+            "source_kind": "pinned_taxonomy_route_member",
+            "source": "messaging_chat"
+          },
+          {
+            "term": "communications",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          },
+          {
+            "term": "personal",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          }
+        ],
+        "original_query_sha256": "f7c21d2d881180e6bfe9692a109a9e1e33d9238a33afcd88e4cd46f6bc244a4f",
+        "final_query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 47001600
+    },
+    {
+      "ms": 55.05179997999221,
+      "prepare_count_ms": 44.422100007068366,
+      "c9_ms": 10.631099983584136,
+      "status": "ok",
+      "query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+      "query_derivation": {
+        "original_terms": [
+          "team chat",
+          "asynchronous",
+          "messages"
+        ],
+        "original_match_count": 4,
+        "added_route_terms": [
+          "communications",
+          "personal"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "added_term_origins": [
+          {
+            "term": "team",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "chat",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "messaging",
+            "source_kind": "pinned_taxonomy_route_member",
+            "source": "messaging_chat"
+          },
+          {
+            "term": "communications",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          },
+          {
+            "term": "personal",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          }
+        ],
+        "original_query_sha256": "f7c21d2d881180e6bfe9692a109a9e1e33d9238a33afcd88e4cd46f6bc244a4f",
+        "final_query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 46968832
+    },
+    {
+      "ms": 61.8362000095658,
+      "prepare_count_ms": 46.581000002333894,
+      "c9_ms": 15.256499988026917,
+      "status": "ok",
+      "query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+      "query_derivation": {
+        "original_terms": [
+          "team chat",
+          "asynchronous",
+          "messages"
+        ],
+        "original_match_count": 4,
+        "added_route_terms": [
+          "communications",
+          "personal"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "added_term_origins": [
+          {
+            "term": "team",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "chat",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "messaging",
+            "source_kind": "pinned_taxonomy_route_member",
+            "source": "messaging_chat"
+          },
+          {
+            "term": "communications",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          },
+          {
+            "term": "personal",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          }
+        ],
+        "original_query_sha256": "f7c21d2d881180e6bfe9692a109a9e1e33d9238a33afcd88e4cd46f6bc244a4f",
+        "final_query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 46981120
+    },
+    {
+      "ms": 58.3986000274308,
+      "prepare_count_ms": 47.20560001442209,
+      "c9_ms": 11.194299993803725,
+      "status": "ok",
+      "query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+      "query_derivation": {
+        "original_terms": [
+          "team chat",
+          "asynchronous",
+          "messages"
+        ],
+        "original_match_count": 4,
+        "added_route_terms": [
+          "communications",
+          "personal"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "added_term_origins": [
+          {
+            "term": "team",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "chat",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "messaging",
+            "source_kind": "pinned_taxonomy_route_member",
+            "source": "messaging_chat"
+          },
+          {
+            "term": "communications",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          },
+          {
+            "term": "personal",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          }
+        ],
+        "original_query_sha256": "f7c21d2d881180e6bfe9692a109a9e1e33d9238a33afcd88e4cd46f6bc244a4f",
+        "final_query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 47099904
+    },
+    {
+      "ms": 64.46980001055636,
+      "prepare_count_ms": 53.236100007779896,
+      "c9_ms": 11.23509998433292,
+      "status": "ok",
+      "query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+      "query_derivation": {
+        "original_terms": [
+          "team chat",
+          "asynchronous",
+          "messages"
+        ],
+        "original_match_count": 4,
+        "added_route_terms": [
+          "communications",
+          "personal"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "added_term_origins": [
+          {
+            "term": "team",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "chat",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "messaging",
+            "source_kind": "pinned_taxonomy_route_member",
+            "source": "messaging_chat"
+          },
+          {
+            "term": "communications",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          },
+          {
+            "term": "personal",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          }
+        ],
+        "original_query_sha256": "f7c21d2d881180e6bfe9692a109a9e1e33d9238a33afcd88e4cd46f6bc244a4f",
+        "final_query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 47042560
+    },
+    {
+      "ms": 56.928600009996444,
+      "prepare_count_ms": 46.197300020139664,
+      "c9_ms": 10.732399998232722,
+      "status": "ok",
+      "query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+      "query_derivation": {
+        "original_terms": [
+          "team chat",
+          "asynchronous",
+          "messages"
+        ],
+        "original_match_count": 4,
+        "added_route_terms": [
+          "communications",
+          "personal"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "added_term_origins": [
+          {
+            "term": "team",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "chat",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "messaging",
+            "source_kind": "pinned_taxonomy_route_member",
+            "source": "messaging_chat"
+          },
+          {
+            "term": "communications",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          },
+          {
+            "term": "personal",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          }
+        ],
+        "original_query_sha256": "f7c21d2d881180e6bfe9692a109a9e1e33d9238a33afcd88e4cd46f6bc244a4f",
+        "final_query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 46555136
+    },
+    {
+      "ms": 55.184700002428144,
+      "prepare_count_ms": 43.74139997526072,
+      "c9_ms": 11.444500007200986,
+      "status": "ok",
+      "query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+      "query_derivation": {
+        "original_terms": [
+          "team chat",
+          "asynchronous",
+          "messages"
+        ],
+        "original_match_count": 4,
+        "added_route_terms": [
+          "communications",
+          "personal"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "added_term_origins": [
+          {
+            "term": "team",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "chat",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "messaging",
+            "source_kind": "pinned_taxonomy_route_member",
+            "source": "messaging_chat"
+          },
+          {
+            "term": "communications",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          },
+          {
+            "term": "personal",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          }
+        ],
+        "original_query_sha256": "f7c21d2d881180e6bfe9692a109a9e1e33d9238a33afcd88e4cd46f6bc244a4f",
+        "final_query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 47099904
+    },
+    {
+      "ms": 55.95729997730814,
+      "prepare_count_ms": 44.6994999947492,
+      "c9_ms": 11.259099992457777,
+      "status": "ok",
+      "query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+      "query_derivation": {
+        "original_terms": [
+          "team chat",
+          "asynchronous",
+          "messages"
+        ],
+        "original_match_count": 4,
+        "added_route_terms": [
+          "communications",
+          "personal"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "added_term_origins": [
+          {
+            "term": "team",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "chat",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "messaging",
+            "source_kind": "pinned_taxonomy_route_member",
+            "source": "messaging_chat"
+          },
+          {
+            "term": "communications",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          },
+          {
+            "term": "personal",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          }
+        ],
+        "original_query_sha256": "f7c21d2d881180e6bfe9692a109a9e1e33d9238a33afcd88e4cd46f6bc244a4f",
+        "final_query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 47161344
+    },
+    {
+      "ms": 55.201000010129064,
+      "prepare_count_ms": 44.503600016469136,
+      "c9_ms": 10.69870000355877,
+      "status": "ok",
+      "query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+      "query_derivation": {
+        "original_terms": [
+          "team chat",
+          "asynchronous",
+          "messages"
+        ],
+        "original_match_count": 4,
+        "added_route_terms": [
+          "communications",
+          "personal"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "added_term_origins": [
+          {
+            "term": "team",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "chat",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "messaging",
+            "source_kind": "pinned_taxonomy_route_member",
+            "source": "messaging_chat"
+          },
+          {
+            "term": "communications",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          },
+          {
+            "term": "personal",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          }
+        ],
+        "original_query_sha256": "f7c21d2d881180e6bfe9692a109a9e1e33d9238a33afcd88e4cd46f6bc244a4f",
+        "final_query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 46788608
+    },
+    {
+      "ms": 57.37239998416044,
+      "prepare_count_ms": 45.889000000897795,
+      "c9_ms": 11.484499991638586,
+      "status": "ok",
+      "query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+      "query_derivation": {
+        "original_terms": [
+          "team chat",
+          "asynchronous",
+          "messages"
+        ],
+        "original_match_count": 4,
+        "added_route_terms": [
+          "communications",
+          "personal"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "added_term_origins": [
+          {
+            "term": "team",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "chat",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "messaging",
+            "source_kind": "pinned_taxonomy_route_member",
+            "source": "messaging_chat"
+          },
+          {
+            "term": "communications",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          },
+          {
+            "term": "personal",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          }
+        ],
+        "original_query_sha256": "f7c21d2d881180e6bfe9692a109a9e1e33d9238a33afcd88e4cd46f6bc244a4f",
+        "final_query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 46829568
+    },
+    {
+      "ms": 56.024800025625154,
+      "prepare_count_ms": 45.109700004104525,
+      "c9_ms": 10.91660000383854,
+      "status": "ok",
+      "query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+      "query_derivation": {
+        "original_terms": [
+          "team chat",
+          "asynchronous",
+          "messages"
+        ],
+        "original_match_count": 4,
+        "added_route_terms": [
+          "communications",
+          "personal"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "added_term_origins": [
+          {
+            "term": "team",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "chat",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "messaging",
+            "source_kind": "pinned_taxonomy_route_member",
+            "source": "messaging_chat"
+          },
+          {
+            "term": "communications",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          },
+          {
+            "term": "personal",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          }
+        ],
+        "original_query_sha256": "f7c21d2d881180e6bfe9692a109a9e1e33d9238a33afcd88e4cd46f6bc244a4f",
+        "final_query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 47063040
+    },
+    {
+      "ms": 57.53210000693798,
+      "prepare_count_ms": 46.265300014056265,
+      "c9_ms": 11.268000002019107,
+      "status": "ok",
+      "query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+      "query_derivation": {
+        "original_terms": [
+          "team chat",
+          "asynchronous",
+          "messages"
+        ],
+        "original_match_count": 4,
+        "added_route_terms": [
+          "communications",
+          "personal"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "added_term_origins": [
+          {
+            "term": "team",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "chat",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "messaging",
+            "source_kind": "pinned_taxonomy_route_member",
+            "source": "messaging_chat"
+          },
+          {
+            "term": "communications",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          },
+          {
+            "term": "personal",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          }
+        ],
+        "original_query_sha256": "f7c21d2d881180e6bfe9692a109a9e1e33d9238a33afcd88e4cd46f6bc244a4f",
+        "final_query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 47071232
+    },
+    {
+      "ms": 63.37720001465641,
+      "prepare_count_ms": 51.37010000180453,
+      "c9_ms": 12.00850002351217,
+      "status": "ok",
+      "query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+      "query_derivation": {
+        "original_terms": [
+          "team chat",
+          "asynchronous",
+          "messages"
+        ],
+        "original_match_count": 4,
+        "added_route_terms": [
+          "communications",
+          "personal"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "added_term_origins": [
+          {
+            "term": "team",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "chat",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "messaging",
+            "source_kind": "pinned_taxonomy_route_member",
+            "source": "messaging_chat"
+          },
+          {
+            "term": "communications",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          },
+          {
+            "term": "personal",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          }
+        ],
+        "original_query_sha256": "f7c21d2d881180e6bfe9692a109a9e1e33d9238a33afcd88e4cd46f6bc244a4f",
+        "final_query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 46817280
+    },
+    {
+      "ms": 55.31289998907596,
+      "prepare_count_ms": 44.294599996646866,
+      "c9_ms": 11.019600002327934,
+      "status": "ok",
+      "query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+      "query_derivation": {
+        "original_terms": [
+          "team chat",
+          "asynchronous",
+          "messages"
+        ],
+        "original_match_count": 4,
+        "added_route_terms": [
+          "communications",
+          "personal"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "added_term_origins": [
+          {
+            "term": "team",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "chat",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "messaging",
+            "source_kind": "pinned_taxonomy_route_member",
+            "source": "messaging_chat"
+          },
+          {
+            "term": "communications",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          },
+          {
+            "term": "personal",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          }
+        ],
+        "original_query_sha256": "f7c21d2d881180e6bfe9692a109a9e1e33d9238a33afcd88e4cd46f6bc244a4f",
+        "final_query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 46993408
+    },
+    {
+      "ms": 57.37259998568334,
+      "prepare_count_ms": 45.29749997891486,
+      "c9_ms": 12.076300015905872,
+      "status": "ok",
+      "query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+      "query_derivation": {
+        "original_terms": [
+          "team chat",
+          "asynchronous",
+          "messages"
+        ],
+        "original_match_count": 4,
+        "added_route_terms": [
+          "communications",
+          "personal"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "added_term_origins": [
+          {
+            "term": "team",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "chat",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "messaging",
+            "source_kind": "pinned_taxonomy_route_member",
+            "source": "messaging_chat"
+          },
+          {
+            "term": "communications",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          },
+          {
+            "term": "personal",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          }
+        ],
+        "original_query_sha256": "f7c21d2d881180e6bfe9692a109a9e1e33d9238a33afcd88e4cd46f6bc244a4f",
+        "final_query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 46604288
+    },
+    {
+      "ms": 57.197899994207546,
+      "prepare_count_ms": 46.14849999779835,
+      "c9_ms": 11.050600005546585,
+      "status": "ok",
+      "query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+      "query_derivation": {
+        "original_terms": [
+          "team chat",
+          "asynchronous",
+          "messages"
+        ],
+        "original_match_count": 4,
+        "added_route_terms": [
+          "communications",
+          "personal"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "added_term_origins": [
+          {
+            "term": "team",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "chat",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "messaging",
+            "source_kind": "pinned_taxonomy_route_member",
+            "source": "messaging_chat"
+          },
+          {
+            "term": "communications",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          },
+          {
+            "term": "personal",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          }
+        ],
+        "original_query_sha256": "f7c21d2d881180e6bfe9692a109a9e1e33d9238a33afcd88e4cd46f6bc244a4f",
+        "final_query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 46931968
+    },
+    {
+      "ms": 56.980299996212125,
+      "prepare_count_ms": 45.971899991855025,
+      "c9_ms": 11.010399990482256,
+      "status": "ok",
+      "query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+      "query_derivation": {
+        "original_terms": [
+          "team chat",
+          "asynchronous",
+          "messages"
+        ],
+        "original_match_count": 4,
+        "added_route_terms": [
+          "communications",
+          "personal"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "added_term_origins": [
+          {
+            "term": "team",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "chat",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "messaging",
+            "source_kind": "pinned_taxonomy_route_member",
+            "source": "messaging_chat"
+          },
+          {
+            "term": "communications",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          },
+          {
+            "term": "personal",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          }
+        ],
+        "original_query_sha256": "f7c21d2d881180e6bfe9692a109a9e1e33d9238a33afcd88e4cd46f6bc244a4f",
+        "final_query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 47099904
+    },
+    {
+      "ms": 55.892699980176985,
+      "prepare_count_ms": 44.856499996967614,
+      "c9_ms": 11.037599993869662,
+      "status": "ok",
+      "query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+      "query_derivation": {
+        "original_terms": [
+          "team chat",
+          "asynchronous",
+          "messages"
+        ],
+        "original_match_count": 4,
+        "added_route_terms": [
+          "communications",
+          "personal"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "added_term_origins": [
+          {
+            "term": "team",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "chat",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "messaging",
+            "source_kind": "pinned_taxonomy_route_member",
+            "source": "messaging_chat"
+          },
+          {
+            "term": "communications",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          },
+          {
+            "term": "personal",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          }
+        ],
+        "original_query_sha256": "f7c21d2d881180e6bfe9692a109a9e1e33d9238a33afcd88e4cd46f6bc244a4f",
+        "final_query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 46882816
+    },
+    {
+      "ms": 56.37410000781529,
+      "prepare_count_ms": 44.89799999282695,
+      "c9_ms": 11.477399995783344,
+      "status": "ok",
+      "query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+      "query_derivation": {
+        "original_terms": [
+          "team chat",
+          "asynchronous",
+          "messages"
+        ],
+        "original_match_count": 4,
+        "added_route_terms": [
+          "communications",
+          "personal"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "added_term_origins": [
+          {
+            "term": "team",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "chat",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "messaging",
+            "source_kind": "pinned_taxonomy_route_member",
+            "source": "messaging_chat"
+          },
+          {
+            "term": "communications",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          },
+          {
+            "term": "personal",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          }
+        ],
+        "original_query_sha256": "f7c21d2d881180e6bfe9692a109a9e1e33d9238a33afcd88e4cd46f6bc244a4f",
+        "final_query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 46780416
+    },
+    {
+      "ms": 59.558400011155754,
+      "prepare_count_ms": 48.080500011565164,
+      "c9_ms": 11.479100008727983,
+      "status": "ok",
+      "query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+      "query_derivation": {
+        "original_terms": [
+          "team chat",
+          "asynchronous",
+          "messages"
+        ],
+        "original_match_count": 4,
+        "added_route_terms": [
+          "communications",
+          "personal"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "added_term_origins": [
+          {
+            "term": "team",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "chat",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "messaging",
+            "source_kind": "pinned_taxonomy_route_member",
+            "source": "messaging_chat"
+          },
+          {
+            "term": "communications",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          },
+          {
+            "term": "personal",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          }
+        ],
+        "original_query_sha256": "f7c21d2d881180e6bfe9692a109a9e1e33d9238a33afcd88e4cd46f6bc244a4f",
+        "final_query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 46989312
+    }
+  ],
+  "warm_samples": [
+    {
+      "ms": 22.24469999782741,
+      "prepare_count_ms": 11.194599996088073,
+      "c9_ms": 11.05140001163818,
+      "status": "ok",
+      "query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+      "query_derivation": {
+        "original_terms": [
+          "team chat",
+          "asynchronous",
+          "messages"
+        ],
+        "original_match_count": 4,
+        "added_route_terms": [
+          "communications",
+          "personal"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "added_term_origins": [
+          {
+            "term": "team",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "chat",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "messaging",
+            "source_kind": "pinned_taxonomy_route_member",
+            "source": "messaging_chat"
+          },
+          {
+            "term": "communications",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          },
+          {
+            "term": "personal",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          }
+        ],
+        "original_query_sha256": "f7c21d2d881180e6bfe9692a109a9e1e33d9238a33afcd88e4cd46f6bc244a4f",
+        "final_query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 23.05059999343939,
+      "prepare_count_ms": 11.606100015342236,
+      "c9_ms": 11.44529998418875,
+      "status": "ok",
+      "query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+      "query_derivation": {
+        "original_terms": [
+          "team chat",
+          "asynchronous",
+          "messages"
+        ],
+        "original_match_count": 4,
+        "added_route_terms": [
+          "communications",
+          "personal"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "added_term_origins": [
+          {
+            "term": "team",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "chat",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "messaging",
+            "source_kind": "pinned_taxonomy_route_member",
+            "source": "messaging_chat"
+          },
+          {
+            "term": "communications",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          },
+          {
+            "term": "personal",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          }
+        ],
+        "original_query_sha256": "f7c21d2d881180e6bfe9692a109a9e1e33d9238a33afcd88e4cd46f6bc244a4f",
+        "final_query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 21.853400015970692,
+      "prepare_count_ms": 11.435599997639656,
+      "c9_ms": 10.41860002442263,
+      "status": "ok",
+      "query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+      "query_derivation": {
+        "original_terms": [
+          "team chat",
+          "asynchronous",
+          "messages"
+        ],
+        "original_match_count": 4,
+        "added_route_terms": [
+          "communications",
+          "personal"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "added_term_origins": [
+          {
+            "term": "team",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "chat",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "messaging",
+            "source_kind": "pinned_taxonomy_route_member",
+            "source": "messaging_chat"
+          },
+          {
+            "term": "communications",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          },
+          {
+            "term": "personal",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          }
+        ],
+        "original_query_sha256": "f7c21d2d881180e6bfe9692a109a9e1e33d9238a33afcd88e4cd46f6bc244a4f",
+        "final_query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 23.339200008194894,
+      "prepare_count_ms": 12.352899997495115,
+      "c9_ms": 10.987300018314272,
+      "status": "ok",
+      "query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+      "query_derivation": {
+        "original_terms": [
+          "team chat",
+          "asynchronous",
+          "messages"
+        ],
+        "original_match_count": 4,
+        "added_route_terms": [
+          "communications",
+          "personal"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "added_term_origins": [
+          {
+            "term": "team",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "chat",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "messaging",
+            "source_kind": "pinned_taxonomy_route_member",
+            "source": "messaging_chat"
+          },
+          {
+            "term": "communications",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          },
+          {
+            "term": "personal",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          }
+        ],
+        "original_query_sha256": "f7c21d2d881180e6bfe9692a109a9e1e33d9238a33afcd88e4cd46f6bc244a4f",
+        "final_query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 21.725699974922463,
+      "prepare_count_ms": 10.62309998087585,
+      "c9_ms": 11.103500000899658,
+      "status": "ok",
+      "query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+      "query_derivation": {
+        "original_terms": [
+          "team chat",
+          "asynchronous",
+          "messages"
+        ],
+        "original_match_count": 4,
+        "added_route_terms": [
+          "communications",
+          "personal"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "added_term_origins": [
+          {
+            "term": "team",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "chat",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "messaging",
+            "source_kind": "pinned_taxonomy_route_member",
+            "source": "messaging_chat"
+          },
+          {
+            "term": "communications",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          },
+          {
+            "term": "personal",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          }
+        ],
+        "original_query_sha256": "f7c21d2d881180e6bfe9692a109a9e1e33d9238a33afcd88e4cd46f6bc244a4f",
+        "final_query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 23.374599986709654,
+      "prepare_count_ms": 10.933899990050122,
+      "c9_ms": 12.441600003512576,
+      "status": "ok",
+      "query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+      "query_derivation": {
+        "original_terms": [
+          "team chat",
+          "asynchronous",
+          "messages"
+        ],
+        "original_match_count": 4,
+        "added_route_terms": [
+          "communications",
+          "personal"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "added_term_origins": [
+          {
+            "term": "team",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "chat",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "messaging",
+            "source_kind": "pinned_taxonomy_route_member",
+            "source": "messaging_chat"
+          },
+          {
+            "term": "communications",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          },
+          {
+            "term": "personal",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          }
+        ],
+        "original_query_sha256": "f7c21d2d881180e6bfe9692a109a9e1e33d9238a33afcd88e4cd46f6bc244a4f",
+        "final_query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 21.877999999560416,
+      "prepare_count_ms": 11.042600002838299,
+      "c9_ms": 10.83650000509806,
+      "status": "ok",
+      "query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+      "query_derivation": {
+        "original_terms": [
+          "team chat",
+          "asynchronous",
+          "messages"
+        ],
+        "original_match_count": 4,
+        "added_route_terms": [
+          "communications",
+          "personal"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "added_term_origins": [
+          {
+            "term": "team",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "chat",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "messaging",
+            "source_kind": "pinned_taxonomy_route_member",
+            "source": "messaging_chat"
+          },
+          {
+            "term": "communications",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          },
+          {
+            "term": "personal",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          }
+        ],
+        "original_query_sha256": "f7c21d2d881180e6bfe9692a109a9e1e33d9238a33afcd88e4cd46f6bc244a4f",
+        "final_query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 21.800100017571822,
+      "prepare_count_ms": 11.216300015803427,
+      "c9_ms": 10.584799980279058,
+      "status": "ok",
+      "query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+      "query_derivation": {
+        "original_terms": [
+          "team chat",
+          "asynchronous",
+          "messages"
+        ],
+        "original_match_count": 4,
+        "added_route_terms": [
+          "communications",
+          "personal"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "added_term_origins": [
+          {
+            "term": "team",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "chat",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "messaging",
+            "source_kind": "pinned_taxonomy_route_member",
+            "source": "messaging_chat"
+          },
+          {
+            "term": "communications",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          },
+          {
+            "term": "personal",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          }
+        ],
+        "original_query_sha256": "f7c21d2d881180e6bfe9692a109a9e1e33d9238a33afcd88e4cd46f6bc244a4f",
+        "final_query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 22.13100000517443,
+      "prepare_count_ms": 11.182600021129474,
+      "c9_ms": 10.949399991659448,
+      "status": "ok",
+      "query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+      "query_derivation": {
+        "original_terms": [
+          "team chat",
+          "asynchronous",
+          "messages"
+        ],
+        "original_match_count": 4,
+        "added_route_terms": [
+          "communications",
+          "personal"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "added_term_origins": [
+          {
+            "term": "team",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "chat",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "messaging",
+            "source_kind": "pinned_taxonomy_route_member",
+            "source": "messaging_chat"
+          },
+          {
+            "term": "communications",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          },
+          {
+            "term": "personal",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          }
+        ],
+        "original_query_sha256": "f7c21d2d881180e6bfe9692a109a9e1e33d9238a33afcd88e4cd46f6bc244a4f",
+        "final_query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 21.848399977898225,
+      "prepare_count_ms": 10.720699996454641,
+      "c9_ms": 11.128499987535179,
+      "status": "ok",
+      "query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+      "query_derivation": {
+        "original_terms": [
+          "team chat",
+          "asynchronous",
+          "messages"
+        ],
+        "original_match_count": 4,
+        "added_route_terms": [
+          "communications",
+          "personal"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "added_term_origins": [
+          {
+            "term": "team",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "chat",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "messaging",
+            "source_kind": "pinned_taxonomy_route_member",
+            "source": "messaging_chat"
+          },
+          {
+            "term": "communications",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          },
+          {
+            "term": "personal",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          }
+        ],
+        "original_query_sha256": "f7c21d2d881180e6bfe9692a109a9e1e33d9238a33afcd88e4cd46f6bc244a4f",
+        "final_query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 22.599699994316325,
+      "prepare_count_ms": 11.338300013449043,
+      "c9_ms": 11.262299987720326,
+      "status": "ok",
+      "query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+      "query_derivation": {
+        "original_terms": [
+          "team chat",
+          "asynchronous",
+          "messages"
+        ],
+        "original_match_count": 4,
+        "added_route_terms": [
+          "communications",
+          "personal"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "added_term_origins": [
+          {
+            "term": "team",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "chat",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "messaging",
+            "source_kind": "pinned_taxonomy_route_member",
+            "source": "messaging_chat"
+          },
+          {
+            "term": "communications",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          },
+          {
+            "term": "personal",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          }
+        ],
+        "original_query_sha256": "f7c21d2d881180e6bfe9692a109a9e1e33d9238a33afcd88e4cd46f6bc244a4f",
+        "final_query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 22.353899985319003,
+      "prepare_count_ms": 11.042700003599748,
+      "c9_ms": 11.318599979858845,
+      "status": "ok",
+      "query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+      "query_derivation": {
+        "original_terms": [
+          "team chat",
+          "asynchronous",
+          "messages"
+        ],
+        "original_match_count": 4,
+        "added_route_terms": [
+          "communications",
+          "personal"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "added_term_origins": [
+          {
+            "term": "team",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "chat",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "messaging",
+            "source_kind": "pinned_taxonomy_route_member",
+            "source": "messaging_chat"
+          },
+          {
+            "term": "communications",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          },
+          {
+            "term": "personal",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          }
+        ],
+        "original_query_sha256": "f7c21d2d881180e6bfe9692a109a9e1e33d9238a33afcd88e4cd46f6bc244a4f",
+        "final_query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 22.923799988348037,
+      "prepare_count_ms": 11.517700011609122,
+      "c9_ms": 11.406999983591959,
+      "status": "ok",
+      "query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+      "query_derivation": {
+        "original_terms": [
+          "team chat",
+          "asynchronous",
+          "messages"
+        ],
+        "original_match_count": 4,
+        "added_route_terms": [
+          "communications",
+          "personal"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "added_term_origins": [
+          {
+            "term": "team",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "chat",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "messaging",
+            "source_kind": "pinned_taxonomy_route_member",
+            "source": "messaging_chat"
+          },
+          {
+            "term": "communications",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          },
+          {
+            "term": "personal",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          }
+        ],
+        "original_query_sha256": "f7c21d2d881180e6bfe9692a109a9e1e33d9238a33afcd88e4cd46f6bc244a4f",
+        "final_query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 23.71010000933893,
+      "prepare_count_ms": 11.74170000012964,
+      "c9_ms": 11.969399987719953,
+      "status": "ok",
+      "query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+      "query_derivation": {
+        "original_terms": [
+          "team chat",
+          "asynchronous",
+          "messages"
+        ],
+        "original_match_count": 4,
+        "added_route_terms": [
+          "communications",
+          "personal"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "added_term_origins": [
+          {
+            "term": "team",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "chat",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "messaging",
+            "source_kind": "pinned_taxonomy_route_member",
+            "source": "messaging_chat"
+          },
+          {
+            "term": "communications",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          },
+          {
+            "term": "personal",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          }
+        ],
+        "original_query_sha256": "f7c21d2d881180e6bfe9692a109a9e1e33d9238a33afcd88e4cd46f6bc244a4f",
+        "final_query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 21.89979999093339,
+      "prepare_count_ms": 10.910799988778308,
+      "c9_ms": 10.990200011292472,
+      "status": "ok",
+      "query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+      "query_derivation": {
+        "original_terms": [
+          "team chat",
+          "asynchronous",
+          "messages"
+        ],
+        "original_match_count": 4,
+        "added_route_terms": [
+          "communications",
+          "personal"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "added_term_origins": [
+          {
+            "term": "team",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "chat",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "messaging",
+            "source_kind": "pinned_taxonomy_route_member",
+            "source": "messaging_chat"
+          },
+          {
+            "term": "communications",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          },
+          {
+            "term": "personal",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          }
+        ],
+        "original_query_sha256": "f7c21d2d881180e6bfe9692a109a9e1e33d9238a33afcd88e4cd46f6bc244a4f",
+        "final_query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 21.62129999487661,
+      "prepare_count_ms": 10.874800005694851,
+      "c9_ms": 10.747299995273352,
+      "status": "ok",
+      "query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+      "query_derivation": {
+        "original_terms": [
+          "team chat",
+          "asynchronous",
+          "messages"
+        ],
+        "original_match_count": 4,
+        "added_route_terms": [
+          "communications",
+          "personal"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "added_term_origins": [
+          {
+            "term": "team",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "chat",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "messaging",
+            "source_kind": "pinned_taxonomy_route_member",
+            "source": "messaging_chat"
+          },
+          {
+            "term": "communications",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          },
+          {
+            "term": "personal",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          }
+        ],
+        "original_query_sha256": "f7c21d2d881180e6bfe9692a109a9e1e33d9238a33afcd88e4cd46f6bc244a4f",
+        "final_query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 22.061900002881885,
+      "prepare_count_ms": 10.962600004859269,
+      "c9_ms": 11.10010000411421,
+      "status": "ok",
+      "query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+      "query_derivation": {
+        "original_terms": [
+          "team chat",
+          "asynchronous",
+          "messages"
+        ],
+        "original_match_count": 4,
+        "added_route_terms": [
+          "communications",
+          "personal"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "added_term_origins": [
+          {
+            "term": "team",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "chat",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "messaging",
+            "source_kind": "pinned_taxonomy_route_member",
+            "source": "messaging_chat"
+          },
+          {
+            "term": "communications",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          },
+          {
+            "term": "personal",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          }
+        ],
+        "original_query_sha256": "f7c21d2d881180e6bfe9692a109a9e1e33d9238a33afcd88e4cd46f6bc244a4f",
+        "final_query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 21.97830000659451,
+      "prepare_count_ms": 10.970800009090453,
+      "c9_ms": 11.00830000359565,
+      "status": "ok",
+      "query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+      "query_derivation": {
+        "original_terms": [
+          "team chat",
+          "asynchronous",
+          "messages"
+        ],
+        "original_match_count": 4,
+        "added_route_terms": [
+          "communications",
+          "personal"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "added_term_origins": [
+          {
+            "term": "team",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "chat",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "messaging",
+            "source_kind": "pinned_taxonomy_route_member",
+            "source": "messaging_chat"
+          },
+          {
+            "term": "communications",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          },
+          {
+            "term": "personal",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          }
+        ],
+        "original_query_sha256": "f7c21d2d881180e6bfe9692a109a9e1e33d9238a33afcd88e4cd46f6bc244a4f",
+        "final_query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 22.715400002198294,
+      "prepare_count_ms": 11.607099993852898,
+      "c9_ms": 11.109300015959889,
+      "status": "ok",
+      "query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+      "query_derivation": {
+        "original_terms": [
+          "team chat",
+          "asynchronous",
+          "messages"
+        ],
+        "original_match_count": 4,
+        "added_route_terms": [
+          "communications",
+          "personal"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "added_term_origins": [
+          {
+            "term": "team",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "chat",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "messaging",
+            "source_kind": "pinned_taxonomy_route_member",
+            "source": "messaging_chat"
+          },
+          {
+            "term": "communications",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          },
+          {
+            "term": "personal",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          }
+        ],
+        "original_query_sha256": "f7c21d2d881180e6bfe9692a109a9e1e33d9238a33afcd88e4cd46f6bc244a4f",
+        "final_query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 22.927100013475865,
+      "prepare_count_ms": 11.379300005501136,
+      "c9_ms": 11.548700014827773,
+      "status": "ok",
+      "query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+      "query_derivation": {
+        "original_terms": [
+          "team chat",
+          "asynchronous",
+          "messages"
+        ],
+        "original_match_count": 4,
+        "added_route_terms": [
+          "communications",
+          "personal"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "added_term_origins": [
+          {
+            "term": "team",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "chat",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "messaging",
+            "source_kind": "pinned_taxonomy_route_member",
+            "source": "messaging_chat"
+          },
+          {
+            "term": "communications",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          },
+          {
+            "term": "personal",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          }
+        ],
+        "original_query_sha256": "f7c21d2d881180e6bfe9692a109a9e1e33d9238a33afcd88e4cd46f6bc244a4f",
+        "final_query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 22.124000010080636,
+      "prepare_count_ms": 11.302400002023205,
+      "c9_ms": 10.822400014149025,
+      "status": "ok",
+      "query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+      "query_derivation": {
+        "original_terms": [
+          "team chat",
+          "asynchronous",
+          "messages"
+        ],
+        "original_match_count": 4,
+        "added_route_terms": [
+          "communications",
+          "personal"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "added_term_origins": [
+          {
+            "term": "team",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "chat",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "messaging",
+            "source_kind": "pinned_taxonomy_route_member",
+            "source": "messaging_chat"
+          },
+          {
+            "term": "communications",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          },
+          {
+            "term": "personal",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          }
+        ],
+        "original_query_sha256": "f7c21d2d881180e6bfe9692a109a9e1e33d9238a33afcd88e4cd46f6bc244a4f",
+        "final_query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 22.78410000144504,
+      "prepare_count_ms": 11.59810001263395,
+      "c9_ms": 11.186799994902685,
+      "status": "ok",
+      "query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+      "query_derivation": {
+        "original_terms": [
+          "team chat",
+          "asynchronous",
+          "messages"
+        ],
+        "original_match_count": 4,
+        "added_route_terms": [
+          "communications",
+          "personal"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "added_term_origins": [
+          {
+            "term": "team",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "chat",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "messaging",
+            "source_kind": "pinned_taxonomy_route_member",
+            "source": "messaging_chat"
+          },
+          {
+            "term": "communications",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          },
+          {
+            "term": "personal",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          }
+        ],
+        "original_query_sha256": "f7c21d2d881180e6bfe9692a109a9e1e33d9238a33afcd88e4cd46f6bc244a4f",
+        "final_query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 21.930999995674938,
+      "prepare_count_ms": 11.256099998718128,
+      "c9_ms": 10.675900004571304,
+      "status": "ok",
+      "query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+      "query_derivation": {
+        "original_terms": [
+          "team chat",
+          "asynchronous",
+          "messages"
+        ],
+        "original_match_count": 4,
+        "added_route_terms": [
+          "communications",
+          "personal"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "added_term_origins": [
+          {
+            "term": "team",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "chat",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "messaging",
+            "source_kind": "pinned_taxonomy_route_member",
+            "source": "messaging_chat"
+          },
+          {
+            "term": "communications",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          },
+          {
+            "term": "personal",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          }
+        ],
+        "original_query_sha256": "f7c21d2d881180e6bfe9692a109a9e1e33d9238a33afcd88e4cd46f6bc244a4f",
+        "final_query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 22.162999986903742,
+      "prepare_count_ms": 10.958899976685643,
+      "c9_ms": 11.210099997697398,
+      "status": "ok",
+      "query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+      "query_derivation": {
+        "original_terms": [
+          "team chat",
+          "asynchronous",
+          "messages"
+        ],
+        "original_match_count": 4,
+        "added_route_terms": [
+          "communications",
+          "personal"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "added_term_origins": [
+          {
+            "term": "team",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "chat",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "messaging",
+            "source_kind": "pinned_taxonomy_route_member",
+            "source": "messaging_chat"
+          },
+          {
+            "term": "communications",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          },
+          {
+            "term": "personal",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          }
+        ],
+        "original_query_sha256": "f7c21d2d881180e6bfe9692a109a9e1e33d9238a33afcd88e4cd46f6bc244a4f",
+        "final_query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 22.967199998674914,
+      "prepare_count_ms": 11.858199984999374,
+      "c9_ms": 11.109800019767135,
+      "status": "ok",
+      "query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+      "query_derivation": {
+        "original_terms": [
+          "team chat",
+          "asynchronous",
+          "messages"
+        ],
+        "original_match_count": 4,
+        "added_route_terms": [
+          "communications",
+          "personal"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "added_term_origins": [
+          {
+            "term": "team",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "chat",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "messaging",
+            "source_kind": "pinned_taxonomy_route_member",
+            "source": "messaging_chat"
+          },
+          {
+            "term": "communications",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          },
+          {
+            "term": "personal",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          }
+        ],
+        "original_query_sha256": "f7c21d2d881180e6bfe9692a109a9e1e33d9238a33afcd88e4cd46f6bc244a4f",
+        "final_query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 21.28339998307638,
+      "prepare_count_ms": 10.773099988000467,
+      "c9_ms": 10.511500004213303,
+      "status": "ok",
+      "query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+      "query_derivation": {
+        "original_terms": [
+          "team chat",
+          "asynchronous",
+          "messages"
+        ],
+        "original_match_count": 4,
+        "added_route_terms": [
+          "communications",
+          "personal"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "added_term_origins": [
+          {
+            "term": "team",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "chat",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "messaging",
+            "source_kind": "pinned_taxonomy_route_member",
+            "source": "messaging_chat"
+          },
+          {
+            "term": "communications",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          },
+          {
+            "term": "personal",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          }
+        ],
+        "original_query_sha256": "f7c21d2d881180e6bfe9692a109a9e1e33d9238a33afcd88e4cd46f6bc244a4f",
+        "final_query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 22.577700001420453,
+      "prepare_count_ms": 12.027999997371808,
+      "c9_ms": 10.55049998103641,
+      "status": "ok",
+      "query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+      "query_derivation": {
+        "original_terms": [
+          "team chat",
+          "asynchronous",
+          "messages"
+        ],
+        "original_match_count": 4,
+        "added_route_terms": [
+          "communications",
+          "personal"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "added_term_origins": [
+          {
+            "term": "team",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "chat",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "messaging",
+            "source_kind": "pinned_taxonomy_route_member",
+            "source": "messaging_chat"
+          },
+          {
+            "term": "communications",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          },
+          {
+            "term": "personal",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          }
+        ],
+        "original_query_sha256": "f7c21d2d881180e6bfe9692a109a9e1e33d9238a33afcd88e4cd46f6bc244a4f",
+        "final_query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 22.78540001134388,
+      "prepare_count_ms": 11.344800004735589,
+      "c9_ms": 11.441400012699887,
+      "status": "ok",
+      "query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+      "query_derivation": {
+        "original_terms": [
+          "team chat",
+          "asynchronous",
+          "messages"
+        ],
+        "original_match_count": 4,
+        "added_route_terms": [
+          "communications",
+          "personal"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "added_term_origins": [
+          {
+            "term": "team",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "chat",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "messaging",
+            "source_kind": "pinned_taxonomy_route_member",
+            "source": "messaging_chat"
+          },
+          {
+            "term": "communications",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          },
+          {
+            "term": "personal",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          }
+        ],
+        "original_query_sha256": "f7c21d2d881180e6bfe9692a109a9e1e33d9238a33afcd88e4cd46f6bc244a4f",
+        "final_query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 23.189300001831725,
+      "prepare_count_ms": 12.100100022507831,
+      "c9_ms": 11.090099986176938,
+      "status": "ok",
+      "query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+      "query_derivation": {
+        "original_terms": [
+          "team chat",
+          "asynchronous",
+          "messages"
+        ],
+        "original_match_count": 4,
+        "added_route_terms": [
+          "communications",
+          "personal"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "added_term_origins": [
+          {
+            "term": "team",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "chat",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "messaging",
+            "source_kind": "pinned_taxonomy_route_member",
+            "source": "messaging_chat"
+          },
+          {
+            "term": "communications",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          },
+          {
+            "term": "personal",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          }
+        ],
+        "original_query_sha256": "f7c21d2d881180e6bfe9692a109a9e1e33d9238a33afcd88e4cd46f6bc244a4f",
+        "final_query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 23.198600014438853,
+      "prepare_count_ms": 10.686499997973442,
+      "c9_ms": 12.512999994214624,
+      "status": "ok",
+      "query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+      "query_derivation": {
+        "original_terms": [
+          "team chat",
+          "asynchronous",
+          "messages"
+        ],
+        "original_match_count": 4,
+        "added_route_terms": [
+          "communications",
+          "personal"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "added_term_origins": [
+          {
+            "term": "team",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "chat",
+            "source_kind": "required_term_atom",
+            "source": "team chat"
+          },
+          {
+            "term": "messaging",
+            "source_kind": "pinned_taxonomy_route_member",
+            "source": "messaging_chat"
+          },
+          {
+            "term": "communications",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          },
+          {
+            "term": "personal",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "communications_personal_ops"
+          }
+        ],
+        "original_query_sha256": "f7c21d2d881180e6bfe9692a109a9e1e33d9238a33afcd88e4cd46f6bc244a4f",
+        "final_query_sha256": "0ed7f074d53a66c304aa87bd72f84756f16e6b869d18a63c3f423c04da8e9fa2",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    }
+  ],
+  "cold_p95_ms": 63.37720001465641,
+  "warm_p95_ms": 23.374599986709654,
+  "peak_memory_bytes": 47161344,
+  "index_bytes": 2048000,
+  "prior_whole_path_diagnostic": {
+    "ms": 477.4776000122074,
+    "status": "ready",
+    "scope": "One warm Brief/COUNT/C9/guard/pack diagnostic; no model or SLA"
+  },
+  "source_hashes": {
+    "evals/plugin-v1/measure_final_chat_request.py": "c91083ad2dbc2654b573fe0b5af71d2d1d435eff81db844d69ca61f9132edcc6",
+    "plugins/myai-stackguide/scripts/recommendation_request.py": "4f45e1c0e17aca09149e94602fbc8d84f2d2a74ce25f53de40b48f5f14c53b56",
+    "plugins/myai-stackguide/scripts/retrieval.py": "7d2385c3143b85f9089c422ffa930650bf0dd799ded665416e02e78768f5f6b5",
+    "evals/plugin-v1/results/cp04-final-quality-prospective-2026-10-11/observations.json": "258c5baf3b9b37a4841ba50fe53dad5569696e5a2943c21eea10c4fdec9f4639",
+    "plugins/myai-stackguide/assets/catalog.search.sqlite": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+    "plugins/myai-stackguide/assets/catalog.search-manifest.json": "4c1c9eccf6df60d92da5d780a8152ce3fb00e43ccbf80e8ed01c3c660135a1bb",
+    "plugins/myai-stackguide/assets/retrieval-policy.json": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b"
+  },
+  "promotion_ready": false,
+  "gates": {
+    "cold_p95": true,
+    "warm_p95": true,
+    "peak_memory": true,
+    "index_bytes": true,
+    "statuses": true
+  }
+}

@@ -1,0 +1,1171 @@
+{
+  "schema_version": "cp04_product_answer_review_v1",
+  "task_id": "CP-04",
+  "reviewer": "product_planner",
+  "review_identity": "independent first pass on current formal four-case/eight-answer capture",
+  "reviewed_at_utc": "2026-10-11T10:47:52.759099+00:00",
+  "agent_proxy": true,
+  "human_acceptance": false,
+  "human_calibration": false,
+  "promotion_approved": false,
+  "promotion_ready": false,
+  "counterpart_scores_read_before_first_pass": false,
+  "prior_scores_transferred": false,
+  "rubric_path": "evals/plugin-v1/rubric.json",
+  "rubric_sha256": "96f67da80234d4ade36c9b5e5fb50276398acce76751513e9e041926b74f3fef",
+  "thresholds": {
+    "minimum_total": 16,
+    "critical_dimension_minimum": 1,
+    "critical_failures_allowed": 0
+  },
+  "observations_sha256": "bd97758a1ef1de9286c8a9e11b4dd0332f96e1e6fe702ebeafe9d90ca8b033ff",
+  "declaration_file_sha256": "93e180ddf242412e335a6aead40dfeb8fb816a67e67ae70860260c68fd375718",
+  "declaration_canonical_sha256": "c17a42b85768c0d6779606c7f2d5f4cc262da4c132b5ffad083fc8b6824ee116",
+  "audit_sha256": "c5c8b37d66d29e30908153bdc3f22dde3f7c5a2cc3d4b0c2c8fe010d945efe94",
+  "provenance_sha256": "0af68615dc289e00f51dfeda8bede9cf6267b63de29638ef8d3649f74da07496",
+  "current_production_tuple": {
+    "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+    "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+    "manifest_sha256": "4c1c9eccf6df60d92da5d780a8152ce3fb00e43ccbf80e8ed01c3c660135a1bb"
+  },
+  "capture_claims": {
+    "actual_composition_calls": 8,
+    "interpretation_status": "provided_fixed",
+    "prior_scores_reused": false,
+    "human_acceptance": false
+  },
+  "cases": [
+    {
+      "case_id": "CP04-DEV-08",
+      "human_calibration_case_id": "HU-FOUNDER-PAIRED",
+      "persona": "non-technical founder",
+      "canonical_result_sha256": "8f791e4b2698fd563798a41c07ebb804d2c3b9531eac2c410e60b97f7e1049ff",
+      "canonical_source_pointer": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/observations.json#/records/0/result",
+      "brief_source_pointer": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/observations.json#/records/0/brief",
+      "evidence_pack_source_pointer": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/observations.json#/records/0/result/evidence_pack",
+      "planning_source_pointer": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/observations.json#/records/0/planning",
+      "pins": {
+        "activity_schema_version": "2.0.0",
+        "card_schema_version": "2.0.0",
+        "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+        "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+        "corpus_kind": "catalog_snapshot",
+        "index_format_version": 3,
+        "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+        "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+        "retrieval_policy_version": "2.1.0",
+        "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+        "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+      },
+      "candidate_ids_and_order": [
+        100711978,
+        552877440,
+        235391869,
+        14861133,
+        1953389,
+        20545279,
+        2471804,
+        221280225,
+        202768861
+      ],
+      "locales": {
+        "ru": {
+          "reviewer": "product_planner",
+          "original_scores": [
+            {
+              "dimension_id": "Context interpretation",
+              "dimension": "Context interpretation",
+              "score": 2,
+              "rationale": "Safe payment-SDK evaluation retained; Python and Stripe-provider fit remain conditional, not invented project facts.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-08/answer-ru.md"
+            },
+            {
+              "dimension_id": "Category relevance",
+              "dimension": "Category relevance",
+              "score": 2,
+              "rationale": "Server-side API access directly matches SaaS payments, without treating SDK choice as provider approval.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-08/answer-ru.md"
+            },
+            {
+              "dimension_id": "Shortlist fit and roles",
+              "dimension": "Shortlist fit and roles",
+              "score": 2,
+              "rationale": "stripe-python is a client library; team-owned adapter retains payment rules, recording, reconciliation and failures.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-08/answer-ru.md"
+            },
+            {
+              "dimension_id": "Avoid/defer quality",
+              "dimension": "Avoid/defer quality",
+              "score": 2,
+              "rationale": "Equivalent-scope custom HTTP/current solution compared; incompatible or unsuitable provider and sufficient existing path reverse preference.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-08/answer-ru.md"
+            },
+            {
+              "dimension_id": "Evidence/provenance/activity clarity",
+              "dimension": "Evidence/provenance/activity clarity",
+              "score": 2,
+              "rationale": "Dated supplied README facts and catalog MIT observation separated and linked; no provider or payment-operability proof claimed.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-08/answer-ru.md"
+            },
+            {
+              "dimension_id": "Caveats and missing context",
+              "dimension": "Caveats and missing context",
+              "score": 2,
+              "rationale": "Language, provider/regional suitability, existing path, version/license and full adoption totals unknown; 4-8 hours is hypothetical qualification.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-08/answer-ru.md"
+            },
+            {
+              "dimension_id": "Integration/validation usefulness",
+              "dimension": "Integration/validation usefulness",
+              "score": 2,
+              "rationale": "First task maps one payment operation and synthetic success/error/retry expectations with reconciliation ownership; acceptance is interface fit plus explicit gaps. Isolated no-cutover trial preserves data and queued work.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-08/answer-ru.md"
+            },
+            {
+              "dimension_id": "Plain-language decision support",
+              "dimension": "Plain-language decision support",
+              "score": 1,
+              "rationale": "Founder choice and next Python question clear, but unexplained SDK/idempotency/reconciliation terminology, internal CP04 scenario ID and capacity phrasing add unnecessary technical burden.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-08/answer-ru.md"
+            },
+            {
+              "dimension_id": "Authorized integration handoff",
+              "dimension": "Authorized integration handoff",
+              "score": 2,
+              "rationale": "Bounded source/synthetic task specifies prerequisites, evidence outcome and isolation rollback; it grants no authority for integration or provider tests.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-08/answer-ru.md"
+            },
+            {
+              "dimension_id": "Privacy and permission",
+              "dimension": "Privacy and permission",
+              "score": 2,
+              "rationale": "Key stays server-side as a requirement; first check excludes keys, installs, paid provider and production data; no disclosure or action.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-08/answer-ru.md"
+            }
+          ],
+          "original_total": 19,
+          "critical_dimension_scores": {
+            "Evidence/provenance/activity clarity": 2,
+            "Authorized integration handoff": 2,
+            "Privacy and permission": 2
+          },
+          "critical_dimensions_pass": true,
+          "critical_failures": [],
+          "numeric_agent_proxy_gate_pass": true,
+          "answer_sha256": "d47f4a37ea0498e2ab171a9e4fc68b7242a868fba4a559fff215b7f46a4edf66",
+          "normalized_output_pointer": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/observations.json#/records/0/answers/ru/normalized",
+          "recommended_ids": [
+            1953389
+          ],
+          "source_urls": [
+            "https://github.com/stripe/stripe-python"
+          ],
+          "planning_sha256": "68c0e8d644ea74240a6eb9725ef1933fa4c35b6e4bd80b7882df3c8826860d65",
+          "compactness": {
+            "words": 349,
+            "paragraphs": 4,
+            "single_locale": true,
+            "assessment": "Readable conditional decision with source/authority limits; plain-language score reflects persona fit/density. Actual user acceptance unmeasured."
+          },
+          "execution_boundary": "proposed_not_executed; source or isolated synthetic qualification only, no installed integration, provider call, credentials or production data."
+        },
+        "en": {
+          "reviewer": "product_planner",
+          "original_scores": [
+            {
+              "dimension_id": "Context interpretation",
+              "dimension": "Context interpretation",
+              "score": 2,
+              "rationale": "Safe payment-SDK evaluation retained; Python and Stripe-provider fit remain conditional, not invented project facts.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-08/answer-en.md"
+            },
+            {
+              "dimension_id": "Category relevance",
+              "dimension": "Category relevance",
+              "score": 2,
+              "rationale": "Server-side API access directly matches SaaS payments, without treating SDK choice as provider approval.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-08/answer-en.md"
+            },
+            {
+              "dimension_id": "Shortlist fit and roles",
+              "dimension": "Shortlist fit and roles",
+              "score": 2,
+              "rationale": "stripe-python is a client library; team-owned adapter retains payment rules, recording, reconciliation and failures.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-08/answer-en.md"
+            },
+            {
+              "dimension_id": "Avoid/defer quality",
+              "dimension": "Avoid/defer quality",
+              "score": 2,
+              "rationale": "Equivalent-scope custom HTTP/current solution compared; incompatible or unsuitable provider and sufficient existing path reverse preference.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-08/answer-en.md"
+            },
+            {
+              "dimension_id": "Evidence/provenance/activity clarity",
+              "dimension": "Evidence/provenance/activity clarity",
+              "score": 2,
+              "rationale": "Dated supplied README facts and catalog MIT observation separated and linked; no provider or payment-operability proof claimed.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-08/answer-en.md"
+            },
+            {
+              "dimension_id": "Caveats and missing context",
+              "dimension": "Caveats and missing context",
+              "score": 2,
+              "rationale": "Language, provider/regional suitability, existing path, version/license and full adoption totals unknown; 4-8 hours is hypothetical qualification.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-08/answer-en.md"
+            },
+            {
+              "dimension_id": "Integration/validation usefulness",
+              "dimension": "Integration/validation usefulness",
+              "score": 2,
+              "rationale": "First task maps one payment operation and synthetic success/error/retry expectations with reconciliation ownership; acceptance is interface fit plus explicit gaps. Isolated no-cutover trial preserves data and queued work.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-08/answer-en.md"
+            },
+            {
+              "dimension_id": "Plain-language decision support",
+              "dimension": "Plain-language decision support",
+              "score": 1,
+              "rationale": "Founder choice and next Python question clear, but unexplained SDK/idempotency/reconciliation terminology, internal CP04 scenario ID and capacity phrasing add unnecessary technical burden.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-08/answer-en.md"
+            },
+            {
+              "dimension_id": "Authorized integration handoff",
+              "dimension": "Authorized integration handoff",
+              "score": 2,
+              "rationale": "Bounded source/synthetic task specifies prerequisites, evidence outcome and isolation rollback; it grants no authority for integration or provider tests.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-08/answer-en.md"
+            },
+            {
+              "dimension_id": "Privacy and permission",
+              "dimension": "Privacy and permission",
+              "score": 2,
+              "rationale": "Key stays server-side as a requirement; first check excludes keys, installs, paid provider and production data; no disclosure or action.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-08/answer-en.md"
+            }
+          ],
+          "original_total": 19,
+          "critical_dimension_scores": {
+            "Evidence/provenance/activity clarity": 2,
+            "Authorized integration handoff": 2,
+            "Privacy and permission": 2
+          },
+          "critical_dimensions_pass": true,
+          "critical_failures": [],
+          "numeric_agent_proxy_gate_pass": true,
+          "answer_sha256": "8756ae84015c029945dce00b795142f1ae028285c1ff1cf257190d0b2cb1e881",
+          "normalized_output_pointer": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/observations.json#/records/0/answers/en/normalized",
+          "recommended_ids": [
+            1953389
+          ],
+          "source_urls": [
+            "https://github.com/stripe/stripe-python"
+          ],
+          "planning_sha256": "68c0e8d644ea74240a6eb9725ef1933fa4c35b6e4bd80b7882df3c8826860d65",
+          "compactness": {
+            "words": 426,
+            "paragraphs": 4,
+            "single_locale": true,
+            "assessment": "Readable conditional decision with source/authority limits; plain-language score reflects persona fit/density. Actual user acceptance unmeasured."
+          },
+          "execution_boundary": "proposed_not_executed; source or isolated synthetic qualification only, no installed integration, provider call, credentials or production data."
+        }
+      },
+      "same_canonical_meaning": {
+        "decision": "equivalent",
+        "canonical_hash_ids_planning_source_urls_equal": true,
+        "critical_fact_role_negation_unknown_estimate_authority_change_observed": false,
+        "notes": "Paired wording preserves literal source dates/values, conditional preference, alternative/supporting roles, unknowns, hypothetical scope and proposed-only authority. No browser/display-switch mechanism exercised.",
+        "human_semantic_acceptance": false
+      }
+    },
+    {
+      "case_id": "CP04-HOLD-10",
+      "human_calibration_case_id": "HU-ENGINEER-PAIRED",
+      "persona": "ML platform engineer",
+      "canonical_result_sha256": "4a1c6688c325ed7dc32b1fcee276d54430566ff24502e637a6006573e507f66c",
+      "canonical_source_pointer": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/observations.json#/records/1/result",
+      "brief_source_pointer": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/observations.json#/records/1/brief",
+      "evidence_pack_source_pointer": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/observations.json#/records/1/result/evidence_pack",
+      "planning_source_pointer": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/observations.json#/records/1/planning",
+      "pins": {
+        "activity_schema_version": "2.0.0",
+        "card_schema_version": "2.0.0",
+        "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+        "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+        "corpus_kind": "catalog_snapshot",
+        "index_format_version": 3,
+        "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+        "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+        "retrieval_policy_version": "2.1.0",
+        "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+        "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+      },
+      "candidate_ids_and_order": [
+        506953078,
+        922406522,
+        838970603,
+        631692814,
+        708552127,
+        731467355,
+        395140743,
+        650918061,
+        629142696,
+        763697768,
+        987976055,
+        731397562,
+        626790707,
+        700724064,
+        570985989,
+        636372163,
+        178626720,
+        644235905,
+        1126557956,
+        890059746,
+        1222120468,
+        95700338,
+        201314421,
+        656385153,
+        778281287,
+        879473096,
+        541386254,
+        934221781,
+        1069235905,
+        953478769,
+        843003613,
+        810121174,
+        180572200,
+        444377346,
+        164046740,
+        1201826173,
+        646489141,
+        823430322,
+        991030974,
+        627727693,
+        693936906,
+        670206497,
+        375163159,
+        783968898,
+        626773493,
+        1052387869,
+        648788010,
+        913684633,
+        531471133,
+        575628616,
+        709422137,
+        800415474,
+        752815135,
+        814496416,
+        841541826,
+        198694912,
+        850338335,
+        392708700,
+        616099860,
+        888274570,
+        667297720,
+        646537482,
+        679091311,
+        832661327,
+        607845880,
+        977970140,
+        669402660,
+        1003799351,
+        707818217,
+        575997792,
+        620843043,
+        1040481901,
+        1140263746,
+        1176898834,
+        1240872088,
+        1187805808,
+        646410686,
+        723015178,
+        169991845,
+        666612077,
+        1243340887,
+        603067222,
+        878416567,
+        910125376,
+        783744120,
+        797371964,
+        658219396,
+        718873539,
+        628028132,
+        973621150,
+        1162516847,
+        772255271,
+        832879402,
+        594934731,
+        725205304,
+        569937782,
+        715806751,
+        789098173,
+        1331428199
+      ],
+      "locales": {
+        "ru": {
+          "reviewer": "product_planner",
+          "original_scores": [
+            {
+              "dimension_id": "Context interpretation",
+              "dimension": "Context interpretation",
+              "score": 2,
+              "rationale": "Distributed training modernization retained; launch scaling/recovery versus computation distribution remains a decisive question rather than invented workload.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-10/answer-ru.md"
+            },
+            {
+              "dimension_id": "Category relevance",
+              "dimension": "Category relevance",
+              "score": 2,
+              "rationale": "Distinguishes DLRover orchestration from distributed training-layer options using capabilities instead of rank.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-10/answer-ru.md"
+            },
+            {
+              "dimension_id": "Shortlist fit and roles",
+              "dimension": "Shortlist fit and roles",
+              "score": 2,
+              "rationale": "DLRover, veScale and Automodel have distinct comparison roles; combined stack explicitly unjustified; script/adapter/component boundary conditional.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-10/answer-ru.md"
+            },
+            {
+              "dimension_id": "Avoid/defer quality",
+              "dimension": "Avoid/defer quality",
+              "score": 2,
+              "rationale": "Current/native and custom mechanisms compared for same job; training-layer focus, incompatibility or sufficient current path reverse DLRover preference.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-10/answer-ru.md"
+            },
+            {
+              "dimension_id": "Evidence/provenance/activity clarity",
+              "dimension": "Evidence/provenance/activity clarity",
+              "score": 2,
+              "rationale": "Dated DLRover host README separated from snapshot-only alternatives; Other license is not accepted terms; no hardware/platform operability inferred.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-10/answer-ru.md"
+            },
+            {
+              "dimension_id": "Caveats and missing context",
+              "dimension": "Caveats and missing context",
+              "score": 2,
+              "rationale": "Hardware/workload/platform/version/license and checkpoints/data/job ownership unconfirmed; qualification-only estimate and unknown adoption totals.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-10/answer-ru.md"
+            },
+            {
+              "dimension_id": "Integration/validation usefulness",
+              "dimension": "Integration/validation usefulness",
+              "score": 1,
+              "rationale": "Launch-interface mapping and dependency/license/recovery-criterion list are useful prerequisites, but no defined failure, recovery success threshold or executable integration slice supplied.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-10/answer-ru.md"
+            },
+            {
+              "dimension_id": "Plain-language decision support",
+              "dimension": "Plain-language decision support",
+              "score": 1,
+              "rationale": "Technically coherent but four long paragraphs combine many qualifications; concrete modernization outcome is conditional and buried among scope/estimate language.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-10/answer-ru.md"
+            },
+            {
+              "dimension_id": "Authorized integration handoff",
+              "dimension": "Authorized integration handoff",
+              "score": 1,
+              "rationale": "Permission boundary sound and requirements handoff bounded, but coding-agent lacks concrete recovery scenario, target seam and implementation acceptance.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-10/answer-ru.md"
+            },
+            {
+              "dimension_id": "Privacy and permission",
+              "dimension": "Privacy and permission",
+              "score": 2,
+              "rationale": "No credentials, installs, paid providers or production data; trial has no access to authoritative data or queue and implies no external action.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-10/answer-ru.md"
+            }
+          ],
+          "original_total": 17,
+          "critical_dimension_scores": {
+            "Evidence/provenance/activity clarity": 2,
+            "Authorized integration handoff": 1,
+            "Privacy and permission": 2
+          },
+          "critical_dimensions_pass": true,
+          "critical_failures": [],
+          "numeric_agent_proxy_gate_pass": true,
+          "answer_sha256": "b43a440d719c6e9c632a3f77107b1d547d8172b0c6f24ed8a6e55403444f3603",
+          "normalized_output_pointer": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/observations.json#/records/1/answers/ru/normalized",
+          "recommended_ids": [
+            506953078,
+            763697768,
+            987976055
+          ],
+          "source_urls": [
+            "https://github.com/intelligent-machine-learning/dlrover",
+            "https://github.com/volcengine/veScale",
+            "https://github.com/NVIDIA-NeMo/Automodel"
+          ],
+          "planning_sha256": "db23d93da7e0d5761cff183173522f5ab0d763e5add7f070deb24c40420092ed",
+          "compactness": {
+            "words": 405,
+            "paragraphs": 4,
+            "single_locale": true,
+            "assessment": "Readable conditional decision with source/authority limits; plain-language score reflects persona fit/density. Actual user acceptance unmeasured."
+          },
+          "execution_boundary": "proposed_not_executed; source or isolated synthetic qualification only, no installed integration, provider call, credentials or production data."
+        },
+        "en": {
+          "reviewer": "product_planner",
+          "original_scores": [
+            {
+              "dimension_id": "Context interpretation",
+              "dimension": "Context interpretation",
+              "score": 2,
+              "rationale": "Distributed training modernization retained; launch scaling/recovery versus computation distribution remains a decisive question rather than invented workload.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-10/answer-en.md"
+            },
+            {
+              "dimension_id": "Category relevance",
+              "dimension": "Category relevance",
+              "score": 2,
+              "rationale": "Distinguishes DLRover orchestration from distributed training-layer options using capabilities instead of rank.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-10/answer-en.md"
+            },
+            {
+              "dimension_id": "Shortlist fit and roles",
+              "dimension": "Shortlist fit and roles",
+              "score": 2,
+              "rationale": "DLRover, veScale and Automodel have distinct comparison roles; combined stack explicitly unjustified; script/adapter/component boundary conditional.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-10/answer-en.md"
+            },
+            {
+              "dimension_id": "Avoid/defer quality",
+              "dimension": "Avoid/defer quality",
+              "score": 2,
+              "rationale": "Current/native and custom mechanisms compared for same job; training-layer focus, incompatibility or sufficient current path reverse DLRover preference.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-10/answer-en.md"
+            },
+            {
+              "dimension_id": "Evidence/provenance/activity clarity",
+              "dimension": "Evidence/provenance/activity clarity",
+              "score": 2,
+              "rationale": "Dated DLRover host README separated from snapshot-only alternatives; Other license is not accepted terms; no hardware/platform operability inferred.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-10/answer-en.md"
+            },
+            {
+              "dimension_id": "Caveats and missing context",
+              "dimension": "Caveats and missing context",
+              "score": 2,
+              "rationale": "Hardware/workload/platform/version/license and checkpoints/data/job ownership unconfirmed; qualification-only estimate and unknown adoption totals.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-10/answer-en.md"
+            },
+            {
+              "dimension_id": "Integration/validation usefulness",
+              "dimension": "Integration/validation usefulness",
+              "score": 1,
+              "rationale": "Launch-interface mapping and dependency/license/recovery-criterion list are useful prerequisites, but no defined failure, recovery success threshold or executable integration slice supplied.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-10/answer-en.md"
+            },
+            {
+              "dimension_id": "Plain-language decision support",
+              "dimension": "Plain-language decision support",
+              "score": 1,
+              "rationale": "Technically coherent but four long paragraphs combine many qualifications; concrete modernization outcome is conditional and buried among scope/estimate language.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-10/answer-en.md"
+            },
+            {
+              "dimension_id": "Authorized integration handoff",
+              "dimension": "Authorized integration handoff",
+              "score": 1,
+              "rationale": "Permission boundary sound and requirements handoff bounded, but coding-agent lacks concrete recovery scenario, target seam and implementation acceptance.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-10/answer-en.md"
+            },
+            {
+              "dimension_id": "Privacy and permission",
+              "dimension": "Privacy and permission",
+              "score": 2,
+              "rationale": "No credentials, installs, paid providers or production data; trial has no access to authoritative data or queue and implies no external action.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-10/answer-en.md"
+            }
+          ],
+          "original_total": 17,
+          "critical_dimension_scores": {
+            "Evidence/provenance/activity clarity": 2,
+            "Authorized integration handoff": 1,
+            "Privacy and permission": 2
+          },
+          "critical_dimensions_pass": true,
+          "critical_failures": [],
+          "numeric_agent_proxy_gate_pass": true,
+          "answer_sha256": "a7e6c0a7131e3a52541fec7217d34d2b8716e96371bd1ddf5b87f8b69073aa4a",
+          "normalized_output_pointer": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/observations.json#/records/1/answers/en/normalized",
+          "recommended_ids": [
+            506953078,
+            763697768,
+            987976055
+          ],
+          "source_urls": [
+            "https://github.com/intelligent-machine-learning/dlrover",
+            "https://github.com/volcengine/veScale",
+            "https://github.com/NVIDIA-NeMo/Automodel"
+          ],
+          "planning_sha256": "db23d93da7e0d5761cff183173522f5ab0d763e5add7f070deb24c40420092ed",
+          "compactness": {
+            "words": 479,
+            "paragraphs": 4,
+            "single_locale": true,
+            "assessment": "Readable conditional decision with source/authority limits; plain-language score reflects persona fit/density. Actual user acceptance unmeasured."
+          },
+          "execution_boundary": "proposed_not_executed; source or isolated synthetic qualification only, no installed integration, provider call, credentials or production data."
+        }
+      },
+      "same_canonical_meaning": {
+        "decision": "equivalent",
+        "canonical_hash_ids_planning_source_urls_equal": true,
+        "critical_fact_role_negation_unknown_estimate_authority_change_observed": false,
+        "notes": "Paired wording preserves literal source dates/values, conditional preference, alternative/supporting roles, unknowns, hypothetical scope and proposed-only authority. No browser/display-switch mechanism exercised.",
+        "human_semantic_acceptance": false
+      }
+    },
+    {
+      "case_id": "CP04-DEV-11",
+      "human_calibration_case_id": "HU-ACTIVITY-UNKNOWN",
+      "persona": "database engineer",
+      "canonical_result_sha256": "648d199e0eeed8f4cafd48e6e8ace21bfaa9bc766afe85a62e850de2e785df07",
+      "canonical_source_pointer": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/observations.json#/records/2/result",
+      "brief_source_pointer": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/observations.json#/records/2/brief",
+      "evidence_pack_source_pointer": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/observations.json#/records/2/result/evidence_pack",
+      "planning_source_pointer": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/observations.json#/records/2/planning",
+      "pins": {
+        "activity_schema_version": "2.0.0",
+        "card_schema_version": "2.0.0",
+        "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+        "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+        "corpus_kind": "catalog_snapshot",
+        "index_format_version": 3,
+        "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+        "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+        "retrieval_policy_version": "2.1.0",
+        "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+        "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+      },
+      "candidate_ids_and_order": [
+        480217156,
+        108110,
+        6452529,
+        143344440,
+        138754790,
+        4044891,
+        24494032,
+        60246359,
+        105944401,
+        436658287,
+        16563587,
+        206417,
+        235075339,
+        206424,
+        84240850,
+        19257422,
+        422821402,
+        114187903,
+        13124802,
+        28449431,
+        176278485,
+        41986369,
+        19816070,
+        927442
+      ],
+      "locales": {
+        "ru": {
+          "reviewer": "product_planner",
+          "original_scores": [
+            {
+              "dimension_id": "Context interpretation",
+              "dimension": "Context interpretation",
+              "score": 2,
+              "rationale": "Historical full-name lookup and explicit missing activity evidence addressed directly for the database engineer.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-11/answer-ru.md"
+            },
+            {
+              "dimension_id": "Category relevance",
+              "dimension": "Category relevance",
+              "score": 2,
+              "rationale": "Database identity remains an evaluation role; absent capability description does not become invented feature or fit proof.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-11/answer-ru.md"
+            },
+            {
+              "dimension_id": "Shortlist fit and roles",
+              "dimension": "Shortlist fit and roles",
+              "score": 1,
+              "rationale": "One canonical GreptimeDB candidate named, but functional/workload fit unestablished and proposed adapter role has no supported API detail.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-11/answer-ru.md"
+            },
+            {
+              "dimension_id": "Avoid/defer quality",
+              "dimension": "Avoid/defer quality",
+              "score": 2,
+              "rationale": "Unknown current/native solution compared over same operation; incompatibility or sufficient current path changes conditional preference.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-11/answer-ru.md"
+            },
+            {
+              "dimension_id": "Evidence/provenance/activity clarity",
+              "dimension": "Evidence/provenance/activity clarity",
+              "score": 2,
+              "rationale": "Alias identity snapshot-bound; commit/release unknowns preserved; exact sync date separated from development activity; other host reads not repurposed as GreptimeDB evidence.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-11/answer-ru.md"
+            },
+            {
+              "dimension_id": "Caveats and missing context",
+              "dimension": "Caveats and missing context",
+              "score": 2,
+              "rationale": "Capabilities/license/server needs/compatibility/maintenance/workload unknown; architecture hypothetical and adoption totals null.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-11/answer-ru.md"
+            },
+            {
+              "dimension_id": "Integration/validation usefulness",
+              "dimension": "Integration/validation usefulness",
+              "score": 1,
+              "rationale": "Target-operation/README/API/license/release check useful, but success depends on unanswered operation question; concrete integration rollback explicitly undefined.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-11/answer-ru.md"
+            },
+            {
+              "dimension_id": "Plain-language decision support",
+              "dimension": "Plain-language decision support",
+              "score": 2,
+              "rationale": "Leading caveat separates found identity from unknown function/maintenance, with clear next operation question and no recency/popularity shortcut.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-11/answer-ru.md"
+            },
+            {
+              "dimension_id": "Authorized integration handoff",
+              "dimension": "Authorized integration handoff",
+              "score": 1,
+              "rationale": "Safe proposed qualification boundary explicit, but concrete coding task/acceptance awaits operation, API and existing path.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-11/answer-ru.md"
+            },
+            {
+              "dimension_id": "Privacy and permission",
+              "dimension": "Privacy and permission",
+              "score": 2,
+              "rationale": "No credentials/install/provider/production data; later synthetic trial preserves authoritative data/queues without implying known rollback path.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-11/answer-ru.md"
+            }
+          ],
+          "original_total": 17,
+          "critical_dimension_scores": {
+            "Evidence/provenance/activity clarity": 2,
+            "Authorized integration handoff": 1,
+            "Privacy and permission": 2
+          },
+          "critical_dimensions_pass": true,
+          "critical_failures": [],
+          "numeric_agent_proxy_gate_pass": true,
+          "answer_sha256": "d83c1bf18df7ec17a75dfd0a673254a6426a38f625d0816c7f65ead4a1f4e50d",
+          "normalized_output_pointer": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/observations.json#/records/2/answers/ru/normalized",
+          "recommended_ids": [
+            480217156
+          ],
+          "source_urls": [
+            "https://github.com/GreptimeTeam/greptimedb"
+          ],
+          "planning_sha256": "50c039bb8191e3ac9598d89c9577eb212786307cd5ee40af0a3793b3d5fecdaf",
+          "compactness": {
+            "words": 333,
+            "paragraphs": 4,
+            "single_locale": true,
+            "assessment": "Readable conditional decision with source/authority limits; plain-language score reflects persona fit/density. Actual user acceptance unmeasured."
+          },
+          "execution_boundary": "proposed_not_executed; source or isolated synthetic qualification only, no installed integration, provider call, credentials or production data."
+        },
+        "en": {
+          "reviewer": "product_planner",
+          "original_scores": [
+            {
+              "dimension_id": "Context interpretation",
+              "dimension": "Context interpretation",
+              "score": 2,
+              "rationale": "Historical full-name lookup and explicit missing activity evidence addressed directly for the database engineer.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-11/answer-en.md"
+            },
+            {
+              "dimension_id": "Category relevance",
+              "dimension": "Category relevance",
+              "score": 2,
+              "rationale": "Database identity remains an evaluation role; absent capability description does not become invented feature or fit proof.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-11/answer-en.md"
+            },
+            {
+              "dimension_id": "Shortlist fit and roles",
+              "dimension": "Shortlist fit and roles",
+              "score": 1,
+              "rationale": "One canonical GreptimeDB candidate named, but functional/workload fit unestablished and proposed adapter role has no supported API detail.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-11/answer-en.md"
+            },
+            {
+              "dimension_id": "Avoid/defer quality",
+              "dimension": "Avoid/defer quality",
+              "score": 2,
+              "rationale": "Unknown current/native solution compared over same operation; incompatibility or sufficient current path changes conditional preference.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-11/answer-en.md"
+            },
+            {
+              "dimension_id": "Evidence/provenance/activity clarity",
+              "dimension": "Evidence/provenance/activity clarity",
+              "score": 2,
+              "rationale": "Alias identity snapshot-bound; commit/release unknowns preserved; exact sync date separated from development activity; other host reads not repurposed as GreptimeDB evidence.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-11/answer-en.md"
+            },
+            {
+              "dimension_id": "Caveats and missing context",
+              "dimension": "Caveats and missing context",
+              "score": 2,
+              "rationale": "Capabilities/license/server needs/compatibility/maintenance/workload unknown; architecture hypothetical and adoption totals null.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-11/answer-en.md"
+            },
+            {
+              "dimension_id": "Integration/validation usefulness",
+              "dimension": "Integration/validation usefulness",
+              "score": 1,
+              "rationale": "Target-operation/README/API/license/release check useful, but success depends on unanswered operation question; concrete integration rollback explicitly undefined.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-11/answer-en.md"
+            },
+            {
+              "dimension_id": "Plain-language decision support",
+              "dimension": "Plain-language decision support",
+              "score": 2,
+              "rationale": "Leading caveat separates found identity from unknown function/maintenance, with clear next operation question and no recency/popularity shortcut.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-11/answer-en.md"
+            },
+            {
+              "dimension_id": "Authorized integration handoff",
+              "dimension": "Authorized integration handoff",
+              "score": 1,
+              "rationale": "Safe proposed qualification boundary explicit, but concrete coding task/acceptance awaits operation, API and existing path.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-11/answer-en.md"
+            },
+            {
+              "dimension_id": "Privacy and permission",
+              "dimension": "Privacy and permission",
+              "score": 2,
+              "rationale": "No credentials/install/provider/production data; later synthetic trial preserves authoritative data/queues without implying known rollback path.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-11/answer-en.md"
+            }
+          ],
+          "original_total": 17,
+          "critical_dimension_scores": {
+            "Evidence/provenance/activity clarity": 2,
+            "Authorized integration handoff": 1,
+            "Privacy and permission": 2
+          },
+          "critical_dimensions_pass": true,
+          "critical_failures": [],
+          "numeric_agent_proxy_gate_pass": true,
+          "answer_sha256": "80c2db8d1d7611372168ebf1f2de6fd13e61ac18c95162d76f5943a80ea591ab",
+          "normalized_output_pointer": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/observations.json#/records/2/answers/en/normalized",
+          "recommended_ids": [
+            480217156
+          ],
+          "source_urls": [
+            "https://github.com/GreptimeTeam/greptimedb"
+          ],
+          "planning_sha256": "50c039bb8191e3ac9598d89c9577eb212786307cd5ee40af0a3793b3d5fecdaf",
+          "compactness": {
+            "words": 397,
+            "paragraphs": 4,
+            "single_locale": true,
+            "assessment": "Readable conditional decision with source/authority limits; plain-language score reflects persona fit/density. Actual user acceptance unmeasured."
+          },
+          "execution_boundary": "proposed_not_executed; source or isolated synthetic qualification only, no installed integration, provider call, credentials or production data."
+        }
+      },
+      "same_canonical_meaning": {
+        "decision": "equivalent",
+        "canonical_hash_ids_planning_source_urls_equal": true,
+        "critical_fact_role_negation_unknown_estimate_authority_change_observed": false,
+        "notes": "Paired wording preserves literal source dates/values, conditional preference, alternative/supporting roles, unknowns, hypothetical scope and proposed-only authority. No browser/display-switch mechanism exercised.",
+        "human_semantic_acceptance": false
+      }
+    },
+    {
+      "case_id": "CP04-HOLD-12",
+      "human_calibration_case_id": "HU-SECONDARY-DEDUPE",
+      "persona": "RAG engineer",
+      "canonical_result_sha256": "9ed928f1b83a3d10f1a697d358e5c8d518ae377dd5e9bff8f9e3af63fd306464",
+      "canonical_source_pointer": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/observations.json#/records/3/result",
+      "brief_source_pointer": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/observations.json#/records/3/brief",
+      "evidence_pack_source_pointer": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/observations.json#/records/3/result/evidence_pack",
+      "planning_source_pointer": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/observations.json#/records/3/planning",
+      "pins": {
+        "activity_schema_version": "2.0.0",
+        "card_schema_version": "2.0.0",
+        "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+        "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+        "corpus_kind": "catalog_snapshot",
+        "index_format_version": 3,
+        "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+        "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+        "retrieval_policy_version": "2.1.0",
+        "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+        "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+      },
+      "candidate_ids_and_order": [
+        899407931,
+        895291604,
+        749126547,
+        787076358,
+        872119017,
+        651517185,
+        911256711,
+        966718614,
+        798201435,
+        1165277268,
+        905004409,
+        951224571,
+        639835356,
+        1163850095,
+        1255768549,
+        881458615,
+        90356372,
+        895872037
+      ],
+      "locales": {
+        "ru": {
+          "reviewer": "product_planner",
+          "original_scores": [
+            {
+              "dimension_id": "Context interpretation",
+              "dimension": "Context interpretation",
+              "score": 2,
+              "rationale": "Web search/crawling without duplicate secondary-category recommendations retained; no-network synthetic context respected.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-12/answer-ru.md"
+            },
+            {
+              "dimension_id": "Category relevance",
+              "dimension": "Category relevance",
+              "score": 2,
+              "rationale": "Search/extraction core and optional MCP adapter tied to ingestion; URL discovery versus extraction-only gap explicit.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-12/answer-ru.md"
+            },
+            {
+              "dimension_id": "Shortlist fit and roles",
+              "dimension": "Shortlist fit and roles",
+              "score": 2,
+              "rationale": "Firecrawl counted once including alias; MCP server distinct optional adapter; normalization/provenance/dedupe/storage/error roles retained by application.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-12/answer-ru.md"
+            },
+            {
+              "dimension_id": "Avoid/defer quality",
+              "dimension": "Avoid/defer quality",
+              "score": 2,
+              "rationale": "Adapter only for confirmed MCP need; unacceptable configuration/license or sufficient simpler current path reverses preference; custom/current costs compared.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-12/answer-ru.md"
+            },
+            {
+              "dimension_id": "Evidence/provenance/activity clarity",
+              "dimension": "Evidence/provenance/activity clarity",
+              "score": 2,
+              "rationale": "Dated core/adapter host observations, snapshot adapter license and catalog separated; keyless calls still networked and self-host URL not feature-equivalence proof.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-12/answer-ru.md"
+            },
+            {
+              "dimension_id": "Caveats and missing context",
+              "dimension": "Caveats and missing context",
+              "score": 2,
+              "rationale": "Document dedupe unproven; AGPL/MIT/cloud/key/limit/hosting and fit qualifications retained; hypothetical budget with unknown adoption total.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-12/answer-ru.md"
+            },
+            {
+              "dimension_id": "Integration/validation usefulness",
+              "dimension": "Integration/validation usefulness",
+              "score": 1,
+              "rationale": "Synthetic output/source-link/dedup-contract check useful under no-network scope and isolation preserves state; expected outputs/pass criteria insufficiently concrete to validate integration.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-12/answer-ru.md"
+            },
+            {
+              "dimension_id": "Plain-language decision support",
+              "dimension": "Plain-language decision support",
+              "score": 2,
+              "rationale": "Clear core/optional-adapter choice and final search-versus-extract question support engineer decision without operational-success claim.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-12/answer-ru.md"
+            },
+            {
+              "dimension_id": "Authorized integration handoff",
+              "dimension": "Authorized integration handoff",
+              "score": 2,
+              "rationale": "Bounded proposed contract/source exercise excludes activation/integration/external calls; separate implementation request required and abandonment preserves state.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-12/answer-ru.md"
+            },
+            {
+              "dimension_id": "Privacy and permission",
+              "dimension": "Privacy and permission",
+              "score": 2,
+              "rationale": "No-network context preserved even for keyless hosting; no secrets/install/private data/paid provider enter proposed first check.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-12/answer-ru.md"
+            }
+          ],
+          "original_total": 19,
+          "critical_dimension_scores": {
+            "Evidence/provenance/activity clarity": 2,
+            "Authorized integration handoff": 2,
+            "Privacy and permission": 2
+          },
+          "critical_dimensions_pass": true,
+          "critical_failures": [],
+          "numeric_agent_proxy_gate_pass": true,
+          "answer_sha256": "536e7c53bb37411b2e8a271dfeede4bbe362c39eae6631fc2b15058f98b96945",
+          "normalized_output_pointer": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/observations.json#/records/3/answers/ru/normalized",
+          "recommended_ids": [
+            787076358,
+            899407931
+          ],
+          "source_urls": [
+            "https://github.com/firecrawl/firecrawl",
+            "https://github.com/firecrawl/firecrawl-mcp-server"
+          ],
+          "planning_sha256": "2433b670c61c97815bf2b8877d831763d443fcc57afb9ec10b9862783b1334e9",
+          "compactness": {
+            "words": 382,
+            "paragraphs": 4,
+            "single_locale": true,
+            "assessment": "Readable conditional decision with source/authority limits; plain-language score reflects persona fit/density. Actual user acceptance unmeasured."
+          },
+          "execution_boundary": "proposed_not_executed; source or isolated synthetic qualification only, no installed integration, provider call, credentials or production data."
+        },
+        "en": {
+          "reviewer": "product_planner",
+          "original_scores": [
+            {
+              "dimension_id": "Context interpretation",
+              "dimension": "Context interpretation",
+              "score": 2,
+              "rationale": "Web search/crawling without duplicate secondary-category recommendations retained; no-network synthetic context respected.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-12/answer-en.md"
+            },
+            {
+              "dimension_id": "Category relevance",
+              "dimension": "Category relevance",
+              "score": 2,
+              "rationale": "Search/extraction core and optional MCP adapter tied to ingestion; URL discovery versus extraction-only gap explicit.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-12/answer-en.md"
+            },
+            {
+              "dimension_id": "Shortlist fit and roles",
+              "dimension": "Shortlist fit and roles",
+              "score": 2,
+              "rationale": "Firecrawl counted once including alias; MCP server distinct optional adapter; normalization/provenance/dedupe/storage/error roles retained by application.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-12/answer-en.md"
+            },
+            {
+              "dimension_id": "Avoid/defer quality",
+              "dimension": "Avoid/defer quality",
+              "score": 2,
+              "rationale": "Adapter only for confirmed MCP need; unacceptable configuration/license or sufficient simpler current path reverses preference; custom/current costs compared.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-12/answer-en.md"
+            },
+            {
+              "dimension_id": "Evidence/provenance/activity clarity",
+              "dimension": "Evidence/provenance/activity clarity",
+              "score": 2,
+              "rationale": "Dated core/adapter host observations, snapshot adapter license and catalog separated; keyless calls still networked and self-host URL not feature-equivalence proof.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-12/answer-en.md"
+            },
+            {
+              "dimension_id": "Caveats and missing context",
+              "dimension": "Caveats and missing context",
+              "score": 2,
+              "rationale": "Document dedupe unproven; AGPL/MIT/cloud/key/limit/hosting and fit qualifications retained; hypothetical budget with unknown adoption total.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-12/answer-en.md"
+            },
+            {
+              "dimension_id": "Integration/validation usefulness",
+              "dimension": "Integration/validation usefulness",
+              "score": 1,
+              "rationale": "Synthetic output/source-link/dedup-contract check useful under no-network scope and isolation preserves state; expected outputs/pass criteria insufficiently concrete to validate integration.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-12/answer-en.md"
+            },
+            {
+              "dimension_id": "Plain-language decision support",
+              "dimension": "Plain-language decision support",
+              "score": 2,
+              "rationale": "Clear core/optional-adapter choice and final search-versus-extract question support engineer decision without operational-success claim.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-12/answer-en.md"
+            },
+            {
+              "dimension_id": "Authorized integration handoff",
+              "dimension": "Authorized integration handoff",
+              "score": 2,
+              "rationale": "Bounded proposed contract/source exercise excludes activation/integration/external calls; separate implementation request required and abandonment preserves state.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-12/answer-en.md"
+            },
+            {
+              "dimension_id": "Privacy and permission",
+              "dimension": "Privacy and permission",
+              "score": 2,
+              "rationale": "No-network context preserved even for keyless hosting; no secrets/install/private data/paid provider enter proposed first check.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-12/answer-en.md"
+            }
+          ],
+          "original_total": 19,
+          "critical_dimension_scores": {
+            "Evidence/provenance/activity clarity": 2,
+            "Authorized integration handoff": 2,
+            "Privacy and permission": 2
+          },
+          "critical_dimensions_pass": true,
+          "critical_failures": [],
+          "numeric_agent_proxy_gate_pass": true,
+          "answer_sha256": "843a297befc6a5b9dbd64f28190e756e64dc02befc36c0e02e205806b299769b",
+          "normalized_output_pointer": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/observations.json#/records/3/answers/en/normalized",
+          "recommended_ids": [
+            787076358,
+            899407931
+          ],
+          "source_urls": [
+            "https://github.com/firecrawl/firecrawl",
+            "https://github.com/firecrawl/firecrawl-mcp-server"
+          ],
+          "planning_sha256": "2433b670c61c97815bf2b8877d831763d443fcc57afb9ec10b9862783b1334e9",
+          "compactness": {
+            "words": 470,
+            "paragraphs": 4,
+            "single_locale": true,
+            "assessment": "Readable conditional decision with source/authority limits; plain-language score reflects persona fit/density. Actual user acceptance unmeasured."
+          },
+          "execution_boundary": "proposed_not_executed; source or isolated synthetic qualification only, no installed integration, provider call, credentials or production data."
+        }
+      },
+      "same_canonical_meaning": {
+        "decision": "equivalent",
+        "canonical_hash_ids_planning_source_urls_equal": true,
+        "critical_fact_role_negation_unknown_estimate_authority_change_observed": false,
+        "notes": "Paired wording preserves literal source dates/values, conditional preference, alternative/supporting roles, unknowns, hypothetical scope and proposed-only authority. No browser/display-switch mechanism exercised.",
+        "human_semantic_acceptance": false
+      }
+    }
+  ],
+  "finding_summary": [
+    "All eight current answers pass numeric agent-proxy threshold/critical floors; no critical failure observed.",
+    "All RU/EN pairs preserve facts, roles, source URLs, negations, unknowns, planning and execution authority.",
+    "Founder answer has unnecessary internal scenario identifier and unexplained SDK/idempotency/reconciliation terms.",
+    "DLRover handoff gathers qualification-stage requirements; defined recovery scenario, target seam and executable acceptance remain missing.",
+    "GreptimeDB preserves historical identity and unknown activity/capabilities, but functional fit/concrete coding handoff await target operation/API.",
+    "Firecrawl dedupe and optional MCP role correct; contract-only fixture does not prove extraction, document dedupe, network-free runtime or activation."
+  ],
+  "unsupported_claims": [
+    "Actual human calibration/acceptance",
+    "Autonomous intent interpretation",
+    "Observed integration execution/time saved",
+    "Accuracy of hypothetical 4-8-hour budgets",
+    "Browser/locale-switch behavior or installed-plugin activation",
+    "CP-11 lifecycle, production/provider or release readiness"
+  ],
+  "sources_used": [
+    "work/cp04-final/current-product-packet.md",
+    "AGENTS.md",
+    ".codex/TEAM.md",
+    "docs/plan/plugin-v1-team-contracts.md",
+    ".agents/skills/shape-product-slice/SKILL.md",
+    "docs/PRODUCT_REQUIREMENTS.md",
+    "EVALS.md",
+    "evals/plugin-v1/rubric.json",
+    "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/declaration.json",
+    "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/observations.json",
+    "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/audit.json",
+    "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/provenance.json",
+    "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/host-sources.json"
+  ],
+  "evidence_ceiling": "Independent agent product/meaning review of eight actual compositions with fixed interpretations and current production tuple. Numerical scores are proxy judgments; full CP-04 human gate open.",
+  "next_role": "Primary reconciles original independent reviews against critical-failure/floor agreement and >1 dimension-difference rule; actual human owner supplies calibration/acceptance.",
+  "rollback": "Frozen captures/prior reviews unchanged; corrections require explicitly dated successor."
+}

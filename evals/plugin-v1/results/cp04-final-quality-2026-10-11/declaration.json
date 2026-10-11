@@ -1,0 +1,148 @@
+{
+  "schema_version": "cp04_final_declaration_v1",
+  "plan_file_sha256": "f6b3c28eb816f2f5622734ad7b36f37a2aef1897bac32a57a0732872db4e7cad",
+  "plan_canonical_sha256": "143123d6e1e88df91d41a47a5e022a5c71a1cee57d22723481e6c030afc14a5d",
+  "source_hashes": {
+    "evals/plugin-v1/run_final_quality.py": "fab447bcf2925d0cf8f0078ccc3b3c5d81fd8b743fc8a9abbece87d14656bab9",
+    "tests/test_plugin_final_quality.py": "efca80503c515f53e864c25b7509251a4eb0b54cf2a03b62565de258238f4527",
+    "evals/plugin-v1/run_quality.py": "e6ba2970a955319f5cc6d5c06b554d911263ed7f00bbe8bd17347aad8e80a321",
+    "evals/plugin-v1/evaluate_retrieval.py": "f9fafc3cb449f73fdbf5f568f126e2ca06577f1aadc733241fd1275a6d4d2c48",
+    "plugins/myai-stackguide/scripts/recommendation_request.py": "17a5381bf1f2d1ad5f4b6ba0aadcc58f578587289ccb6cad4944fe189837d1e9",
+    "plugins/myai-stackguide/scripts/request_guard.py": "e6745044d2e90a17b830bc6ba7d14a46ea7b7ba7a7ca2141a2b97d3b9639d775",
+    "plugins/myai-stackguide/scripts/retrieval.py": "dccc5c5a1fb980f5d407a4acadf5a054d04d9efa69cc32e7d27fedce85c3ba2b",
+    "plugins/myai-stackguide/scripts/context.py": "e47623d6c3147c7702d3d5b3565bcd651838b2d107ae105a996989cf60fc29dd",
+    "plugins/myai-stackguide/scripts/context_pack.py": "688f7abd3721d0ac515ce1eb3f04714cd7f397dfbb65bf3345ac5b13d15803e2",
+    "plugins/myai-stackguide/scripts/matcher.py": "c560158f15390f662e55eac39e9ffc31fd983a9af8c5086a234fbec0280933c2"
+  },
+  "asset_hashes": {
+    "plugins/myai-stackguide/assets/catalog.snapshot.json": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+    "plugins/myai-stackguide/assets/catalog.search.sqlite": "9678f5e265e4e3a33df3818f94c509c60728e994051ee72ec2050b0b093306c4",
+    "plugins/myai-stackguide/assets/catalog.search-manifest.json": "1d090b0e2e56f4c7cd38276d0d8b08be2436e0c75b77649cf00d32c13cb9497f",
+    "plugins/myai-stackguide/assets/retrieval-policy.json": "ff6e8444c4664492bb099f0819b2d284aa5c28f0d44c7a745c63f434c3489dbf",
+    "evals/plugin-v1/quality-plan.json": "cb2765fda7c90693212bb96041ea21c5eb4743607002cb3c89f0dfdb2ef695e3",
+    "evals/plugin-v1/rubric.json": "96f67da80234d4ade36c9b5e5fb50276398acce76751513e9e041926b74f3fef"
+  },
+  "pins": {
+    "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+    "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+    "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+    "index_sha256": "9678f5e265e4e3a33df3818f94c509c60728e994051ee72ec2050b0b093306c4",
+    "policy_sha256": "ff6e8444c4664492bb099f0819b2d284aa5c28f0d44c7a745c63f434c3489dbf",
+    "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f",
+    "card_schema_version": "2.0.0",
+    "activity_schema_version": "2.0.0",
+    "index_format_version": 3,
+    "retrieval_policy_version": "2.1.0",
+    "corpus_kind": "catalog_snapshot"
+  },
+  "thresholds": {
+    "held_out_macro_recall_at_12_min": 0.75,
+    "held_out_macro_ndcg_at_12_min": 0.65,
+    "candidate_not_worse_than_baseline_recall_delta_min": 0.0,
+    "candidate_not_worse_than_baseline_ndcg_delta_min": 0.0,
+    "required_stratum_recall_at_12_min": 0.6,
+    "required_stratum_ndcg_at_12_min": 0.5,
+    "hard_constraint_violations_max": 0,
+    "false_exclusions_max": 0,
+    "duplicate_canonical_ids_max": 0,
+    "alias_success_rate_min": 1.0,
+    "evidence_pack_survival_rate_min": 0.9,
+    "container_route_coverage_min": 14,
+    "leaf_route_coverage_min": 111,
+    "human_total_min": 16,
+    "human_critical_dimension_min": 1,
+    "human_critical_failures_max": 0,
+    "actual_warm_p95_ms_max": 100,
+    "actual_cold_p95_ms_max": 250,
+    "synthetic_warm_p95_ms_max": 200,
+    "synthetic_cold_p95_ms_max": 500,
+    "peak_memory_bytes_max": 268435456,
+    "index_bytes_max": 67108864
+  },
+  "cases": [
+    {
+      "case_id": "FINAL-HOLD-01",
+      "case_sha256": "e1021ab8b67231c592576122ff0ac5a7af9139dc2ecd9a81c1bc32cd28448e44",
+      "payload_sha256": "b08066a17bb8dff33fdb6d50d75f970791fc65499370bc62ee493e4b359ad827"
+    },
+    {
+      "case_id": "FINAL-HOLD-02",
+      "case_sha256": "d071260f6b1de9189218df7cc7b935449f40907ee9742d9ffb758a06f7d28a43",
+      "payload_sha256": "eb9a3ffac01de430d859a7a4f3b06416c1661cc60dc4ed2e8912c5639d18319f"
+    },
+    {
+      "case_id": "FINAL-HOLD-03",
+      "case_sha256": "d766402c82eb98e61823549591bec8581c33b6517803a69384c219eff73beab9",
+      "payload_sha256": "56443a24d8558f9d12decad19d98fc9d54296fc9a50290ff3befe8a4aaf58585"
+    },
+    {
+      "case_id": "FINAL-HOLD-04",
+      "case_sha256": "4e735ddea25ac1c612e7c54b8be82297e54d4d877ca24c4da6eae813a889c01b",
+      "payload_sha256": "333ffce0dbdcc68839323ad8b9a669ed646104b0e3b112bd1188d2d926cfa710"
+    },
+    {
+      "case_id": "FINAL-HOLD-05",
+      "case_sha256": "141e6f351281d5999eb090e39cb43960be6af22f72d5ac9fdd58da2d900e6089",
+      "payload_sha256": "9d88747efda9b2256f52a0ba8033f1afad17015ca11baf4f0b6c05e9d006cf45"
+    },
+    {
+      "case_id": "FINAL-HOLD-06",
+      "case_sha256": "700b70b74d254dbfaee08247f99922009965ac5ce7c6fdc6ebafb83b85f12c26",
+      "payload_sha256": "12db3457330ccf0d37f2f9b1701ff0f4240d7574fa729df0e1477a868d44cbb8"
+    },
+    {
+      "case_id": "FINAL-HOLD-07",
+      "case_sha256": "eb561d801fa301c06e52ccdc257116d260914697619f9d2c474425ac3d8562ee",
+      "payload_sha256": "6e3419ec103f7bb715833731451198ead09a11288b28268fe55efa03c8525ed1"
+    },
+    {
+      "case_id": "FINAL-HOLD-08",
+      "case_sha256": "5529ad7717652dbf9b003859736e8952daccd08ee182189f711fc0966a2bd272",
+      "payload_sha256": "b45f20655e9ef86388e799ba1d320c5116f31f842f3d2934bbdcc3c8a76c6b4d"
+    },
+    {
+      "case_id": "FINAL-HOLD-09",
+      "case_sha256": "891f909effd1daf02d072a84569907954765fae016784ff3d9ce85fe217e5c5f",
+      "payload_sha256": "f0de4b6247e28ee72e1f270130efae60d77fb921bcbe51162dda8e9da30984e9"
+    },
+    {
+      "case_id": "FINAL-HOLD-10",
+      "case_sha256": "e4c04c49aa3a50c5b4c7623681afd3f97f565e09ca473d44747266496c10c498",
+      "payload_sha256": "a9e341a29ab4ce82e8935955ee0da5fd54ef37ecd8b486d3634e152d4d226202"
+    },
+    {
+      "case_id": "FINAL-HOLD-11",
+      "case_sha256": "020dceda2e49b15949298e5b1c882605117fd7bc8aaa4ca5d9e815528acd69de",
+      "payload_sha256": "20715e3352d535ec0f407455a50dad9352f1fe87f88052b0a9d3c9067385252f"
+    },
+    {
+      "case_id": "FINAL-HOLD-12",
+      "case_sha256": "0dfed822c68d0db83772cda84c4b66b476f9422abc161a82e19ff9e13dd96180",
+      "payload_sha256": "3afa963fb8cef511904e44b7f67ad7a3bc99e161ac9fc0166652b048d68fa2b9"
+    },
+    {
+      "case_id": "FINAL-HOLD-13",
+      "case_sha256": "5926fc1ff840a190efc4226484d56420f370fba996f2a1fb61de7dac8bcdf725",
+      "payload_sha256": "32b1da8780d72e8b923747dece5059452871b03ed78e96b94c5fbf8e834a8114"
+    },
+    {
+      "case_id": "FINAL-HOLD-14",
+      "case_sha256": "7e8b6bc7e4df02b497535ef3ae8724482ed13fb17ad9922ed16486ea78f0c9c1",
+      "payload_sha256": "6322fab500f100bf591b23b7b185fdbcbc5a46b8b9e8f1a04a193dc3adec995f"
+    },
+    {
+      "case_id": "FINAL-ALIAS-01",
+      "case_sha256": "05cea27667ef3923d30f0f00e269ab265fad4468d34517b759ce87b7de2b691d",
+      "payload_sha256": "8b2b6f5003b368b978ecb5d2d0c478d3b3e770dc9a02d82b01efd44c0a8558bc"
+    }
+  ],
+  "candidate": "Active recommendation_request.run -> unchanged trusted C9 FTS5 -> guard -> context_pack",
+  "baseline": "Original literal-field-or-v1, injected transport adapter, exact same prepared query/route/constraints/guard/pack; placeholder RRF only for transport.",
+  "grading": "Full routed oracle; any unknown grade invalidates whole case and official macro, including unretrieved unknowns. No ranked exposure before freeze.",
+  "commands": [
+    ".venv/Scripts/python.exe -B evals/plugin-v1/run_final_quality.py --predeclare",
+    ".venv/Scripts/python.exe -B evals/plugin-v1/run_final_quality.py --run"
+  ],
+  "promotion_ready": false,
+  "prior_failed_held_out_retained": true
+}

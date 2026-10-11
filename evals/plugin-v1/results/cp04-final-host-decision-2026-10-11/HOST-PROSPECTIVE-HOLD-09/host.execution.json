@@ -1,0 +1,45 @@
+{
+  "command": [
+    "C:\\Users\\user\\AppData\\Roaming\\npm\\codex.cmd",
+    "exec",
+    "--ephemeral",
+    "--sandbox",
+    "read-only",
+    "--json",
+    "--output-schema",
+    "C:\\Users\\user\\Desktop\\project\\github_research\\agentic-engineering-catalog\\evals\\plugin-v1\\results\\cp04-final-host-decision-2026-10-11\\host-order.schema.json",
+    "--output-last-message",
+    "C:\\Users\\user\\Desktop\\project\\github_research\\agentic-engineering-catalog\\evals\\plugin-v1\\results\\cp04-final-host-decision-2026-10-11\\HOST-PROSPECTIVE-HOLD-09\\host.response.json",
+    "-"
+  ],
+  "exit_code": 0,
+  "failure": null,
+  "elapsed_seconds": 18.358439900010126,
+  "model_override": false,
+  "effort_override": false,
+  "model": null,
+  "model_unknown_reason": "CLI events omit actual model identity",
+  "effort": null,
+  "effort_unknown_reason": "Configured inherited effort; actual trace does not attest effective effort",
+  "available_usage": [
+    {
+      "input_tokens": 35607,
+      "cached_input_tokens": 24448,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 220,
+      "reasoning_output_tokens": 159
+    }
+  ],
+  "usage_unknown_reason": null,
+  "completed_turn": true,
+  "cost": null,
+  "cost_unknown_reason": "CLI does not report billed cost",
+  "remote_peak_rss": null,
+  "remote_rss_unknown_reason": "Unavailable from host CLI",
+  "tool_items": [],
+  "event_parse_errors": [],
+  "prompt_sha256": "7c15866ebcb5dc776f1820b057d1e3461a47c11e14012e56a553449eab58206d",
+  "preview_sha256": "7a3302daf214f266ac10b370388718f1d8947e7834844b504209c03aa8660b49",
+  "controlled_prompt_and_schema_bytes": 16348,
+  "events_sha256": "5d88a1dc22e7158db1fa2136c8a46a2943f5c3513dd6f1e01d07c741508e229e"
+}

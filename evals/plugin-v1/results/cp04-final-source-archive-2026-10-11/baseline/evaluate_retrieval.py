@@ -1,0 +1,846 @@
+"""Offline C8/C9 scorer and CP-04 quality-plan validator; never executes retrieval.
+
+jsonschema/referencing are development-only dependencies, not plugin dependencies.
+Schemas and their references are loaded exclusively from the local repository.
+"""
+
+import argparse
+import hashlib
+import json
+import math
+import re
+import sys
+import unicodedata
+import uuid
+from datetime import date, datetime
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[2]
+BASES = ('https://myai-stackguide.invalid/contracts/v1/',
+         'https://myai-stackguide.invalid/contracts/v2/')
+MAX_INPUT_BYTES = 2 * 1024 * 1024
+FAILURES = {
+    'no_match': {'no_hits'},
+    'retrieval_unavailable': {'fts5_unavailable', 'index_missing', 'index_corrupt'},
+    'index_incompatible': {'index_incompatible'},
+    'invalid_query': {'invalid_query'},
+    'cancelled': {'cancelled'},
+}
+
+
+def require(condition, message):
+    if not condition:
+        raise ValueError(message)
+
+
+def canonical(value):
+    return json.dumps(value, sort_keys=True, ensure_ascii=False,
+                      separators=(',', ':'), allow_nan=False).encode('utf-8')
+
+
+def digest(value):
+    return hashlib.sha256(canonical(value)).hexdigest()
+
+
+def load_json(path):
+    """Bounded strict JSON; reject duplicate keys and nonfinite numbers."""
+    return _load_json_bounded(path, MAX_INPUT_BYTES)
+
+
+def _load_json_bounded(path, max_bytes):
+    """Strict JSON reader with an explicit caller-owned byte ceiling."""
+    def pairs(items):
+        result = {}
+        for key, value in items:
+            require(key not in result, 'duplicate JSON key')
+            result[key] = value
+        return result
+
+    def nonfinite(value):
+        raise ValueError('nonfinite JSON number')
+
+    with Path(path).open('rb') as stream:
+        raw = stream.read(max_bytes + 1)
+    require(len(raw) <= max_bytes, 'input byte limit')
+    value = json.loads(raw.decode('utf-8'), object_pairs_hook=pairs,
+                       parse_constant=nonfinite)
+    canonical(value)  # Also rejects float overflow, for example 1e999.
+    return value
+
+
+def file_sha256(path):
+    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+
+
+def _validate_standalone_schema(schema_path, value):
+    """Validate the CP-04-only plan without changing the accepted C8 schema-set pin."""
+    schema = load_json(schema_path)
+    require(schema.get('$schema') == 'https://json-schema.org/draft/2020-12/schema',
+            'quality-plan schema dialect')
+
+    def walk(rule, instance, location='$'):
+        if '$ref' in rule:
+            ref = rule['$ref']
+            require(ref.startswith('#/'), 'non-local quality-plan schema reference')
+            target = schema
+            for part in ref[2:].split('/'):
+                target = target[part]
+            walk(target, instance, location)
+        expected = rule.get('type')
+        if expected is not None:
+            expected = [expected] if isinstance(expected, str) else expected
+            checks = {
+                'object': lambda item: isinstance(item, dict),
+                'array': lambda item: isinstance(item, list),
+                'string': lambda item: isinstance(item, str),
+                'integer': lambda item: type(item) is int,
+                'number': lambda item: type(item) in (int, float),
+                'boolean': lambda item: type(item) is bool,
+                'null': lambda item: item is None,
+            }
+            require(any(checks[name](instance) for name in expected),
+                    'quality-plan schema type at ' + location)
+        if 'const' in rule:
+            require(instance == rule['const'] and type(instance) is type(rule['const']),
+                    'quality-plan schema const at ' + location)
+        if 'enum' in rule:
+            require(any(instance == option and type(instance) is type(option) for option in rule['enum']),
+                    'quality-plan schema enum at ' + location)
+        if isinstance(instance, dict):
+            required = set(rule.get('required', []))
+            require(required <= instance.keys(), 'quality-plan schema required at ' + location)
+            properties = rule.get('properties', {})
+            if rule.get('additionalProperties') is False:
+                require(set(instance) <= properties.keys(), 'quality-plan schema property at ' + location)
+            for name, child in properties.items():
+                if name in instance:
+                    walk(child, instance[name], location + '/' + name)
+        elif isinstance(instance, list):
+            require(len(instance) >= rule.get('minItems', 0), 'quality-plan schema minItems at ' + location)
+            if 'maxItems' in rule:
+                require(len(instance) <= rule['maxItems'], 'quality-plan schema maxItems at ' + location)
+            if rule.get('uniqueItems'):
+                require(len({canonical(item) for item in instance}) == len(instance),
+                        'quality-plan schema uniqueItems at ' + location)
+            if 'items' in rule:
+                for index, child in enumerate(instance):
+                    walk(rule['items'], child, location + '/' + str(index))
+        elif isinstance(instance, str):
+            require(len(instance) >= rule.get('minLength', 0), 'quality-plan schema minLength at ' + location)
+            if 'maxLength' in rule:
+                require(len(instance) <= rule['maxLength'], 'quality-plan schema maxLength at ' + location)
+            if 'pattern' in rule:
+                require(re.search(rule['pattern'], instance) is not None,
+                        'quality-plan schema pattern at ' + location)
+            if rule.get('format') == 'date-time':
+                require(instance.endswith('Z'), 'quality-plan schema UTC date-time at ' + location)
+                datetime.fromisoformat(instance.replace('Z', '+00:00'))
+        elif type(instance) in (int, float):
+            if 'minimum' in rule:
+                require(instance >= rule['minimum'], 'quality-plan schema minimum at ' + location)
+            if 'maximum' in rule:
+                require(instance <= rule['maximum'], 'quality-plan schema maximum at ' + location)
+            if 'exclusiveMinimum' in rule:
+                require(instance > rule['exclusiveMinimum'],
+                        'quality-plan schema exclusiveMinimum at ' + location)
+
+    walk(schema, value)
+
+
+def _baseline_fields(card):
+    descriptions = card['descriptions']
+    advisory = card['advisory']
+    return {
+        'full_name': [card['identity']['full_name']],
+        'full_name_aliases': card['identity']['full_name_aliases'],
+        'upstream_description': [descriptions['upstream']] if descriptions['upstream'] else [],
+        'catalog_description': [descriptions['catalog']] if descriptions['catalog'] else [],
+        'topics': card['repository']['topics'],
+        'category_labels': [item['title'] for item in card['classifications']],
+        'use_cases': advisory['use_cases'],
+        'integration_surface': [advisory['integration_surface']] if advisory['integration_surface'] else [],
+        'best_for': advisory['best_for'],
+    }
+
+
+def lexical_baseline(card_values, terms, limit=60):
+    """Simple declared literal baseline; it is not the SQLite FTS5 candidate route."""
+    ceiling = load_json(ROOT / 'specs/retrieval/retrieval-policy.json')['limits']['max_retrieved_hits']
+    require(type(limit) is int and 1 <= limit <= ceiling, 'invalid baseline limit')
+    require(terms and len(terms) <= 8 and all(isinstance(term, str) and term.strip() for term in terms),
+            'invalid baseline terms')
+    normalized_terms = [unicodedata.normalize('NFKC', term).casefold() for term in terms]
+    scored = []
+    for card in card_values:
+        pairs = 0
+        for values in _baseline_fields(card).values():
+            normalized_values = [unicodedata.normalize('NFKC', value).casefold() for value in values]
+            pairs += sum(any(term in value for value in normalized_values)
+                         for term in normalized_terms)
+        if pairs:
+            scored.append((pairs, card['identity']['github_repository_id']))
+    scored.sort(key=lambda item: (-item[0], item[1]))
+    return [repo_id for _, repo_id in scored[:limit]]
+
+
+def validate_quality_plan(plan, root=ROOT):
+    """Validate frozen design and public-card provenance; do not execute retrieval."""
+    root = Path(root)
+    _validate_standalone_schema(root / 'evals/plugin-v1/quality-plan.schema.json', plan)
+    artifacts = plan['artifacts']
+    paths = {name: root / artifacts[name] for name in
+             ('manifest_path', 'cards_path', 'index_path', 'policy_path')}
+    require(all(path.is_file() for path in paths.values()), 'quality-plan artifact missing')
+    require(file_sha256(paths['manifest_path']) == artifacts['manifest_sha256'], 'stale manifest pin')
+    require(file_sha256(paths['cards_path']) == plan['pins']['cards_sha256'], 'stale cards pin')
+    require(file_sha256(paths['index_path']) == plan['pins']['index_sha256'], 'stale index pin')
+    require(file_sha256(paths['policy_path']) == plan['pins']['policy_sha256'], 'stale policy pin')
+
+    manifest = load_json(paths['manifest_path'])
+    require(manifest['pins'] == plan['pins'], 'manifest/quality-plan pins mismatch')
+    require(manifest['row_count'] == artifacts['catalog_row_count'] == 2500,
+            'actual catalog row count')
+    require(manifest['read_only_runtime'] is True and manifest['contains_project_context'] is False,
+            'public read-only bundle boundary')
+    require_v2_pins(plan['pins'])
+
+    policy = load_json(paths['policy_path'])
+    route = plan['candidate_route']
+    require(policy['schema_version'] == '2.1.0' and policy['retrieval_engine'] == 'sqlite_fts5' and
+            policy['source_mode'] == 'catalog_only', 'quality policy route')
+    require(route['query_schema_version'] == '2.1.0' and
+            route['source_mode'] == policy['source_mode'] and
+            route['retrieval_engine'] == policy['retrieval_engine'] and
+            route['expected_status'] == 'ok' and
+            route['max_query_variants'] == policy['limits']['max_query_variants'] and
+            route['max_terms_per_variant'] == policy['limits']['max_terms_per_variant'] and
+            route['max_candidates'] == policy['limits']['max_retrieved_hits'] and
+            route['max_cards'] == policy['limits']['max_detailed_cards'] and
+            route['max_evidence_bytes'] == policy['limits']['max_evidence_bytes'] and
+            route['whole_catalog_prompt_fallback'] is policy['full_catalog_prompt_fallback'],
+            'candidate route/policy mismatch')
+    require(policy['limits']['max_retrieved_hits'] == 150 and
+            policy['limits']['max_detailed_cards'] == 12 and
+            policy['limits']['max_evidence_bytes'] == 163840 and
+            policy['limits']['max_plugin_input_bytes'] == 204800,
+            'quality policy ceilings')
+    require(policy['unknown_mandatory_fact'] == plan['default_constraints']['unknown_mandatory_fact'],
+            'unknown mandatory fact policy')
+    require(policy['runtime_index_access'] == 'read_only' and
+            policy['automatic_index_build'] is False and
+            policy['full_catalog_prompt_fallback'] is False, 'read-only/no-fallback policy')
+
+    snapshot = _load_json_bounded(paths['cards_path'], 16 * 1024 * 1024)
+    require(snapshot['schema_version'] == '2.0.0' and
+            snapshot['activity_schema_version'] == '2.0.0' and
+            snapshot['catalog_snapshot_id'] == plan['pins']['catalog_snapshot_id'] and
+            snapshot['source_sha256'] == plan['pins']['source_sha256'] and
+            snapshot['taxonomy_sha256'] == plan['pins']['taxonomy_sha256'] and
+            snapshot['corpus_kind'] == 'catalog_snapshot', 'snapshot metadata pins')
+    cards = snapshot['cards']
+    require(len(cards) == artifacts['catalog_row_count'], 'snapshot card count')
+    cards_by_id = {card['identity']['github_repository_id']: card for card in cards}
+    require(len(cards_by_id) == len(cards) and all(type(repo_id) is int and repo_id > 0
+                                                  for repo_id in cards_by_id),
+            'snapshot numeric identity')
+
+    taxonomy_path = root / 'specs/catalog/taxonomy.yaml'
+    require(file_sha256(taxonomy_path) == plan['pins']['taxonomy_sha256'], 'stale taxonomy pin')
+    taxonomy = load_json(taxonomy_path)
+    categories = {item['id']: item for item in taxonomy['categories']}
+    container_ids = {item['id'] for item in taxonomy['categories'] if item.get('kind') == 'container'}
+    require(set(plan['stratification']['container_ids']) == container_ids and len(container_ids) == 14,
+            'container stratum coverage')
+    leaf_ids = {item['id'] for item in taxonomy['categories']
+                if item.get('kind') not in ('container', 'review_bucket')}
+    require(len(leaf_ids) == plan['stratification']['leaf_route_count'] == 111,
+            'leaf route coverage declaration')
+    primary_counts = {}
+    for card in cards:
+        primary = [item for item in card['classifications'] if item['role'] == 'primary']
+        require(len(primary) == 1, 'quality snapshot primary classification')
+        category_id = primary[0]['category_id']
+        primary_counts[category_id] = primary_counts.get(category_id, 0) + 1
+
+    cases = plan['cases']
+    unique([case['case_id'] for case in cases], 'quality case ID')
+    split_counts = {split: sum(case['split'] == split for case in cases)
+                    for split in ('development', 'held_out')}
+    require(split_counts == {'development': plan['split_policy']['development_count'],
+                             'held_out': plan['split_policy']['held_out_count']},
+            'quality split counts')
+    require(all(case['case_id'].startswith('CP04-DEV-' if case['split'] == 'development'
+                                           else 'CP04-HOLD-') for case in cases),
+            'quality case/split identity')
+    observed_domains, observed_tags, locales = set(), set(), set()
+    thin_count = dense_count = expansion_count = alias_count = secondary_count = 0
+    for case in cases:
+        category_id = case['target_category_id']
+        require(category_id in leaf_ids, 'quality case target is not a leaf')
+        require(primary_counts.get(category_id) == case['leaf_card_count'], 'stale leaf cardinality')
+        expected_band = ('thin' if case['leaf_card_count'] <= plan['stratification']['thin_leaf_max_cards']
+                         else 'dense' if case['leaf_card_count'] >= plan['stratification']['dense_leaf_min_cards']
+                         else 'middle')
+        require(case['leaf_band'] == expected_band, 'leaf band mismatch')
+        thin_count += case['leaf_band'] == 'thin'
+        dense_count += case['leaf_band'] == 'dense'
+        observed_domains.update(case['container_domain_ids'])
+        observed_tags.update(case['tags'])
+        locales.add(case['query_locale'])
+        judgments = case['judgments']
+        judgment_ids = [item['github_repository_id'] for item in judgments]
+        unique(judgment_ids, 'quality judgment ID')
+        require(judgment_ids == case['judgment_pool_ids'], 'incomplete or reordered judgment pool')
+        require(case['expected_relevant_ids'] ==
+                [item['github_repository_id'] for item in judgments if item['grade'] > 0],
+                'incomplete relevant judgments')
+        for judgment in judgments:
+            card = cards_by_id.get(judgment['github_repository_id'])
+            require(card is not None, 'judgment identity missing from pinned snapshot')
+            primary = next(item for item in card['classifications'] if item['role'] == 'primary')
+            require(card['identity']['full_name'] == judgment['full_name'] and
+                    primary['category_id'] == judgment['primary_category_id'] == category_id and
+                    card['catalog']['membership_cohort'] == judgment['membership_cohort'],
+                    'judgment public-card provenance mismatch')
+            if judgment['constraint'] == 'allowed':
+                require(card['repository']['visibility'] == plan['default_constraints']['visibility'] and
+                        card['repository']['availability'] == plan['default_constraints']['availability'] and
+                        card['repository']['archived'] is plan['default_constraints']['archived'],
+                        'allowed judgment contradicts default constraints')
+        direct = cards_by_id[judgment_ids[0]]
+        if 'historical_alias' in case['expected_match_routes']:
+            require(case['expected_alias'] in direct['identity']['full_name_aliases'],
+                    'historical alias provenance mismatch')
+            alias_count += 1
+        else:
+            require(case['expected_alias'] is None, 'unexpected alias expectation')
+        if 'catalog_description' in case['expected_match_routes']:
+            require(bool(direct['descriptions']['catalog']), 'missing catalog-description route source')
+        if 'upstream_description' in case['expected_match_routes']:
+            require(bool(direct['descriptions']['upstream']), 'missing upstream-description route source')
+        if 'secondary_assignment_dedupe' in case['expected_match_routes']:
+            require(len(direct['classifications']) > 1, 'secondary dedupe case lacks secondary assignment')
+            secondary_count += 1
+        if 'activity_unknown' in case['tags']:
+            require(direct['activity']['observed_at'] is None, 'activity-unknown case is not unknown')
+        expansion_count += any(item['membership_cohort'] == 'cat07a_expansion' for item in judgments)
+    require(observed_domains == container_ids, 'quality cases do not span all containers')
+    require(set(plan['stratification']['required_case_tags']) <= observed_tags,
+            'quality case tag coverage')
+    require(locales == {'en', 'ru'}, 'RU/EN lexical coverage')
+    require(thin_count >= 8 and dense_count >= 4 and expansion_count >= 4 and
+            alias_count >= 4 and secondary_count >= 3, 'quality stratum sample floor')
+
+    scale = plan['scale_protocol']
+    require(scale['actual']['corpus_kind'] == 'catalog_snapshot' and
+            scale['actual']['row_count'] == 2500 and
+            scale['headroom']['corpus_kind'] == 'synthetic_headroom' and
+            scale['headroom']['row_count'] == 10000 and
+            scale['actual']['quality_claim_allowed'] is False and
+            scale['headroom']['quality_claim_allowed'] is False,
+            'actual/headroom scale separation')
+    require(Path(paths['index_path']).stat().st_size <= plan['thresholds']['index_bytes_max'],
+            'pinned index exceeds predeclared byte ceiling')
+    rubric_path = root / 'evals/plugin-v1/rubric.json'
+    require(file_sha256(rubric_path) == plan['rubric_sha256'], 'stale rubric pin')
+    rubric = load_json(rubric_path)
+    require(rubric['schema_version'] == 'retrieval_rubric_v2' and
+            rubric['human']['minimum_total'] == plan['thresholds']['human_total_min'] and
+            rubric['human']['critical_dimension_minimum'] ==
+            plan['thresholds']['human_critical_dimension_min'] and
+            rubric['human']['critical_failures_allowed'] ==
+            plan['thresholds']['human_critical_failures_max'] and
+            rubric['human']['anchor_protocol_frozen'] is True and
+            rubric['human']['calibrated'] is False and
+            rubric['human']['observed_results'] is False and
+            rubric['promotion_ready'] is False, 'rubric/threshold mismatch')
+    case_ids = {case['case_id'] for case in cases}
+    require(all(item['canonical_retrieval_case_id'] in case_ids
+                for item in rubric['human']['calibration_cases']), 'unknown human calibration case')
+    return {
+        'schema_version': 'retrieval_quality_plan_validation_v1',
+        'plan_id': plan['plan_id'],
+        'quality_plan_sha256': digest(plan),
+        'rubric_sha256': plan['rubric_sha256'],
+        'pins': plan['pins'],
+        'query_count': len(cases),
+        'split_counts': split_counts,
+        'catalog_row_count': scale['actual']['row_count'],
+        'synthetic_headroom_row_count': scale['headroom']['row_count'],
+        'thresholds_predeclared': True,
+        'quality_observed': False,
+        'promotion_ready': False,
+    }
+
+
+class Contracts:
+    """Standards validation plus declared UTF-8 byte limits; no network resolver."""
+
+    def __init__(self):
+        try:
+            from jsonschema import Draft202012Validator, FormatChecker, ValidationError, validators
+            from referencing import Registry, Resource
+        except ImportError as exc:
+            raise RuntimeError('Development-only jsonschema/referencing is required; '
+                               'missing validation is not a passing gate.') from exc
+
+        files = sorted((ROOT / 'specs').rglob('*.schema.json'))
+        files += [ROOT / 'evals/scenario.schema.json', ROOT / 'evals/result.schema.json']
+        self.schemas = {}
+        self.by_relative = {}
+        for path in files:
+            schema = load_json(path)
+            Draft202012Validator.check_schema(schema)
+            require(schema['$id'] not in self.schemas, 'duplicate schema identity')
+            self.schemas[schema['$id']] = schema
+            self.by_relative[str(path.relative_to(ROOT)).replace('\\', '/').removeprefix('specs/')] = schema['$id']
+        self.schema_set_sha256 = digest({str(path.relative_to(ROOT)).replace('\\', '/'):
+                                         hashlib.sha256(path.read_bytes()).hexdigest()
+                                         for path in files})
+        self.registry = Registry().with_resources(
+            (name, Resource.from_contents(schema)) for name, schema in self.schemas.items())
+
+        def check_refs(value):
+            if isinstance(value, dict):
+                if '$ref' in value:
+                    ref = value['$ref']
+                    require(ref.startswith(BASES) or ref.startswith('#'),
+                            'unapproved schema reference')
+                    if ref.startswith(BASES):
+                        try:
+                            self.registry.resolver().lookup(ref)
+                        except Exception as exc:
+                            raise ValueError('unresolved offline schema reference') from exc
+                for child in value.values():
+                    check_refs(child)
+            elif isinstance(value, list):
+                for child in value:
+                    check_refs(child)
+
+        for schema in self.schemas.values():
+            check_refs(schema)
+
+        def byte_limit(validator, limit, instance, schema):
+            if len(canonical(instance)) > limit:
+                yield ValidationError('compact UTF-8 byte budget exceeded')
+
+        validator_type = validators.extend(Draft202012Validator, {'x-max-utf8-bytes': byte_limit})
+        checker = FormatChecker()
+
+        @checker.checks('date-time', raises=ValueError)
+        def utc_timestamp(value):
+            return not isinstance(value, str) or (value.endswith('Z') and
+                   datetime.fromisoformat(value.replace('Z', '+00:00')) is not None)
+
+        @checker.checks('date', raises=ValueError)
+        def iso_date(value):
+            return not isinstance(value, str) or date.fromisoformat(value) is not None
+
+        @checker.checks('uuid', raises=ValueError)
+        def canonical_uuid(value):
+            return not isinstance(value, str) or str(uuid.UUID(value)) == value
+
+        self.validators = {name: validator_type(schema, registry=self.registry,
+                                                format_checker=checker)
+                           for name, schema in self.schemas.items()}
+        self.validator_type = validator_type
+        self.standard_validator_type = Draft202012Validator
+        self.checker = checker
+
+    def check_bytes(self, schema, value, seen=None, root_schema=None):
+        """Walk applicable branches explicitly: $schema may reset an extended validator."""
+        seen = set() if seen is None else seen
+        root_schema = schema if root_schema is None else root_schema
+        if not isinstance(schema, dict) or (id(schema), id(value)) in seen:
+            return
+        seen.add((id(schema), id(value)))
+        if 'x-max-utf8-bytes' in schema:
+            require(len(canonical(value)) <= schema['x-max-utf8-bytes'], 'nested compact UTF-8 byte budget')
+        if '$ref' in schema:
+            location, _, fragment = schema['$ref'].partition('#')
+            target = self.registry.resolver().lookup(location).contents if location else root_schema
+            target_root = target if location else root_schema
+            for part in fragment.strip('/').split('/') if fragment else []:
+                target = target[part]
+            self.check_bytes(target, value, seen, target_root)
+        if isinstance(value, dict):
+            for name, child in schema.get('properties', {}).items():
+                if name in value:
+                    self.check_bytes(child, value[name], seen, root_schema)
+        if isinstance(value, list) and 'items' in schema:
+            for child in value:
+                self.check_bytes(schema['items'], child, seen, root_schema)
+        for child in schema.get('allOf', []):
+            self.check_bytes(child, value, seen, root_schema)
+        for keyword in ('anyOf', 'oneOf'):
+            for child in schema.get(keyword, []):
+                validator = self.standard_validator_type(
+                    root_schema, registry=self.registry,
+                    format_checker=self.checker).evolve(schema=child)
+                if validator.is_valid(value):
+                    self.check_bytes(child, value, seen, root_schema)
+        if 'if' in schema:
+            validator = self.standard_validator_type(
+                root_schema, registry=self.registry,
+                format_checker=self.checker).evolve(schema=schema['if'])
+            keyword = 'then' if validator.is_valid(value) else 'else'
+            if keyword in schema:
+                self.check_bytes(schema[keyword], value, seen, root_schema)
+
+    def validate(self, relative, value):
+        canonical(value)
+        schema_id = self.by_relative[relative]
+        try:
+            self.validators[schema_id].validate(value)
+        except Exception as exc:
+            # Do not echo untrusted or confidential payload values in CLI errors.
+            raise ValueError('schema validation failed: ' + relative) from exc
+        self.check_bytes(self.schemas[schema_id], value)
+
+
+def unique(values, label):
+    require(len(values) == len(set(values)), 'duplicate ' + label)
+
+
+def require_v2_pins(pins):
+    require(pins['card_schema_version'] == '2.0.0' and
+            pins['activity_schema_version'] == '2.0.0' and
+            pins['index_format_version'] == 3 and
+            pins['retrieval_policy_version'] == '2.1.0', 'mixed C9 version pins')
+
+
+def validate_cases(cases, contracts):
+    contracts.validate('evals/scenario.schema.json', cases)
+    require(cases['contract_set_sha256'] == contracts.schema_set_sha256, 'stale contract set')
+    unique([case['case_id'] for case in cases['cases']], 'case ID')
+    unique([case['case_id'] for case in cases['presentation_cases']], 'presentation case ID')
+    require({case['canonical_case_id'] for case in cases['presentation_cases']} <=
+            {case['case_id'] for case in cases['cases']}, 'unknown canonical presentation case')
+    policy_hash = hashlib.sha256((ROOT / 'specs/retrieval/retrieval-policy.json').read_bytes()).hexdigest()
+    taxonomy_hash = hashlib.sha256((ROOT / 'specs/catalog/taxonomy.yaml').read_bytes()).hexdigest()
+    for case in cases['cases']:
+        query, manifest = case['query'], case['index_manifest']
+        require(query['schema_version'] == '2.1.0' and query['policy_version'] == '2.1.0' and
+                query['card_schema_version'] == '2.0.0' and query['activity_schema_version'] == '2.0.0' and
+                query['index_format_version'] == 3 and 'taxonomy_route_id' in query,
+                'mixed query contract versions')
+        require(query['policy_sha256'] == policy_hash, 'query policy pin')
+        require(query['max_cards'] <= query['max_candidates'], 'card/candidate budget')
+        unique([variant['variant_id'] for variant in query['variants']], 'query variant')
+        require(all(term.strip() for variant in query['variants'] for term in variant['terms']),
+                'empty literal term')
+        constraints = query['constraints']
+        for field, target in [('license', 'allowed_licenses'), ('language', 'languages'),
+                              ('deployment', 'deployment'), ('compatibility', 'compatibility')]:
+            require(field not in constraints['mandatory_fields'] or bool(constraints[target]),
+                    'missing mandatory constraint target')
+        require('no_server' not in constraints['mandatory_fields'] or
+                constraints['require_no_server'] is True, 'missing mandatory no-server target')
+        if manifest is None:
+            require(case['expected_status'] not in ('ok', 'no_match'), 'missing manifest success')
+        else:
+            require_v2_pins(manifest['pins'])
+            require(manifest['pins']['policy_sha256'] == policy_hash and
+                    manifest['pins']['taxonomy_sha256'] == taxonomy_hash, 'manifest policy/taxonomy pin')
+        unique([item['github_repository_id'] for item in case['judgments']], 'judgment ID')
+        require(case['judgment_provenance'] == 'independent_synthetic_known_answer',
+                'unreviewed relevance provenance')
+    return cases
+
+
+def validate_card_eligibility(entry, query):
+    """Verify C9 public-card provenance and constraint trace before scoring judgments."""
+    card, eligibility = entry['card'], entry['eligibility']
+    identity = card['identity']
+    require(type(identity['github_repository_id']) is int and identity['github_repository_id'] > 0,
+            'invalid numeric GitHub identity')
+    require(identity['url'] == 'https://github.com/' + identity['full_name'], 'card URL identity')
+    require(identity['full_name'] not in identity['full_name_aliases'], 'card self alias')
+    unique(identity['full_name_aliases'], 'card alias')
+    require(identity['catalog_record_id'] not in identity['merged_catalog_record_ids'], 'repeated catalog lineage')
+    unique(identity['merged_catalog_record_ids'], 'merged catalog lineage')
+    taxonomy = load_json(ROOT / 'specs/catalog/taxonomy.yaml')
+    categories = {item['id']: item for item in taxonomy['categories']}
+    classifications = card['classifications']
+    unique([item['category_id'] for item in classifications], 'classification')
+    require(sum(item['role'] == 'primary' for item in classifications) == 1, 'primary classification count')
+    for item in classifications:
+        source = categories.get(item['category_id'])
+        require(source is not None and source.get('kind') != 'container', 'unknown/container classification')
+        require(item['title'] == source['label'] and item['kind'] == source.get('kind', 'category') and
+                item['parent_id'] == source.get('parent_id'), 'classification metadata mismatch')
+    license_fact = card['repository']['license']
+    require(license_fact is None or (isinstance(license_fact, dict) and
+            license_fact.get('spdx') not in ('NOASSERTION', 'unknown', '')),
+            'unknown license must be null')
+    evidence = {item['evidence_id']: item for item in card['evidence']}
+    require(len(evidence) == len(card['evidence']), 'duplicate public evidence')
+    if card['catalog']['status'] == 'accepted':
+        source = 'curator_record' if card['catalog']['status_source'] == 'curator_decision' else 'catalog_snapshot'
+        require(any(item['source_kind'] == source and '/catalog/status' in item['fields']
+                    for item in evidence.values()), 'unsupported catalog acceptance')
+    if card['corpus_kind'] != 'synthetic_fixture':
+        require(all(item['source_kind'] != 'synthetic_fixture' and
+                    not item['source_ref'].startswith('fixture:') for item in evidence.values()),
+                'synthetic evidence mislabeled')
+    activity_fields = {'created_at': 'repository_created_at', 'repository_updated_at': 'repository_updated_at',
+                       'pushed_at': 'repository_pushed_at', 'last_commit_at': 'commit_committed_date',
+                       'last_release_at': 'release_published_at', 'last_synced_at': 'last_synced_at',
+                       'observed_at': 'observed_at'}
+    activity = card['activity']
+    unique([item['field'] for item in activity['observations']], 'activity observation')
+    require({item['field'] for item in activity['observations']} ==
+            {field for field in activity_fields if activity[field] is not None}, 'activity observation coverage')
+    for observation in activity['observations']:
+        field = observation['field']
+        require(observation['source_field'] == activity_fields[field], 'activity event conflation')
+        require(all(ref in evidence and '/activity/' + field in evidence[ref]['fields']
+                    for ref in observation['evidence_refs']), 'activity evidence mismatch')
+    require(eligibility['github_repository_id'] == identity['github_repository_id'] and
+            eligibility['query_id'] == query['query_id'],
+            'eligibility identity mismatch')
+    constraints = query['constraints']
+    license_spdx = license_fact.get('spdx') if isinstance(license_fact, dict) else None
+    checks = {item['field']: item for item in eligibility['checks']}
+    expected_fields = set(constraints['mandatory_fields']) | {'availability', 'archived', 'advisory_evidence'}
+    require(len(checks) == len(eligibility['checks']) and set(checks) == expected_fields,
+            'eligibility check coverage')
+    advisory = ['/advisory/use_cases', '/advisory/best_for', '/advisory/adoption_mode',
+                '/advisory/project_stages', '/advisory/complexity', '/advisory/integration_surface',
+                '/advisory/compatibility']
+    paths = {
+        'license': '/repository/license', 'language': '/repository/languages',
+        'deployment': '/delivery/deployment', 'compatibility': '/advisory/compatibility',
+        'no_server': '/delivery/requires_server', 'availability': '/repository/availability',
+        'archived': '/repository/archived'
+    }
+    outcomes = []
+    for field, check in checks.items():
+        pointers = advisory if field == 'advisory_evidence' else [paths[field]]
+        refs = check['evidence_refs']
+        require(set(refs) <= evidence.keys(), 'unresolved eligibility evidence')
+        def covers(source, target):
+            return source != '/' and (source == target or target.startswith(source + '/'))
+        resolved = [evidence[ref] for ref in refs]
+        refs_valid = all(item['verification'] != 'unknown' and
+                         any(covers(source, target)
+                             for source in item['fields'] for target in pointers)
+                         for item in resolved)
+        sourced = refs_valid and all(any(
+            item['verification'] != 'unknown' and
+            any(covers(source, target) for source in item['fields'])
+            for item in resolved) for target in pointers)
+        known_values = {
+            'license': license_fact,
+            'language': card['repository']['languages'],
+            'deployment': card['delivery']['deployment']['values'],
+            'compatibility': card['advisory']['compatibility'],
+            'no_server': card['delivery']['requires_server'],
+            'availability': card['repository']['availability'],
+            'archived': card['repository']['archived'],
+            'advisory_evidence': [card['advisory'][name] for name in
+                                  ('use_cases', 'best_for', 'adoption_mode', 'project_stages', 'complexity',
+                                   'integration_surface', 'compatibility')],
+        }
+        known = known_values[field] is not None and known_values[field] != [] and known_values[field] != 'unknown'
+        if not sourced or not known:
+            outcome = 'unknown'
+        else:
+            passed = {
+                'license': license_spdx in constraints['allowed_licenses'],
+                'language': bool({item['name'] for item in card['repository']['languages']} & set(constraints['languages'])),
+                'deployment': bool(set(card['delivery']['deployment']['values']) & set(constraints['deployment'])),
+                'compatibility': set(constraints['compatibility']) <= set(card['advisory']['compatibility']),
+                'no_server': card['delivery']['requires_server'] is False,
+                'availability': card['repository']['availability'] == 'available',
+                'archived': card['repository']['archived'] is False,
+                'advisory_evidence': card['catalog']['evidence_stage'] == 'advisory_evidence_complete',
+            }[field]
+            outcome = 'pass' if passed else 'fail'
+        require(check['outcome'] == outcome, 'unsupported eligibility ' + field)
+        outcomes.append(outcome)
+    expected = 'blocked' if 'fail' in outcomes else 'reference_only' if 'unknown' in outcomes else 'primary_eligible'
+    require(eligibility['status'] == expected, 'eligibility status contradiction')
+    if expected == 'reference_only':
+        require('mandatory_fact_unknown' in eligibility['reason_codes'] and eligibility['required_verifications'],
+                'missing conditional verification')
+
+
+def validate_capture(case, capture, contracts):
+    """Cross-object invariants supplement, and do not replace, JSON Schema."""
+    query, manifest = case['query'], case['index_manifest']
+    policy = load_json(ROOT / 'specs/retrieval/retrieval-policy.json')
+    result, pack = capture['retrieval'], capture['evidence_pack']
+    expected_pins = manifest['pins'] if manifest is not None else None
+    if expected_pins is not None:
+        require_v2_pins(expected_pins)
+    for item in (result, pack):
+        require(item['run_id'] == case['run_id'], 'run ID mismatch')
+        require(item['query_id'] == query['query_id'] and item['query_sha256'] == digest(query),
+                'query identity/digest mismatch')
+        require(item['brief_version'] == query['brief_version'], 'brief revision mismatch')
+        require(item['pins'] == expected_pins, 'index pins mismatch')
+    require(result['source_mode'] == query['source_mode'] and
+            result['retrieval_engine'] == query['retrieval_engine'], 'route mismatch')
+    if manifest is None:
+        require(result['status'] not in ('ok', 'no_match'), 'missing index disguised as success')
+    expected_pack_status = ('ready' if result['status'] == 'ok' and pack['cards'] else
+                            'no_match' if result['status'] in ('ok', 'no_match') else 'unavailable')
+    require(pack['status'] == expected_pack_status, 'retrieval/pack status mismatch')
+    candidates = result['candidates']
+    ids = [item['github_repository_id'] for item in candidates]
+    unique(ids, 'candidate ID')
+    require([item['rank'] for item in candidates] == list(range(1, len(candidates) + 1)),
+            'noncontiguous candidate ranks')
+    require(candidates == sorted(candidates, key=lambda item: (-item['rrf_score'], item['github_repository_id'])),
+            'RRF ordering mismatch')
+    require(result['retrieved_hits'] <= query['max_candidates'], 'aggregate hit budget')
+    require(result['executed_variants'] <= len(query['variants']), 'variant cardinality')
+    executed = {item['variant_id'] for item in query['variants'][:result['executed_variants']]}
+    positions = set()
+    for item in candidates:
+        ranks = item['variant_ranks']
+        unique([rank['variant_id'] for rank in ranks], 'candidate variant')
+        require({rank['variant_id'] for rank in ranks} <= executed, 'unexecuted variant')
+        require(math.isclose(item['rrf_score'], sum(1 / (policy['rank_fusion']['k'] + rank['rank']) for rank in ranks),
+                             rel_tol=1e-12), 'RRF score mismatch')
+        for rank in ranks:
+            position = (rank['variant_id'], rank['rank'])
+            require(position not in positions and rank['rank'] <= result['retrieved_hits'],
+                    'duplicate/out-of-range variant rank')
+            positions.add(position)
+    require(len(positions) <= result['retrieved_hits'], 'hit accounting mismatch')
+    if result['status'] != 'ok':
+        require(set(result['reason_codes']) <= FAILURES[result['status']] and result['reason_codes'],
+                'failure disguised as no-match')
+        require(pack['reason_codes'] == result['reason_codes'], 'failure reason mismatch')
+        if result['status'] == 'no_match':
+            require(result['retrieved_hits'] == 0 and result['executed_variants'] > 0,
+                    'unexecuted no-match')
+    elif result['truncated']:
+        require('candidate_budget' in result['reason_codes'], 'missing truncation reason')
+    card_ids = [item['card']['identity']['github_repository_id'] for item in pack['cards']]
+    excluded = [item['github_repository_id'] for item in pack['exclusions']]
+    unique(card_ids, 'pack card')
+    unique(excluded, 'excluded ID')
+    require(not set(card_ids) & set(excluded), 'included and excluded candidate')
+    require(set(card_ids) | set(excluded) == set(ids), 'candidate pack coverage mismatch')
+    require(len(card_ids) <= query['max_cards'], 'pack card budget')
+    require(len(canonical(pack)) <= query['max_evidence_bytes'], 'requested evidence byte budget')
+    candidates_by_id = {item['github_repository_id']: item for item in candidates}
+    aliases = []
+    for item in pack['cards']:
+        validate_card_eligibility(item, query)
+        card_id = item['card']['identity']['github_repository_id']
+        aliases.extend([item['card']['identity']['full_name'], *item['card']['identity']['full_name_aliases']])
+        candidate = candidates_by_id[card_id]
+        require(item['retrieval_rank'] == candidate['rank'] and item['rrf_score'] == candidate['rrf_score'] and
+                item['matched_fields'] == candidate['matched_fields'], 'card retrieval trace mismatch')
+        require(item['eligibility']['github_repository_id'] == card_id and
+                item['eligibility']['query_id'] == query['query_id'], 'eligibility identity mismatch')
+        require(item['eligibility']['status'] != 'blocked', 'blocked card in evidence pack')
+        require(item['card']['corpus_kind'] == expected_pins['corpus_kind'], 'corpus kind mismatch')
+    unique(aliases, 'canonical alias across pack')
+    measures = capture['measurements']
+    require(measures['evidence_pack_bytes'] == len(canonical(pack)), 'measured evidence bytes mismatch')
+    limits = policy['limits']
+    allocations = ['brief_bytes', 'targeted_context_bytes', 'evidence_pack_bytes', 'request_bytes']
+    for key in allocations:
+        limit = limits['max_evidence_bytes' if key == 'evidence_pack_bytes' else 'max_' + key]
+        require(measures[key] is None or measures[key] <= limit, 'measured input budget')
+    values = [measures[key] for key in allocations]
+    if all(value is not None for value in values):
+        require(measures['plugin_input_bytes'] == sum(values), 'controlled input byte sum')
+        require(sum(values) <= limits['max_plugin_input_bytes'], 'controlled input budget')
+    else:
+        require(measures['plugin_input_bytes'] is None, 'unknown input reported as measured')
+    for value_key, method_key in [('latency_ms', 'latency_method'), ('peak_memory_bytes', 'memory_method'),
+                                   ('input_tokens', 'tokenizer')]:
+        require((measures[value_key] is None) == (measures[method_key] is None), 'measurement method missing')
+
+
+def ranking_metrics(ranked_ids, judgments, k):
+    """Recall uses all grade>0 judgments; nDCG uses gain=2**grade-1/log2(rank+1)."""
+    unique(ranked_ids, 'metric candidate')
+    require(type(k) is int and 1 <= k <= 60, 'invalid metric k')
+    require(all(type(grade) is int and 0 <= grade <= 3 for grade in judgments.values()),
+            'invalid relevance grade')
+    require(set(ranked_ids) <= judgments.keys(), 'unjudged candidate; do not assume irrelevant')
+    relevant = {repo_id for repo_id, grade in judgments.items() if grade > 0}
+    selected = ranked_ids[:k]
+    dcg = sum((2 ** judgments[repo_id] - 1) / math.log2(rank + 2)
+              for rank, repo_id in enumerate(selected))
+    ideal = sum((2 ** grade - 1) / math.log2(rank + 2)
+                for rank, grade in enumerate(sorted(judgments.values(), reverse=True)[:k]))
+    return {'recall_at_k': len(set(selected) & relevant) / len(relevant) if relevant else None,
+            'ndcg_at_k': dcg / ideal if ideal else None,
+            'relevant_count': len(relevant)}
+
+
+def evaluate(cases, captures, contracts=None):
+    contracts = contracts or Contracts()
+    validate_cases(cases, contracts)
+    contracts.validate('evals/result.schema.json', captures)
+    require(captures['case_set_sha256'] == digest(cases), 'case-set digest mismatch')
+    ids = [item['case_id'] for item in captures['records']]
+    unique(ids, 'capture case ID')
+    require(set(ids) == {case['case_id'] for case in cases['cases']}, 'capture case cardinality')
+    captured = {item['case_id']: item for item in captures['records']}
+    records = []
+    for case in cases['cases']:
+        capture = captured[case['case_id']]
+        validate_capture(case, capture, contracts)
+        result, pack = capture['retrieval'], capture['evidence_pack']
+        expected = {item['github_repository_id']: item for item in case['judgments']}
+        ranked_ids = [item['github_repository_id'] for item in result['candidates']]
+        require(set(ranked_ids) <= expected.keys(), 'unjudged candidate')
+        status_ok = result['status'] == case['expected_status']
+        eligible = {repo_id for repo_id, item in expected.items() if item['constraint'] == 'allowed'}
+        denied = {repo_id for repo_id, item in expected.items() if item['constraint'] == 'denied'}
+        selected = {item['card']['identity']['github_repository_id'] for item in pack['cards']}
+        excluded = {item['github_repository_id'] for item in pack['exclusions']
+                    if set(item['reason_codes']) & {'constraint_mismatch', 'mandatory_fact_unknown', 'archived', 'unavailable'}}
+        violations = len(selected & denied)
+        false_exclusions = len(excluded & eligible)
+        metrics = ranking_metrics(ranked_ids, {key: item['grade'] for key, item in expected.items()}, case['k']) \
+            if result['status'] in ('ok', 'no_match') else None
+        records.append({'case_id': case['case_id'], 'status_match': status_ok, 'ranking': metrics,
+                        'hard_constraint_violations': violations, 'false_exclusions': false_exclusions,
+                        'candidate_count': len(ranked_ids), 'pack_card_count': len(selected),
+                        'evidence_pack_bytes': len(canonical(pack)),
+                        'compatible': status_ok and violations == 0 and false_exclusions == 0})
+    return {'schema_version': 'retrieval_score_v2', 'evidence_kind': captures['evidence_kind'],
+            'verdict': 'synthetic_compatibility_only', 'promotion_ready': False,
+            'quality_thresholds_calibrated': False, 'records': records,
+            'passed': all(item['compatible'] for item in records)}
+
+
+def main(argv=None):
+    parser = argparse.ArgumentParser(description=__doc__)
+    source = parser.add_mutually_exclusive_group(required=True)
+    source.add_argument('--cases')
+    source.add_argument('--quality-plan')
+    parser.add_argument('--results')
+    args = parser.parse_args(argv)
+    try:
+        if args.quality_plan:
+            require(args.results is None, 'quality-plan validation does not consume captures')
+            report = validate_quality_plan(load_json(args.quality_plan))
+        else:
+            contracts = Contracts()
+            cases = load_json(args.cases)
+            if args.results is None:
+                validate_cases(cases, contracts)
+                report = {'valid': True, 'promotion_ready': False, 'case_count': len(cases['cases'])}
+            else:
+                report = evaluate(cases, load_json(args.results), contracts)
+        print(json.dumps(report, ensure_ascii=False, sort_keys=True, allow_nan=False))
+        return 0 if report.get('passed', True) else 1
+    except (ValueError, RuntimeError, OSError, RecursionError) as exc:
+        print(json.dumps({'error': type(exc).__name__, 'detail': 'Invalid input or unavailable local validator; '
+                          'no retrieval or provider was executed.'}), file=sys.stderr)
+        return 2
+
+
+if __name__ == '__main__':
+    raise SystemExit(main())

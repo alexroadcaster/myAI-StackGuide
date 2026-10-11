@@ -1,0 +1,325 @@
+{
+  "schema_version": "cp04_final_declaration_v1",
+  "plan_file_sha256": "56579b4e01eb5a3a353c788c216576973ce9825adf9c2409fd58302dac5d78c6",
+  "plan_canonical_sha256": "c9b87f708463572ac7e1b7061389a1932a762dd7da98208fc49945061f2112ba",
+  "source_hashes": {
+    "evals/plugin-v1/run_final_quality.py": "fab447bcf2925d0cf8f0078ccc3b3c5d81fd8b743fc8a9abbece87d14656bab9",
+    "tests/test_plugin_final_quality.py": "efca80503c515f53e864c25b7509251a4eb0b54cf2a03b62565de258238f4527",
+    "evals/plugin-v1/run_quality.py": "e6ba2970a955319f5cc6d5c06b554d911263ed7f00bbe8bd17347aad8e80a321",
+    "evals/plugin-v1/evaluate_retrieval.py": "29baacad27b68dd507193a9c6f564e7a55e7662fbeadb659797e0cd7bccf7488",
+    "plugins/myai-stackguide/scripts/recommendation_request.py": "3c3d188d51d5c6da55de2fc1655874d15f4919cecae9bea40fa71810d3084ad9",
+    "plugins/myai-stackguide/scripts/request_guard.py": "e6745044d2e90a17b830bc6ba7d14a46ea7b7ba7a7ca2141a2b97d3b9639d775",
+    "plugins/myai-stackguide/scripts/retrieval.py": "6cd0a8012ed47374afee68c957a7369020775562d21b0d8b2649ec3b850f14dd",
+    "plugins/myai-stackguide/scripts/context.py": "e47623d6c3147c7702d3d5b3565bcd651838b2d107ae105a996989cf60fc29dd",
+    "plugins/myai-stackguide/scripts/context_pack.py": "0dd03df31580b3980275aa42fcdae01e3d446986e9e32995879f4502c1198276",
+    "plugins/myai-stackguide/scripts/matcher.py": "c560158f15390f662e55eac39e9ffc31fd983a9af8c5086a234fbec0280933c2"
+  },
+  "asset_hashes": {
+    "evals/plugin-v1/evaluate_retrieval.py": "29baacad27b68dd507193a9c6f564e7a55e7662fbeadb659797e0cd7bccf7488",
+    "evals/plugin-v1/quality-plan.json": "cb2765fda7c90693212bb96041ea21c5eb4743607002cb3c89f0dfdb2ef695e3",
+    "evals/plugin-v1/rubric.json": "96f67da80234d4ade36c9b5e5fb50276398acce76751513e9e041926b74f3fef",
+    "evals/plugin-v1/run_final_quality.py": "fab447bcf2925d0cf8f0078ccc3b3c5d81fd8b743fc8a9abbece87d14656bab9",
+    "evals/plugin-v1/run_final_rank_repair_regression.py": "08eb85edde1643ff90aa02d0043e81d9198a8e0e52ec34b557b5c075c0998e8c",
+    "evals/plugin-v1/run_quality.py": "e6ba2970a955319f5cc6d5c06b554d911263ed7f00bbe8bd17347aad8e80a321",
+    "plugins/myai-stackguide/assets/catalog.search-manifest.json": "4c1c9eccf6df60d92da5d780a8152ce3fb00e43ccbf80e8ed01c3c660135a1bb",
+    "plugins/myai-stackguide/assets/catalog.search.sqlite": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+    "plugins/myai-stackguide/assets/catalog.snapshot.json": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+    "plugins/myai-stackguide/assets/retrieval-policy.json": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+    "plugins/myai-stackguide/scripts/context.py": "e47623d6c3147c7702d3d5b3565bcd651838b2d107ae105a996989cf60fc29dd",
+    "plugins/myai-stackguide/scripts/context_pack.py": "0dd03df31580b3980275aa42fcdae01e3d446986e9e32995879f4502c1198276",
+    "plugins/myai-stackguide/scripts/matcher.py": "c560158f15390f662e55eac39e9ffc31fd983a9af8c5086a234fbec0280933c2",
+    "plugins/myai-stackguide/scripts/recommendation_request.py": "3c3d188d51d5c6da55de2fc1655874d15f4919cecae9bea40fa71810d3084ad9",
+    "plugins/myai-stackguide/scripts/request_guard.py": "e6745044d2e90a17b830bc6ba7d14a46ea7b7ba7a7ca2141a2b97d3b9639d775",
+    "plugins/myai-stackguide/scripts/retrieval.py": "6cd0a8012ed47374afee68c957a7369020775562d21b0d8b2649ec3b850f14dd",
+    "specs/retrieval/retrieval-policy.json": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b"
+  },
+  "pins": {
+    "activity_schema_version": "2.0.0",
+    "card_schema_version": "2.0.0",
+    "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+    "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+    "corpus_kind": "catalog_snapshot",
+    "index_format_version": 3,
+    "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+    "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+    "retrieval_policy_version": "2.1.0",
+    "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+    "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+  },
+  "thresholds": {
+    "held_out_macro_recall_at_12_min": 0.75,
+    "held_out_macro_ndcg_at_12_min": 0.65,
+    "candidate_not_worse_than_baseline_recall_delta_min": 0.0,
+    "candidate_not_worse_than_baseline_ndcg_delta_min": 0.0,
+    "required_stratum_recall_at_12_min": 0.6,
+    "required_stratum_ndcg_at_12_min": 0.5,
+    "hard_constraint_violations_max": 0,
+    "false_exclusions_max": 0,
+    "duplicate_canonical_ids_max": 0,
+    "alias_success_rate_min": 1.0,
+    "evidence_pack_survival_rate_min": 0.9,
+    "container_route_coverage_min": 14,
+    "leaf_route_coverage_min": 111,
+    "human_total_min": 16,
+    "human_critical_dimension_min": 1,
+    "human_critical_failures_max": 0,
+    "actual_warm_p95_ms_max": 100,
+    "actual_cold_p95_ms_max": 250,
+    "synthetic_warm_p95_ms_max": 200,
+    "synthetic_cold_p95_ms_max": 500,
+    "peak_memory_bytes_max": 268435456,
+    "index_bytes_max": 67108864
+  },
+  "cases": [
+    {
+      "case_id": "FINAL-HOLD-01",
+      "case_sha256": "e1021ab8b67231c592576122ff0ac5a7af9139dc2ecd9a81c1bc32cd28448e44",
+      "payload_sha256": "b08066a17bb8dff33fdb6d50d75f970791fc65499370bc62ee493e4b359ad827"
+    },
+    {
+      "case_id": "FINAL-HOLD-02",
+      "case_sha256": "ea7b2fac142e9d67604397fe58344ab1add43cbf30627177905bb6dd7305a4eb",
+      "payload_sha256": "eb9a3ffac01de430d859a7a4f3b06416c1661cc60dc4ed2e8912c5639d18319f"
+    },
+    {
+      "case_id": "FINAL-HOLD-03",
+      "case_sha256": "bfe39cd844260c7ab1bf542f66931564fa048bc3f30742aaa9fa08be1c6b9232",
+      "payload_sha256": "56443a24d8558f9d12decad19d98fc9d54296fc9a50290ff3befe8a4aaf58585"
+    },
+    {
+      "case_id": "FINAL-HOLD-04",
+      "case_sha256": "4e735ddea25ac1c612e7c54b8be82297e54d4d877ca24c4da6eae813a889c01b",
+      "payload_sha256": "333ffce0dbdcc68839323ad8b9a669ed646104b0e3b112bd1188d2d926cfa710"
+    },
+    {
+      "case_id": "FINAL-HOLD-05",
+      "case_sha256": "141e6f351281d5999eb090e39cb43960be6af22f72d5ac9fdd58da2d900e6089",
+      "payload_sha256": "9d88747efda9b2256f52a0ba8033f1afad17015ca11baf4f0b6c05e9d006cf45"
+    },
+    {
+      "case_id": "FINAL-HOLD-06",
+      "case_sha256": "53b5e47cc423b5bfba1efa12f069982cd7d5be2cfc894a4de36ea833ca0d0345",
+      "payload_sha256": "12db3457330ccf0d37f2f9b1701ff0f4240d7574fa729df0e1477a868d44cbb8"
+    },
+    {
+      "case_id": "FINAL-HOLD-07",
+      "case_sha256": "606b470ab395d3feae6e5f9655da70bb9aa4426d03cad30405ab4e3532414ba1",
+      "payload_sha256": "6e3419ec103f7bb715833731451198ead09a11288b28268fe55efa03c8525ed1"
+    },
+    {
+      "case_id": "FINAL-HOLD-08",
+      "case_sha256": "5529ad7717652dbf9b003859736e8952daccd08ee182189f711fc0966a2bd272",
+      "payload_sha256": "b45f20655e9ef86388e799ba1d320c5116f31f842f3d2934bbdcc3c8a76c6b4d"
+    },
+    {
+      "case_id": "FINAL-HOLD-09",
+      "case_sha256": "0be2999844b1c4f775424009dab9e54c113e75bc4c40f7633da95266af09339e",
+      "payload_sha256": "f0de4b6247e28ee72e1f270130efae60d77fb921bcbe51162dda8e9da30984e9"
+    },
+    {
+      "case_id": "FINAL-HOLD-10",
+      "case_sha256": "52d92edac9183457fcf84ef9d801be9021620967ad4bcbb5f26b05fe9317ecd6",
+      "payload_sha256": "a9e341a29ab4ce82e8935955ee0da5fd54ef37ecd8b486d3634e152d4d226202"
+    },
+    {
+      "case_id": "FINAL-HOLD-11",
+      "case_sha256": "020dceda2e49b15949298e5b1c882605117fd7bc8aaa4ca5d9e815528acd69de",
+      "payload_sha256": "20715e3352d535ec0f407455a50dad9352f1fe87f88052b0a9d3c9067385252f"
+    },
+    {
+      "case_id": "FINAL-HOLD-12",
+      "case_sha256": "0dfed822c68d0db83772cda84c4b66b476f9422abc161a82e19ff9e13dd96180",
+      "payload_sha256": "3afa963fb8cef511904e44b7f67ad7a3bc99e161ac9fc0166652b048d68fa2b9"
+    },
+    {
+      "case_id": "FINAL-HOLD-13",
+      "case_sha256": "5926fc1ff840a190efc4226484d56420f370fba996f2a1fb61de7dac8bcdf725",
+      "payload_sha256": "32b1da8780d72e8b923747dece5059452871b03ed78e96b94c5fbf8e834a8114"
+    },
+    {
+      "case_id": "FINAL-HOLD-14",
+      "case_sha256": "1d072cc624a2bfc7f10bd0f01f87eba799959a38a01c547f2313c80a7e1dab25",
+      "payload_sha256": "6322fab500f100bf591b23b7b185fdbcbc5a46b8b9e8f1a04a193dc3adec995f"
+    },
+    {
+      "case_id": "FINAL-ALIAS-01",
+      "case_sha256": "05cea27667ef3923d30f0f00e269ab265fad4468d34517b759ce87b7de2b691d",
+      "payload_sha256": "8b2b6f5003b368b978ecb5d2d0c478d3b3e770dc9a02d82b01efd44c0a8558bc"
+    },
+    {
+      "case_id": "INDEPENDENT-HOLD-01",
+      "case_sha256": "ccc6e6c53c355811a44487ee47fc3a53b5d4629ed51990de6f8cdcb67f751d12",
+      "payload_sha256": "f57ddfd8f842419826adcc0bab508426ced64cb6fca7cebaf2972c2712ec478e"
+    },
+    {
+      "case_id": "INDEPENDENT-HOLD-02",
+      "case_sha256": "6de302d5ebac7f899e076c9d419667eac2072def93983791ea0a601e0696f7c8",
+      "payload_sha256": "74c272ea525b48b39cec3fc7cbaf7453812afdce4a64fe61c98531f53ffdb98a"
+    },
+    {
+      "case_id": "INDEPENDENT-HOLD-03",
+      "case_sha256": "a4bed8e3647a44e842e47efa916afa8da3335016f97ead524b660d7b61f4b13d",
+      "payload_sha256": "26e04f61c212ee498577b3365746c2be36c5d2063cdde137a612223e101d0f65"
+    },
+    {
+      "case_id": "INDEPENDENT-HOLD-04",
+      "case_sha256": "ab4008c1a0818ab57539ee6a11a304a54fb8363ebe8e45647c4a07be4500b7b4",
+      "payload_sha256": "b2d4bb4837ae7b78e8dfa165203a5b1d07f7f43a36b32cfaf20965795a304528"
+    },
+    {
+      "case_id": "INDEPENDENT-HOLD-05",
+      "case_sha256": "e472caa97e90a1ba0bb5157afa9cc9003e78353236ad6a42fda636e688910a39",
+      "payload_sha256": "a50744f9cd7d08582a41f5d779235bd95d58c46fdd7955604326ae187282a2c2"
+    },
+    {
+      "case_id": "INDEPENDENT-HOLD-06",
+      "case_sha256": "00847efefa63b3d76d2382c35638c9c8e634e0f572b3faf8ed4a895b79b0b4c0",
+      "payload_sha256": "30d562de7f0913e2fca483dfa2f5575fefb238c902b6aa2af96b0c5ea7cd94c9"
+    },
+    {
+      "case_id": "INDEPENDENT-HOLD-07",
+      "case_sha256": "f20321691b32490c525661b130b1fb392b6995e952c66c393900574694dc78c5",
+      "payload_sha256": "b2da8174819e35310702e081f7f1d7c6c1f11f08bb5e8aa23cc43b34504cb437"
+    },
+    {
+      "case_id": "INDEPENDENT-HOLD-08",
+      "case_sha256": "20612c0249a870b5d61db4642b07ccb1c536dcc9f6490ce983f267d1255f03c9",
+      "payload_sha256": "0ddc9fcf564d897689af620af7f28093716d2a4d7dcf55b8bc0bfc708d4ec2a1"
+    },
+    {
+      "case_id": "INDEPENDENT-HOLD-09",
+      "case_sha256": "f4589d876bb493690a5660233e830061a38239ff0c0297439b16183adb60fccf",
+      "payload_sha256": "eac98dd944cccf047b8154c9651f95c0eab1e69287fe1eae69eda10180938a08"
+    },
+    {
+      "case_id": "INDEPENDENT-HOLD-10",
+      "case_sha256": "ca16368a00c17d0005fe5d3ea37fac01eeec9fbb4d7f2b5326f60ddb2975e12f",
+      "payload_sha256": "e152bda26ba8c85f87bf96ebb17b2caa69acb0083c0d566b781626e08505494e"
+    },
+    {
+      "case_id": "INDEPENDENT-HOLD-11",
+      "case_sha256": "4b2435fd3493996096e1a08486ca5a1ff145391826964ede32f1032a8ccebea4",
+      "payload_sha256": "2dfd079a1d2ade2a8817f9843421e75f34738433a2e074a26e16c4425ead7d61"
+    },
+    {
+      "case_id": "INDEPENDENT-HOLD-12",
+      "case_sha256": "b0da695268dc8235aa665ec728813b0cac02ff034178cb2382453ef74c1c6166",
+      "payload_sha256": "ec13cc510fefee9b899160d44bf0698a9b07407b4bdc237680c41eb1be3c6820"
+    },
+    {
+      "case_id": "INDEPENDENT-HOLD-13",
+      "case_sha256": "ac91bec594c61ab254e80092c08053ce89b199bd94522bb844c7b80569db8d33",
+      "payload_sha256": "4e308ab85e03bd0ecbf655e6db33454a0c86c3ebb547e343268c56edfbf6cd9b"
+    },
+    {
+      "case_id": "INDEPENDENT-HOLD-14",
+      "case_sha256": "fdb4dcdbfc0263c42a8d7ede71c5473a7ddb9af193487dfae67f77aa37225b0c",
+      "payload_sha256": "0019f5d5649bbccedfdee096c937e92e94e86f31a035a90bcbc45e19544a8711"
+    },
+    {
+      "case_id": "INDEPENDENT-ALIAS-01",
+      "case_sha256": "6dc16a366aa911d3f791440c2373d838308a89ff83c230214c315a4a8fb58103",
+      "payload_sha256": "d42fbf95b0aa9ffa2e4478f2724a1fc2cb9b979d201f4d6c1f84f22ba38c2f1a"
+    }
+  ],
+  "candidate": "Stable source-text weighting and native COUNT conditional canonical-route vocabulary -> trusted C9 -> guard -> pack",
+  "baseline": "Original literal-field-or-v1, injected transport adapter, exact same prepared query/route/constraints/guard/pack; placeholder RRF only for transport.",
+  "grading": "Full routed oracle; any unknown grade invalidates whole case and official macro, including unretrieved unknowns. No ranked exposure before freeze.",
+  "commands": [
+    "python -B evals/plugin-v1/run_final_rank_repair_regression.py --predeclare",
+    "python -B evals/plugin-v1/run_final_rank_repair_regression.py --run"
+  ],
+  "promotion_ready": false,
+  "prior_failed_held_out_retained": true,
+  "regression_runner_sha256": "08eb85edde1643ff90aa02d0043e81d9198a8e0e52ec34b557b5c075c0998e8c",
+  "suites": [
+    {
+      "suite_id": "source_qualified15",
+      "plan_path": "evals/plugin-v1/final-quality-repair-2026-10-11.json",
+      "plan_sha256": "2bbb6c4b3a4195ab383348b9bca7b230dd24e5b3e78b9506c9d842db47076aee",
+      "capture_path": "evals/plugin-v1/results/cp04-final-quality-repair-2026-10-11/observations.json",
+      "capture_sha256": "8cd0015145f7acd1902ba5d2510ea7dd01b31eb60f495b9545e00408afbb1aaf",
+      "case_ids": [
+        "FINAL-HOLD-01",
+        "FINAL-HOLD-02",
+        "FINAL-HOLD-03",
+        "FINAL-HOLD-04",
+        "FINAL-HOLD-05",
+        "FINAL-HOLD-06",
+        "FINAL-HOLD-07",
+        "FINAL-HOLD-08",
+        "FINAL-HOLD-09",
+        "FINAL-HOLD-10",
+        "FINAL-HOLD-11",
+        "FINAL-HOLD-12",
+        "FINAL-HOLD-13",
+        "FINAL-HOLD-14",
+        "FINAL-ALIAS-01"
+      ],
+      "exposure": "All queries, judgments and rankings previously observed; development regression only"
+    },
+    {
+      "suite_id": "independent_now_exposed15",
+      "plan_path": "evals/plugin-v1/final-quality-independent-2026-10-11.json",
+      "plan_sha256": "1c05adda0a4523cfa681dc669b912295007a2503a142553737e040337f2a2b33",
+      "capture_path": "evals/plugin-v1/results/cp04-final-quality-independent-2026-10-11/observations.json",
+      "capture_sha256": "5f13eeceee07e863928e64f06ee586e3fda34f930aa677a44da4729f4ef31eda",
+      "case_ids": [
+        "INDEPENDENT-HOLD-01",
+        "INDEPENDENT-HOLD-02",
+        "INDEPENDENT-HOLD-03",
+        "INDEPENDENT-HOLD-04",
+        "INDEPENDENT-HOLD-05",
+        "INDEPENDENT-HOLD-06",
+        "INDEPENDENT-HOLD-07",
+        "INDEPENDENT-HOLD-08",
+        "INDEPENDENT-HOLD-09",
+        "INDEPENDENT-HOLD-10",
+        "INDEPENDENT-HOLD-11",
+        "INDEPENDENT-HOLD-12",
+        "INDEPENDENT-HOLD-13",
+        "INDEPENDENT-HOLD-14",
+        "INDEPENDENT-ALIAS-01"
+      ],
+      "exposure": "All queries, judgments and rankings previously observed; development regression only"
+    }
+  ],
+  "source_review_refs": [
+    {
+      "path": "evals/plugin-v1/results/cp04-final-quality-qualified-2026-10-11/source-independent-review.json",
+      "sha256": "6476da89297a8f2d6af1dbcaba2673d17b8448817248706c53b12dccc082783e",
+      "reviewed_plan_path": "evals/plugin-v1/final-quality-qualified-2026-10-11.json",
+      "reviewed_plan_sha256": "8f6f9b57fab0538a3203fd745511015215aeecbfdf8bd8de81bbac4cac160684",
+      "plan_field": "qualified_plan_sha256",
+      "questions_path": "evals/plugin-v1/results/cp04-final-quality-qualified-2026-10-11/source-questions.json",
+      "questions_sha256": "1096613b4d55d3ad0d7354e98ea2c5c8b002d8916660e8a50c6c6c562849d580",
+      "scope": "Factual source role/completeness only; not grades or ranking/human acceptance"
+    },
+    {
+      "path": "evals/plugin-v1/results/cp04-final-quality-independent-2026-10-11/source-independent-review.json",
+      "sha256": "15ed6b8751682a2df6830f820fdc52cb0620c205cf3797f88d8f34ba1be7fe05",
+      "reviewed_plan_path": "evals/plugin-v1/final-quality-independent-2026-10-11.json",
+      "reviewed_plan_sha256": "1c05adda0a4523cfa681dc669b912295007a2503a142553737e040337f2a2b33",
+      "plan_field": "independent_plan_sha256",
+      "questions_path": "evals/plugin-v1/results/cp04-final-quality-independent-2026-10-11/source-review-questions.json",
+      "questions_sha256": "801443a96fac31cf56ee5d20ea5bd797ff3ae0704c2c1c739994d8a5ed99dbd7",
+      "scope": "Factual source role/completeness only; not grades or ranking/human acceptance"
+    }
+  ],
+  "production_stability": {
+    "owner": "root",
+    "source_hashes": {
+      "plugins/myai-stackguide/scripts/recommendation_request.py": "3c3d188d51d5c6da55de2fc1655874d15f4919cecae9bea40fa71810d3084ad9",
+      "plugins/myai-stackguide/scripts/retrieval.py": "6cd0a8012ed47374afee68c957a7369020775562d21b0d8b2649ec3b850f14dd",
+      "specs/retrieval/retrieval-policy.json": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+      "plugins/myai-stackguide/assets/catalog.search.sqlite": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+      "plugins/myai-stackguide/assets/catalog.search-manifest.json": "4c1c9eccf6df60d92da5d780a8152ce3fb00e43ccbf80e8ed01c3c660135a1bb"
+    },
+    "evidence": "Root final-stable handoff:17 Brief+22retrieval tests GREEN, builder9 and actual intake2 pass; native trace1 COUNT MATCH+1 candidate MATCH; malformed intent/exclusions0lookup; failed preflight typedstatus0final; no subsequent production edits planned. This receipt records owner evidence, not tests newly executed by quality.",
+    "root_authorized_prospective_capture": true
+  },
+  "evidence_kind": "exposed_two_suite_development_regression",
+  "fresh_unseen_evidence": false,
+  "human_acceptance": false,
+  "count_scope": "Read-only aggregate COUNT during query preparation; no ranked rows from preflight. Ranked captures contain one q1. Original literal scorer uses unchanged original case terms."
+}

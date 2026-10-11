@@ -24,7 +24,7 @@ Earlier [structured guard results](cp04-request-guard-2026-10-11.md) measured 30
 
 The answers connect requirements to capabilities and distinguish proposed architecture, technical work, product outcomes, complexity, scoped estimates and equivalent-scope custom development. Source-backed fit remains conditional on target deployment and load. Estimates are model planning assumptions, not measured hours or savings; independent generation can produce different estimates in RU/EN. These were two independent language conversations, not a language-only display switch over one canonical recommendation.
 
-The Russian queue full-pack output contains literal newline escapes. Its raw JSON is preserved; the readable transcript only replaces literal backslash-n sequences with newlines. Product-facing output is also too verbose and sometimes exposes catalog IDs/status vocabulary. These are presentation gaps, so this report does not award final user-experience acceptance. Unknown dependency coverage outside supplied observations remains unknown. Citation presence is not proof of every statement.
+Correction (2026-10-11): parsing the preserved Russian queue response confirms zero literal backslash-n sequences and 46 actual newline characters. The earlier escaped-display diagnosis was incorrect; readable transcript replacement was a no-op. The raw JSON and capture remain unchanged. Product-facing output is also too verbose and sometimes exposes catalog IDs/status vocabulary. These are presentation gaps, so this report does not award final user-experience acceptance. Unknown dependency coverage outside supplied observations remains unknown. Citation presence is not proof of every statement.
 
 ## Installed skills and verification
 
@@ -41,7 +41,7 @@ Observed checks:
 
 This compatibility unit couples the bundled entry point/guard/runtime instruction with Brief tests and the bilingual eval inputs/drivers; project skill files and activation specifications are required by the explicit installation request. Changes span two existing control-document families only to record current evidence. No canonical catalog generation or Git operation occurred. Roll back only these additive files and this turn's references after checking later edits; preserve all prior dirty work and immutable captures.
 
-Remaining gates: independent unseen/model usefulness assessment, human acceptance, source-owned dependency evidence coverage, presentation normalization and concise answers, persisted CP-11 writer/desktop lifecycle, and separate release gates. No full CP-04 closure or deployment readiness follows from four synthetic conversations.
+Remaining gates: independent unseen/model usefulness assessment, human acceptance, source-owned dependency evidence coverage, concise answers and planning parity, persisted CP-11 writer/desktop lifecycle, and separate release gates. No full CP-04 closure or deployment readiness follows from four synthetic conversations.
 
 ## Captured comparison
 

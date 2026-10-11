@@ -1,0 +1,36 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["answer_markdown", "recommended_ids", "cited_urls", "planning_binding"],
+  "properties": {
+    "answer_markdown": {"type": "string"},
+    "recommended_ids": {"type": "array", "items": {"type": "integer"}},
+    "cited_urls": {"type": "array", "items": {"type": "string"}},
+    "planning_binding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["planning_sha256", "scenario_id", "assumptions", "first_validation", "total_engineer_hours", "elapsed_working_days"],
+      "properties": {
+        "planning_sha256": {"type": "string"},
+        "scenario_id": {"type": "string"},
+        "assumptions": {
+          "type": "object", "additionalProperties": false,
+          "required": ["prerequisites", "team_experience", "confidence", "hours_per_engineer_day", "allocated_engineers"],
+          "properties": {
+            "prerequisites": {"type": "array", "items": {"type": "string"}},
+            "team_experience": {"type": "string"},
+            "confidence": {"type": "string"},
+            "hours_per_engineer_day": {"type": "number"},
+            "allocated_engineers": {"type": "number"}
+          }
+        },
+        "first_validation": {
+          "type": "object", "additionalProperties": false, "required": ["min", "max"],
+          "properties": {"min": {"type": "number"}, "max": {"type": "number"}}
+        },
+        "total_engineer_hours": {"type": "null"},
+        "elapsed_working_days": {"type": "null"}
+      }
+    }
+  }
+}

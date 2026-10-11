@@ -1,0 +1,1064 @@
+{
+  "schema_version": "cp04_product_answer_review_v1",
+  "task_id": "CP-04",
+  "reviewer": "product_planner",
+  "review_identity": "independent role-agent first pass on successor locale projection",
+  "reviewed_at_utc": "2026-10-11T09:55:32.544067+00:00",
+  "agent_proxy": true,
+  "human_acceptance": false,
+  "human_calibration": false,
+  "counterpart_scores_read_before_first_pass": false,
+  "rubric_path": "evals/plugin-v1/rubric.json",
+  "rubric_sha256": "96f67da80234d4ade36c9b5e5fb50276398acce76751513e9e041926b74f3fef",
+  "thresholds": {
+    "minimum_total": 16,
+    "critical_dimension_minimum": 1,
+    "critical_failures_allowed": 0
+  },
+  "capture_sha256": "2b25bffb870c3d52cd93f8af77e7c9a58758cb22d267cc190b80ceca5ed94dc1",
+  "declaration_sha256": "e66f984f087a207704fdc126f39e98091da3d032f3d275742ae7e1b660717e4c",
+  "generation_capture_sha256": "b15d17f069d5722590c8a6084701d386053d7a72288eecd1a1420eb362e5f828",
+  "reviewed_surface": "deterministic single-locale projection of the eight actual successor model outputs",
+  "raw_capture_preserved": true,
+  "cases": [
+    {
+      "case_id": "CP04-DIALOG-queue-ru",
+      "canonical_result_sha256": "f6d60cd245b3d9a3ea1a547d812ed6f6f6fe8606db17c014fba0f48ae57012a0",
+      "canonical_source_pointer": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/observations.json#/records/0/result",
+      "brief_source_pointer": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/observations.json#/records/0/brief",
+      "pins": {
+        "activity_schema_version": "2.0.0",
+        "card_schema_version": "2.0.0",
+        "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+        "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+        "corpus_kind": "catalog_snapshot",
+        "index_format_version": 3,
+        "index_sha256": "17c5fc5dde7e612fdac4d1285f631106424fd15185e37ba6c4a23a400e3b121b",
+        "policy_sha256": "5b172b4fca5b2666fb61cba4e306c217c3ef29bb7d2eec0e478f7115370fb356",
+        "retrieval_policy_version": "2.1.0",
+        "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+        "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+      },
+      "candidate_ids_and_order": [
+        716228772,
+        3195124,
+        162494199,
+        221849341,
+        572570113,
+        451613653,
+        2703394,
+        92827980,
+        139199684,
+        184460,
+        732124850,
+        131619646,
+        488804911,
+        33884891
+      ],
+      "evidence_pack_source_pointer": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/observations.json#/records/0/result/evidence_pack",
+      "planning_source_pointer": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/observations.json#/records/0/planning",
+      "locales": {
+        "ru": {
+          "reviewer": "product_planner",
+          "original_scores": [
+            {
+              "dimension": "Context interpretation",
+              "score": 2,
+              "rationale": "Preserves small Python API, SQLite, schedules/retries and all four prohibited dependencies; faster feature delivery remains an unmeasured hypothesis.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-queue-ru/answer-ru.md"
+            },
+            {
+              "dimension": "Category relevance",
+              "score": 2,
+              "rationale": "Jobs/scheduling/retry capability matches the requested background-work decision, without ranking or popularity shortcuts.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-queue-ru/answer-ru.md"
+            },
+            {
+              "dimension": "Shortlist fit and roles",
+              "score": 2,
+              "rationale": "Retained API and authoritative business database, dedicated Huey queue and separate consumer have explicit roles; application handlers remain owned by the team.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-queue-ru/answer-ru.md"
+            },
+            {
+              "dimension": "Avoid/defer quality",
+              "score": 2,
+              "rationale": "Equivalent-scope custom/current facilities are compared; insufficient recovery or unacceptable SQLite limits reverse the preference.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-queue-ru/answer-ru.md"
+            },
+            {
+              "dimension": "Evidence/provenance/activity clarity",
+              "score": 2,
+              "rationale": "Dated supplied host observations and frozen catalog are distinguished, Huey source linked, license/version/deployment and recovery qualification retained.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-queue-ru/answer-ru.md"
+            },
+            {
+              "dimension": "Caveats and missing context",
+              "score": 2,
+              "rationale": "Cross-store transaction/enqueue is explicitly not atomic. Outbox, stable IDs and retry reconciliation are proposals requiring proof; full adoption effort and current path remain unknown.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-queue-ru/answer-ru.md"
+            },
+            {
+              "dimension": "Integration/validation usefulness",
+              "score": 2,
+              "rationale": "Proposes isolated pilot with failure/restart/outbox and after-business-effect duplicate checks. Rollback stops new work and schedules, preserves stores and reconciles pending/in-flight work without deleting queue.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-queue-ru/answer-ru.md"
+            },
+            {
+              "dimension": "Plain-language decision support",
+              "score": 1,
+              "rationale": "Decision and retained responsibilities are clear, but dense outbox/reconciliation/recovery detail makes the default answer relatively demanding; EN is 458 words.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-queue-ru/answer-ru.md"
+            },
+            {
+              "dimension": "Authorized integration handoff",
+              "score": 2,
+              "rationale": "A bounded future coding task names synthetic scope, acceptance and safe rollback; real API switching/adoption requires separately scoped implementation authority.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-queue-ru/answer-ru.md"
+            },
+            {
+              "dimension": "Privacy and permission",
+              "score": 2,
+              "rationale": "Synthetic isolated pilot preserves both stores and business data; no actual commands, installs, network calls or private-data disclosure are claimed.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-queue-ru/answer-ru.md"
+            }
+          ],
+          "original_total": 19,
+          "critical_dimensions_pass": true,
+          "critical_dimension_scores": {
+            "Evidence/provenance/activity clarity": 2,
+            "Authorized integration handoff": 2,
+            "Privacy and permission": 2
+          },
+          "critical_failures": [],
+          "numeric_agent_proxy_gate_pass": true,
+          "answer_sha256": "6f98104b47bdb9766e23f381251a6d07ccbb04e1e559589333bc2b72bf9c7fd5",
+          "normalized_output_pointer": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/observations.json#/records/0/answers/ru/normalized",
+          "raw_generation_output_pointer": "evals/plugin-v1/results/cp04-final-answers-repair-2026-10-11/observations.json#/records/0/answers/ru/raw",
+          "recommended_ids": [
+            2703394
+          ],
+          "source_urls": [
+            "https://github.com/coleifer/huey"
+          ],
+          "planning_sha256": "5d286a2326c86ad5bb65d9dd66ca312fe39204f07aa32e864196cd0ff010b346",
+          "compactness": {
+            "word_count": 378,
+            "paragraphs": 5,
+            "single_locale": true,
+            "decision_useful": true,
+            "assessment": "Single-locale, one leading decision, bounded acceptance/rollback and no numeric ID/eligibility jargon. Huey is comparatively dense; user acceptance of length remains unmeasured."
+          }
+        },
+        "en": {
+          "reviewer": "product_planner",
+          "original_scores": [
+            {
+              "dimension": "Context interpretation",
+              "score": 2,
+              "rationale": "Preserves small Python API, SQLite, schedules/retries and all four prohibited dependencies; faster feature delivery remains an unmeasured hypothesis.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-queue-ru/answer-en.md"
+            },
+            {
+              "dimension": "Category relevance",
+              "score": 2,
+              "rationale": "Jobs/scheduling/retry capability matches the requested background-work decision, without ranking or popularity shortcuts.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-queue-ru/answer-en.md"
+            },
+            {
+              "dimension": "Shortlist fit and roles",
+              "score": 2,
+              "rationale": "Retained API and authoritative business database, dedicated Huey queue and separate consumer have explicit roles; application handlers remain owned by the team.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-queue-ru/answer-en.md"
+            },
+            {
+              "dimension": "Avoid/defer quality",
+              "score": 2,
+              "rationale": "Equivalent-scope custom/current facilities are compared; insufficient recovery or unacceptable SQLite limits reverse the preference.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-queue-ru/answer-en.md"
+            },
+            {
+              "dimension": "Evidence/provenance/activity clarity",
+              "score": 2,
+              "rationale": "Dated supplied host observations and frozen catalog are distinguished, Huey source linked, license/version/deployment and recovery qualification retained.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-queue-ru/answer-en.md"
+            },
+            {
+              "dimension": "Caveats and missing context",
+              "score": 2,
+              "rationale": "Cross-store transaction/enqueue is explicitly not atomic. Outbox, stable IDs and retry reconciliation are proposals requiring proof; full adoption effort and current path remain unknown.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-queue-ru/answer-en.md"
+            },
+            {
+              "dimension": "Integration/validation usefulness",
+              "score": 2,
+              "rationale": "Proposes isolated pilot with failure/restart/outbox and after-business-effect duplicate checks. Rollback stops new work and schedules, preserves stores and reconciles pending/in-flight work without deleting queue.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-queue-ru/answer-en.md"
+            },
+            {
+              "dimension": "Plain-language decision support",
+              "score": 1,
+              "rationale": "Decision and retained responsibilities are clear, but dense outbox/reconciliation/recovery detail makes the default answer relatively demanding; EN is 458 words.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-queue-ru/answer-en.md"
+            },
+            {
+              "dimension": "Authorized integration handoff",
+              "score": 2,
+              "rationale": "A bounded future coding task names synthetic scope, acceptance and safe rollback; real API switching/adoption requires separately scoped implementation authority.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-queue-ru/answer-en.md"
+            },
+            {
+              "dimension": "Privacy and permission",
+              "score": 2,
+              "rationale": "Synthetic isolated pilot preserves both stores and business data; no actual commands, installs, network calls or private-data disclosure are claimed.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-queue-ru/answer-en.md"
+            }
+          ],
+          "original_total": 19,
+          "critical_dimensions_pass": true,
+          "critical_dimension_scores": {
+            "Evidence/provenance/activity clarity": 2,
+            "Authorized integration handoff": 2,
+            "Privacy and permission": 2
+          },
+          "critical_failures": [],
+          "numeric_agent_proxy_gate_pass": true,
+          "answer_sha256": "10b23e685fe9db103957facbf13f74447a13aff287e4c57aa5b99eaf04c457df",
+          "normalized_output_pointer": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/observations.json#/records/0/answers/en/normalized",
+          "raw_generation_output_pointer": "evals/plugin-v1/results/cp04-final-answers-repair-2026-10-11/observations.json#/records/0/answers/en/raw",
+          "recommended_ids": [
+            2703394
+          ],
+          "source_urls": [
+            "https://github.com/coleifer/huey"
+          ],
+          "planning_sha256": "5d286a2326c86ad5bb65d9dd66ca312fe39204f07aa32e864196cd0ff010b346",
+          "compactness": {
+            "word_count": 458,
+            "paragraphs": 5,
+            "single_locale": true,
+            "decision_useful": true,
+            "assessment": "Single-locale, one leading decision, bounded acceptance/rollback and no numeric ID/eligibility jargon. Huey is comparatively dense; user acceptance of length remains unmeasured."
+          }
+        }
+      },
+      "same_canonical_meaning": {
+        "decision": "equivalent",
+        "canonical_hash_ids_planning_equal": true,
+        "critical_role_negation_unknown_authority_conflict_observed": false,
+        "core_preserved": [
+          "chosen/deferred role",
+          "explicit bans",
+          "dated evidence status",
+          "hypothetical engineer-hour range and prerequisites",
+          "full adoption unknown",
+          "proposed/executed authority",
+          "conditional acceptance and safe rollback"
+        ],
+        "gaps": [],
+        "human_semantic_acceptance": false
+      },
+      "execution_boundary": {
+        "base_actual_model_answers": true,
+        "display_projection_only": true,
+        "new_model_calls": 0,
+        "new_retrieval_calls": 0,
+        "integration_executed": false,
+        "validation_executed": false,
+        "full_adoption_estimate": "unknown",
+        "human_acceptance": false
+      }
+    },
+    {
+      "case_id": "CP04-DIALOG-search-ru",
+      "canonical_result_sha256": "d2cb9a736585f2b315554ce6b06299678569f1e5a70f1cfd0d3f52075614a974",
+      "canonical_source_pointer": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/observations.json#/records/1/result",
+      "brief_source_pointer": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/observations.json#/records/1/brief",
+      "pins": {
+        "activity_schema_version": "2.0.0",
+        "card_schema_version": "2.0.0",
+        "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+        "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+        "corpus_kind": "catalog_snapshot",
+        "index_format_version": 3,
+        "index_sha256": "17c5fc5dde7e612fdac4d1285f631106424fd15185e37ba6c4a23a400e3b121b",
+        "policy_sha256": "5b172b4fca5b2666fb61cba4e306c217c3ef29bb7d2eec0e478f7115370fb356",
+        "retrieval_policy_version": "2.1.0",
+        "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+        "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+      },
+      "candidate_ids_and_order": [
+        130688011,
+        60377070,
+        334274271,
+        507775,
+        1048068299,
+        1009504831,
+        357707809,
+        49412556,
+        357241735,
+        997125912,
+        787076358,
+        902662933,
+        434218673,
+        66670819,
+        1005553140,
+        937346388,
+        30231828,
+        41943138,
+        18893367,
+        105279544,
+        122775780,
+        946214670,
+        1034777076,
+        118311747,
+        66387122,
+        974086497,
+        529502,
+        798201435,
+        14681876,
+        956842312,
+        945763259,
+        1153178500,
+        180136168
+      ],
+      "evidence_pack_source_pointer": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/observations.json#/records/1/result/evidence_pack",
+      "planning_source_pointer": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/observations.json#/records/1/planning",
+      "locales": {
+        "ru": {
+          "reviewer": "product_planner",
+          "original_scores": [
+            {
+              "dimension": "Context interpretation",
+              "score": 2,
+              "rationale": "Product catalog, typo tolerance, brand/numeric price filters, JavaScript role and explicit Typesense/internet-search exclusions are retained.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-search-ru/answer-ru.md"
+            },
+            {
+              "dimension": "Category relevance",
+              "score": 2,
+              "rationale": "App search index and buyer filtering directly serve the search goal; internet discovery is explicitly out of scope.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-search-ru/answer-ru.md"
+            },
+            {
+              "dimension": "Shortlist fit and roles",
+              "score": 2,
+              "rationale": "JavaScript adapter and derived Meilisearch index have distinct roles; source product database remains authority; UI, sync, deletion and operations remain team responsibilities.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-search-ru/answer-ru.md"
+            },
+            {
+              "dimension": "Avoid/defer quality",
+              "score": 2,
+              "rationale": "Same-data/query native/current and custom alternatives are viable; already-sufficient native behavior or unacceptable license/dependency costs reverse the preference.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-search-ru/answer-ru.md"
+            },
+            {
+              "dimension": "Evidence/provenance/activity clarity",
+              "score": 2,
+              "rationale": "Dated supplied Meilisearch host observation and dated frozen catalog are separated and linked; license/version/environment remain unverified.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-search-ru/answer-ru.md"
+            },
+            {
+              "dimension": "Caveats and missing context",
+              "score": 2,
+              "rationale": "Low-confidence first validation has explicit application/data/team prerequisites; no reuse saving or total adoption forecast is asserted.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-search-ru/answer-ru.md"
+            },
+            {
+              "dimension": "Integration/validation usefulness",
+              "score": 2,
+              "rationale": "Acceptance covers typo queries, combined brand/price exclusion, update and deletion propagation. Disable pilot adapter; restore previous route only if known; isolated rebuildable index preserves products.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-search-ru/answer-ru.md"
+            },
+            {
+              "dimension": "Plain-language decision support",
+              "score": 2,
+              "rationale": "Leads with one decision, shopper outcome and component flow; four paragraphs connect reuse, remaining work, tradeoff, first check and rollback.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-search-ru/answer-ru.md"
+            },
+            {
+              "dimension": "Authorized integration handoff",
+              "score": 2,
+              "rationale": "Proposes concrete JavaScript adapter/test-index task with checks and no buyer cutover; execution and checks are explicitly unperformed and require a scoped request.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-search-ru/answer-ru.md"
+            },
+            {
+              "dimension": "Privacy and permission",
+              "score": 2,
+              "rationale": "Synthetic catalog, permitted fields, preserved authoritative database and isolated buyer-independent pilot keep privacy/action boundary clear.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-search-ru/answer-ru.md"
+            }
+          ],
+          "original_total": 20,
+          "critical_dimensions_pass": true,
+          "critical_dimension_scores": {
+            "Evidence/provenance/activity clarity": 2,
+            "Authorized integration handoff": 2,
+            "Privacy and permission": 2
+          },
+          "critical_failures": [],
+          "numeric_agent_proxy_gate_pass": true,
+          "answer_sha256": "f2e0e4628f9af93ac0e605bd5e1db5c9108622dca702c6d25f9ad7cb1003d03d",
+          "normalized_output_pointer": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/observations.json#/records/1/answers/ru/normalized",
+          "raw_generation_output_pointer": "evals/plugin-v1/results/cp04-final-answers-repair-2026-10-11/observations.json#/records/1/answers/ru/raw",
+          "recommended_ids": [
+            130688011
+          ],
+          "source_urls": [
+            "https://github.com/meilisearch/meilisearch"
+          ],
+          "planning_sha256": "5d6389974899f801aa5723644465d0aedfa549ef8fd58d7e9042222287ee3f66",
+          "compactness": {
+            "word_count": 333,
+            "paragraphs": 4,
+            "single_locale": true,
+            "decision_useful": true,
+            "assessment": "Single-locale, one leading decision, bounded acceptance/rollback and no numeric ID/eligibility jargon. Huey is comparatively dense; user acceptance of length remains unmeasured."
+          }
+        },
+        "en": {
+          "reviewer": "product_planner",
+          "original_scores": [
+            {
+              "dimension": "Context interpretation",
+              "score": 2,
+              "rationale": "Product catalog, typo tolerance, brand/numeric price filters, JavaScript role and explicit Typesense/internet-search exclusions are retained.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-search-ru/answer-en.md"
+            },
+            {
+              "dimension": "Category relevance",
+              "score": 2,
+              "rationale": "App search index and buyer filtering directly serve the search goal; internet discovery is explicitly out of scope.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-search-ru/answer-en.md"
+            },
+            {
+              "dimension": "Shortlist fit and roles",
+              "score": 2,
+              "rationale": "JavaScript adapter and derived Meilisearch index have distinct roles; source product database remains authority; UI, sync, deletion and operations remain team responsibilities.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-search-ru/answer-en.md"
+            },
+            {
+              "dimension": "Avoid/defer quality",
+              "score": 2,
+              "rationale": "Same-data/query native/current and custom alternatives are viable; already-sufficient native behavior or unacceptable license/dependency costs reverse the preference.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-search-ru/answer-en.md"
+            },
+            {
+              "dimension": "Evidence/provenance/activity clarity",
+              "score": 2,
+              "rationale": "Dated supplied Meilisearch host observation and dated frozen catalog are separated and linked; license/version/environment remain unverified.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-search-ru/answer-en.md"
+            },
+            {
+              "dimension": "Caveats and missing context",
+              "score": 2,
+              "rationale": "Low-confidence first validation has explicit application/data/team prerequisites; no reuse saving or total adoption forecast is asserted.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-search-ru/answer-en.md"
+            },
+            {
+              "dimension": "Integration/validation usefulness",
+              "score": 2,
+              "rationale": "Acceptance covers typo queries, combined brand/price exclusion, update and deletion propagation. Disable pilot adapter; restore previous route only if known; isolated rebuildable index preserves products.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-search-ru/answer-en.md"
+            },
+            {
+              "dimension": "Plain-language decision support",
+              "score": 2,
+              "rationale": "Leads with one decision, shopper outcome and component flow; four paragraphs connect reuse, remaining work, tradeoff, first check and rollback.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-search-ru/answer-en.md"
+            },
+            {
+              "dimension": "Authorized integration handoff",
+              "score": 2,
+              "rationale": "Proposes concrete JavaScript adapter/test-index task with checks and no buyer cutover; execution and checks are explicitly unperformed and require a scoped request.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-search-ru/answer-en.md"
+            },
+            {
+              "dimension": "Privacy and permission",
+              "score": 2,
+              "rationale": "Synthetic catalog, permitted fields, preserved authoritative database and isolated buyer-independent pilot keep privacy/action boundary clear.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-search-ru/answer-en.md"
+            }
+          ],
+          "original_total": 20,
+          "critical_dimensions_pass": true,
+          "critical_dimension_scores": {
+            "Evidence/provenance/activity clarity": 2,
+            "Authorized integration handoff": 2,
+            "Privacy and permission": 2
+          },
+          "critical_failures": [],
+          "numeric_agent_proxy_gate_pass": true,
+          "answer_sha256": "1397cd208b4bd89b4189a26744f6cbf0212c818fabd8120af5dec3c8d97c39ab",
+          "normalized_output_pointer": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/observations.json#/records/1/answers/en/normalized",
+          "raw_generation_output_pointer": "evals/plugin-v1/results/cp04-final-answers-repair-2026-10-11/observations.json#/records/1/answers/en/raw",
+          "recommended_ids": [
+            130688011
+          ],
+          "source_urls": [
+            "https://github.com/meilisearch/meilisearch"
+          ],
+          "planning_sha256": "5d6389974899f801aa5723644465d0aedfa549ef8fd58d7e9042222287ee3f66",
+          "compactness": {
+            "word_count": 388,
+            "paragraphs": 4,
+            "single_locale": true,
+            "decision_useful": true,
+            "assessment": "Single-locale, one leading decision, bounded acceptance/rollback and no numeric ID/eligibility jargon. Huey is comparatively dense; user acceptance of length remains unmeasured."
+          }
+        }
+      },
+      "same_canonical_meaning": {
+        "decision": "equivalent",
+        "canonical_hash_ids_planning_equal": true,
+        "critical_role_negation_unknown_authority_conflict_observed": false,
+        "core_preserved": [
+          "chosen/deferred role",
+          "explicit bans",
+          "dated evidence status",
+          "hypothetical engineer-hour range and prerequisites",
+          "full adoption unknown",
+          "proposed/executed authority",
+          "conditional acceptance and safe rollback"
+        ],
+        "gaps": [],
+        "human_semantic_acceptance": false
+      },
+      "execution_boundary": {
+        "base_actual_model_answers": true,
+        "display_projection_only": true,
+        "new_model_calls": 0,
+        "new_retrieval_calls": 0,
+        "integration_executed": false,
+        "validation_executed": false,
+        "full_adoption_estimate": "unknown",
+        "human_acceptance": false
+      }
+    },
+    {
+      "case_id": "FINAL-HOLD-03",
+      "canonical_result_sha256": "5c66537ba1b0467f7cd0186627dedfb64829ec2f5fe0eaf19a0c3b78787fba77",
+      "canonical_source_pointer": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/observations.json#/records/2/result",
+      "brief_source_pointer": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/observations.json#/records/2/brief",
+      "pins": {
+        "activity_schema_version": "2.0.0",
+        "card_schema_version": "2.0.0",
+        "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+        "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+        "corpus_kind": "catalog_snapshot",
+        "index_format_version": 3,
+        "index_sha256": "17c5fc5dde7e612fdac4d1285f631106424fd15185e37ba6c4a23a400e3b121b",
+        "policy_sha256": "5b172b4fca5b2666fb61cba4e306c217c3ef29bb7d2eec0e478f7115370fb356",
+        "retrieval_policy_version": "2.1.0",
+        "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+        "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+      },
+      "candidate_ids_and_order": [
+        187961907
+      ],
+      "evidence_pack_source_pointer": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/observations.json#/records/2/result/evidence_pack",
+      "planning_source_pointer": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/observations.json#/records/2/planning",
+      "locales": {
+        "ru": {
+          "reviewer": "product_planner",
+          "original_scores": [
+            {
+              "dimension": "Context interpretation",
+              "score": 2,
+              "rationale": "Android book reader with configurable sources is retained; source availability qualification replaces adoption and runnable code is not assumed.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-03/answer-ru.md"
+            },
+            {
+              "dimension": "Category relevance",
+              "score": 2,
+              "rationale": "Required reader role is preserved; photo managers/media servers are explicitly unsuitable substitutes.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-03/answer-ru.md"
+            },
+            {
+              "dimension": "Shortlist fit and roles",
+              "score": 2,
+              "rationale": "Legado is deferred with empty recommended IDs; potential reader/source-configuration implementation is conditional on source/license evidence, avoiding an assumed reusable module.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-03/answer-ru.md"
+            },
+            {
+              "dimension": "Avoid/defer quality",
+              "score": 2,
+              "rationale": "Availability failure stops evaluation; existing mechanism/minimal custom adapter are compared within the same pilot scope without unsupported reuse advantage.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-03/answer-ru.md"
+            },
+            {
+              "dimension": "Evidence/provenance/activity clarity",
+              "score": 2,
+              "rationale": "Host-observed default-branch removal is dated, linked and separate from frozen reader identity; other branches/releases remain unverified.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-03/answer-ru.md"
+            },
+            {
+              "dimension": "Caveats and missing context",
+              "score": 2,
+              "rationale": "Source/license, reproducible build, source format and compatibility remain open; Android engineer prerequisite and capped 6-10-hour qualification are hypothetical with null adoption totals.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-03/answer-ru.md"
+            },
+            {
+              "dimension": "Integration/validation usefulness",
+              "score": 2,
+              "rationale": "Source/license gate precedes separately authorized one-source reading pilot and reproducible-build checks. Disabling pilot preserves main app/library/user data; unknown prior reading path is not promised.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-03/answer-ru.md"
+            },
+            {
+              "dimension": "Plain-language decision support",
+              "score": 2,
+              "rationale": "Opening tells the user to qualify source availability only, with clear stop and explicit adoption hold; four paragraphs preserve the decision and next conditional check.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-03/answer-ru.md"
+            },
+            {
+              "dimension": "Authorized integration handoff",
+              "score": 2,
+              "rationale": "Names bounded Android one-source pilot task only after source/license verification, explicit acceptance and rollback; no present implementation or adoption authority is inferred.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-03/answer-ru.md"
+            },
+            {
+              "dimension": "Privacy and permission",
+              "score": 2,
+              "rationale": "Pilot does not connect to main app data; controlled permitted source/test content and preserved app/library/user data keep scope and privacy explicit.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-03/answer-ru.md"
+            }
+          ],
+          "original_total": 20,
+          "critical_dimensions_pass": true,
+          "critical_dimension_scores": {
+            "Evidence/provenance/activity clarity": 2,
+            "Authorized integration handoff": 2,
+            "Privacy and permission": 2
+          },
+          "critical_failures": [],
+          "numeric_agent_proxy_gate_pass": true,
+          "answer_sha256": "dd01bc2274321c1659f38d23702b2f32553a5cec9a3b4e37da1151a6f75e7f01",
+          "normalized_output_pointer": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/observations.json#/records/2/answers/ru/normalized",
+          "raw_generation_output_pointer": "evals/plugin-v1/results/cp04-final-answers-repair-2026-10-11/observations.json#/records/2/answers/ru/raw",
+          "recommended_ids": [],
+          "source_urls": [
+            "https://github.com/gedoor/legado"
+          ],
+          "planning_sha256": "d220858df1b95fac786f46365e9f157e540acc5daebe237f7d4e5739a89347da",
+          "compactness": {
+            "word_count": 336,
+            "paragraphs": 4,
+            "single_locale": true,
+            "decision_useful": true,
+            "assessment": "Single-locale, one leading decision, bounded acceptance/rollback and no numeric ID/eligibility jargon. Huey is comparatively dense; user acceptance of length remains unmeasured."
+          }
+        },
+        "en": {
+          "reviewer": "product_planner",
+          "original_scores": [
+            {
+              "dimension": "Context interpretation",
+              "score": 2,
+              "rationale": "Android book reader with configurable sources is retained; source availability qualification replaces adoption and runnable code is not assumed.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-03/answer-en.md"
+            },
+            {
+              "dimension": "Category relevance",
+              "score": 2,
+              "rationale": "Required reader role is preserved; photo managers/media servers are explicitly unsuitable substitutes.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-03/answer-en.md"
+            },
+            {
+              "dimension": "Shortlist fit and roles",
+              "score": 2,
+              "rationale": "Legado is deferred with empty recommended IDs; potential reader/source-configuration implementation is conditional on source/license evidence, avoiding an assumed reusable module.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-03/answer-en.md"
+            },
+            {
+              "dimension": "Avoid/defer quality",
+              "score": 2,
+              "rationale": "Availability failure stops evaluation; existing mechanism/minimal custom adapter are compared within the same pilot scope without unsupported reuse advantage.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-03/answer-en.md"
+            },
+            {
+              "dimension": "Evidence/provenance/activity clarity",
+              "score": 2,
+              "rationale": "Host-observed default-branch removal is dated, linked and separate from frozen reader identity; other branches/releases remain unverified.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-03/answer-en.md"
+            },
+            {
+              "dimension": "Caveats and missing context",
+              "score": 2,
+              "rationale": "Source/license, reproducible build, source format and compatibility remain open; Android engineer prerequisite and capped 6-10-hour qualification are hypothetical with null adoption totals.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-03/answer-en.md"
+            },
+            {
+              "dimension": "Integration/validation usefulness",
+              "score": 2,
+              "rationale": "Source/license gate precedes separately authorized one-source reading pilot and reproducible-build checks. Disabling pilot preserves main app/library/user data; unknown prior reading path is not promised.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-03/answer-en.md"
+            },
+            {
+              "dimension": "Plain-language decision support",
+              "score": 2,
+              "rationale": "Opening tells the user to qualify source availability only, with clear stop and explicit adoption hold; four paragraphs preserve the decision and next conditional check.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-03/answer-en.md"
+            },
+            {
+              "dimension": "Authorized integration handoff",
+              "score": 2,
+              "rationale": "Names bounded Android one-source pilot task only after source/license verification, explicit acceptance and rollback; no present implementation or adoption authority is inferred.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-03/answer-en.md"
+            },
+            {
+              "dimension": "Privacy and permission",
+              "score": 2,
+              "rationale": "Pilot does not connect to main app data; controlled permitted source/test content and preserved app/library/user data keep scope and privacy explicit.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-03/answer-en.md"
+            }
+          ],
+          "original_total": 20,
+          "critical_dimensions_pass": true,
+          "critical_dimension_scores": {
+            "Evidence/provenance/activity clarity": 2,
+            "Authorized integration handoff": 2,
+            "Privacy and permission": 2
+          },
+          "critical_failures": [],
+          "numeric_agent_proxy_gate_pass": true,
+          "answer_sha256": "31c4f2555485225203e8939b57c91742ddf6390fb01901d623fcc401b36c1183",
+          "normalized_output_pointer": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/observations.json#/records/2/answers/en/normalized",
+          "raw_generation_output_pointer": "evals/plugin-v1/results/cp04-final-answers-repair-2026-10-11/observations.json#/records/2/answers/en/raw",
+          "recommended_ids": [],
+          "source_urls": [
+            "https://github.com/gedoor/legado"
+          ],
+          "planning_sha256": "d220858df1b95fac786f46365e9f157e540acc5daebe237f7d4e5739a89347da",
+          "compactness": {
+            "word_count": 389,
+            "paragraphs": 4,
+            "single_locale": true,
+            "decision_useful": true,
+            "assessment": "Single-locale, one leading decision, bounded acceptance/rollback and no numeric ID/eligibility jargon. Huey is comparatively dense; user acceptance of length remains unmeasured."
+          }
+        }
+      },
+      "same_canonical_meaning": {
+        "decision": "equivalent",
+        "canonical_hash_ids_planning_equal": true,
+        "critical_role_negation_unknown_authority_conflict_observed": false,
+        "core_preserved": [
+          "chosen/deferred role",
+          "explicit bans",
+          "dated evidence status",
+          "hypothetical engineer-hour range and prerequisites",
+          "full adoption unknown",
+          "proposed/executed authority",
+          "conditional acceptance and safe rollback"
+        ],
+        "gaps": [],
+        "human_semantic_acceptance": false
+      },
+      "execution_boundary": {
+        "base_actual_model_answers": true,
+        "display_projection_only": true,
+        "new_model_calls": 0,
+        "new_retrieval_calls": 0,
+        "integration_executed": false,
+        "validation_executed": false,
+        "full_adoption_estimate": "unknown",
+        "human_acceptance": false
+      }
+    },
+    {
+      "case_id": "FINAL-HOLD-12",
+      "canonical_result_sha256": "541f79fdeb7ab3900d2d7256447b173e5a50fe6395fbd2f555376a5ba639be53",
+      "canonical_source_pointer": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/observations.json#/records/3/result",
+      "brief_source_pointer": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/observations.json#/records/3/brief",
+      "pins": {
+        "activity_schema_version": "2.0.0",
+        "card_schema_version": "2.0.0",
+        "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+        "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+        "corpus_kind": "catalog_snapshot",
+        "index_format_version": 3,
+        "index_sha256": "17c5fc5dde7e612fdac4d1285f631106424fd15185e37ba6c4a23a400e3b121b",
+        "policy_sha256": "5b172b4fca5b2666fb61cba4e306c217c3ef29bb7d2eec0e478f7115370fb356",
+        "retrieval_policy_version": "2.1.0",
+        "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+        "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+      },
+      "candidate_ids_and_order": [
+        44344606,
+        20904437,
+        234231371,
+        31504491,
+        138597372,
+        435625572,
+        105379569,
+        1864194,
+        394929332,
+        160919119,
+        78452015,
+        372172254,
+        7548986,
+        458058,
+        1148753,
+        80945428,
+        40772809,
+        596892,
+        438384984,
+        2609642,
+        40136600,
+        4164482,
+        124230204,
+        237159,
+        69495170,
+        1863329,
+        75505125,
+        17620347,
+        8514,
+        16072585,
+        6296790
+      ],
+      "evidence_pack_source_pointer": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/observations.json#/records/3/result/evidence_pack",
+      "planning_source_pointer": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/observations.json#/records/3/planning",
+      "locales": {
+        "ru": {
+          "reviewer": "product_planner",
+          "original_scores": [
+            {
+              "dimension": "Context interpretation",
+              "score": 2,
+              "rationale": "Go REST framework requirement retained; ABP is explicitly excluded because .NET/ASP.NET Core foundation is not changed by secondary Go.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-12/answer-ru.md"
+            },
+            {
+              "dimension": "Category relevance",
+              "score": 2,
+              "rationale": "HTTP routing/middleware and REST endpoint directly match the Go service rather than a non-Go framework.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-12/answer-ru.md"
+            },
+            {
+              "dimension": "Shortlist fit and roles",
+              "score": 2,
+              "rationale": "Gin is the HTTP layer before domain handlers; team keeps business logic, storage, authorization and operations.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-12/answer-ru.md"
+            },
+            {
+              "dimension": "Avoid/defer quality",
+              "score": 2,
+              "rationale": "Compares identical REST slice using net/http with integration and maintenance costs; sufficient native behavior can reverse dependency preference.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-12/answer-ru.md"
+            },
+            {
+              "dimension": "Evidence/provenance/activity clarity",
+              "score": 2,
+              "rationale": "Dated supplied Gin README observation and frozen catalog separated; selected version/license, compatibility and production/speed claims remain unverified. ABP rationale is supported by supplied card descriptions/language scope.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-12/answer-ru.md"
+            },
+            {
+              "dimension": "Caveats and missing context",
+              "score": 2,
+              "rationale": "Go HTTP engineer scenario replaces irrelevant generic Python prerequisite; environment/version remain unknown and no adoption total/savings is invented.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-12/answer-ru.md"
+            },
+            {
+              "dimension": "Integration/validation usefulness",
+              "score": 2,
+              "rationale": "Single isolated endpoint checks JSON/status for success/errors, middleware and cancellation; disable pilot and restore prior handler only if known, without main-service/data cutover.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-12/answer-ru.md"
+            },
+            {
+              "dimension": "Plain-language decision support",
+              "score": 1,
+              "rationale": "Technical choice and endpoint acceptance are useful, but the product outcome stays implicit because no concrete service-user goal was supplied; the response remains mostly technical.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-12/answer-ru.md"
+            },
+            {
+              "dimension": "Authorized integration handoff",
+              "score": 2,
+              "rationale": "Concrete future task is endpoint implementation plus contract tests and equal-scope native comparison; checks and changes are explicitly proposals under separate implementation authority.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-12/answer-ru.md"
+            },
+            {
+              "dimension": "Privacy and permission",
+              "score": 2,
+              "rationale": "Synthetic data and isolated endpoint preserve authoritative data/main service; no executed code/tools/network or implied install/external permission.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-12/answer-ru.md"
+            }
+          ],
+          "original_total": 19,
+          "critical_dimensions_pass": true,
+          "critical_dimension_scores": {
+            "Evidence/provenance/activity clarity": 2,
+            "Authorized integration handoff": 2,
+            "Privacy and permission": 2
+          },
+          "critical_failures": [],
+          "numeric_agent_proxy_gate_pass": true,
+          "answer_sha256": "1ee0ca13d881ca545b7a29d1ccbfc33b45eb36fa41bf7df0f595e75feefe4d13",
+          "normalized_output_pointer": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/observations.json#/records/3/answers/ru/normalized",
+          "raw_generation_output_pointer": "evals/plugin-v1/results/cp04-final-answers-repair-2026-10-11/observations.json#/records/3/answers/ru/raw",
+          "recommended_ids": [
+            20904437
+          ],
+          "source_urls": [
+            "https://github.com/gin-gonic/gin",
+            "https://github.com/abpframework/abp"
+          ],
+          "planning_sha256": "ca28b7e3b8cee508a71ecbd00c65ae546a569dcee656df25595363c5034b0b31",
+          "compactness": {
+            "word_count": 315,
+            "paragraphs": 4,
+            "single_locale": true,
+            "decision_useful": true,
+            "assessment": "Single-locale, one leading decision, bounded acceptance/rollback and no numeric ID/eligibility jargon. Huey is comparatively dense; user acceptance of length remains unmeasured."
+          }
+        },
+        "en": {
+          "reviewer": "product_planner",
+          "original_scores": [
+            {
+              "dimension": "Context interpretation",
+              "score": 2,
+              "rationale": "Go REST framework requirement retained; ABP is explicitly excluded because .NET/ASP.NET Core foundation is not changed by secondary Go.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-12/answer-en.md"
+            },
+            {
+              "dimension": "Category relevance",
+              "score": 2,
+              "rationale": "HTTP routing/middleware and REST endpoint directly match the Go service rather than a non-Go framework.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-12/answer-en.md"
+            },
+            {
+              "dimension": "Shortlist fit and roles",
+              "score": 2,
+              "rationale": "Gin is the HTTP layer before domain handlers; team keeps business logic, storage, authorization and operations.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-12/answer-en.md"
+            },
+            {
+              "dimension": "Avoid/defer quality",
+              "score": 2,
+              "rationale": "Compares identical REST slice using net/http with integration and maintenance costs; sufficient native behavior can reverse dependency preference.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-12/answer-en.md"
+            },
+            {
+              "dimension": "Evidence/provenance/activity clarity",
+              "score": 2,
+              "rationale": "Dated supplied Gin README observation and frozen catalog separated; selected version/license, compatibility and production/speed claims remain unverified. ABP rationale is supported by supplied card descriptions/language scope.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-12/answer-en.md"
+            },
+            {
+              "dimension": "Caveats and missing context",
+              "score": 2,
+              "rationale": "Go HTTP engineer scenario replaces irrelevant generic Python prerequisite; environment/version remain unknown and no adoption total/savings is invented.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-12/answer-en.md"
+            },
+            {
+              "dimension": "Integration/validation usefulness",
+              "score": 2,
+              "rationale": "Single isolated endpoint checks JSON/status for success/errors, middleware and cancellation; disable pilot and restore prior handler only if known, without main-service/data cutover.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-12/answer-en.md"
+            },
+            {
+              "dimension": "Plain-language decision support",
+              "score": 1,
+              "rationale": "Technical choice and endpoint acceptance are useful, but the product outcome stays implicit because no concrete service-user goal was supplied; the response remains mostly technical.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-12/answer-en.md"
+            },
+            {
+              "dimension": "Authorized integration handoff",
+              "score": 2,
+              "rationale": "Concrete future task is endpoint implementation plus contract tests and equal-scope native comparison; checks and changes are explicitly proposals under separate implementation authority.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-12/answer-en.md"
+            },
+            {
+              "dimension": "Privacy and permission",
+              "score": 2,
+              "rationale": "Synthetic data and isolated endpoint preserve authoritative data/main service; no executed code/tools/network or implied install/external permission.",
+              "output_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-12/answer-en.md"
+            }
+          ],
+          "original_total": 19,
+          "critical_dimensions_pass": true,
+          "critical_dimension_scores": {
+            "Evidence/provenance/activity clarity": 2,
+            "Authorized integration handoff": 2,
+            "Privacy and permission": 2
+          },
+          "critical_failures": [],
+          "numeric_agent_proxy_gate_pass": true,
+          "answer_sha256": "14ed3a49fefc1fb8bf3a5b3d02bf82b59209d2d9d8c2fe0398ae811b81193932",
+          "normalized_output_pointer": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/observations.json#/records/3/answers/en/normalized",
+          "raw_generation_output_pointer": "evals/plugin-v1/results/cp04-final-answers-repair-2026-10-11/observations.json#/records/3/answers/en/raw",
+          "recommended_ids": [
+            20904437
+          ],
+          "source_urls": [
+            "https://github.com/gin-gonic/gin",
+            "https://github.com/abpframework/abp"
+          ],
+          "planning_sha256": "ca28b7e3b8cee508a71ecbd00c65ae546a569dcee656df25595363c5034b0b31",
+          "compactness": {
+            "word_count": 369,
+            "paragraphs": 4,
+            "single_locale": true,
+            "decision_useful": true,
+            "assessment": "Single-locale, one leading decision, bounded acceptance/rollback and no numeric ID/eligibility jargon. Huey is comparatively dense; user acceptance of length remains unmeasured."
+          }
+        }
+      },
+      "same_canonical_meaning": {
+        "decision": "equivalent",
+        "canonical_hash_ids_planning_equal": true,
+        "critical_role_negation_unknown_authority_conflict_observed": false,
+        "core_preserved": [
+          "chosen/deferred role",
+          "explicit bans",
+          "dated evidence status",
+          "hypothetical engineer-hour range and prerequisites",
+          "full adoption unknown",
+          "proposed/executed authority",
+          "conditional acceptance and safe rollback"
+        ],
+        "gaps": [],
+        "human_semantic_acceptance": false
+      },
+      "execution_boundary": {
+        "base_actual_model_answers": true,
+        "display_projection_only": true,
+        "new_model_calls": 0,
+        "new_retrieval_calls": 0,
+        "integration_executed": false,
+        "validation_executed": false,
+        "full_adoption_estimate": "unknown",
+        "human_acceptance": false
+      }
+    }
+  ],
+  "finding_summary": [
+    "All eight projected answers pass the numeric agent-proxy rubric threshold; all three critical dimensions score 2 and no critical failure is observed.",
+    "Same-canonical RU/EN projections preserve decision, explicit bans, evidence qualification, planning, first check, safe rollback and implementation authority.",
+    "Earlier rollback/handoff gaps are addressed by isolated coding tasks with acceptance and data-preserving rollback; unknown previous paths are not invented.",
+    "Huey correctly treats business transaction and separate queue writes as non-atomic; outbox/reconciliation and duplicate business effects are proposed checks, not guarantees.",
+    "Legado recommended_ids is empty and source-availability qualification/explicit adoption defer preserve the updated availability evidence.",
+    "Huey default answer remains dense and its 4-8-hour pilot estimate includes substantial recovery/outbox validation; range is low-confidence hypothetical, accuracy unmeasured.",
+    "Gin product outcome remains implicit under the sparse technical Brief, without invented business context.",
+    "Raw RU generation included appended English and failed the intended single-locale presentation; successful projection does not prove that raw generation obeyed the locale instruction."
+  ],
+  "evidence_ceiling": "Actual eight captured model outputs plus deterministic display projection, independently graded by an agent proxy. No actual human calibration/acceptance, forecast accuracy, integration benefit, installed-plugin activation, browser/locale-switch operation, CP-11 lifecycle or release proof.",
+  "promotion_ready": false,
+  "sources_used": [
+    "AGENTS.md",
+    ".codex/TEAM.md",
+    "docs/plan/plugin-v1-team-contracts.md",
+    ".agents/skills/shape-product-slice/SKILL.md",
+    "docs/PRODUCT_REQUIREMENTS.md",
+    "EVALS.md",
+    "evals/plugin-v1/rubric.json",
+    "work/cp04-final/product-review-packet.md",
+    "evals/plugin-v1/final-answer-sources-2026-10-11.json",
+    "evals/plugin-v1/results/cp04-final-answers-repair-2026-10-11/declaration.json",
+    "evals/plugin-v1/results/cp04-final-answers-repair-2026-10-11/observations.json",
+    "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/declaration.json",
+    "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/observations.json",
+    "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/audit.json"
+  ],
+  "next_role": "Primary reconciles with independent quality_evaluator first pass, preserving original scores; actual human owner assesses output length, usefulness and acceptance.",
+  "rollback": "Remove only this projection-folder product receipt after checking later additions; earlier receipts and raw/projected captures remain intact."
+}

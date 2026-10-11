@@ -1,0 +1,5196 @@
+{
+  "case_id": "FINAL-HOLD-05",
+  "case_sha256": "141e6f351281d5999eb090e39cb43960be6af22f72d5ac9fdd58da2d900e6089",
+  "payload": {
+    "brief": {
+      "schema_version": "1.1.0",
+      "run_id": "326804d6-0e8d-546b-b122-058ce6967064",
+      "brief_id": "FINAL-HOLD-05",
+      "brief_version": 1,
+      "goal": "A small firm wants an ERP foundation for company operations; accounting and invoicing context should be explained before adoption.",
+      "decision": "evaluate",
+      "project_stage": "prototype",
+      "success_criterion": "Identify useful components and first validation; retain caveats.",
+      "constraints": {
+        "languages": [],
+        "deployment": [],
+        "allowed_licenses": [],
+        "compatibility": [],
+        "require_no_server": null,
+        "mandatory_fields": []
+      },
+      "observations": {
+        "run_id": "326804d6-0e8d-546b-b122-058ce6967064"
+      },
+      "assumptions": [],
+      "user_corrections": [],
+      "context_status": "preliminary",
+      "updated_at": "2026-10-11T00:00:00Z",
+      "details": {
+        "problem": {
+          "text": null,
+          "kind": "unknown",
+          "evidence_refs": [],
+          "answer_ids": [],
+          "limitation": "Synthetic project fixture; not established."
+        },
+        "target_user": {
+          "text": null,
+          "kind": "unknown",
+          "evidence_refs": [],
+          "answer_ids": [],
+          "limitation": "Synthetic project fixture; not established."
+        },
+        "workflow": {
+          "text": null,
+          "kind": "unknown",
+          "evidence_refs": [],
+          "answer_ids": [],
+          "limitation": "Synthetic project fixture; not established."
+        },
+        "current_behavior": {
+          "text": null,
+          "kind": "unknown",
+          "evidence_refs": [],
+          "answer_ids": [],
+          "limitation": "Synthetic project fixture; not established."
+        },
+        "target_behavior": {
+          "text": null,
+          "kind": "unknown",
+          "evidence_refs": [],
+          "answer_ids": [],
+          "limitation": "Synthetic project fixture; not established."
+        },
+        "baseline": {
+          "text": null,
+          "kind": "unknown",
+          "evidence_refs": [],
+          "answer_ids": [],
+          "limitation": "Synthetic project fixture; not established."
+        },
+        "scope": {
+          "text": null,
+          "kind": "unknown",
+          "evidence_refs": [],
+          "answer_ids": [],
+          "limitation": "Synthetic project fixture; not established."
+        },
+        "non_goals": [],
+        "constraint_notes": [],
+        "tensions": []
+      }
+    },
+    "interpretation": {
+      "brief_sha256": "6483b8a3a2d70746ca6df82c7a6c951022217520b3ad60bf01c042c9da532f25",
+      "brief_version": 1,
+      "language": "ru",
+      "route": "erp_business_suites",
+      "terms": [
+        "ERP",
+        "счета",
+        "управление"
+      ],
+      "intent": {
+        "required_groups": [
+          [
+            "ERP"
+          ]
+        ],
+        "context_terms": [
+          "счета",
+          "управление"
+        ]
+      },
+      "excluded_repository_ids": [],
+      "excluded_dependencies": [],
+      "unresolved": []
+    },
+    "public_observations": []
+  },
+  "payload_sha256": "9d88747efda9b2256f52a0ba8033f1afad17015ca11baf4f0b6c05e9d006cf45",
+  "metric_family": "semantic",
+  "split": "held_out",
+  "tags": [
+    "lexical_en",
+    "thin_leaf",
+    "baseline_cohort",
+    "secondary_dedupe",
+    "activity_unknown",
+    "lexical_ru"
+  ],
+  "container_domain_ids": [
+    "accounting_finance_erp"
+  ],
+  "query": {
+    "schema_version": "2.1.0",
+    "query_id": "request-338706374840f791a46fefca",
+    "brief_version": 1,
+    "source_mode": "catalog_only",
+    "retrieval_engine": "sqlite_fts5",
+    "policy_version": "2.1.0",
+    "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+    "card_schema_version": "2.0.0",
+    "activity_schema_version": "2.0.0",
+    "index_format_version": 3,
+    "taxonomy_route_id": "erp_business_suites",
+    "language": "ru",
+    "variants": [
+      {
+        "variant_id": "q1",
+        "terms": [
+          "ERP",
+          "счета",
+          "управление",
+          "business",
+          "suites"
+        ]
+      }
+    ],
+    "constraints": {
+      "languages": [],
+      "deployment": [],
+      "allowed_licenses": [],
+      "compatibility": [],
+      "require_no_server": null,
+      "mandatory_fields": []
+    },
+    "max_candidates": 150,
+    "max_cards": 12,
+    "max_evidence_bytes": 163840
+  },
+  "query_sha256": "b1479f9c17f33a594fed70b84736ed78e4e1b6b631dbfed350df29cc0200f368",
+  "candidate": {
+    "ranking": {
+      "valid": true,
+      "reason": null,
+      "ranking": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.9905287207091994,
+        "relevant_count": 6
+      },
+      "unjudged_ids": []
+    },
+    "status": "ok",
+    "status_ok": true,
+    "raw_ranked_ids": [
+      1957456,
+      304981340,
+      189829392,
+      920995405,
+      1864233,
+      19745004
+    ],
+    "packed_ids": [
+      1957456,
+      304981340,
+      189829392,
+      920995405,
+      1864233,
+      19745004
+    ],
+    "hard_constraint_violations": [],
+    "false_exclusions": [],
+    "duplicate_canonical_ids": 0,
+    "positive_top12_count": 6,
+    "positive_survived_count": 6,
+    "pack_survival": 1.0,
+    "alias_success": null,
+    "controlled_pack_bytes": 39923
+  },
+  "baseline": {
+    "ranking": {
+      "valid": true,
+      "reason": null,
+      "ranking": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.8368947611074689,
+        "relevant_count": 6
+      },
+      "unjudged_ids": []
+    },
+    "status": "ok",
+    "status_ok": true,
+    "raw_ranked_ids": [
+      1864233,
+      304981340,
+      920995405,
+      1957456,
+      189829392,
+      19745004
+    ],
+    "packed_ids": [
+      1864233,
+      304981340,
+      920995405,
+      1957456,
+      189829392,
+      19745004
+    ],
+    "hard_constraint_violations": [],
+    "false_exclusions": [],
+    "duplicate_canonical_ids": 0,
+    "positive_top12_count": 6,
+    "positive_survived_count": 6,
+    "pack_survival": 1.0,
+    "alias_success": null,
+    "controlled_pack_bytes": 38901
+  },
+  "native_control": {
+    "ranking": {
+      "valid": true,
+      "reason": null,
+      "ranking": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.75586705537785,
+        "relevant_count": 6
+      },
+      "unjudged_ids": []
+    },
+    "status": "ok",
+    "status_ok": true,
+    "raw_ranked_ids": [
+      19745004,
+      189829392,
+      920995405,
+      1864233,
+      304981340,
+      1957456
+    ],
+    "packed_ids": [
+      19745004,
+      189829392,
+      920995405,
+      1864233,
+      304981340,
+      1957456
+    ],
+    "hard_constraint_violations": [],
+    "false_exclusions": [],
+    "duplicate_canonical_ids": 0,
+    "positive_top12_count": 6,
+    "positive_survived_count": 6,
+    "pack_survival": 1.0,
+    "alias_success": null,
+    "controlled_pack_bytes": 38900
+  },
+  "candidate_capture": {
+    "decision_receipt": {
+      "schema_version": "1.0.0",
+      "artifact_type": "candidate_decision_receipt",
+      "bindings": {
+        "contract_schema_sha256": "83373eb4ec2b0f8270d4d7e6750bc1419591151338c023f018670214ec278f92",
+        "contract_document_sha256": "21106a3d580672f1b86caaad6edec82d9e53f0e11e6b4689439ce909961d3bc6",
+        "run_id": "326804d6-0e8d-546b-b122-058ce6967064",
+        "brief_id": "FINAL-HOLD-05",
+        "brief_version": 1,
+        "brief_sha256": "6483b8a3a2d70746ca6df82c7a6c951022217520b3ad60bf01c042c9da532f25",
+        "interpretation_sha256": "338706374840f791a46fefcaf66710357bc5167d5dfdac4e95d6f543c910f70d",
+        "guard_context_sha256": "c9f0bf59f77a16054f0966eca8aa56ce3f6adf934c3be5b414a791296701feb3",
+        "query_id": "request-338706374840f791a46fefca",
+        "query_sha256": "b1479f9c17f33a594fed70b84736ed78e4e1b6b631dbfed350df29cc0200f368",
+        "native_result_sha256": "6d1ab9569a89d4795bb6e10b65af9de1bfbb8a71c441501eb777efa3d1fe58be",
+        "candidate_pool_sha256": "5615ff3cff4d595e46677cff5f0f76e48c8d0a1fc5cc1f90282bf297a70eb16f",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "method": "host_codex_full_pool_v1",
+      "preview_request_sha256": "42b15c6e3356814d32e0d776211573b9a756aa615759bbc8a0292f2bec679250",
+      "decision_order": [
+        1957456,
+        304981340,
+        189829392,
+        920995405,
+        1864233,
+        19745004
+      ]
+    },
+    "decision_pack": {
+      "schema_version": "1.0.0",
+      "artifact_type": "candidate_decision_pack",
+      "bindings": {
+        "contract_schema_sha256": "83373eb4ec2b0f8270d4d7e6750bc1419591151338c023f018670214ec278f92",
+        "contract_document_sha256": "21106a3d580672f1b86caaad6edec82d9e53f0e11e6b4689439ce909961d3bc6",
+        "run_id": "326804d6-0e8d-546b-b122-058ce6967064",
+        "brief_id": "FINAL-HOLD-05",
+        "brief_version": 1,
+        "brief_sha256": "6483b8a3a2d70746ca6df82c7a6c951022217520b3ad60bf01c042c9da532f25",
+        "interpretation_sha256": "338706374840f791a46fefcaf66710357bc5167d5dfdac4e95d6f543c910f70d",
+        "guard_context_sha256": "c9f0bf59f77a16054f0966eca8aa56ce3f6adf934c3be5b414a791296701feb3",
+        "query_id": "request-338706374840f791a46fefca",
+        "query_sha256": "b1479f9c17f33a594fed70b84736ed78e4e1b6b631dbfed350df29cc0200f368",
+        "native_result_sha256": "6d1ab9569a89d4795bb6e10b65af9de1bfbb8a71c441501eb777efa3d1fe58be",
+        "candidate_pool_sha256": "5615ff3cff4d595e46677cff5f0f76e48c8d0a1fc5cc1f90282bf297a70eb16f",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "method": "host_codex_full_pool_v1",
+      "pack_id": "decision-pack-338706374840f791a46fefca",
+      "preview_request_sha256": "42b15c6e3356814d32e0d776211573b9a756aa615759bbc8a0292f2bec679250",
+      "decision_receipt_sha256": "8c05e23ee53b29bf43a7f8693014496e75e666a613709db85dbc735a2a1a7902",
+      "status": "ready",
+      "cards": [
+        {
+          "card": {
+            "activity": {
+              "created_at": "2011-06-26T21:55:03Z",
+              "last_commit_at": "2026-08-31T20:18:07Z",
+              "last_commit_branch": "develop",
+              "last_commit_sha": "d61fb44e2ba6298c32869a72cb3055a0261dde76",
+              "last_release_at": "2026-08-20T19:49:15Z",
+              "last_synced_at": "2026-08-11T09:59:37Z",
+              "observations": [
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "created_at",
+                  "observed_at": "2026-09-01T04:01:41.426967Z",
+                  "source_field": "activity.createdAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "repository_updated_at",
+                  "observed_at": "2026-09-01T04:01:41.426967Z",
+                  "source_field": "activity.updatedAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "pushed_at",
+                  "observed_at": "2026-09-01T04:01:41.426967Z",
+                  "source_field": "activity.pushedAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_commit_at",
+                  "observed_at": "2026-09-01T04:01:42.818901Z",
+                  "source_field": "activity.lastCommitAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_release_at",
+                  "observed_at": "2026-09-01T04:01:45.587019Z",
+                  "source_field": "activity.lastReleaseAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_synced_at",
+                  "observed_at": "2026-09-01T04:01:41.426967Z",
+                  "source_field": "activity.lastSyncedAt",
+                  "verification": "derived_reviewed"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "observed_at",
+                  "observed_at": "2026-09-01T04:01:41.426967Z",
+                  "source_field": "activity.observedAt",
+                  "verification": "source_reported"
+                }
+              ],
+              "observed_at": "2026-09-01T04:01:41.426967Z",
+              "pushed_at": "2026-08-31T23:23:11Z",
+              "repository_updated_at": "2026-09-01T01:21:09Z",
+              "schema_version": "2.0.0",
+              "status": "pending_enrichment"
+            },
+            "advisory": {
+              "adoption_mode": null,
+              "adoption_status": null,
+              "avoid_if": [],
+              "best_for": [],
+              "compatibility": [],
+              "complexity": null,
+              "eligibility": {
+                "catalog_acceptance_changed": false,
+                "data_gate_passed": false,
+                "evidence_completeness": 77.42,
+                "minimum_stars": 500,
+                "reasons": [
+                  "mandatory_fields_unresolved"
+                ],
+                "replacement_required": false
+              },
+              "gaps": [],
+              "integration_surface": null,
+              "project_stages": [],
+              "recommendation_reason": null,
+              "recommendation_status": null,
+              "tradeoffs": [],
+              "use_cases": []
+            },
+            "catalog": {
+              "evidence_stage": "identity_validated",
+              "membership_cohort": "baseline",
+              "review_status": "legacy_migrated",
+              "status": "accepted",
+              "status_source": "catalog_snapshot"
+            },
+            "classifications": [
+              {
+                "category_id": "erp_business_suites",
+                "kind": "category",
+                "parent_id": "accounting_finance_erp",
+                "placement_source": "cat08-canonical-reconciliation",
+                "role": "primary",
+                "title": "ERP"
+              }
+            ],
+            "corpus_kind": "catalog_snapshot",
+            "delivery": {
+              "deployment": {
+                "rationale": null,
+                "values": []
+              },
+              "difficulty": "intermediate",
+              "form": null,
+              "hosting": null,
+              "lifecycle": null,
+              "maturity": null,
+              "persona": "both",
+              "requires_server": null
+            },
+            "descriptions": {
+              "catalog": null,
+              "catalog_origin": null,
+              "upstream": "Dolibarr ERP CRM is a modern software package to manage your company or foundation's activity (contacts, suppliers, invoices, orders, sto…"
+            },
+            "evidence": [
+              {
+                "evidence_id": "ev-catalog-card",
+                "fields": [
+                  "/identity",
+                  "/catalog",
+                  "/descriptions",
+                  "/classifications",
+                  "/delivery",
+                  "/advisory",
+                  "/provenance"
+                ],
+                "observed_at": "2026-09-01T04:01:41.426967Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/1957456",
+                "verification": "derived_reviewed"
+              },
+              {
+                "evidence_id": "ev-catalog-repository",
+                "fields": [
+                  "/repository",
+                  "/activity"
+                ],
+                "observed_at": "2026-09-01T04:01:41.426967Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/1957456",
+                "verification": "source_reported"
+              }
+            ],
+            "identity": {
+              "catalog_record_id": "gh-pending:dolibarr/dolibarr",
+              "full_name": "Dolibarr/dolibarr",
+              "full_name_aliases": [],
+              "github_repository_id": 1957456,
+              "identity_status": "resolved",
+              "merged_catalog_record_ids": [],
+              "url": "https://github.com/Dolibarr/dolibarr"
+            },
+            "provenance": {
+              "frozen_pins": {
+                "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                "field_contract_sha256": "9c0d6fd6e12ef42a37e26d8607405a7cbafdf1b7a633c8f8b53da159eaa7f456",
+                "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+              },
+              "sources": [
+                {
+                  "observed_at": "2026-09-01T04:01:41.426967Z",
+                  "source_id": "src-catalog-snapshot",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/1957456",
+                  "verification": "derived_reviewed"
+                }
+              ]
+            },
+            "repository": {
+              "archived": false,
+              "availability": "available",
+              "default_branch": "develop",
+              "disabled": false,
+              "forks": 3492,
+              "homepage": "https://www.dolibarr.org",
+              "is_fork": false,
+              "languages": [
+                {
+                  "name": "PHP",
+                  "scope": "primary"
+                },
+                {
+                  "name": "JavaScript",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "CSS",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "SCSS",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Less",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Shell",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Inno Setup",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Hurl",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "PLpgSQL",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "HTML",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Perl",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Promela",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Gherkin",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Makefile",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "C++",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Batchfile",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Python",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Dockerfile",
+                  "scope": "secondary"
+                }
+              ],
+              "license": {
+                "confidence": "source_reported",
+                "name": "GNU General Public License v3.0",
+                "source": "legacy",
+                "spdx": "GPL-3.0"
+              },
+              "size_kb": 1729593,
+              "stack": [
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "technology": "PHP"
+                }
+              ],
+              "stars": 7233,
+              "topics": [
+                "accounting",
+                "agenda",
+                "crm",
+                "erp",
+                "hacktoberfest",
+                "human-resource-managment",
+                "invoice",
+                "invoices",
+                "invoicing",
+                "mysql",
+                "orders",
+                "php",
+                "postgresql",
+                "proposal",
+                "purchase",
+                "quotations",
+                "sales",
+                "stock",
+                "stocks",
+                "suppliers"
+              ],
+              "visibility": "public",
+              "watchers": 272,
+              "watchers_scope": "subscribers_count"
+            },
+            "schema_version": "2.0.0"
+          },
+          "retrieval_rank": 6,
+          "decision_rank": 1,
+          "rrf_score": 0.015151515151515152,
+          "eligibility": {
+            "schema_version": "2.1.0",
+            "github_repository_id": 1957456,
+            "query_id": "request-338706374840f791a46fefca",
+            "status": "reference_only",
+            "checks": [
+              {
+                "field": "availability",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "archived",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "advisory_evidence",
+                "outcome": "unknown",
+                "evidence_refs": [
+                  "ev-catalog-card"
+                ]
+              }
+            ],
+            "reason_codes": [
+              "mandatory_fact_unknown"
+            ],
+            "required_verifications": [
+              "Verify the advisory fit fields against source-backed public evidence."
+            ]
+          },
+          "matched_fields": [
+            "upstream_description",
+            "topics",
+            "category_labels"
+          ]
+        },
+        {
+          "card": {
+            "activity": {
+              "created_at": "2020-10-17T22:38:36Z",
+              "last_commit_at": "2026-08-14T23:02:15Z",
+              "last_commit_branch": "master",
+              "last_commit_sha": "e935dec13cf8b6082a7e7fc4736669e5151a80a3",
+              "last_release_at": "2026-03-16T19:17:57Z",
+              "last_synced_at": "2026-08-11T09:59:37Z",
+              "observations": [
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "created_at",
+                  "observed_at": "2026-09-01T04:06:11.938140Z",
+                  "source_field": "activity.createdAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "repository_updated_at",
+                  "observed_at": "2026-09-01T04:06:11.938140Z",
+                  "source_field": "activity.updatedAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "pushed_at",
+                  "observed_at": "2026-09-01T04:06:11.938140Z",
+                  "source_field": "activity.pushedAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_commit_at",
+                  "observed_at": "2026-09-01T04:06:13.297300Z",
+                  "source_field": "activity.lastCommitAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_release_at",
+                  "observed_at": "2026-09-01T04:06:15.672529Z",
+                  "source_field": "activity.lastReleaseAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_synced_at",
+                  "observed_at": "2026-09-01T04:06:11.938140Z",
+                  "source_field": "activity.lastSyncedAt",
+                  "verification": "derived_reviewed"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "observed_at",
+                  "observed_at": "2026-09-01T04:06:11.938140Z",
+                  "source_field": "activity.observedAt",
+                  "verification": "source_reported"
+                }
+              ],
+              "observed_at": "2026-09-01T04:06:11.938140Z",
+              "pushed_at": "2026-08-14T23:02:15Z",
+              "repository_updated_at": "2026-09-01T03:01:40Z",
+              "schema_version": "2.0.0",
+              "status": "pending_enrichment"
+            },
+            "advisory": {
+              "adoption_mode": null,
+              "adoption_status": null,
+              "avoid_if": [],
+              "best_for": [],
+              "compatibility": [],
+              "complexity": null,
+              "eligibility": {
+                "catalog_acceptance_changed": false,
+                "data_gate_passed": false,
+                "evidence_completeness": 77.42,
+                "minimum_stars": 500,
+                "reasons": [
+                  "mandatory_fields_unresolved"
+                ],
+                "replacement_required": false
+              },
+              "gaps": [],
+              "integration_surface": null,
+              "project_stages": [],
+              "recommendation_reason": null,
+              "recommendation_status": null,
+              "tradeoffs": [],
+              "use_cases": []
+            },
+            "catalog": {
+              "evidence_stage": "identity_validated",
+              "membership_cohort": "baseline",
+              "review_status": "legacy_migrated",
+              "status": "accepted",
+              "status_source": "catalog_snapshot"
+            },
+            "classifications": [
+              {
+                "category_id": "erp_business_suites",
+                "kind": "category",
+                "parent_id": "accounting_finance_erp",
+                "placement_source": "cat08-canonical-reconciliation",
+                "role": "primary",
+                "title": "ERP"
+              }
+            ],
+            "corpus_kind": "catalog_snapshot",
+            "delivery": {
+              "deployment": {
+                "rationale": null,
+                "values": []
+              },
+              "difficulty": "intermediate",
+              "form": null,
+              "hosting": null,
+              "lifecycle": null,
+              "maturity": null,
+              "persona": "both",
+              "requires_server": null
+            },
+            "descriptions": {
+              "catalog": null,
+              "catalog_origin": null,
+              "upstream": "Free Open Source ERP CRM Software Accounting Invoicing | Node Js React"
+            },
+            "evidence": [
+              {
+                "evidence_id": "ev-catalog-card",
+                "fields": [
+                  "/identity",
+                  "/catalog",
+                  "/descriptions",
+                  "/classifications",
+                  "/delivery",
+                  "/advisory",
+                  "/provenance"
+                ],
+                "observed_at": "2026-09-01T04:06:11.938140Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/304981340",
+                "verification": "derived_reviewed"
+              },
+              {
+                "evidence_id": "ev-catalog-repository",
+                "fields": [
+                  "/repository",
+                  "/activity"
+                ],
+                "observed_at": "2026-09-01T04:06:11.938140Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/304981340",
+                "verification": "source_reported"
+              }
+            ],
+            "identity": {
+              "catalog_record_id": "gh-pending:idurar/idurar-erp-crm",
+              "full_name": "idurar/idurar-erp-crm",
+              "full_name_aliases": [],
+              "github_repository_id": 304981340,
+              "identity_status": "resolved",
+              "merged_catalog_record_ids": [],
+              "url": "https://github.com/idurar/idurar-erp-crm"
+            },
+            "provenance": {
+              "frozen_pins": {
+                "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                "field_contract_sha256": "9c0d6fd6e12ef42a37e26d8607405a7cbafdf1b7a633c8f8b53da159eaa7f456",
+                "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+              },
+              "sources": [
+                {
+                  "observed_at": "2026-09-01T04:06:11.938140Z",
+                  "source_id": "src-catalog-snapshot",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/304981340",
+                  "verification": "derived_reviewed"
+                }
+              ]
+            },
+            "repository": {
+              "archived": false,
+              "availability": "available",
+              "default_branch": "master",
+              "disabled": false,
+              "forks": 3127,
+              "homepage": "https://cloud.idurarapp.com",
+              "is_fork": false,
+              "languages": [
+                {
+                  "name": "JavaScript",
+                  "scope": "primary"
+                },
+                {
+                  "name": "Pug",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "CSS",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "HTML",
+                  "scope": "secondary"
+                }
+              ],
+              "license": {
+                "confidence": "source_reported",
+                "name": "GNU Affero General Public License v3.0",
+                "source": "legacy",
+                "spdx": "AGPL-3.0"
+              },
+              "size_kb": 23369,
+              "stack": [
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "technology": "JavaScript"
+                }
+              ],
+              "stars": 8415,
+              "topics": [
+                "accounting",
+                "accounting-software",
+                "crm",
+                "crm-platform",
+                "crm-system",
+                "e-commerce",
+                "ecommerce",
+                "erp",
+                "erp-application",
+                "erp-software",
+                "invoice",
+                "invoice-software",
+                "invoicing",
+                "invoicing-application",
+                "invoicing-software",
+                "mern-project",
+                "mern-stack",
+                "mongoose",
+                "open-source-crm",
+                "open-source-erp"
+              ],
+              "visibility": "public",
+              "watchers": 77,
+              "watchers_scope": "subscribers_count"
+            },
+            "schema_version": "2.0.0"
+          },
+          "retrieval_rank": 5,
+          "decision_rank": 2,
+          "rrf_score": 0.015384615384615385,
+          "eligibility": {
+            "schema_version": "2.1.0",
+            "github_repository_id": 304981340,
+            "query_id": "request-338706374840f791a46fefca",
+            "status": "reference_only",
+            "checks": [
+              {
+                "field": "availability",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "archived",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "advisory_evidence",
+                "outcome": "unknown",
+                "evidence_refs": [
+                  "ev-catalog-card"
+                ]
+              }
+            ],
+            "reason_codes": [
+              "mandatory_fact_unknown"
+            ],
+            "required_verifications": [
+              "Verify the advisory fit fields against source-backed public evidence."
+            ]
+          },
+          "matched_fields": [
+            "full_name",
+            "upstream_description",
+            "topics",
+            "category_labels"
+          ]
+        },
+        {
+          "card": {
+            "activity": {
+              "created_at": "2019-06-02T09:47:13Z",
+              "last_commit_at": "2026-08-30T19:00:34Z",
+              "last_commit_branch": "develop",
+              "last_commit_sha": "fe004fe999272d495d7e33636d5b53495e2749be",
+              "last_release_at": "2026-07-04T20:25:10Z",
+              "last_synced_at": "2026-08-11T09:59:37Z",
+              "observations": [
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "created_at",
+                  "observed_at": "2026-09-01T04:02:15.123547Z",
+                  "source_field": "activity.createdAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "repository_updated_at",
+                  "observed_at": "2026-09-01T04:02:15.123547Z",
+                  "source_field": "activity.updatedAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "pushed_at",
+                  "observed_at": "2026-09-01T04:02:15.123547Z",
+                  "source_field": "activity.pushedAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_commit_at",
+                  "observed_at": "2026-09-01T04:02:16.495002Z",
+                  "source_field": "activity.lastCommitAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_release_at",
+                  "observed_at": "2026-09-01T04:02:20.089298Z",
+                  "source_field": "activity.lastReleaseAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_synced_at",
+                  "observed_at": "2026-09-01T04:02:15.123547Z",
+                  "source_field": "activity.lastSyncedAt",
+                  "verification": "derived_reviewed"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "observed_at",
+                  "observed_at": "2026-09-01T04:02:15.123547Z",
+                  "source_field": "activity.observedAt",
+                  "verification": "source_reported"
+                }
+              ],
+              "observed_at": "2026-09-01T04:02:15.123547Z",
+              "pushed_at": "2026-08-30T19:48:50Z",
+              "repository_updated_at": "2026-09-01T03:36:49Z",
+              "schema_version": "2.0.0",
+              "status": "pending_enrichment"
+            },
+            "advisory": {
+              "adoption_mode": null,
+              "adoption_status": null,
+              "avoid_if": [],
+              "best_for": [],
+              "compatibility": [],
+              "complexity": null,
+              "eligibility": {
+                "catalog_acceptance_changed": false,
+                "data_gate_passed": false,
+                "evidence_completeness": 77.42,
+                "minimum_stars": 500,
+                "reasons": [
+                  "mandatory_fields_unresolved"
+                ],
+                "replacement_required": false
+              },
+              "gaps": [],
+              "integration_surface": null,
+              "project_stages": [],
+              "recommendation_reason": null,
+              "recommendation_status": null,
+              "tradeoffs": [],
+              "use_cases": []
+            },
+            "catalog": {
+              "evidence_stage": "identity_validated",
+              "membership_cohort": "baseline",
+              "review_status": "legacy_migrated",
+              "status": "accepted",
+              "status_source": "catalog_snapshot"
+            },
+            "classifications": [
+              {
+                "category_id": "erp_business_suites",
+                "kind": "category",
+                "parent_id": "accounting_finance_erp",
+                "placement_source": "cat08-canonical-reconciliation",
+                "role": "primary",
+                "title": "ERP"
+              },
+              {
+                "category_id": "hr_recruiting_people_ops",
+                "kind": "category",
+                "parent_id": null,
+                "placement_source": "cat08-canonical-reconciliation",
+                "role": "secondary",
+                "title": "HR, Recruiting & People Ops"
+              }
+            ],
+            "corpus_kind": "catalog_snapshot",
+            "delivery": {
+              "deployment": {
+                "rationale": null,
+                "values": []
+              },
+              "difficulty": "intermediate",
+              "form": {
+                "rationale": null,
+                "value": "platform"
+              },
+              "hosting": null,
+              "lifecycle": null,
+              "maturity": null,
+              "persona": "both",
+              "requires_server": null
+            },
+            "descriptions": {
+              "catalog": null,
+              "catalog_origin": null,
+              "upstream": "Ever® Gauzy™ - Open Business Management Platform (ERP/CRM/HRM/ATS/PM) - https://gauzy.co"
+            },
+            "evidence": [
+              {
+                "evidence_id": "ev-catalog-card",
+                "fields": [
+                  "/identity",
+                  "/catalog",
+                  "/descriptions",
+                  "/classifications",
+                  "/delivery",
+                  "/advisory",
+                  "/provenance"
+                ],
+                "observed_at": "2026-09-01T04:02:15.123547Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/189829392",
+                "verification": "derived_reviewed"
+              },
+              {
+                "evidence_id": "ev-catalog-repository",
+                "fields": [
+                  "/repository",
+                  "/activity"
+                ],
+                "observed_at": "2026-09-01T04:02:15.123547Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/189829392",
+                "verification": "source_reported"
+              }
+            ],
+            "identity": {
+              "catalog_record_id": "gh-pending:ever-co/ever-gauzy",
+              "full_name": "ever-co/ever-gauzy",
+              "full_name_aliases": [],
+              "github_repository_id": 189829392,
+              "identity_status": "resolved",
+              "merged_catalog_record_ids": [],
+              "url": "https://github.com/ever-co/ever-gauzy"
+            },
+            "provenance": {
+              "frozen_pins": {
+                "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                "field_contract_sha256": "9c0d6fd6e12ef42a37e26d8607405a7cbafdf1b7a633c8f8b53da159eaa7f456",
+                "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+              },
+              "sources": [
+                {
+                  "observed_at": "2026-09-01T04:02:15.123547Z",
+                  "source_id": "src-catalog-snapshot",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/189829392",
+                  "verification": "derived_reviewed"
+                }
+              ]
+            },
+            "repository": {
+              "archived": false,
+              "availability": "available",
+              "default_branch": "develop",
+              "disabled": false,
+              "forks": 875,
+              "homepage": "https://gauzy.co",
+              "is_fork": false,
+              "languages": [
+                {
+                  "name": "TypeScript",
+                  "scope": "primary"
+                },
+                {
+                  "name": "SCSS",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "HTML",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "JavaScript",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Dockerfile",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Gherkin",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Shell",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Handlebars",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "sed",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "CSS",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Batchfile",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Sass",
+                  "scope": "secondary"
+                }
+              ],
+              "license": {
+                "confidence": "source_reported",
+                "name": "GNU Affero General Public License v3.0",
+                "source": "legacy",
+                "spdx": "AGPL-3.0"
+              },
+              "size_kb": 262388,
+              "stack": [
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "technology": "TypeScript"
+                }
+              ],
+              "stars": 3700,
+              "topics": [
+                "accounting",
+                "billing",
+                "bookkeeping",
+                "crm",
+                "crm-platform",
+                "erp",
+                "expenses",
+                "hr",
+                "human-resources",
+                "invoices",
+                "invoicing",
+                "issue-tracker",
+                "payroll",
+                "productivity",
+                "project-management",
+                "salary",
+                "team-management",
+                "time-tracker",
+                "time-tracking",
+                "timetracking"
+              ],
+              "visibility": "public",
+              "watchers": 58,
+              "watchers_scope": "subscribers_count"
+            },
+            "schema_version": "2.0.0"
+          },
+          "retrieval_rank": 2,
+          "decision_rank": 3,
+          "rrf_score": 0.016129032258064516,
+          "eligibility": {
+            "schema_version": "2.1.0",
+            "github_repository_id": 189829392,
+            "query_id": "request-338706374840f791a46fefca",
+            "status": "reference_only",
+            "checks": [
+              {
+                "field": "availability",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "archived",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "advisory_evidence",
+                "outcome": "unknown",
+                "evidence_refs": [
+                  "ev-catalog-card"
+                ]
+              }
+            ],
+            "reason_codes": [
+              "mandatory_fact_unknown"
+            ],
+            "required_verifications": [
+              "Verify the advisory fit fields against source-backed public evidence."
+            ]
+          },
+          "matched_fields": [
+            "upstream_description",
+            "topics",
+            "category_labels"
+          ]
+        },
+        {
+          "card": {
+            "activity": {
+              "created_at": "2025-01-23T06:22:25Z",
+              "last_commit_at": "2026-08-27T11:40:18Z",
+              "last_commit_branch": "master",
+              "last_commit_sha": "b33fa04643a936885f83b5ad39a62260ef27a7a0",
+              "last_release_at": "2026-08-27T12:55:05Z",
+              "last_synced_at": "2026-08-11T09:59:37Z",
+              "observations": [
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "created_at",
+                  "observed_at": "2026-09-01T03:56:41.337704Z",
+                  "source_field": "activity.createdAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "repository_updated_at",
+                  "observed_at": "2026-09-01T03:56:41.337704Z",
+                  "source_field": "activity.updatedAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "pushed_at",
+                  "observed_at": "2026-09-01T03:56:41.337704Z",
+                  "source_field": "activity.pushedAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_commit_at",
+                  "observed_at": "2026-09-01T03:56:42.780197Z",
+                  "source_field": "activity.lastCommitAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_release_at",
+                  "observed_at": "2026-09-01T03:56:46.665498Z",
+                  "source_field": "activity.lastReleaseAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_synced_at",
+                  "observed_at": "2026-09-01T03:56:41.337704Z",
+                  "source_field": "activity.lastSyncedAt",
+                  "verification": "derived_reviewed"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "observed_at",
+                  "observed_at": "2026-09-01T03:56:41.337704Z",
+                  "source_field": "activity.observedAt",
+                  "verification": "source_reported"
+                }
+              ],
+              "observed_at": "2026-09-01T03:56:41.337704Z",
+              "pushed_at": "2026-08-05T08:07:06Z",
+              "repository_updated_at": "2026-09-01T03:36:59Z",
+              "schema_version": "2.0.0",
+              "status": "pending_enrichment"
+            },
+            "advisory": {
+              "adoption_mode": null,
+              "adoption_status": null,
+              "avoid_if": [],
+              "best_for": [],
+              "compatibility": [],
+              "complexity": null,
+              "eligibility": {
+                "catalog_acceptance_changed": false,
+                "data_gate_passed": false,
+                "evidence_completeness": 77.42,
+                "minimum_stars": 500,
+                "reasons": [
+                  "mandatory_fields_unresolved"
+                ],
+                "replacement_required": false
+              },
+              "gaps": [],
+              "integration_surface": null,
+              "project_stages": [],
+              "recommendation_reason": null,
+              "recommendation_status": null,
+              "tradeoffs": [],
+              "use_cases": []
+            },
+            "catalog": {
+              "evidence_stage": "identity_validated",
+              "membership_cohort": "baseline",
+              "review_status": "legacy_migrated",
+              "status": "accepted",
+              "status_source": "catalog_snapshot"
+            },
+            "classifications": [
+              {
+                "category_id": "erp_business_suites",
+                "kind": "category",
+                "parent_id": "accounting_finance_erp",
+                "placement_source": "cat08-canonical-reconciliation",
+                "role": "primary",
+                "title": "ERP"
+              }
+            ],
+            "corpus_kind": "catalog_snapshot",
+            "delivery": {
+              "deployment": {
+                "rationale": null,
+                "values": []
+              },
+              "difficulty": "intermediate",
+              "form": {
+                "rationale": null,
+                "value": "platform"
+              },
+              "hosting": null,
+              "lifecycle": null,
+              "maturity": null,
+              "persona": "both",
+              "requires_server": null
+            },
+            "descriptions": {
+              "catalog": null,
+              "catalog_origin": null,
+              "upstream": "Free and Open Source ERP platform"
+            },
+            "evidence": [
+              {
+                "evidence_id": "ev-catalog-card",
+                "fields": [
+                  "/identity",
+                  "/catalog",
+                  "/descriptions",
+                  "/classifications",
+                  "/delivery",
+                  "/advisory",
+                  "/provenance"
+                ],
+                "observed_at": "2026-09-01T03:56:41.337704Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/920995405",
+                "verification": "derived_reviewed"
+              },
+              {
+                "evidence_id": "ev-catalog-repository",
+                "fields": [
+                  "/repository",
+                  "/activity"
+                ],
+                "observed_at": "2026-09-01T03:56:41.337704Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/920995405",
+                "verification": "source_reported"
+              }
+            ],
+            "identity": {
+              "catalog_record_id": "gh-pending:aureuserp/aureuserp",
+              "full_name": "aureuserp/aureuserp",
+              "full_name_aliases": [],
+              "github_repository_id": 920995405,
+              "identity_status": "resolved",
+              "merged_catalog_record_ids": [],
+              "url": "https://github.com/aureuserp/aureuserp"
+            },
+            "provenance": {
+              "frozen_pins": {
+                "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                "field_contract_sha256": "9c0d6fd6e12ef42a37e26d8607405a7cbafdf1b7a633c8f8b53da159eaa7f456",
+                "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+              },
+              "sources": [
+                {
+                  "observed_at": "2026-09-01T03:56:41.337704Z",
+                  "source_id": "src-catalog-snapshot",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/920995405",
+                  "verification": "derived_reviewed"
+                }
+              ]
+            },
+            "repository": {
+              "archived": false,
+              "availability": "available",
+              "default_branch": "master",
+              "disabled": false,
+              "forks": 525,
+              "homepage": "https://aureuserp.com",
+              "is_fork": false,
+              "languages": [
+                {
+                  "name": "PHP",
+                  "scope": "primary"
+                },
+                {
+                  "name": "JavaScript",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Blade",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "TypeScript",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "CSS",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Dockerfile",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Shell",
+                  "scope": "secondary"
+                }
+              ],
+              "license": {
+                "confidence": "source_reported",
+                "name": "MIT License",
+                "source": "legacy",
+                "spdx": "MIT"
+              },
+              "size_kb": 29588,
+              "stack": [
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "technology": "PHP"
+                }
+              ],
+              "stars": 11726,
+              "topics": [
+                "accounting",
+                "erp",
+                "filamentphp",
+                "hrm",
+                "inventory-management",
+                "invoice",
+                "laravel",
+                "maintenance",
+                "manufacturing",
+                "pms",
+                "purchase-order",
+                "recruitment",
+                "sale-or",
+                "sales",
+                "warehouse-management"
+              ],
+              "visibility": "public",
+              "watchers": 24,
+              "watchers_scope": "subscribers_count"
+            },
+            "schema_version": "2.0.0"
+          },
+          "retrieval_rank": 3,
+          "decision_rank": 4,
+          "rrf_score": 0.015873015873015872,
+          "eligibility": {
+            "schema_version": "2.1.0",
+            "github_repository_id": 920995405,
+            "query_id": "request-338706374840f791a46fefca",
+            "status": "reference_only",
+            "checks": [
+              {
+                "field": "availability",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "archived",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "advisory_evidence",
+                "outcome": "unknown",
+                "evidence_refs": [
+                  "ev-catalog-card"
+                ]
+              }
+            ],
+            "reason_codes": [
+              "mandatory_fact_unknown"
+            ],
+            "required_verifications": [
+              "Verify the advisory fit fields against source-backed public evidence."
+            ]
+          },
+          "matched_fields": [
+            "upstream_description",
+            "topics",
+            "category_labels"
+          ]
+        },
+        {
+          "card": {
+            "activity": {
+              "created_at": "2011-06-08T08:20:56Z",
+              "last_commit_at": "2026-08-31T23:31:06Z",
+              "last_commit_branch": "develop",
+              "last_commit_sha": "5691a7b3c7f6285d4ae3de696679d743fab45832",
+              "last_release_at": "2026-08-25T17:04:34Z",
+              "last_synced_at": "2026-08-11T09:59:37Z",
+              "observations": [
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "created_at",
+                  "observed_at": "2026-09-01T04:03:17.673709Z",
+                  "source_field": "activity.createdAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "repository_updated_at",
+                  "observed_at": "2026-09-01T04:03:17.673709Z",
+                  "source_field": "activity.updatedAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "pushed_at",
+                  "observed_at": "2026-09-01T04:03:17.673709Z",
+                  "source_field": "activity.pushedAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_commit_at",
+                  "observed_at": "2026-09-01T04:03:19.108828Z",
+                  "source_field": "activity.lastCommitAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_release_at",
+                  "observed_at": "2026-09-01T04:03:22.730644Z",
+                  "source_field": "activity.lastReleaseAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_synced_at",
+                  "observed_at": "2026-09-01T04:03:17.673709Z",
+                  "source_field": "activity.lastSyncedAt",
+                  "verification": "derived_reviewed"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "observed_at",
+                  "observed_at": "2026-09-01T04:03:17.673709Z",
+                  "source_field": "activity.observedAt",
+                  "verification": "source_reported"
+                }
+              ],
+              "observed_at": "2026-09-01T04:03:17.673709Z",
+              "pushed_at": "2026-09-01T02:54:11Z",
+              "repository_updated_at": "2026-09-01T03:42:57Z",
+              "schema_version": "2.0.0",
+              "status": "pending_enrichment"
+            },
+            "advisory": {
+              "adoption_mode": null,
+              "adoption_status": null,
+              "avoid_if": [],
+              "best_for": [],
+              "compatibility": [],
+              "complexity": null,
+              "eligibility": {
+                "catalog_acceptance_changed": false,
+                "data_gate_passed": false,
+                "evidence_completeness": 77.42,
+                "minimum_stars": 500,
+                "reasons": [
+                  "mandatory_fields_unresolved"
+                ],
+                "replacement_required": false
+              },
+              "gaps": [],
+              "integration_surface": null,
+              "project_stages": [],
+              "recommendation_reason": null,
+              "recommendation_status": null,
+              "tradeoffs": [],
+              "use_cases": []
+            },
+            "catalog": {
+              "evidence_stage": "identity_validated",
+              "membership_cohort": "baseline",
+              "review_status": "legacy_migrated",
+              "status": "accepted",
+              "status_source": "catalog_snapshot"
+            },
+            "classifications": [
+              {
+                "category_id": "erp_business_suites",
+                "kind": "category",
+                "parent_id": "accounting_finance_erp",
+                "placement_source": "cat08-canonical-reconciliation",
+                "role": "primary",
+                "title": "ERP"
+              }
+            ],
+            "corpus_kind": "catalog_snapshot",
+            "delivery": {
+              "deployment": {
+                "rationale": null,
+                "values": []
+              },
+              "difficulty": "intermediate",
+              "form": null,
+              "hosting": null,
+              "lifecycle": null,
+              "maturity": null,
+              "persona": "vibe_coder",
+              "requires_server": null
+            },
+            "descriptions": {
+              "catalog": null,
+              "catalog_origin": null,
+              "upstream": "Free and Open Source Enterprise Resource Planning (ERP)"
+            },
+            "evidence": [
+              {
+                "evidence_id": "ev-catalog-card",
+                "fields": [
+                  "/identity",
+                  "/catalog",
+                  "/descriptions",
+                  "/classifications",
+                  "/delivery",
+                  "/advisory",
+                  "/provenance"
+                ],
+                "observed_at": "2026-09-01T04:03:17.673709Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/1864233",
+                "verification": "derived_reviewed"
+              },
+              {
+                "evidence_id": "ev-catalog-repository",
+                "fields": [
+                  "/repository",
+                  "/activity"
+                ],
+                "observed_at": "2026-09-01T04:03:17.673709Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/1864233",
+                "verification": "source_reported"
+              }
+            ],
+            "identity": {
+              "catalog_record_id": "gh-pending:frappe/erpnext",
+              "full_name": "frappe/erpnext",
+              "full_name_aliases": [],
+              "github_repository_id": 1864233,
+              "identity_status": "resolved",
+              "merged_catalog_record_ids": [],
+              "url": "https://github.com/frappe/erpnext"
+            },
+            "provenance": {
+              "frozen_pins": {
+                "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                "field_contract_sha256": "9c0d6fd6e12ef42a37e26d8607405a7cbafdf1b7a633c8f8b53da159eaa7f456",
+                "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+              },
+              "sources": [
+                {
+                  "observed_at": "2026-09-01T04:03:17.673709Z",
+                  "source_id": "src-catalog-snapshot",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/1864233",
+                  "verification": "derived_reviewed"
+                }
+              ]
+            },
+            "repository": {
+              "archived": false,
+              "availability": "available",
+              "default_branch": "develop",
+              "disabled": false,
+              "forks": 12661,
+              "homepage": "https://frappe.io/erpnext",
+              "is_fork": false,
+              "languages": [
+                {
+                  "name": "Python",
+                  "scope": "primary"
+                },
+                {
+                  "name": "JavaScript",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "TypeScript",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "HTML",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "SCSS",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "CSS",
+                  "scope": "secondary"
+                }
+              ],
+              "license": {
+                "confidence": "source_reported",
+                "name": "GNU General Public License v3.0",
+                "source": "legacy",
+                "spdx": "GPL-3.0"
+              },
+              "size_kb": 1879883,
+              "stack": [
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "technology": "Python"
+                }
+              ],
+              "stars": 34909,
+              "topics": [
+                "accounting",
+                "asset-management",
+                "crm",
+                "distribution",
+                "erp",
+                "erpnext",
+                "frappe",
+                "healthcare",
+                "hrms",
+                "manufacturing",
+                "point-of-sale",
+                "procurement",
+                "project-management",
+                "python",
+                "retail",
+                "support"
+              ],
+              "visibility": "public",
+              "watchers": 679,
+              "watchers_scope": "subscribers_count"
+            },
+            "schema_version": "2.0.0"
+          },
+          "retrieval_rank": 4,
+          "decision_rank": 5,
+          "rrf_score": 0.015625,
+          "eligibility": {
+            "schema_version": "2.1.0",
+            "github_repository_id": 1864233,
+            "query_id": "request-338706374840f791a46fefca",
+            "status": "reference_only",
+            "checks": [
+              {
+                "field": "availability",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "archived",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "advisory_evidence",
+                "outcome": "unknown",
+                "evidence_refs": [
+                  "ev-catalog-card"
+                ]
+              }
+            ],
+            "reason_codes": [
+              "mandatory_fact_unknown"
+            ],
+            "required_verifications": [
+              "Verify the advisory fit fields against source-backed public evidence."
+            ]
+          },
+          "matched_fields": [
+            "upstream_description",
+            "topics",
+            "category_labels"
+          ]
+        },
+        {
+          "card": {
+            "activity": {
+              "created_at": "2014-05-13T15:38:58Z",
+              "last_commit_at": "2026-08-31T19:02:04Z",
+              "last_commit_branch": "19.0",
+              "last_commit_sha": "8554a0f0c74b7423278df6898fef4995a2c2d679",
+              "last_release_at": null,
+              "last_synced_at": "2026-08-11T09:59:37Z",
+              "observations": [
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "created_at",
+                  "observed_at": "2026-09-01T04:12:30.719673Z",
+                  "source_field": "activity.createdAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "repository_updated_at",
+                  "observed_at": "2026-09-01T04:12:30.719673Z",
+                  "source_field": "activity.updatedAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "pushed_at",
+                  "observed_at": "2026-09-01T04:12:30.719673Z",
+                  "source_field": "activity.pushedAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_commit_at",
+                  "observed_at": "2026-09-01T04:12:31.393082Z",
+                  "source_field": "activity.lastCommitAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_synced_at",
+                  "observed_at": "2026-09-01T04:12:30.719673Z",
+                  "source_field": "activity.lastSyncedAt",
+                  "verification": "derived_reviewed"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "observed_at",
+                  "observed_at": "2026-09-01T04:12:30.719673Z",
+                  "source_field": "activity.observedAt",
+                  "verification": "source_reported"
+                }
+              ],
+              "observed_at": "2026-09-01T04:12:30.719673Z",
+              "pushed_at": "2026-08-10T12:17:52Z",
+              "repository_updated_at": "2026-08-10T11:38:05Z",
+              "schema_version": "2.0.0",
+              "status": "enriched"
+            },
+            "advisory": {
+              "adoption_mode": null,
+              "adoption_status": null,
+              "avoid_if": [],
+              "best_for": [],
+              "compatibility": [],
+              "complexity": null,
+              "eligibility": {
+                "catalog_acceptance_changed": false,
+                "data_gate_passed": false,
+                "evidence_completeness": 77.42,
+                "minimum_stars": 500,
+                "reasons": [
+                  "mandatory_fields_unresolved"
+                ],
+                "replacement_required": false
+              },
+              "gaps": [],
+              "integration_surface": null,
+              "project_stages": [],
+              "recommendation_reason": null,
+              "recommendation_status": null,
+              "tradeoffs": [],
+              "use_cases": []
+            },
+            "catalog": {
+              "evidence_stage": "identity_validated",
+              "membership_cohort": "baseline",
+              "review_status": "legacy_migrated",
+              "status": "accepted",
+              "status_source": "catalog_snapshot"
+            },
+            "classifications": [
+              {
+                "category_id": "erp_business_suites",
+                "kind": "category",
+                "parent_id": "accounting_finance_erp",
+                "placement_source": "cat08-canonical-reconciliation",
+                "role": "primary",
+                "title": "ERP"
+              }
+            ],
+            "corpus_kind": "catalog_snapshot",
+            "delivery": {
+              "deployment": {
+                "rationale": null,
+                "values": []
+              },
+              "difficulty": "intermediate",
+              "form": null,
+              "hosting": null,
+              "lifecycle": null,
+              "maturity": null,
+              "persona": "both",
+              "requires_server": null
+            },
+            "descriptions": {
+              "catalog": null,
+              "catalog_origin": null,
+              "upstream": "Odoo.\nOpen Source Apps To Grow Your Business."
+            },
+            "evidence": [
+              {
+                "evidence_id": "ev-catalog-card",
+                "fields": [
+                  "/identity",
+                  "/catalog",
+                  "/descriptions",
+                  "/classifications",
+                  "/delivery",
+                  "/advisory",
+                  "/provenance"
+                ],
+                "observed_at": "2026-09-01T04:12:30.719673Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/19745004",
+                "verification": "derived_reviewed"
+              },
+              {
+                "evidence_id": "ev-catalog-repository",
+                "fields": [
+                  "/repository",
+                  "/activity"
+                ],
+                "observed_at": "2026-09-01T04:12:30.719673Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/19745004",
+                "verification": "source_reported"
+              }
+            ],
+            "identity": {
+              "catalog_record_id": "gh-pending:odoo/odoo",
+              "full_name": "odoo/odoo",
+              "full_name_aliases": [],
+              "github_repository_id": 19745004,
+              "identity_status": "resolved",
+              "merged_catalog_record_ids": [],
+              "url": "https://github.com/odoo/odoo"
+            },
+            "provenance": {
+              "frozen_pins": {
+                "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                "field_contract_sha256": "9c0d6fd6e12ef42a37e26d8607405a7cbafdf1b7a633c8f8b53da159eaa7f456",
+                "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+              },
+              "sources": [
+                {
+                  "observed_at": "2026-09-01T04:12:30.719673Z",
+                  "source_id": "src-catalog-snapshot",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/19745004",
+                  "verification": "derived_reviewed"
+                }
+              ]
+            },
+            "repository": {
+              "archived": false,
+              "availability": "available",
+              "default_branch": "19.0",
+              "disabled": false,
+              "forks": 33391,
+              "homepage": "https://www.odoo.com",
+              "is_fork": false,
+              "languages": [
+                {
+                  "name": "Python",
+                  "scope": "primary"
+                }
+              ],
+              "license": {
+                "confidence": "not_detected_or_nonstandard",
+                "name": "Other",
+                "source": "github_current",
+                "spdx": "NO_LICENSE_DETECTED"
+              },
+              "size_kb": 17193074,
+              "stack": [
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "technology": "Python"
+                }
+              ],
+              "stars": 53620,
+              "topics": [
+                "apps",
+                "business",
+                "erp",
+                "management",
+                "odoo",
+                "odoo-apps",
+                "python"
+              ],
+              "visibility": "public",
+              "watchers": 1531,
+              "watchers_scope": "subscribers_count"
+            },
+            "schema_version": "2.0.0"
+          },
+          "retrieval_rank": 1,
+          "decision_rank": 6,
+          "rrf_score": 0.01639344262295082,
+          "eligibility": {
+            "schema_version": "2.1.0",
+            "github_repository_id": 19745004,
+            "query_id": "request-338706374840f791a46fefca",
+            "status": "reference_only",
+            "checks": [
+              {
+                "field": "availability",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "archived",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "advisory_evidence",
+                "outcome": "unknown",
+                "evidence_refs": [
+                  "ev-catalog-card"
+                ]
+              }
+            ],
+            "reason_codes": [
+              "mandatory_fact_unknown"
+            ],
+            "required_verifications": [
+              "Verify the advisory fit fields against source-backed public evidence."
+            ]
+          },
+          "matched_fields": [
+            "upstream_description",
+            "topics",
+            "category_labels"
+          ]
+        }
+      ],
+      "exclusions": [],
+      "truncated": false
+    }
+  },
+  "candidate_capture_sha256": "9c1f629f41fa738e69e0c4be2cde1652dba2ec59df37ad13f6f1ced1399bbcf2",
+  "preview_request": {
+    "schema_version": "1.0.0",
+    "artifact_type": "candidate_preview_request",
+    "bindings": {
+      "contract_schema_sha256": "83373eb4ec2b0f8270d4d7e6750bc1419591151338c023f018670214ec278f92",
+      "contract_document_sha256": "21106a3d580672f1b86caaad6edec82d9e53f0e11e6b4689439ce909961d3bc6",
+      "run_id": "326804d6-0e8d-546b-b122-058ce6967064",
+      "brief_id": "FINAL-HOLD-05",
+      "brief_version": 1,
+      "brief_sha256": "6483b8a3a2d70746ca6df82c7a6c951022217520b3ad60bf01c042c9da532f25",
+      "interpretation_sha256": "338706374840f791a46fefcaf66710357bc5167d5dfdac4e95d6f543c910f70d",
+      "guard_context_sha256": "c9f0bf59f77a16054f0966eca8aa56ce3f6adf934c3be5b414a791296701feb3",
+      "query_id": "request-338706374840f791a46fefca",
+      "query_sha256": "b1479f9c17f33a594fed70b84736ed78e4e1b6b631dbfed350df29cc0200f368",
+      "native_result_sha256": "6d1ab9569a89d4795bb6e10b65af9de1bfbb8a71c441501eb777efa3d1fe58be",
+      "candidate_pool_sha256": "5615ff3cff4d595e46677cff5f0f76e48c8d0a1fc5cc1f90282bf297a70eb16f",
+      "pins": {
+        "activity_schema_version": "2.0.0",
+        "card_schema_version": "2.0.0",
+        "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+        "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+        "corpus_kind": "catalog_snapshot",
+        "index_format_version": 3,
+        "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+        "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+        "retrieval_policy_version": "2.1.0",
+        "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+        "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+      }
+    },
+    "method": "host_codex_full_pool_v1",
+    "decision_context": {
+      "goal": "A small firm wants an ERP foundation for company operations; accounting and invoicing context should be explained before adoption.",
+      "intent": {
+        "required_groups": [
+          [
+            "ERP"
+          ]
+        ],
+        "context_terms": [
+          "счета",
+          "управление"
+        ]
+      }
+    },
+    "candidates": [
+      {
+        "github_repository_id": 19745004,
+        "full_name": "odoo/odoo",
+        "source_card_sha256": "d65ed555a6b1061288eb731b20e567382be2c9f7da9cadee158756ff35c54df2",
+        "retrieval_rank": 1,
+        "rrf_score": 0.01639344262295082,
+        "taxonomy_category_ids": [
+          "erp_business_suites"
+        ],
+        "eligibility_status": "reference_only",
+        "eligibility_reason_codes": [
+          "mandatory_fact_unknown"
+        ],
+        "guard_status": "reference_only",
+        "guard_reason_codes": [
+          "mandatory_fact_unknown"
+        ],
+        "fields": [
+          {
+            "source_field": "/descriptions/upstream",
+            "text": "Odoo.\nOpen Source Apps To Grow Your Business.",
+            "coverage": "complete"
+          },
+          {
+            "source_field": "/descriptions/catalog",
+            "text": null,
+            "coverage": "unknown"
+          },
+          {
+            "source_field": "/repository/topics",
+            "text": "apps\nbusiness\nerp\nmanagement\nodoo\nodoo-apps\npython",
+            "coverage": "complete"
+          },
+          {
+            "source_field": "/advisory/use_cases",
+            "text": null,
+            "coverage": "unknown"
+          },
+          {
+            "source_field": "/advisory/integration_surface",
+            "text": null,
+            "coverage": "unknown"
+          },
+          {
+            "source_field": "/advisory/best_for",
+            "text": null,
+            "coverage": "unknown"
+          }
+        ]
+      },
+      {
+        "github_repository_id": 189829392,
+        "full_name": "ever-co/ever-gauzy",
+        "source_card_sha256": "b2e194adb136acce04932bf0ddecb0f145300d71cffc37b7cc02aafb34891649",
+        "retrieval_rank": 2,
+        "rrf_score": 0.016129032258064516,
+        "taxonomy_category_ids": [
+          "erp_business_suites",
+          "hr_recruiting_people_ops"
+        ],
+        "eligibility_status": "reference_only",
+        "eligibility_reason_codes": [
+          "mandatory_fact_unknown"
+        ],
+        "guard_status": "reference_only",
+        "guard_reason_codes": [
+          "mandatory_fact_unknown"
+        ],
+        "fields": [
+          {
+            "source_field": "/descriptions/upstream",
+            "text": "Ever® Gauzy™ - Open Business Management Platform (ERP/CRM/HRM/ATS/PM) - https://gauzy.co",
+            "coverage": "complete"
+          },
+          {
+            "source_field": "/descriptions/catalog",
+            "text": null,
+            "coverage": "unknown"
+          },
+          {
+            "source_field": "/repository/topics",
+            "text": "accounting\nbilling\nbookkeeping\ncrm\ncrm-platform\nerp\nexpenses\nhr\nhuman-resources\ninvoices\ninvoicing\nissue-tracker\npayroll\nproductivity\nproject-management\nsalary\nteam-management\ntime-tracker\ntime-tracking\ntimetracking",
+            "coverage": "complete"
+          },
+          {
+            "source_field": "/advisory/use_cases",
+            "text": null,
+            "coverage": "unknown"
+          },
+          {
+            "source_field": "/advisory/integration_surface",
+            "text": null,
+            "coverage": "unknown"
+          },
+          {
+            "source_field": "/advisory/best_for",
+            "text": null,
+            "coverage": "unknown"
+          }
+        ]
+      },
+      {
+        "github_repository_id": 920995405,
+        "full_name": "aureuserp/aureuserp",
+        "source_card_sha256": "78277660184a48f5f5f0c87dff7185c49b48b622e5a019f703d6945ff400bda2",
+        "retrieval_rank": 3,
+        "rrf_score": 0.015873015873015872,
+        "taxonomy_category_ids": [
+          "erp_business_suites"
+        ],
+        "eligibility_status": "reference_only",
+        "eligibility_reason_codes": [
+          "mandatory_fact_unknown"
+        ],
+        "guard_status": "reference_only",
+        "guard_reason_codes": [
+          "mandatory_fact_unknown"
+        ],
+        "fields": [
+          {
+            "source_field": "/descriptions/upstream",
+            "text": "Free and Open Source ERP platform",
+            "coverage": "complete"
+          },
+          {
+            "source_field": "/descriptions/catalog",
+            "text": null,
+            "coverage": "unknown"
+          },
+          {
+            "source_field": "/repository/topics",
+            "text": "accounting\nerp\nfilamentphp\nhrm\ninventory-management\ninvoice\nlaravel\nmaintenance\nmanufacturing\npms\npurchase-order\nrecruitment\nsale-or\nsales\nwarehouse-management",
+            "coverage": "complete"
+          },
+          {
+            "source_field": "/advisory/use_cases",
+            "text": null,
+            "coverage": "unknown"
+          },
+          {
+            "source_field": "/advisory/integration_surface",
+            "text": null,
+            "coverage": "unknown"
+          },
+          {
+            "source_field": "/advisory/best_for",
+            "text": null,
+            "coverage": "unknown"
+          }
+        ]
+      },
+      {
+        "github_repository_id": 1864233,
+        "full_name": "frappe/erpnext",
+        "source_card_sha256": "31178d796247e8d4896f8f522a6d91c4c4ca8fe68e454cd5fe3a8369d1faa461",
+        "retrieval_rank": 4,
+        "rrf_score": 0.015625,
+        "taxonomy_category_ids": [
+          "erp_business_suites"
+        ],
+        "eligibility_status": "reference_only",
+        "eligibility_reason_codes": [
+          "mandatory_fact_unknown"
+        ],
+        "guard_status": "reference_only",
+        "guard_reason_codes": [
+          "mandatory_fact_unknown"
+        ],
+        "fields": [
+          {
+            "source_field": "/descriptions/upstream",
+            "text": "Free and Open Source Enterprise Resource Planning (ERP)",
+            "coverage": "complete"
+          },
+          {
+            "source_field": "/descriptions/catalog",
+            "text": null,
+            "coverage": "unknown"
+          },
+          {
+            "source_field": "/repository/topics",
+            "text": "accounting\nasset-management\ncrm\ndistribution\nerp\nerpnext\nfrappe\nhealthcare\nhrms\nmanufacturing\npoint-of-sale\nprocurement\nproject-management\npython\nretail\nsupport",
+            "coverage": "complete"
+          },
+          {
+            "source_field": "/advisory/use_cases",
+            "text": null,
+            "coverage": "unknown"
+          },
+          {
+            "source_field": "/advisory/integration_surface",
+            "text": null,
+            "coverage": "unknown"
+          },
+          {
+            "source_field": "/advisory/best_for",
+            "text": null,
+            "coverage": "unknown"
+          }
+        ]
+      },
+      {
+        "github_repository_id": 304981340,
+        "full_name": "idurar/idurar-erp-crm",
+        "source_card_sha256": "9326a7d12c15564126e134c62c3f0da9c72d2427f2100a25fc81aaed138e1c22",
+        "retrieval_rank": 5,
+        "rrf_score": 0.015384615384615385,
+        "taxonomy_category_ids": [
+          "erp_business_suites"
+        ],
+        "eligibility_status": "reference_only",
+        "eligibility_reason_codes": [
+          "mandatory_fact_unknown"
+        ],
+        "guard_status": "reference_only",
+        "guard_reason_codes": [
+          "mandatory_fact_unknown"
+        ],
+        "fields": [
+          {
+            "source_field": "/descriptions/upstream",
+            "text": "Free Open Source ERP CRM Software Accounting Invoicing | Node Js React",
+            "coverage": "complete"
+          },
+          {
+            "source_field": "/descriptions/catalog",
+            "text": null,
+            "coverage": "unknown"
+          },
+          {
+            "source_field": "/repository/topics",
+            "text": "accounting\naccounting-software\ncrm\ncrm-platform\ncrm-system\ne-commerce\necommerce\nerp\nerp-application\nerp-software\ninvoice\ninvoice-software\ninvoicing\ninvoicing-application\ninvoicing-software\nmern-project\nmern-stack\nmongoose\nopen-source-crm\nopen-source-erp",
+            "coverage": "complete"
+          },
+          {
+            "source_field": "/advisory/use_cases",
+            "text": null,
+            "coverage": "unknown"
+          },
+          {
+            "source_field": "/advisory/integration_surface",
+            "text": null,
+            "coverage": "unknown"
+          },
+          {
+            "source_field": "/advisory/best_for",
+            "text": null,
+            "coverage": "unknown"
+          }
+        ]
+      },
+      {
+        "github_repository_id": 1957456,
+        "full_name": "Dolibarr/dolibarr",
+        "source_card_sha256": "69f4113063a9d9d4bf7168d8d1ada226f7accbb8b0d375e6be04287a35cd55e9",
+        "retrieval_rank": 6,
+        "rrf_score": 0.015151515151515152,
+        "taxonomy_category_ids": [
+          "erp_business_suites"
+        ],
+        "eligibility_status": "reference_only",
+        "eligibility_reason_codes": [
+          "mandatory_fact_unknown"
+        ],
+        "guard_status": "reference_only",
+        "guard_reason_codes": [
+          "mandatory_fact_unknown"
+        ],
+        "fields": [
+          {
+            "source_field": "/descriptions/upstream",
+            "text": "Dolibarr ERP CRM is a modern software package to manage your company or foundation's activity (contacts, suppliers, invoices, orders, sto…",
+            "coverage": "complete"
+          },
+          {
+            "source_field": "/descriptions/catalog",
+            "text": null,
+            "coverage": "unknown"
+          },
+          {
+            "source_field": "/repository/topics",
+            "text": "accounting\nagenda\ncrm\nerp\nhacktoberfest\nhuman-resource-managment\ninvoice\ninvoices\ninvoicing\nmysql\norders\nphp\npostgresql\nproposal\npurchase\nquotations\nsales\nstock\nstocks\nsuppliers",
+            "coverage": "complete"
+          },
+          {
+            "source_field": "/advisory/use_cases",
+            "text": null,
+            "coverage": "unknown"
+          },
+          {
+            "source_field": "/advisory/integration_surface",
+            "text": null,
+            "coverage": "unknown"
+          },
+          {
+            "source_field": "/advisory/best_for",
+            "text": null,
+            "coverage": "unknown"
+          }
+        ]
+      }
+    ],
+    "reservation": {
+      "receipt_bytes": 1826,
+      "pack_bytes": 7949
+    }
+  },
+  "preview_sha256": "42b15c6e3356814d32e0d776211573b9a756aa615759bbc8a0292f2bec679250",
+  "native_capture": {
+    "status": "ready",
+    "request": {
+      "schema_version": "cp04_recommendation_request_v1",
+      "status": "ready",
+      "catalog_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-338706374840f791a46fefca",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "erp_business_suites",
+        "language": "ru",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "ERP",
+              "счета",
+              "управление",
+              "business",
+              "suites"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      },
+      "intent": {
+        "required_groups": [
+          [
+            "ERP"
+          ]
+        ],
+        "context_terms": [
+          "счета",
+          "управление"
+        ]
+      },
+      "exclusions": {
+        "repository_ids": [],
+        "dependencies": []
+      },
+      "unresolved": [],
+      "aggregate_calls": 1,
+      "query_derivation": {
+        "original_terms": [
+          "ERP",
+          "счета",
+          "управление"
+        ],
+        "original_match_count": 6,
+        "added_route_terms": [
+          "business",
+          "suites"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "added_term_origins": [
+          {
+            "term": "business",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "erp_business_suites"
+          },
+          {
+            "term": "suites",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "erp_business_suites"
+          }
+        ],
+        "original_query_sha256": "a3fbdd3fc5234bb2363bc3034b77f63787bae8f0c6c011049ffbcc020ae640d9",
+        "final_query_sha256": "b1479f9c17f33a594fed70b84736ed78e4e1b6b631dbfed350df29cc0200f368",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    "selection": {
+      "status": "ready",
+      "selected_ids": [
+        19745004,
+        189829392,
+        920995405,
+        1864233,
+        304981340,
+        1957456
+      ],
+      "excluded": [],
+      "verification_required": [],
+      "conditional_configuration_ids": []
+    },
+    "aggregate_calls": 1,
+    "retrieval_calls": 1,
+    "evidence_pack": {
+      "schema_version": "2.1.0",
+      "run_id": "326804d6-0e8d-546b-b122-058ce6967064",
+      "pack_id": "request-pack-338706374840f791a46fefca",
+      "query_id": "request-338706374840f791a46fefca",
+      "query_sha256": "b1479f9c17f33a594fed70b84736ed78e4e1b6b631dbfed350df29cc0200f368",
+      "brief_version": 1,
+      "pins": {
+        "activity_schema_version": "2.0.0",
+        "card_schema_version": "2.0.0",
+        "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+        "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+        "corpus_kind": "catalog_snapshot",
+        "index_format_version": 3,
+        "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+        "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+        "retrieval_policy_version": "2.1.0",
+        "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+        "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+      },
+      "status": "ready",
+      "cards": [
+        {
+          "card": {
+            "activity": {
+              "created_at": "2014-05-13T15:38:58Z",
+              "last_commit_at": "2026-08-31T19:02:04Z",
+              "last_commit_branch": "19.0",
+              "last_commit_sha": "8554a0f0c74b7423278df6898fef4995a2c2d679",
+              "last_release_at": null,
+              "last_synced_at": "2026-08-11T09:59:37Z",
+              "observations": [
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "created_at",
+                  "observed_at": "2026-09-01T04:12:30.719673Z",
+                  "source_field": "activity.createdAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "repository_updated_at",
+                  "observed_at": "2026-09-01T04:12:30.719673Z",
+                  "source_field": "activity.updatedAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "pushed_at",
+                  "observed_at": "2026-09-01T04:12:30.719673Z",
+                  "source_field": "activity.pushedAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_commit_at",
+                  "observed_at": "2026-09-01T04:12:31.393082Z",
+                  "source_field": "activity.lastCommitAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_synced_at",
+                  "observed_at": "2026-09-01T04:12:30.719673Z",
+                  "source_field": "activity.lastSyncedAt",
+                  "verification": "derived_reviewed"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "observed_at",
+                  "observed_at": "2026-09-01T04:12:30.719673Z",
+                  "source_field": "activity.observedAt",
+                  "verification": "source_reported"
+                }
+              ],
+              "observed_at": "2026-09-01T04:12:30.719673Z",
+              "pushed_at": "2026-08-10T12:17:52Z",
+              "repository_updated_at": "2026-08-10T11:38:05Z",
+              "schema_version": "2.0.0",
+              "status": "enriched"
+            },
+            "advisory": {
+              "adoption_mode": null,
+              "adoption_status": null,
+              "avoid_if": [],
+              "best_for": [],
+              "compatibility": [],
+              "complexity": null,
+              "eligibility": {
+                "catalog_acceptance_changed": false,
+                "data_gate_passed": false,
+                "evidence_completeness": 77.42,
+                "minimum_stars": 500,
+                "reasons": [
+                  "mandatory_fields_unresolved"
+                ],
+                "replacement_required": false
+              },
+              "gaps": [],
+              "integration_surface": null,
+              "project_stages": [],
+              "recommendation_reason": null,
+              "recommendation_status": null,
+              "tradeoffs": [],
+              "use_cases": []
+            },
+            "catalog": {
+              "evidence_stage": "identity_validated",
+              "membership_cohort": "baseline",
+              "review_status": "legacy_migrated",
+              "status": "accepted",
+              "status_source": "catalog_snapshot"
+            },
+            "classifications": [
+              {
+                "category_id": "erp_business_suites",
+                "kind": "category",
+                "parent_id": "accounting_finance_erp",
+                "placement_source": "cat08-canonical-reconciliation",
+                "role": "primary",
+                "title": "ERP"
+              }
+            ],
+            "corpus_kind": "catalog_snapshot",
+            "delivery": {
+              "deployment": {
+                "rationale": null,
+                "values": []
+              },
+              "difficulty": "intermediate",
+              "form": null,
+              "hosting": null,
+              "lifecycle": null,
+              "maturity": null,
+              "persona": "both",
+              "requires_server": null
+            },
+            "descriptions": {
+              "catalog": null,
+              "catalog_origin": null,
+              "upstream": "Odoo.\nOpen Source Apps To Grow Your Business."
+            },
+            "evidence": [
+              {
+                "evidence_id": "ev-catalog-card",
+                "fields": [
+                  "/identity",
+                  "/catalog",
+                  "/descriptions",
+                  "/classifications",
+                  "/delivery",
+                  "/advisory",
+                  "/provenance"
+                ],
+                "observed_at": "2026-09-01T04:12:30.719673Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/19745004",
+                "verification": "derived_reviewed"
+              },
+              {
+                "evidence_id": "ev-catalog-repository",
+                "fields": [
+                  "/repository",
+                  "/activity"
+                ],
+                "observed_at": "2026-09-01T04:12:30.719673Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/19745004",
+                "verification": "source_reported"
+              }
+            ],
+            "identity": {
+              "catalog_record_id": "gh-pending:odoo/odoo",
+              "full_name": "odoo/odoo",
+              "full_name_aliases": [],
+              "github_repository_id": 19745004,
+              "identity_status": "resolved",
+              "merged_catalog_record_ids": [],
+              "url": "https://github.com/odoo/odoo"
+            },
+            "provenance": {
+              "frozen_pins": {
+                "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                "field_contract_sha256": "9c0d6fd6e12ef42a37e26d8607405a7cbafdf1b7a633c8f8b53da159eaa7f456",
+                "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+              },
+              "sources": [
+                {
+                  "observed_at": "2026-09-01T04:12:30.719673Z",
+                  "source_id": "src-catalog-snapshot",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/19745004",
+                  "verification": "derived_reviewed"
+                }
+              ]
+            },
+            "repository": {
+              "archived": false,
+              "availability": "available",
+              "default_branch": "19.0",
+              "disabled": false,
+              "forks": 33391,
+              "homepage": "https://www.odoo.com",
+              "is_fork": false,
+              "languages": [
+                {
+                  "name": "Python",
+                  "scope": "primary"
+                }
+              ],
+              "license": {
+                "confidence": "not_detected_or_nonstandard",
+                "name": "Other",
+                "source": "github_current",
+                "spdx": "NO_LICENSE_DETECTED"
+              },
+              "size_kb": 17193074,
+              "stack": [
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "technology": "Python"
+                }
+              ],
+              "stars": 53620,
+              "topics": [
+                "apps",
+                "business",
+                "erp",
+                "management",
+                "odoo",
+                "odoo-apps",
+                "python"
+              ],
+              "visibility": "public",
+              "watchers": 1531,
+              "watchers_scope": "subscribers_count"
+            },
+            "schema_version": "2.0.0"
+          },
+          "retrieval_rank": 1,
+          "eligibility": {
+            "schema_version": "2.1.0",
+            "github_repository_id": 19745004,
+            "query_id": "request-338706374840f791a46fefca",
+            "status": "reference_only",
+            "checks": [
+              {
+                "field": "availability",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "archived",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "advisory_evidence",
+                "outcome": "unknown",
+                "evidence_refs": [
+                  "ev-catalog-card"
+                ]
+              }
+            ],
+            "reason_codes": [
+              "mandatory_fact_unknown"
+            ],
+            "required_verifications": [
+              "Verify the advisory fit fields against source-backed public evidence."
+            ]
+          },
+          "rrf_score": 0.01639344262295082,
+          "matched_fields": [
+            "upstream_description",
+            "topics",
+            "category_labels"
+          ]
+        },
+        {
+          "card": {
+            "activity": {
+              "created_at": "2019-06-02T09:47:13Z",
+              "last_commit_at": "2026-08-30T19:00:34Z",
+              "last_commit_branch": "develop",
+              "last_commit_sha": "fe004fe999272d495d7e33636d5b53495e2749be",
+              "last_release_at": "2026-07-04T20:25:10Z",
+              "last_synced_at": "2026-08-11T09:59:37Z",
+              "observations": [
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "created_at",
+                  "observed_at": "2026-09-01T04:02:15.123547Z",
+                  "source_field": "activity.createdAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "repository_updated_at",
+                  "observed_at": "2026-09-01T04:02:15.123547Z",
+                  "source_field": "activity.updatedAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "pushed_at",
+                  "observed_at": "2026-09-01T04:02:15.123547Z",
+                  "source_field": "activity.pushedAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_commit_at",
+                  "observed_at": "2026-09-01T04:02:16.495002Z",
+                  "source_field": "activity.lastCommitAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_release_at",
+                  "observed_at": "2026-09-01T04:02:20.089298Z",
+                  "source_field": "activity.lastReleaseAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_synced_at",
+                  "observed_at": "2026-09-01T04:02:15.123547Z",
+                  "source_field": "activity.lastSyncedAt",
+                  "verification": "derived_reviewed"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "observed_at",
+                  "observed_at": "2026-09-01T04:02:15.123547Z",
+                  "source_field": "activity.observedAt",
+                  "verification": "source_reported"
+                }
+              ],
+              "observed_at": "2026-09-01T04:02:15.123547Z",
+              "pushed_at": "2026-08-30T19:48:50Z",
+              "repository_updated_at": "2026-09-01T03:36:49Z",
+              "schema_version": "2.0.0",
+              "status": "pending_enrichment"
+            },
+            "advisory": {
+              "adoption_mode": null,
+              "adoption_status": null,
+              "avoid_if": [],
+              "best_for": [],
+              "compatibility": [],
+              "complexity": null,
+              "eligibility": {
+                "catalog_acceptance_changed": false,
+                "data_gate_passed": false,
+                "evidence_completeness": 77.42,
+                "minimum_stars": 500,
+                "reasons": [
+                  "mandatory_fields_unresolved"
+                ],
+                "replacement_required": false
+              },
+              "gaps": [],
+              "integration_surface": null,
+              "project_stages": [],
+              "recommendation_reason": null,
+              "recommendation_status": null,
+              "tradeoffs": [],
+              "use_cases": []
+            },
+            "catalog": {
+              "evidence_stage": "identity_validated",
+              "membership_cohort": "baseline",
+              "review_status": "legacy_migrated",
+              "status": "accepted",
+              "status_source": "catalog_snapshot"
+            },
+            "classifications": [
+              {
+                "category_id": "erp_business_suites",
+                "kind": "category",
+                "parent_id": "accounting_finance_erp",
+                "placement_source": "cat08-canonical-reconciliation",
+                "role": "primary",
+                "title": "ERP"
+              },
+              {
+                "category_id": "hr_recruiting_people_ops",
+                "kind": "category",
+                "parent_id": null,
+                "placement_source": "cat08-canonical-reconciliation",
+                "role": "secondary",
+                "title": "HR, Recruiting & People Ops"
+              }
+            ],
+            "corpus_kind": "catalog_snapshot",
+            "delivery": {
+              "deployment": {
+                "rationale": null,
+                "values": []
+              },
+              "difficulty": "intermediate",
+              "form": {
+                "rationale": null,
+                "value": "platform"
+              },
+              "hosting": null,
+              "lifecycle": null,
+              "maturity": null,
+              "persona": "both",
+              "requires_server": null
+            },
+            "descriptions": {
+              "catalog": null,
+              "catalog_origin": null,
+              "upstream": "Ever® Gauzy™ - Open Business Management Platform (ERP/CRM/HRM/ATS/PM) - https://gauzy.co"
+            },
+            "evidence": [
+              {
+                "evidence_id": "ev-catalog-card",
+                "fields": [
+                  "/identity",
+                  "/catalog",
+                  "/descriptions",
+                  "/classifications",
+                  "/delivery",
+                  "/advisory",
+                  "/provenance"
+                ],
+                "observed_at": "2026-09-01T04:02:15.123547Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/189829392",
+                "verification": "derived_reviewed"
+              },
+              {
+                "evidence_id": "ev-catalog-repository",
+                "fields": [
+                  "/repository",
+                  "/activity"
+                ],
+                "observed_at": "2026-09-01T04:02:15.123547Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/189829392",
+                "verification": "source_reported"
+              }
+            ],
+            "identity": {
+              "catalog_record_id": "gh-pending:ever-co/ever-gauzy",
+              "full_name": "ever-co/ever-gauzy",
+              "full_name_aliases": [],
+              "github_repository_id": 189829392,
+              "identity_status": "resolved",
+              "merged_catalog_record_ids": [],
+              "url": "https://github.com/ever-co/ever-gauzy"
+            },
+            "provenance": {
+              "frozen_pins": {
+                "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                "field_contract_sha256": "9c0d6fd6e12ef42a37e26d8607405a7cbafdf1b7a633c8f8b53da159eaa7f456",
+                "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+              },
+              "sources": [
+                {
+                  "observed_at": "2026-09-01T04:02:15.123547Z",
+                  "source_id": "src-catalog-snapshot",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/189829392",
+                  "verification": "derived_reviewed"
+                }
+              ]
+            },
+            "repository": {
+              "archived": false,
+              "availability": "available",
+              "default_branch": "develop",
+              "disabled": false,
+              "forks": 875,
+              "homepage": "https://gauzy.co",
+              "is_fork": false,
+              "languages": [
+                {
+                  "name": "TypeScript",
+                  "scope": "primary"
+                },
+                {
+                  "name": "SCSS",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "HTML",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "JavaScript",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Dockerfile",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Gherkin",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Shell",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Handlebars",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "sed",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "CSS",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Batchfile",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Sass",
+                  "scope": "secondary"
+                }
+              ],
+              "license": {
+                "confidence": "source_reported",
+                "name": "GNU Affero General Public License v3.0",
+                "source": "legacy",
+                "spdx": "AGPL-3.0"
+              },
+              "size_kb": 262388,
+              "stack": [
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "technology": "TypeScript"
+                }
+              ],
+              "stars": 3700,
+              "topics": [
+                "accounting",
+                "billing",
+                "bookkeeping",
+                "crm",
+                "crm-platform",
+                "erp",
+                "expenses",
+                "hr",
+                "human-resources",
+                "invoices",
+                "invoicing",
+                "issue-tracker",
+                "payroll",
+                "productivity",
+                "project-management",
+                "salary",
+                "team-management",
+                "time-tracker",
+                "time-tracking",
+                "timetracking"
+              ],
+              "visibility": "public",
+              "watchers": 58,
+              "watchers_scope": "subscribers_count"
+            },
+            "schema_version": "2.0.0"
+          },
+          "retrieval_rank": 2,
+          "eligibility": {
+            "schema_version": "2.1.0",
+            "github_repository_id": 189829392,
+            "query_id": "request-338706374840f791a46fefca",
+            "status": "reference_only",
+            "checks": [
+              {
+                "field": "availability",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "archived",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "advisory_evidence",
+                "outcome": "unknown",
+                "evidence_refs": [
+                  "ev-catalog-card"
+                ]
+              }
+            ],
+            "reason_codes": [
+              "mandatory_fact_unknown"
+            ],
+            "required_verifications": [
+              "Verify the advisory fit fields against source-backed public evidence."
+            ]
+          },
+          "rrf_score": 0.016129032258064516,
+          "matched_fields": [
+            "upstream_description",
+            "topics",
+            "category_labels"
+          ]
+        },
+        {
+          "card": {
+            "activity": {
+              "created_at": "2025-01-23T06:22:25Z",
+              "last_commit_at": "2026-08-27T11:40:18Z",
+              "last_commit_branch": "master",
+              "last_commit_sha": "b33fa04643a936885f83b5ad39a62260ef27a7a0",
+              "last_release_at": "2026-08-27T12:55:05Z",
+              "last_synced_at": "2026-08-11T09:59:37Z",
+              "observations": [
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "created_at",
+                  "observed_at": "2026-09-01T03:56:41.337704Z",
+                  "source_field": "activity.createdAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "repository_updated_at",
+                  "observed_at": "2026-09-01T03:56:41.337704Z",
+                  "source_field": "activity.updatedAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "pushed_at",
+                  "observed_at": "2026-09-01T03:56:41.337704Z",
+                  "source_field": "activity.pushedAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_commit_at",
+                  "observed_at": "2026-09-01T03:56:42.780197Z",
+                  "source_field": "activity.lastCommitAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_release_at",
+                  "observed_at": "2026-09-01T03:56:46.665498Z",
+                  "source_field": "activity.lastReleaseAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_synced_at",
+                  "observed_at": "2026-09-01T03:56:41.337704Z",
+                  "source_field": "activity.lastSyncedAt",
+                  "verification": "derived_reviewed"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "observed_at",
+                  "observed_at": "2026-09-01T03:56:41.337704Z",
+                  "source_field": "activity.observedAt",
+                  "verification": "source_reported"
+                }
+              ],
+              "observed_at": "2026-09-01T03:56:41.337704Z",
+              "pushed_at": "2026-08-05T08:07:06Z",
+              "repository_updated_at": "2026-09-01T03:36:59Z",
+              "schema_version": "2.0.0",
+              "status": "pending_enrichment"
+            },
+            "advisory": {
+              "adoption_mode": null,
+              "adoption_status": null,
+              "avoid_if": [],
+              "best_for": [],
+              "compatibility": [],
+              "complexity": null,
+              "eligibility": {
+                "catalog_acceptance_changed": false,
+                "data_gate_passed": false,
+                "evidence_completeness": 77.42,
+                "minimum_stars": 500,
+                "reasons": [
+                  "mandatory_fields_unresolved"
+                ],
+                "replacement_required": false
+              },
+              "gaps": [],
+              "integration_surface": null,
+              "project_stages": [],
+              "recommendation_reason": null,
+              "recommendation_status": null,
+              "tradeoffs": [],
+              "use_cases": []
+            },
+            "catalog": {
+              "evidence_stage": "identity_validated",
+              "membership_cohort": "baseline",
+              "review_status": "legacy_migrated",
+              "status": "accepted",
+              "status_source": "catalog_snapshot"
+            },
+            "classifications": [
+              {
+                "category_id": "erp_business_suites",
+                "kind": "category",
+                "parent_id": "accounting_finance_erp",
+                "placement_source": "cat08-canonical-reconciliation",
+                "role": "primary",
+                "title": "ERP"
+              }
+            ],
+            "corpus_kind": "catalog_snapshot",
+            "delivery": {
+              "deployment": {
+                "rationale": null,
+                "values": []
+              },
+              "difficulty": "intermediate",
+              "form": {
+                "rationale": null,
+                "value": "platform"
+              },
+              "hosting": null,
+              "lifecycle": null,
+              "maturity": null,
+              "persona": "both",
+              "requires_server": null
+            },
+            "descriptions": {
+              "catalog": null,
+              "catalog_origin": null,
+              "upstream": "Free and Open Source ERP platform"
+            },
+            "evidence": [
+              {
+                "evidence_id": "ev-catalog-card",
+                "fields": [
+                  "/identity",
+                  "/catalog",
+                  "/descriptions",
+                  "/classifications",
+                  "/delivery",
+                  "/advisory",
+                  "/provenance"
+                ],
+                "observed_at": "2026-09-01T03:56:41.337704Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/920995405",
+                "verification": "derived_reviewed"
+              },
+              {
+                "evidence_id": "ev-catalog-repository",
+                "fields": [
+                  "/repository",
+                  "/activity"
+                ],
+                "observed_at": "2026-09-01T03:56:41.337704Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/920995405",
+                "verification": "source_reported"
+              }
+            ],
+            "identity": {
+              "catalog_record_id": "gh-pending:aureuserp/aureuserp",
+              "full_name": "aureuserp/aureuserp",
+              "full_name_aliases": [],
+              "github_repository_id": 920995405,
+              "identity_status": "resolved",
+              "merged_catalog_record_ids": [],
+              "url": "https://github.com/aureuserp/aureuserp"
+            },
+            "provenance": {
+              "frozen_pins": {
+                "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                "field_contract_sha256": "9c0d6fd6e12ef42a37e26d8607405a7cbafdf1b7a633c8f8b53da159eaa7f456",
+                "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+              },
+              "sources": [
+                {
+                  "observed_at": "2026-09-01T03:56:41.337704Z",
+                  "source_id": "src-catalog-snapshot",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/920995405",
+                  "verification": "derived_reviewed"
+                }
+              ]
+            },
+            "repository": {
+              "archived": false,
+              "availability": "available",
+              "default_branch": "master",
+              "disabled": false,
+              "forks": 525,
+              "homepage": "https://aureuserp.com",
+              "is_fork": false,
+              "languages": [
+                {
+                  "name": "PHP",
+                  "scope": "primary"
+                },
+                {
+                  "name": "JavaScript",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Blade",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "TypeScript",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "CSS",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Dockerfile",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Shell",
+                  "scope": "secondary"
+                }
+              ],
+              "license": {
+                "confidence": "source_reported",
+                "name": "MIT License",
+                "source": "legacy",
+                "spdx": "MIT"
+              },
+              "size_kb": 29588,
+              "stack": [
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "technology": "PHP"
+                }
+              ],
+              "stars": 11726,
+              "topics": [
+                "accounting",
+                "erp",
+                "filamentphp",
+                "hrm",
+                "inventory-management",
+                "invoice",
+                "laravel",
+                "maintenance",
+                "manufacturing",
+                "pms",
+                "purchase-order",
+                "recruitment",
+                "sale-or",
+                "sales",
+                "warehouse-management"
+              ],
+              "visibility": "public",
+              "watchers": 24,
+              "watchers_scope": "subscribers_count"
+            },
+            "schema_version": "2.0.0"
+          },
+          "retrieval_rank": 3,
+          "eligibility": {
+            "schema_version": "2.1.0",
+            "github_repository_id": 920995405,
+            "query_id": "request-338706374840f791a46fefca",
+            "status": "reference_only",
+            "checks": [
+              {
+                "field": "availability",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "archived",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "advisory_evidence",
+                "outcome": "unknown",
+                "evidence_refs": [
+                  "ev-catalog-card"
+                ]
+              }
+            ],
+            "reason_codes": [
+              "mandatory_fact_unknown"
+            ],
+            "required_verifications": [
+              "Verify the advisory fit fields against source-backed public evidence."
+            ]
+          },
+          "rrf_score": 0.015873015873015872,
+          "matched_fields": [
+            "upstream_description",
+            "topics",
+            "category_labels"
+          ]
+        },
+        {
+          "card": {
+            "activity": {
+              "created_at": "2011-06-08T08:20:56Z",
+              "last_commit_at": "2026-08-31T23:31:06Z",
+              "last_commit_branch": "develop",
+              "last_commit_sha": "5691a7b3c7f6285d4ae3de696679d743fab45832",
+              "last_release_at": "2026-08-25T17:04:34Z",
+              "last_synced_at": "2026-08-11T09:59:37Z",
+              "observations": [
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "created_at",
+                  "observed_at": "2026-09-01T04:03:17.673709Z",
+                  "source_field": "activity.createdAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "repository_updated_at",
+                  "observed_at": "2026-09-01T04:03:17.673709Z",
+                  "source_field": "activity.updatedAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "pushed_at",
+                  "observed_at": "2026-09-01T04:03:17.673709Z",
+                  "source_field": "activity.pushedAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_commit_at",
+                  "observed_at": "2026-09-01T04:03:19.108828Z",
+                  "source_field": "activity.lastCommitAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_release_at",
+                  "observed_at": "2026-09-01T04:03:22.730644Z",
+                  "source_field": "activity.lastReleaseAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_synced_at",
+                  "observed_at": "2026-09-01T04:03:17.673709Z",
+                  "source_field": "activity.lastSyncedAt",
+                  "verification": "derived_reviewed"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "observed_at",
+                  "observed_at": "2026-09-01T04:03:17.673709Z",
+                  "source_field": "activity.observedAt",
+                  "verification": "source_reported"
+                }
+              ],
+              "observed_at": "2026-09-01T04:03:17.673709Z",
+              "pushed_at": "2026-09-01T02:54:11Z",
+              "repository_updated_at": "2026-09-01T03:42:57Z",
+              "schema_version": "2.0.0",
+              "status": "pending_enrichment"
+            },
+            "advisory": {
+              "adoption_mode": null,
+              "adoption_status": null,
+              "avoid_if": [],
+              "best_for": [],
+              "compatibility": [],
+              "complexity": null,
+              "eligibility": {
+                "catalog_acceptance_changed": false,
+                "data_gate_passed": false,
+                "evidence_completeness": 77.42,
+                "minimum_stars": 500,
+                "reasons": [
+                  "mandatory_fields_unresolved"
+                ],
+                "replacement_required": false
+              },
+              "gaps": [],
+              "integration_surface": null,
+              "project_stages": [],
+              "recommendation_reason": null,
+              "recommendation_status": null,
+              "tradeoffs": [],
+              "use_cases": []
+            },
+            "catalog": {
+              "evidence_stage": "identity_validated",
+              "membership_cohort": "baseline",
+              "review_status": "legacy_migrated",
+              "status": "accepted",
+              "status_source": "catalog_snapshot"
+            },
+            "classifications": [
+              {
+                "category_id": "erp_business_suites",
+                "kind": "category",
+                "parent_id": "accounting_finance_erp",
+                "placement_source": "cat08-canonical-reconciliation",
+                "role": "primary",
+                "title": "ERP"
+              }
+            ],
+            "corpus_kind": "catalog_snapshot",
+            "delivery": {
+              "deployment": {
+                "rationale": null,
+                "values": []
+              },
+              "difficulty": "intermediate",
+              "form": null,
+              "hosting": null,
+              "lifecycle": null,
+              "maturity": null,
+              "persona": "vibe_coder",
+              "requires_server": null
+            },
+            "descriptions": {
+              "catalog": null,
+              "catalog_origin": null,
+              "upstream": "Free and Open Source Enterprise Resource Planning (ERP)"
+            },
+            "evidence": [
+              {
+                "evidence_id": "ev-catalog-card",
+                "fields": [
+                  "/identity",
+                  "/catalog",
+                  "/descriptions",
+                  "/classifications",
+                  "/delivery",
+                  "/advisory",
+                  "/provenance"
+                ],
+                "observed_at": "2026-09-01T04:03:17.673709Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/1864233",
+                "verification": "derived_reviewed"
+              },
+              {
+                "evidence_id": "ev-catalog-repository",
+                "fields": [
+                  "/repository",
+                  "/activity"
+                ],
+                "observed_at": "2026-09-01T04:03:17.673709Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/1864233",
+                "verification": "source_reported"
+              }
+            ],
+            "identity": {
+              "catalog_record_id": "gh-pending:frappe/erpnext",
+              "full_name": "frappe/erpnext",
+              "full_name_aliases": [],
+              "github_repository_id": 1864233,
+              "identity_status": "resolved",
+              "merged_catalog_record_ids": [],
+              "url": "https://github.com/frappe/erpnext"
+            },
+            "provenance": {
+              "frozen_pins": {
+                "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                "field_contract_sha256": "9c0d6fd6e12ef42a37e26d8607405a7cbafdf1b7a633c8f8b53da159eaa7f456",
+                "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+              },
+              "sources": [
+                {
+                  "observed_at": "2026-09-01T04:03:17.673709Z",
+                  "source_id": "src-catalog-snapshot",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/1864233",
+                  "verification": "derived_reviewed"
+                }
+              ]
+            },
+            "repository": {
+              "archived": false,
+              "availability": "available",
+              "default_branch": "develop",
+              "disabled": false,
+              "forks": 12661,
+              "homepage": "https://frappe.io/erpnext",
+              "is_fork": false,
+              "languages": [
+                {
+                  "name": "Python",
+                  "scope": "primary"
+                },
+                {
+                  "name": "JavaScript",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "TypeScript",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "HTML",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "SCSS",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "CSS",
+                  "scope": "secondary"
+                }
+              ],
+              "license": {
+                "confidence": "source_reported",
+                "name": "GNU General Public License v3.0",
+                "source": "legacy",
+                "spdx": "GPL-3.0"
+              },
+              "size_kb": 1879883,
+              "stack": [
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "technology": "Python"
+                }
+              ],
+              "stars": 34909,
+              "topics": [
+                "accounting",
+                "asset-management",
+                "crm",
+                "distribution",
+                "erp",
+                "erpnext",
+                "frappe",
+                "healthcare",
+                "hrms",
+                "manufacturing",
+                "point-of-sale",
+                "procurement",
+                "project-management",
+                "python",
+                "retail",
+                "support"
+              ],
+              "visibility": "public",
+              "watchers": 679,
+              "watchers_scope": "subscribers_count"
+            },
+            "schema_version": "2.0.0"
+          },
+          "retrieval_rank": 4,
+          "eligibility": {
+            "schema_version": "2.1.0",
+            "github_repository_id": 1864233,
+            "query_id": "request-338706374840f791a46fefca",
+            "status": "reference_only",
+            "checks": [
+              {
+                "field": "availability",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "archived",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "advisory_evidence",
+                "outcome": "unknown",
+                "evidence_refs": [
+                  "ev-catalog-card"
+                ]
+              }
+            ],
+            "reason_codes": [
+              "mandatory_fact_unknown"
+            ],
+            "required_verifications": [
+              "Verify the advisory fit fields against source-backed public evidence."
+            ]
+          },
+          "rrf_score": 0.015625,
+          "matched_fields": [
+            "upstream_description",
+            "topics",
+            "category_labels"
+          ]
+        },
+        {
+          "card": {
+            "activity": {
+              "created_at": "2020-10-17T22:38:36Z",
+              "last_commit_at": "2026-08-14T23:02:15Z",
+              "last_commit_branch": "master",
+              "last_commit_sha": "e935dec13cf8b6082a7e7fc4736669e5151a80a3",
+              "last_release_at": "2026-03-16T19:17:57Z",
+              "last_synced_at": "2026-08-11T09:59:37Z",
+              "observations": [
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "created_at",
+                  "observed_at": "2026-09-01T04:06:11.938140Z",
+                  "source_field": "activity.createdAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "repository_updated_at",
+                  "observed_at": "2026-09-01T04:06:11.938140Z",
+                  "source_field": "activity.updatedAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "pushed_at",
+                  "observed_at": "2026-09-01T04:06:11.938140Z",
+                  "source_field": "activity.pushedAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_commit_at",
+                  "observed_at": "2026-09-01T04:06:13.297300Z",
+                  "source_field": "activity.lastCommitAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_release_at",
+                  "observed_at": "2026-09-01T04:06:15.672529Z",
+                  "source_field": "activity.lastReleaseAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_synced_at",
+                  "observed_at": "2026-09-01T04:06:11.938140Z",
+                  "source_field": "activity.lastSyncedAt",
+                  "verification": "derived_reviewed"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "observed_at",
+                  "observed_at": "2026-09-01T04:06:11.938140Z",
+                  "source_field": "activity.observedAt",
+                  "verification": "source_reported"
+                }
+              ],
+              "observed_at": "2026-09-01T04:06:11.938140Z",
+              "pushed_at": "2026-08-14T23:02:15Z",
+              "repository_updated_at": "2026-09-01T03:01:40Z",
+              "schema_version": "2.0.0",
+              "status": "pending_enrichment"
+            },
+            "advisory": {
+              "adoption_mode": null,
+              "adoption_status": null,
+              "avoid_if": [],
+              "best_for": [],
+              "compatibility": [],
+              "complexity": null,
+              "eligibility": {
+                "catalog_acceptance_changed": false,
+                "data_gate_passed": false,
+                "evidence_completeness": 77.42,
+                "minimum_stars": 500,
+                "reasons": [
+                  "mandatory_fields_unresolved"
+                ],
+                "replacement_required": false
+              },
+              "gaps": [],
+              "integration_surface": null,
+              "project_stages": [],
+              "recommendation_reason": null,
+              "recommendation_status": null,
+              "tradeoffs": [],
+              "use_cases": []
+            },
+            "catalog": {
+              "evidence_stage": "identity_validated",
+              "membership_cohort": "baseline",
+              "review_status": "legacy_migrated",
+              "status": "accepted",
+              "status_source": "catalog_snapshot"
+            },
+            "classifications": [
+              {
+                "category_id": "erp_business_suites",
+                "kind": "category",
+                "parent_id": "accounting_finance_erp",
+                "placement_source": "cat08-canonical-reconciliation",
+                "role": "primary",
+                "title": "ERP"
+              }
+            ],
+            "corpus_kind": "catalog_snapshot",
+            "delivery": {
+              "deployment": {
+                "rationale": null,
+                "values": []
+              },
+              "difficulty": "intermediate",
+              "form": null,
+              "hosting": null,
+              "lifecycle": null,
+              "maturity": null,
+              "persona": "both",
+              "requires_server": null
+            },
+            "descriptions": {
+              "catalog": null,
+              "catalog_origin": null,
+              "upstream": "Free Open Source ERP CRM Software Accounting Invoicing | Node Js React"
+            },
+            "evidence": [
+              {
+                "evidence_id": "ev-catalog-card",
+                "fields": [
+                  "/identity",
+                  "/catalog",
+                  "/descriptions",
+                  "/classifications",
+                  "/delivery",
+                  "/advisory",
+                  "/provenance"
+                ],
+                "observed_at": "2026-09-01T04:06:11.938140Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/304981340",
+                "verification": "derived_reviewed"
+              },
+              {
+                "evidence_id": "ev-catalog-repository",
+                "fields": [
+                  "/repository",
+                  "/activity"
+                ],
+                "observed_at": "2026-09-01T04:06:11.938140Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/304981340",
+                "verification": "source_reported"
+              }
+            ],
+            "identity": {
+              "catalog_record_id": "gh-pending:idurar/idurar-erp-crm",
+              "full_name": "idurar/idurar-erp-crm",
+              "full_name_aliases": [],
+              "github_repository_id": 304981340,
+              "identity_status": "resolved",
+              "merged_catalog_record_ids": [],
+              "url": "https://github.com/idurar/idurar-erp-crm"
+            },
+            "provenance": {
+              "frozen_pins": {
+                "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                "field_contract_sha256": "9c0d6fd6e12ef42a37e26d8607405a7cbafdf1b7a633c8f8b53da159eaa7f456",
+                "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+              },
+              "sources": [
+                {
+                  "observed_at": "2026-09-01T04:06:11.938140Z",
+                  "source_id": "src-catalog-snapshot",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/304981340",
+                  "verification": "derived_reviewed"
+                }
+              ]
+            },
+            "repository": {
+              "archived": false,
+              "availability": "available",
+              "default_branch": "master",
+              "disabled": false,
+              "forks": 3127,
+              "homepage": "https://cloud.idurarapp.com",
+              "is_fork": false,
+              "languages": [
+                {
+                  "name": "JavaScript",
+                  "scope": "primary"
+                },
+                {
+                  "name": "Pug",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "CSS",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "HTML",
+                  "scope": "secondary"
+                }
+              ],
+              "license": {
+                "confidence": "source_reported",
+                "name": "GNU Affero General Public License v3.0",
+                "source": "legacy",
+                "spdx": "AGPL-3.0"
+              },
+              "size_kb": 23369,
+              "stack": [
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "technology": "JavaScript"
+                }
+              ],
+              "stars": 8415,
+              "topics": [
+                "accounting",
+                "accounting-software",
+                "crm",
+                "crm-platform",
+                "crm-system",
+                "e-commerce",
+                "ecommerce",
+                "erp",
+                "erp-application",
+                "erp-software",
+                "invoice",
+                "invoice-software",
+                "invoicing",
+                "invoicing-application",
+                "invoicing-software",
+                "mern-project",
+                "mern-stack",
+                "mongoose",
+                "open-source-crm",
+                "open-source-erp"
+              ],
+              "visibility": "public",
+              "watchers": 77,
+              "watchers_scope": "subscribers_count"
+            },
+            "schema_version": "2.0.0"
+          },
+          "retrieval_rank": 5,
+          "eligibility": {
+            "schema_version": "2.1.0",
+            "github_repository_id": 304981340,
+            "query_id": "request-338706374840f791a46fefca",
+            "status": "reference_only",
+            "checks": [
+              {
+                "field": "availability",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "archived",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "advisory_evidence",
+                "outcome": "unknown",
+                "evidence_refs": [
+                  "ev-catalog-card"
+                ]
+              }
+            ],
+            "reason_codes": [
+              "mandatory_fact_unknown"
+            ],
+            "required_verifications": [
+              "Verify the advisory fit fields against source-backed public evidence."
+            ]
+          },
+          "rrf_score": 0.015384615384615385,
+          "matched_fields": [
+            "full_name",
+            "upstream_description",
+            "topics",
+            "category_labels"
+          ]
+        },
+        {
+          "card": {
+            "activity": {
+              "created_at": "2011-06-26T21:55:03Z",
+              "last_commit_at": "2026-08-31T20:18:07Z",
+              "last_commit_branch": "develop",
+              "last_commit_sha": "d61fb44e2ba6298c32869a72cb3055a0261dde76",
+              "last_release_at": "2026-08-20T19:49:15Z",
+              "last_synced_at": "2026-08-11T09:59:37Z",
+              "observations": [
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "created_at",
+                  "observed_at": "2026-09-01T04:01:41.426967Z",
+                  "source_field": "activity.createdAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "repository_updated_at",
+                  "observed_at": "2026-09-01T04:01:41.426967Z",
+                  "source_field": "activity.updatedAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "pushed_at",
+                  "observed_at": "2026-09-01T04:01:41.426967Z",
+                  "source_field": "activity.pushedAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_commit_at",
+                  "observed_at": "2026-09-01T04:01:42.818901Z",
+                  "source_field": "activity.lastCommitAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_release_at",
+                  "observed_at": "2026-09-01T04:01:45.587019Z",
+                  "source_field": "activity.lastReleaseAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_synced_at",
+                  "observed_at": "2026-09-01T04:01:41.426967Z",
+                  "source_field": "activity.lastSyncedAt",
+                  "verification": "derived_reviewed"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "observed_at",
+                  "observed_at": "2026-09-01T04:01:41.426967Z",
+                  "source_field": "activity.observedAt",
+                  "verification": "source_reported"
+                }
+              ],
+              "observed_at": "2026-09-01T04:01:41.426967Z",
+              "pushed_at": "2026-08-31T23:23:11Z",
+              "repository_updated_at": "2026-09-01T01:21:09Z",
+              "schema_version": "2.0.0",
+              "status": "pending_enrichment"
+            },
+            "advisory": {
+              "adoption_mode": null,
+              "adoption_status": null,
+              "avoid_if": [],
+              "best_for": [],
+              "compatibility": [],
+              "complexity": null,
+              "eligibility": {
+                "catalog_acceptance_changed": false,
+                "data_gate_passed": false,
+                "evidence_completeness": 77.42,
+                "minimum_stars": 500,
+                "reasons": [
+                  "mandatory_fields_unresolved"
+                ],
+                "replacement_required": false
+              },
+              "gaps": [],
+              "integration_surface": null,
+              "project_stages": [],
+              "recommendation_reason": null,
+              "recommendation_status": null,
+              "tradeoffs": [],
+              "use_cases": []
+            },
+            "catalog": {
+              "evidence_stage": "identity_validated",
+              "membership_cohort": "baseline",
+              "review_status": "legacy_migrated",
+              "status": "accepted",
+              "status_source": "catalog_snapshot"
+            },
+            "classifications": [
+              {
+                "category_id": "erp_business_suites",
+                "kind": "category",
+                "parent_id": "accounting_finance_erp",
+                "placement_source": "cat08-canonical-reconciliation",
+                "role": "primary",
+                "title": "ERP"
+              }
+            ],
+            "corpus_kind": "catalog_snapshot",
+            "delivery": {
+              "deployment": {
+                "rationale": null,
+                "values": []
+              },
+              "difficulty": "intermediate",
+              "form": null,
+              "hosting": null,
+              "lifecycle": null,
+              "maturity": null,
+              "persona": "both",
+              "requires_server": null
+            },
+            "descriptions": {
+              "catalog": null,
+              "catalog_origin": null,
+              "upstream": "Dolibarr ERP CRM is a modern software package to manage your company or foundation's activity (contacts, suppliers, invoices, orders, sto…"
+            },
+            "evidence": [
+              {
+                "evidence_id": "ev-catalog-card",
+                "fields": [
+                  "/identity",
+                  "/catalog",
+                  "/descriptions",
+                  "/classifications",
+                  "/delivery",
+                  "/advisory",
+                  "/provenance"
+                ],
+                "observed_at": "2026-09-01T04:01:41.426967Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/1957456",
+                "verification": "derived_reviewed"
+              },
+              {
+                "evidence_id": "ev-catalog-repository",
+                "fields": [
+                  "/repository",
+                  "/activity"
+                ],
+                "observed_at": "2026-09-01T04:01:41.426967Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/1957456",
+                "verification": "source_reported"
+              }
+            ],
+            "identity": {
+              "catalog_record_id": "gh-pending:dolibarr/dolibarr",
+              "full_name": "Dolibarr/dolibarr",
+              "full_name_aliases": [],
+              "github_repository_id": 1957456,
+              "identity_status": "resolved",
+              "merged_catalog_record_ids": [],
+              "url": "https://github.com/Dolibarr/dolibarr"
+            },
+            "provenance": {
+              "frozen_pins": {
+                "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                "field_contract_sha256": "9c0d6fd6e12ef42a37e26d8607405a7cbafdf1b7a633c8f8b53da159eaa7f456",
+                "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+              },
+              "sources": [
+                {
+                  "observed_at": "2026-09-01T04:01:41.426967Z",
+                  "source_id": "src-catalog-snapshot",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/1957456",
+                  "verification": "derived_reviewed"
+                }
+              ]
+            },
+            "repository": {
+              "archived": false,
+              "availability": "available",
+              "default_branch": "develop",
+              "disabled": false,
+              "forks": 3492,
+              "homepage": "https://www.dolibarr.org",
+              "is_fork": false,
+              "languages": [
+                {
+                  "name": "PHP",
+                  "scope": "primary"
+                },
+                {
+                  "name": "JavaScript",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "CSS",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "SCSS",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Less",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Shell",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Inno Setup",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Hurl",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "PLpgSQL",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "HTML",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Perl",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Promela",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Gherkin",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Makefile",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "C++",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Batchfile",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Python",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Dockerfile",
+                  "scope": "secondary"
+                }
+              ],
+              "license": {
+                "confidence": "source_reported",
+                "name": "GNU General Public License v3.0",
+                "source": "legacy",
+                "spdx": "GPL-3.0"
+              },
+              "size_kb": 1729593,
+              "stack": [
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "technology": "PHP"
+                }
+              ],
+              "stars": 7233,
+              "topics": [
+                "accounting",
+                "agenda",
+                "crm",
+                "erp",
+                "hacktoberfest",
+                "human-resource-managment",
+                "invoice",
+                "invoices",
+                "invoicing",
+                "mysql",
+                "orders",
+                "php",
+                "postgresql",
+                "proposal",
+                "purchase",
+                "quotations",
+                "sales",
+                "stock",
+                "stocks",
+                "suppliers"
+              ],
+              "visibility": "public",
+              "watchers": 272,
+              "watchers_scope": "subscribers_count"
+            },
+            "schema_version": "2.0.0"
+          },
+          "retrieval_rank": 6,
+          "eligibility": {
+            "schema_version": "2.1.0",
+            "github_repository_id": 1957456,
+            "query_id": "request-338706374840f791a46fefca",
+            "status": "reference_only",
+            "checks": [
+              {
+                "field": "availability",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "archived",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "advisory_evidence",
+                "outcome": "unknown",
+                "evidence_refs": [
+                  "ev-catalog-card"
+                ]
+              }
+            ],
+            "reason_codes": [
+              "mandatory_fact_unknown"
+            ],
+            "required_verifications": [
+              "Verify the advisory fit fields against source-backed public evidence."
+            ]
+          },
+          "rrf_score": 0.015151515151515152,
+          "matched_fields": [
+            "upstream_description",
+            "topics",
+            "category_labels"
+          ]
+        }
+      ],
+      "exclusions": [],
+      "truncated": false,
+      "reason_codes": []
+    },
+    "public_observations": [],
+    "observations_persisted": false,
+    "raw_ranked_ids": [
+      19745004,
+      189829392,
+      920995405,
+      1864233,
+      304981340,
+      1957456
+    ],
+    "selected_ids": [
+      19745004,
+      189829392,
+      920995405,
+      1864233,
+      304981340,
+      1957456
+    ]
+  },
+  "native_raw_result": {
+    "schema_version": "2.1.0",
+    "run_id": "326804d6-0e8d-546b-b122-058ce6967064",
+    "query_id": "request-338706374840f791a46fefca",
+    "query_sha256": "b1479f9c17f33a594fed70b84736ed78e4e1b6b631dbfed350df29cc0200f368",
+    "brief_version": 1,
+    "source_mode": "catalog_only",
+    "retrieval_engine": "sqlite_fts5",
+    "pins": {
+      "activity_schema_version": "2.0.0",
+      "card_schema_version": "2.0.0",
+      "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+      "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+      "corpus_kind": "catalog_snapshot",
+      "index_format_version": 3,
+      "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+      "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+      "retrieval_policy_version": "2.1.0",
+      "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+      "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+    },
+    "status": "ok",
+    "executed_variants": 1,
+    "retrieved_hits": 6,
+    "candidates": [
+      {
+        "github_repository_id": 19745004,
+        "rank": 1,
+        "rrf_score": 0.01639344262295082,
+        "variant_ranks": [
+          {
+            "variant_id": "q1",
+            "rank": 1,
+            "bm25": -17.61698051784043
+          }
+        ],
+        "matched_fields": [
+          "upstream_description",
+          "topics",
+          "category_labels"
+        ],
+        "missing_facts": []
+      },
+      {
+        "github_repository_id": 189829392,
+        "rank": 2,
+        "rrf_score": 0.016129032258064516,
+        "variant_ranks": [
+          {
+            "variant_id": "q1",
+            "rank": 2,
+            "bm25": -15.702397337208591
+          }
+        ],
+        "matched_fields": [
+          "upstream_description",
+          "topics",
+          "category_labels"
+        ],
+        "missing_facts": []
+      },
+      {
+        "github_repository_id": 920995405,
+        "rank": 3,
+        "rrf_score": 0.015873015873015872,
+        "variant_ranks": [
+          {
+            "variant_id": "q1",
+            "rank": 3,
+            "bm25": -13.044499759247156
+          }
+        ],
+        "matched_fields": [
+          "upstream_description",
+          "topics",
+          "category_labels"
+        ],
+        "missing_facts": []
+      },
+      {
+        "github_repository_id": 1864233,
+        "rank": 4,
+        "rrf_score": 0.015625,
+        "variant_ranks": [
+          {
+            "variant_id": "q1",
+            "rank": 4,
+            "bm25": -12.72137086599026
+          }
+        ],
+        "matched_fields": [
+          "upstream_description",
+          "topics",
+          "category_labels"
+        ],
+        "missing_facts": []
+      },
+      {
+        "github_repository_id": 304981340,
+        "rank": 5,
+        "rrf_score": 0.015384615384615385,
+        "variant_ranks": [
+          {
+            "variant_id": "q1",
+            "rank": 5,
+            "bm25": -11.911105552754703
+          }
+        ],
+        "matched_fields": [
+          "full_name",
+          "upstream_description",
+          "topics",
+          "category_labels"
+        ],
+        "missing_facts": []
+      },
+      {
+        "github_repository_id": 1957456,
+        "rank": 6,
+        "rrf_score": 0.015151515151515152,
+        "variant_ranks": [
+          {
+            "variant_id": "q1",
+            "rank": 6,
+            "bm25": -11.407599310042041
+          }
+        ],
+        "matched_fields": [
+          "upstream_description",
+          "topics",
+          "category_labels"
+        ],
+        "missing_facts": []
+      }
+    ],
+    "truncated": false,
+    "reason_codes": []
+  },
+  "native_trace": {
+    "prepare_ms": 593.1214,
+    "gates": {
+      "one_count": true,
+      "one_ranked_match": true,
+      "no_sql_writes": true,
+      "immutable_connections": true
+    },
+    "connections": [
+      {
+        "database": "file:///C:/Users/user/Desktop/project/github_research/agentic-engineering-catalog/plugins/myai-stackguide/assets/catalog.search.sqlite?mode=ro&immutable=1",
+        "uri": true
+      },
+      {
+        "database": "file:///C:/Users/user/Desktop/project/github_research/agentic-engineering-catalog/plugins/myai-stackguide/assets/catalog.search.sqlite?mode=ro&immutable=1",
+        "uri": true
+      }
+    ],
+    "sql_trace": [
+      {
+        "connection": 0,
+        "sql": "SELECT 1 FROM taxonomy_route_registry WHERE route_id = 'erp_business_suites' LIMIT 1"
+      },
+      {
+        "connection": 0,
+        "sql": "SELECT k, v FROM 'main'.'repository_fts_config'"
+      },
+      {
+        "connection": 0,
+        "sql": "SELECT count(*) FROM repository_fts WHERE repository_fts MATCH '\"ERP\" OR \"счета\" OR \"управление\"' AND EXISTS (SELECT 1 FROM repository_classifications rc JOIN taxonomy_route_registry tr ON tr.match_category_id = rc.category_id WHERE rc.github_repository_id = repository_fts.rowid AND tr.route_id = 'erp_business_suites')"
+      },
+      {
+        "connection": 0,
+        "sql": "-- PRAGMA 'main'.data_version"
+      },
+      {
+        "connection": 0,
+        "sql": "-- PRAGMA 'main'.data_version"
+      },
+      {
+        "connection": 0,
+        "sql": "-- SELECT k, v FROM 'main'.'repository_fts_config'"
+      },
+      {
+        "connection": 0,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 0,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 0,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 0,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 0,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 0,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "SELECT 1 FROM taxonomy_route_registry WHERE route_id = 'erp_business_suites' LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "SELECT k, v FROM 'main'.'repository_fts_config'"
+      },
+      {
+        "connection": 1,
+        "sql": "SELECT repository_fts.rowid AS github_repository_id, bm25(repository_fts, 0.25, 0.25, 3.0, 3.0, 1.0, 0.25, 1.0, 1.0, 1.0) AS score, highlight(repository_fts, 0, char(1), char(2)) AS h0, highlight(repository_fts, 1, char(1), char(2)) AS h1, highlight(repository_fts, 2, char(1), char(2)) AS h2, highlight(repository_fts, 3, char(1), char(2)) AS h3, highlight(repository_fts, 4, char(1), char(2)) AS h4, highlight(repository_fts, 5, char(1), char(2)) AS h5, highlight(repository_fts, 6, char(1), char(2)) AS h6, highlight(repository_fts, 7, char(1), char(2)) AS h7, highlight(repository_fts, 8, char(1), char(2)) AS h8 FROM repository_fts WHERE repository_fts MATCH '\"ERP\" OR \"счета\" OR \"управление\" OR \"business\" OR \"suites\"' AND EXISTS (SELECT 1 FROM repository_classifications AS rc JOIN taxonomy_route_registry AS tr ON tr.match_category_id = rc.category_id WHERE rc.github_repository_id = repository_fts.rowid AND tr.route_id = 'erp_business_suites') ORDER BY score ASC, github_repository_id ASC LIMIT 150"
+      },
+      {
+        "connection": 1,
+        "sql": "-- PRAGMA 'main'.data_version"
+      },
+      {
+        "connection": 1,
+        "sql": "-- PRAGMA 'main'.data_version"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT k, v FROM 'main'.'repository_fts_config'"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT sz FROM 'main'.'repository_fts_docsize' WHERE id=?"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT T.'github_repository_id', T.'full_name', T.'full_name_aliases', T.'upstream_description', T.'catalog_description', T.'topics', T.'category_labels', T.'use_cases', T.'integration_surface', T.'best_for' FROM 'main'.'repository_search_rows' T WHERE T.'github_repository_id'=?"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT sz FROM 'main'.'repository_fts_docsize' WHERE id=?"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT T.'github_repository_id', T.'full_name', T.'full_name_aliases', T.'upstream_description', T.'catalog_description', T.'topics', T.'category_labels', T.'use_cases', T.'integration_surface', T.'best_for' FROM 'main'.'repository_search_rows' T WHERE T.'github_repository_id'=?"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT sz FROM 'main'.'repository_fts_docsize' WHERE id=?"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT T.'github_repository_id', T.'full_name', T.'full_name_aliases', T.'upstream_description', T.'catalog_description', T.'topics', T.'category_labels', T.'use_cases', T.'integration_surface', T.'best_for' FROM 'main'.'repository_search_rows' T WHERE T.'github_repository_id'=?"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT sz FROM 'main'.'repository_fts_docsize' WHERE id=?"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT T.'github_repository_id', T.'full_name', T.'full_name_aliases', T.'upstream_description', T.'catalog_description', T.'topics', T.'category_labels', T.'use_cases', T.'integration_surface', T.'best_for' FROM 'main'.'repository_search_rows' T WHERE T.'github_repository_id'=?"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT sz FROM 'main'.'repository_fts_docsize' WHERE id=?"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT T.'github_repository_id', T.'full_name', T.'full_name_aliases', T.'upstream_description', T.'catalog_description', T.'topics', T.'category_labels', T.'use_cases', T.'integration_surface', T.'best_for' FROM 'main'.'repository_search_rows' T WHERE T.'github_repository_id'=?"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT sz FROM 'main'.'repository_fts_docsize' WHERE id=?"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT T.'github_repository_id', T.'full_name', T.'full_name_aliases', T.'upstream_description', T.'catalog_description', T.'topics', T.'category_labels', T.'use_cases', T.'integration_surface', T.'best_for' FROM 'main'.'repository_search_rows' T WHERE T.'github_repository_id'=?"
+      }
+    ]
+  },
+  "model_trace": {
+    "command": [
+      "C:\\Users\\user\\AppData\\Roaming\\npm\\codex.cmd",
+      "exec",
+      "--ephemeral",
+      "--sandbox",
+      "read-only",
+      "--json",
+      "--output-schema",
+      "C:\\Users\\user\\Desktop\\project\\github_research\\agentic-engineering-catalog\\evals\\plugin-v1\\results\\cp04-final-host-decision-2026-10-11\\host-order.schema.json",
+      "--output-last-message",
+      "C:\\Users\\user\\Desktop\\project\\github_research\\agentic-engineering-catalog\\evals\\plugin-v1\\results\\cp04-final-host-decision-2026-10-11\\FINAL-HOLD-05\\host.response.json",
+      "-"
+    ],
+    "exit_code": 0,
+    "failure": null,
+    "elapsed_seconds": 18.888703500007978,
+    "model_override": false,
+    "effort_override": false,
+    "model": null,
+    "model_unknown_reason": "CLI events omit actual model identity",
+    "effort": null,
+    "effort_unknown_reason": "Configured inherited effort; actual trace does not attest effective effort",
+    "available_usage": [
+      {
+        "input_tokens": 34051,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 261,
+        "reasoning_output_tokens": 221
+      }
+    ],
+    "usage_unknown_reason": null,
+    "completed_turn": true,
+    "cost": null,
+    "cost_unknown_reason": "CLI does not report billed cost",
+    "remote_peak_rss": null,
+    "remote_rss_unknown_reason": "Unavailable from host CLI",
+    "tool_items": [],
+    "event_parse_errors": [],
+    "prompt_sha256": "82aa008a8f49ced82e425fc721a57b91da379b730f3c6621057780e5c6528f50",
+    "preview_sha256": "42b15c6e3356814d32e0d776211573b9a756aa615759bbc8a0292f2bec679250",
+    "controlled_prompt_and_schema_bytes": 9910,
+    "events_sha256": "4da4734820bbc6092e0e3d2c57faec53b8c00c04b4aa30169dc38167361a7dd9"
+  },
+  "protocol_gates": {
+    "complete_permutation": true,
+    "receipt_order_exact": true,
+    "complete_pack_accounting": true,
+    "detailed_card_cap": true,
+    "shared_budget": true,
+    "receipt_preview_binding": true,
+    "pack_receipt_binding": true,
+    "native_rank_source_card_evidence": true,
+    "guard_pack_order": true,
+    "identical_bindings": true
+  },
+  "shared_ledger_bytes": 51720,
+  "local_finalize_trace": {
+    "finalize_ms": 683.1931,
+    "sql_trace": [],
+    "no_match_or_mutation": true
+  },
+  "local_prepare_ms": 593.1214,
+  "local_finalize_ms": 683.1931,
+  "helper_stage_timings": {
+    "prepare_count_ms": 11.36689999839291,
+    "retrieval_ms": 10.173200018471107,
+    "local_preview_ms": 571.2819999898784
+  },
+  "byte_accounting": {
+    "evidence_cap": 163840,
+    "input_cap": 204800,
+    "input_bytes": 2193,
+    "wrapper_bytes": 1091
+  },
+  "independent_native_control_assembly_ms": 10.129,
+  "total_local_work_ms": 1276.3145,
+  "full_path_seconds": 20.22035839999444,
+  "original45_literal_exact": true,
+  "prior_native_order_exact": true,
+  "prior_native_metric_exact": true,
+  "prior_native_query_exact": true,
+  "prior_native_pack_exact": true,
+  "exposure": "exposed45_regression",
+  "human_acceptance": false
+}

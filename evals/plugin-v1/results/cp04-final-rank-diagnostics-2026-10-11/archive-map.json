@@ -1,0 +1,29 @@
+{
+  "evidence_kind": "Exposed SQL-override diagnosis, not pin-valid production captures",
+  "archives": [
+    {
+      "original_path": "work/cp04-final/rank-planner-diagnostic.json",
+      "archive_path": "evals/plugin-v1/results/cp04-final-rank-diagnostics-2026-10-11/rank-planner-diagnostic.json",
+      "sha256": "4e6f04110f74abe615c75aa746bb5c6bf4c2fc71660cc470a3aa566eb20082d6"
+    },
+    {
+      "original_path": "work/cp04-final/rank-weight-diagnostic.json",
+      "archive_path": "evals/plugin-v1/results/cp04-final-rank-diagnostics-2026-10-11/rank-weight-diagnostic.json",
+      "sha256": "8814a62bdcb1bf7a53cffe34b0f51783c7aacee6747244ab583e48bde320d74b"
+    },
+    {
+      "original_path": "work/cp04-final/rank-conditional-coverage-diagnostic.json",
+      "archive_path": "evals/plugin-v1/results/cp04-final-rank-diagnostics-2026-10-11/rank-conditional-coverage-diagnostic.json",
+      "sha256": "9b014372e3275e7e960618889ded211650a40232ff16dcbb92a4de7d0d346bc2"
+    },
+    {
+      "original_path": "work/cp04-final/rank-conditional-coverage-replay.json",
+      "archive_path": "evals/plugin-v1/results/cp04-final-rank-diagnostics-2026-10-11/rank-conditional-coverage-replay.json",
+      "sha256": "03f0d73fd153632de1d7265d37207b3e7705ec3978ac263ac9dd3125cd6116ae"
+    }
+  ],
+  "portable_replay_source": "evals/plugin-v1/replay_final_rank_diagnostics.py",
+  "portable_source_sha256": "19bdc2769f5829d4b47e610b06257d98e6df7bb63771d18f4a140934af0a5269",
+  "body_change": "Only profile receipt location moved from ignored work to versioned archive; output remains explicit CLI argument",
+  "human_acceptance": false
+}

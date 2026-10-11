@@ -1,0 +1,60 @@
+{
+  "evidence_kind": "single_exposed_goal_agent_model_order_feasibility",
+  "activation": false,
+  "promotion_ready": false,
+  "human_acceptance": false,
+  "native_scores_or_order_modified": false,
+  "source_hashes": {
+    "work/cp04-final/semantic-feasibility-input.json": "b55cd6f84ff9ee3a0a9daab6aed9446125a5cf2ae495a7b0c73e467370f102b1",
+    "work/cp04-final/semantic-feasibility-output.json": "a666ab4a471a06ae34641680e7204bdbbab6176aba4aa9cfb5a4e97aff25e091",
+    "evals/plugin-v1/final-quality-prospective-2026-10-11.json": "37041760032aea200987092c97b49066e824d63cb208d63c3556791257e4833f",
+    "work/cp04-final/score-semantic-feasibility.py": "3b582d7751178751a7db68a9f6b90de174ddb99950649de2fc7125f29c03e222"
+  },
+  "preview_bytes": 152255,
+  "candidate_order": [
+    650344440,
+    464415161,
+    883769819,
+    666069735,
+    516192901,
+    1153120067,
+    1203556545,
+    611669523,
+    6325420,
+    17388759,
+    11901762,
+    932308018,
+    978384239,
+    1034520943,
+    621902641,
+    114730000,
+    7239495,
+    764642350,
+    493550477,
+    374072543,
+    18471236,
+    175471189,
+    139323243,
+    27529089,
+    19971572,
+    22337952,
+    919664598,
+    373845609
+  ],
+  "experimental_ranking": {
+    "valid": true,
+    "reason": null,
+    "ranking": {
+      "recall_at_k": 0.6,
+      "ndcg_at_k": 0.9268953912868781,
+      "relevant_count": 20
+    },
+    "unjudged_ids": []
+  },
+  "limits": [
+    "One exposed goal only; no regression, fresh held-out, runtime, latency or human verdict",
+    "Model input omitted oracle judgments; root computes metrics after the proposal",
+    "Development subagent execution is not an activated shipped host selection path",
+    "New decision-order semantics require a reviewed versioned contract before production"
+  ]
+}

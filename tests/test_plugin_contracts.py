@@ -112,6 +112,11 @@ def add_derived_runtime_positives():
 
 add_derived_runtime_positives()
 POLICY = load('specs/retrieval/retrieval-policy.json')
+CURRENT_POLICY_SOURCE = 'specs/retrieval/retrieval-policy.json'
+FIXTURE_POLICY_SOURCE = 'tests/fixtures/plugin_retrieval_policy.json'
+# Independent pin for the retained synthetic C8/C9 snapshot, never a runtime
+# policy fallback. The exact old bytes survive current alias-policy revisions.
+FIXTURE_POLICY_SHA256 = 'ff6e8444c4664492bb099f0819b2d284aa5c28f0d44c7a745c63f434c3489dbf'
 SCAN_POLICY = load('specs/scanner/scan-policy.yaml')
 TAXONOMY = load('specs/catalog/taxonomy.yaml')
 SCHEMAS = {path: load('specs/' + path) for path in POSITIVE}
@@ -228,8 +233,18 @@ def check_summary(summary):
                 'unscanned source observation')
 
 
-def check_query(query):
-    require(query['policy_sha256'] == file_digest('specs/retrieval/retrieval-policy.json'), 'query policy digest')
+def query_policy(policy_source):
+    """Select one declared test source, with no payload-selected hash fallback."""
+    require(policy_source in (CURRENT_POLICY_SOURCE, FIXTURE_POLICY_SOURCE), 'undeclared query policy source')
+    if policy_source == FIXTURE_POLICY_SOURCE:
+        require(file_digest(policy_source) == FIXTURE_POLICY_SHA256, 'frozen fixture policy digest')
+    return load(policy_source)
+
+
+def check_query(query, *, policy_source=CURRENT_POLICY_SOURCE):
+    """Current owning source is the default; historical fixtures opt in exactly."""
+    query_policy(policy_source)
+    require(query['policy_sha256'] == file_digest(policy_source), 'query policy digest')
     common = (query['card_schema_version'] == query['activity_schema_version'] == '2.0.0' and
               query['policy_version'] == '2.1.0')
     active = (query['schema_version'] == '2.1.0' and query['index_format_version'] == 3 and
@@ -451,8 +466,9 @@ FAILURES = {'no_match': {'no_hits'}, 'retrieval_unavailable': {'fts5_unavailable
             'index_incompatible': {'index_incompatible'}, 'invalid_query': {'invalid_query'}, 'cancelled': {'cancelled'}}
 
 
-def check_retrieval(result, query, index):
-    check_query(query)
+def check_retrieval(result, query, index, *, policy_source=CURRENT_POLICY_SOURCE):
+    check_query(query, policy_source=policy_source)
+    policy = query_policy(policy_source)
     require(result['query_id'] == query['query_id'] and result['query_sha256'] == digest(query), 'query pairing')
     require(result['brief_version'] == query['brief_version'], 'stale retrieval version')
     if result['pins'] is None:
@@ -477,7 +493,7 @@ def check_retrieval(result, query, index):
         ranks = candidate['variant_ranks']
         unique([item['variant_id'] for item in ranks], 'candidate variant')
         require({item['variant_id'] for item in ranks} <= executed, 'unexecuted variant rank')
-        expected = sum(1 / (POLICY['rank_fusion']['k'] + item['rank']) for item in ranks)
+        expected = sum(1 / (policy['rank_fusion']['k'] + item['rank']) for item in ranks)
         require(math.isclose(candidate['rrf_score'], expected, rel_tol=1e-12), 'RRF score')
         for rank in ranks:
             position = (rank['variant_id'], rank['rank'])
@@ -493,7 +509,12 @@ def check_retrieval(result, query, index):
         require('candidate_budget' in result['reason_codes'], 'missing candidate truncation reason')
 
 
-def check_bundle(state):
+def check_bundle(state, *, policy_source=FIXTURE_POLICY_SOURCE):
+    """Historical synthetic fixture oracle, explicitly using its frozen policy.
+
+    Callers validating current-source examples must select CURRENT_POLICY_SOURCE.
+    This is a test helper, not the production state or retrieval validator.
+    """
     require(not list(byte_violations(SCHEMAS['artifact/project-artifact-state.schema.json'], state)),
             'nested serialized byte budget')
     if state['schema_version'] == '1.1.0':
@@ -535,11 +556,11 @@ def check_bundle(state):
     query = request['query']
     require(request['brief_id'] == brief['brief_id'] and query['brief_version'] == brief['brief_version']
             and query['constraints'] == brief['constraints'], 'query/context pairing')
-    check_query(query)
+    check_query(query, policy_source=policy_source)
     if result is None:
         require(pack is None and memo is None, 'missing retrieval result')
         return
-    check_retrieval(result, query, state['index_manifest'])
+    check_retrieval(result, query, state['index_manifest'], policy_source=policy_source)
     if pack is None:
         require(memo is None, 'missing evidence pack')
         return
@@ -1025,8 +1046,14 @@ class SchemaContracts(unittest.TestCase):
         return self.validator_type(SCHEMAS[path], registry=self.registry, format_checker=self.checker)
 
     def test_all_twenty_six_schemas_preserve_legacy_and_add_workspace_examples(self):
+        # Named outer contracts have separate validators. All other extra
+        # schemas still violate the closed native C8 registry.
         actual = {str(path.relative_to(ROOT / 'specs')).replace('\\', '/')
-                  for path in (ROOT / 'specs').rglob('*.schema.json')}
+                  for path in (ROOT / 'specs').rglob('*.schema.json')
+                  if path not in {
+                      ROOT / 'specs/catalog/capability-enrichment.schema.json',
+                      ROOT / 'specs/retrieval/candidate-decision.schema.json',
+                  }}
         self.assertEqual(actual, set(POSITIVE))
         self.assertEqual(len(actual), 26)
         for path, schema in SCHEMAS.items():
@@ -1240,6 +1267,25 @@ def no_result_state(status, reason):
 
 
 class SemanticContracts(unittest.TestCase):
+    def test_current_query_policy_remains_default_and_rejects_historical_pin(self):
+        query = copy.deepcopy(POSITIVE['retrieval/catalog-query.schema.json'])
+        with self.assertRaisesRegex(ValueError, 'query policy digest'):
+            check_query(query)
+        query['policy_sha256'] = file_digest(CURRENT_POLICY_SOURCE)
+        check_query(query)
+        with self.assertRaisesRegex(ValueError, 'query policy digest'):
+            check_query(query, policy_source=FIXTURE_POLICY_SOURCE)
+
+    def test_frozen_query_policy_is_exact_and_mixed_or_undeclared_sources_fail(self):
+        query = copy.deepcopy(POSITIVE['retrieval/catalog-query.schema.json'])
+        self.assertEqual(file_digest(FIXTURE_POLICY_SOURCE), FIXTURE_POLICY_SHA256)
+        check_query(query, policy_source=FIXTURE_POLICY_SOURCE)
+        with self.assertRaisesRegex(ValueError, 'undeclared query policy source'):
+            check_query(query, policy_source='tests/fixtures/plugin_contracts.json')
+        query['policy_sha256'] = 'f' * 64
+        with self.assertRaisesRegex(ValueError, 'query policy digest'):
+            check_query(query, policy_source=FIXTURE_POLICY_SOURCE)
+
     def test_one_linked_context_to_integration_example(self):
         check_bundle(baseline())
         check_scan(POSITIVE['scanner/scan-report.schema.json'])
@@ -1294,9 +1340,15 @@ class SemanticContracts(unittest.TestCase):
             check_scan(report)
 
     def test_cp08_expanded_mode_limits_are_exact_and_mode_specific(self):
+        # Match the evaluator's closed C8 family, excluding only these named,
+        # separately validated outer contracts; retain the exact 26 contracts.
         actual_schemas = {
             str(path.relative_to(ROOT / 'specs')).replace('\\', '/')
             for path in (ROOT / 'specs').rglob('*.schema.json')
+            if path not in {
+                ROOT / 'specs/catalog/capability-enrichment.schema.json',
+                ROOT / 'specs/retrieval/candidate-decision.schema.json',
+            }
         }
         self.assertEqual(set(POSITIVE), actual_schemas)
         self.assertEqual(len(POSITIVE), 26)
@@ -1443,10 +1495,10 @@ class SemanticContracts(unittest.TestCase):
                     {'variant_id': 'q1', 'rank': rank, 'bm25': -1.0},
                     {'variant_id': 'q2', 'rank': rank, 'bm25': -0.1}],
                 'matched_fields': ['upstream_description'], 'missing_facts': []})
-        check_retrieval(result, query, state['index_manifest'])
+        check_retrieval(result, query, state['index_manifest'], policy_source=FIXTURE_POLICY_SOURCE)
         result['retrieved_hits'] = 149
         with self.assertRaisesRegex(ValueError, 'hit accounting'):
-            check_retrieval(result, query, state['index_manifest'])
+            check_retrieval(result, query, state['index_manifest'], policy_source=FIXTURE_POLICY_SOURCE)
 
     def test_pack_obeys_smaller_request_budget(self):
         state = baseline()

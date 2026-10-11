@@ -1,0 +1,1631 @@
+{
+  "schema_version": "cp04_final_independent_failure_analysis_v1",
+  "evidence_owner": "quality_evaluator",
+  "plan_sha256": "1c05adda0a4523cfa681dc669b912295007a2503a142553737e040337f2a2b33",
+  "declaration_sha256": "be69eefa151bd7ed5dd768911aa02225f9335582c814eb951ba7d2dea35408ad",
+  "observations_sha256": "5f13eeceee07e863928e64f06ee586e3fda34f930aa677a44da4729f4ef31eda",
+  "conclusion_sha256": "f279f3bff6c48ab81cb08ee380a2cffff99fb0f8909108c284fc22b5e9738eb0",
+  "capture_command": "python -B evals/plugin-v1/run_final_independent.py --run --review evals/plugin-v1/results/cp04-final-quality-independent-2026-10-11/source-independent-review.json",
+  "capture_exit_code": 1,
+  "capture_count": 1,
+  "queries_grades_thresholds_changed_after_capture": false,
+  "failed_gates": {
+    "baseline_non_regression_ndcg_at_k": false,
+    "required_strata": false
+  },
+  "frozen_thresholds": {
+    "held_out_macro_recall_at_12_min": 0.75,
+    "held_out_macro_ndcg_at_12_min": 0.65,
+    "candidate_not_worse_than_baseline_recall_delta_min": 0.0,
+    "candidate_not_worse_than_baseline_ndcg_delta_min": 0.0,
+    "required_stratum_recall_at_12_min": 0.6,
+    "required_stratum_ndcg_at_12_min": 0.5,
+    "hard_constraint_violations_max": 0,
+    "false_exclusions_max": 0,
+    "duplicate_canonical_ids_max": 0,
+    "alias_success_rate_min": 1.0,
+    "evidence_pack_survival_rate_min": 0.9,
+    "container_route_coverage_min": 14,
+    "leaf_route_coverage_min": 111,
+    "human_total_min": 16,
+    "human_critical_dimension_min": 1,
+    "human_critical_failures_max": 0,
+    "actual_warm_p95_ms_max": 100,
+    "actual_cold_p95_ms_max": 250,
+    "synthetic_warm_p95_ms_max": 200,
+    "synthetic_cold_p95_ms_max": 500,
+    "peak_memory_bytes_max": 268435456,
+    "index_bytes_max": 67108864
+  },
+  "failed_required_strata": {
+    "expansion_cohort": {
+      "case_ids": [
+        "INDEPENDENT-HOLD-05"
+      ],
+      "candidate": {
+        "recall_at_k": 0.5384615384615384,
+        "ndcg_at_k": 0.7138869228011865
+      },
+      "baseline": {
+        "recall_at_k": 0.5384615384615384,
+        "ndcg_at_k": 0.7122342567767014
+      }
+    },
+    "accounting_finance_erp": {
+      "case_ids": [
+        "INDEPENDENT-HOLD-05"
+      ],
+      "candidate": {
+        "recall_at_k": 0.5384615384615384,
+        "ndcg_at_k": 0.7138869228011865
+      },
+      "baseline": {
+        "recall_at_k": 0.5384615384615384,
+        "ndcg_at_k": 0.7122342567767014
+      }
+    }
+  },
+  "macro_ndcg_delta": -0.026911190392060358,
+  "per_case": [
+    {
+      "case_id": "INDEPENDENT-HOLD-01",
+      "case_sha256": "ccc6e6c53c355811a44487ee47fc3a53b5d4629ed51990de6f8cdcb67f751d12",
+      "query_sha256": "62ded259e07a5a269be0db6a8d0311848ab908a30dbbf85a3a26578121356949",
+      "candidate": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.9320088550187923,
+        "relevant_count": 6
+      },
+      "original_literal": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.9565557524561504,
+        "relevant_count": 6
+      },
+      "ndcg_delta": -0.02454689743735816,
+      "candidate_ranked": [
+        {
+          "rank": 1,
+          "github_repository_id": 268424739,
+          "full_name": "helix-editor/helix",
+          "grade": 3
+        },
+        {
+          "rank": 2,
+          "github_repository_id": 340547520,
+          "full_name": "zed-industries/zed",
+          "grade": 2
+        },
+        {
+          "rank": 3,
+          "github_repository_id": 41881900,
+          "full_name": "microsoft/vscode",
+          "grade": 2
+        },
+        {
+          "rank": 4,
+          "github_repository_id": 40997482,
+          "full_name": "vim/vim",
+          "grade": 3
+        },
+        {
+          "rank": 5,
+          "github_repository_id": 16408992,
+          "full_name": "neovim/neovim",
+          "grade": 3
+        },
+        {
+          "rank": 6,
+          "github_repository_id": 144590939,
+          "full_name": "VSCodium/vscodium",
+          "grade": 2
+        }
+      ]
+    },
+    {
+      "case_id": "INDEPENDENT-HOLD-02",
+      "case_sha256": "6de302d5ebac7f899e076c9d419667eac2072def93983791ea0a601e0696f7c8",
+      "query_sha256": "a8f6960d528a3a7f3d8f577504ebd36a247156eb359381ca8be7a1a5b16d3f49",
+      "candidate": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.8775483935699409,
+        "relevant_count": 10
+      },
+      "original_literal": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.9719344684729788,
+        "relevant_count": 10
+      },
+      "ndcg_delta": -0.09438607490303796,
+      "candidate_ranked": [
+        {
+          "rank": 1,
+          "github_repository_id": 60344592,
+          "full_name": "pact-foundation/pact-js",
+          "grade": 3
+        },
+        {
+          "rank": 2,
+          "github_repository_id": 2544305,
+          "full_name": "wiremock/wiremock",
+          "grade": 1
+        },
+        {
+          "rank": 3,
+          "github_repository_id": 1011539,
+          "full_name": "rest-assured/rest-assured",
+          "grade": 2
+        },
+        {
+          "rank": 4,
+          "github_repository_id": 8426406,
+          "full_name": "mock-server/mockserver-monorepo",
+          "grade": 1
+        },
+        {
+          "rank": 5,
+          "github_repository_id": 54172257,
+          "full_name": "stoplightio/prism",
+          "grade": 1
+        },
+        {
+          "rank": 6,
+          "github_repository_id": 81226206,
+          "full_name": "karatelabs/karate",
+          "grade": 2
+        },
+        {
+          "rank": 7,
+          "github_repository_id": 85806183,
+          "full_name": "pact-foundation/pact-python",
+          "grade": 3
+        },
+        {
+          "rank": 8,
+          "github_repository_id": 203157084,
+          "full_name": "schemathesis/schemathesis",
+          "grade": 2
+        },
+        {
+          "rank": 9,
+          "github_repository_id": 157397583,
+          "full_name": "mswjs/msw",
+          "grade": 1
+        },
+        {
+          "rank": 10,
+          "github_repository_id": 97478419,
+          "full_name": "mockoon/mockoon",
+          "grade": 1
+        }
+      ]
+    },
+    {
+      "case_id": "INDEPENDENT-HOLD-03",
+      "case_sha256": "a4bed8e3647a44e842e47efa916afa8da3335016f97ead524b660d7b61f4b13d",
+      "query_sha256": "93b250314af7fda80747218935321c6157c480433d2b7fcbcba42f1fe65ac7e1",
+      "candidate": {
+        "recall_at_k": 0.6,
+        "ndcg_at_k": 0.9480407137699002,
+        "relevant_count": 5
+      },
+      "original_literal": {
+        "recall_at_k": 0.6,
+        "ndcg_at_k": 0.9480407137699002,
+        "relevant_count": 5
+      },
+      "ndcg_delta": 0.0,
+      "candidate_ranked": [
+        {
+          "rank": 1,
+          "github_repository_id": 323846389,
+          "full_name": "papermerge/papermerge-core",
+          "grade": 3
+        },
+        {
+          "rank": 2,
+          "github_repository_id": 458648791,
+          "full_name": "paperless-ngx/paperless-ngx",
+          "grade": 3
+        },
+        {
+          "rank": 3,
+          "github_repository_id": 197263888,
+          "full_name": "eikek/docspell",
+          "grade": 3
+        }
+      ]
+    },
+    {
+      "case_id": "INDEPENDENT-HOLD-04",
+      "case_sha256": "ab4008c1a0818ab57539ee6a11a304a54fb8363ebe8e45647c4a07be4500b7b4",
+      "query_sha256": "528f7a486abcb4b116abb7ca8a3a7e5e6acded19f6f469d22d35718d54107f1b",
+      "candidate": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.9737576937588317,
+        "relevant_count": 2
+      },
+      "original_literal": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.9828422279067397,
+        "relevant_count": 2
+      },
+      "ndcg_delta": -0.009084534147907997,
+      "candidate_ranked": [
+        {
+          "rank": 1,
+          "github_repository_id": 60630844,
+          "full_name": "microsoft/monaco-editor",
+          "grade": 3
+        },
+        {
+          "rank": 2,
+          "github_repository_id": 60537144,
+          "full_name": "microsoft/fluentui",
+          "grade": 0
+        },
+        {
+          "rank": 3,
+          "github_repository_id": 67962648,
+          "full_name": "vuetifyjs/vuetify",
+          "grade": 0
+        },
+        {
+          "rank": 4,
+          "github_repository_id": 54173593,
+          "full_name": "storybookjs/storybook",
+          "grade": 1
+        },
+        {
+          "rank": 5,
+          "github_repository_id": 327628682,
+          "full_name": "mantinedev/mantine",
+          "grade": 0
+        },
+        {
+          "rank": 6,
+          "github_repository_id": 585146387,
+          "full_name": "shadcn-ui/ui",
+          "grade": 0
+        },
+        {
+          "rank": 7,
+          "github_repository_id": 76666208,
+          "full_name": "primefaces/primereact",
+          "grade": 0
+        },
+        {
+          "rank": 8,
+          "github_repository_id": 160313905,
+          "full_name": "primefaces/primevue",
+          "grade": 0
+        },
+        {
+          "rank": 9,
+          "github_repository_id": 208362715,
+          "full_name": "adobe/react-spectrum",
+          "grade": 0
+        },
+        {
+          "rank": 10,
+          "github_repository_id": 202890778,
+          "full_name": "chakra-ui/chakra-ui",
+          "grade": 0
+        },
+        {
+          "rank": 11,
+          "github_repository_id": 316836816,
+          "full_name": "saadeghi/daisyui",
+          "grade": 0
+        },
+        {
+          "rank": 12,
+          "github_repository_id": 360522116,
+          "full_name": "heroui-inc/heroui",
+          "grade": 0
+        },
+        {
+          "rank": 13,
+          "github_repository_id": 935450522,
+          "full_name": "21st-dev/magic-mcp",
+          "grade": 0
+        },
+        {
+          "rank": 14,
+          "github_repository_id": 281319253,
+          "full_name": "element-plus/element-plus",
+          "grade": 0
+        },
+        {
+          "rank": 15,
+          "github_repository_id": 23083156,
+          "full_name": "mui/material-ui",
+          "grade": 0
+        },
+        {
+          "rank": 16,
+          "github_repository_id": 9309093,
+          "full_name": "Semantic-Org/Semantic-UI",
+          "grade": 0
+        },
+        {
+          "rank": 17,
+          "github_repository_id": 5239185,
+          "full_name": "slab/quill",
+          "grade": 0
+        },
+        {
+          "rank": 18,
+          "github_repository_id": 23974149,
+          "full_name": "Dogfalo/materialize",
+          "grade": 0
+        },
+        {
+          "rank": 19,
+          "github_repository_id": 270722949,
+          "full_name": "lucide-icons/lucide",
+          "grade": 0
+        },
+        {
+          "rank": 20,
+          "github_repository_id": 273499522,
+          "full_name": "radix-ui/primitives",
+          "grade": 0
+        },
+        {
+          "rank": 21,
+          "github_repository_id": 243546335,
+          "full_name": "tabler/tabler-icons",
+          "grade": 0
+        },
+        {
+          "rank": 22,
+          "github_repository_id": 107422373,
+          "full_name": "elastic/eui",
+          "grade": 0
+        },
+        {
+          "rank": 23,
+          "github_repository_id": 84835535,
+          "full_name": "carbon-design-system/carbon",
+          "grade": 0
+        },
+        {
+          "rank": 24,
+          "github_repository_id": 3721224,
+          "full_name": "nolimits4web/swiper",
+          "grade": 0
+        },
+        {
+          "rank": 25,
+          "github_repository_id": 11507163,
+          "full_name": "uikit/uikit",
+          "grade": 0
+        },
+        {
+          "rank": 26,
+          "github_repository_id": 106017343,
+          "full_name": "tailwindlabs/tailwindcss",
+          "grade": 0
+        },
+        {
+          "rank": 27,
+          "github_repository_id": 34526884,
+          "full_name": "ant-design/ant-design",
+          "grade": 0
+        },
+        {
+          "rank": 28,
+          "github_repository_id": 54994103,
+          "full_name": "floating-ui/floating-ui",
+          "grade": 0
+        },
+        {
+          "rank": 29,
+          "github_repository_id": 2126244,
+          "full_name": "twbs/bootstrap",
+          "grade": 0
+        },
+        {
+          "rank": 30,
+          "github_repository_id": 71487058,
+          "full_name": "TanStack/table",
+          "grade": 0
+        },
+        {
+          "rank": 31,
+          "github_repository_id": 961975051,
+          "full_name": "Jpisnice/shadcn-ui-mcp-server",
+          "grade": 0
+        }
+      ]
+    },
+    {
+      "case_id": "INDEPENDENT-HOLD-05",
+      "case_sha256": "e472caa97e90a1ba0bb5157afa9cc9003e78353236ad6a42fda636e688910a39",
+      "query_sha256": "4329b16841bcaca63cd730bf19453a2a265cfacd6ad50371ff95bdc03ef67ee7",
+      "candidate": {
+        "recall_at_k": 0.5384615384615384,
+        "ndcg_at_k": 0.7138869228011865,
+        "relevant_count": 13
+      },
+      "original_literal": {
+        "recall_at_k": 0.5384615384615384,
+        "ndcg_at_k": 0.7122342567767014,
+        "relevant_count": 13
+      },
+      "ndcg_delta": 0.0016526660244851055,
+      "candidate_ranked": [
+        {
+          "rank": 1,
+          "github_repository_id": 20021038,
+          "full_name": "InvoicePlane/InvoicePlane",
+          "grade": 3
+        },
+        {
+          "rank": 2,
+          "github_repository_id": 71485542,
+          "full_name": "kimai/kimai",
+          "grade": 2
+        },
+        {
+          "rank": 3,
+          "github_repository_id": 95011974,
+          "full_name": "akaunting/akaunting",
+          "grade": 2
+        },
+        {
+          "rank": 4,
+          "github_repository_id": 946010740,
+          "full_name": "vas3k/TaxHacker",
+          "grade": 1
+        },
+        {
+          "rank": 5,
+          "github_repository_id": 1009628866,
+          "full_name": "invoicerr-app/invoicerr",
+          "grade": 3
+        },
+        {
+          "rank": 6,
+          "github_repository_id": 412750377,
+          "full_name": "panshak/accountill",
+          "grade": 3
+        },
+        {
+          "rank": 7,
+          "github_repository_id": 408868487,
+          "full_name": "bigcapitalhq/bigcapital",
+          "grade": 2
+        }
+      ]
+    },
+    {
+      "case_id": "INDEPENDENT-HOLD-06",
+      "case_sha256": "00847efefa63b3d76d2382c35638c9c8e634e0f572b3faf8ed4a895b79b0b4c0",
+      "query_sha256": "0ed415512ef9e4ca77439ff5bfd2a8ccb2c0480498c248582eff4cdde6bfb667",
+      "candidate": {
+        "recall_at_k": 0.8571428571428571,
+        "ndcg_at_k": 0.9204408798046172,
+        "relevant_count": 14
+      },
+      "original_literal": {
+        "recall_at_k": 0.8571428571428571,
+        "ndcg_at_k": 0.9298654204948177,
+        "relevant_count": 14
+      },
+      "ndcg_delta": -0.009424540690200489,
+      "candidate_ranked": [
+        {
+          "rank": 1,
+          "github_repository_id": 43441403,
+          "full_name": "strapi/strapi",
+          "grade": 3
+        },
+        {
+          "rank": 2,
+          "github_repository_id": 128193054,
+          "full_name": "keystonejs/keystone",
+          "grade": 3
+        },
+        {
+          "rank": 3,
+          "github_repository_id": 111562942,
+          "full_name": "statamic/cms",
+          "grade": 1
+        },
+        {
+          "rank": 4,
+          "github_repository_id": 327089870,
+          "full_name": "payloadcms/payload",
+          "grade": 3
+        },
+        {
+          "rank": 5,
+          "github_repository_id": 7122594,
+          "full_name": "directus/directus",
+          "grade": 3
+        },
+        {
+          "rank": 6,
+          "github_repository_id": 2464908,
+          "full_name": "joomla/joomla-cms",
+          "grade": 2
+        },
+        {
+          "rank": 7,
+          "github_repository_id": 143580,
+          "full_name": "django-cms/django-cms",
+          "grade": 2
+        },
+        {
+          "rank": 8,
+          "github_repository_id": 22553797,
+          "full_name": "getgrav/grav",
+          "grade": 2
+        },
+        {
+          "rank": 9,
+          "github_repository_id": 16479108,
+          "full_name": "wagtail/wagtail",
+          "grade": 2
+        },
+        {
+          "rank": 10,
+          "github_repository_id": 1319183,
+          "full_name": "silverstripe/silverstripe-cms",
+          "grade": 1
+        },
+        {
+          "rank": 11,
+          "github_repository_id": 9852918,
+          "full_name": "TryGhost/Ghost",
+          "grade": 2
+        },
+        {
+          "rank": 12,
+          "github_repository_id": 126178683,
+          "full_name": "halo-dev/halo",
+          "grade": 2
+        },
+        {
+          "rank": 13,
+          "github_repository_id": 100695,
+          "full_name": "drupal/drupal",
+          "grade": 2
+        },
+        {
+          "rank": 14,
+          "github_repository_id": 75645659,
+          "full_name": "WordPress/wordpress-develop",
+          "grade": 2
+        }
+      ]
+    },
+    {
+      "case_id": "INDEPENDENT-HOLD-07",
+      "case_sha256": "f20321691b32490c525661b130b1fb392b6995e952c66c393900574694dc78c5",
+      "query_sha256": "b33095d63bc7c803667f6249c03484159c6be20b19e2d802b139874e1e63efd6",
+      "candidate": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.9721212198129313,
+        "relevant_count": 3
+      },
+      "original_literal": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.9721212198129313,
+        "relevant_count": 3
+      },
+      "ndcg_delta": 0.0,
+      "candidate_ranked": [
+        {
+          "rank": 1,
+          "github_repository_id": 1121557390,
+          "full_name": "ridafkih/keeper.sh",
+          "grade": 3
+        },
+        {
+          "rank": 2,
+          "github_repository_id": 973788136,
+          "full_name": "taylorwilsdon/google_workspace_mcp",
+          "grade": 1
+        },
+        {
+          "rank": 3,
+          "github_repository_id": 350360184,
+          "full_name": "calcom/cal.diy",
+          "grade": 2
+        },
+        {
+          "rank": 4,
+          "github_repository_id": 945223589,
+          "full_name": "Taxuspt/garmin_mcp",
+          "grade": 0
+        },
+        {
+          "rank": 5,
+          "github_repository_id": 943286066,
+          "full_name": "mattt/iMCP",
+          "grade": 0
+        },
+        {
+          "rank": 6,
+          "github_repository_id": 1003342581,
+          "full_name": "jlumbroso/passage-of-time-mcp",
+          "grade": 0
+        }
+      ]
+    },
+    {
+      "case_id": "INDEPENDENT-HOLD-08",
+      "case_sha256": "20612c0249a870b5d61db4642b07ccb1c536dcc9f6490ce983f267d1255f03c9",
+      "query_sha256": "655aa09ff895ad1a486108c638f2005d2c31147217a3d4fbda6b7bc9bdcf6140",
+      "candidate": {
+        "recall_at_k": 0.8571428571428571,
+        "ndcg_at_k": 1.0,
+        "relevant_count": 14
+      },
+      "original_literal": {
+        "recall_at_k": 0.8571428571428571,
+        "ndcg_at_k": 1.0,
+        "relevant_count": 14
+      },
+      "ndcg_delta": 0.0,
+      "candidate_ranked": [
+        {
+          "rank": 1,
+          "github_repository_id": 136938012,
+          "full_name": "vendurehq/vendure",
+          "grade": 3
+        },
+        {
+          "rank": 2,
+          "github_repository_id": 3314,
+          "full_name": "spree/spree",
+          "grade": 3
+        },
+        {
+          "rank": 3,
+          "github_repository_id": 8162715,
+          "full_name": "saleor/saleor",
+          "grade": 3
+        },
+        {
+          "rank": 4,
+          "github_repository_id": 6763587,
+          "full_name": "PrestaShop/PrestaShop",
+          "grade": 3
+        },
+        {
+          "rank": 5,
+          "github_repository_id": 1151051,
+          "full_name": "django-oscar/django-oscar",
+          "grade": 3
+        },
+        {
+          "rank": 6,
+          "github_repository_id": 131995661,
+          "full_name": "shopware/shopware",
+          "grade": 3
+        },
+        {
+          "rank": 7,
+          "github_repository_id": 234739976,
+          "full_name": "medusajs/medusa",
+          "grade": 3
+        },
+        {
+          "rank": 8,
+          "github_repository_id": 2179920,
+          "full_name": "woocommerce/woocommerce",
+          "grade": 3
+        },
+        {
+          "rank": 9,
+          "github_repository_id": 148129143,
+          "full_name": "bagisto/bagisto",
+          "grade": 3
+        },
+        {
+          "rank": 10,
+          "github_repository_id": 18586705,
+          "full_name": "nopSolutions/nopCommerce",
+          "grade": 3
+        },
+        {
+          "rank": 11,
+          "github_repository_id": 30985840,
+          "full_name": "solidusio/solidus",
+          "grade": 3
+        },
+        {
+          "rank": 12,
+          "github_repository_id": 2717549,
+          "full_name": "Sylius/Sylius",
+          "grade": 3
+        },
+        {
+          "rank": 13,
+          "github_repository_id": 127988011,
+          "full_name": "macrozheng/mall",
+          "grade": 3
+        },
+        {
+          "rank": 14,
+          "github_repository_id": 2884111,
+          "full_name": "magento/magento2",
+          "grade": 3
+        }
+      ]
+    },
+    {
+      "case_id": "INDEPENDENT-HOLD-09",
+      "case_sha256": "f4589d876bb493690a5660233e830061a38239ff0c0297439b16183adb60fccf",
+      "query_sha256": "bb1abccab44f81395acb4361ba020e697bcfbdeff51834d4ac805a222bdc562e",
+      "candidate": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.9438220076416048,
+        "relevant_count": 12
+      },
+      "original_literal": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.9613211327251899,
+        "relevant_count": 12
+      },
+      "ndcg_delta": -0.017499125083585088,
+      "candidate_ranked": [
+        {
+          "rank": 1,
+          "github_repository_id": 331293626,
+          "full_name": "refinedev/refine",
+          "grade": 3
+        },
+        {
+          "rank": 2,
+          "github_repository_id": 275993885,
+          "full_name": "appsmithorg/appsmith",
+          "grade": 3
+        },
+        {
+          "rank": 3,
+          "github_repository_id": 88464704,
+          "full_name": "PanJiaChen/vue-element-admin",
+          "grade": 2
+        },
+        {
+          "rank": 4,
+          "github_repository_id": 63226588,
+          "full_name": "marmelab/react-admin",
+          "grade": 2
+        },
+        {
+          "rank": 5,
+          "github_repository_id": 190729906,
+          "full_name": "Budibase/budibase",
+          "grade": 3
+        },
+        {
+          "rank": 6,
+          "github_repository_id": 101394335,
+          "full_name": "ant-design/ant-design-pro",
+          "grade": 2
+        },
+        {
+          "rank": 7,
+          "github_repository_id": 630039746,
+          "full_name": "lowcoder-org/lowcoder",
+          "grade": 3
+        },
+        {
+          "rank": 8,
+          "github_repository_id": 306829688,
+          "full_name": "nocobase/nocobase",
+          "grade": 3
+        },
+        {
+          "rank": 9,
+          "github_repository_id": 352933140,
+          "full_name": "ToolJet/ToolJet",
+          "grade": 3
+        },
+        {
+          "rank": 10,
+          "github_repository_id": 206509491,
+          "full_name": "buildship-ai/rowy",
+          "grade": 2
+        },
+        {
+          "rank": 11,
+          "github_repository_id": 108761645,
+          "full_name": "nocodb/nocodb",
+          "grade": 3
+        },
+        {
+          "rank": 12,
+          "github_repository_id": 159152904,
+          "full_name": "jeecgboot/JeecgBoot",
+          "grade": 3
+        }
+      ]
+    },
+    {
+      "case_id": "INDEPENDENT-HOLD-10",
+      "case_sha256": "ca16368a00c17d0005fe5d3ea37fac01eeec9fbb4d7f2b5326f60ddb2975e12f",
+      "query_sha256": "6be9be47efd24d4b2b12642ef635154d9a7afbda71fe915ef98e97c724709f00",
+      "candidate": {
+        "recall_at_k": 0.9230769230769231,
+        "ndcg_at_k": 0.9087090215531134,
+        "relevant_count": 13
+      },
+      "original_literal": {
+        "recall_at_k": 0.9230769230769231,
+        "ndcg_at_k": 0.96772512780635,
+        "relevant_count": 13
+      },
+      "ndcg_delta": -0.05901610625323661,
+      "candidate_ranked": [
+        {
+          "rank": 1,
+          "github_repository_id": 99412308,
+          "full_name": "apache/seatunnel",
+          "grade": 3
+        },
+        {
+          "rank": 2,
+          "github_repository_id": 210579021,
+          "full_name": "apache/hop",
+          "grade": 2
+        },
+        {
+          "rank": 3,
+          "github_repository_id": 378997214,
+          "full_name": "meltano/meltano",
+          "grade": 3
+        },
+        {
+          "rank": 4,
+          "github_repository_id": 285012857,
+          "full_name": "jitsucom/jitsu",
+          "grade": 2
+        },
+        {
+          "rank": 5,
+          "github_repository_id": 493014338,
+          "full_name": "mage-ai/mage-ai",
+          "grade": 1
+        },
+        {
+          "rank": 6,
+          "github_repository_id": 197743848,
+          "full_name": "rudderlabs/rudder-server",
+          "grade": 2
+        },
+        {
+          "rank": 7,
+          "github_repository_id": 283046497,
+          "full_name": "airbytehq/airbyte",
+          "grade": 3
+        },
+        {
+          "rank": 8,
+          "github_repository_id": 27911088,
+          "full_name": "apache/nifi",
+          "grade": 3
+        },
+        {
+          "rank": 9,
+          "github_repository_id": 3591964,
+          "full_name": "snowplow/snowplow",
+          "grade": 2
+        },
+        {
+          "rank": 10,
+          "github_repository_id": 947516890,
+          "full_name": "dbt-labs/dbt-mcp",
+          "grade": 1
+        },
+        {
+          "rank": 11,
+          "github_repository_id": 54435102,
+          "full_name": "redpanda-data/connect",
+          "grade": 2
+        },
+        {
+          "rank": 12,
+          "github_repository_id": 452221115,
+          "full_name": "dlt-hub/dlt",
+          "grade": 3
+        },
+        {
+          "rank": 13,
+          "github_repository_id": 53548867,
+          "full_name": "dbt-labs/dbt-core",
+          "grade": 1
+        }
+      ]
+    },
+    {
+      "case_id": "INDEPENDENT-HOLD-11",
+      "case_sha256": "4b2435fd3493996096e1a08486ca5a1ff145391826964ede32f1032a8ccebea4",
+      "query_sha256": "c46f48d015cbb2e7fa7b71930a148783b417a4f9fe4045b2725c226dd83da76e",
+      "candidate": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.9909553371413427,
+        "relevant_count": 10
+      },
+      "original_literal": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.922792883660708,
+        "relevant_count": 10
+      },
+      "ndcg_delta": 0.06816245348063465,
+      "candidate_ranked": [
+        {
+          "rank": 1,
+          "github_repository_id": 44662669,
+          "full_name": "dbeaver/dbeaver",
+          "grade": 3
+        },
+        {
+          "rank": 2,
+          "github_repository_id": 1142800652,
+          "full_name": "TabularisDB/tabularis",
+          "grade": 3
+        },
+        {
+          "rank": 3,
+          "github_repository_id": 945530209,
+          "full_name": "bytebase/dbhub",
+          "grade": 1
+        },
+        {
+          "rank": 4,
+          "github_repository_id": 813564769,
+          "full_name": "clidey/whodb",
+          "grade": 2
+        },
+        {
+          "rank": 5,
+          "github_repository_id": 896203400,
+          "full_name": "neondatabase/mcp-server-neon",
+          "grade": 1
+        },
+        {
+          "rank": 6,
+          "github_repository_id": 902619224,
+          "full_name": "motherduckdb/mcp-server-motherduck",
+          "grade": 1
+        },
+        {
+          "rank": 7,
+          "github_repository_id": 960484071,
+          "full_name": "mongodb-js/mongodb-mcp-server",
+          "grade": 1
+        },
+        {
+          "rank": 8,
+          "github_repository_id": 900806525,
+          "full_name": "benborla/mcp-server-mysql",
+          "grade": 1
+        },
+        {
+          "rank": 9,
+          "github_repository_id": 898128804,
+          "full_name": "designcomputer/mysql_mcp_server",
+          "grade": 1
+        },
+        {
+          "rank": 10,
+          "github_repository_id": 933144612,
+          "full_name": "alexander-zuev/supabase-mcp-server",
+          "grade": 1
+        }
+      ]
+    },
+    {
+      "case_id": "INDEPENDENT-HOLD-12",
+      "case_sha256": "b0da695268dc8235aa665ec728813b0cac02ff034178cb2382453ef74c1c6166",
+      "query_sha256": "ee5c235ffb2767b48851223ff5bd3173fe50d1d4118843acbd9107e8b6a2a457",
+      "candidate": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 1.0,
+        "relevant_count": 7
+      },
+      "original_literal": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 1.0,
+        "relevant_count": 7
+      },
+      "ndcg_delta": 0.0,
+      "candidate_ranked": [
+        {
+          "rank": 1,
+          "github_repository_id": 769023213,
+          "full_name": "get-convex/convex-backend",
+          "grade": 3
+        },
+        {
+          "rank": 2,
+          "github_repository_id": 337414495,
+          "full_name": "nhost/nhost",
+          "grade": 3
+        },
+        {
+          "rank": 3,
+          "github_repository_id": 510607652,
+          "full_name": "pocketbase/pocketbase",
+          "grade": 3
+        },
+        {
+          "rank": 4,
+          "github_repository_id": 1028159967,
+          "full_name": "InsForge/InsForge",
+          "grade": 3
+        },
+        {
+          "rank": 5,
+          "github_repository_id": 180190854,
+          "full_name": "appwrite/appwrite",
+          "grade": 3
+        },
+        {
+          "rank": 6,
+          "github_repository_id": 214587193,
+          "full_name": "supabase/supabase",
+          "grade": 3
+        },
+        {
+          "rank": 7,
+          "github_repository_id": 50603846,
+          "full_name": "parse-community/parse-server",
+          "grade": 3
+        }
+      ]
+    },
+    {
+      "case_id": "INDEPENDENT-HOLD-13",
+      "case_sha256": "ac91bec594c61ab254e80092c08053ce89b199bd94522bb844c7b80569db8d33",
+      "query_sha256": "78baec9822068a7104f0528bae250db8a1c811c3dfd2ba6b9c32562cb96748d7",
+      "candidate": {
+        "recall_at_k": 0.7857142857142857,
+        "ndcg_at_k": 0.9806865001760198,
+        "relevant_count": 14
+      },
+      "original_literal": {
+        "recall_at_k": 0.7857142857142857,
+        "ndcg_at_k": 0.9904013367520977,
+        "relevant_count": 14
+      },
+      "ndcg_delta": -0.009714836576077968,
+      "candidate_ranked": [
+        {
+          "rank": 1,
+          "github_repository_id": 1390248,
+          "full_name": "saltstack/salt",
+          "grade": 3
+        },
+        {
+          "rank": 2,
+          "github_repository_id": 17728164,
+          "full_name": "hashicorp/terraform",
+          "grade": 3
+        },
+        {
+          "rank": 3,
+          "github_repository_id": 910744,
+          "full_name": "puppetlabs/puppet",
+          "grade": 3
+        },
+        {
+          "rank": 4,
+          "github_repository_id": 679421146,
+          "full_name": "opentofu/opentofu",
+          "grade": 3
+        },
+        {
+          "rank": 5,
+          "github_repository_id": 3638964,
+          "full_name": "ansible/ansible",
+          "grade": 3
+        },
+        {
+          "rank": 6,
+          "github_repository_id": 4542716,
+          "full_name": "NixOS/nixpkgs",
+          "grade": 2
+        },
+        {
+          "rank": 7,
+          "github_repository_id": 108278,
+          "full_name": "chef/chef",
+          "grade": 3
+        },
+        {
+          "rank": 8,
+          "github_repository_id": 1032135422,
+          "full_name": "googleapis/gcloud-mcp",
+          "grade": 1
+        },
+        {
+          "rank": 9,
+          "github_repository_id": 72477752,
+          "full_name": "pulumi/pulumi",
+          "grade": 3
+        },
+        {
+          "rank": 10,
+          "github_repository_id": 24948315,
+          "full_name": "canonical/cloud-init",
+          "grade": 2
+        },
+        {
+          "rank": 11,
+          "github_repository_id": 973373852,
+          "full_name": "tufantunc/ssh-mcp",
+          "grade": 1
+        },
+        {
+          "rank": 12,
+          "github_repository_id": 967503541,
+          "full_name": "Azure/azure-mcp",
+          "grade": 1
+        },
+        {
+          "rank": 13,
+          "github_repository_id": 952238700,
+          "full_name": "awslabs/mcp",
+          "grade": 1
+        },
+        {
+          "rank": 14,
+          "github_repository_id": 1219009070,
+          "full_name": "aws/agent-toolkit-for-aws",
+          "grade": 1
+        },
+        {
+          "rank": 15,
+          "github_repository_id": 951693330,
+          "full_name": "utensils/mcp-nixos",
+          "grade": 1
+        }
+      ]
+    },
+    {
+      "case_id": "INDEPENDENT-HOLD-14",
+      "case_sha256": "fdb4dcdbfc0263c42a8d7ede71c5473a7ddb9af193487dfae67f77aa37225b0c",
+      "query_sha256": "4fd5ee0eda500452eaed7295c3cee7f27297908f7cbc4238ad9e55d2d99257af",
+      "candidate": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.5623386549262038,
+        "relevant_count": 5
+      },
+      "original_literal": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.785238324828764,
+        "relevant_count": 5
+      },
+      "ndcg_delta": -0.22289966990256016,
+      "candidate_ranked": [
+        {
+          "rank": 1,
+          "github_repository_id": 103084166,
+          "full_name": "tenable/terrascan",
+          "grade": 3
+        },
+        {
+          "rank": 2,
+          "github_repository_id": 40556106,
+          "full_name": "wazuh/wazuh",
+          "grade": 0
+        },
+        {
+          "rank": 3,
+          "github_repository_id": 395283401,
+          "full_name": "kubescape/kubescape",
+          "grade": 3
+        },
+        {
+          "rank": 4,
+          "github_repository_id": 49986046,
+          "full_name": "falcosecurity/falco",
+          "grade": 0
+        },
+        {
+          "rank": 5,
+          "github_repository_id": 66474729,
+          "full_name": "prowler-cloud/prowler",
+          "grade": 2
+        },
+        {
+          "rank": 6,
+          "github_repository_id": 94779471,
+          "full_name": "aquasecurity/kube-bench",
+          "grade": 1
+        },
+        {
+          "rank": 7,
+          "github_repository_id": 313853293,
+          "full_name": "cloudquery/cloudquery",
+          "grade": 0
+        },
+        {
+          "rank": 8,
+          "github_repository_id": 224386599,
+          "full_name": "bridgecrewio/checkov",
+          "grade": 3
+        },
+        {
+          "rank": 9,
+          "github_repository_id": 157735858,
+          "full_name": "FairwindsOps/polaris",
+          "grade": 3
+        }
+      ]
+    },
+    {
+      "case_id": "INDEPENDENT-ALIAS-01",
+      "case_sha256": "6dc16a366aa911d3f791440c2373d838308a89ff83c230214c315a4a8fb58103",
+      "query_sha256": "30362b8b066e53230aee0b28509623e9579cbfface4b0c6dc48b0778c16c47b0",
+      "candidate": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 1.0,
+        "relevant_count": 1
+      },
+      "original_literal": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 1.0,
+        "relevant_count": 1
+      },
+      "ndcg_delta": 0.0,
+      "candidate_ranked": [
+        {
+          "rank": 1,
+          "github_repository_id": 5152285,
+          "full_name": "lysine-dev/okhttp",
+          "grade": 3
+        }
+      ]
+    }
+  ],
+  "invoice_failure": {
+    "case_id": "INDEPENDENT-HOLD-05",
+    "recall": 0.5384615384615384,
+    "positive_denominator": 13,
+    "returned_positive_count": 7,
+    "all_returned_ids_positive": true,
+    "not_top12_truncation": true,
+    "not_pack_loss": true,
+    "required_terms": [
+      [
+        "invoice"
+      ],
+      [
+        "invoices"
+      ]
+    ],
+    "context_terms": [
+      "payments",
+      "счета"
+    ],
+    "absent_positive_index_rows": [
+      {
+        "github_repository_id": 7966650,
+        "full_name": "Gnucash/gnucash",
+        "grade": 2,
+        "indexed_fields": {
+          "github_repository_id": 7966650,
+          "full_name": "Gnucash/gnucash",
+          "full_name_aliases": "[]",
+          "upstream_description": "GnuCash Double-Entry Accounting Program.",
+          "catalog_description": "GnuCash Double-Entry Accounting Program.",
+          "topics": "[]",
+          "category_labels": "[\"accounting_invoicing\",\"Accounting & Invoicing\"]",
+          "use_cases": "[]",
+          "integration_surface": "",
+          "best_for": "[]"
+        }
+      },
+      {
+        "github_repository_id": 55025852,
+        "full_name": "osbzr/gooderp_addons",
+        "grade": 1,
+        "indexed_fields": {
+          "github_repository_id": 55025852,
+          "full_name": "osbzr/gooderp_addons",
+          "full_name_aliases": "[]",
+          "upstream_description": "",
+          "catalog_description": "可能是中国用户数最多的开源ERP",
+          "topics": "[\"accounting\",\"china\",\"erp\",\"finance\",\"fork\",\"odoo\",\"project\",\"python\",\"scm\"]",
+          "category_labels": "[\"accounting_invoicing\",\"Accounting & Invoicing\"]",
+          "use_cases": "[]",
+          "integration_surface": "",
+          "best_for": "[]"
+        }
+      },
+      {
+        "github_repository_id": 116673933,
+        "full_name": "frappe/books",
+        "grade": 2,
+        "indexed_fields": {
+          "github_repository_id": 116673933,
+          "full_name": "frappe/books",
+          "full_name_aliases": "[]",
+          "upstream_description": "",
+          "catalog_description": "Free Accounting Software",
+          "topics": "[\"accounting\",\"book-keeping\",\"desktop\",\"double-entry-accounting\",\"electron\",\"frappe\",\"hacktoberfest\",\"inventory-management\",\"invoicing\",\"javascript\",\"offline\",\"open-source\",\"point-of-sale\",\"vuejs\"]",
+          "category_labels": "[\"accounting_invoicing\",\"Accounting & Invoicing\"]",
+          "use_cases": "[]",
+          "integration_surface": "",
+          "best_for": "[]"
+        }
+      },
+      {
+        "github_repository_id": 155289518,
+        "full_name": "arrobalytics/django-ledger",
+        "grade": 1,
+        "indexed_fields": {
+          "github_repository_id": 155289518,
+          "full_name": "arrobalytics/django-ledger",
+          "full_name_aliases": "[]",
+          "upstream_description": "",
+          "catalog_description": "Django Ledger is a double entry accounting system and financial analysis engine built on the Django Web Framework.",
+          "topics": "[\"accounting\",\"bookkeeping\",\"cashmanagement\",\"django\",\"django-application\",\"django-framework\",\"django-ledger\",\"django-project\",\"entities\",\"finance\",\"financial\",\"financial-analysis-engine\",\"forecasting\",\"ledger-journal\",\"quickbooks\"]",
+          "category_labels": "[\"accounting_invoicing\",\"Accounting & Invoicing\"]",
+          "use_cases": "[]",
+          "integration_surface": "",
+          "best_for": "[]"
+        }
+      },
+      {
+        "github_repository_id": 1044391725,
+        "full_name": "kittendevv/Invio",
+        "grade": 3,
+        "indexed_fields": {
+          "github_repository_id": 1044391725,
+          "full_name": "kittendevv/Invio",
+          "full_name_aliases": "[]",
+          "upstream_description": "",
+          "catalog_description": "Self-hosted invoicing without the bloat.",
+          "topics": "[\"invoicing\",\"invoicing-application\",\"invoicing-software\",\"minimalist\",\"self-hosted\",\"selfhosted\"]",
+          "category_labels": "[\"accounting_invoicing\",\"Accounting & Invoicing\"]",
+          "use_cases": "[]",
+          "integration_surface": "",
+          "best_for": "[]"
+        }
+      },
+      {
+        "github_repository_id": 1046711235,
+        "full_name": "glink25/Cent",
+        "grade": 1,
+        "indexed_fields": {
+          "github_repository_id": 1046711235,
+          "full_name": "glink25/Cent",
+          "full_name_aliases": "[]",
+          "upstream_description": "",
+          "catalog_description": "完全免费、开源的多人协作记账 Web App | Completely free, open-source, collaborative accounting Web App",
+          "topics": "[\"accounting\",\"pwa\"]",
+          "category_labels": "[\"accounting_invoicing\",\"Accounting & Invoicing\"]",
+          "use_cases": "[]",
+          "integration_surface": "",
+          "best_for": "[]"
+        }
+      }
+    ],
+    "observed_cause": "Six source-qualified useful candidates never enter either candidate or original-literal pool. Bundled sparse accounting/resource descriptions have no frozen invoice/invoices/payments terms; Invio has invoicing, a different unicode61 token. Fresh role qualifications bind the oracle, but are deliberately not catalog/index enrichment. At seven returned IDs, k12 is not limiting. Source-role recall failure is shared by both rankers.",
+    "code_references": [
+      "plugins/myai-stackguide/scripts/retrieval.py:404",
+      "plugins/myai-stackguide/scripts/retrieval.py:434"
+    ],
+    "index_fts_sql": "CREATE VIRTUAL TABLE repository_fts USING fts5(\n            full_name,\n            full_name_aliases,\n            upstream_description,\n            catalog_description,\n            topics,\n            category_labels,\n            use_cases,\n            integration_surface,\n            best_for,\n            content=repository_search_rows,\n            content_rowid=github_repository_id,\n            tokenize='unicode61'\n        )",
+    "inference_limit": "Observed vocabulary coverage is sufficient to explain these six absent IDs on this exact query. It does not prove upstream feature absence or propose altering the frozen query/grades."
+  },
+  "ndcg_failure": {
+    "worst_case_id": "INDEPENDENT-HOLD-14",
+    "candidate_ndcg": 0.5623386549262038,
+    "original_literal_ndcg": 0.785238324828764,
+    "required_stratum_ndcg_floor": 0.5,
+    "required_stratum_ndcg_pass": true,
+    "observed_cause": "Required/context split still emits OR variants. Equal RRF sums reward matches in both variants: Wazuh, a grade0 runtime/security role, ranks2 with two variant matches, ahead of direct local configuration scanners. Checkov ranks8 and Polaris9. All five positives survive, so this is order/role precision rather than recall/packing. Exact FTS BM25 order and topic/category-label matches do not establish goal-specific capability.",
+    "trace": [
+      {
+        "github_repository_id": 103084166,
+        "rank": 1,
+        "rrf_score": 0.03278688524590164,
+        "variant_ranks": [
+          {
+            "variant_id": "q1",
+            "rank": 1,
+            "bm25": -8.84116004436484
+          },
+          {
+            "variant_id": "q2",
+            "rank": 1,
+            "bm25": -14.63952144947979
+          }
+        ],
+        "matched_fields": [
+          "upstream_description",
+          "catalog_description",
+          "topics",
+          "category_labels"
+        ],
+        "missing_facts": []
+      },
+      {
+        "github_repository_id": 40556106,
+        "rank": 2,
+        "rrf_score": 0.03200204813108039,
+        "variant_ranks": [
+          {
+            "variant_id": "q1",
+            "rank": 2,
+            "bm25": -5.580640448871511
+          },
+          {
+            "variant_id": "q2",
+            "rank": 3,
+            "bm25": -11.36353836060449
+          }
+        ],
+        "matched_fields": [
+          "upstream_description",
+          "catalog_description",
+          "topics",
+          "category_labels"
+        ],
+        "missing_facts": []
+      },
+      {
+        "github_repository_id": 395283401,
+        "rank": 3,
+        "rrf_score": 0.016129032258064516,
+        "variant_ranks": [
+          {
+            "variant_id": "q2",
+            "rank": 2,
+            "bm25": -14.248219263433853
+          }
+        ],
+        "matched_fields": [
+          "upstream_description",
+          "catalog_description",
+          "topics",
+          "category_labels"
+        ],
+        "missing_facts": []
+      },
+      {
+        "github_repository_id": 49986046,
+        "rank": 4,
+        "rrf_score": 0.015625,
+        "variant_ranks": [
+          {
+            "variant_id": "q2",
+            "rank": 4,
+            "bm25": -5.780380223741638
+          }
+        ],
+        "matched_fields": [
+          "upstream_description",
+          "catalog_description",
+          "topics",
+          "category_labels"
+        ],
+        "missing_facts": []
+      },
+      {
+        "github_repository_id": 66474729,
+        "rank": 5,
+        "rrf_score": 0.015384615384615385,
+        "variant_ranks": [
+          {
+            "variant_id": "q2",
+            "rank": 5,
+            "bm25": -5.731977276770413
+          }
+        ],
+        "matched_fields": [
+          "upstream_description",
+          "topics",
+          "category_labels"
+        ],
+        "missing_facts": []
+      },
+      {
+        "github_repository_id": 94779471,
+        "rank": 6,
+        "rrf_score": 0.015151515151515152,
+        "variant_ranks": [
+          {
+            "variant_id": "q2",
+            "rank": 6,
+            "bm25": -5.565266946946368
+          }
+        ],
+        "matched_fields": [
+          "upstream_description",
+          "catalog_description",
+          "topics",
+          "category_labels"
+        ],
+        "missing_facts": []
+      },
+      {
+        "github_repository_id": 313853293,
+        "rank": 7,
+        "rrf_score": 0.014925373134328358,
+        "variant_ranks": [
+          {
+            "variant_id": "q2",
+            "rank": 7,
+            "bm25": -4.812400504831842
+          }
+        ],
+        "matched_fields": [
+          "upstream_description",
+          "catalog_description",
+          "category_labels"
+        ],
+        "missing_facts": []
+      },
+      {
+        "github_repository_id": 224386599,
+        "rank": 8,
+        "rrf_score": 0.014705882352941176,
+        "variant_ranks": [
+          {
+            "variant_id": "q2",
+            "rank": 8,
+            "bm25": -4.557870276734981
+          }
+        ],
+        "matched_fields": [
+          "topics",
+          "category_labels"
+        ],
+        "missing_facts": []
+      },
+      {
+        "github_repository_id": 157735858,
+        "rank": 9,
+        "rrf_score": 0.014492753623188406,
+        "variant_ranks": [
+          {
+            "variant_id": "q2",
+            "rank": 9,
+            "bm25": -4.182875947164369
+          }
+        ],
+        "matched_fields": [
+          "category_labels"
+        ],
+        "missing_facts": []
+      }
+    ],
+    "code_references": [
+      "plugins/myai-stackguide/scripts/recommendation_request.py:60",
+      "plugins/myai-stackguide/scripts/recommendation_request.py:71",
+      "plugins/myai-stackguide/scripts/retrieval.py:434",
+      "plugins/myai-stackguide/scripts/retrieval.py:682",
+      "plugins/myai-stackguide/scripts/retrieval.py:704",
+      "plugins/myai-stackguide/scripts/retrieval.py:731"
+    ],
+    "inference_limit": "The capture directly demonstrates rank fusion and lexical role mismatch. It does not isolate a single repair or promise that a particular policy change would pass. No runtime or source assets were changed."
+  },
+  "source_exposure": {
+    "new_semantic_cases": 14,
+    "semantic_source_judgments": 205,
+    "disjoint_ids_relative_to_original184": 173,
+    "seen_scheduling_ids": 6,
+    "identity_probe_judgments": 1,
+    "primary_role_clarifications": 23,
+    "unknown_role_grades": 0,
+    "globally_unseen_repositories": false,
+    "seen_communications_ids": 32,
+    "role_unknown_grades": 0,
+    "container_union_route": "communications_personal_ops",
+    "secondary_placement_route": "internal_tools_builders",
+    "expansion_cohort_route": "accounting_invoicing"
+  },
+  "promotion_ready": false,
+  "next_role": "Product and runtime/catalog owners decide a separately scoped vocabulary/provenance and role-ranking repair; preserve this failed holdout as exposed regression, predeclare any successor and require another independent goal/source freeze."
+}

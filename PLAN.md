@@ -10,6 +10,11 @@ State: `partially_verified` for the product. CP-09 is `implemented_verified_loca
 
 ## Active Dependency Order
 
+CP-04 current closure work (2026-10-11): [canonical evidence report](docs/reports/cp04-final-closure-2026-10-11.md) records `technical_verified / needs_user_acceptance`. Allocation1.1, current60 retained-order compatibility, actual4orders+8RU/EN answers, independent usefulness/meaning/provenance reviews and bounded resources pass. The sole remaining CP-04 action is human calibration of [these exact examples and conservative scores](docs/reports/cp04-owner-acceptance-2026-10-11.md). Lifecycle remains in_progress, promotion false; no further identical-input model run is required. CP-10/11 and CP-15/16 remain separate.
+
+The following CP-04 checkpoint paragraphs preserve intermediate history; their former next steps/statuses are superseded by the canonical current record above.
+
+
 CP-04 Codex/Brief continuation: [bilingual model report](docs/reports/cp04-brief-dialogue-2026-10-11.md) adds a shipped read-only Brief-bound request/guard entry point and actual bounded CLI interpretation/composition captures. The six-card driver defect is preserved and compared with a separate complete-pack answer replay using fixed interpretations/order. Installed evaluate-rag and write-code-eval project skills. Next: presentation corrections, independent unseen/human usefulness, source-owned dependency coverage and CP-11 persisted lifecycle. Parent `in_progress / partially_verified / no_go`; active pins unchanged.
 
 CP-04 structured exclusions/clarification: [current report](docs/reports/cp04-request-guard-2026-10-11.md) implements the development request envelope and pre-pack source-backed filtering. All30 negative top12/pack comparisons have no independently known conflicts; all15 unresolved structured requests stop with questions/zero retrieval. Exact60 old orders and10 historical metrics/orders preserved. These preserved results do not grade the new bilingual model answers. Parent `in_progress / partially_verified / no_go`; active pins unchanged.
@@ -35,6 +40,8 @@ CP-04 continuation: the owner accepted the enriched solution response format on 
 CP-04 ready-made direction, 2026-10-08: the [active task continuation](docs/plan/2026-08-30-codex-plugin-v1-implementation-plan.md#ready-made-continuation--owner-direction-2026-10-08) selects a bounded FlashRank prototype before custom retrieval work, separates first-stage coverage from reranking, and links the GitHub/arXiv alternatives and evaluation methods in the [research](research/cp04-retrieval-solutions-2026-10-08.md). The initial 2–4-engineer-hour prototype budget supersedes the earlier 24–44-hour custom experiment as the starting approach; full completion time remains unmeasured. Execute this continuation with the primary only, without subagents. Canonical FTS5/C9, frozen evidence, current no_go and human/joined gates remain in force; no library/model path is activated by this plan.
 
 The [current V3 continuation](docs/reports/cp04-v3-continuation-2026-10-08.md) records validation-cache/shared-core/streaming implementation, passing production and full synthetic capacity, development-only ranking experiments and the owner's public-source verification requirement. Independent source review/freeze completed; the single frozen held-out capture retained all-arm no_go from unknown coverage and backend/deployment relevance failures. Next method changes require development work and fresh independent held-out evidence; human calibration and joined lifecycle acceptance remain open. Earlier V2 and first full-parse failed receipts remain historical evidence.
+
+## Current cross-task dependency sequence
 
 1. CP-01/02 documentation is implemented and now amended to the owner's FTS5/context/activity/integration decisions.
 2. CP-03's accepted non-C9 contracts remain unchanged. `CP-03-C9-V2` has atomically replaced the active v1 public card/activity/pin surface and revalidated the CP-04 C8 compatibility fixtures; CP-05 aligns existing roles/skills/behavior cases before runtime dispatch.

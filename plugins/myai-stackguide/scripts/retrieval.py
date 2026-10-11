@@ -15,7 +15,7 @@ import unicodedata
 import uuid
 
 
-TRUSTED_MANIFEST_SHA256 = "1d090b0e2e56f4c7cd38276d0d8b08be2436e0c75b77649cf00d32c13cb9497f"
+TRUSTED_MANIFEST_SHA256 = "4c1c9eccf6df60d92da5d780a8152ce3fb00e43ccbf80e8ed01c3c660135a1bb"
 APPLICATION_ID = 1297695049
 INDEX_FORMAT_VERSION = 3
 MANIFEST_SCHEMA_VERSION = "2.1.0"
@@ -41,15 +41,15 @@ FTS_COLUMNS = (
     "best_for",
 )
 FIELD_WEIGHTS = {
-    "full_name": 5.0,
-    "full_name_aliases": 5.0,
+    "full_name": 0.25,
+    "full_name_aliases": 0.25,
     "upstream_description": 3.0,
     "catalog_description": 3.0,
-    "topics": 3.0,
-    "category_labels": 1.0,
-    "use_cases": 3.0,
-    "integration_surface": 3.0,
-    "best_for": 2.0,
+    "topics": 1.0,
+    "category_labels": 0.25,
+    "use_cases": 1.0,
+    "integration_surface": 1.0,
+    "best_for": 1.0,
 }
 QUERY_KEYS = {
     "schema_version", "query_id", "brief_version", "source_mode",
@@ -609,6 +609,79 @@ def _execute_variant(
     sql += "ORDER BY score ASC, github_repository_id ASC LIMIT ?"
     parameters.append(limit)
     return connection.execute(sql, parameters).fetchall()
+
+
+def count_matches(query, *, index_path, manifest_path, policy_path, include_route_leaf_ids=False):
+    """Count the literal union in the trusted route, without retrieving cards.
+
+    This aggregate shares the public reader's trust and failure boundaries. It
+    does not consume a candidate-hit budget or establish capability/fit evidence.
+    The internal opt-in returns source-owned category member IDs only for an
+    underfilled route, on this same verified connection; it performs no MATCH.
+    The default two-field aggregate API remains unchanged.
+    """
+    index_path, manifest_path, policy_path = map(Path, (index_path, manifest_path, policy_path))
+    def failed(status):
+        result = {"status": status, "match_count": None}
+        if include_route_leaf_ids:
+            result["route_leaf_ids"] = None
+        return result
+    if type(include_route_leaf_ids) is not bool:
+        return failed("invalid_query")
+    if not all(path.is_file() for path in (index_path, manifest_path, policy_path)):
+        return failed("retrieval_unavailable")
+    try:
+        manifest, manifest_bytes = _load_json_bytes(manifest_path, max_bytes=65536)
+        policy, policy_bytes = _load_json_bytes(policy_path, max_bytes=65536)
+    except (OSError, UnicodeDecodeError, json.JSONDecodeError, ValueError):
+        return failed("retrieval_unavailable")
+    if hashlib.sha256(manifest_bytes).hexdigest() != TRUSTED_MANIFEST_SHA256:
+        return failed("index_incompatible")
+    try:
+        _validate_manifest_policy(manifest, policy)
+    except ValueError:
+        return failed("index_incompatible")
+    try:
+        validate_query(query, manifest=manifest, policy=policy)
+    except (TypeError, ValueError):
+        return failed("invalid_query")
+    if hashlib.sha256(policy_bytes).hexdigest() != manifest["pins"]["policy_sha256"]:
+        return failed("index_incompatible")
+    connection = None
+    try:
+        connection = sqlite3.connect(index_path.resolve().as_uri()+"?mode=ro&immutable=1", uri=True)
+        _validate_bundle_cached(connection, manifest, policy, index_path)
+        route = query["taxonomy_route_id"]
+        if route is not None and connection.execute(
+            "SELECT 1 FROM taxonomy_route_registry WHERE route_id = ? LIMIT 1", (route,)
+        ).fetchone() is None:
+            return failed("invalid_query")
+        literals = " OR ".join(compile_fts5_query(v["terms"], aliases=policy["aliases"])
+                               for v in query["variants"])
+        sql = "SELECT count(*) FROM repository_fts WHERE repository_fts MATCH ? "
+        parameters = [literals]
+        if route is not None:
+            sql += ("AND EXISTS (SELECT 1 FROM repository_classifications rc "
+                    "JOIN taxonomy_route_registry tr ON tr.match_category_id = rc.category_id "
+                    "WHERE rc.github_repository_id = repository_fts.rowid AND tr.route_id = ?)")
+            parameters.append(route)
+        match_count = connection.execute(sql, parameters).fetchone()[0]
+        result = {"status": "ok", "match_count": match_count}
+        if include_route_leaf_ids:
+            result["route_leaf_ids"] = []
+            if route is not None and match_count < query["max_cards"]:
+                result["route_leaf_ids"] = [row[0] for row in connection.execute(
+                    "SELECT match_category_id FROM taxonomy_route_registry "
+                    "WHERE route_id = ? AND match_category_kind = 'category' "
+                    "ORDER BY match_category_id", (route,))]
+        return result
+    except sqlite3.DatabaseError:
+        return failed("retrieval_unavailable")
+    except (OSError, ValueError, KeyError, TypeError):
+        return failed("index_incompatible")
+    finally:
+        if connection is not None:
+            connection.close()
 
 
 def retrieve(query, *, run_id, index_path, manifest_path, policy_path):

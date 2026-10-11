@@ -1,0 +1,186 @@
+{
+  "schema_version": "cp04_final_declaration_v1",
+  "plan_file_sha256": "37041760032aea200987092c97b49066e824d63cb208d63c3556791257e4833f",
+  "plan_canonical_sha256": "53d764b8306d5252df41065a0480358626ca3ad9d0f4948608083809ba18cc5b",
+  "source_hashes": {
+    "evals/plugin-v1/run_final_quality.py": "fab447bcf2925d0cf8f0078ccc3b3c5d81fd8b743fc8a9abbece87d14656bab9",
+    "tests/test_plugin_final_quality.py": "efca80503c515f53e864c25b7509251a4eb0b54cf2a03b62565de258238f4527",
+    "evals/plugin-v1/run_quality.py": "e6ba2970a955319f5cc6d5c06b554d911263ed7f00bbe8bd17347aad8e80a321",
+    "evals/plugin-v1/evaluate_retrieval.py": "29baacad27b68dd507193a9c6f564e7a55e7662fbeadb659797e0cd7bccf7488",
+    "plugins/myai-stackguide/scripts/recommendation_request.py": "3c3d188d51d5c6da55de2fc1655874d15f4919cecae9bea40fa71810d3084ad9",
+    "plugins/myai-stackguide/scripts/request_guard.py": "e6745044d2e90a17b830bc6ba7d14a46ea7b7ba7a7ca2141a2b97d3b9639d775",
+    "plugins/myai-stackguide/scripts/retrieval.py": "6cd0a8012ed47374afee68c957a7369020775562d21b0d8b2649ec3b850f14dd",
+    "plugins/myai-stackguide/scripts/context.py": "e47623d6c3147c7702d3d5b3565bcd651838b2d107ae105a996989cf60fc29dd",
+    "plugins/myai-stackguide/scripts/context_pack.py": "0dd03df31580b3980275aa42fcdae01e3d446986e9e32995879f4502c1198276",
+    "plugins/myai-stackguide/scripts/matcher.py": "c560158f15390f662e55eac39e9ffc31fd983a9af8c5086a234fbec0280933c2"
+  },
+  "asset_hashes": {
+    "evals/plugin-v1/evaluate_retrieval.py": "29baacad27b68dd507193a9c6f564e7a55e7662fbeadb659797e0cd7bccf7488",
+    "evals/plugin-v1/quality-plan.json": "cb2765fda7c90693212bb96041ea21c5eb4743607002cb3c89f0dfdb2ef695e3",
+    "evals/plugin-v1/rubric.json": "96f67da80234d4ade36c9b5e5fb50276398acce76751513e9e041926b74f3fef",
+    "evals/plugin-v1/run_final_prospective.py": "c00775d70392b6a59b46bd585408d36473fcbeb8d26b461ce3988ae8e53ae294",
+    "evals/plugin-v1/run_final_quality.py": "fab447bcf2925d0cf8f0078ccc3b3c5d81fd8b743fc8a9abbece87d14656bab9",
+    "evals/plugin-v1/run_final_rank_repair_regression.py": "08eb85edde1643ff90aa02d0043e81d9198a8e0e52ec34b557b5c075c0998e8c",
+    "evals/plugin-v1/run_quality.py": "e6ba2970a955319f5cc6d5c06b554d911263ed7f00bbe8bd17347aad8e80a321",
+    "plugins/myai-stackguide/assets/catalog.search-manifest.json": "4c1c9eccf6df60d92da5d780a8152ce3fb00e43ccbf80e8ed01c3c660135a1bb",
+    "plugins/myai-stackguide/assets/catalog.search.sqlite": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+    "plugins/myai-stackguide/assets/catalog.snapshot.json": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+    "plugins/myai-stackguide/assets/retrieval-policy.json": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+    "plugins/myai-stackguide/scripts/context.py": "e47623d6c3147c7702d3d5b3565bcd651838b2d107ae105a996989cf60fc29dd",
+    "plugins/myai-stackguide/scripts/context_pack.py": "0dd03df31580b3980275aa42fcdae01e3d446986e9e32995879f4502c1198276",
+    "plugins/myai-stackguide/scripts/matcher.py": "c560158f15390f662e55eac39e9ffc31fd983a9af8c5086a234fbec0280933c2",
+    "plugins/myai-stackguide/scripts/recommendation_request.py": "3c3d188d51d5c6da55de2fc1655874d15f4919cecae9bea40fa71810d3084ad9",
+    "plugins/myai-stackguide/scripts/request_guard.py": "e6745044d2e90a17b830bc6ba7d14a46ea7b7ba7a7ca2141a2b97d3b9639d775",
+    "plugins/myai-stackguide/scripts/retrieval.py": "6cd0a8012ed47374afee68c957a7369020775562d21b0d8b2649ec3b850f14dd",
+    "specs/retrieval/retrieval-policy.json": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b"
+  },
+  "pins": {
+    "activity_schema_version": "2.0.0",
+    "card_schema_version": "2.0.0",
+    "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+    "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+    "corpus_kind": "catalog_snapshot",
+    "index_format_version": 3,
+    "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+    "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+    "retrieval_policy_version": "2.1.0",
+    "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+    "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+  },
+  "thresholds": {
+    "held_out_macro_recall_at_12_min": 0.75,
+    "held_out_macro_ndcg_at_12_min": 0.65,
+    "candidate_not_worse_than_baseline_recall_delta_min": 0.0,
+    "candidate_not_worse_than_baseline_ndcg_delta_min": 0.0,
+    "required_stratum_recall_at_12_min": 0.6,
+    "required_stratum_ndcg_at_12_min": 0.5,
+    "hard_constraint_violations_max": 0,
+    "false_exclusions_max": 0,
+    "duplicate_canonical_ids_max": 0,
+    "alias_success_rate_min": 1.0,
+    "evidence_pack_survival_rate_min": 0.9,
+    "container_route_coverage_min": 14,
+    "leaf_route_coverage_min": 111,
+    "human_total_min": 16,
+    "human_critical_dimension_min": 1,
+    "human_critical_failures_max": 0,
+    "actual_warm_p95_ms_max": 100,
+    "actual_cold_p95_ms_max": 250,
+    "synthetic_warm_p95_ms_max": 200,
+    "synthetic_cold_p95_ms_max": 500,
+    "peak_memory_bytes_max": 268435456,
+    "index_bytes_max": 67108864
+  },
+  "cases": [
+    {
+      "case_id": "PROSPECTIVE-HOLD-01",
+      "case_sha256": "b55f7aee2e0832978b425373f89da0c71edd991b94e69c8abbabdcce0ca89bd1",
+      "payload_sha256": "a0605c1665bd7b165e2199f0de0f907977306809151550bda287252262c0e6a0"
+    },
+    {
+      "case_id": "PROSPECTIVE-HOLD-02",
+      "case_sha256": "77d3ab2655619f7fd67a7b801974bc1a7be7fe9ab45b6c75b3b67c21bf3b0df1",
+      "payload_sha256": "efe83d8b17540475f64fc17b9ab1f9145625f79c3697432aff5d988f79d9505f"
+    },
+    {
+      "case_id": "PROSPECTIVE-HOLD-03",
+      "case_sha256": "89692e78fb0c8896fb5982e8dfd5a2e67985bec32639231b93cf2cde30c0246b",
+      "payload_sha256": "69e6d7246899b22eadd6f37ffbf678094372218a2a4582b0e4253d29f443980b"
+    },
+    {
+      "case_id": "PROSPECTIVE-HOLD-04",
+      "case_sha256": "e1545f1df748f4c870b5ff842d6959481a466c6f847a10ad5b7a4f67519d9179",
+      "payload_sha256": "003366931a83e68f647803878d49274d06b87d35c59955b2941a3949c3ef1c1c"
+    },
+    {
+      "case_id": "PROSPECTIVE-HOLD-05",
+      "case_sha256": "4c528adbf6418105c591e999eb5bd7b358c84f79467bebee24c26bab25ad64bb",
+      "payload_sha256": "9482921e6e7fcf72dd792ddb0f3d936fc4f3d232becf1c9c02329421f73d0b30"
+    },
+    {
+      "case_id": "PROSPECTIVE-HOLD-06",
+      "case_sha256": "9a5bd4b963b8f8221ce76578218c66b277ac6e30515a723d4f32a6c3de0cd4af",
+      "payload_sha256": "5818ded3053e58e26144d41b97dbb457cb43a4e87a199dbd77e816d0fe1ad2ce"
+    },
+    {
+      "case_id": "PROSPECTIVE-HOLD-07",
+      "case_sha256": "2d4ae981ec54f73af808a47324afb317126bfed88f5dfcb8f2e29c85075133f5",
+      "payload_sha256": "d7c53c75e244a7d0778c1fee85392995d4772d0f283d43974323c0b508bfb32c"
+    },
+    {
+      "case_id": "PROSPECTIVE-HOLD-08",
+      "case_sha256": "22445420cec3f44f14c0fa7ac87c04639467fbd37e1e807f09fb775c5c373af4",
+      "payload_sha256": "dec4ddfe8035e52b631d5ca23dfced99912309a74d2e374e144a460e073d8a25"
+    },
+    {
+      "case_id": "PROSPECTIVE-HOLD-09",
+      "case_sha256": "b94d9cfe66f9c16bce96a6d8951c5a3bee06161ace7fa495102bc66f9de19578",
+      "payload_sha256": "402556e92db7f143cfc3029aacc31555df935b992e4bd0a6ec75d2d01df3fcd0"
+    },
+    {
+      "case_id": "PROSPECTIVE-HOLD-10",
+      "case_sha256": "c0b75932b50cffc0a76eb19ce48186cabc0299c85eaec3530230cdaa070ae48a",
+      "payload_sha256": "3d1f0e1e554ac65c5208d025d15a4879756c450850471c4b308036d06821cdea"
+    },
+    {
+      "case_id": "PROSPECTIVE-HOLD-11",
+      "case_sha256": "438762a5e7df7cbef7d91cb243deeb8587a1994954335b3879db013cf91f8f30",
+      "payload_sha256": "d9a56414d5147aaaed7532f0383db08cf82fa33e1ffe3cb22c94c3f042dbdb66"
+    },
+    {
+      "case_id": "PROSPECTIVE-HOLD-12",
+      "case_sha256": "0e31904c4d347030b7e423dd6851fe6e53fa2b3f8f528c2c2cb317eac5f2bcee",
+      "payload_sha256": "b9198b2d4df0d61b5593ac4bc221ccafd4cbcd2d1da1deb259014588ede6ca19"
+    },
+    {
+      "case_id": "PROSPECTIVE-HOLD-13",
+      "case_sha256": "47197810a0cc8423c78310fc75250af377b574edc60c170d2b7ecf643f03b866",
+      "payload_sha256": "52dfad77bda9bd7adaeced51ca5de3208dfa2e3d567e2d1f35358f68cb9a09f9"
+    },
+    {
+      "case_id": "PROSPECTIVE-HOLD-14",
+      "case_sha256": "21dd14825ac6364505f37349d6acb9c64c0ec12981dbe40a8ed09cc43ebfc7e7",
+      "payload_sha256": "ed6ad0623b552f2b2e93b949d122419665eae376d0eb5ba72f712f795d17bfb6"
+    },
+    {
+      "case_id": "PROSPECTIVE-ALIAS-01",
+      "case_sha256": "49aff583d5bf48f02bb729ac4d1514db3de0b5c1311931862790678cb965a37f",
+      "payload_sha256": "8d9b40c2a43072d0ff1cc27868e63886ad097dfa5bb78a0edebe5a8eb92368c6"
+    }
+  ],
+  "candidate": "Stable source-text weighting and COUNT-derived canonical route vocabulary; one q1 ranked capture",
+  "baseline": "Original literal-field-or-v1, injected transport adapter, exact same prepared query/route/constraints/guard/pack; placeholder RRF only for transport.",
+  "grading": "Full routed oracle; any unknown grade invalidates whole case and official macro, including unretrieved unknowns. No ranked exposure before freeze.",
+  "commands": [
+    "python -B evals/plugin-v1/run_final_prospective.py --predeclare --review evals/plugin-v1/results/cp04-final-quality-prospective-2026-10-11/source-independent-review.json",
+    "python -B evals/plugin-v1/run_final_prospective.py --run --review evals/plugin-v1/results/cp04-final-quality-prospective-2026-10-11/source-independent-review.json"
+  ],
+  "promotion_ready": false,
+  "prior_failed_held_out_retained": true,
+  "prospective_runner_sha256": "c00775d70392b6a59b46bd585408d36473fcbeb8d26b461ce3988ae8e53ae294",
+  "review_path": "evals/plugin-v1/results/cp04-final-quality-prospective-2026-10-11/source-independent-review.json",
+  "source_review_sha256": "78351b82df6763e72546c0f342db80133708fc3b695e09dfe6b887adfed77f2d",
+  "source_questions_sha256": "2fa87a67566373b85c66a57825d85916888bc04de065d46c76ef7dee9795bc92",
+  "evidence_kind": "prospective_new_functional_goals_mixed_source_exposure",
+  "source_exposure": {
+    "new_semantic_goals": 14,
+    "identity_regression_probes": 1,
+    "semantic_source_judgments": 244,
+    "semantic_unique_ids": 244,
+    "prior_two_suites_unique_ids": 357,
+    "source_disjoint_ids": 159,
+    "source_seen_ids": 85,
+    "disjoint_leaf_goal_cases": 10,
+    "seen_new_goal_cases": 4,
+    "role_unknown_grades": 0,
+    "unresolved_required_feature_adoption": "Retained per judgment; not converted to feature-absence negatives.",
+    "functional_goal_independence": true,
+    "globally_unseen_repositories": false,
+    "ranked_capture_count_at_authoring": 0,
+    "source_clarification_records": 34,
+    "source_clarified_unique_ids": 32
+  },
+  "globally_unseen_repositories": false,
+  "human_acceptance": false,
+  "count_scope": "One native read-only COUNT per preparation; no ranked rows during preflight. Original literal scorer keeps the original case terms."
+}

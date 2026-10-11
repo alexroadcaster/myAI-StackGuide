@@ -1,0 +1,2306 @@
+{
+  "schema_version": "cp04_prospective_failure_analysis_v1",
+  "evidence_owner": "quality_evaluator",
+  "verdict": "no_go",
+  "evidence_kind": "analysis_of_once_frozen_prospective_capture_no_new_rank_calls",
+  "capture_commands": [
+    "python -B evals/plugin-v1/run_final_prospective.py --predeclare --review evals/plugin-v1/results/cp04-final-quality-prospective-2026-10-11/source-independent-review.json",
+    "python -B evals/plugin-v1/run_final_prospective.py --run --review evals/plugin-v1/results/cp04-final-quality-prospective-2026-10-11/source-independent-review.json"
+  ],
+  "predeclare_exit_code": 0,
+  "capture_exit_code": 1,
+  "input_hashes": {
+    "evals/plugin-v1/final-quality-prospective-2026-10-11.json": "37041760032aea200987092c97b49066e824d63cb208d63c3556791257e4833f",
+    "evals/plugin-v1/results/cp04-final-quality-prospective-2026-10-11/goal-authoring-draft.json": "9d41fe032f190b4f60a6362bab50bb4d7ea3715cb9abdf2dc80977a2a1c74515",
+    "evals/plugin-v1/results/cp04-final-quality-prospective-2026-10-11/source-review-questions.json": "2fa87a67566373b85c66a57825d85916888bc04de065d46c76ef7dee9795bc92",
+    "evals/plugin-v1/results/cp04-final-quality-prospective-2026-10-11/source-independent-review.json": "78351b82df6763e72546c0f342db80133708fc3b695e09dfe6b887adfed77f2d",
+    "evals/plugin-v1/results/cp04-final-quality-prospective-2026-10-11/declaration.json": "0fa7f99acb4ded3b97a3c3456a8f7e80a94b68e80e964fa39b01af3a097a5362",
+    "evals/plugin-v1/results/cp04-final-quality-prospective-2026-10-11/observations.json": "258c5baf3b9b37a4841ba50fe53dad5569696e5a2943c21eea10c4fdec9f4639",
+    "evals/plugin-v1/results/cp04-final-quality-prospective-2026-10-11/prospective-conclusion.json": "ddca42a11638b3e2e7265cba48e62b1b47a0d178806693c99df011c7b1423685"
+  },
+  "frozen_queries_grades_thresholds_unchanged": true,
+  "source_complete_role_oracle": true,
+  "ranked_capture_runs": 1,
+  "candidate_macro": {
+    "recall_at_k": 0.8475143903715333,
+    "ndcg_at_k": 0.8104330877780911
+  },
+  "original_literal_macro": {
+    "recall_at_k": 0.599860853432282,
+    "ndcg_at_k": 0.6744983246050696
+  },
+  "candidate_minus_literal_macro": {
+    "recall_at_k": 0.2476535369392513,
+    "ndcg_at_k": 0.13593476317302144
+  },
+  "gates": {
+    "held_out_macro_recall_at_12_min": true,
+    "baseline_non_regression_recall_at_k": true,
+    "held_out_macro_ndcg_at_12_min": true,
+    "baseline_non_regression_ndcg_at_k": true,
+    "required_strata": false,
+    "hard_constraint_violations": true,
+    "false_exclusions": true,
+    "duplicate_canonical_ids": true,
+    "alias_success_rate_min": true,
+    "evidence_pack_survival_rate_min": true,
+    "all_statuses_match": true,
+    "container_registry_coverage": true,
+    "leaf_registry_coverage": true
+  },
+  "failed_strata": {
+    "expansion_cohort": {
+      "case_ids": [
+        "PROSPECTIVE-HOLD-07",
+        "PROSPECTIVE-HOLD-08"
+      ],
+      "candidate": {
+        "recall_at_k": 0.375,
+        "ndcg_at_k": 0.6342583818521641
+      },
+      "baseline": {
+        "recall_at_k": 0.19375,
+        "ndcg_at_k": 0.517039263973278
+      }
+    },
+    "container_union": {
+      "case_ids": [
+        "PROSPECTIVE-HOLD-07"
+      ],
+      "candidate": {
+        "recall_at_k": 0.25,
+        "ndcg_at_k": 0.3876282738275397
+      },
+      "baseline": {
+        "recall_at_k": 0.1875,
+        "ndcg_at_k": 0.3796183110343403
+      }
+    },
+    "communications_personal_ops": {
+      "case_ids": [
+        "PROSPECTIVE-HOLD-07"
+      ],
+      "candidate": {
+        "recall_at_k": 0.25,
+        "ndcg_at_k": 0.3876282738275397
+      },
+      "baseline": {
+        "recall_at_k": 0.1875,
+        "ndcg_at_k": 0.3796183110343403
+      }
+    },
+    "ecommerce_payments_revenue": {
+      "case_ids": [
+        "PROSPECTIVE-HOLD-08"
+      ],
+      "candidate": {
+        "recall_at_k": 0.5,
+        "ndcg_at_k": 0.8808884898767885
+      },
+      "baseline": {
+        "recall_at_k": 0.2,
+        "ndcg_at_k": 0.6544602169122158
+      }
+    }
+  },
+  "all_strata": {
+    "thin_leaf": {
+      "case_ids": [
+        "PROSPECTIVE-HOLD-04",
+        "PROSPECTIVE-HOLD-06"
+      ],
+      "candidate": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.7051678797717897
+      },
+      "baseline": {
+        "recall_at_k": 0.8125,
+        "ndcg_at_k": 0.6627115815499824
+      }
+    },
+    "dense_leaf": {
+      "case_ids": [
+        "PROSPECTIVE-HOLD-07",
+        "PROSPECTIVE-HOLD-12"
+      ],
+      "candidate": {
+        "recall_at_k": 0.625,
+        "ndcg_at_k": 0.646242593353226
+      },
+      "baseline": {
+        "recall_at_k": 0.59375,
+        "ndcg_at_k": 0.650044600927973
+      }
+    },
+    "baseline_cohort": {
+      "case_ids": [
+        "PROSPECTIVE-HOLD-01",
+        "PROSPECTIVE-HOLD-02",
+        "PROSPECTIVE-HOLD-03",
+        "PROSPECTIVE-HOLD-04",
+        "PROSPECTIVE-HOLD-05",
+        "PROSPECTIVE-HOLD-06",
+        "PROSPECTIVE-HOLD-07",
+        "PROSPECTIVE-HOLD-08",
+        "PROSPECTIVE-HOLD-09",
+        "PROSPECTIVE-HOLD-10",
+        "PROSPECTIVE-HOLD-11",
+        "PROSPECTIVE-HOLD-12",
+        "PROSPECTIVE-HOLD-13",
+        "PROSPECTIVE-HOLD-14"
+      ],
+      "candidate": {
+        "recall_at_k": 0.8475143903715333,
+        "ndcg_at_k": 0.8104330877780911
+      },
+      "baseline": {
+        "recall_at_k": 0.599860853432282,
+        "ndcg_at_k": 0.6744983246050696
+      }
+    },
+    "expansion_cohort": {
+      "case_ids": [
+        "PROSPECTIVE-HOLD-07",
+        "PROSPECTIVE-HOLD-08"
+      ],
+      "candidate": {
+        "recall_at_k": 0.375,
+        "ndcg_at_k": 0.6342583818521641
+      },
+      "baseline": {
+        "recall_at_k": 0.19375,
+        "ndcg_at_k": 0.517039263973278
+      }
+    },
+    "dual_descriptions": {
+      "case_ids": [
+        "PROSPECTIVE-HOLD-01",
+        "PROSPECTIVE-HOLD-02",
+        "PROSPECTIVE-HOLD-03",
+        "PROSPECTIVE-HOLD-04",
+        "PROSPECTIVE-HOLD-06",
+        "PROSPECTIVE-HOLD-07",
+        "PROSPECTIVE-HOLD-08",
+        "PROSPECTIVE-HOLD-09",
+        "PROSPECTIVE-HOLD-10",
+        "PROSPECTIVE-HOLD-11",
+        "PROSPECTIVE-HOLD-12",
+        "PROSPECTIVE-HOLD-13",
+        "PROSPECTIVE-HOLD-14"
+      ],
+      "candidate": {
+        "recall_at_k": 0.8417018878557341,
+        "ndcg_at_k": 0.8096763573427215
+      },
+      "baseline": {
+        "recall_at_k": 0.6282525167140551,
+        "ndcg_at_k": 0.7020965792455736
+      }
+    },
+    "secondary_dedupe": {
+      "case_ids": [
+        "PROSPECTIVE-HOLD-03",
+        "PROSPECTIVE-HOLD-07",
+        "PROSPECTIVE-HOLD-10",
+        "PROSPECTIVE-HOLD-12",
+        "PROSPECTIVE-HOLD-14"
+      ],
+      "candidate": {
+        "recall_at_k": 0.7846153846153847,
+        "ndcg_at_k": 0.8044308932128159
+      },
+      "baseline": {
+        "recall_at_k": 0.6788461538461539,
+        "ndcg_at_k": 0.7407041292866384
+      }
+    },
+    "container_union": {
+      "case_ids": [
+        "PROSPECTIVE-HOLD-07"
+      ],
+      "candidate": {
+        "recall_at_k": 0.25,
+        "ndcg_at_k": 0.3876282738275397
+      },
+      "baseline": {
+        "recall_at_k": 0.1875,
+        "ndcg_at_k": 0.3796183110343403
+      }
+    },
+    "lexical_ru": {
+      "case_ids": [
+        "PROSPECTIVE-HOLD-09"
+      ],
+      "candidate": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.9763778542271594
+      },
+      "baseline": {
+        "recall_at_k": 0.09090909090909091,
+        "ndcg_at_k": 0.397544745361766
+      }
+    },
+    "lexical_en": {
+      "case_ids": [
+        "PROSPECTIVE-HOLD-01",
+        "PROSPECTIVE-HOLD-02",
+        "PROSPECTIVE-HOLD-03",
+        "PROSPECTIVE-HOLD-04",
+        "PROSPECTIVE-HOLD-05",
+        "PROSPECTIVE-HOLD-06",
+        "PROSPECTIVE-HOLD-07",
+        "PROSPECTIVE-HOLD-08",
+        "PROSPECTIVE-HOLD-10",
+        "PROSPECTIVE-HOLD-11",
+        "PROSPECTIVE-HOLD-12",
+        "PROSPECTIVE-HOLD-13",
+        "PROSPECTIVE-HOLD-14"
+      ],
+      "candidate": {
+        "recall_at_k": 0.8357847280924204,
+        "ndcg_at_k": 0.7976681057435473
+      },
+      "baseline": {
+        "recall_at_k": 0.639010989010989,
+        "ndcg_at_k": 0.6958024460853238
+      }
+    },
+    "activity_unknown": {
+      "case_ids": [
+        "PROSPECTIVE-HOLD-01",
+        "PROSPECTIVE-HOLD-02",
+        "PROSPECTIVE-HOLD-03",
+        "PROSPECTIVE-HOLD-04",
+        "PROSPECTIVE-HOLD-05",
+        "PROSPECTIVE-HOLD-06",
+        "PROSPECTIVE-HOLD-07",
+        "PROSPECTIVE-HOLD-08",
+        "PROSPECTIVE-HOLD-09",
+        "PROSPECTIVE-HOLD-10",
+        "PROSPECTIVE-HOLD-11",
+        "PROSPECTIVE-HOLD-12",
+        "PROSPECTIVE-HOLD-13",
+        "PROSPECTIVE-HOLD-14"
+      ],
+      "candidate": {
+        "recall_at_k": 0.8475143903715333,
+        "ndcg_at_k": 0.8104330877780911
+      },
+      "baseline": {
+        "recall_at_k": 0.599860853432282,
+        "ndcg_at_k": 0.6744983246050696
+      }
+    },
+    "developer_tools_cli_general": {
+      "case_ids": [
+        "PROSPECTIVE-HOLD-01"
+      ],
+      "candidate": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.6583752428457631
+      },
+      "baseline": {
+        "recall_at_k": 0.8333333333333334,
+        "ndcg_at_k": 0.7327207221123936
+      }
+    },
+    "testing_qa": {
+      "case_ids": [
+        "PROSPECTIVE-HOLD-02"
+      ],
+      "candidate": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.8668815589003327
+      },
+      "baseline": {
+        "recall_at_k": 0.8571428571428571,
+        "ndcg_at_k": 0.8755459351794088
+      }
+    },
+    "files_media_storage": {
+      "case_ids": [
+        "PROSPECTIVE-HOLD-03"
+      ],
+      "candidate": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.9853377568191893
+      },
+      "baseline": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.7841733415564497
+      }
+    },
+    "frontend_frameworks_ui": {
+      "case_ids": [
+        "PROSPECTIVE-HOLD-04"
+      ],
+      "candidate": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.8441068513650066
+      },
+      "baseline": {
+        "recall_at_k": 0.625,
+        "ndcg_at_k": 0.6043939524893699
+      }
+    },
+    "accounting_finance_erp": {
+      "case_ids": [
+        "PROSPECTIVE-HOLD-05"
+      ],
+      "candidate": {
+        "recall_at_k": 0.9230769230769231,
+        "ndcg_at_k": 0.8202705834378952
+      },
+      "baseline": {
+        "recall_at_k": 0.23076923076923078,
+        "ndcg_at_k": 0.3157210142785188
+      }
+    },
+    "cms_content_knowledge": {
+      "case_ids": [
+        "PROSPECTIVE-HOLD-06"
+      ],
+      "candidate": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.566228908178573
+      },
+      "baseline": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.7210292106105951
+      }
+    },
+    "communications_personal_ops": {
+      "case_ids": [
+        "PROSPECTIVE-HOLD-07"
+      ],
+      "candidate": {
+        "recall_at_k": 0.25,
+        "ndcg_at_k": 0.3876282738275397
+      },
+      "baseline": {
+        "recall_at_k": 0.1875,
+        "ndcg_at_k": 0.3796183110343403
+      }
+    },
+    "ecommerce_payments_revenue": {
+      "case_ids": [
+        "PROSPECTIVE-HOLD-08"
+      ],
+      "candidate": {
+        "recall_at_k": 0.5,
+        "ndcg_at_k": 0.8808884898767885
+      },
+      "baseline": {
+        "recall_at_k": 0.2,
+        "ndcg_at_k": 0.6544602169122158
+      }
+    },
+    "operations_project_management": {
+      "case_ids": [
+        "PROSPECTIVE-HOLD-09"
+      ],
+      "candidate": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.9763778542271594
+      },
+      "baseline": {
+        "recall_at_k": 0.09090909090909091,
+        "ndcg_at_k": 0.397544745361766
+      }
+    },
+    "data_ingestion_etl_cdc": {
+      "case_ids": [
+        "PROSPECTIVE-HOLD-10"
+      ],
+      "candidate": {
+        "recall_at_k": 0.9230769230769231,
+        "ndcg_at_k": 0.8511157738048476
+      },
+      "baseline": {
+        "recall_at_k": 0.7692307692307693,
+        "ndcg_at_k": 0.8739679857959115
+      }
+    },
+    "databases_storage_caching": {
+      "case_ids": [
+        "PROSPECTIVE-HOLD-11"
+      ],
+      "candidate": {
+        "recall_at_k": 0.7333333333333333,
+        "ndcg_at_k": 0.875746050450646
+      },
+      "baseline": {
+        "recall_at_k": 0.6666666666666666,
+        "ndcg_at_k": 0.7548606535341368
+      }
+    },
+    "backend_baas_api": {
+      "case_ids": [
+        "PROSPECTIVE-HOLD-12"
+      ],
+      "candidate": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.9048569128789122
+      },
+      "baseline": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.9204708908216057
+      }
+    },
+    "deployment_containers_paas": {
+      "case_ids": [
+        "PROSPECTIVE-HOLD-13"
+      ],
+      "candidate": {
+        "recall_at_k": 0.7857142857142857,
+        "ndcg_at_k": 0.8350332235470305
+      },
+      "baseline": {
+        "recall_at_k": 0.5,
+        "ndcg_at_k": 0.6831794475593785
+      }
+    },
+    "supply_chain_devsecops": {
+      "case_ids": [
+        "PROSPECTIVE-HOLD-14"
+      ],
+      "candidate": {
+        "recall_at_k": 0.75,
+        "ndcg_at_k": 0.8932157487335904
+      },
+      "baseline": {
+        "recall_at_k": 0.4375,
+        "ndcg_at_k": 0.7452901172248848
+      }
+    }
+  },
+  "cases": [
+    {
+      "case_id": "PROSPECTIVE-HOLD-01",
+      "route": "code_quality",
+      "tags": [
+        "lexical_en",
+        "activity_unknown",
+        "baseline_cohort",
+        "dual_descriptions"
+      ],
+      "metric_family": "semantic",
+      "candidate_metrics": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.6583752428457631,
+        "relevant_count": 6
+      },
+      "literal_metrics": {
+        "recall_at_k": 0.8333333333333334,
+        "ndcg_at_k": 0.7327207221123936,
+        "relevant_count": 6
+      },
+      "candidate_minus_literal": {
+        "recall_at_k": 0.16666666666666663,
+        "ndcg_at_k": -0.07434547926663049
+      },
+      "failed_percase_floors": [],
+      "allowed_positive_count": 6,
+      "positive_top12_count": 6,
+      "raw_pool_size": 11,
+      "positive_ids_missing_from_pool": [],
+      "positive_ids_outside_top12": [],
+      "grade0_or_denied_top12": [
+        {
+          "github_repository_id": 6093316,
+          "full_name": "DefinitelyTyped/DefinitelyTyped",
+          "grade": 0,
+          "constraint": "allowed"
+        },
+        {
+          "github_repository_id": 75104123,
+          "full_name": "prettier/prettier",
+          "grade": 0,
+          "constraint": "allowed"
+        },
+        {
+          "github_repository_id": 6731432,
+          "full_name": "koalaman/shellcheck",
+          "grade": 0,
+          "constraint": "allowed"
+        },
+        {
+          "github_repository_id": 11061773,
+          "full_name": "eslint/eslint",
+          "grade": 0,
+          "constraint": "allowed"
+        },
+        {
+          "github_repository_id": 671654508,
+          "full_name": "biomejs/biome",
+          "grade": 0,
+          "constraint": "allowed"
+        }
+      ],
+      "original_terms": [
+        "python",
+        "lint",
+        "source code"
+      ],
+      "original_match_count": 5,
+      "added_route_terms": [
+        "code",
+        "quality"
+      ],
+      "final_terms": [
+        "python",
+        "lint",
+        "source code",
+        "code",
+        "quality"
+      ],
+      "candidate_ids": [
+        10353211,
+        125266328,
+        523043277,
+        1222504,
+        6093316,
+        75104123,
+        6731432,
+        11061773,
+        304830226,
+        17689377,
+        671654508
+      ],
+      "literal_ids": [
+        304830226,
+        523043277,
+        671654508,
+        11061773,
+        17689377,
+        125266328,
+        6731432,
+        10353211
+      ],
+      "original_literal_order_independently_recomputed": true,
+      "exact_frozen_case_payload_query_bindings": true,
+      "ranked_retrieval_calls": 1,
+      "aggregate_calls_per_preparation": 1,
+      "status": "ok",
+      "pack_survival": 1.0
+    },
+    {
+      "case_id": "PROSPECTIVE-HOLD-02",
+      "route": "unit_component_testing",
+      "tags": [
+        "lexical_en",
+        "activity_unknown",
+        "baseline_cohort",
+        "dual_descriptions"
+      ],
+      "metric_family": "semantic",
+      "candidate_metrics": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.8668815589003327,
+        "relevant_count": 7
+      },
+      "literal_metrics": {
+        "recall_at_k": 0.8571428571428571,
+        "ndcg_at_k": 0.8755459351794088,
+        "relevant_count": 7
+      },
+      "candidate_minus_literal": {
+        "recall_at_k": 0.1428571428571429,
+        "ndcg_at_k": -0.008664376279076125
+      },
+      "failed_percase_floors": [],
+      "allowed_positive_count": 7,
+      "positive_top12_count": 7,
+      "raw_pool_size": 13,
+      "positive_ids_missing_from_pool": [],
+      "positive_ids_outside_top12": [],
+      "grade0_or_denied_top12": [
+        {
+          "github_repository_id": 37489525,
+          "full_name": "pytest-dev/pytest",
+          "grade": 0,
+          "constraint": "allowed"
+        },
+        {
+          "github_repository_id": 39840932,
+          "full_name": "google/googletest",
+          "grade": 0,
+          "constraint": "allowed"
+        },
+        {
+          "github_repository_id": 12332444,
+          "full_name": "onsi/ginkgo",
+          "grade": 0,
+          "constraint": "allowed"
+        },
+        {
+          "github_repository_id": 29102367,
+          "full_name": "junit-team/junit-framework",
+          "grade": 0,
+          "constraint": "allowed"
+        },
+        {
+          "github_repository_id": 83229186,
+          "full_name": "go-test/deep",
+          "grade": 0,
+          "constraint": "allowed"
+        }
+      ],
+      "original_terms": [
+        "unit testing",
+        "javascript",
+        "functions"
+      ],
+      "original_match_count": 7,
+      "added_route_terms": [
+        "unit",
+        "component",
+        "testing"
+      ],
+      "final_terms": [
+        "unit testing",
+        "javascript",
+        "functions",
+        "unit",
+        "component",
+        "testing"
+      ],
+      "candidate_ids": [
+        26820798,
+        37489525,
+        15062869,
+        84009,
+        128396076,
+        125863507,
+        39840932,
+        434708679,
+        12332444,
+        1451352,
+        29102367,
+        83229186,
+        6247705
+      ],
+      "literal_ids": [
+        84009,
+        15062869,
+        26820798,
+        1451352,
+        125863507,
+        128396076
+      ],
+      "original_literal_order_independently_recomputed": true,
+      "exact_frozen_case_payload_query_bindings": true,
+      "ranked_retrieval_calls": 1,
+      "aggregate_calls_per_preparation": 1,
+      "status": "ok",
+      "pack_survival": 1.0
+    },
+    {
+      "case_id": "PROSPECTIVE-HOLD-03",
+      "route": "file_management_sync",
+      "tags": [
+        "lexical_en",
+        "activity_unknown",
+        "baseline_cohort",
+        "dual_descriptions",
+        "secondary_dedupe"
+      ],
+      "metric_family": "semantic",
+      "candidate_metrics": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.9853377568191893,
+        "relevant_count": 11
+      },
+      "literal_metrics": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.7841733415564497,
+        "relevant_count": 11
+      },
+      "candidate_minus_literal": {
+        "recall_at_k": 0.0,
+        "ndcg_at_k": 0.20116441526273965
+      },
+      "failed_percase_floors": [],
+      "allowed_positive_count": 11,
+      "positive_top12_count": 11,
+      "raw_pool_size": 11,
+      "positive_ids_missing_from_pool": [],
+      "positive_ids_outside_top12": [],
+      "grade0_or_denied_top12": [],
+      "original_terms": [
+        "file",
+        "synchronization",
+        "devices"
+      ],
+      "original_match_count": 11,
+      "added_route_terms": [
+        "management",
+        "sync"
+      ],
+      "final_terms": [
+        "file",
+        "synchronization",
+        "devices",
+        "management",
+        "sync"
+      ],
+      "candidate_ids": [
+        14712850,
+        4999959,
+        5550552,
+        578822531,
+        410749029,
+        323965659,
+        895547074,
+        188700274,
+        42332863,
+        663900193,
+        60243197
+      ],
+      "literal_ids": [
+        4999959,
+        42332863,
+        5550552,
+        14712850,
+        410749029,
+        895547074,
+        188700274,
+        323965659,
+        663900193,
+        60243197,
+        578822531
+      ],
+      "original_literal_order_independently_recomputed": true,
+      "exact_frozen_case_payload_query_bindings": true,
+      "ranked_retrieval_calls": 1,
+      "aggregate_calls_per_preparation": 1,
+      "status": "ok",
+      "pack_survival": 1.0
+    },
+    {
+      "case_id": "PROSPECTIVE-HOLD-04",
+      "route": "frontend_state_data",
+      "tags": [
+        "lexical_en",
+        "activity_unknown",
+        "thin_leaf",
+        "baseline_cohort",
+        "dual_descriptions"
+      ],
+      "metric_family": "semantic",
+      "candidate_metrics": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.8441068513650066,
+        "relevant_count": 8
+      },
+      "literal_metrics": {
+        "recall_at_k": 0.625,
+        "ndcg_at_k": 0.6043939524893699,
+        "relevant_count": 8
+      },
+      "candidate_minus_literal": {
+        "recall_at_k": 0.375,
+        "ndcg_at_k": 0.23971289887563674
+      },
+      "failed_percase_floors": [],
+      "allowed_positive_count": 8,
+      "positive_top12_count": 8,
+      "raw_pool_size": 9,
+      "positive_ids_missing_from_pool": [],
+      "positive_ids_outside_top12": [],
+      "grade0_or_denied_top12": [
+        {
+          "github_repository_id": 165670309,
+          "full_name": "TanStack/router",
+          "grade": 0,
+          "constraint": "allowed"
+        }
+      ],
+      "original_terms": [
+        "state management",
+        "React",
+        "shared"
+      ],
+      "original_match_count": 6,
+      "added_route_terms": [
+        "frontend",
+        "state",
+        "data"
+      ],
+      "final_terms": [
+        "state management",
+        "React",
+        "shared",
+        "frontend",
+        "state",
+        "data"
+      ],
+      "candidate_ids": [
+        180328715,
+        207645083,
+        36535156,
+        685274424,
+        165670309,
+        304120355,
+        115720575,
+        286867459,
+        123732482
+      ],
+      "literal_ids": [
+        180328715,
+        207645083,
+        165670309,
+        685274424,
+        36535156,
+        304120355
+      ],
+      "original_literal_order_independently_recomputed": true,
+      "exact_frozen_case_payload_query_bindings": true,
+      "ranked_retrieval_calls": 1,
+      "aggregate_calls_per_preparation": 1,
+      "status": "ok",
+      "pack_survival": 1.0
+    },
+    {
+      "case_id": "PROSPECTIVE-HOLD-05",
+      "route": "financial_market_tools",
+      "tags": [
+        "lexical_en",
+        "activity_unknown",
+        "baseline_cohort"
+      ],
+      "metric_family": "semantic",
+      "candidate_metrics": {
+        "recall_at_k": 0.9230769230769231,
+        "ndcg_at_k": 0.8202705834378952,
+        "relevant_count": 13
+      },
+      "literal_metrics": {
+        "recall_at_k": 0.23076923076923078,
+        "ndcg_at_k": 0.3157210142785188,
+        "relevant_count": 13
+      },
+      "candidate_minus_literal": {
+        "recall_at_k": 0.6923076923076923,
+        "ndcg_at_k": 0.5045495691593764
+      },
+      "failed_percase_floors": [],
+      "allowed_positive_count": 13,
+      "positive_top12_count": 12,
+      "raw_pool_size": 13,
+      "positive_ids_missing_from_pool": [],
+      "positive_ids_outside_top12": [
+        {
+          "github_repository_id": 1131513930,
+          "full_name": "ZhuLinsen/daily_stock_analysis",
+          "grade": 1,
+          "constraint": "allowed"
+        }
+      ],
+      "grade0_or_denied_top12": [],
+      "original_terms": [
+        "backtesting",
+        "strategy",
+        "historical data"
+      ],
+      "original_match_count": 3,
+      "added_route_terms": [
+        "financial",
+        "market",
+        "tools"
+      ],
+      "final_terms": [
+        "backtesting",
+        "strategy",
+        "historical data",
+        "financial",
+        "market",
+        "tools"
+      ],
+      "candidate_ids": [
+        816848129,
+        1034736943,
+        91253698,
+        944516885,
+        849406496,
+        896144595,
+        1195329660,
+        31522041,
+        1081891045,
+        995562554,
+        91629816,
+        963828488,
+        1131513930
+      ],
+      "literal_ids": [
+        91253698,
+        816848129,
+        1034736943
+      ],
+      "original_literal_order_independently_recomputed": true,
+      "exact_frozen_case_payload_query_bindings": true,
+      "ranked_retrieval_calls": 1,
+      "aggregate_calls_per_preparation": 1,
+      "status": "ok",
+      "pack_survival": 1.0
+    },
+    {
+      "case_id": "PROSPECTIVE-HOLD-06",
+      "route": "documentation_site_generators",
+      "tags": [
+        "lexical_en",
+        "activity_unknown",
+        "thin_leaf",
+        "baseline_cohort",
+        "dual_descriptions"
+      ],
+      "metric_family": "semantic",
+      "candidate_metrics": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.566228908178573,
+        "relevant_count": 7
+      },
+      "literal_metrics": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.7210292106105951,
+        "relevant_count": 7
+      },
+      "candidate_minus_literal": {
+        "recall_at_k": 0.0,
+        "ndcg_at_k": -0.15480030243202214
+      },
+      "failed_percase_floors": [],
+      "allowed_positive_count": 7,
+      "positive_top12_count": 7,
+      "raw_pool_size": 8,
+      "positive_ids_missing_from_pool": [],
+      "positive_ids_outside_top12": [],
+      "grade0_or_denied_top12": [
+        {
+          "github_repository_id": 12820537,
+          "full_name": "slatedocs/slate",
+          "grade": 1,
+          "constraint": "denied"
+        }
+      ],
+      "original_terms": [
+        "versioned",
+        "documentation",
+        "Markdown"
+      ],
+      "original_match_count": 8,
+      "added_route_terms": [
+        "site",
+        "generators"
+      ],
+      "final_terms": [
+        "versioned",
+        "documentation",
+        "Markdown",
+        "site",
+        "generators"
+      ],
+      "candidate_ids": [
+        15830664,
+        260338399,
+        65252,
+        614933136,
+        12820537,
+        50617428,
+        11180687,
+        94911145
+      ],
+      "literal_ids": [
+        15830664,
+        50617428,
+        94911145,
+        614933136,
+        65252,
+        12820537,
+        11180687,
+        260338399
+      ],
+      "original_literal_order_independently_recomputed": true,
+      "exact_frozen_case_payload_query_bindings": true,
+      "ranked_retrieval_calls": 1,
+      "aggregate_calls_per_preparation": 1,
+      "status": "ok",
+      "pack_survival": 1.0
+    },
+    {
+      "case_id": "PROSPECTIVE-HOLD-07",
+      "route": "communications_personal_ops",
+      "tags": [
+        "lexical_en",
+        "activity_unknown",
+        "dense_leaf",
+        "baseline_cohort",
+        "expansion_cohort",
+        "dual_descriptions",
+        "secondary_dedupe",
+        "container_union"
+      ],
+      "metric_family": "semantic",
+      "candidate_metrics": {
+        "recall_at_k": 0.25,
+        "ndcg_at_k": 0.3876282738275397,
+        "relevant_count": 16
+      },
+      "literal_metrics": {
+        "recall_at_k": 0.1875,
+        "ndcg_at_k": 0.3796183110343403,
+        "relevant_count": 16
+      },
+      "candidate_minus_literal": {
+        "recall_at_k": 0.0625,
+        "ndcg_at_k": 0.008009962793199432
+      },
+      "failed_percase_floors": [
+        "recall_at_k_below_stratum_floor",
+        "ndcg_at_k_below_stratum_floor"
+      ],
+      "allowed_positive_count": 16,
+      "positive_top12_count": 4,
+      "raw_pool_size": 9,
+      "positive_ids_missing_from_pool": [
+        {
+          "github_repository_id": 26661222,
+          "full_name": "tinode/chat",
+          "grade": 3,
+          "constraint": "allowed"
+        },
+        {
+          "github_repository_id": 31670053,
+          "full_name": "matrix-org/matrix-js-sdk",
+          "grade": 1,
+          "constraint": "allowed"
+        },
+        {
+          "github_repository_id": 35866694,
+          "full_name": "RocketChat/Rocket.Chat",
+          "grade": 3,
+          "constraint": "allowed"
+        },
+        {
+          "github_repository_id": 37448451,
+          "full_name": "mattermost/mattermost",
+          "grade": 3,
+          "constraint": "allowed"
+        },
+        {
+          "github_repository_id": 39487546,
+          "full_name": "element-hq/element-web",
+          "grade": 2,
+          "constraint": "allowed"
+        },
+        {
+          "github_repository_id": 110445107,
+          "full_name": "mautrix/telegram",
+          "grade": 1,
+          "constraint": "allowed"
+        },
+        {
+          "github_repository_id": 144494851,
+          "full_name": "mautrix/whatsapp",
+          "grade": 1,
+          "constraint": "allowed"
+        },
+        {
+          "github_repository_id": 575865240,
+          "full_name": "AstrBotDevs/AstrBot",
+          "grade": 1,
+          "constraint": "allowed"
+        },
+        {
+          "github_repository_id": 731190011,
+          "full_name": "element-hq/synapse",
+          "grade": 1,
+          "constraint": "allowed"
+        },
+        {
+          "github_repository_id": 960342594,
+          "full_name": "line/line-bot-mcp-server",
+          "grade": 1,
+          "constraint": "allowed"
+        },
+        {
+          "github_repository_id": 965085580,
+          "full_name": "korotovsky/slack-mcp-server",
+          "grade": 1,
+          "constraint": "allowed"
+        },
+        {
+          "github_repository_id": 1168978399,
+          "full_name": "chenhg5/cc-connect",
+          "grade": 1,
+          "constraint": "allowed"
+        }
+      ],
+      "positive_ids_outside_top12": [
+        {
+          "github_repository_id": 26661222,
+          "full_name": "tinode/chat",
+          "grade": 3,
+          "constraint": "allowed"
+        },
+        {
+          "github_repository_id": 31670053,
+          "full_name": "matrix-org/matrix-js-sdk",
+          "grade": 1,
+          "constraint": "allowed"
+        },
+        {
+          "github_repository_id": 35866694,
+          "full_name": "RocketChat/Rocket.Chat",
+          "grade": 3,
+          "constraint": "allowed"
+        },
+        {
+          "github_repository_id": 37448451,
+          "full_name": "mattermost/mattermost",
+          "grade": 3,
+          "constraint": "allowed"
+        },
+        {
+          "github_repository_id": 39487546,
+          "full_name": "element-hq/element-web",
+          "grade": 2,
+          "constraint": "allowed"
+        },
+        {
+          "github_repository_id": 110445107,
+          "full_name": "mautrix/telegram",
+          "grade": 1,
+          "constraint": "allowed"
+        },
+        {
+          "github_repository_id": 144494851,
+          "full_name": "mautrix/whatsapp",
+          "grade": 1,
+          "constraint": "allowed"
+        },
+        {
+          "github_repository_id": 575865240,
+          "full_name": "AstrBotDevs/AstrBot",
+          "grade": 1,
+          "constraint": "allowed"
+        },
+        {
+          "github_repository_id": 731190011,
+          "full_name": "element-hq/synapse",
+          "grade": 1,
+          "constraint": "allowed"
+        },
+        {
+          "github_repository_id": 960342594,
+          "full_name": "line/line-bot-mcp-server",
+          "grade": 1,
+          "constraint": "allowed"
+        },
+        {
+          "github_repository_id": 965085580,
+          "full_name": "korotovsky/slack-mcp-server",
+          "grade": 1,
+          "constraint": "allowed"
+        },
+        {
+          "github_repository_id": 1168978399,
+          "full_name": "chenhg5/cc-connect",
+          "grade": 1,
+          "constraint": "allowed"
+        }
+      ],
+      "grade0_or_denied_top12": [
+        {
+          "github_repository_id": 943286066,
+          "full_name": "mattt/iMCP",
+          "grade": 0,
+          "constraint": "allowed"
+        },
+        {
+          "github_repository_id": 945223589,
+          "full_name": "Taxuspt/garmin_mcp",
+          "grade": 0,
+          "constraint": "allowed"
+        },
+        {
+          "github_repository_id": 350360184,
+          "full_name": "calcom/cal.diy",
+          "grade": 0,
+          "constraint": "allowed"
+        },
+        {
+          "github_repository_id": 1003342581,
+          "full_name": "jlumbroso/passage-of-time-mcp",
+          "grade": 0,
+          "constraint": "allowed"
+        },
+        {
+          "github_repository_id": 1121557390,
+          "full_name": "ridafkih/keeper.sh",
+          "grade": 0,
+          "constraint": "allowed"
+        }
+      ],
+      "original_terms": [
+        "team chat",
+        "asynchronous",
+        "messages"
+      ],
+      "original_match_count": 4,
+      "added_route_terms": [
+        "communications",
+        "personal",
+        "ops"
+      ],
+      "final_terms": [
+        "team chat",
+        "asynchronous",
+        "messages",
+        "communications",
+        "personal",
+        "ops"
+      ],
+      "candidate_ids": [
+        43160685,
+        943286066,
+        898004429,
+        951958279,
+        945223589,
+        350360184,
+        1003342581,
+        1121557390,
+        973788136
+      ],
+      "literal_ids": [
+        43160685,
+        898004429,
+        943286066,
+        951958279
+      ],
+      "original_literal_order_independently_recomputed": true,
+      "exact_frozen_case_payload_query_bindings": true,
+      "ranked_retrieval_calls": 1,
+      "aggregate_calls_per_preparation": 1,
+      "status": "ok",
+      "pack_survival": 1.0
+    },
+    {
+      "case_id": "PROSPECTIVE-HOLD-08",
+      "route": "subscription_billing",
+      "tags": [
+        "lexical_en",
+        "activity_unknown",
+        "baseline_cohort",
+        "expansion_cohort",
+        "dual_descriptions"
+      ],
+      "metric_family": "semantic",
+      "candidate_metrics": {
+        "recall_at_k": 0.5,
+        "ndcg_at_k": 0.8808884898767885,
+        "relevant_count": 20
+      },
+      "literal_metrics": {
+        "recall_at_k": 0.2,
+        "ndcg_at_k": 0.6544602169122158,
+        "relevant_count": 20
+      },
+      "candidate_minus_literal": {
+        "recall_at_k": 0.3,
+        "ndcg_at_k": 0.22642827296457269
+      },
+      "failed_percase_floors": [
+        "recall_at_k_below_stratum_floor"
+      ],
+      "allowed_positive_count": 20,
+      "positive_top12_count": 10,
+      "raw_pool_size": 28,
+      "positive_ids_missing_from_pool": [],
+      "positive_ids_outside_top12": [
+        {
+          "github_repository_id": 7239495,
+          "full_name": "SolidInvoice/SolidInvoice",
+          "grade": 1,
+          "constraint": "allowed"
+        },
+        {
+          "github_repository_id": 11901762,
+          "full_name": "dj-stripe/dj-stripe",
+          "grade": 1,
+          "constraint": "allowed"
+        },
+        {
+          "github_repository_id": 18471236,
+          "full_name": "ledgersmb/LedgerSMB",
+          "grade": 1,
+          "constraint": "allowed"
+        },
+        {
+          "github_repository_id": 114730000,
+          "full_name": "aviabird/gringotts",
+          "grade": 1,
+          "constraint": "allowed"
+        },
+        {
+          "github_repository_id": 175471189,
+          "full_name": "itflow-org/itflow",
+          "grade": 1,
+          "constraint": "allowed"
+        },
+        {
+          "github_repository_id": 621902641,
+          "full_name": "lmsqueezy/laravel",
+          "grade": 1,
+          "constraint": "allowed"
+        },
+        {
+          "github_repository_id": 764642350,
+          "full_name": "hexclave/hexclave",
+          "grade": 3,
+          "constraint": "allowed"
+        },
+        {
+          "github_repository_id": 932308018,
+          "full_name": "flowglad/flowglad",
+          "grade": 1,
+          "constraint": "allowed"
+        },
+        {
+          "github_repository_id": 978384239,
+          "full_name": "Merit-Systems/echo",
+          "grade": 1,
+          "constraint": "allowed"
+        },
+        {
+          "github_repository_id": 1153120067,
+          "full_name": "getpaykit/paykit",
+          "grade": 2,
+          "constraint": "allowed"
+        }
+      ],
+      "grade0_or_denied_top12": [
+        {
+          "github_repository_id": 22337952,
+          "full_name": "serso/android-checkout",
+          "grade": 0,
+          "constraint": "allowed"
+        },
+        {
+          "github_repository_id": 373845609,
+          "full_name": "bramstroker/homeassistant-powercalc",
+          "grade": 0,
+          "constraint": "allowed"
+        }
+      ],
+      "original_terms": [
+        "usage-based billing",
+        "metering",
+        "events"
+      ],
+      "original_match_count": 6,
+      "added_route_terms": [
+        "subscription",
+        "billing"
+      ],
+      "final_terms": [
+        "usage-based billing",
+        "metering",
+        "events",
+        "subscription",
+        "billing"
+      ],
+      "candidate_ids": [
+        464415161,
+        650344440,
+        666069735,
+        883769819,
+        516192901,
+        611669523,
+        6325420,
+        17388759,
+        1034520943,
+        22337952,
+        373845609,
+        1203556545,
+        374072543,
+        1153120067,
+        7239495,
+        19971572,
+        493550477,
+        978384239,
+        621902641,
+        114730000,
+        932308018,
+        27529089,
+        175471189,
+        18471236,
+        764642350,
+        139323243,
+        11901762,
+        919664598
+      ],
+      "literal_ids": [
+        464415161,
+        650344440,
+        666069735,
+        883769819,
+        373845609
+      ],
+      "original_literal_order_independently_recomputed": true,
+      "exact_frozen_case_payload_query_bindings": true,
+      "ranked_retrieval_calls": 1,
+      "aggregate_calls_per_preparation": 1,
+      "status": "ok",
+      "pack_survival": 1.0
+    },
+    {
+      "case_id": "PROSPECTIVE-HOLD-09",
+      "route": "project_task_management",
+      "tags": [
+        "lexical_ru",
+        "activity_unknown",
+        "baseline_cohort",
+        "dual_descriptions"
+      ],
+      "metric_family": "semantic",
+      "candidate_metrics": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.9763778542271594,
+        "relevant_count": 11
+      },
+      "literal_metrics": {
+        "recall_at_k": 0.09090909090909091,
+        "ndcg_at_k": 0.397544745361766,
+        "relevant_count": 11
+      },
+      "candidate_minus_literal": {
+        "recall_at_k": 0.9090909090909091,
+        "ndcg_at_k": 0.5788331088653934
+      },
+      "failed_percase_floors": [],
+      "allowed_positive_count": 11,
+      "positive_top12_count": 11,
+      "raw_pool_size": 11,
+      "positive_ids_missing_from_pool": [],
+      "positive_ids_outside_top12": [],
+      "grade0_or_denied_top12": [],
+      "original_terms": [
+        "учёт времени",
+        "time tracking",
+        "work items"
+      ],
+      "original_match_count": 1,
+      "added_route_terms": [
+        "project",
+        "task",
+        "management"
+      ],
+      "final_terms": [
+        "учёт времени",
+        "time tracking",
+        "work items",
+        "project",
+        "task",
+        "management"
+      ],
+      "candidate_ids": [
+        6899875,
+        16238673,
+        583598619,
+        29745084,
+        568098118,
+        357894794,
+        159556794,
+        301793434,
+        897809208,
+        1030580992,
+        16089035
+      ],
+      "literal_ids": [
+        6899875
+      ],
+      "original_literal_order_independently_recomputed": true,
+      "exact_frozen_case_payload_query_bindings": true,
+      "ranked_retrieval_calls": 1,
+      "aggregate_calls_per_preparation": 1,
+      "status": "ok",
+      "pack_survival": 1.0
+    },
+    {
+      "case_id": "PROSPECTIVE-HOLD-10",
+      "route": "data_processing_compute",
+      "tags": [
+        "lexical_en",
+        "activity_unknown",
+        "baseline_cohort",
+        "dual_descriptions",
+        "secondary_dedupe"
+      ],
+      "metric_family": "semantic",
+      "candidate_metrics": {
+        "recall_at_k": 0.9230769230769231,
+        "ndcg_at_k": 0.8511157738048476,
+        "relevant_count": 13
+      },
+      "literal_metrics": {
+        "recall_at_k": 0.7692307692307693,
+        "ndcg_at_k": 0.8739679857959115,
+        "relevant_count": 13
+      },
+      "candidate_minus_literal": {
+        "recall_at_k": 0.15384615384615385,
+        "ndcg_at_k": -0.02285221199106391
+      },
+      "failed_percase_floors": [],
+      "allowed_positive_count": 13,
+      "positive_top12_count": 12,
+      "raw_pool_size": 13,
+      "positive_ids_missing_from_pool": [],
+      "positive_ids_outside_top12": [
+        {
+          "github_repository_id": 166515022,
+          "full_name": "trinodb/trino",
+          "grade": 2,
+          "constraint": "allowed"
+        }
+      ],
+      "grade0_or_denied_top12": [],
+      "original_terms": [
+        "dataframe",
+        "batch",
+        "Python"
+      ],
+      "original_match_count": 10,
+      "added_route_terms": [
+        "data",
+        "processing",
+        "compute"
+      ],
+      "final_terms": [
+        "dataframe",
+        "batch",
+        "Python",
+        "data",
+        "processing",
+        "compute"
+      ],
+      "candidate_ids": [
+        24528468,
+        571186647,
+        263727855,
+        455655192,
+        17165658,
+        485548415,
+        71932349,
+        20587599,
+        858127,
+        28782747,
+        5349565,
+        51905353,
+        166515022
+      ],
+      "literal_ids": [
+        24528468,
+        263727855,
+        858127,
+        455655192,
+        571186647,
+        17165658,
+        20587599,
+        28782747,
+        71932349,
+        485548415
+      ],
+      "original_literal_order_independently_recomputed": true,
+      "exact_frozen_case_payload_query_bindings": true,
+      "ranked_retrieval_calls": 1,
+      "aggregate_calls_per_preparation": 1,
+      "status": "ok",
+      "pack_survival": 1.0
+    },
+    {
+      "case_id": "PROSPECTIVE-HOLD-11",
+      "route": "database_engines",
+      "tags": [
+        "lexical_en",
+        "activity_unknown",
+        "baseline_cohort",
+        "dual_descriptions"
+      ],
+      "metric_family": "semantic",
+      "candidate_metrics": {
+        "recall_at_k": 0.7333333333333333,
+        "ndcg_at_k": 0.875746050450646,
+        "relevant_count": 15
+      },
+      "literal_metrics": {
+        "recall_at_k": 0.6666666666666666,
+        "ndcg_at_k": 0.7548606535341368,
+        "relevant_count": 15
+      },
+      "candidate_minus_literal": {
+        "recall_at_k": 0.06666666666666665,
+        "ndcg_at_k": 0.12088539691650924
+      },
+      "failed_percase_floors": [],
+      "allowed_positive_count": 15,
+      "positive_top12_count": 11,
+      "raw_pool_size": 24,
+      "positive_ids_missing_from_pool": [],
+      "positive_ids_outside_top12": [
+        {
+          "github_repository_id": 927442,
+          "full_name": "postgres/postgres",
+          "grade": 1,
+          "constraint": "allowed"
+        },
+        {
+          "github_repository_id": 24494032,
+          "full_name": "mysql/mysql-server",
+          "grade": 1,
+          "constraint": "allowed"
+        },
+        {
+          "github_repository_id": 176278485,
+          "full_name": "sqlite/sqlite",
+          "grade": 2,
+          "constraint": "allowed"
+        },
+        {
+          "github_repository_id": 480217156,
+          "full_name": "GreptimeTeam/greptimedb",
+          "grade": 2,
+          "constraint": "allowed"
+        }
+      ],
+      "grade0_or_denied_top12": [
+        {
+          "github_repository_id": 108110,
+          "full_name": "mongodb/mongo",
+          "grade": 0,
+          "constraint": "allowed"
+        }
+      ],
+      "original_terms": [
+        "embedded",
+        "SQL",
+        "analytics",
+        "local files"
+      ],
+      "original_match_count": 11,
+      "added_route_terms": [
+        "database",
+        "engines"
+      ],
+      "final_terms": [
+        "embedded",
+        "SQL",
+        "analytics",
+        "local files",
+        "database",
+        "engines"
+      ],
+      "candidate_ids": [
+        138754790,
+        60246359,
+        84240850,
+        143344440,
+        105944401,
+        16563587,
+        19257422,
+        13124802,
+        41986369,
+        436658287,
+        19816070,
+        108110,
+        6452529,
+        4044891,
+        24494032,
+        206417,
+        235075339,
+        206424,
+        422821402,
+        480217156,
+        114187903,
+        28449431,
+        176278485,
+        927442
+      ],
+      "literal_ids": [
+        60246359,
+        138754790,
+        84240850,
+        16563587,
+        19816070,
+        24494032,
+        28449431,
+        41986369,
+        105944401,
+        176278485,
+        927442,
+        4044891,
+        13124802,
+        19257422,
+        143344440,
+        108110,
+        235075339,
+        422821402,
+        436658287
+      ],
+      "original_literal_order_independently_recomputed": true,
+      "exact_frozen_case_payload_query_bindings": true,
+      "ranked_retrieval_calls": 1,
+      "aggregate_calls_per_preparation": 1,
+      "status": "ok",
+      "pack_survival": 1.0
+    },
+    {
+      "case_id": "PROSPECTIVE-HOLD-12",
+      "route": "backend_frameworks",
+      "tags": [
+        "lexical_en",
+        "activity_unknown",
+        "dense_leaf",
+        "baseline_cohort",
+        "dual_descriptions",
+        "secondary_dedupe"
+      ],
+      "metric_family": "semantic",
+      "candidate_metrics": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.9048569128789122,
+        "relevant_count": 6
+      },
+      "literal_metrics": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.9204708908216057,
+        "relevant_count": 6
+      },
+      "candidate_minus_literal": {
+        "recall_at_k": 0.0,
+        "ndcg_at_k": -0.01561397794269348
+      },
+      "failed_percase_floors": [],
+      "allowed_positive_count": 6,
+      "positive_top12_count": 6,
+      "raw_pool_size": 34,
+      "positive_ids_missing_from_pool": [],
+      "positive_ids_outside_top12": [],
+      "grade0_or_denied_top12": [
+        {
+          "github_repository_id": 105379569,
+          "full_name": "actix/actix-web",
+          "grade": 0,
+          "constraint": "allowed"
+        },
+        {
+          "github_repository_id": 31504491,
+          "full_name": "labstack/echo",
+          "grade": 0,
+          "constraint": "allowed"
+        },
+        {
+          "github_repository_id": 1148753,
+          "full_name": "spring-projects/spring-framework",
+          "grade": 0,
+          "constraint": "allowed"
+        },
+        {
+          "github_repository_id": 8514,
+          "full_name": "rails/rails",
+          "grade": 0,
+          "constraint": "allowed"
+        },
+        {
+          "github_repository_id": 952098631,
+          "full_name": "maquina-app/rails-mcp-server",
+          "grade": 0,
+          "constraint": "allowed"
+        },
+        {
+          "github_repository_id": 124230204,
+          "full_name": "micronaut-projects/micronaut-core",
+          "grade": 0,
+          "constraint": "allowed"
+        }
+      ],
+      "original_terms": [
+        "Python",
+        "WebSocket",
+        "ASGI"
+      ],
+      "original_match_count": 8,
+      "added_route_terms": [
+        "backend",
+        "frameworks"
+      ],
+      "final_terms": [
+        "Python",
+        "WebSocket",
+        "ASGI",
+        "backend",
+        "frameworks"
+      ],
+      "candidate_ids": [
+        138597372,
+        435625572,
+        105379569,
+        31504491,
+        596892,
+        1148753,
+        1864194,
+        4164482,
+        160919119,
+        8514,
+        952098631,
+        124230204,
+        139914932,
+        458058,
+        237159,
+        11551538,
+        16072585,
+        7548986,
+        438384984,
+        2609642,
+        69495170,
+        40136600,
+        234231371,
+        44344606,
+        372172254,
+        6296790,
+        394929332,
+        78452015,
+        17620347,
+        80945428,
+        1863329,
+        40772809,
+        20904437,
+        75505125
+      ],
+      "literal_ids": [
+        138597372,
+        435625572,
+        596892,
+        1864194,
+        105379569,
+        4164482,
+        31504491,
+        80945428,
+        160919119
+      ],
+      "original_literal_order_independently_recomputed": true,
+      "exact_frozen_case_payload_query_bindings": true,
+      "ranked_retrieval_calls": 1,
+      "aggregate_calls_per_preparation": 1,
+      "status": "ok",
+      "pack_survival": 1.0
+    },
+    {
+      "case_id": "PROSPECTIVE-HOLD-13",
+      "route": "network_proxies_gateways",
+      "tags": [
+        "lexical_en",
+        "activity_unknown",
+        "baseline_cohort",
+        "dual_descriptions"
+      ],
+      "metric_family": "semantic",
+      "candidate_metrics": {
+        "recall_at_k": 0.7857142857142857,
+        "ndcg_at_k": 0.8350332235470305,
+        "relevant_count": 14
+      },
+      "literal_metrics": {
+        "recall_at_k": 0.5,
+        "ndcg_at_k": 0.6831794475593785,
+        "relevant_count": 14
+      },
+      "candidate_minus_literal": {
+        "recall_at_k": 0.2857142857142857,
+        "ndcg_at_k": 0.15185377598765193
+      },
+      "failed_percase_floors": [],
+      "allowed_positive_count": 14,
+      "positive_top12_count": 11,
+      "raw_pool_size": 17,
+      "positive_ids_missing_from_pool": [],
+      "positive_ids_outside_top12": [
+        {
+          "github_repository_id": 3544424,
+          "full_name": "httpie/cli",
+          "grade": 1,
+          "constraint": "allowed"
+        },
+        {
+          "github_repository_id": 65214191,
+          "full_name": "envoyproxy/envoy",
+          "grade": 3,
+          "constraint": "allowed"
+        },
+        {
+          "github_repository_id": 74175805,
+          "full_name": "istio/istio",
+          "grade": 2,
+          "constraint": "allowed"
+        }
+      ],
+      "grade0_or_denied_top12": [
+        {
+          "github_repository_id": 970267776,
+          "full_name": "sirkirby/unifi-mcp",
+          "grade": 0,
+          "constraint": "allowed"
+        }
+      ],
+      "original_terms": [
+        "reverse proxy",
+        "HTTPS",
+        "application"
+      ],
+      "original_match_count": 11,
+      "added_route_terms": [
+        "network",
+        "proxies",
+        "gateways"
+      ],
+      "final_terms": [
+        "reverse proxy",
+        "HTTPS",
+        "application",
+        "network",
+        "proxies",
+        "gateways"
+      ],
+      "candidate_ids": [
+        42408804,
+        29207621,
+        48378947,
+        37912398,
+        519895363,
+        128791889,
+        180481986,
+        970267776,
+        112944063,
+        19537979,
+        26783295,
+        569041,
+        74175805,
+        65214191,
+        721767116,
+        20619036,
+        3544424
+      ],
+      "literal_ids": [
+        29207621,
+        42408804,
+        519895363,
+        569041,
+        37912398,
+        48378947,
+        128791889,
+        970267776
+      ],
+      "original_literal_order_independently_recomputed": true,
+      "exact_frozen_case_payload_query_bindings": true,
+      "ranked_retrieval_calls": 1,
+      "aggregate_calls_per_preparation": 1,
+      "status": "ok",
+      "pack_survival": 1.0
+    },
+    {
+      "case_id": "PROSPECTIVE-HOLD-14",
+      "route": "software_supply_chain_security",
+      "tags": [
+        "lexical_en",
+        "activity_unknown",
+        "baseline_cohort",
+        "dual_descriptions",
+        "secondary_dedupe"
+      ],
+      "metric_family": "semantic",
+      "candidate_metrics": {
+        "recall_at_k": 0.75,
+        "ndcg_at_k": 0.8932157487335904,
+        "relevant_count": 16
+      },
+      "literal_metrics": {
+        "recall_at_k": 0.4375,
+        "ndcg_at_k": 0.7452901172248848,
+        "relevant_count": 16
+      },
+      "candidate_minus_literal": {
+        "recall_at_k": 0.3125,
+        "ndcg_at_k": 0.14792563150870564
+      },
+      "failed_percase_floors": [],
+      "allowed_positive_count": 16,
+      "positive_top12_count": 12,
+      "raw_pool_size": 20,
+      "positive_ids_missing_from_pool": [],
+      "positive_ids_outside_top12": [
+        {
+          "github_repository_id": 131129792,
+          "full_name": "PyCQA/bandit",
+          "grade": 1,
+          "constraint": "allowed"
+        },
+        {
+          "github_repository_id": 227803815,
+          "full_name": "semgrep/semgrep",
+          "grade": 1,
+          "constraint": "allowed"
+        },
+        {
+          "github_repository_id": 335952417,
+          "full_name": "sigstore/cosign",
+          "grade": 1,
+          "constraint": "allowed"
+        },
+        {
+          "github_repository_id": 565629124,
+          "full_name": "google/osv-scanner",
+          "grade": 2,
+          "constraint": "allowed"
+        }
+      ],
+      "grade0_or_denied_top12": [],
+      "original_terms": [
+        "SBOM",
+        "dependencies",
+        "vulnerabilities"
+      ],
+      "original_match_count": 7,
+      "added_route_terms": [
+        "software",
+        "supply",
+        "chain",
+        "security"
+      ],
+      "final_terms": [
+        "SBOM",
+        "dependencies",
+        "vulnerabilities",
+        "software",
+        "supply",
+        "chain",
+        "security"
+      ],
+      "candidate_ids": [
+        11457947,
+        5663857,
+        180687624,
+        272963353,
+        1244911834,
+        45247496,
+        59531400,
+        950213855,
+        262126497,
+        267054247,
+        63625434,
+        302670797,
+        1062952726,
+        131129792,
+        77726177,
+        335952417,
+        119190187,
+        565629124,
+        239106765,
+        227803815
+      ],
+      "literal_ids": [
+        5663857,
+        180687624,
+        45247496,
+        11457947,
+        262126497,
+        267054247,
+        950213855
+      ],
+      "original_literal_order_independently_recomputed": true,
+      "exact_frozen_case_payload_query_bindings": true,
+      "ranked_retrieval_calls": 1,
+      "aggregate_calls_per_preparation": 1,
+      "status": "ok",
+      "pack_survival": 1.0
+    },
+    {
+      "case_id": "PROSPECTIVE-ALIAS-01",
+      "route": "api_graphql_rpc",
+      "tags": [
+        "historical_alias"
+      ],
+      "metric_family": "identity",
+      "candidate_metrics": null,
+      "literal_metrics": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 1.0,
+        "relevant_count": 1
+      },
+      "candidate_minus_literal": null,
+      "failed_percase_floors": [],
+      "allowed_positive_count": 1,
+      "positive_top12_count": 1,
+      "raw_pool_size": 40,
+      "positive_ids_missing_from_pool": [],
+      "positive_ids_outside_top12": [],
+      "grade0_or_denied_top12": [],
+      "original_terms": [
+        "square/okhttp"
+      ],
+      "original_match_count": 1,
+      "added_route_terms": [
+        "api",
+        "graphql",
+        "rpc"
+      ],
+      "final_terms": [
+        "square/okhttp",
+        "api",
+        "graphql",
+        "rpc"
+      ],
+      "candidate_ids": [
+        56899284,
+        43056951,
+        137724480,
+        391811592,
+        38307428,
+        5152285,
+        148332388,
+        900049352,
+        27729907,
+        460076976,
+        56271158,
+        162690887,
+        121086193,
+        40518025,
+        4710920,
+        542284380,
+        118695306,
+        20787122,
+        45250726,
+        203587744,
+        20300177,
+        113701924,
+        52630616,
+        679280065,
+        1362490,
+        61567304,
+        133134007,
+        74436942,
+        280557054,
+        2006876,
+        2055965,
+        27729880,
+        741524414,
+        212465715,
+        899744532,
+        74170071,
+        22458259,
+        219705144,
+        142165796,
+        238402553
+      ],
+      "literal_ids": [
+        5152285
+      ],
+      "original_literal_order_independently_recomputed": true,
+      "exact_frozen_case_payload_query_bindings": true,
+      "ranked_retrieval_calls": 1,
+      "aggregate_calls_per_preparation": 1,
+      "status": "ok",
+      "pack_survival": 1.0
+    }
+  ],
+  "compatibility": {
+    "statuses_matching": 15,
+    "total_statuses": 15,
+    "hard_constraint_violations": 0,
+    "false_exclusions": 0,
+    "duplicate_canonical_ids": 0,
+    "alias_success": "1/1",
+    "official_pack_survival": 1.0,
+    "pack_counts": {
+      "numerator": 128,
+      "denominator": 128
+    },
+    "literal_orders_verified": 15,
+    "percase_ranked_calls": 1,
+    "per_preparation_native_aggregate_count": 1,
+    "execution_limit": "Capture/helper makes more than one preparation per case; each preparation performs one COUNT.15 candidate ranked retrieval calls total; literal transports are injected without FTS ranking."
+  },
+  "source_exposure": {
+    "new_semantic_goals": 14,
+    "identity_regression_probes": 1,
+    "semantic_source_judgments": 244,
+    "semantic_unique_ids": 244,
+    "prior_two_suites_unique_ids": 357,
+    "source_disjoint_ids": 159,
+    "source_seen_ids": 85,
+    "disjoint_leaf_goal_cases": 10,
+    "seen_new_goal_cases": 4,
+    "role_unknown_grades": 0,
+    "unresolved_required_feature_adoption": "Retained per judgment; not converted to feature-absence negatives.",
+    "functional_goal_independence": true,
+    "globally_unseen_repositories": false,
+    "ranked_capture_count_at_authoring": 0,
+    "source_clarification_records": 34,
+    "source_clarified_unique_ids": 32
+  },
+  "disjoint_source_10case_macro": {
+    "recall_at_k": 0.8615201465201465,
+    "ndcg_at_k": 0.851097127978109
+  },
+  "seen_source_4newgoal_macro": {
+    "recall_at_k": 0.8125,
+    "ndcg_at_k": 0.708772987278046
+  },
+  "cause_findings": [
+    {
+      "case_id": "PROSPECTIVE-HOLD-07",
+      "kind": "pool_coverage_and_context_pollution",
+      "observed": "COUNT4 appends communications/personal/ops; finalpool9 has4 positive and5 different-role personal/scheduling tools.12 allowed positive chat identities never retrieved, including3 direct-fit hosts.",
+      "implementation": "recommendation_request.py:100 splits the selected container route ID into words. build_plugin_search_index.py:109 projects classification category_id/title, without ancestor parent_id, into searchable category_labels. Child messaging_chat labels do not contain the container words; scheduling_personal_productivity matches personal. retrieval.py:432 compiles OR literal phrases, so team chat is not standalone chat and optional route words compete with the original goal.",
+      "evidence_paths": [
+        "plugins/myai-stackguide/scripts/recommendation_request.py:100",
+        "scripts/build_plugin_search_index.py:109",
+        "plugins/myai-stackguide/scripts/retrieval.py:432"
+      ],
+      "confidence": "High for observed missing-pool and projection mismatch; no new diagnostic rank/profile tested by this owner."
+    },
+    {
+      "case_id": "PROSPECTIVE-HOLD-08",
+      "kind": "top12_ranking_pollution",
+      "observed": "COUNT6 appends subscription/billing; finalpool28 includes all20 allowed positives. Android IAP grade0 at10 and power/energy metering grade0 at11 leave10/20 positive slots at12. Oracle ceiling12/20=.6 was declared before ranked exposure; actual10/20=.5 fails.",
+      "implementation": "One OR query ranks original required/context phrases and broad added route words together. Android checkout matches billing source/topics; Powercalc topic metering is a distinct energy domain. Weighted BM25/RRF transport cannot establish that either meets the SaaS usage-billing role. Not an absent source, truncation, constraint or pack problem.",
+      "evidence_paths": [
+        "plugins/myai-stackguide/scripts/retrieval.py:432",
+        "plugins/myai-stackguide/scripts/retrieval.py:591"
+      ],
+      "confidence": "High for observed top12 displacement; source/topic domain ambiguity and broad OR competition supported by frozen matched_fields. A generic repair remains runtime-owner work."
+    }
+  ],
+  "diagnosis_source_hashes": {
+    "plugins/myai-stackguide/scripts/recommendation_request.py": "3c3d188d51d5c6da55de2fc1655874d15f4919cecae9bea40fa71810d3084ad9",
+    "plugins/myai-stackguide/scripts/retrieval.py": "6cd0a8012ed47374afee68c957a7369020775562d21b0d8b2649ec3b850f14dd",
+    "scripts/build_plugin_search_index.py": "5b69bf4d5ede91fad5d205e31c75b20f8cc8667b882a39c96e82c13012e43a9a"
+  },
+  "retained_case_regressions": [
+    "PROSPECTIVE-HOLD-01",
+    "PROSPECTIVE-HOLD-02",
+    "PROSPECTIVE-HOLD-06",
+    "PROSPECTIVE-HOLD-10",
+    "PROSPECTIVE-HOLD-12"
+  ],
+  "evidence_ceiling": {
+    "actual_local_retrieval": true,
+    "agent_source_oracle": true,
+    "independent_source_only_review": true,
+    "actual_human_acceptance": false,
+    "browser_behavior": false,
+    "autonomous_model_interpretation": false,
+    "promotion_ready": false
+  },
+  "next_owner": "Root/runtime owner: bounded generic diagnosis on all45 now-exposed immutable cases. No production edits approved in this quality lane; any successor is exposed regression and cannot erase this prospective no_go."
+}

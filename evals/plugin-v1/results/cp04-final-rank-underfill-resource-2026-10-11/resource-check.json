@@ -1,0 +1,2228 @@
+{
+  "scope": "Underfilled invoice case: prepared Brief plus COUNT, appended route terms and final C9 retrieval; guard/pack one separate diagnostic. Existing C9 ceilings applied conservatively to this larger timed seam; no end-to-end/model SLA",
+  "python": "3.14.6",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "processor": "",
+  "cold_definition": "30 new read-only processes/connections; OS cache not flushed, process launch excluded",
+  "warm_definition": "same process/immutable index after one discarded warmup",
+  "cold_samples": [
+    {
+      "ms": 69.06160002108663,
+      "prepare_count_ms": 61.88210000982508,
+      "c9_ms": 7.180400018114597,
+      "status": "ok",
+      "query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+      "query_derivation": {
+        "original_terms": [
+          "invoice",
+          "invoices",
+          "payments",
+          "\u0441\u0447\u0435\u0442\u0430"
+        ],
+        "original_match_count": 7,
+        "added_route_terms": [
+          "accounting",
+          "invoicing"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "original_query_sha256": "3a4b587856d3426b15c01d68443dd70c7f00d99437e9283d3a15166ca540bfce",
+        "final_query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 69312512
+    },
+    {
+      "ms": 66.90180001896806,
+      "prepare_count_ms": 59.93240000680089,
+      "c9_ms": 6.970299989916384,
+      "status": "ok",
+      "query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+      "query_derivation": {
+        "original_terms": [
+          "invoice",
+          "invoices",
+          "payments",
+          "\u0441\u0447\u0435\u0442\u0430"
+        ],
+        "original_match_count": 7,
+        "added_route_terms": [
+          "accounting",
+          "invoicing"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "original_query_sha256": "3a4b587856d3426b15c01d68443dd70c7f00d99437e9283d3a15166ca540bfce",
+        "final_query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 69271552
+    },
+    {
+      "ms": 66.4837000076659,
+      "prepare_count_ms": 59.43259998457506,
+      "c9_ms": 7.051900000078604,
+      "status": "ok",
+      "query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+      "query_derivation": {
+        "original_terms": [
+          "invoice",
+          "invoices",
+          "payments",
+          "\u0441\u0447\u0435\u0442\u0430"
+        ],
+        "original_match_count": 7,
+        "added_route_terms": [
+          "accounting",
+          "invoicing"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "original_query_sha256": "3a4b587856d3426b15c01d68443dd70c7f00d99437e9283d3a15166ca540bfce",
+        "final_query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 69414912
+    },
+    {
+      "ms": 70.84659999236465,
+      "prepare_count_ms": 63.86480000219308,
+      "c9_ms": 6.98279999778606,
+      "status": "ok",
+      "query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+      "query_derivation": {
+        "original_terms": [
+          "invoice",
+          "invoices",
+          "payments",
+          "\u0441\u0447\u0435\u0442\u0430"
+        ],
+        "original_match_count": 7,
+        "added_route_terms": [
+          "accounting",
+          "invoicing"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "original_query_sha256": "3a4b587856d3426b15c01d68443dd70c7f00d99437e9283d3a15166ca540bfce",
+        "final_query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 69279744
+    },
+    {
+      "ms": 68.11079999897629,
+      "prepare_count_ms": 60.312499990686774,
+      "c9_ms": 7.799100014381111,
+      "status": "ok",
+      "query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+      "query_derivation": {
+        "original_terms": [
+          "invoice",
+          "invoices",
+          "payments",
+          "\u0441\u0447\u0435\u0442\u0430"
+        ],
+        "original_match_count": 7,
+        "added_route_terms": [
+          "accounting",
+          "invoicing"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "original_query_sha256": "3a4b587856d3426b15c01d68443dd70c7f00d99437e9283d3a15166ca540bfce",
+        "final_query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 69382144
+    },
+    {
+      "ms": 66.23559998115525,
+      "prepare_count_ms": 59.18730000848882,
+      "c9_ms": 7.049299980280921,
+      "status": "ok",
+      "query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+      "query_derivation": {
+        "original_terms": [
+          "invoice",
+          "invoices",
+          "payments",
+          "\u0441\u0447\u0435\u0442\u0430"
+        ],
+        "original_match_count": 7,
+        "added_route_terms": [
+          "accounting",
+          "invoicing"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "original_query_sha256": "3a4b587856d3426b15c01d68443dd70c7f00d99437e9283d3a15166ca540bfce",
+        "final_query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 68988928
+    },
+    {
+      "ms": 73.00209999084473,
+      "prepare_count_ms": 65.5986999918241,
+      "c9_ms": 7.404300005873665,
+      "status": "ok",
+      "query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+      "query_derivation": {
+        "original_terms": [
+          "invoice",
+          "invoices",
+          "payments",
+          "\u0441\u0447\u0435\u0442\u0430"
+        ],
+        "original_match_count": 7,
+        "added_route_terms": [
+          "accounting",
+          "invoicing"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "original_query_sha256": "3a4b587856d3426b15c01d68443dd70c7f00d99437e9283d3a15166ca540bfce",
+        "final_query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 69398528
+    },
+    {
+      "ms": 66.96399999782443,
+      "prepare_count_ms": 60.00470000435598,
+      "c9_ms": 6.960099999560043,
+      "status": "ok",
+      "query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+      "query_derivation": {
+        "original_terms": [
+          "invoice",
+          "invoices",
+          "payments",
+          "\u0441\u0447\u0435\u0442\u0430"
+        ],
+        "original_match_count": 7,
+        "added_route_terms": [
+          "accounting",
+          "invoicing"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "original_query_sha256": "3a4b587856d3426b15c01d68443dd70c7f00d99437e9283d3a15166ca540bfce",
+        "final_query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 69087232
+    },
+    {
+      "ms": 66.26250001136214,
+      "prepare_count_ms": 59.44939999608323,
+      "c9_ms": 6.81400002213195,
+      "status": "ok",
+      "query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+      "query_derivation": {
+        "original_terms": [
+          "invoice",
+          "invoices",
+          "payments",
+          "\u0441\u0447\u0435\u0442\u0430"
+        ],
+        "original_match_count": 7,
+        "added_route_terms": [
+          "accounting",
+          "invoicing"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "original_query_sha256": "3a4b587856d3426b15c01d68443dd70c7f00d99437e9283d3a15166ca540bfce",
+        "final_query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 69083136
+    },
+    {
+      "ms": 66.89040001947433,
+      "prepare_count_ms": 59.69809999805875,
+      "c9_ms": 7.193299999926239,
+      "status": "ok",
+      "query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+      "query_derivation": {
+        "original_terms": [
+          "invoice",
+          "invoices",
+          "payments",
+          "\u0441\u0447\u0435\u0442\u0430"
+        ],
+        "original_match_count": 7,
+        "added_route_terms": [
+          "accounting",
+          "invoicing"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "original_query_sha256": "3a4b587856d3426b15c01d68443dd70c7f00d99437e9283d3a15166ca540bfce",
+        "final_query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 69238784
+    },
+    {
+      "ms": 69.35770000563934,
+      "prepare_count_ms": 62.09599997964688,
+      "c9_ms": 7.262600003741682,
+      "status": "ok",
+      "query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+      "query_derivation": {
+        "original_terms": [
+          "invoice",
+          "invoices",
+          "payments",
+          "\u0441\u0447\u0435\u0442\u0430"
+        ],
+        "original_match_count": 7,
+        "added_route_terms": [
+          "accounting",
+          "invoicing"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "original_query_sha256": "3a4b587856d3426b15c01d68443dd70c7f00d99437e9283d3a15166ca540bfce",
+        "final_query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 69099520
+    },
+    {
+      "ms": 66.54310002340935,
+      "prepare_count_ms": 59.74980001337826,
+      "c9_ms": 6.794199987780303,
+      "status": "ok",
+      "query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+      "query_derivation": {
+        "original_terms": [
+          "invoice",
+          "invoices",
+          "payments",
+          "\u0441\u0447\u0435\u0442\u0430"
+        ],
+        "original_match_count": 7,
+        "added_route_terms": [
+          "accounting",
+          "invoicing"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "original_query_sha256": "3a4b587856d3426b15c01d68443dd70c7f00d99437e9283d3a15166ca540bfce",
+        "final_query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 69271552
+    },
+    {
+      "ms": 65.95160000142641,
+      "prepare_count_ms": 58.850000001257285,
+      "c9_ms": 7.102200004737824,
+      "status": "ok",
+      "query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+      "query_derivation": {
+        "original_terms": [
+          "invoice",
+          "invoices",
+          "payments",
+          "\u0441\u0447\u0435\u0442\u0430"
+        ],
+        "original_match_count": 7,
+        "added_route_terms": [
+          "accounting",
+          "invoicing"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "original_query_sha256": "3a4b587856d3426b15c01d68443dd70c7f00d99437e9283d3a15166ca540bfce",
+        "final_query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 69120000
+    },
+    {
+      "ms": 70.60679999995045,
+      "prepare_count_ms": 63.48710000747815,
+      "c9_ms": 7.120499998563901,
+      "status": "ok",
+      "query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+      "query_derivation": {
+        "original_terms": [
+          "invoice",
+          "invoices",
+          "payments",
+          "\u0441\u0447\u0435\u0442\u0430"
+        ],
+        "original_match_count": 7,
+        "added_route_terms": [
+          "accounting",
+          "invoicing"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "original_query_sha256": "3a4b587856d3426b15c01d68443dd70c7f00d99437e9283d3a15166ca540bfce",
+        "final_query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 69033984
+    },
+    {
+      "ms": 69.40209999447688,
+      "prepare_count_ms": 62.36350000835955,
+      "c9_ms": 7.039399992208928,
+      "status": "ok",
+      "query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+      "query_derivation": {
+        "original_terms": [
+          "invoice",
+          "invoices",
+          "payments",
+          "\u0441\u0447\u0435\u0442\u0430"
+        ],
+        "original_match_count": 7,
+        "added_route_terms": [
+          "accounting",
+          "invoicing"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "original_query_sha256": "3a4b587856d3426b15c01d68443dd70c7f00d99437e9283d3a15166ca540bfce",
+        "final_query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 69148672
+    },
+    {
+      "ms": 66.93380000069737,
+      "prepare_count_ms": 60.10679999599233,
+      "c9_ms": 6.827899982454255,
+      "status": "ok",
+      "query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+      "query_derivation": {
+        "original_terms": [
+          "invoice",
+          "invoices",
+          "payments",
+          "\u0441\u0447\u0435\u0442\u0430"
+        ],
+        "original_match_count": 7,
+        "added_route_terms": [
+          "accounting",
+          "invoicing"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "original_query_sha256": "3a4b587856d3426b15c01d68443dd70c7f00d99437e9283d3a15166ca540bfce",
+        "final_query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 69201920
+    },
+    {
+      "ms": 67.53329999628477,
+      "prepare_count_ms": 60.74819999048486,
+      "c9_ms": 6.7860000126529485,
+      "status": "ok",
+      "query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+      "query_derivation": {
+        "original_terms": [
+          "invoice",
+          "invoices",
+          "payments",
+          "\u0441\u0447\u0435\u0442\u0430"
+        ],
+        "original_match_count": 7,
+        "added_route_terms": [
+          "accounting",
+          "invoicing"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "original_query_sha256": "3a4b587856d3426b15c01d68443dd70c7f00d99437e9283d3a15166ca540bfce",
+        "final_query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 69386240
+    },
+    {
+      "ms": 65.68699999479577,
+      "prepare_count_ms": 58.37959999917075,
+      "c9_ms": 7.308400003239512,
+      "status": "ok",
+      "query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+      "query_derivation": {
+        "original_terms": [
+          "invoice",
+          "invoices",
+          "payments",
+          "\u0441\u0447\u0435\u0442\u0430"
+        ],
+        "original_match_count": 7,
+        "added_route_terms": [
+          "accounting",
+          "invoicing"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "original_query_sha256": "3a4b587856d3426b15c01d68443dd70c7f00d99437e9283d3a15166ca540bfce",
+        "final_query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 69369856
+    },
+    {
+      "ms": 65.6985999958124,
+      "prepare_count_ms": 58.69119998533279,
+      "c9_ms": 7.008300017332658,
+      "status": "ok",
+      "query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+      "query_derivation": {
+        "original_terms": [
+          "invoice",
+          "invoices",
+          "payments",
+          "\u0441\u0447\u0435\u0442\u0430"
+        ],
+        "original_match_count": 7,
+        "added_route_terms": [
+          "accounting",
+          "invoicing"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "original_query_sha256": "3a4b587856d3426b15c01d68443dd70c7f00d99437e9283d3a15166ca540bfce",
+        "final_query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 68968448
+    },
+    {
+      "ms": 70.80710001173429,
+      "prepare_count_ms": 63.67230002069846,
+      "c9_ms": 7.135699997888878,
+      "status": "ok",
+      "query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+      "query_derivation": {
+        "original_terms": [
+          "invoice",
+          "invoices",
+          "payments",
+          "\u0441\u0447\u0435\u0442\u0430"
+        ],
+        "original_match_count": 7,
+        "added_route_terms": [
+          "accounting",
+          "invoicing"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "original_query_sha256": "3a4b587856d3426b15c01d68443dd70c7f00d99437e9283d3a15166ca540bfce",
+        "final_query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 69218304
+    },
+    {
+      "ms": 65.80290000420064,
+      "prepare_count_ms": 58.930099999997765,
+      "c9_ms": 6.8737000110559165,
+      "status": "ok",
+      "query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+      "query_derivation": {
+        "original_terms": [
+          "invoice",
+          "invoices",
+          "payments",
+          "\u0441\u0447\u0435\u0442\u0430"
+        ],
+        "original_match_count": 7,
+        "added_route_terms": [
+          "accounting",
+          "invoicing"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "original_query_sha256": "3a4b587856d3426b15c01d68443dd70c7f00d99437e9283d3a15166ca540bfce",
+        "final_query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 69402624
+    },
+    {
+      "ms": 63.954299985198304,
+      "prepare_count_ms": 57.1969999873545,
+      "c9_ms": 6.758200004696846,
+      "status": "ok",
+      "query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+      "query_derivation": {
+        "original_terms": [
+          "invoice",
+          "invoices",
+          "payments",
+          "\u0441\u0447\u0435\u0442\u0430"
+        ],
+        "original_match_count": 7,
+        "added_route_terms": [
+          "accounting",
+          "invoicing"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "original_query_sha256": "3a4b587856d3426b15c01d68443dd70c7f00d99437e9283d3a15166ca540bfce",
+        "final_query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 69124096
+    },
+    {
+      "ms": 65.95719998585992,
+      "prepare_count_ms": 58.97670000558719,
+      "c9_ms": 6.981399987125769,
+      "status": "ok",
+      "query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+      "query_derivation": {
+        "original_terms": [
+          "invoice",
+          "invoices",
+          "payments",
+          "\u0441\u0447\u0435\u0442\u0430"
+        ],
+        "original_match_count": 7,
+        "added_route_terms": [
+          "accounting",
+          "invoicing"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "original_query_sha256": "3a4b587856d3426b15c01d68443dd70c7f00d99437e9283d3a15166ca540bfce",
+        "final_query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 69206016
+    },
+    {
+      "ms": 65.80819998634979,
+      "prepare_count_ms": 59.06679999316111,
+      "c9_ms": 6.742199999280274,
+      "status": "ok",
+      "query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+      "query_derivation": {
+        "original_terms": [
+          "invoice",
+          "invoices",
+          "payments",
+          "\u0441\u0447\u0435\u0442\u0430"
+        ],
+        "original_match_count": 7,
+        "added_route_terms": [
+          "accounting",
+          "invoicing"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "original_query_sha256": "3a4b587856d3426b15c01d68443dd70c7f00d99437e9283d3a15166ca540bfce",
+        "final_query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 69238784
+    },
+    {
+      "ms": 67.10939999902621,
+      "prepare_count_ms": 60.37859999923967,
+      "c9_ms": 6.731800007401034,
+      "status": "ok",
+      "query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+      "query_derivation": {
+        "original_terms": [
+          "invoice",
+          "invoices",
+          "payments",
+          "\u0441\u0447\u0435\u0442\u0430"
+        ],
+        "original_match_count": 7,
+        "added_route_terms": [
+          "accounting",
+          "invoicing"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "original_query_sha256": "3a4b587856d3426b15c01d68443dd70c7f00d99437e9283d3a15166ca540bfce",
+        "final_query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 69091328
+    },
+    {
+      "ms": 64.91270000697114,
+      "prepare_count_ms": 58.08339998475276,
+      "c9_ms": 6.830099999206141,
+      "status": "ok",
+      "query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+      "query_derivation": {
+        "original_terms": [
+          "invoice",
+          "invoices",
+          "payments",
+          "\u0441\u0447\u0435\u0442\u0430"
+        ],
+        "original_match_count": 7,
+        "added_route_terms": [
+          "accounting",
+          "invoicing"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "original_query_sha256": "3a4b587856d3426b15c01d68443dd70c7f00d99437e9283d3a15166ca540bfce",
+        "final_query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 69398528
+    },
+    {
+      "ms": 65.43959997361526,
+      "prepare_count_ms": 58.61409998033196,
+      "c9_ms": 6.826400000136346,
+      "status": "ok",
+      "query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+      "query_derivation": {
+        "original_terms": [
+          "invoice",
+          "invoices",
+          "payments",
+          "\u0441\u0447\u0435\u0442\u0430"
+        ],
+        "original_match_count": 7,
+        "added_route_terms": [
+          "accounting",
+          "invoicing"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "original_query_sha256": "3a4b587856d3426b15c01d68443dd70c7f00d99437e9283d3a15166ca540bfce",
+        "final_query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 69382144
+    },
+    {
+      "ms": 66.93070000619628,
+      "prepare_count_ms": 60.023700003512204,
+      "c9_ms": 6.907800008775666,
+      "status": "ok",
+      "query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+      "query_derivation": {
+        "original_terms": [
+          "invoice",
+          "invoices",
+          "payments",
+          "\u0441\u0447\u0435\u0442\u0430"
+        ],
+        "original_match_count": 7,
+        "added_route_terms": [
+          "accounting",
+          "invoicing"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "original_query_sha256": "3a4b587856d3426b15c01d68443dd70c7f00d99437e9283d3a15166ca540bfce",
+        "final_query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 69103616
+    },
+    {
+      "ms": 67.19060000614263,
+      "prepare_count_ms": 60.11459999717772,
+      "c9_ms": 7.076900015817955,
+      "status": "ok",
+      "query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+      "query_derivation": {
+        "original_terms": [
+          "invoice",
+          "invoices",
+          "payments",
+          "\u0441\u0447\u0435\u0442\u0430"
+        ],
+        "original_match_count": 7,
+        "added_route_terms": [
+          "accounting",
+          "invoicing"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "original_query_sha256": "3a4b587856d3426b15c01d68443dd70c7f00d99437e9283d3a15166ca540bfce",
+        "final_query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 69115904
+    },
+    {
+      "ms": 65.13509998330846,
+      "prepare_count_ms": 58.17969999043271,
+      "c9_ms": 6.956400000490248,
+      "status": "ok",
+      "query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+      "query_derivation": {
+        "original_terms": [
+          "invoice",
+          "invoices",
+          "payments",
+          "\u0441\u0447\u0435\u0442\u0430"
+        ],
+        "original_match_count": 7,
+        "added_route_terms": [
+          "accounting",
+          "invoicing"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "original_query_sha256": "3a4b587856d3426b15c01d68443dd70c7f00d99437e9283d3a15166ca540bfce",
+        "final_query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 69406720
+    }
+  ],
+  "warm_samples": [
+    {
+      "ms": 20.3410999965854,
+      "prepare_count_ms": 10.085899994010106,
+      "c9_ms": 10.256599984131753,
+      "status": "ok",
+      "query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+      "query_derivation": {
+        "original_terms": [
+          "invoice",
+          "invoices",
+          "payments",
+          "\u0441\u0447\u0435\u0442\u0430"
+        ],
+        "original_match_count": 7,
+        "added_route_terms": [
+          "accounting",
+          "invoicing"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "original_query_sha256": "3a4b587856d3426b15c01d68443dd70c7f00d99437e9283d3a15166ca540bfce",
+        "final_query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 19.53059999505058,
+      "prepare_count_ms": 10.094700002809986,
+      "c9_ms": 9.436799999093637,
+      "status": "ok",
+      "query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+      "query_derivation": {
+        "original_terms": [
+          "invoice",
+          "invoices",
+          "payments",
+          "\u0441\u0447\u0435\u0442\u0430"
+        ],
+        "original_match_count": 7,
+        "added_route_terms": [
+          "accounting",
+          "invoicing"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "original_query_sha256": "3a4b587856d3426b15c01d68443dd70c7f00d99437e9283d3a15166ca540bfce",
+        "final_query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 19.735499983653426,
+      "prepare_count_ms": 10.248799982946366,
+      "c9_ms": 9.487400006037205,
+      "status": "ok",
+      "query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+      "query_derivation": {
+        "original_terms": [
+          "invoice",
+          "invoices",
+          "payments",
+          "\u0441\u0447\u0435\u0442\u0430"
+        ],
+        "original_match_count": 7,
+        "added_route_terms": [
+          "accounting",
+          "invoicing"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "original_query_sha256": "3a4b587856d3426b15c01d68443dd70c7f00d99437e9283d3a15166ca540bfce",
+        "final_query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 19.621600018581375,
+      "prepare_count_ms": 10.077000013552606,
+      "c9_ms": 9.545299981255084,
+      "status": "ok",
+      "query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+      "query_derivation": {
+        "original_terms": [
+          "invoice",
+          "invoices",
+          "payments",
+          "\u0441\u0447\u0435\u0442\u0430"
+        ],
+        "original_match_count": 7,
+        "added_route_terms": [
+          "accounting",
+          "invoicing"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "original_query_sha256": "3a4b587856d3426b15c01d68443dd70c7f00d99437e9283d3a15166ca540bfce",
+        "final_query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 19.204799988074228,
+      "prepare_count_ms": 9.659500006819144,
+      "c9_ms": 9.546099987346679,
+      "status": "ok",
+      "query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+      "query_derivation": {
+        "original_terms": [
+          "invoice",
+          "invoices",
+          "payments",
+          "\u0441\u0447\u0435\u0442\u0430"
+        ],
+        "original_match_count": 7,
+        "added_route_terms": [
+          "accounting",
+          "invoicing"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "original_query_sha256": "3a4b587856d3426b15c01d68443dd70c7f00d99437e9283d3a15166ca540bfce",
+        "final_query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 19.965299987234175,
+      "prepare_count_ms": 10.305699979653582,
+      "c9_ms": 9.660300012910739,
+      "status": "ok",
+      "query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+      "query_derivation": {
+        "original_terms": [
+          "invoice",
+          "invoices",
+          "payments",
+          "\u0441\u0447\u0435\u0442\u0430"
+        ],
+        "original_match_count": 7,
+        "added_route_terms": [
+          "accounting",
+          "invoicing"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "original_query_sha256": "3a4b587856d3426b15c01d68443dd70c7f00d99437e9283d3a15166ca540bfce",
+        "final_query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 18.86810001451522,
+      "prepare_count_ms": 10.165500018047169,
+      "c9_ms": 8.703300001798198,
+      "status": "ok",
+      "query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+      "query_derivation": {
+        "original_terms": [
+          "invoice",
+          "invoices",
+          "payments",
+          "\u0441\u0447\u0435\u0442\u0430"
+        ],
+        "original_match_count": 7,
+        "added_route_terms": [
+          "accounting",
+          "invoicing"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "original_query_sha256": "3a4b587856d3426b15c01d68443dd70c7f00d99437e9283d3a15166ca540bfce",
+        "final_query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 19.294600002467632,
+      "prepare_count_ms": 9.970799990696833,
+      "c9_ms": 9.324600017862394,
+      "status": "ok",
+      "query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+      "query_derivation": {
+        "original_terms": [
+          "invoice",
+          "invoices",
+          "payments",
+          "\u0441\u0447\u0435\u0442\u0430"
+        ],
+        "original_match_count": 7,
+        "added_route_terms": [
+          "accounting",
+          "invoicing"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "original_query_sha256": "3a4b587856d3426b15c01d68443dd70c7f00d99437e9283d3a15166ca540bfce",
+        "final_query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 19.417399977101013,
+      "prepare_count_ms": 10.158699995372444,
+      "c9_ms": 9.259499987820163,
+      "status": "ok",
+      "query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+      "query_derivation": {
+        "original_terms": [
+          "invoice",
+          "invoices",
+          "payments",
+          "\u0441\u0447\u0435\u0442\u0430"
+        ],
+        "original_match_count": 7,
+        "added_route_terms": [
+          "accounting",
+          "invoicing"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "original_query_sha256": "3a4b587856d3426b15c01d68443dd70c7f00d99437e9283d3a15166ca540bfce",
+        "final_query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 19.2772000154946,
+      "prepare_count_ms": 10.039800021331757,
+      "c9_ms": 9.238200000254437,
+      "status": "ok",
+      "query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+      "query_derivation": {
+        "original_terms": [
+          "invoice",
+          "invoices",
+          "payments",
+          "\u0441\u0447\u0435\u0442\u0430"
+        ],
+        "original_match_count": 7,
+        "added_route_terms": [
+          "accounting",
+          "invoicing"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "original_query_sha256": "3a4b587856d3426b15c01d68443dd70c7f00d99437e9283d3a15166ca540bfce",
+        "final_query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 19.350700022187084,
+      "prepare_count_ms": 10.163400002056733,
+      "c9_ms": 9.188099997118115,
+      "status": "ok",
+      "query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+      "query_derivation": {
+        "original_terms": [
+          "invoice",
+          "invoices",
+          "payments",
+          "\u0441\u0447\u0435\u0442\u0430"
+        ],
+        "original_match_count": 7,
+        "added_route_terms": [
+          "accounting",
+          "invoicing"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "original_query_sha256": "3a4b587856d3426b15c01d68443dd70c7f00d99437e9283d3a15166ca540bfce",
+        "final_query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 20.817499986151233,
+      "prepare_count_ms": 10.874200001126155,
+      "c9_ms": 9.943999990355223,
+      "status": "ok",
+      "query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+      "query_derivation": {
+        "original_terms": [
+          "invoice",
+          "invoices",
+          "payments",
+          "\u0441\u0447\u0435\u0442\u0430"
+        ],
+        "original_match_count": 7,
+        "added_route_terms": [
+          "accounting",
+          "invoicing"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "original_query_sha256": "3a4b587856d3426b15c01d68443dd70c7f00d99437e9283d3a15166ca540bfce",
+        "final_query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 19.665800005896017,
+      "prepare_count_ms": 10.080400010338053,
+      "c9_ms": 9.586200001649559,
+      "status": "ok",
+      "query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+      "query_derivation": {
+        "original_terms": [
+          "invoice",
+          "invoices",
+          "payments",
+          "\u0441\u0447\u0435\u0442\u0430"
+        ],
+        "original_match_count": 7,
+        "added_route_terms": [
+          "accounting",
+          "invoicing"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "original_query_sha256": "3a4b587856d3426b15c01d68443dd70c7f00d99437e9283d3a15166ca540bfce",
+        "final_query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 20.05769999232143,
+      "prepare_count_ms": 10.219799994956702,
+      "c9_ms": 9.838700003456324,
+      "status": "ok",
+      "query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+      "query_derivation": {
+        "original_terms": [
+          "invoice",
+          "invoices",
+          "payments",
+          "\u0441\u0447\u0435\u0442\u0430"
+        ],
+        "original_match_count": 7,
+        "added_route_terms": [
+          "accounting",
+          "invoicing"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "original_query_sha256": "3a4b587856d3426b15c01d68443dd70c7f00d99437e9283d3a15166ca540bfce",
+        "final_query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 21.76789997611195,
+      "prepare_count_ms": 10.530899977311492,
+      "c9_ms": 11.237700004130602,
+      "status": "ok",
+      "query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+      "query_derivation": {
+        "original_terms": [
+          "invoice",
+          "invoices",
+          "payments",
+          "\u0441\u0447\u0435\u0442\u0430"
+        ],
+        "original_match_count": 7,
+        "added_route_terms": [
+          "accounting",
+          "invoicing"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "original_query_sha256": "3a4b587856d3426b15c01d68443dd70c7f00d99437e9283d3a15166ca540bfce",
+        "final_query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 18.657500011613593,
+      "prepare_count_ms": 10.048600001027808,
+      "c9_ms": 8.60970001667738,
+      "status": "ok",
+      "query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+      "query_derivation": {
+        "original_terms": [
+          "invoice",
+          "invoices",
+          "payments",
+          "\u0441\u0447\u0435\u0442\u0430"
+        ],
+        "original_match_count": 7,
+        "added_route_terms": [
+          "accounting",
+          "invoicing"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "original_query_sha256": "3a4b587856d3426b15c01d68443dd70c7f00d99437e9283d3a15166ca540bfce",
+        "final_query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 19.216000015148893,
+      "prepare_count_ms": 9.898199990857393,
+      "c9_ms": 9.318500000517815,
+      "status": "ok",
+      "query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+      "query_derivation": {
+        "original_terms": [
+          "invoice",
+          "invoices",
+          "payments",
+          "\u0441\u0447\u0435\u0442\u0430"
+        ],
+        "original_match_count": 7,
+        "added_route_terms": [
+          "accounting",
+          "invoicing"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "original_query_sha256": "3a4b587856d3426b15c01d68443dd70c7f00d99437e9283d3a15166ca540bfce",
+        "final_query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 19.20879998942837,
+      "prepare_count_ms": 9.915300004649907,
+      "c9_ms": 9.29419999010861,
+      "status": "ok",
+      "query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+      "query_derivation": {
+        "original_terms": [
+          "invoice",
+          "invoices",
+          "payments",
+          "\u0441\u0447\u0435\u0442\u0430"
+        ],
+        "original_match_count": 7,
+        "added_route_terms": [
+          "accounting",
+          "invoicing"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "original_query_sha256": "3a4b587856d3426b15c01d68443dd70c7f00d99437e9283d3a15166ca540bfce",
+        "final_query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 19.366900000022724,
+      "prepare_count_ms": 10.075300000607967,
+      "c9_ms": 9.292400005506352,
+      "status": "ok",
+      "query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+      "query_derivation": {
+        "original_terms": [
+          "invoice",
+          "invoices",
+          "payments",
+          "\u0441\u0447\u0435\u0442\u0430"
+        ],
+        "original_match_count": 7,
+        "added_route_terms": [
+          "accounting",
+          "invoicing"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "original_query_sha256": "3a4b587856d3426b15c01d68443dd70c7f00d99437e9283d3a15166ca540bfce",
+        "final_query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 19.605500012403354,
+      "prepare_count_ms": 10.319900000467896,
+      "c9_ms": 9.286400018027052,
+      "status": "ok",
+      "query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+      "query_derivation": {
+        "original_terms": [
+          "invoice",
+          "invoices",
+          "payments",
+          "\u0441\u0447\u0435\u0442\u0430"
+        ],
+        "original_match_count": 7,
+        "added_route_terms": [
+          "accounting",
+          "invoicing"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "original_query_sha256": "3a4b587856d3426b15c01d68443dd70c7f00d99437e9283d3a15166ca540bfce",
+        "final_query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 19.29349999409169,
+      "prepare_count_ms": 9.964700002456084,
+      "c9_ms": 9.329499996965751,
+      "status": "ok",
+      "query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+      "query_derivation": {
+        "original_terms": [
+          "invoice",
+          "invoices",
+          "payments",
+          "\u0441\u0447\u0435\u0442\u0430"
+        ],
+        "original_match_count": 7,
+        "added_route_terms": [
+          "accounting",
+          "invoicing"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "original_query_sha256": "3a4b587856d3426b15c01d68443dd70c7f00d99437e9283d3a15166ca540bfce",
+        "final_query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 19.44750000257045,
+      "prepare_count_ms": 9.92089998908341,
+      "c9_ms": 9.527499991236255,
+      "status": "ok",
+      "query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+      "query_derivation": {
+        "original_terms": [
+          "invoice",
+          "invoices",
+          "payments",
+          "\u0441\u0447\u0435\u0442\u0430"
+        ],
+        "original_match_count": 7,
+        "added_route_terms": [
+          "accounting",
+          "invoicing"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "original_query_sha256": "3a4b587856d3426b15c01d68443dd70c7f00d99437e9283d3a15166ca540bfce",
+        "final_query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 14.614899992011487,
+      "prepare_count_ms": 7.6966999913565814,
+      "c9_ms": 6.918900005985051,
+      "status": "ok",
+      "query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+      "query_derivation": {
+        "original_terms": [
+          "invoice",
+          "invoices",
+          "payments",
+          "\u0441\u0447\u0435\u0442\u0430"
+        ],
+        "original_match_count": 7,
+        "added_route_terms": [
+          "accounting",
+          "invoicing"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "original_query_sha256": "3a4b587856d3426b15c01d68443dd70c7f00d99437e9283d3a15166ca540bfce",
+        "final_query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 14.383899979293346,
+      "prepare_count_ms": 7.428899989463389,
+      "c9_ms": 6.9555999943986535,
+      "status": "ok",
+      "query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+      "query_derivation": {
+        "original_terms": [
+          "invoice",
+          "invoices",
+          "payments",
+          "\u0441\u0447\u0435\u0442\u0430"
+        ],
+        "original_match_count": 7,
+        "added_route_terms": [
+          "accounting",
+          "invoicing"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "original_query_sha256": "3a4b587856d3426b15c01d68443dd70c7f00d99437e9283d3a15166ca540bfce",
+        "final_query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 14.42779999342747,
+      "prepare_count_ms": 7.425699994200841,
+      "c9_ms": 7.003000006079674,
+      "status": "ok",
+      "query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+      "query_derivation": {
+        "original_terms": [
+          "invoice",
+          "invoices",
+          "payments",
+          "\u0441\u0447\u0435\u0442\u0430"
+        ],
+        "original_match_count": 7,
+        "added_route_terms": [
+          "accounting",
+          "invoicing"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "original_query_sha256": "3a4b587856d3426b15c01d68443dd70c7f00d99437e9283d3a15166ca540bfce",
+        "final_query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 19.35580000281334,
+      "prepare_count_ms": 9.988800011342391,
+      "c9_ms": 9.367799997562543,
+      "status": "ok",
+      "query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+      "query_derivation": {
+        "original_terms": [
+          "invoice",
+          "invoices",
+          "payments",
+          "\u0441\u0447\u0435\u0442\u0430"
+        ],
+        "original_match_count": 7,
+        "added_route_terms": [
+          "accounting",
+          "invoicing"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "original_query_sha256": "3a4b587856d3426b15c01d68443dd70c7f00d99437e9283d3a15166ca540bfce",
+        "final_query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 19.267099996795878,
+      "prepare_count_ms": 9.90750000346452,
+      "c9_ms": 9.360399999422953,
+      "status": "ok",
+      "query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+      "query_derivation": {
+        "original_terms": [
+          "invoice",
+          "invoices",
+          "payments",
+          "\u0441\u0447\u0435\u0442\u0430"
+        ],
+        "original_match_count": 7,
+        "added_route_terms": [
+          "accounting",
+          "invoicing"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "original_query_sha256": "3a4b587856d3426b15c01d68443dd70c7f00d99437e9283d3a15166ca540bfce",
+        "final_query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 15.824000001884997,
+      "prepare_count_ms": 9.061999997356907,
+      "c9_ms": 6.762400007573888,
+      "status": "ok",
+      "query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+      "query_derivation": {
+        "original_terms": [
+          "invoice",
+          "invoices",
+          "payments",
+          "\u0441\u0447\u0435\u0442\u0430"
+        ],
+        "original_match_count": 7,
+        "added_route_terms": [
+          "accounting",
+          "invoicing"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "original_query_sha256": "3a4b587856d3426b15c01d68443dd70c7f00d99437e9283d3a15166ca540bfce",
+        "final_query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 14.305499993497506,
+      "prepare_count_ms": 7.378799986327067,
+      "c9_ms": 6.927300011739135,
+      "status": "ok",
+      "query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+      "query_derivation": {
+        "original_terms": [
+          "invoice",
+          "invoices",
+          "payments",
+          "\u0441\u0447\u0435\u0442\u0430"
+        ],
+        "original_match_count": 7,
+        "added_route_terms": [
+          "accounting",
+          "invoicing"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "original_query_sha256": "3a4b587856d3426b15c01d68443dd70c7f00d99437e9283d3a15166ca540bfce",
+        "final_query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 14.471900009084493,
+      "prepare_count_ms": 7.540899998275563,
+      "c9_ms": 6.931600015377626,
+      "status": "ok",
+      "query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+      "query_derivation": {
+        "original_terms": [
+          "invoice",
+          "invoices",
+          "payments",
+          "\u0441\u0447\u0435\u0442\u0430"
+        ],
+        "original_match_count": 7,
+        "added_route_terms": [
+          "accounting",
+          "invoicing"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "original_query_sha256": "3a4b587856d3426b15c01d68443dd70c7f00d99437e9283d3a15166ca540bfce",
+        "final_query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    }
+  ],
+  "cold_p95_ms": 70.84659999236465,
+  "warm_p95_ms": 20.817499986151233,
+  "peak_memory_bytes": 69414912,
+  "index_bytes": 2048000,
+  "prior_whole_path_diagnostic": {
+    "ms": 325.59230001061223,
+    "status": "ready",
+    "scope": "One warm Brief/COUNT/C9/guard/pack diagnostic; no model or SLA"
+  },
+  "source_hashes": {
+    "evals/plugin-v1/measure_final_rank_underfill.py": "cfcda69ce518c7df4da77141d261566a2a70b90d70259595ed8230fbaf336d01",
+    "plugins/myai-stackguide/scripts/recommendation_request.py": "3c3d188d51d5c6da55de2fc1655874d15f4919cecae9bea40fa71810d3084ad9",
+    "plugins/myai-stackguide/scripts/retrieval.py": "6cd0a8012ed47374afee68c957a7369020775562d21b0d8b2649ec3b850f14dd",
+    "evals/plugin-v1/results/cp04-final-quality-rank-repair-regression-2026-10-11/observations.json": "d477e7ba974aaebe9a32f5e12009fef25914f78a95417291dfd52cc229922613",
+    "plugins/myai-stackguide/assets/catalog.search.sqlite": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+    "plugins/myai-stackguide/assets/catalog.search-manifest.json": "4c1c9eccf6df60d92da5d780a8152ce3fb00e43ccbf80e8ed01c3c660135a1bb",
+    "plugins/myai-stackguide/assets/retrieval-policy.json": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b"
+  },
+  "promotion_ready": false,
+  "gates": {
+    "cold_p95": true,
+    "warm_p95": true,
+    "peak_memory": true,
+    "index_bytes": true,
+    "statuses": true
+  }
+}

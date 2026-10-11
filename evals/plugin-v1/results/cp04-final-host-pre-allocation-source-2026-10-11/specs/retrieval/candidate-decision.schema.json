@@ -1,0 +1,647 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://myai-stackguide.invalid/contracts/v1/retrieval/candidate-decision.schema.json",
+  "title": "Transient bounded host decision over an unchanged native C9 candidate pool",
+  "description": "CP-04 prospective outer contract 1.0.0. Native C9 2.1.0, Card/Activity 2.0.0 and index format 3 retain their own contracts. This schema authorizes no model call, persistence, execution or publication.",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/previewRequest"
+    },
+    {
+      "$ref": "#/$defs/decisionReceipt"
+    },
+    {
+      "$ref": "#/$defs/decisionPack"
+    },
+    {
+      "$ref": "#/$defs/failure"
+    }
+  ],
+  "$defs": {
+    "sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "repositoryId": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "bindings": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "contract_schema_sha256",
+        "contract_document_sha256",
+        "run_id",
+        "brief_id",
+        "brief_version",
+        "brief_sha256",
+        "interpretation_sha256",
+        "guard_context_sha256",
+        "query_id",
+        "query_sha256",
+        "native_result_sha256",
+        "candidate_pool_sha256",
+        "pins"
+      ],
+      "properties": {
+        "contract_schema_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "contract_document_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "run_id": {
+          "$ref": "https://myai-stackguide.invalid/contracts/v1/context/sanitized-project-summary.schema.json#/$defs/uuid"
+        },
+        "brief_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "brief_version": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1000000
+        },
+        "brief_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "interpretation_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "guard_context_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "query_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "query_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "native_result_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "candidate_pool_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "pins": {
+          "$ref": "https://myai-stackguide.invalid/contracts/v2/retrieval/retrieval-result.schema.json#/properties/pins",
+          "type": "object"
+        }
+      }
+    },
+    "fieldProjection": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_field",
+        "text",
+        "coverage"
+      ],
+      "properties": {
+        "source_field": {
+          "enum": [
+            "/descriptions/upstream",
+            "/descriptions/catalog",
+            "/repository/topics",
+            "/advisory/use_cases",
+            "/advisory/integration_surface",
+            "/advisory/best_for"
+          ]
+        },
+        "text": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 1024
+        },
+        "coverage": {
+          "enum": [
+            "complete",
+            "truncated",
+            "unknown"
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "coverage": {
+                "const": "unknown"
+              }
+            },
+            "required": [
+              "coverage"
+            ]
+          },
+          "then": {
+            "properties": {
+              "text": {
+                "type": "null"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "coverage": {
+                "enum": [
+                  "complete",
+                  "truncated"
+                ]
+              }
+            },
+            "required": [
+              "coverage"
+            ]
+          },
+          "then": {
+            "properties": {
+              "text": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "preview": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "github_repository_id",
+        "full_name",
+        "source_card_sha256",
+        "retrieval_rank",
+        "rrf_score",
+        "taxonomy_category_ids",
+        "eligibility_status",
+        "eligibility_reason_codes",
+        "guard_status",
+        "guard_reason_codes",
+        "fields"
+      ],
+      "properties": {
+        "github_repository_id": {
+          "$ref": "#/$defs/repositoryId"
+        },
+        "full_name": {
+          "type": "string",
+          "maxLength": 200,
+          "pattern": "^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$"
+        },
+        "source_card_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "retrieval_rank": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 150
+        },
+        "rrf_score": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 1
+        },
+        "taxonomy_category_ids": {
+          "type": "array",
+          "maxItems": 111,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "maxLength": 100,
+            "pattern": "^[a-z][a-z0-9_]*$"
+          }
+        },
+        "guard_status": {
+          "enum": [
+            "primary_eligible",
+            "reference_only",
+            "blocked"
+          ]
+        },
+        "guard_reason_codes": {
+          "type": "array",
+          "maxItems": 8,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/exclusion/properties/reason_codes/items"
+          }
+        },
+        "fields": {
+          "type": "array",
+          "minItems": 6,
+          "maxItems": 6,
+          "items": {
+            "$ref": "#/$defs/fieldProjection"
+          }
+        },
+        "eligibility_status": {
+          "$ref": "https://myai-stackguide.invalid/contracts/v2/catalog/candidate-eligibility.schema.json#/properties/status"
+        },
+        "eligibility_reason_codes": {
+          "$ref": "https://myai-stackguide.invalid/contracts/v2/catalog/candidate-eligibility.schema.json#/properties/reason_codes"
+        }
+      }
+    },
+    "intent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "required_groups",
+        "context_terms"
+      ],
+      "properties": {
+        "required_groups": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 8,
+          "items": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 8,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64
+            }
+          }
+        },
+        "context_terms": {
+          "type": "array",
+          "maxItems": 8,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64
+          }
+        }
+      }
+    },
+    "previewRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version",
+        "artifact_type",
+        "bindings",
+        "method",
+        "decision_context",
+        "candidates",
+        "reservation"
+      ],
+      "properties": {
+        "schema_version": {
+          "const": "1.0.0"
+        },
+        "artifact_type": {
+          "const": "candidate_preview_request"
+        },
+        "bindings": {
+          "$ref": "#/$defs/bindings"
+        },
+        "method": {
+          "const": "host_codex_full_pool_v1"
+        },
+        "decision_context": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "goal",
+            "intent"
+          ],
+          "properties": {
+            "goal": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2000
+            },
+            "intent": {
+              "$ref": "#/$defs/intent"
+            }
+          }
+        },
+        "candidates": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 150,
+          "items": {
+            "$ref": "#/$defs/preview"
+          }
+        },
+        "reservation": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "receipt_bytes",
+            "pack_bytes"
+          ],
+          "properties": {
+            "receipt_bytes": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 163840
+            },
+            "pack_bytes": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 163840
+            }
+          }
+        }
+      },
+      "x-max-utf8-bytes": 163840
+    },
+    "decisionReceipt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version",
+        "artifact_type",
+        "bindings",
+        "method",
+        "preview_request_sha256",
+        "decision_order"
+      ],
+      "properties": {
+        "schema_version": {
+          "const": "1.0.0"
+        },
+        "artifact_type": {
+          "const": "candidate_decision_receipt"
+        },
+        "bindings": {
+          "$ref": "#/$defs/bindings"
+        },
+        "method": {
+          "const": "host_codex_full_pool_v1"
+        },
+        "preview_request_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "decision_order": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 150,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/repositoryId"
+          }
+        }
+      },
+      "x-max-utf8-bytes": 163840
+    },
+    "packedCard": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "card",
+        "retrieval_rank",
+        "decision_rank",
+        "rrf_score",
+        "eligibility",
+        "matched_fields"
+      ],
+      "properties": {
+        "card": {
+          "$ref": "https://myai-stackguide.invalid/contracts/v2/catalog/repository-card.schema.json"
+        },
+        "retrieval_rank": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 150
+        },
+        "decision_rank": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 150
+        },
+        "rrf_score": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 1
+        },
+        "eligibility": {
+          "$ref": "https://myai-stackguide.invalid/contracts/v2/catalog/candidate-eligibility.schema.json"
+        },
+        "matched_fields": {
+          "$ref": "https://myai-stackguide.invalid/contracts/v2/retrieval/evidence-pack.schema.json#/properties/cards/items/properties/matched_fields"
+        }
+      }
+    },
+    "exclusion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "github_repository_id",
+        "reason_codes"
+      ],
+      "properties": {
+        "github_repository_id": {
+          "$ref": "#/$defs/repositoryId"
+        },
+        "reason_codes": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 8,
+          "uniqueItems": true,
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "https://myai-stackguide.invalid/contracts/v2/retrieval/evidence-pack.schema.json#/properties/exclusions/items/properties/reason_codes/items"
+              },
+              {
+                "enum": [
+                  "explicit_product_exclusion",
+                  "documented_dependency_conflict"
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    "decisionPack": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version",
+        "artifact_type",
+        "bindings",
+        "pack_id",
+        "method",
+        "preview_request_sha256",
+        "decision_receipt_sha256",
+        "status",
+        "cards",
+        "exclusions",
+        "truncated"
+      ],
+      "properties": {
+        "schema_version": {
+          "const": "1.0.0"
+        },
+        "artifact_type": {
+          "const": "candidate_decision_pack"
+        },
+        "bindings": {
+          "$ref": "#/$defs/bindings"
+        },
+        "pack_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "method": {
+          "const": "host_codex_full_pool_v1"
+        },
+        "preview_request_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "decision_receipt_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "status": {
+          "enum": [
+            "ready",
+            "limited",
+            "no_eligible"
+          ]
+        },
+        "cards": {
+          "type": "array",
+          "maxItems": 12,
+          "items": {
+            "$ref": "#/$defs/packedCard"
+          }
+        },
+        "exclusions": {
+          "type": "array",
+          "maxItems": 150,
+          "items": {
+            "$ref": "#/$defs/exclusion"
+          }
+        },
+        "truncated": {
+          "type": "boolean"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "enum": [
+                  "ready",
+                  "limited"
+                ]
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "cards": {
+                "minItems": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "no_eligible"
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "cards": {
+                "maxItems": 0
+              },
+              "truncated": {
+                "const": false
+              }
+            }
+          }
+        }
+      ],
+      "x-max-utf8-bytes": 163840
+    },
+    "failure": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version",
+        "artifact_type",
+        "status",
+        "bindings",
+        "evidence_pack"
+      ],
+      "properties": {
+        "schema_version": {
+          "const": "1.0.0"
+        },
+        "artifact_type": {
+          "const": "candidate_decision_failure"
+        },
+        "status": {
+          "enum": [
+            "needs_selection",
+            "needs_clarification",
+            "invalid_input",
+            "stale_binding",
+            "index_incompatible",
+            "retrieval_unavailable",
+            "no_match",
+            "budget_exceeded",
+            "invalid_decision"
+          ]
+        },
+        "bindings": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/bindings"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "evidence_pack": {
+          "type": "null"
+        }
+      }
+    }
+  },
+  "x-canonicalization": "UTF-8 sorted-key compact JSON; ensure_ascii=false, allow_nan=false. H(value) is SHA256 of these canonical bytes.",
+  "x-invariants": [
+    "The normative cross-object and runtime checks in candidate-decision-contract.md are mandatory; JSON Schema alone does not verify hashes, membership, ordering, trust, compact bytes or the shared ledger.",
+    "All successful objects use identical complete bindings. Contract schema/document hashes bind exact file bytes; query/native result/Brief/interpretation/guard/pool digests use canonical JSON.",
+    "Preview candidates are exactly the complete native deduplicated candidate set in native rank order; no whole cards or hidden candidate omissions. Each source-card hash and allowed field pointer binds the original typed field value; displayed projection and coverage are recomputed against the pinned snapshot.",
+    "decision_order is a complete unique permutation of preview/native IDs, not a subset. The native candidates, rank, variant_ranks[].bm25, rrf_score and failed metrics remain unchanged.",
+    "Each preview has exactly one projection for each of the six allowed source_field paths. Projection text and complete/truncated/unknown coverage are recomputed by the deterministic projection algorithm.",
+    "Required/context intent retains the original validated interpretation; total original terms across groups/context is at most eight and respects the existing term guards. Expansion vocabulary cannot become a confirmed required group.",
+    "Preview eligibility_status/reason_codes exactly project recomputed canonical query eligibility before product guards; guard_status/reasons record the effective independent guarded classification. Neither can upgrade eligibility. Official complete decision_order is never reordered for primary/reference pack selection or score reporting.",
+    "Shared evidence ledger is the actual compact serialization of {preview_request,decision_receipt,decision_pack}, including its wrappers, at most min(163840,query.max_evidence_bytes,pinned_policy.limits.max_evidence_bytes) bytes. There is no per-phase budget reset.",
+    "Every controlled model input remains at most the pinned 204800-byte allocation, with Brief/context/request allocations unchanged. The pack contains at most min(12,query.max_cards) detailed cards. Preview projection is not a complete RepositoryCard.",
+    "Hard guard and eligibility are revalidated before pack; blocked/explicitly prohibited/documented-conflicting IDs never enter it. Primary eligibility is not created by host ordering.",
+    "Pack order is primary_eligible first then reference_only, each in decision_order. Native retrieval_rank/rrf_score and the original full decision_rank remain truthful and need not be consecutive in the packed subset.",
+    "Every native ID occurs exactly once in packed cards or exclusions. candidate_budget/context_budget are distinct from semantic or hard exclusions. no_eligible is only valid when all candidates are independently blocked; failure to fit an eligible card is budget_exceeded.",
+    "Missing host receipt returns needs_selection with no pack. Errors never silently substitute a native pack or fabricate successful no_match. All outer objects are transient and cannot be inserted into existing state/HTML schemas."
+  ]
+}

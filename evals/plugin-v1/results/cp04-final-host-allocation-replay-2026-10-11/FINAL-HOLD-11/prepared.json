@@ -1,0 +1,2786 @@
+{
+  "preview_request": {
+    "schema_version": "1.1.0",
+    "artifact_type": "candidate_preview_request",
+    "bindings": {
+      "contract_schema_sha256": "53f8bd0ddf7dcc29cc355e813c42b495d4f87e7804db8de699768fe82afd5303",
+      "contract_document_sha256": "21b190b68699a1373c647b1570884954d726393066d6f45f2bfd54e46d043b9a",
+      "run_id": "945eb516-fb5b-526c-b610-ab579f38d0eb",
+      "brief_id": "FINAL-HOLD-11",
+      "brief_version": 1,
+      "brief_sha256": "1b71e21ae3b315a04d26c63566235f028d22ed61513b41dccce61e51b19d8b68",
+      "interpretation_sha256": "f60433ddac323a9e15fd00b4261483631df77c3ca865530f1daf9a0cf44dfd64",
+      "guard_context_sha256": "c9f0bf59f77a16054f0966eca8aa56ce3f6adf934c3be5b414a791296701feb3",
+      "query_id": "request-f60433ddac323a9e15fd00b4",
+      "query_sha256": "35617aa616501a6c53d91296d5d06b3a239f3668ac59a86af5a1fb1c2902096f",
+      "native_result_sha256": "81be096a37c47da5a782adeed6041b031ba950fbf307e1d8227649637b87a117",
+      "candidate_pool_sha256": "76ff04699c7a227d7f34ee2ba538abd8d1ca5c20f158de467a3a0944ce6e991d",
+      "pins": {
+        "activity_schema_version": "2.0.0",
+        "card_schema_version": "2.0.0",
+        "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+        "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+        "corpus_kind": "catalog_snapshot",
+        "index_format_version": 3,
+        "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+        "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+        "retrieval_policy_version": "2.1.0",
+        "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+        "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+      }
+    },
+    "method": "host_codex_full_pool_v1_1",
+    "decision_context": {
+      "goal": "A service needs a runtime caching server; distributed coordination and embedded ordered storage are different roles.",
+      "intent": {
+        "required_groups": [
+          [
+            "cache"
+          ]
+        ],
+        "context_terms": [
+          "caching",
+          "Redis"
+        ]
+      }
+    },
+    "candidates": [
+      {
+        "github_repository_id": 775743011,
+        "full_name": "valkey-io/valkey",
+        "source_card_sha256": "cc0360897d8122694c4b09187fba3888a11c55c8c972304bafe1fbcb016a6ee0",
+        "retrieval_rank": 1,
+        "rrf_score": 0.01639344262295082,
+        "taxonomy_category_ids": [
+          "caches_key_value_stores"
+        ],
+        "eligibility_status": "reference_only",
+        "eligibility_reason_codes": [
+          "mandatory_fact_unknown"
+        ],
+        "guard_status": "reference_only",
+        "guard_reason_codes": [
+          "mandatory_fact_unknown"
+        ],
+        "fields": [
+          {
+            "source_field": "/descriptions/upstream",
+            "text": "A flexible distributed key-value database that is optimized for caching and other realtime workloads.",
+            "coverage": "complete"
+          },
+          {
+            "source_field": "/descriptions/catalog",
+            "text": "A flexible distributed key-value database that is optimized for caching and other realtime workloads.",
+            "coverage": "complete"
+          },
+          {
+            "source_field": "/repository/topics",
+            "text": "cache\ndatabase\nkey-value\nkey-value-store\nnosql\nredis\nvalkey\nvalkey-client",
+            "coverage": "complete"
+          },
+          {
+            "source_field": "/advisory/use_cases",
+            "text": null,
+            "coverage": "unknown"
+          },
+          {
+            "source_field": "/advisory/integration_surface",
+            "text": null,
+            "coverage": "unknown"
+          },
+          {
+            "source_field": "/advisory/best_for",
+            "text": null,
+            "coverage": "unknown"
+          }
+        ]
+      },
+      {
+        "github_repository_id": 156018,
+        "full_name": "redis/redis",
+        "source_card_sha256": "3c55a5212972510fea4fba1b7f0e2d6aa38d6a5c30217de58181403917a39857",
+        "retrieval_rank": 2,
+        "rrf_score": 0.016129032258064516,
+        "taxonomy_category_ids": [
+          "caches_key_value_stores"
+        ],
+        "eligibility_status": "reference_only",
+        "eligibility_reason_codes": [
+          "mandatory_fact_unknown"
+        ],
+        "guard_status": "reference_only",
+        "guard_reason_codes": [
+          "mandatory_fact_unknown"
+        ],
+        "fields": [
+          {
+            "source_field": "/descriptions/upstream",
+            "text": "For developers, who are building real-time data-driven applications, Redis is the preferred, fastest, and most feature-rich cache, data structure server, and document and vector query engine.",
+            "coverage": "complete"
+          },
+          {
+            "source_field": "/descriptions/catalog",
+            "text": null,
+            "coverage": "unknown"
+          },
+          {
+            "source_field": "/repository/topics",
+            "text": "cache\ncaching\ndatabase\ndistributed-systems\nin-memory\nin-memory-database\njson\nkey-value\nkey-value-store\nmessage-broker\nmessage-queue\nno-sql\nnosql\nopen-source\nreal-time\nrealtime\nredis\ntime-series\nvector-databases\nvector-search",
+            "coverage": "complete"
+          },
+          {
+            "source_field": "/advisory/use_cases",
+            "text": null,
+            "coverage": "unknown"
+          },
+          {
+            "source_field": "/advisory/integration_surface",
+            "text": null,
+            "coverage": "unknown"
+          },
+          {
+            "source_field": "/advisory/best_for",
+            "text": null,
+            "coverage": "unknown"
+          }
+        ]
+      },
+      {
+        "github_repository_id": 437245741,
+        "full_name": "dragonflydb/dragonfly",
+        "source_card_sha256": "980c698d3d6fc37c55bcce136f22d4aaf3d8374a31db1cc91d49ed29c3c83217",
+        "retrieval_rank": 3,
+        "rrf_score": 0.015873015873015872,
+        "taxonomy_category_ids": [
+          "caches_key_value_stores"
+        ],
+        "eligibility_status": "reference_only",
+        "eligibility_reason_codes": [
+          "mandatory_fact_unknown"
+        ],
+        "guard_status": "reference_only",
+        "guard_reason_codes": [
+          "mandatory_fact_unknown"
+        ],
+        "fields": [
+          {
+            "source_field": "/descriptions/upstream",
+            "text": "A modern replacement for Redis and Memcached",
+            "coverage": "complete"
+          },
+          {
+            "source_field": "/descriptions/catalog",
+            "text": "A modern replacement for Redis and Memcached",
+            "coverage": "complete"
+          },
+          {
+            "source_field": "/repository/topics",
+            "text": "cache\ncpp\ndatabase\nfibers\nin-memory\nin-memory-database\nkey-value\nkeydb\nmemcached\nmessage-broker\nmulti-threading\nnosql\nredis\nvalkey\nvector-search",
+            "coverage": "complete"
+          },
+          {
+            "source_field": "/advisory/use_cases",
+            "text": null,
+            "coverage": "unknown"
+          },
+          {
+            "source_field": "/advisory/integration_surface",
+            "text": null,
+            "coverage": "unknown"
+          },
+          {
+            "source_field": "/advisory/best_for",
+            "text": null,
+            "coverage": "unknown"
+          }
+        ]
+      },
+      {
+        "github_repository_id": 48833910,
+        "full_name": "tikv/tikv",
+        "source_card_sha256": "dbf2e17babf56b2dbea2606e310471a085e9579f78408e300604f16285b5abc6",
+        "retrieval_rank": 4,
+        "rrf_score": 0.015625,
+        "taxonomy_category_ids": [
+          "caches_key_value_stores"
+        ],
+        "eligibility_status": "reference_only",
+        "eligibility_reason_codes": [
+          "mandatory_fact_unknown"
+        ],
+        "guard_status": "reference_only",
+        "guard_reason_codes": [
+          "mandatory_fact_unknown"
+        ],
+        "fields": [
+          {
+            "source_field": "/descriptions/upstream",
+            "text": "Distributed transactional key-value database, originally created to complement TiDB",
+            "coverage": "complete"
+          },
+          {
+            "source_field": "/descriptions/catalog",
+            "text": "Distributed transactional key-value database, originally created to complement TiDB",
+            "coverage": "complete"
+          },
+          {
+            "source_field": "/repository/topics",
+            "text": "cncf\nconsensus\ndistributed-transactions\nhacktoberfest\nkey-value\nraft\nrocksdb\nrust\ntidb\ntikv",
+            "coverage": "complete"
+          },
+          {
+            "source_field": "/advisory/use_cases",
+            "text": null,
+            "coverage": "unknown"
+          },
+          {
+            "source_field": "/advisory/integration_surface",
+            "text": null,
+            "coverage": "unknown"
+          },
+          {
+            "source_field": "/advisory/best_for",
+            "text": null,
+            "coverage": "unknown"
+          }
+        ]
+      },
+      {
+        "github_repository_id": 23405758,
+        "full_name": "google/leveldb",
+        "source_card_sha256": "dc948ec057875a5423167aa7d35daeed4145343fc0e962a39e3343b7cd693bf0",
+        "retrieval_rank": 5,
+        "rrf_score": 0.015384615384615385,
+        "taxonomy_category_ids": [
+          "caches_key_value_stores"
+        ],
+        "eligibility_status": "reference_only",
+        "eligibility_reason_codes": [
+          "mandatory_fact_unknown"
+        ],
+        "guard_status": "reference_only",
+        "guard_reason_codes": [
+          "mandatory_fact_unknown"
+        ],
+        "fields": [
+          {
+            "source_field": "/descriptions/upstream",
+            "text": "Fast key-value storage library that provides an ordered mapping from string keys to string values.",
+            "coverage": "complete"
+          },
+          {
+            "source_field": "/descriptions/catalog",
+            "text": null,
+            "coverage": "unknown"
+          },
+          {
+            "source_field": "/repository/topics",
+            "text": null,
+            "coverage": "unknown"
+          },
+          {
+            "source_field": "/advisory/use_cases",
+            "text": null,
+            "coverage": "unknown"
+          },
+          {
+            "source_field": "/advisory/integration_surface",
+            "text": null,
+            "coverage": "unknown"
+          },
+          {
+            "source_field": "/advisory/best_for",
+            "text": "Teams evaluating storage, key-value data, SQL operations, and self-hosted data services.",
+            "coverage": "complete"
+          }
+        ]
+      },
+      {
+        "github_repository_id": 11225014,
+        "full_name": "etcd-io/etcd",
+        "source_card_sha256": "2e9365555a3951b6a69f37f36b4d593a3d2999aa1edd43260849a8ecde8c1b95",
+        "retrieval_rank": 6,
+        "rrf_score": 0.015151515151515152,
+        "taxonomy_category_ids": [
+          "caches_key_value_stores"
+        ],
+        "eligibility_status": "reference_only",
+        "eligibility_reason_codes": [
+          "mandatory_fact_unknown"
+        ],
+        "guard_status": "reference_only",
+        "guard_reason_codes": [
+          "mandatory_fact_unknown"
+        ],
+        "fields": [
+          {
+            "source_field": "/descriptions/upstream",
+            "text": "Distributed reliable key-value store for the most critical data of a distributed system.",
+            "coverage": "complete"
+          },
+          {
+            "source_field": "/descriptions/catalog",
+            "text": null,
+            "coverage": "unknown"
+          },
+          {
+            "source_field": "/repository/topics",
+            "text": "cncf\nconsensus\ndatabase\ndistributed-database\ndistributed-systems\netcd\ngo\nkey-value\nkubernetes\nraft",
+            "coverage": "complete"
+          },
+          {
+            "source_field": "/advisory/use_cases",
+            "text": null,
+            "coverage": "unknown"
+          },
+          {
+            "source_field": "/advisory/integration_surface",
+            "text": null,
+            "coverage": "unknown"
+          },
+          {
+            "source_field": "/advisory/best_for",
+            "text": "Teams evaluating storage, key-value data, SQL operations, and self-hosted data services.",
+            "coverage": "complete"
+          }
+        ]
+      }
+    ],
+    "reservation": {
+      "receipt_bytes": 1827,
+      "pack_bytes": 21965
+    }
+  },
+  "native_raw_result": {
+    "schema_version": "2.1.0",
+    "run_id": "945eb516-fb5b-526c-b610-ab579f38d0eb",
+    "query_id": "request-f60433ddac323a9e15fd00b4",
+    "query_sha256": "35617aa616501a6c53d91296d5d06b3a239f3668ac59a86af5a1fb1c2902096f",
+    "brief_version": 1,
+    "source_mode": "catalog_only",
+    "retrieval_engine": "sqlite_fts5",
+    "pins": {
+      "activity_schema_version": "2.0.0",
+      "card_schema_version": "2.0.0",
+      "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+      "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+      "corpus_kind": "catalog_snapshot",
+      "index_format_version": 3,
+      "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+      "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+      "retrieval_policy_version": "2.1.0",
+      "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+      "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+    },
+    "status": "ok",
+    "executed_variants": 1,
+    "retrieved_hits": 6,
+    "candidates": [
+      {
+        "github_repository_id": 775743011,
+        "rank": 1,
+        "rrf_score": 0.01639344262295082,
+        "variant_ranks": [
+          {
+            "variant_id": "q1",
+            "rank": 1,
+            "bm25": -41.083406569949304
+          }
+        ],
+        "matched_fields": [
+          "upstream_description",
+          "catalog_description",
+          "topics",
+          "category_labels"
+        ],
+        "missing_facts": []
+      },
+      {
+        "github_repository_id": 156018,
+        "rank": 2,
+        "rrf_score": 0.016129032258064516,
+        "variant_ranks": [
+          {
+            "variant_id": "q1",
+            "rank": 2,
+            "bm25": -35.82956111133483
+          }
+        ],
+        "matched_fields": [
+          "full_name",
+          "upstream_description",
+          "topics",
+          "category_labels"
+        ],
+        "missing_facts": []
+      },
+      {
+        "github_repository_id": 437245741,
+        "rank": 3,
+        "rrf_score": 0.015873015873015872,
+        "variant_ranks": [
+          {
+            "variant_id": "q1",
+            "rank": 3,
+            "bm25": -32.51733075169854
+          }
+        ],
+        "matched_fields": [
+          "upstream_description",
+          "catalog_description",
+          "topics",
+          "category_labels"
+        ],
+        "missing_facts": []
+      },
+      {
+        "github_repository_id": 48833910,
+        "rank": 4,
+        "rrf_score": 0.015625,
+        "variant_ranks": [
+          {
+            "variant_id": "q1",
+            "rank": 4,
+            "bm25": -26.117944029447223
+          }
+        ],
+        "matched_fields": [
+          "upstream_description",
+          "catalog_description",
+          "topics",
+          "category_labels"
+        ],
+        "missing_facts": []
+      },
+      {
+        "github_repository_id": 23405758,
+        "rank": 5,
+        "rrf_score": 0.015384615384615385,
+        "variant_ranks": [
+          {
+            "variant_id": "q1",
+            "rank": 5,
+            "bm25": -25.110512472564924
+          }
+        ],
+        "matched_fields": [
+          "upstream_description",
+          "category_labels",
+          "best_for"
+        ],
+        "missing_facts": []
+      },
+      {
+        "github_repository_id": 11225014,
+        "rank": 6,
+        "rrf_score": 0.015151515151515152,
+        "variant_ranks": [
+          {
+            "variant_id": "q1",
+            "rank": 6,
+            "bm25": -23.952944530197655
+          }
+        ],
+        "matched_fields": [
+          "upstream_description",
+          "topics",
+          "category_labels",
+          "best_for"
+        ],
+        "missing_facts": []
+      }
+    ],
+    "truncated": false,
+    "reason_codes": []
+  },
+  "native_control": {
+    "status": "ready",
+    "request": {
+      "schema_version": "cp04_recommendation_request_v1",
+      "status": "ready",
+      "catalog_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-f60433ddac323a9e15fd00b4",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "caches_key_value_stores",
+        "language": "en",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "cache",
+              "caching",
+              "Redis",
+              "caches",
+              "key",
+              "value",
+              "stores"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      },
+      "intent": {
+        "required_groups": [
+          [
+            "cache"
+          ]
+        ],
+        "context_terms": [
+          "caching",
+          "Redis"
+        ]
+      },
+      "exclusions": {
+        "repository_ids": [],
+        "dependencies": []
+      },
+      "unresolved": [],
+      "aggregate_calls": 1,
+      "query_derivation": {
+        "original_terms": [
+          "cache",
+          "caching",
+          "Redis"
+        ],
+        "original_match_count": 6,
+        "added_route_terms": [
+          "caches",
+          "key",
+          "value",
+          "stores"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "added_term_origins": [
+          {
+            "term": "caches",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "caches_key_value_stores"
+          },
+          {
+            "term": "key",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "caches_key_value_stores"
+          },
+          {
+            "term": "value",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "caches_key_value_stores"
+          },
+          {
+            "term": "stores",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "caches_key_value_stores"
+          }
+        ],
+        "original_query_sha256": "682c17cf2dbd354a97db0b5e7b67015d4d23607f619c205e5663273dd6684bed",
+        "final_query_sha256": "35617aa616501a6c53d91296d5d06b3a239f3668ac59a86af5a1fb1c2902096f",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    "selection": {
+      "status": "ready",
+      "selected_ids": [
+        775743011,
+        156018,
+        437245741,
+        48833910,
+        23405758,
+        11225014
+      ],
+      "excluded": [],
+      "verification_required": [],
+      "conditional_configuration_ids": []
+    },
+    "aggregate_calls": 1,
+    "retrieval_calls": 1,
+    "evidence_pack": {
+      "schema_version": "2.1.0",
+      "run_id": "945eb516-fb5b-526c-b610-ab579f38d0eb",
+      "pack_id": "request-pack-f60433ddac323a9e15fd00b4",
+      "query_id": "request-f60433ddac323a9e15fd00b4",
+      "query_sha256": "35617aa616501a6c53d91296d5d06b3a239f3668ac59a86af5a1fb1c2902096f",
+      "brief_version": 1,
+      "pins": {
+        "activity_schema_version": "2.0.0",
+        "card_schema_version": "2.0.0",
+        "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+        "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+        "corpus_kind": "catalog_snapshot",
+        "index_format_version": 3,
+        "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+        "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+        "retrieval_policy_version": "2.1.0",
+        "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+        "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+      },
+      "status": "ready",
+      "cards": [
+        {
+          "card": {
+            "activity": {
+              "created_at": "2024-03-22T00:42:17Z",
+              "last_commit_at": "2026-09-01T03:27:17Z",
+              "last_commit_branch": "unstable",
+              "last_commit_sha": "f2c1c5e9dece9ec51818327b31bbcb6a9499233f",
+              "last_release_at": "2026-09-01T00:01:31Z",
+              "last_synced_at": "2026-08-11T13:41:45Z",
+              "observations": [
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "created_at",
+                  "observed_at": "2026-09-01T03:38:38.691309Z",
+                  "source_field": "activity.createdAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "repository_updated_at",
+                  "observed_at": "2026-09-01T03:38:38.691309Z",
+                  "source_field": "activity.updatedAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "pushed_at",
+                  "observed_at": "2026-09-01T03:38:38.691309Z",
+                  "source_field": "activity.pushedAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_commit_at",
+                  "observed_at": "2026-09-01T03:38:40.155003Z",
+                  "source_field": "activity.lastCommitAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_release_at",
+                  "observed_at": "2026-09-01T03:38:42.367196Z",
+                  "source_field": "activity.lastReleaseAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_synced_at",
+                  "observed_at": "2026-09-01T03:38:38.691309Z",
+                  "source_field": "activity.lastSyncedAt",
+                  "verification": "derived_reviewed"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "observed_at",
+                  "observed_at": "2026-09-01T03:38:38.691309Z",
+                  "source_field": "activity.observedAt",
+                  "verification": "source_reported"
+                }
+              ],
+              "observed_at": "2026-09-01T03:38:38.691309Z",
+              "pushed_at": "2026-09-01T03:27:17Z",
+              "repository_updated_at": "2026-09-01T03:35:33Z",
+              "schema_version": "2.0.0",
+              "status": "pending_enrichment"
+            },
+            "advisory": {
+              "adoption_mode": null,
+              "adoption_status": null,
+              "avoid_if": [],
+              "best_for": [],
+              "compatibility": [],
+              "complexity": null,
+              "eligibility": {
+                "catalog_acceptance_changed": false,
+                "data_gate_passed": false,
+                "evidence_completeness": 77.42,
+                "minimum_stars": 500,
+                "reasons": [
+                  "mandatory_fields_unresolved"
+                ],
+                "replacement_required": false
+              },
+              "gaps": [],
+              "integration_surface": null,
+              "project_stages": [],
+              "recommendation_reason": null,
+              "recommendation_status": null,
+              "tradeoffs": [],
+              "use_cases": []
+            },
+            "catalog": {
+              "evidence_stage": "identity_validated",
+              "membership_cohort": "baseline",
+              "review_status": "curated_seed_needs_metadata",
+              "status": "candidate",
+              "status_source": "catalog_snapshot"
+            },
+            "classifications": [
+              {
+                "category_id": "caches_key_value_stores",
+                "kind": "category",
+                "parent_id": "databases_storage_caching",
+                "placement_source": "cat08-canonical-reconciliation",
+                "role": "primary",
+                "title": "Caching & Key-Value Stores"
+              }
+            ],
+            "corpus_kind": "catalog_snapshot",
+            "delivery": {
+              "deployment": {
+                "rationale": null,
+                "values": []
+              },
+              "difficulty": "intermediate",
+              "form": {
+                "rationale": null,
+                "value": "platform"
+              },
+              "hosting": null,
+              "lifecycle": null,
+              "maturity": null,
+              "persona": "both",
+              "requires_server": null
+            },
+            "descriptions": {
+              "catalog": "A flexible distributed key-value database that is optimized for caching and other realtime workloads.",
+              "catalog_origin": "upstream",
+              "upstream": "A flexible distributed key-value database that is optimized for caching and other realtime workloads."
+            },
+            "evidence": [
+              {
+                "evidence_id": "ev-catalog-card",
+                "fields": [
+                  "/identity",
+                  "/catalog",
+                  "/descriptions",
+                  "/classifications",
+                  "/delivery",
+                  "/advisory",
+                  "/provenance"
+                ],
+                "observed_at": "2026-09-01T03:38:38.691309Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/775743011",
+                "verification": "derived_reviewed"
+              },
+              {
+                "evidence_id": "ev-catalog-repository",
+                "fields": [
+                  "/repository",
+                  "/activity"
+                ],
+                "observed_at": "2026-09-01T03:38:38.691309Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/775743011",
+                "verification": "source_reported"
+              }
+            ],
+            "identity": {
+              "catalog_record_id": "gh-pending:valkey-io/valkey",
+              "full_name": "valkey-io/valkey",
+              "full_name_aliases": [],
+              "github_repository_id": 775743011,
+              "identity_status": "resolved",
+              "merged_catalog_record_ids": [],
+              "url": "https://github.com/valkey-io/valkey"
+            },
+            "provenance": {
+              "frozen_pins": {
+                "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                "field_contract_sha256": "9c0d6fd6e12ef42a37e26d8607405a7cbafdf1b7a633c8f8b53da159eaa7f456",
+                "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+              },
+              "sources": [
+                {
+                  "observed_at": "2026-09-01T03:38:38.691309Z",
+                  "source_id": "src-catalog-snapshot",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/775743011",
+                  "verification": "derived_reviewed"
+                }
+              ]
+            },
+            "repository": {
+              "archived": false,
+              "availability": "available",
+              "default_branch": "unstable",
+              "disabled": false,
+              "forks": 1305,
+              "homepage": "https://valkey.io",
+              "is_fork": false,
+              "languages": [
+                {
+                  "name": "C",
+                  "scope": "primary"
+                },
+                {
+                  "name": "Tcl",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "C++",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Python",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "CMake",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Makefile",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Ruby",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Shell",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Smarty",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "JavaScript",
+                  "scope": "secondary"
+                }
+              ],
+              "license": {
+                "confidence": "source_reported",
+                "name": "BSD 3-Clause \"New\" or \"Revised\" License",
+                "source": "https://api.github.com/licenses/bsd-3-clause",
+                "spdx": "BSD-3-Clause"
+              },
+              "size_kb": 236552,
+              "stack": [
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "technology": "C"
+                }
+              ],
+              "stars": 27070,
+              "topics": [
+                "cache",
+                "database",
+                "key-value",
+                "key-value-store",
+                "nosql",
+                "redis",
+                "valkey",
+                "valkey-client"
+              ],
+              "visibility": "public",
+              "watchers": 136,
+              "watchers_scope": "subscribers_count"
+            },
+            "schema_version": "2.0.0"
+          },
+          "retrieval_rank": 1,
+          "eligibility": {
+            "schema_version": "2.1.0",
+            "github_repository_id": 775743011,
+            "query_id": "request-f60433ddac323a9e15fd00b4",
+            "status": "reference_only",
+            "checks": [
+              {
+                "field": "availability",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "archived",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "advisory_evidence",
+                "outcome": "unknown",
+                "evidence_refs": [
+                  "ev-catalog-card"
+                ]
+              }
+            ],
+            "reason_codes": [
+              "mandatory_fact_unknown"
+            ],
+            "required_verifications": [
+              "Verify the advisory fit fields against source-backed public evidence."
+            ]
+          },
+          "rrf_score": 0.01639344262295082,
+          "matched_fields": [
+            "upstream_description",
+            "catalog_description",
+            "topics",
+            "category_labels"
+          ]
+        },
+        {
+          "card": {
+            "activity": {
+              "created_at": "2009-03-21T22:32:25Z",
+              "last_commit_at": "2026-08-31T14:28:55Z",
+              "last_commit_branch": "unstable",
+              "last_commit_sha": "c6a761c29032d1f300bde08f159fd67d78238952",
+              "last_release_at": "2026-08-17T16:44:04Z",
+              "last_synced_at": "2026-08-11T09:59:37Z",
+              "observations": [
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "created_at",
+                  "observed_at": "2026-09-01T04:15:52.279316Z",
+                  "source_field": "activity.createdAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "repository_updated_at",
+                  "observed_at": "2026-09-01T04:15:52.279316Z",
+                  "source_field": "activity.updatedAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "pushed_at",
+                  "observed_at": "2026-09-01T04:15:52.279316Z",
+                  "source_field": "activity.pushedAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_commit_at",
+                  "observed_at": "2026-09-01T04:15:53.582716Z",
+                  "source_field": "activity.lastCommitAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_release_at",
+                  "observed_at": "2026-09-01T04:15:56.067500Z",
+                  "source_field": "activity.lastReleaseAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_synced_at",
+                  "observed_at": "2026-09-01T04:15:52.279316Z",
+                  "source_field": "activity.lastSyncedAt",
+                  "verification": "derived_reviewed"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "observed_at",
+                  "observed_at": "2026-09-01T04:15:52.279316Z",
+                  "source_field": "activity.observedAt",
+                  "verification": "source_reported"
+                }
+              ],
+              "observed_at": "2026-09-01T04:15:52.279316Z",
+              "pushed_at": "2026-08-08T13:51:10Z",
+              "repository_updated_at": "2026-08-09T08:18:31Z",
+              "schema_version": "2.0.0",
+              "status": "enriched"
+            },
+            "advisory": {
+              "adoption_mode": null,
+              "adoption_status": null,
+              "avoid_if": [],
+              "best_for": [],
+              "compatibility": [],
+              "complexity": null,
+              "eligibility": {
+                "catalog_acceptance_changed": false,
+                "data_gate_passed": false,
+                "evidence_completeness": 77.42,
+                "minimum_stars": 500,
+                "reasons": [
+                  "mandatory_fields_unresolved"
+                ],
+                "replacement_required": false
+              },
+              "gaps": [],
+              "integration_surface": null,
+              "project_stages": [],
+              "recommendation_reason": null,
+              "recommendation_status": null,
+              "tradeoffs": [],
+              "use_cases": []
+            },
+            "catalog": {
+              "evidence_stage": "identity_validated",
+              "membership_cohort": "baseline",
+              "review_status": "legacy_migrated",
+              "status": "accepted",
+              "status_source": "catalog_snapshot"
+            },
+            "classifications": [
+              {
+                "category_id": "caches_key_value_stores",
+                "kind": "category",
+                "parent_id": "databases_storage_caching",
+                "placement_source": "cat08-canonical-reconciliation",
+                "role": "primary",
+                "title": "Caching & Key-Value Stores"
+              }
+            ],
+            "corpus_kind": "catalog_snapshot",
+            "delivery": {
+              "deployment": {
+                "rationale": null,
+                "values": []
+              },
+              "difficulty": "beginner",
+              "form": {
+                "rationale": null,
+                "value": "application"
+              },
+              "hosting": null,
+              "lifecycle": null,
+              "maturity": null,
+              "persona": "both",
+              "requires_server": null
+            },
+            "descriptions": {
+              "catalog": null,
+              "catalog_origin": null,
+              "upstream": "For developers, who are building real-time data-driven applications, Redis is the preferred, fastest, and most feature-rich cache, data structure server, and document and vector query engine."
+            },
+            "evidence": [
+              {
+                "evidence_id": "ev-catalog-card",
+                "fields": [
+                  "/identity",
+                  "/catalog",
+                  "/descriptions",
+                  "/classifications",
+                  "/delivery",
+                  "/advisory",
+                  "/provenance"
+                ],
+                "observed_at": "2026-09-01T04:15:52.279316Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/156018",
+                "verification": "derived_reviewed"
+              },
+              {
+                "evidence_id": "ev-catalog-repository",
+                "fields": [
+                  "/repository",
+                  "/activity"
+                ],
+                "observed_at": "2026-09-01T04:15:52.279316Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/156018",
+                "verification": "source_reported"
+              }
+            ],
+            "identity": {
+              "catalog_record_id": "gh-pending:redis/redis",
+              "full_name": "redis/redis",
+              "full_name_aliases": [],
+              "github_repository_id": 156018,
+              "identity_status": "resolved",
+              "merged_catalog_record_ids": [],
+              "url": "https://github.com/redis/redis"
+            },
+            "provenance": {
+              "frozen_pins": {
+                "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                "field_contract_sha256": "9c0d6fd6e12ef42a37e26d8607405a7cbafdf1b7a633c8f8b53da159eaa7f456",
+                "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+              },
+              "sources": [
+                {
+                  "observed_at": "2026-09-01T04:15:52.279316Z",
+                  "source_id": "src-catalog-snapshot",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/156018",
+                  "verification": "derived_reviewed"
+                }
+              ]
+            },
+            "repository": {
+              "archived": false,
+              "availability": "available",
+              "default_branch": "unstable",
+              "disabled": false,
+              "forks": 24751,
+              "homepage": "http://redis.io",
+              "is_fork": false,
+              "languages": [
+                {
+                  "name": "C",
+                  "scope": "primary"
+                }
+              ],
+              "license": {
+                "confidence": "not_detected_or_nonstandard",
+                "name": "Other",
+                "source": "github_current",
+                "spdx": "NO_LICENSE_DETECTED"
+              },
+              "size_kb": 215518,
+              "stack": [
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "technology": "C"
+                }
+              ],
+              "stars": 75948,
+              "topics": [
+                "cache",
+                "caching",
+                "database",
+                "distributed-systems",
+                "in-memory",
+                "in-memory-database",
+                "json",
+                "key-value",
+                "key-value-store",
+                "message-broker",
+                "message-queue",
+                "no-sql",
+                "nosql",
+                "open-source",
+                "real-time",
+                "realtime",
+                "redis",
+                "time-series",
+                "vector-databases",
+                "vector-search"
+              ],
+              "visibility": "public",
+              "watchers": 2481,
+              "watchers_scope": "subscribers_count"
+            },
+            "schema_version": "2.0.0"
+          },
+          "retrieval_rank": 2,
+          "eligibility": {
+            "schema_version": "2.1.0",
+            "github_repository_id": 156018,
+            "query_id": "request-f60433ddac323a9e15fd00b4",
+            "status": "reference_only",
+            "checks": [
+              {
+                "field": "availability",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "archived",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "advisory_evidence",
+                "outcome": "unknown",
+                "evidence_refs": [
+                  "ev-catalog-card"
+                ]
+              }
+            ],
+            "reason_codes": [
+              "mandatory_fact_unknown"
+            ],
+            "required_verifications": [
+              "Verify the advisory fit fields against source-backed public evidence."
+            ]
+          },
+          "rrf_score": 0.016129032258064516,
+          "matched_fields": [
+            "full_name",
+            "upstream_description",
+            "topics",
+            "category_labels"
+          ]
+        },
+        {
+          "card": {
+            "activity": {
+              "created_at": "2021-12-11T10:00:42Z",
+              "last_commit_at": "2026-08-31T17:22:36Z",
+              "last_commit_branch": "main",
+              "last_commit_sha": "2f0a7ff43b8ba16fd3eb876230ef37c8b68f2ebc",
+              "last_release_at": "2026-08-06T06:54:05Z",
+              "last_synced_at": "2026-08-11T11:30:04Z",
+              "observations": [
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "created_at",
+                  "observed_at": "2026-08-31T19:01:32.362078Z",
+                  "source_field": "activity.createdAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "repository_updated_at",
+                  "observed_at": "2026-08-31T19:01:32.362078Z",
+                  "source_field": "activity.updatedAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "pushed_at",
+                  "observed_at": "2026-08-31T19:01:32.362078Z",
+                  "source_field": "activity.pushedAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_commit_at",
+                  "observed_at": "2026-08-31T19:01:33.716829Z",
+                  "source_field": "activity.lastCommitAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_release_at",
+                  "observed_at": "2026-08-31T19:01:36.920344Z",
+                  "source_field": "activity.lastReleaseAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_synced_at",
+                  "observed_at": "2026-08-31T19:01:32.362078Z",
+                  "source_field": "activity.lastSyncedAt",
+                  "verification": "derived_reviewed"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "observed_at",
+                  "observed_at": "2026-08-31T19:01:32.362078Z",
+                  "source_field": "activity.observedAt",
+                  "verification": "source_reported"
+                }
+              ],
+              "observed_at": "2026-08-31T19:01:32.362078Z",
+              "pushed_at": "2026-08-31T17:22:39Z",
+              "repository_updated_at": "2026-08-31T18:56:53Z",
+              "schema_version": "2.0.0",
+              "status": "pending_enrichment"
+            },
+            "advisory": {
+              "adoption_mode": null,
+              "adoption_status": null,
+              "avoid_if": [],
+              "best_for": [],
+              "compatibility": [],
+              "complexity": null,
+              "eligibility": {
+                "catalog_acceptance_changed": false,
+                "data_gate_passed": false,
+                "evidence_completeness": 77.42,
+                "minimum_stars": 500,
+                "reasons": [
+                  "mandatory_fields_unresolved"
+                ],
+                "replacement_required": false
+              },
+              "gaps": [],
+              "integration_surface": null,
+              "project_stages": [],
+              "recommendation_reason": null,
+              "recommendation_status": null,
+              "tradeoffs": [],
+              "use_cases": []
+            },
+            "catalog": {
+              "evidence_stage": "identity_validated",
+              "membership_cohort": "baseline",
+              "review_status": "curated_seed_needs_metadata",
+              "status": "candidate",
+              "status_source": "catalog_snapshot"
+            },
+            "classifications": [
+              {
+                "category_id": "caches_key_value_stores",
+                "kind": "category",
+                "parent_id": "databases_storage_caching",
+                "placement_source": "cat08-canonical-reconciliation",
+                "role": "primary",
+                "title": "Caching & Key-Value Stores"
+              }
+            ],
+            "corpus_kind": "catalog_snapshot",
+            "delivery": {
+              "deployment": {
+                "rationale": null,
+                "values": []
+              },
+              "difficulty": "intermediate",
+              "form": {
+                "rationale": null,
+                "value": "platform"
+              },
+              "hosting": null,
+              "lifecycle": null,
+              "maturity": null,
+              "persona": "both",
+              "requires_server": null
+            },
+            "descriptions": {
+              "catalog": "A modern replacement for Redis and Memcached",
+              "catalog_origin": "upstream",
+              "upstream": "A modern replacement for Redis and Memcached"
+            },
+            "evidence": [
+              {
+                "evidence_id": "ev-catalog-card",
+                "fields": [
+                  "/identity",
+                  "/catalog",
+                  "/descriptions",
+                  "/classifications",
+                  "/delivery",
+                  "/advisory",
+                  "/provenance"
+                ],
+                "observed_at": "2026-08-31T19:01:32.362078Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/437245741",
+                "verification": "derived_reviewed"
+              },
+              {
+                "evidence_id": "ev-catalog-repository",
+                "fields": [
+                  "/repository",
+                  "/activity"
+                ],
+                "observed_at": "2026-08-31T19:01:32.362078Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/437245741",
+                "verification": "source_reported"
+              }
+            ],
+            "identity": {
+              "catalog_record_id": "gh-pending:dragonflydb/dragonfly",
+              "full_name": "dragonflydb/dragonfly",
+              "full_name_aliases": [],
+              "github_repository_id": 437245741,
+              "identity_status": "resolved",
+              "merged_catalog_record_ids": [],
+              "url": "https://github.com/dragonflydb/dragonfly"
+            },
+            "provenance": {
+              "frozen_pins": {
+                "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                "field_contract_sha256": "9c0d6fd6e12ef42a37e26d8607405a7cbafdf1b7a633c8f8b53da159eaa7f456",
+                "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+              },
+              "sources": [
+                {
+                  "observed_at": "2026-08-31T19:01:32.362078Z",
+                  "source_id": "src-catalog-snapshot",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/437245741",
+                  "verification": "derived_reviewed"
+                }
+              ]
+            },
+            "repository": {
+              "archived": false,
+              "availability": "available",
+              "default_branch": "main",
+              "disabled": false,
+              "forks": 1236,
+              "homepage": "https://www.dragonflydb.io/",
+              "is_fork": false,
+              "languages": [
+                {
+                  "name": "C++",
+                  "scope": "primary"
+                },
+                {
+                  "name": "Python",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "C",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Shell",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "CMake",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Go",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Lua",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Lex",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Go Template",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Dockerfile",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Makefile",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "M4",
+                  "scope": "secondary"
+                }
+              ],
+              "license": {
+                "confidence": "source_reported",
+                "name": "Other",
+                "source": "pending",
+                "spdx": null
+              },
+              "size_kb": 29527,
+              "stack": [
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "technology": "C++"
+                }
+              ],
+              "stars": 31060,
+              "topics": [
+                "cache",
+                "cpp",
+                "database",
+                "fibers",
+                "in-memory",
+                "in-memory-database",
+                "key-value",
+                "keydb",
+                "memcached",
+                "message-broker",
+                "multi-threading",
+                "nosql",
+                "redis",
+                "valkey",
+                "vector-search"
+              ],
+              "visibility": "public",
+              "watchers": 168,
+              "watchers_scope": "subscribers_count"
+            },
+            "schema_version": "2.0.0"
+          },
+          "retrieval_rank": 3,
+          "eligibility": {
+            "schema_version": "2.1.0",
+            "github_repository_id": 437245741,
+            "query_id": "request-f60433ddac323a9e15fd00b4",
+            "status": "reference_only",
+            "checks": [
+              {
+                "field": "availability",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "archived",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "advisory_evidence",
+                "outcome": "unknown",
+                "evidence_refs": [
+                  "ev-catalog-card"
+                ]
+              }
+            ],
+            "reason_codes": [
+              "mandatory_fact_unknown"
+            ],
+            "required_verifications": [
+              "Verify the advisory fit fields against source-backed public evidence."
+            ]
+          },
+          "rrf_score": 0.015873015873015872,
+          "matched_fields": [
+            "upstream_description",
+            "catalog_description",
+            "topics",
+            "category_labels"
+          ]
+        },
+        {
+          "card": {
+            "activity": {
+              "created_at": "2015-12-31T04:51:32Z",
+              "last_commit_at": "2026-08-31T06:34:29Z",
+              "last_commit_branch": "master",
+              "last_commit_sha": "78aedc1c81ef3f7d8bacc6e9d09f56460f134937",
+              "last_release_at": "2026-08-27T09:06:31Z",
+              "last_synced_at": "2026-08-11T13:41:45Z",
+              "observations": [
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "created_at",
+                  "observed_at": "2026-09-01T03:35:30.986162Z",
+                  "source_field": "activity.createdAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "repository_updated_at",
+                  "observed_at": "2026-09-01T03:35:30.986162Z",
+                  "source_field": "activity.updatedAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "pushed_at",
+                  "observed_at": "2026-09-01T03:35:30.986162Z",
+                  "source_field": "activity.pushedAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_commit_at",
+                  "observed_at": "2026-09-01T03:35:32.479650Z",
+                  "source_field": "activity.lastCommitAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_release_at",
+                  "observed_at": "2026-09-01T03:35:36.559280Z",
+                  "source_field": "activity.lastReleaseAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_synced_at",
+                  "observed_at": "2026-09-01T03:35:30.986162Z",
+                  "source_field": "activity.lastSyncedAt",
+                  "verification": "derived_reviewed"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "observed_at",
+                  "observed_at": "2026-09-01T03:35:30.986162Z",
+                  "source_field": "activity.observedAt",
+                  "verification": "source_reported"
+                }
+              ],
+              "observed_at": "2026-09-01T03:35:30.986162Z",
+              "pushed_at": "2026-08-31T06:34:29Z",
+              "repository_updated_at": "2026-09-01T02:46:45Z",
+              "schema_version": "2.0.0",
+              "status": "pending_enrichment"
+            },
+            "advisory": {
+              "adoption_mode": null,
+              "adoption_status": null,
+              "avoid_if": [],
+              "best_for": [],
+              "compatibility": [],
+              "complexity": null,
+              "eligibility": {
+                "catalog_acceptance_changed": false,
+                "data_gate_passed": false,
+                "evidence_completeness": 77.42,
+                "minimum_stars": 500,
+                "reasons": [
+                  "mandatory_fields_unresolved"
+                ],
+                "replacement_required": false
+              },
+              "gaps": [],
+              "integration_surface": null,
+              "project_stages": [],
+              "recommendation_reason": null,
+              "recommendation_status": null,
+              "tradeoffs": [],
+              "use_cases": []
+            },
+            "catalog": {
+              "evidence_stage": "identity_validated",
+              "membership_cohort": "baseline",
+              "review_status": "curated_seed_needs_metadata",
+              "status": "candidate",
+              "status_source": "catalog_snapshot"
+            },
+            "classifications": [
+              {
+                "category_id": "caches_key_value_stores",
+                "kind": "category",
+                "parent_id": "databases_storage_caching",
+                "placement_source": "cat08-canonical-reconciliation",
+                "role": "primary",
+                "title": "Caching & Key-Value Stores"
+              }
+            ],
+            "corpus_kind": "catalog_snapshot",
+            "delivery": {
+              "deployment": {
+                "rationale": null,
+                "values": []
+              },
+              "difficulty": "intermediate",
+              "form": {
+                "rationale": null,
+                "value": "platform"
+              },
+              "hosting": null,
+              "lifecycle": null,
+              "maturity": null,
+              "persona": "both",
+              "requires_server": null
+            },
+            "descriptions": {
+              "catalog": "Distributed transactional key-value database, originally created to complement TiDB",
+              "catalog_origin": "upstream",
+              "upstream": "Distributed transactional key-value database, originally created to complement TiDB"
+            },
+            "evidence": [
+              {
+                "evidence_id": "ev-catalog-card",
+                "fields": [
+                  "/identity",
+                  "/catalog",
+                  "/descriptions",
+                  "/classifications",
+                  "/delivery",
+                  "/advisory",
+                  "/provenance"
+                ],
+                "observed_at": "2026-09-01T03:35:30.986162Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/48833910",
+                "verification": "derived_reviewed"
+              },
+              {
+                "evidence_id": "ev-catalog-repository",
+                "fields": [
+                  "/repository",
+                  "/activity"
+                ],
+                "observed_at": "2026-09-01T03:35:30.986162Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/48833910",
+                "verification": "source_reported"
+              }
+            ],
+            "identity": {
+              "catalog_record_id": "gh-pending:tikv/tikv",
+              "full_name": "tikv/tikv",
+              "full_name_aliases": [],
+              "github_repository_id": 48833910,
+              "identity_status": "resolved",
+              "merged_catalog_record_ids": [],
+              "url": "https://github.com/tikv/tikv"
+            },
+            "provenance": {
+              "frozen_pins": {
+                "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                "field_contract_sha256": "9c0d6fd6e12ef42a37e26d8607405a7cbafdf1b7a633c8f8b53da159eaa7f456",
+                "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+              },
+              "sources": [
+                {
+                  "observed_at": "2026-09-01T03:35:30.986162Z",
+                  "source_id": "src-catalog-snapshot",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/48833910",
+                  "verification": "derived_reviewed"
+                }
+              ]
+            },
+            "repository": {
+              "archived": false,
+              "availability": "available",
+              "default_branch": "master",
+              "disabled": false,
+              "forks": 2334,
+              "homepage": "https://tikv.org",
+              "is_fork": false,
+              "languages": [
+                {
+                  "name": "Rust",
+                  "scope": "primary"
+                },
+                {
+                  "name": "Python",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Perl",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Shell",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Makefile",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "C",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Dockerfile",
+                  "scope": "secondary"
+                }
+              ],
+              "license": {
+                "confidence": "source_reported",
+                "name": "Apache License 2.0",
+                "source": "https://api.github.com/licenses/apache-2.0",
+                "spdx": "Apache-2.0"
+              },
+              "size_kb": 138925,
+              "stack": [
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "technology": "Rust"
+                }
+              ],
+              "stars": 16824,
+              "topics": [
+                "cncf",
+                "consensus",
+                "distributed-transactions",
+                "hacktoberfest",
+                "key-value",
+                "raft",
+                "rocksdb",
+                "rust",
+                "tidb",
+                "tikv"
+              ],
+              "visibility": "public",
+              "watchers": 294,
+              "watchers_scope": "subscribers_count"
+            },
+            "schema_version": "2.0.0"
+          },
+          "retrieval_rank": 4,
+          "eligibility": {
+            "schema_version": "2.1.0",
+            "github_repository_id": 48833910,
+            "query_id": "request-f60433ddac323a9e15fd00b4",
+            "status": "reference_only",
+            "checks": [
+              {
+                "field": "availability",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "archived",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "advisory_evidence",
+                "outcome": "unknown",
+                "evidence_refs": [
+                  "ev-catalog-card"
+                ]
+              }
+            ],
+            "reason_codes": [
+              "mandatory_fact_unknown"
+            ],
+            "required_verifications": [
+              "Verify the advisory fit fields against source-backed public evidence."
+            ]
+          },
+          "rrf_score": 0.015625,
+          "matched_fields": [
+            "upstream_description",
+            "catalog_description",
+            "topics",
+            "category_labels"
+          ]
+        },
+        {
+          "card": {
+            "activity": {
+              "created_at": "2014-08-27T21:17:52Z",
+              "last_commit_at": "2026-03-11T04:06:29Z",
+              "last_commit_branch": "main",
+              "last_commit_sha": "7ee830d02b623e8ffe0b95d59a74db1e58da04c5",
+              "last_release_at": "2021-02-23T21:51:12Z",
+              "last_synced_at": "2026-08-30T17:15:00Z",
+              "observations": [
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "created_at",
+                  "observed_at": "2026-09-01T04:57:54.854586Z",
+                  "source_field": "activity.createdAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "repository_updated_at",
+                  "observed_at": "2026-09-01T04:57:54.854586Z",
+                  "source_field": "activity.updatedAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "pushed_at",
+                  "observed_at": "2026-09-01T04:57:54.854586Z",
+                  "source_field": "activity.pushedAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_commit_at",
+                  "observed_at": "2026-09-01T04:57:55.772840Z",
+                  "source_field": "activity.lastCommitAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_release_at",
+                  "observed_at": "2026-09-01T04:57:58.815154Z",
+                  "source_field": "activity.lastReleaseAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_synced_at",
+                  "observed_at": "2026-09-01T04:57:54.854586Z",
+                  "source_field": "activity.lastSyncedAt",
+                  "verification": "derived_reviewed"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "observed_at",
+                  "observed_at": "2026-09-01T04:57:54.854586Z",
+                  "source_field": "activity.observedAt",
+                  "verification": "source_reported"
+                }
+              ],
+              "observed_at": "2026-09-01T04:57:54.854586Z",
+              "pushed_at": "2026-03-11T04:06:29Z",
+              "repository_updated_at": "2026-03-11T04:06:29Z",
+              "schema_version": "2.0.0",
+              "status": "enriched"
+            },
+            "advisory": {
+              "adoption_mode": null,
+              "adoption_status": null,
+              "avoid_if": [],
+              "best_for": [
+                "Teams evaluating storage, key-value data, SQL operations, and self-hosted data services."
+              ],
+              "compatibility": [],
+              "complexity": null,
+              "eligibility": {
+                "catalog_acceptance_changed": false,
+                "data_gate_passed": false,
+                "evidence_completeness": 77.42,
+                "minimum_stars": 500,
+                "reasons": [
+                  "mandatory_fields_unresolved"
+                ],
+                "replacement_required": false
+              },
+              "gaps": [],
+              "integration_surface": null,
+              "project_stages": [],
+              "recommendation_reason": "Selected for direct fit with Databases, Storage & Caching: the repository provides fast key-value storage library that provides an ordered mapping from string keys to string values. Its C++ stack, 39,120 GitHub stars, and source snapshot showing activity on 2026-03-11 make it a high-signal candidate for evaluation.",
+              "recommendation_status": null,
+              "tradeoffs": [
+                "Benchmark durability, backup/restore, consistency, migration, and operational complexity for the target workload. Reported license: bsd-3-clause; verify the current repository license before adoption."
+              ],
+              "use_cases": []
+            },
+            "catalog": {
+              "evidence_stage": "identity_validated",
+              "membership_cohort": "baseline",
+              "review_status": "source_verified_required_fields",
+              "status": "candidate",
+              "status_source": "catalog_snapshot"
+            },
+            "classifications": [
+              {
+                "category_id": "caches_key_value_stores",
+                "kind": "category",
+                "parent_id": "databases_storage_caching",
+                "placement_source": "cat08-canonical-reconciliation",
+                "role": "primary",
+                "title": "Caching & Key-Value Stores"
+              }
+            ],
+            "corpus_kind": "catalog_snapshot",
+            "delivery": {
+              "deployment": {
+                "rationale": null,
+                "values": []
+              },
+              "difficulty": "intermediate",
+              "form": {
+                "rationale": null,
+                "value": "component"
+              },
+              "hosting": null,
+              "lifecycle": "active",
+              "maturity": "established",
+              "persona": "both",
+              "requires_server": null
+            },
+            "descriptions": {
+              "catalog": null,
+              "catalog_origin": null,
+              "upstream": "Fast key-value storage library that provides an ordered mapping from string keys to string values."
+            },
+            "evidence": [
+              {
+                "evidence_id": "ev-catalog-card",
+                "fields": [
+                  "/identity",
+                  "/catalog",
+                  "/descriptions",
+                  "/classifications",
+                  "/delivery",
+                  "/advisory",
+                  "/provenance"
+                ],
+                "observed_at": "2026-09-01T04:57:54.854586Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/23405758",
+                "verification": "derived_reviewed"
+              },
+              {
+                "evidence_id": "ev-catalog-repository",
+                "fields": [
+                  "/repository",
+                  "/activity"
+                ],
+                "observed_at": "2026-09-01T04:57:54.854586Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/23405758",
+                "verification": "source_reported"
+              }
+            ],
+            "identity": {
+              "catalog_record_id": "gh-1500:google/leveldb",
+              "full_name": "google/leveldb",
+              "full_name_aliases": [],
+              "github_repository_id": 23405758,
+              "identity_status": "resolved",
+              "merged_catalog_record_ids": [],
+              "url": "https://github.com/google/leveldb"
+            },
+            "provenance": {
+              "frozen_pins": {
+                "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                "field_contract_sha256": "9c0d6fd6e12ef42a37e26d8607405a7cbafdf1b7a633c8f8b53da159eaa7f456",
+                "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+              },
+              "sources": [
+                {
+                  "observed_at": "2026-09-01T04:57:54.854586Z",
+                  "source_id": "src-catalog-snapshot",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/23405758",
+                  "verification": "derived_reviewed"
+                }
+              ]
+            },
+            "repository": {
+              "archived": false,
+              "availability": "available",
+              "default_branch": "main",
+              "disabled": false,
+              "forks": 8200,
+              "homepage": null,
+              "is_fork": false,
+              "languages": [
+                {
+                  "name": "C++",
+                  "scope": "primary"
+                }
+              ],
+              "license": {
+                "confidence": "source_reported",
+                "name": "BSD 3-Clause \"New\" or \"Revised\" License",
+                "source": "Hugging Face: Mieaz/github-repos-metadata-ge3",
+                "spdx": "bsd-3-clause"
+              },
+              "size_kb": 1848,
+              "stack": [
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "technology": "C++"
+                }
+              ],
+              "stars": 39120,
+              "topics": [],
+              "visibility": "public",
+              "watchers": 1307,
+              "watchers_scope": "subscribers_count"
+            },
+            "schema_version": "2.0.0"
+          },
+          "retrieval_rank": 5,
+          "eligibility": {
+            "schema_version": "2.1.0",
+            "github_repository_id": 23405758,
+            "query_id": "request-f60433ddac323a9e15fd00b4",
+            "status": "reference_only",
+            "checks": [
+              {
+                "field": "availability",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "archived",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "advisory_evidence",
+                "outcome": "unknown",
+                "evidence_refs": [
+                  "ev-catalog-card"
+                ]
+              }
+            ],
+            "reason_codes": [
+              "mandatory_fact_unknown"
+            ],
+            "required_verifications": [
+              "Verify the advisory fit fields against source-backed public evidence."
+            ]
+          },
+          "rrf_score": 0.015384615384615385,
+          "matched_fields": [
+            "upstream_description",
+            "category_labels",
+            "best_for"
+          ]
+        },
+        {
+          "card": {
+            "activity": {
+              "created_at": "2013-07-06T21:57:21Z",
+              "last_commit_at": "2026-09-01T03:46:09Z",
+              "last_commit_branch": "main",
+              "last_commit_sha": "b655785b1e43d906e5972167e8f311c66d36e4f6",
+              "last_release_at": "2026-07-23T19:37:53Z",
+              "last_synced_at": "2026-08-30T17:15:00Z",
+              "observations": [
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "created_at",
+                  "observed_at": "2026-09-01T04:50:42.506374Z",
+                  "source_field": "activity.createdAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "repository_updated_at",
+                  "observed_at": "2026-09-01T04:50:42.506374Z",
+                  "source_field": "activity.updatedAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "pushed_at",
+                  "observed_at": "2026-09-01T04:50:42.506374Z",
+                  "source_field": "activity.pushedAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_commit_at",
+                  "observed_at": "2026-09-01T04:50:43.263556Z",
+                  "source_field": "activity.lastCommitAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_release_at",
+                  "observed_at": "2026-09-01T04:50:47.417515Z",
+                  "source_field": "activity.lastReleaseAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_synced_at",
+                  "observed_at": "2026-09-01T04:50:42.506374Z",
+                  "source_field": "activity.lastSyncedAt",
+                  "verification": "derived_reviewed"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "observed_at",
+                  "observed_at": "2026-09-01T04:50:42.506374Z",
+                  "source_field": "activity.observedAt",
+                  "verification": "source_reported"
+                }
+              ],
+              "observed_at": "2026-09-01T04:50:42.506374Z",
+              "pushed_at": "2026-06-12T15:29:38Z",
+              "repository_updated_at": "2026-06-12T15:29:38Z",
+              "schema_version": "2.0.0",
+              "status": "enriched"
+            },
+            "advisory": {
+              "adoption_mode": null,
+              "adoption_status": null,
+              "avoid_if": [],
+              "best_for": [
+                "Teams evaluating storage, key-value data, SQL operations, and self-hosted data services."
+              ],
+              "compatibility": [],
+              "complexity": null,
+              "eligibility": {
+                "catalog_acceptance_changed": false,
+                "data_gate_passed": false,
+                "evidence_completeness": 77.42,
+                "minimum_stars": 500,
+                "reasons": [
+                  "mandatory_fields_unresolved"
+                ],
+                "replacement_required": false
+              },
+              "gaps": [],
+              "integration_surface": null,
+              "project_stages": [],
+              "recommendation_reason": "Selected for direct fit with Databases, Storage & Caching: the repository provides distributed reliable key-value store for the most critical data of a distributed system. Its Go stack, 51,819 GitHub stars, and source snapshot showing activity on 2026-06-12 make it a high-signal candidate for evaluation.",
+              "recommendation_status": null,
+              "tradeoffs": [
+                "Benchmark durability, backup/restore, consistency, migration, and operational complexity for the target workload. Reported license: apache-2.0; verify the current repository license before adoption."
+              ],
+              "use_cases": []
+            },
+            "catalog": {
+              "evidence_stage": "identity_validated",
+              "membership_cohort": "baseline",
+              "review_status": "source_verified_required_fields",
+              "status": "candidate",
+              "status_source": "catalog_snapshot"
+            },
+            "classifications": [
+              {
+                "category_id": "caches_key_value_stores",
+                "kind": "category",
+                "parent_id": "databases_storage_caching",
+                "placement_source": "cat08-canonical-reconciliation",
+                "role": "primary",
+                "title": "Caching & Key-Value Stores"
+              }
+            ],
+            "corpus_kind": "catalog_snapshot",
+            "delivery": {
+              "deployment": {
+                "rationale": null,
+                "values": []
+              },
+              "difficulty": "intermediate",
+              "form": {
+                "rationale": null,
+                "value": "component"
+              },
+              "hosting": null,
+              "lifecycle": "active",
+              "maturity": "established",
+              "persona": "both",
+              "requires_server": null
+            },
+            "descriptions": {
+              "catalog": null,
+              "catalog_origin": null,
+              "upstream": "Distributed reliable key-value store for the most critical data of a distributed system."
+            },
+            "evidence": [
+              {
+                "evidence_id": "ev-catalog-card",
+                "fields": [
+                  "/identity",
+                  "/catalog",
+                  "/descriptions",
+                  "/classifications",
+                  "/delivery",
+                  "/advisory",
+                  "/provenance"
+                ],
+                "observed_at": "2026-09-01T04:50:42.506374Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/11225014",
+                "verification": "derived_reviewed"
+              },
+              {
+                "evidence_id": "ev-catalog-repository",
+                "fields": [
+                  "/repository",
+                  "/activity"
+                ],
+                "observed_at": "2026-09-01T04:50:42.506374Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/11225014",
+                "verification": "source_reported"
+              }
+            ],
+            "identity": {
+              "catalog_record_id": "gh-1500:etcd-io/etcd",
+              "full_name": "etcd-io/etcd",
+              "full_name_aliases": [],
+              "github_repository_id": 11225014,
+              "identity_status": "resolved",
+              "merged_catalog_record_ids": [],
+              "url": "https://github.com/etcd-io/etcd"
+            },
+            "provenance": {
+              "frozen_pins": {
+                "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                "field_contract_sha256": "9c0d6fd6e12ef42a37e26d8607405a7cbafdf1b7a633c8f8b53da159eaa7f456",
+                "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+              },
+              "sources": [
+                {
+                  "observed_at": "2026-09-01T04:50:42.506374Z",
+                  "source_id": "src-catalog-snapshot",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/11225014",
+                  "verification": "derived_reviewed"
+                }
+              ]
+            },
+            "repository": {
+              "archived": false,
+              "availability": "available",
+              "default_branch": "main",
+              "disabled": false,
+              "forks": 10395,
+              "homepage": "https://etcd.io",
+              "is_fork": false,
+              "languages": [
+                {
+                  "name": "Go",
+                  "scope": "primary"
+                }
+              ],
+              "license": {
+                "confidence": "source_reported",
+                "name": "Apache License 2.0",
+                "source": "Hugging Face: Mieaz/github-repos-metadata-ge3",
+                "spdx": "apache-2.0"
+              },
+              "size_kb": 99040,
+              "stack": [
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "technology": "Go"
+                }
+              ],
+              "stars": 51819,
+              "topics": [
+                "cncf",
+                "consensus",
+                "database",
+                "distributed-database",
+                "distributed-systems",
+                "etcd",
+                "go",
+                "key-value",
+                "kubernetes",
+                "raft"
+              ],
+              "visibility": "public",
+              "watchers": 1267,
+              "watchers_scope": "subscribers_count"
+            },
+            "schema_version": "2.0.0"
+          },
+          "retrieval_rank": 6,
+          "eligibility": {
+            "schema_version": "2.1.0",
+            "github_repository_id": 11225014,
+            "query_id": "request-f60433ddac323a9e15fd00b4",
+            "status": "reference_only",
+            "checks": [
+              {
+                "field": "availability",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "archived",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "advisory_evidence",
+                "outcome": "unknown",
+                "evidence_refs": [
+                  "ev-catalog-card"
+                ]
+              }
+            ],
+            "reason_codes": [
+              "mandatory_fact_unknown"
+            ],
+            "required_verifications": [
+              "Verify the advisory fit fields against source-backed public evidence."
+            ]
+          },
+          "rrf_score": 0.015151515151515152,
+          "matched_fields": [
+            "upstream_description",
+            "topics",
+            "category_labels",
+            "best_for"
+          ]
+        }
+      ],
+      "exclusions": [],
+      "truncated": false,
+      "reason_codes": []
+    },
+    "public_observations": [],
+    "observations_persisted": false,
+    "raw_ranked_ids": [
+      775743011,
+      156018,
+      437245741,
+      48833910,
+      23405758,
+      11225014
+    ],
+    "selected_ids": [
+      775743011,
+      156018,
+      437245741,
+      48833910,
+      23405758,
+      11225014
+    ]
+  },
+  "native_trace": {
+    "prepare_ms": 484.0925,
+    "gates": {
+      "one_count": true,
+      "one_ranked_match": true,
+      "no_sql_writes": true,
+      "immutable_connections": true
+    },
+    "connections": [
+      {
+        "database": "file:///C:/Users/user/Desktop/project/github_research/agentic-engineering-catalog/plugins/myai-stackguide/assets/catalog.search.sqlite?mode=ro&immutable=1",
+        "uri": true
+      },
+      {
+        "database": "file:///C:/Users/user/Desktop/project/github_research/agentic-engineering-catalog/plugins/myai-stackguide/assets/catalog.search.sqlite?mode=ro&immutable=1",
+        "uri": true
+      }
+    ],
+    "sql_trace": [
+      {
+        "connection": 0,
+        "sql": "SELECT 1 FROM taxonomy_route_registry WHERE route_id = 'caches_key_value_stores' LIMIT 1"
+      },
+      {
+        "connection": 0,
+        "sql": "SELECT k, v FROM 'main'.'repository_fts_config'"
+      },
+      {
+        "connection": 0,
+        "sql": "SELECT count(*) FROM repository_fts WHERE repository_fts MATCH '\"cache\" OR \"caching\" OR \"Redis\"' AND EXISTS (SELECT 1 FROM repository_classifications rc JOIN taxonomy_route_registry tr ON tr.match_category_id = rc.category_id WHERE rc.github_repository_id = repository_fts.rowid AND tr.route_id = 'caches_key_value_stores')"
+      },
+      {
+        "connection": 0,
+        "sql": "-- PRAGMA 'main'.data_version"
+      },
+      {
+        "connection": 0,
+        "sql": "-- PRAGMA 'main'.data_version"
+      },
+      {
+        "connection": 0,
+        "sql": "-- SELECT k, v FROM 'main'.'repository_fts_config'"
+      },
+      {
+        "connection": 0,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 0,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 0,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 0,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 0,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 0,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "SELECT 1 FROM taxonomy_route_registry WHERE route_id = 'caches_key_value_stores' LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "SELECT k, v FROM 'main'.'repository_fts_config'"
+      },
+      {
+        "connection": 1,
+        "sql": "SELECT repository_fts.rowid AS github_repository_id, bm25(repository_fts, 0.25, 0.25, 3.0, 3.0, 1.0, 0.25, 1.0, 1.0, 1.0) AS score, highlight(repository_fts, 0, char(1), char(2)) AS h0, highlight(repository_fts, 1, char(1), char(2)) AS h1, highlight(repository_fts, 2, char(1), char(2)) AS h2, highlight(repository_fts, 3, char(1), char(2)) AS h3, highlight(repository_fts, 4, char(1), char(2)) AS h4, highlight(repository_fts, 5, char(1), char(2)) AS h5, highlight(repository_fts, 6, char(1), char(2)) AS h6, highlight(repository_fts, 7, char(1), char(2)) AS h7, highlight(repository_fts, 8, char(1), char(2)) AS h8 FROM repository_fts WHERE repository_fts MATCH '\"cache\" OR \"caching\" OR \"Redis\" OR \"caches\" OR \"key\" OR \"value\" OR \"stores\"' AND EXISTS (SELECT 1 FROM repository_classifications AS rc JOIN taxonomy_route_registry AS tr ON tr.match_category_id = rc.category_id WHERE rc.github_repository_id = repository_fts.rowid AND tr.route_id = 'caches_key_value_stores') ORDER BY score ASC, github_repository_id ASC LIMIT 150"
+      },
+      {
+        "connection": 1,
+        "sql": "-- PRAGMA 'main'.data_version"
+      },
+      {
+        "connection": 1,
+        "sql": "-- PRAGMA 'main'.data_version"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT k, v FROM 'main'.'repository_fts_config'"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT sz FROM 'main'.'repository_fts_docsize' WHERE id=?"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT T.'github_repository_id', T.'full_name', T.'full_name_aliases', T.'upstream_description', T.'catalog_description', T.'topics', T.'category_labels', T.'use_cases', T.'integration_surface', T.'best_for' FROM 'main'.'repository_search_rows' T WHERE T.'github_repository_id'=?"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT sz FROM 'main'.'repository_fts_docsize' WHERE id=?"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT T.'github_repository_id', T.'full_name', T.'full_name_aliases', T.'upstream_description', T.'catalog_description', T.'topics', T.'category_labels', T.'use_cases', T.'integration_surface', T.'best_for' FROM 'main'.'repository_search_rows' T WHERE T.'github_repository_id'=?"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT sz FROM 'main'.'repository_fts_docsize' WHERE id=?"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT T.'github_repository_id', T.'full_name', T.'full_name_aliases', T.'upstream_description', T.'catalog_description', T.'topics', T.'category_labels', T.'use_cases', T.'integration_surface', T.'best_for' FROM 'main'.'repository_search_rows' T WHERE T.'github_repository_id'=?"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT sz FROM 'main'.'repository_fts_docsize' WHERE id=?"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT T.'github_repository_id', T.'full_name', T.'full_name_aliases', T.'upstream_description', T.'catalog_description', T.'topics', T.'category_labels', T.'use_cases', T.'integration_surface', T.'best_for' FROM 'main'.'repository_search_rows' T WHERE T.'github_repository_id'=?"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT sz FROM 'main'.'repository_fts_docsize' WHERE id=?"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT T.'github_repository_id', T.'full_name', T.'full_name_aliases', T.'upstream_description', T.'catalog_description', T.'topics', T.'category_labels', T.'use_cases', T.'integration_surface', T.'best_for' FROM 'main'.'repository_search_rows' T WHERE T.'github_repository_id'=?"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT sz FROM 'main'.'repository_fts_docsize' WHERE id=?"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT T.'github_repository_id', T.'full_name', T.'full_name_aliases', T.'upstream_description', T.'catalog_description', T.'topics', T.'category_labels', T.'use_cases', T.'integration_surface', T.'best_for' FROM 'main'.'repository_search_rows' T WHERE T.'github_repository_id'=?"
+      }
+    ]
+  },
+  "preview_sha256": "b38bd524f68913c48c463f8dfc4d8da4134ee6da6edbbcecba6ea1b4db8b1880",
+  "new_actual_model_calls": 0
+}

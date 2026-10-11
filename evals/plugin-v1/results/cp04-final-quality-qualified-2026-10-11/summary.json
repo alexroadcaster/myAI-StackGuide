@@ -1,0 +1,429 @@
+{
+  "schema_version": "cp04_final_summary_v1",
+  "verdict": "no_go",
+  "promotion_ready": false,
+  "evidence_kind": "observed_local_brief_retrieval_source_judged_agent_proxy",
+  "plan_sha256": "8f6f9b57fab0538a3203fd745511015215aeecbfdf8bd8de81bbac4cac160684",
+  "candidate_macro": {
+    "recall_at_k": 0.8958988380041012,
+    "ndcg_at_k": 0.8936731045901334
+  },
+  "original_literal_macro": {
+    "recall_at_k": 0.8720893141945772,
+    "ndcg_at_k": 0.8925157143186061
+  },
+  "strata": {
+    "thin_leaf": {
+      "case_ids": [
+        "FINAL-HOLD-01",
+        "FINAL-HOLD-03",
+        "FINAL-HOLD-04",
+        "FINAL-HOLD-05",
+        "FINAL-HOLD-06",
+        "FINAL-HOLD-08",
+        "FINAL-HOLD-10",
+        "FINAL-HOLD-11",
+        "FINAL-HOLD-13"
+      ],
+      "candidate": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.9383784899063156
+      },
+      "baseline": {
+        "recall_at_k": 0.9629629629629629,
+        "ndcg_at_k": 0.9241005750802673
+      }
+    },
+    "dense_leaf": {
+      "case_ids": [
+        "FINAL-HOLD-02",
+        "FINAL-HOLD-07",
+        "FINAL-HOLD-12"
+      ],
+      "candidate": {
+        "recall_at_k": 0.7596491228070175,
+        "ndcg_at_k": 0.8586674822356869
+      },
+      "baseline": {
+        "recall_at_k": 0.7596491228070175,
+        "ndcg_at_k": 0.877246051715562
+      }
+    },
+    "baseline_cohort": {
+      "case_ids": [
+        "FINAL-HOLD-01",
+        "FINAL-HOLD-02",
+        "FINAL-HOLD-03",
+        "FINAL-HOLD-04",
+        "FINAL-HOLD-05",
+        "FINAL-HOLD-06",
+        "FINAL-HOLD-07",
+        "FINAL-HOLD-08",
+        "FINAL-HOLD-09",
+        "FINAL-HOLD-10",
+        "FINAL-HOLD-11",
+        "FINAL-HOLD-12",
+        "FINAL-HOLD-13",
+        "FINAL-HOLD-14"
+      ],
+      "candidate": {
+        "recall_at_k": 0.8958988380041012,
+        "ndcg_at_k": 0.8936731045901334
+      },
+      "baseline": {
+        "recall_at_k": 0.8720893141945772,
+        "ndcg_at_k": 0.8925157143186061
+      }
+    },
+    "expansion_cohort": {
+      "case_ids": [
+        "FINAL-HOLD-02",
+        "FINAL-HOLD-07"
+      ],
+      "candidate": {
+        "recall_at_k": 0.6394736842105263,
+        "ndcg_at_k": 0.8025369017337012
+      },
+      "baseline": {
+        "recall_at_k": 0.6394736842105263,
+        "ndcg_at_k": 0.815869077573343
+      }
+    },
+    "dual_descriptions": {
+      "case_ids": [
+        "FINAL-HOLD-01",
+        "FINAL-HOLD-02",
+        "FINAL-HOLD-03",
+        "FINAL-HOLD-04",
+        "FINAL-HOLD-06",
+        "FINAL-HOLD-07",
+        "FINAL-HOLD-08",
+        "FINAL-HOLD-09",
+        "FINAL-HOLD-10",
+        "FINAL-HOLD-11",
+        "FINAL-HOLD-12",
+        "FINAL-HOLD-13",
+        "FINAL-HOLD-14"
+      ],
+      "candidate": {
+        "recall_at_k": 0.887891056312109,
+        "ndcg_at_k": 0.8929576002982572
+      },
+      "baseline": {
+        "recall_at_k": 0.8622500306710832,
+        "ndcg_at_k": 0.8967942491810013
+      }
+    },
+    "secondary_dedupe": {
+      "case_ids": [
+        "FINAL-HOLD-02",
+        "FINAL-HOLD-05",
+        "FINAL-HOLD-07",
+        "FINAL-HOLD-12"
+      ],
+      "candidate": {
+        "recall_at_k": 0.8197368421052631,
+        "ndcg_at_k": 0.8697442767728958
+      },
+      "baseline": {
+        "recall_at_k": 0.8197368421052631,
+        "ndcg_at_k": 0.8671582290635387
+      }
+    },
+    "container_union": {
+      "case_ids": [
+        "FINAL-HOLD-07"
+      ],
+      "candidate": {
+        "recall_at_k": 0.7,
+        "ndcg_at_k": 0.8262969818870673
+      },
+      "baseline": {
+        "recall_at_k": 0.7,
+        "ndcg_at_k": 0.8338462100882492
+      }
+    },
+    "lexical_ru": {
+      "case_ids": [
+        "FINAL-HOLD-03",
+        "FINAL-HOLD-05",
+        "FINAL-HOLD-09"
+      ],
+      "candidate": {
+        "recall_at_k": 0.787878787878788,
+        "ndcg_at_k": 0.8258029776428675
+      },
+      "baseline": {
+        "recall_at_k": 0.787878787878788,
+        "ndcg_at_k": 0.8225811993505104
+      }
+    },
+    "lexical_en": {
+      "case_ids": [
+        "FINAL-HOLD-01",
+        "FINAL-HOLD-02",
+        "FINAL-HOLD-03",
+        "FINAL-HOLD-04",
+        "FINAL-HOLD-05",
+        "FINAL-HOLD-06",
+        "FINAL-HOLD-07",
+        "FINAL-HOLD-08",
+        "FINAL-HOLD-09",
+        "FINAL-HOLD-10",
+        "FINAL-HOLD-11",
+        "FINAL-HOLD-12",
+        "FINAL-HOLD-13",
+        "FINAL-HOLD-14"
+      ],
+      "candidate": {
+        "recall_at_k": 0.8958988380041012,
+        "ndcg_at_k": 0.8936731045901334
+      },
+      "baseline": {
+        "recall_at_k": 0.8720893141945772,
+        "ndcg_at_k": 0.8925157143186061
+      }
+    },
+    "activity_unknown": {
+      "case_ids": [
+        "FINAL-HOLD-01",
+        "FINAL-HOLD-02",
+        "FINAL-HOLD-03",
+        "FINAL-HOLD-05",
+        "FINAL-HOLD-07",
+        "FINAL-HOLD-08",
+        "FINAL-HOLD-09",
+        "FINAL-HOLD-10",
+        "FINAL-HOLD-12",
+        "FINAL-HOLD-13",
+        "FINAL-HOLD-14"
+      ],
+      "candidate": {
+        "recall_at_k": 0.8675076120052196,
+        "ndcg_at_k": 0.8920192436073289
+      },
+      "baseline": {
+        "recall_at_k": 0.8372045817021893,
+        "ndcg_at_k": 0.8907160580232717
+      }
+    },
+    "developer_tools_cli_general": {
+      "case_ids": [
+        "FINAL-HOLD-01"
+      ],
+      "candidate": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.9725446355281335
+      },
+      "baseline": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.8654999782255441
+      }
+    },
+    "testing_qa": {
+      "case_ids": [
+        "FINAL-HOLD-02"
+      ],
+      "candidate": {
+        "recall_at_k": 0.5789473684210527,
+        "ndcg_at_k": 0.7787768215803351
+      },
+      "baseline": {
+        "recall_at_k": 0.5789473684210527,
+        "ndcg_at_k": 0.7978919450584367
+      }
+    },
+    "files_media_storage": {
+      "case_ids": [
+        "FINAL-HOLD-03"
+      ],
+      "candidate": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "baseline": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 1.0
+      }
+    },
+    "frontend_frameworks_ui": {
+      "case_ids": [
+        "FINAL-HOLD-04"
+      ],
+      "candidate": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.95583058934618
+      },
+      "baseline": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.9324441894571632
+      }
+    },
+    "accounting_finance_erp": {
+      "case_ids": [
+        "FINAL-HOLD-05"
+      ],
+      "candidate": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.9029746603845225
+      },
+      "baseline": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.8368947611074689
+      }
+    },
+    "cms_content_knowledge": {
+      "case_ids": [
+        "FINAL-HOLD-06"
+      ],
+      "candidate": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.7433811952350708
+      },
+      "baseline": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.7648991727473325
+      }
+    },
+    "communications_personal_ops": {
+      "case_ids": [
+        "FINAL-HOLD-07"
+      ],
+      "candidate": {
+        "recall_at_k": 0.7,
+        "ndcg_at_k": 0.8262969818870673
+      },
+      "baseline": {
+        "recall_at_k": 0.7,
+        "ndcg_at_k": 0.8338462100882492
+      }
+    },
+    "ecommerce_payments_revenue": {
+      "case_ids": [
+        "FINAL-HOLD-08"
+      ],
+      "candidate": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.9610012895088121
+      },
+      "baseline": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.9610012895088121
+      }
+    },
+    "operations_project_management": {
+      "case_ids": [
+        "FINAL-HOLD-09"
+      ],
+      "candidate": {
+        "recall_at_k": 0.36363636363636365,
+        "ndcg_at_k": 0.5744342725440797
+      },
+      "baseline": {
+        "recall_at_k": 0.36363636363636365,
+        "ndcg_at_k": 0.6308488369440626
+      }
+    },
+    "data_ingestion_etl_cdc": {
+      "case_ids": [
+        "FINAL-HOLD-10"
+      ],
+      "candidate": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.9324441894571632
+      },
+      "baseline": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 1.0
+      }
+    },
+    "databases_storage_caching": {
+      "case_ids": [
+        "FINAL-HOLD-11"
+      ],
+      "candidate": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "baseline": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 1.0
+      }
+    },
+    "backend_baas_api": {
+      "case_ids": [
+        "FINAL-HOLD-12"
+      ],
+      "candidate": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.9709286432396581
+      },
+      "baseline": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 1.0
+      }
+    },
+    "deployment_containers_paas": {
+      "case_ids": [
+        "FINAL-HOLD-13"
+      ],
+      "candidate": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.9772298496969573
+      },
+      "baseline": {
+        "recall_at_k": 0.6666666666666666,
+        "ndcg_at_k": 0.9561657846760856
+      }
+    },
+    "supply_chain_devsecops": {
+      "case_ids": [
+        "FINAL-HOLD-14"
+      ],
+      "candidate": {
+        "recall_at_k": 0.9,
+        "ndcg_at_k": 0.9155803358538875
+      },
+      "baseline": {
+        "recall_at_k": 0.9,
+        "ndcg_at_k": 0.91572783264733
+      }
+    }
+  },
+  "gates": {
+    "held_out_macro_recall_at_12_min": true,
+    "baseline_non_regression_recall_at_k": true,
+    "held_out_macro_ndcg_at_12_min": true,
+    "baseline_non_regression_ndcg_at_k": true,
+    "required_strata": false,
+    "hard_constraint_violations": true,
+    "false_exclusions": true,
+    "duplicate_canonical_ids": true,
+    "alias_success_rate_min": true,
+    "evidence_pack_survival_rate_min": true,
+    "all_statuses_match": true,
+    "container_registry_coverage": true,
+    "leaf_registry_coverage": true
+  },
+  "incomplete_oracle_cases": [],
+  "measured_route_case_count": 15,
+  "registry_counts": {
+    "container": 14,
+    "category": 111
+  },
+  "known_pool_survival_diagnostic": {
+    "numerator": 70,
+    "denominator": 70
+  },
+  "official_pack_survival": 1.0,
+  "adjacent_gaps": [
+    "human oracle calibration",
+    "same-canonical RU/EN meaning and usefulness",
+    "browser no-call switching",
+    "state/publication recovery",
+    "fresh host interpretation behavior",
+    "headroom capacity not rerun here"
+  ],
+  "interpretation_limit": "Preauthored interpretation evaluates deterministic Brief/FTS wiring, not real host interpretation/model behavior. Source sparse facts and all unknowns retained. Human acceptance absent; prior failed held-out is not waived.",
+  "first_capture_at": "2026-10-11T09:25:09.041887+00:00"
+}

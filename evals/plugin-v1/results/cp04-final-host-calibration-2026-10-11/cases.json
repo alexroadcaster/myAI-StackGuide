@@ -1,0 +1,682 @@
+[
+  {
+    "case_id": "CP04-DEV-08",
+    "human_calibration_case_id": "HU-FOUNDER-PAIRED",
+    "persona": "non-technical founder",
+    "synthetic_project_context": "Synthetic SaaS payments decision; no credentials or customer records.",
+    "brief": {
+      "schema_version": "1.1.0",
+      "run_id": "11111111-1111-4111-8111-111111111111",
+      "brief_id": "CP04-DEV-08-current-fixed",
+      "brief_version": 1,
+      "goal": "Compare open-source payment SDK starting points and produce a safe first validation task.",
+      "decision": "evaluate",
+      "project_stage": "prototype",
+      "success_criterion": "Explain the conditional decision and a safe first validation.",
+      "constraints": {
+        "allowed_licenses": [],
+        "compatibility": [],
+        "deployment": [],
+        "languages": [],
+        "mandatory_fields": [],
+        "require_no_server": null
+      },
+      "observations": {
+        "run_id": "11111111-1111-4111-8111-111111111111"
+      },
+      "assumptions": [],
+      "user_corrections": [],
+      "context_status": "preliminary",
+      "updated_at": "2026-10-11T00:00:00Z",
+      "details": {
+        "problem": {
+          "text": null,
+          "kind": "unknown",
+          "evidence_refs": [],
+          "answer_ids": [],
+          "limitation": "Synthetic fixture; not established."
+        },
+        "target_user": {
+          "text": null,
+          "kind": "unknown",
+          "evidence_refs": [],
+          "answer_ids": [],
+          "limitation": "Synthetic fixture; not established."
+        },
+        "workflow": {
+          "text": null,
+          "kind": "unknown",
+          "evidence_refs": [],
+          "answer_ids": [],
+          "limitation": "Synthetic fixture; not established."
+        },
+        "current_behavior": {
+          "text": null,
+          "kind": "unknown",
+          "evidence_refs": [],
+          "answer_ids": [],
+          "limitation": "Synthetic fixture; not established."
+        },
+        "target_behavior": {
+          "text": null,
+          "kind": "unknown",
+          "evidence_refs": [],
+          "answer_ids": [],
+          "limitation": "Synthetic fixture; not established."
+        },
+        "baseline": {
+          "text": null,
+          "kind": "unknown",
+          "evidence_refs": [],
+          "answer_ids": [],
+          "limitation": "Synthetic fixture; not established."
+        },
+        "scope": {
+          "text": null,
+          "kind": "unknown",
+          "evidence_refs": [],
+          "answer_ids": [],
+          "limitation": "Synthetic fixture; not established."
+        },
+        "non_goals": [],
+        "constraint_notes": [],
+        "tensions": []
+      }
+    },
+    "interpretation": {
+      "brief_sha256": "38eebcf3dd717daa82d1e41ed6002d2c2ba8274855929f4b668a49d4a9cb5c54",
+      "brief_version": 1,
+      "language": "ru",
+      "route": "payment_processing_sdks",
+      "terms": [
+        "payment",
+        "Python SDK"
+      ],
+      "intent": {
+        "required_groups": [
+          [
+            "payment"
+          ]
+        ],
+        "context_terms": [
+          "Python SDK"
+        ]
+      },
+      "excluded_repository_ids": [],
+      "excluded_dependencies": [],
+      "unresolved": []
+    },
+    "interpretation_status": "provided_fixed_original_formal_query",
+    "interpretation_source": {
+      "path": "evals/plugin-v1/results/cp04-2026-10-08/recommendation-calibration.json",
+      "original_query": {
+        "activity_schema_version": "2.0.0",
+        "brief_version": 1,
+        "card_schema_version": "2.0.0",
+        "constraints": {
+          "allowed_licenses": [],
+          "compatibility": [],
+          "deployment": [],
+          "languages": [],
+          "mandatory_fields": [],
+          "require_no_server": null
+        },
+        "index_format_version": 3,
+        "language": "en",
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840,
+        "policy_sha256": "ff6e8444c4664492bb099f0819b2d284aa5c28f0d44c7a745c63f434c3489dbf",
+        "policy_version": "2.1.0",
+        "query_id": "CP04-DEV-08",
+        "retrieval_engine": "sqlite_fts5",
+        "schema_version": "2.1.0",
+        "source_mode": "catalog_only",
+        "taxonomy_route_id": "payment_processing_sdks",
+        "variants": [
+          {
+            "terms": [
+              "payment",
+              "Python SDK"
+            ],
+            "variant_id": "q1"
+          }
+        ]
+      }
+    },
+    "planning": {
+      "scenario_id": "CP04-DEV-08-first-validation",
+      "scope_status": "validation_only",
+      "assumptions": {
+        "prerequisites": [
+          "Confirm target workload, existing path, language/platform, chosen version and license before any integration.",
+          "Only an isolated synthetic fixture or source-qualification exercise is proposed; no credentials, paid provider, production data or installation."
+        ],
+        "team_experience": "One engineer familiar with the target application and its component interface.",
+        "confidence": "low",
+        "hours_per_engineer_day": 8,
+        "allocated_engineers": 1
+      },
+      "first_validation": {
+        "min": 4,
+        "max": 8
+      },
+      "phases": [],
+      "total_engineer_hours": null,
+      "elapsed_working_days": null
+    },
+    "locales": [
+      "ru",
+      "en"
+    ]
+  },
+  {
+    "case_id": "CP04-HOLD-10",
+    "human_calibration_case_id": "HU-ENGINEER-PAIRED",
+    "persona": "ML platform engineer",
+    "synthetic_project_context": "Synthetic training platform modernization.",
+    "brief": {
+      "schema_version": "1.1.0",
+      "run_id": "11111111-1111-4111-8111-111111111111",
+      "brief_id": "CP04-HOLD-10-current-fixed",
+      "brief_version": 1,
+      "goal": "Compare distributed model training components and produce a bounded integration handoff.",
+      "decision": "evaluate",
+      "project_stage": "prototype",
+      "success_criterion": "Explain the conditional decision and a safe first validation.",
+      "constraints": {
+        "allowed_licenses": [],
+        "compatibility": [],
+        "deployment": [],
+        "languages": [],
+        "mandatory_fields": [],
+        "require_no_server": null
+      },
+      "observations": {
+        "run_id": "11111111-1111-4111-8111-111111111111"
+      },
+      "assumptions": [],
+      "user_corrections": [],
+      "context_status": "preliminary",
+      "updated_at": "2026-10-11T00:00:00Z",
+      "details": {
+        "problem": {
+          "text": null,
+          "kind": "unknown",
+          "evidence_refs": [],
+          "answer_ids": [],
+          "limitation": "Synthetic fixture; not established."
+        },
+        "target_user": {
+          "text": null,
+          "kind": "unknown",
+          "evidence_refs": [],
+          "answer_ids": [],
+          "limitation": "Synthetic fixture; not established."
+        },
+        "workflow": {
+          "text": null,
+          "kind": "unknown",
+          "evidence_refs": [],
+          "answer_ids": [],
+          "limitation": "Synthetic fixture; not established."
+        },
+        "current_behavior": {
+          "text": null,
+          "kind": "unknown",
+          "evidence_refs": [],
+          "answer_ids": [],
+          "limitation": "Synthetic fixture; not established."
+        },
+        "target_behavior": {
+          "text": null,
+          "kind": "unknown",
+          "evidence_refs": [],
+          "answer_ids": [],
+          "limitation": "Synthetic fixture; not established."
+        },
+        "baseline": {
+          "text": null,
+          "kind": "unknown",
+          "evidence_refs": [],
+          "answer_ids": [],
+          "limitation": "Synthetic fixture; not established."
+        },
+        "scope": {
+          "text": null,
+          "kind": "unknown",
+          "evidence_refs": [],
+          "answer_ids": [],
+          "limitation": "Synthetic fixture; not established."
+        },
+        "non_goals": [],
+        "constraint_notes": [],
+        "tensions": []
+      }
+    },
+    "interpretation": {
+      "brief_sha256": "05ad244fe725816b24b2c4ef2a271ad8c88da5340a4ac9328c130e0742ca5cad",
+      "brief_version": 1,
+      "language": "ru",
+      "route": "training_finetuning_alignment",
+      "terms": [
+        "distributed training"
+      ],
+      "intent": {
+        "required_groups": [
+          [
+            "distributed training"
+          ]
+        ],
+        "context_terms": []
+      },
+      "excluded_repository_ids": [],
+      "excluded_dependencies": [],
+      "unresolved": []
+    },
+    "interpretation_status": "provided_fixed_original_formal_query",
+    "interpretation_source": {
+      "path": "evals/plugin-v1/results/cp04-2026-10-08/recommendation-calibration.json",
+      "original_query": {
+        "activity_schema_version": "2.0.0",
+        "brief_version": 1,
+        "card_schema_version": "2.0.0",
+        "constraints": {
+          "allowed_licenses": [],
+          "compatibility": [],
+          "deployment": [],
+          "languages": [],
+          "mandatory_fields": [],
+          "require_no_server": null
+        },
+        "index_format_version": 3,
+        "language": "en",
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840,
+        "policy_sha256": "ff6e8444c4664492bb099f0819b2d284aa5c28f0d44c7a745c63f434c3489dbf",
+        "policy_version": "2.1.0",
+        "query_id": "CP04-HOLD-10",
+        "retrieval_engine": "sqlite_fts5",
+        "schema_version": "2.1.0",
+        "source_mode": "catalog_only",
+        "taxonomy_route_id": "training_finetuning_alignment",
+        "variants": [
+          {
+            "terms": [
+              "distributed training"
+            ],
+            "variant_id": "q1"
+          }
+        ]
+      }
+    },
+    "planning": {
+      "scenario_id": "CP04-HOLD-10-first-validation",
+      "scope_status": "validation_only",
+      "assumptions": {
+        "prerequisites": [
+          "Confirm target workload, existing path, language/platform, chosen version and license before any integration.",
+          "Only an isolated synthetic fixture or source-qualification exercise is proposed; no credentials, paid provider, production data or installation."
+        ],
+        "team_experience": "One engineer familiar with the target application and its component interface.",
+        "confidence": "low",
+        "hours_per_engineer_day": 8,
+        "allocated_engineers": 1
+      },
+      "first_validation": {
+        "min": 4,
+        "max": 8
+      },
+      "phases": [],
+      "total_engineer_hours": null,
+      "elapsed_working_days": null
+    },
+    "locales": [
+      "ru",
+      "en"
+    ]
+  },
+  {
+    "case_id": "CP04-DEV-11",
+    "human_calibration_case_id": "HU-ACTIVITY-UNKNOWN",
+    "persona": "database engineer",
+    "synthetic_project_context": "Synthetic database evaluation with unknown activity accepted as unknown.",
+    "brief": {
+      "schema_version": "1.1.0",
+      "run_id": "11111111-1111-4111-8111-111111111111",
+      "brief_id": "CP04-DEV-11-current-fixed",
+      "brief_version": 1,
+      "goal": "Find GreptimeDB by its historical full name and keep missing activity evidence explicit.",
+      "decision": "evaluate",
+      "project_stage": "prototype",
+      "success_criterion": "Explain the conditional decision and a safe first validation.",
+      "constraints": {
+        "allowed_licenses": [],
+        "compatibility": [],
+        "deployment": [],
+        "languages": [],
+        "mandatory_fields": [],
+        "require_no_server": null
+      },
+      "observations": {
+        "run_id": "11111111-1111-4111-8111-111111111111"
+      },
+      "assumptions": [],
+      "user_corrections": [],
+      "context_status": "preliminary",
+      "updated_at": "2026-10-11T00:00:00Z",
+      "details": {
+        "problem": {
+          "text": null,
+          "kind": "unknown",
+          "evidence_refs": [],
+          "answer_ids": [],
+          "limitation": "Synthetic fixture; not established."
+        },
+        "target_user": {
+          "text": null,
+          "kind": "unknown",
+          "evidence_refs": [],
+          "answer_ids": [],
+          "limitation": "Synthetic fixture; not established."
+        },
+        "workflow": {
+          "text": null,
+          "kind": "unknown",
+          "evidence_refs": [],
+          "answer_ids": [],
+          "limitation": "Synthetic fixture; not established."
+        },
+        "current_behavior": {
+          "text": null,
+          "kind": "unknown",
+          "evidence_refs": [],
+          "answer_ids": [],
+          "limitation": "Synthetic fixture; not established."
+        },
+        "target_behavior": {
+          "text": null,
+          "kind": "unknown",
+          "evidence_refs": [],
+          "answer_ids": [],
+          "limitation": "Synthetic fixture; not established."
+        },
+        "baseline": {
+          "text": null,
+          "kind": "unknown",
+          "evidence_refs": [],
+          "answer_ids": [],
+          "limitation": "Synthetic fixture; not established."
+        },
+        "scope": {
+          "text": null,
+          "kind": "unknown",
+          "evidence_refs": [],
+          "answer_ids": [],
+          "limitation": "Synthetic fixture; not established."
+        },
+        "non_goals": [],
+        "constraint_notes": [],
+        "tensions": []
+      }
+    },
+    "interpretation": {
+      "brief_sha256": "d66f78320c4a11fab09dbff2441a32de44e816b9279675b55ae0c981d4c3441a",
+      "brief_version": 1,
+      "language": "ru",
+      "route": "database_engines",
+      "terms": [
+        "greptimedb/greptimedb",
+        "локально"
+      ],
+      "intent": {
+        "required_groups": [
+          [
+            "greptimedb/greptimedb"
+          ]
+        ],
+        "context_terms": [
+          "локально"
+        ]
+      },
+      "excluded_repository_ids": [],
+      "excluded_dependencies": [],
+      "unresolved": []
+    },
+    "interpretation_status": "provided_fixed_original_formal_query",
+    "interpretation_source": {
+      "path": "evals/plugin-v1/results/cp04-2026-10-08/recommendation-calibration.json",
+      "original_query": {
+        "activity_schema_version": "2.0.0",
+        "brief_version": 1,
+        "card_schema_version": "2.0.0",
+        "constraints": {
+          "allowed_licenses": [],
+          "compatibility": [],
+          "deployment": [],
+          "languages": [],
+          "mandatory_fields": [],
+          "require_no_server": null
+        },
+        "index_format_version": 3,
+        "language": "ru",
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840,
+        "policy_sha256": "ff6e8444c4664492bb099f0819b2d284aa5c28f0d44c7a745c63f434c3489dbf",
+        "policy_version": "2.1.0",
+        "query_id": "CP04-DEV-11",
+        "retrieval_engine": "sqlite_fts5",
+        "schema_version": "2.1.0",
+        "source_mode": "catalog_only",
+        "taxonomy_route_id": "database_engines",
+        "variants": [
+          {
+            "terms": [
+              "greptimedb/greptimedb",
+              "локально"
+            ],
+            "variant_id": "q1"
+          }
+        ]
+      }
+    },
+    "planning": {
+      "scenario_id": "CP04-DEV-11-first-validation",
+      "scope_status": "validation_only",
+      "assumptions": {
+        "prerequisites": [
+          "Confirm target workload, existing path, language/platform, chosen version and license before any integration.",
+          "Only an isolated synthetic fixture or source-qualification exercise is proposed; no credentials, paid provider, production data or installation."
+        ],
+        "team_experience": "One engineer familiar with the target application and its component interface.",
+        "confidence": "low",
+        "hours_per_engineer_day": 8,
+        "allocated_engineers": 1
+      },
+      "first_validation": {
+        "min": 4,
+        "max": 8
+      },
+      "phases": [],
+      "total_engineer_hours": null,
+      "elapsed_working_days": null
+    },
+    "locales": [
+      "ru",
+      "en"
+    ]
+  },
+  {
+    "case_id": "CP04-HOLD-12",
+    "human_calibration_case_id": "HU-SECONDARY-DEDUPE",
+    "persona": "RAG engineer",
+    "synthetic_project_context": "Synthetic public-web ingestion project with no network or private context.",
+    "brief": {
+      "schema_version": "1.1.0",
+      "run_id": "11111111-1111-4111-8111-111111111111",
+      "brief_id": "CP04-HOLD-12-current-fixed",
+      "brief_version": 1,
+      "goal": "Найти инструмент для поиска и веб-сканирования без дублей из вторичных категорий.",
+      "decision": "evaluate",
+      "project_stage": "prototype",
+      "success_criterion": "Explain the conditional decision and a safe first validation.",
+      "constraints": {
+        "allowed_licenses": [],
+        "compatibility": [],
+        "deployment": [],
+        "languages": [],
+        "mandatory_fields": [],
+        "require_no_server": null
+      },
+      "observations": {
+        "run_id": "11111111-1111-4111-8111-111111111111"
+      },
+      "assumptions": [],
+      "user_corrections": [],
+      "context_status": "preliminary",
+      "updated_at": "2026-10-11T00:00:00Z",
+      "details": {
+        "problem": {
+          "text": null,
+          "kind": "unknown",
+          "evidence_refs": [],
+          "answer_ids": [],
+          "limitation": "Synthetic fixture; not established."
+        },
+        "target_user": {
+          "text": null,
+          "kind": "unknown",
+          "evidence_refs": [],
+          "answer_ids": [],
+          "limitation": "Synthetic fixture; not established."
+        },
+        "workflow": {
+          "text": null,
+          "kind": "unknown",
+          "evidence_refs": [],
+          "answer_ids": [],
+          "limitation": "Synthetic fixture; not established."
+        },
+        "current_behavior": {
+          "text": null,
+          "kind": "unknown",
+          "evidence_refs": [],
+          "answer_ids": [],
+          "limitation": "Synthetic fixture; not established."
+        },
+        "target_behavior": {
+          "text": null,
+          "kind": "unknown",
+          "evidence_refs": [],
+          "answer_ids": [],
+          "limitation": "Synthetic fixture; not established."
+        },
+        "baseline": {
+          "text": null,
+          "kind": "unknown",
+          "evidence_refs": [],
+          "answer_ids": [],
+          "limitation": "Synthetic fixture; not established."
+        },
+        "scope": {
+          "text": null,
+          "kind": "unknown",
+          "evidence_refs": [],
+          "answer_ids": [],
+          "limitation": "Synthetic fixture; not established."
+        },
+        "non_goals": [],
+        "constraint_notes": [],
+        "tensions": []
+      }
+    },
+    "interpretation": {
+      "brief_sha256": "67ad7d797390a947e68eb3850bfe7a6226b2f4e2890b347d89a27b4104c827da",
+      "brief_version": 1,
+      "language": "ru",
+      "route": "web_crawling_data_ingestion",
+      "terms": [
+        "поиск",
+        "firecrawl"
+      ],
+      "intent": {
+        "required_groups": [
+          [
+            "firecrawl"
+          ]
+        ],
+        "context_terms": [
+          "поиск"
+        ]
+      },
+      "excluded_repository_ids": [],
+      "excluded_dependencies": [],
+      "unresolved": []
+    },
+    "interpretation_status": "provided_fixed_original_formal_query",
+    "interpretation_source": {
+      "path": "evals/plugin-v1/results/cp04-2026-10-08/recommendation-calibration.json",
+      "original_query": {
+        "activity_schema_version": "2.0.0",
+        "brief_version": 1,
+        "card_schema_version": "2.0.0",
+        "constraints": {
+          "allowed_licenses": [],
+          "compatibility": [],
+          "deployment": [],
+          "languages": [],
+          "mandatory_fields": [],
+          "require_no_server": null
+        },
+        "index_format_version": 3,
+        "language": "ru",
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840,
+        "policy_sha256": "ff6e8444c4664492bb099f0819b2d284aa5c28f0d44c7a745c63f434c3489dbf",
+        "policy_version": "2.1.0",
+        "query_id": "CP04-HOLD-12",
+        "retrieval_engine": "sqlite_fts5",
+        "schema_version": "2.1.0",
+        "source_mode": "catalog_only",
+        "taxonomy_route_id": "web_crawling_data_ingestion",
+        "variants": [
+          {
+            "terms": [
+              "поиск",
+              "firecrawl"
+            ],
+            "variant_id": "q1"
+          }
+        ]
+      }
+    },
+    "planning": {
+      "scenario_id": "CP04-HOLD-12-first-validation",
+      "scope_status": "validation_only",
+      "assumptions": {
+        "prerequisites": [
+          "Confirm target workload, existing path, language/platform, chosen version and license before any integration.",
+          "Only an isolated synthetic fixture or source-qualification exercise is proposed; no credentials, paid provider, production data or installation."
+        ],
+        "team_experience": "One engineer familiar with the target application and its component interface.",
+        "confidence": "low",
+        "hours_per_engineer_day": 8,
+        "allocated_engineers": 1
+      },
+      "first_validation": {
+        "min": 4,
+        "max": 8
+      },
+      "phases": [],
+      "total_engineer_hours": null,
+      "elapsed_working_days": null
+    },
+    "locales": [
+      "ru",
+      "en"
+    ]
+  }
+]

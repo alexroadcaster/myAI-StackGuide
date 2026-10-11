@@ -118,7 +118,8 @@ class PluginSearchIndexTests(unittest.TestCase):
     def test_policy_weights_follow_exact_fts_column_order(self):
         policy = json.loads(self.builder.POLICY_SOURCE.read_text(encoding="utf-8"))
         self.assertEqual(tuple(policy["field_weights"]), self.builder.FTS_COLUMNS)
-        self.assertEqual(tuple(policy["field_weights"].values()), (5.0, 5.0, 3.0, 3.0, 3.0, 1.0, 3.0, 3.0, 2.0))
+        bundled = json.loads((ROOT / "plugins/myai-stackguide/assets/retrieval-policy.json").read_text(encoding="utf-8"))
+        self.assertEqual(bundled["field_weights"], policy["field_weights"])
 
     def test_immutable_connection_rejects_write(self):
         connection = self.connection()

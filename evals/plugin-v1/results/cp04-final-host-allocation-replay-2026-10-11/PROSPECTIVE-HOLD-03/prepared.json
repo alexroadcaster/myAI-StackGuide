@@ -1,0 +1,4709 @@
+{
+  "preview_request": {
+    "schema_version": "1.1.0",
+    "artifact_type": "candidate_preview_request",
+    "bindings": {
+      "contract_schema_sha256": "53f8bd0ddf7dcc29cc355e813c42b495d4f87e7804db8de699768fe82afd5303",
+      "contract_document_sha256": "21b190b68699a1373c647b1570884954d726393066d6f45f2bfd54e46d043b9a",
+      "run_id": "85cff61c-fc62-51d3-9ab0-7d5a78ddb28a",
+      "brief_id": "PROSPECTIVE-HOLD-03",
+      "brief_version": 1,
+      "brief_sha256": "4253fbe6df20312329e820bb9d3d64395ed150c639000e6f03b6a7dc84599f62",
+      "interpretation_sha256": "28a198a32cb2acbf805a517b95b77dba284d5413ed2a6143d6e7d4647ac4034d",
+      "guard_context_sha256": "c9f0bf59f77a16054f0966eca8aa56ce3f6adf934c3be5b414a791296701feb3",
+      "query_id": "request-28a198a32cb2acbf805a517b",
+      "query_sha256": "1dee1097c33468761258726a21528e039c4bf1e2a6852ddd4d6380ead2c3fc0e",
+      "native_result_sha256": "017759c5ec828c28752813672317497ddb96fc0c61d9130532ac0199f22fff30",
+      "candidate_pool_sha256": "9ef30a952530c92588076b493d320c56a36bc2c21b9e4dd611471ebc5c79c7d5",
+      "pins": {
+        "activity_schema_version": "2.0.0",
+        "card_schema_version": "2.0.0",
+        "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+        "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+        "corpus_kind": "catalog_snapshot",
+        "index_format_version": 3,
+        "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+        "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+        "retrieval_policy_version": "2.1.0",
+        "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+        "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+      }
+    },
+    "method": "host_codex_full_pool_v1_1",
+    "decision_context": {
+      "goal": "Keep a folder synchronized between two devices under our control; continuous sync engines are preferred, hosted sync servers and manual transfer are alternatives, and file managers or protocol bridges support file handling.",
+      "intent": {
+        "required_groups": [
+          [
+            "synchronization"
+          ]
+        ],
+        "context_terms": [
+          "file",
+          "devices"
+        ]
+      }
+    },
+    "candidates": [
+      {
+        "github_repository_id": 14712850,
+        "full_name": "syncthing/syncthing",
+        "source_card_sha256": "189323f710d41541a38f0d04aa519eebc29559f4391fa25668c1bd3ee76f2ab8",
+        "retrieval_rank": 1,
+        "rrf_score": 0.01639344262295082,
+        "taxonomy_category_ids": [
+          "file_management_sync"
+        ],
+        "eligibility_status": "reference_only",
+        "eligibility_reason_codes": [
+          "mandatory_fact_unknown"
+        ],
+        "guard_status": "reference_only",
+        "guard_reason_codes": [
+          "mandatory_fact_unknown"
+        ],
+        "fields": [
+          {
+            "source_field": "/descriptions/upstream",
+            "text": "Open Source Continuous File Synchronization",
+            "coverage": "complete"
+          },
+          {
+            "source_field": "/descriptions/catalog",
+            "text": null,
+            "coverage": "unknown"
+          },
+          {
+            "source_field": "/repository/topics",
+            "text": "go\np2p\npeer-to-peer\nsynchronization",
+            "coverage": "complete"
+          },
+          {
+            "source_field": "/advisory/use_cases",
+            "text": null,
+            "coverage": "unknown"
+          },
+          {
+            "source_field": "/advisory/integration_surface",
+            "text": null,
+            "coverage": "unknown"
+          },
+          {
+            "source_field": "/advisory/best_for",
+            "text": null,
+            "coverage": "unknown"
+          }
+        ]
+      },
+      {
+        "github_repository_id": 4999959,
+        "full_name": "haiwen/seafile",
+        "source_card_sha256": "0cf1a2824065439b270b4a4d5e927eeda270e3044035e6c70b8bee6f396ab3eb",
+        "retrieval_rank": 2,
+        "rrf_score": 0.016129032258064516,
+        "taxonomy_category_ids": [
+          "file_management_sync"
+        ],
+        "eligibility_status": "reference_only",
+        "eligibility_reason_codes": [
+          "mandatory_fact_unknown"
+        ],
+        "guard_status": "reference_only",
+        "guard_reason_codes": [
+          "mandatory_fact_unknown"
+        ],
+        "fields": [
+          {
+            "source_field": "/descriptions/upstream",
+            "text": "Beyond file syncing and sharing, a new way to organize your files with extensible file properties and flexible views",
+            "coverage": "complete"
+          },
+          {
+            "source_field": "/descriptions/catalog",
+            "text": "Beyond file syncing and sharing, a new way to organize your files with extensible file properties and flexible views",
+            "coverage": "complete"
+          },
+          {
+            "source_field": "/repository/topics",
+            "text": "cloud-storage\ndocument-management\nfile-sharing\nfile-sync\nknowledge-management\nmarkdown\nwiki",
+            "coverage": "complete"
+          },
+          {
+            "source_field": "/advisory/use_cases",
+            "text": null,
+            "coverage": "unknown"
+          },
+          {
+            "source_field": "/advisory/integration_surface",
+            "text": null,
+            "coverage": "unknown"
+          },
+          {
+            "source_field": "/advisory/best_for",
+            "text": null,
+            "coverage": "unknown"
+          }
+        ]
+      },
+      {
+        "github_repository_id": 5550552,
+        "full_name": "owncloud/core",
+        "source_card_sha256": "8c0273ba912361f538df44bbd46ad5c245c6385abcbdf32c1a1c6e398e6e91e1",
+        "retrieval_rank": 3,
+        "rrf_score": 0.015873015873015872,
+        "taxonomy_category_ids": [
+          "file_management_sync",
+          "collaboration_knowledge"
+        ],
+        "eligibility_status": "reference_only",
+        "eligibility_reason_codes": [
+          "mandatory_fact_unknown"
+        ],
+        "guard_status": "reference_only",
+        "guard_reason_codes": [
+          "mandatory_fact_unknown"
+        ],
+        "fields": [
+          {
+            "source_field": "/descriptions/upstream",
+            "text": ":cloud: ownCloud web server core (Files, DAV, etc.)",
+            "coverage": "complete"
+          },
+          {
+            "source_field": "/descriptions/catalog",
+            "text": ":cloud: ownCloud web server core (Files, DAV, etc.)",
+            "coverage": "complete"
+          },
+          {
+            "source_field": "/repository/topics",
+            "text": "enterprise\nfederated\nfile-sharing\nfile-sync\njavascript\nowncloud\nowncloud-classic\nphp\nplatform\nself-hosted\nself-hosting\nserver\nsharing\nwebdav",
+            "coverage": "complete"
+          },
+          {
+            "source_field": "/advisory/use_cases",
+            "text": null,
+            "coverage": "unknown"
+          },
+          {
+            "source_field": "/advisory/integration_surface",
+            "text": null,
+            "coverage": "unknown"
+          },
+          {
+            "source_field": "/advisory/best_for",
+            "text": null,
+            "coverage": "unknown"
+          }
+        ]
+      },
+      {
+        "github_repository_id": 578822531,
+        "full_name": "localsend/localsend",
+        "source_card_sha256": "f456677b6f8b413faedb1dbbddcd2a661d9f3bafffa311f46d999a2327afa09b",
+        "retrieval_rank": 4,
+        "rrf_score": 0.015625,
+        "taxonomy_category_ids": [
+          "file_management_sync"
+        ],
+        "eligibility_status": "reference_only",
+        "eligibility_reason_codes": [
+          "mandatory_fact_unknown"
+        ],
+        "guard_status": "reference_only",
+        "guard_reason_codes": [
+          "mandatory_fact_unknown"
+        ],
+        "fields": [
+          {
+            "source_field": "/descriptions/upstream",
+            "text": "An open-source cross-platform alternative to AirDrop",
+            "coverage": "complete"
+          },
+          {
+            "source_field": "/descriptions/catalog",
+            "text": null,
+            "coverage": "unknown"
+          },
+          {
+            "source_field": "/repository/topics",
+            "text": "dart\nfile-sharing\nflutter\nflutter-apps",
+            "coverage": "complete"
+          },
+          {
+            "source_field": "/advisory/use_cases",
+            "text": null,
+            "coverage": "unknown"
+          },
+          {
+            "source_field": "/advisory/integration_surface",
+            "text": null,
+            "coverage": "unknown"
+          },
+          {
+            "source_field": "/advisory/best_for",
+            "text": null,
+            "coverage": "unknown"
+          }
+        ]
+      },
+      {
+        "github_repository_id": 410749029,
+        "full_name": "spacedriveapp/spacedrive",
+        "source_card_sha256": "2b56ade3ad726fac6119caa46c014f795d24b7d1aeedbd884e64ec5cc08ec892",
+        "retrieval_rank": 5,
+        "rrf_score": 0.015384615384615385,
+        "taxonomy_category_ids": [
+          "file_management_sync"
+        ],
+        "eligibility_status": "reference_only",
+        "eligibility_reason_codes": [
+          "mandatory_fact_unknown"
+        ],
+        "guard_status": "reference_only",
+        "guard_reason_codes": [
+          "mandatory_fact_unknown"
+        ],
+        "fields": [
+          {
+            "source_field": "/descriptions/upstream",
+            "text": "Cross-platform file explorer powered by a virtual distributed filesystem written in Rust.",
+            "coverage": "complete"
+          },
+          {
+            "source_field": "/descriptions/catalog",
+            "text": null,
+            "coverage": "unknown"
+          },
+          {
+            "source_field": "/repository/topics",
+            "text": "cross-platform\ndistributed-systems\nencryption\nfile-manager\nopen-source\nrust\nstorage\ntypescript",
+            "coverage": "complete"
+          },
+          {
+            "source_field": "/advisory/use_cases",
+            "text": null,
+            "coverage": "unknown"
+          },
+          {
+            "source_field": "/advisory/integration_surface",
+            "text": null,
+            "coverage": "unknown"
+          },
+          {
+            "source_field": "/advisory/best_for",
+            "text": "Teams evaluating file, media, content, and asset workflows.",
+            "coverage": "complete"
+          }
+        ]
+      },
+      {
+        "github_repository_id": 323965659,
+        "full_name": "AlistGo/alist",
+        "source_card_sha256": "33689e822f8d007775f9a9f5839f64cc8d7a6780b3670d46b0f1235db57a0ec4",
+        "retrieval_rank": 6,
+        "rrf_score": 0.015151515151515152,
+        "taxonomy_category_ids": [
+          "file_management_sync"
+        ],
+        "eligibility_status": "reference_only",
+        "eligibility_reason_codes": [
+          "mandatory_fact_unknown"
+        ],
+        "guard_status": "reference_only",
+        "guard_reason_codes": [
+          "mandatory_fact_unknown"
+        ],
+        "fields": [
+          {
+            "source_field": "/descriptions/upstream",
+            "text": "A file-list and WebDAV program that supports multiple storage providers.",
+            "coverage": "complete"
+          },
+          {
+            "source_field": "/descriptions/catalog",
+            "text": null,
+            "coverage": "unknown"
+          },
+          {
+            "source_field": "/repository/topics",
+            "text": "file-server\ngin\ngolang\nonedrive\nsolidjs\nwebdav",
+            "coverage": "complete"
+          },
+          {
+            "source_field": "/advisory/use_cases",
+            "text": null,
+            "coverage": "unknown"
+          },
+          {
+            "source_field": "/advisory/integration_surface",
+            "text": null,
+            "coverage": "unknown"
+          },
+          {
+            "source_field": "/advisory/best_for",
+            "text": "Teams evaluating storage, key-value data, SQL operations, and self-hosted data services.",
+            "coverage": "complete"
+          }
+        ]
+      },
+      {
+        "github_repository_id": 895547074,
+        "full_name": "mark3labs/mcp-filesystem-server",
+        "source_card_sha256": "0c68573fcc4e9255732b5f4679ef270e3627a2af5ad8b4f0cb242a5b89dee5ad",
+        "retrieval_rank": 7,
+        "rrf_score": 0.014925373134328358,
+        "taxonomy_category_ids": [
+          "file_management_sync"
+        ],
+        "eligibility_status": "reference_only",
+        "eligibility_reason_codes": [
+          "mandatory_fact_unknown"
+        ],
+        "guard_status": "reference_only",
+        "guard_reason_codes": [
+          "mandatory_fact_unknown"
+        ],
+        "fields": [
+          {
+            "source_field": "/descriptions/upstream",
+            "text": "Go server implementing Model Context Protocol (MCP) for filesystem operations.",
+            "coverage": "complete"
+          },
+          {
+            "source_field": "/descriptions/catalog",
+            "text": null,
+            "coverage": "unknown"
+          },
+          {
+            "source_field": "/repository/topics",
+            "text": null,
+            "coverage": "unknown"
+          },
+          {
+            "source_field": "/advisory/use_cases",
+            "text": null,
+            "coverage": "unknown"
+          },
+          {
+            "source_field": "/advisory/integration_surface",
+            "text": null,
+            "coverage": "unknown"
+          },
+          {
+            "source_field": "/advisory/best_for",
+            "text": "Teams automating spreadsheet, video, CAD, and other rich-file workflows through agents.",
+            "coverage": "complete"
+          }
+        ]
+      },
+      {
+        "github_repository_id": 188700274,
+        "full_name": "9001/copyparty",
+        "source_card_sha256": "7e151eec43e0cdb1d35422f01ff7224deba9d6796c35dd379139d0ecbacea2fc",
+        "retrieval_rank": 8,
+        "rrf_score": 0.014705882352941176,
+        "taxonomy_category_ids": [
+          "file_management_sync"
+        ],
+        "eligibility_status": "reference_only",
+        "eligibility_reason_codes": [
+          "mandatory_fact_unknown"
+        ],
+        "guard_status": "reference_only",
+        "guard_reason_codes": [
+          "mandatory_fact_unknown"
+        ],
+        "fields": [
+          {
+            "source_field": "/descriptions/upstream",
+            "text": "Portable all-in-one file server with resumable uploads, deduplication, WebDAV, SFTP, FTP, and media indexing.",
+            "coverage": "complete"
+          },
+          {
+            "source_field": "/descriptions/catalog",
+            "text": null,
+            "coverage": "unknown"
+          },
+          {
+            "source_field": "/repository/topics",
+            "text": "copyparty\nfile-server\nfile-sharing\nfile-upload-server\nftp-server\nnas-frontend\ntftp-server\nwebdav-server",
+            "coverage": "complete"
+          },
+          {
+            "source_field": "/advisory/use_cases",
+            "text": null,
+            "coverage": "unknown"
+          },
+          {
+            "source_field": "/advisory/integration_surface",
+            "text": null,
+            "coverage": "unknown"
+          },
+          {
+            "source_field": "/advisory/best_for",
+            "text": "Teams evaluating storage, key-value data, SQL operations, and self-hosted data services.",
+            "coverage": "complete"
+          }
+        ]
+      },
+      {
+        "github_repository_id": 42332863,
+        "full_name": "filebrowser/filebrowser",
+        "source_card_sha256": "0270e00a0afdc2a5094c3394b4b770ecc453b90723f98726b646a08f3270c52f",
+        "retrieval_rank": 9,
+        "rrf_score": 0.014492753623188406,
+        "taxonomy_category_ids": [
+          "file_management_sync"
+        ],
+        "eligibility_status": "reference_only",
+        "eligibility_reason_codes": [
+          "mandatory_fact_unknown"
+        ],
+        "guard_status": "reference_only",
+        "guard_reason_codes": [
+          "mandatory_fact_unknown"
+        ],
+        "fields": [
+          {
+            "source_field": "/descriptions/upstream",
+            "text": "File Browser provides a file managing interface within a specified directory and it can be used to upload, delete, preview and edit your files.",
+            "coverage": "complete"
+          },
+          {
+            "source_field": "/descriptions/catalog",
+            "text": "File Browser provides a file managing interface within a specified directory and it can be used to upload, delete, preview and edit your files.",
+            "coverage": "complete"
+          },
+          {
+            "source_field": "/repository/topics",
+            "text": "file-browser\nfile-manager\nfile-sharing\ngo\nmaterial-design\nself-hosted\nvue",
+            "coverage": "complete"
+          },
+          {
+            "source_field": "/advisory/use_cases",
+            "text": null,
+            "coverage": "unknown"
+          },
+          {
+            "source_field": "/advisory/integration_surface",
+            "text": null,
+            "coverage": "unknown"
+          },
+          {
+            "source_field": "/advisory/best_for",
+            "text": null,
+            "coverage": "unknown"
+          }
+        ]
+      },
+      {
+        "github_repository_id": 663900193,
+        "full_name": "sxyazi/yazi",
+        "source_card_sha256": "0149fcf5f766db9b4bd7483324ffbe7507782f0181ba2b2ef787ef0f35d51dd2",
+        "retrieval_rank": 10,
+        "rrf_score": 0.014285714285714285,
+        "taxonomy_category_ids": [
+          "file_management_sync"
+        ],
+        "eligibility_status": "reference_only",
+        "eligibility_reason_codes": [
+          "mandatory_fact_unknown"
+        ],
+        "guard_status": "reference_only",
+        "guard_reason_codes": [
+          "mandatory_fact_unknown"
+        ],
+        "fields": [
+          {
+            "source_field": "/descriptions/upstream",
+            "text": "Fast terminal file manager written in Rust and based on asynchronous I/O.",
+            "coverage": "complete"
+          },
+          {
+            "source_field": "/descriptions/catalog",
+            "text": null,
+            "coverage": "unknown"
+          },
+          {
+            "source_field": "/repository/topics",
+            "text": "android\nasyncio\ncli\ncommand-line\nconcurrency\ncross-platform\ndeveloper-tools\nfile-explorer\nfile-manager\nfilesystem\nlinux\nmacos\nneovim\nproductivity\nrust\nterminal\ntui\nvim\nwindows",
+            "coverage": "complete"
+          },
+          {
+            "source_field": "/advisory/use_cases",
+            "text": null,
+            "coverage": "unknown"
+          },
+          {
+            "source_field": "/advisory/integration_surface",
+            "text": null,
+            "coverage": "unknown"
+          },
+          {
+            "source_field": "/advisory/best_for",
+            "text": "Teams evaluating developer productivity, local tooling, and command-line workflows.",
+            "coverage": "complete"
+          }
+        ]
+      },
+      {
+        "github_repository_id": 60243197,
+        "full_name": "nextcloud/server",
+        "source_card_sha256": "09f3b0c61e032501e26c1139b370c017c8398ccb9a1e660eb27e36e1eec9df4b",
+        "retrieval_rank": 11,
+        "rrf_score": 0.014084507042253521,
+        "taxonomy_category_ids": [
+          "file_management_sync",
+          "collaboration_knowledge"
+        ],
+        "eligibility_status": "reference_only",
+        "eligibility_reason_codes": [
+          "mandatory_fact_unknown"
+        ],
+        "guard_status": "reference_only",
+        "guard_reason_codes": [
+          "mandatory_fact_unknown"
+        ],
+        "fields": [
+          {
+            "source_field": "/descriptions/upstream",
+            "text": "☁️ Nextcloud server, a safe home for all your data",
+            "coverage": "complete"
+          },
+          {
+            "source_field": "/descriptions/catalog",
+            "text": "☁️ Nextcloud server, a safe home for all your data",
+            "coverage": "complete"
+          },
+          {
+            "source_field": "/repository/topics",
+            "text": "cloud\ncollaboration\ndecentralized\ndesign\ndistributed\nenterprise\nfederation\nfile-sharing\nfree-software\nhacktoberfest\njavascript\nnextcloud\nopen-source\nopensource\nowncloud\nphp\nself-hosting\nsharing\nusability\nux",
+            "coverage": "complete"
+          },
+          {
+            "source_field": "/advisory/use_cases",
+            "text": null,
+            "coverage": "unknown"
+          },
+          {
+            "source_field": "/advisory/integration_surface",
+            "text": null,
+            "coverage": "unknown"
+          },
+          {
+            "source_field": "/advisory/best_for",
+            "text": null,
+            "coverage": "unknown"
+          }
+        ]
+      }
+    ],
+    "reservation": {
+      "receipt_bytes": 1882,
+      "pack_bytes": 22748
+    }
+  },
+  "native_raw_result": {
+    "schema_version": "2.1.0",
+    "run_id": "85cff61c-fc62-51d3-9ab0-7d5a78ddb28a",
+    "query_id": "request-28a198a32cb2acbf805a517b",
+    "query_sha256": "1dee1097c33468761258726a21528e039c4bf1e2a6852ddd4d6380ead2c3fc0e",
+    "brief_version": 1,
+    "source_mode": "catalog_only",
+    "retrieval_engine": "sqlite_fts5",
+    "pins": {
+      "activity_schema_version": "2.0.0",
+      "card_schema_version": "2.0.0",
+      "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+      "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+      "corpus_kind": "catalog_snapshot",
+      "index_format_version": 3,
+      "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+      "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+      "retrieval_policy_version": "2.1.0",
+      "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+      "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+    },
+    "status": "ok",
+    "executed_variants": 1,
+    "retrieved_hits": 11,
+    "candidates": [
+      {
+        "github_repository_id": 14712850,
+        "rank": 1,
+        "rrf_score": 0.01639344262295082,
+        "variant_ranks": [
+          {
+            "variant_id": "q1",
+            "rank": 1,
+            "bm25": -19.164790871282218
+          }
+        ],
+        "matched_fields": [
+          "upstream_description",
+          "topics",
+          "category_labels"
+        ],
+        "missing_facts": []
+      },
+      {
+        "github_repository_id": 4999959,
+        "rank": 2,
+        "rrf_score": 0.016129032258064516,
+        "variant_ranks": [
+          {
+            "variant_id": "q1",
+            "rank": 2,
+            "bm25": -14.344512745399822
+          }
+        ],
+        "matched_fields": [
+          "upstream_description",
+          "catalog_description",
+          "topics",
+          "category_labels"
+        ],
+        "missing_facts": []
+      },
+      {
+        "github_repository_id": 5550552,
+        "rank": 3,
+        "rrf_score": 0.015873015873015872,
+        "variant_ranks": [
+          {
+            "variant_id": "q1",
+            "rank": 3,
+            "bm25": -11.958343422830604
+          }
+        ],
+        "matched_fields": [
+          "topics",
+          "category_labels"
+        ],
+        "missing_facts": []
+      },
+      {
+        "github_repository_id": 578822531,
+        "rank": 4,
+        "rrf_score": 0.015625,
+        "variant_ranks": [
+          {
+            "variant_id": "q1",
+            "rank": 4,
+            "bm25": -11.018493711281867
+          }
+        ],
+        "matched_fields": [
+          "topics",
+          "category_labels"
+        ],
+        "missing_facts": []
+      },
+      {
+        "github_repository_id": 410749029,
+        "rank": 5,
+        "rrf_score": 0.015384615384615385,
+        "variant_ranks": [
+          {
+            "variant_id": "q1",
+            "rank": 5,
+            "bm25": -10.01286457461261
+          }
+        ],
+        "matched_fields": [
+          "upstream_description",
+          "topics",
+          "category_labels",
+          "best_for"
+        ],
+        "missing_facts": []
+      },
+      {
+        "github_repository_id": 323965659,
+        "rank": 6,
+        "rrf_score": 0.015151515151515152,
+        "variant_ranks": [
+          {
+            "variant_id": "q1",
+            "rank": 6,
+            "bm25": -9.747606959435167
+          }
+        ],
+        "matched_fields": [
+          "upstream_description",
+          "topics",
+          "category_labels"
+        ],
+        "missing_facts": []
+      },
+      {
+        "github_repository_id": 895547074,
+        "rank": 7,
+        "rrf_score": 0.014925373134328358,
+        "variant_ranks": [
+          {
+            "variant_id": "q1",
+            "rank": 7,
+            "bm25": -9.528432143898078
+          }
+        ],
+        "matched_fields": [
+          "category_labels",
+          "best_for"
+        ],
+        "missing_facts": []
+      },
+      {
+        "github_repository_id": 188700274,
+        "rank": 8,
+        "rrf_score": 0.014705882352941176,
+        "variant_ranks": [
+          {
+            "variant_id": "q1",
+            "rank": 8,
+            "bm25": -9.227383682764541
+          }
+        ],
+        "matched_fields": [
+          "upstream_description",
+          "topics",
+          "category_labels"
+        ],
+        "missing_facts": []
+      },
+      {
+        "github_repository_id": 42332863,
+        "rank": 9,
+        "rrf_score": 0.014492753623188406,
+        "variant_ranks": [
+          {
+            "variant_id": "q1",
+            "rank": 9,
+            "bm25": -8.983909618180629
+          }
+        ],
+        "matched_fields": [
+          "upstream_description",
+          "catalog_description",
+          "topics",
+          "category_labels"
+        ],
+        "missing_facts": []
+      },
+      {
+        "github_repository_id": 663900193,
+        "rank": 10,
+        "rrf_score": 0.014285714285714285,
+        "variant_ranks": [
+          {
+            "variant_id": "q1",
+            "rank": 10,
+            "bm25": -8.947232584683256
+          }
+        ],
+        "matched_fields": [
+          "upstream_description",
+          "topics",
+          "category_labels"
+        ],
+        "missing_facts": []
+      },
+      {
+        "github_repository_id": 60243197,
+        "rank": 11,
+        "rrf_score": 0.014084507042253521,
+        "variant_ranks": [
+          {
+            "variant_id": "q1",
+            "rank": 11,
+            "bm25": -7.326731114809514
+          }
+        ],
+        "matched_fields": [
+          "topics",
+          "category_labels"
+        ],
+        "missing_facts": []
+      }
+    ],
+    "truncated": false,
+    "reason_codes": []
+  },
+  "native_control": {
+    "status": "ready",
+    "request": {
+      "schema_version": "cp04_recommendation_request_v1",
+      "status": "ready",
+      "catalog_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-28a198a32cb2acbf805a517b",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "file_management_sync",
+        "language": "en",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "file",
+              "synchronization",
+              "devices",
+              "management",
+              "sync"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      },
+      "intent": {
+        "required_groups": [
+          [
+            "synchronization"
+          ]
+        ],
+        "context_terms": [
+          "file",
+          "devices"
+        ]
+      },
+      "exclusions": {
+        "repository_ids": [],
+        "dependencies": []
+      },
+      "unresolved": [],
+      "aggregate_calls": 1,
+      "query_derivation": {
+        "original_terms": [
+          "file",
+          "synchronization",
+          "devices"
+        ],
+        "original_match_count": 11,
+        "added_route_terms": [
+          "management",
+          "sync"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "added_term_origins": [
+          {
+            "term": "management",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "file_management_sync"
+          },
+          {
+            "term": "sync",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "file_management_sync"
+          }
+        ],
+        "original_query_sha256": "8ac88205031afeb4c583732bedcd9bac99851f058c3c4137c58ae6e2b0763cd1",
+        "final_query_sha256": "1dee1097c33468761258726a21528e039c4bf1e2a6852ddd4d6380ead2c3fc0e",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    "selection": {
+      "status": "ready",
+      "selected_ids": [
+        14712850,
+        4999959,
+        5550552,
+        578822531,
+        410749029,
+        323965659,
+        895547074,
+        188700274,
+        42332863,
+        663900193,
+        60243197
+      ],
+      "excluded": [],
+      "verification_required": [],
+      "conditional_configuration_ids": []
+    },
+    "aggregate_calls": 1,
+    "retrieval_calls": 1,
+    "evidence_pack": {
+      "schema_version": "2.1.0",
+      "run_id": "85cff61c-fc62-51d3-9ab0-7d5a78ddb28a",
+      "pack_id": "request-pack-28a198a32cb2acbf805a517b",
+      "query_id": "request-28a198a32cb2acbf805a517b",
+      "query_sha256": "1dee1097c33468761258726a21528e039c4bf1e2a6852ddd4d6380ead2c3fc0e",
+      "brief_version": 1,
+      "pins": {
+        "activity_schema_version": "2.0.0",
+        "card_schema_version": "2.0.0",
+        "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+        "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+        "corpus_kind": "catalog_snapshot",
+        "index_format_version": 3,
+        "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+        "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+        "retrieval_policy_version": "2.1.0",
+        "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+        "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+      },
+      "status": "ready",
+      "cards": [
+        {
+          "card": {
+            "activity": {
+              "created_at": "2013-11-26T09:48:21Z",
+              "last_commit_at": "2026-08-24T18:26:23Z",
+              "last_commit_branch": "main",
+              "last_commit_sha": "9af3c75f377c51a7e3f285704025385104d8f428",
+              "last_release_at": "2026-08-05T13:06:38Z",
+              "last_synced_at": "2026-08-30T16:00:00Z",
+              "observations": [
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "created_at",
+                  "observed_at": "2026-09-01T04:46:00.869226Z",
+                  "source_field": "activity.createdAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "repository_updated_at",
+                  "observed_at": "2026-09-01T04:46:00.869226Z",
+                  "source_field": "activity.updatedAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "pushed_at",
+                  "observed_at": "2026-09-01T04:46:00.869226Z",
+                  "source_field": "activity.pushedAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_commit_at",
+                  "observed_at": "2026-09-01T04:46:02.443575Z",
+                  "source_field": "activity.lastCommitAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_release_at",
+                  "observed_at": "2026-09-01T04:46:06.211708Z",
+                  "source_field": "activity.lastReleaseAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_synced_at",
+                  "observed_at": "2026-09-01T04:46:00.869226Z",
+                  "source_field": "activity.lastSyncedAt",
+                  "verification": "derived_reviewed"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "observed_at",
+                  "observed_at": "2026-09-01T04:46:00.869226Z",
+                  "source_field": "activity.observedAt",
+                  "verification": "source_reported"
+                }
+              ],
+              "observed_at": "2026-09-01T04:46:00.869226Z",
+              "pushed_at": "2026-06-05T01:42:52Z",
+              "repository_updated_at": "2026-06-05T01:42:52Z",
+              "schema_version": "2.0.0",
+              "status": "enriched"
+            },
+            "advisory": {
+              "adoption_mode": null,
+              "adoption_status": null,
+              "avoid_if": [],
+              "best_for": [],
+              "compatibility": [],
+              "complexity": null,
+              "eligibility": {
+                "catalog_acceptance_changed": false,
+                "data_gate_passed": false,
+                "evidence_completeness": 77.42,
+                "minimum_stars": 500,
+                "reasons": [
+                  "mandatory_fields_unresolved"
+                ],
+                "replacement_required": false
+              },
+              "gaps": [],
+              "integration_surface": null,
+              "project_stages": [],
+              "recommendation_reason": null,
+              "recommendation_status": null,
+              "tradeoffs": [],
+              "use_cases": []
+            },
+            "catalog": {
+              "evidence_stage": "identity_validated",
+              "membership_cohort": "baseline",
+              "review_status": "source_verified_batch",
+              "status": "accepted",
+              "status_source": "catalog_snapshot"
+            },
+            "classifications": [
+              {
+                "category_id": "file_management_sync",
+                "kind": "category",
+                "parent_id": "files_media_storage",
+                "placement_source": "cat08-canonical-reconciliation",
+                "role": "primary",
+                "title": "File Management & Synchronization"
+              }
+            ],
+            "corpus_kind": "catalog_snapshot",
+            "delivery": {
+              "deployment": {
+                "rationale": null,
+                "values": []
+              },
+              "difficulty": "intermediate",
+              "form": {
+                "rationale": null,
+                "value": "library"
+              },
+              "hosting": null,
+              "lifecycle": "active",
+              "maturity": "emerging",
+              "persona": "both",
+              "requires_server": null
+            },
+            "descriptions": {
+              "catalog": null,
+              "catalog_origin": null,
+              "upstream": "Open Source Continuous File Synchronization"
+            },
+            "evidence": [
+              {
+                "evidence_id": "ev-catalog-card",
+                "fields": [
+                  "/identity",
+                  "/catalog",
+                  "/descriptions",
+                  "/classifications",
+                  "/delivery",
+                  "/advisory",
+                  "/provenance"
+                ],
+                "observed_at": "2026-09-01T04:46:00.869226Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/14712850",
+                "verification": "derived_reviewed"
+              },
+              {
+                "evidence_id": "ev-catalog-repository",
+                "fields": [
+                  "/repository",
+                  "/activity"
+                ],
+                "observed_at": "2026-09-01T04:46:00.869226Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/14712850",
+                "verification": "source_reported"
+              }
+            ],
+            "identity": {
+              "catalog_record_id": "gh:syncthing/syncthing",
+              "full_name": "syncthing/syncthing",
+              "full_name_aliases": [],
+              "github_repository_id": 14712850,
+              "identity_status": "resolved",
+              "merged_catalog_record_ids": [],
+              "url": "https://github.com/syncthing/syncthing"
+            },
+            "provenance": {
+              "frozen_pins": {
+                "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                "field_contract_sha256": "9c0d6fd6e12ef42a37e26d8607405a7cbafdf1b7a633c8f8b53da159eaa7f456",
+                "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+              },
+              "sources": [
+                {
+                  "observed_at": "2026-09-01T04:46:00.869226Z",
+                  "source_id": "src-catalog-snapshot",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/14712850",
+                  "verification": "derived_reviewed"
+                }
+              ]
+            },
+            "repository": {
+              "archived": false,
+              "availability": "available",
+              "default_branch": "main",
+              "disabled": false,
+              "forks": 0,
+              "homepage": "https://syncthing.net/",
+              "is_fork": false,
+              "languages": [
+                {
+                  "name": "Go",
+                  "scope": "primary"
+                },
+                {
+                  "name": "HTML",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "JavaScript",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Shell",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "CSS",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Dockerfile",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Ruby",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "PowerShell",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Batchfile",
+                  "scope": "secondary"
+                }
+              ],
+              "license": {
+                "confidence": "source_reported",
+                "name": "Mozilla Public License 2.0",
+                "source": "Hugging Face: Mieaz/github-repos-metadata-ge3 (snapshot 2026-06-13; last_active mapped to Last push)",
+                "spdx": "MPL-2.0"
+              },
+              "size_kb": 0,
+              "stack": [
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "technology": "Go"
+                }
+              ],
+              "stars": 85115,
+              "topics": [
+                "go",
+                "p2p",
+                "peer-to-peer",
+                "synchronization"
+              ],
+              "visibility": "public",
+              "watchers": 0,
+              "watchers_scope": "subscribers_count"
+            },
+            "schema_version": "2.0.0"
+          },
+          "retrieval_rank": 1,
+          "eligibility": {
+            "schema_version": "2.1.0",
+            "github_repository_id": 14712850,
+            "query_id": "request-28a198a32cb2acbf805a517b",
+            "status": "reference_only",
+            "checks": [
+              {
+                "field": "availability",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "archived",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "advisory_evidence",
+                "outcome": "unknown",
+                "evidence_refs": [
+                  "ev-catalog-card"
+                ]
+              }
+            ],
+            "reason_codes": [
+              "mandatory_fact_unknown"
+            ],
+            "required_verifications": [
+              "Verify the advisory fit fields against source-backed public evidence."
+            ]
+          },
+          "rrf_score": 0.01639344262295082,
+          "matched_fields": [
+            "upstream_description",
+            "topics",
+            "category_labels"
+          ]
+        },
+        {
+          "card": {
+            "activity": {
+              "created_at": "2012-07-12T06:47:55Z",
+              "last_commit_at": "2026-08-26T09:43:13Z",
+              "last_commit_branch": "master",
+              "last_commit_sha": "4acbe248e37e8f42f0cdd372ead9818f51df81d4",
+              "last_release_at": "2024-02-27T07:51:16Z",
+              "last_synced_at": "2026-08-11T12:07:57Z",
+              "observations": [
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "created_at",
+                  "observed_at": "2026-09-01T02:30:10.726157Z",
+                  "source_field": "activity.createdAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "repository_updated_at",
+                  "observed_at": "2026-09-01T02:30:10.726157Z",
+                  "source_field": "activity.updatedAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "pushed_at",
+                  "observed_at": "2026-09-01T02:30:10.726157Z",
+                  "source_field": "activity.pushedAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_commit_at",
+                  "observed_at": "2026-09-01T02:30:12.382011Z",
+                  "source_field": "activity.lastCommitAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_release_at",
+                  "observed_at": "2026-09-01T02:30:14.586070Z",
+                  "source_field": "activity.lastReleaseAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_synced_at",
+                  "observed_at": "2026-09-01T02:30:10.726157Z",
+                  "source_field": "activity.lastSyncedAt",
+                  "verification": "derived_reviewed"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "observed_at",
+                  "observed_at": "2026-09-01T02:30:10.726157Z",
+                  "source_field": "activity.observedAt",
+                  "verification": "source_reported"
+                }
+              ],
+              "observed_at": "2026-09-01T02:30:10.726157Z",
+              "pushed_at": "2026-08-28T05:49:27Z",
+              "repository_updated_at": "2026-09-01T01:58:07Z",
+              "schema_version": "2.0.0",
+              "status": "pending_enrichment"
+            },
+            "advisory": {
+              "adoption_mode": null,
+              "adoption_status": null,
+              "avoid_if": [],
+              "best_for": [],
+              "compatibility": [],
+              "complexity": null,
+              "eligibility": {
+                "catalog_acceptance_changed": false,
+                "data_gate_passed": false,
+                "evidence_completeness": 77.42,
+                "minimum_stars": 500,
+                "reasons": [
+                  "mandatory_fields_unresolved"
+                ],
+                "replacement_required": false
+              },
+              "gaps": [],
+              "integration_surface": null,
+              "project_stages": [],
+              "recommendation_reason": null,
+              "recommendation_status": null,
+              "tradeoffs": [],
+              "use_cases": []
+            },
+            "catalog": {
+              "evidence_stage": "identity_validated",
+              "membership_cohort": "baseline",
+              "review_status": "curated_seed_needs_metadata",
+              "status": "candidate",
+              "status_source": "catalog_snapshot"
+            },
+            "classifications": [
+              {
+                "category_id": "file_management_sync",
+                "kind": "category",
+                "parent_id": "files_media_storage",
+                "placement_source": "cat08-canonical-reconciliation",
+                "role": "primary",
+                "title": "File Management & Synchronization"
+              }
+            ],
+            "corpus_kind": "catalog_snapshot",
+            "delivery": {
+              "deployment": {
+                "rationale": null,
+                "values": []
+              },
+              "difficulty": "intermediate",
+              "form": {
+                "rationale": null,
+                "value": "application"
+              },
+              "hosting": null,
+              "lifecycle": null,
+              "maturity": null,
+              "persona": "both",
+              "requires_server": null
+            },
+            "descriptions": {
+              "catalog": "Beyond file syncing and sharing, a new way to organize your files with extensible file properties and flexible views",
+              "catalog_origin": "upstream",
+              "upstream": "Beyond file syncing and sharing, a new way to organize your files with extensible file properties and flexible views"
+            },
+            "evidence": [
+              {
+                "evidence_id": "ev-catalog-card",
+                "fields": [
+                  "/identity",
+                  "/catalog",
+                  "/descriptions",
+                  "/classifications",
+                  "/delivery",
+                  "/advisory",
+                  "/provenance"
+                ],
+                "observed_at": "2026-09-01T02:30:10.726157Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/4999959",
+                "verification": "derived_reviewed"
+              },
+              {
+                "evidence_id": "ev-catalog-repository",
+                "fields": [
+                  "/repository",
+                  "/activity"
+                ],
+                "observed_at": "2026-09-01T02:30:10.726157Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/4999959",
+                "verification": "source_reported"
+              }
+            ],
+            "identity": {
+              "catalog_record_id": "gh-pending:haiwen/seafile",
+              "full_name": "haiwen/seafile",
+              "full_name_aliases": [],
+              "github_repository_id": 4999959,
+              "identity_status": "resolved",
+              "merged_catalog_record_ids": [],
+              "url": "https://github.com/haiwen/seafile"
+            },
+            "provenance": {
+              "frozen_pins": {
+                "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                "field_contract_sha256": "9c0d6fd6e12ef42a37e26d8607405a7cbafdf1b7a633c8f8b53da159eaa7f456",
+                "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+              },
+              "sources": [
+                {
+                  "observed_at": "2026-09-01T02:30:10.726157Z",
+                  "source_id": "src-catalog-snapshot",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/4999959",
+                  "verification": "derived_reviewed"
+                }
+              ]
+            },
+            "repository": {
+              "archived": false,
+              "availability": "available",
+              "default_branch": "master",
+              "disabled": false,
+              "forks": 1676,
+              "homepage": "http://seafile.com/",
+              "is_fork": false,
+              "languages": [
+                {
+                  "name": "C",
+                  "scope": "primary"
+                },
+                {
+                  "name": "Python",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "M4",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "CMake",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Shell",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Makefile",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Vala",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "C++",
+                  "scope": "secondary"
+                }
+              ],
+              "license": {
+                "confidence": "source_reported",
+                "name": "Other",
+                "source": "pending",
+                "spdx": null
+              },
+              "size_kb": 12382,
+              "stack": [
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "technology": "C"
+                }
+              ],
+              "stars": 15185,
+              "topics": [
+                "cloud-storage",
+                "document-management",
+                "file-sharing",
+                "file-sync",
+                "knowledge-management",
+                "markdown",
+                "wiki"
+              ],
+              "visibility": "public",
+              "watchers": 438,
+              "watchers_scope": "subscribers_count"
+            },
+            "schema_version": "2.0.0"
+          },
+          "retrieval_rank": 2,
+          "eligibility": {
+            "schema_version": "2.1.0",
+            "github_repository_id": 4999959,
+            "query_id": "request-28a198a32cb2acbf805a517b",
+            "status": "reference_only",
+            "checks": [
+              {
+                "field": "availability",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "archived",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "advisory_evidence",
+                "outcome": "unknown",
+                "evidence_refs": [
+                  "ev-catalog-card"
+                ]
+              }
+            ],
+            "reason_codes": [
+              "mandatory_fact_unknown"
+            ],
+            "required_verifications": [
+              "Verify the advisory fit fields against source-backed public evidence."
+            ]
+          },
+          "rrf_score": 0.016129032258064516,
+          "matched_fields": [
+            "upstream_description",
+            "catalog_description",
+            "topics",
+            "category_labels"
+          ]
+        },
+        {
+          "card": {
+            "activity": {
+              "created_at": "2012-08-25T10:32:48Z",
+              "last_commit_at": "2026-08-31T07:08:06Z",
+              "last_commit_branch": "master",
+              "last_commit_sha": "046b3ec0fd1f0291f9f892a7889c61057094442a",
+              "last_release_at": "2026-07-30T11:15:26Z",
+              "last_synced_at": "2026-08-11T13:03:47Z",
+              "observations": [
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "created_at",
+                  "observed_at": "2026-09-01T02:58:26.744389Z",
+                  "source_field": "activity.createdAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "repository_updated_at",
+                  "observed_at": "2026-09-01T02:58:26.744389Z",
+                  "source_field": "activity.updatedAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "pushed_at",
+                  "observed_at": "2026-09-01T02:58:26.744389Z",
+                  "source_field": "activity.pushedAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_commit_at",
+                  "observed_at": "2026-09-01T02:58:28.647809Z",
+                  "source_field": "activity.lastCommitAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_release_at",
+                  "observed_at": "2026-09-01T02:58:32.154774Z",
+                  "source_field": "activity.lastReleaseAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_synced_at",
+                  "observed_at": "2026-09-01T02:58:26.744389Z",
+                  "source_field": "activity.lastSyncedAt",
+                  "verification": "derived_reviewed"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "observed_at",
+                  "observed_at": "2026-09-01T02:58:26.744389Z",
+                  "source_field": "activity.observedAt",
+                  "verification": "source_reported"
+                }
+              ],
+              "observed_at": "2026-09-01T02:58:26.744389Z",
+              "pushed_at": "2026-08-31T14:09:12Z",
+              "repository_updated_at": "2026-09-01T02:08:11Z",
+              "schema_version": "2.0.0",
+              "status": "pending_enrichment"
+            },
+            "advisory": {
+              "adoption_mode": null,
+              "adoption_status": null,
+              "avoid_if": [],
+              "best_for": [],
+              "compatibility": [],
+              "complexity": null,
+              "eligibility": {
+                "catalog_acceptance_changed": false,
+                "data_gate_passed": false,
+                "evidence_completeness": 77.42,
+                "minimum_stars": 500,
+                "reasons": [
+                  "mandatory_fields_unresolved"
+                ],
+                "replacement_required": false
+              },
+              "gaps": [],
+              "integration_surface": null,
+              "project_stages": [],
+              "recommendation_reason": null,
+              "recommendation_status": null,
+              "tradeoffs": [],
+              "use_cases": []
+            },
+            "catalog": {
+              "evidence_stage": "identity_validated",
+              "membership_cohort": "baseline",
+              "review_status": "curated_seed_needs_metadata",
+              "status": "candidate",
+              "status_source": "catalog_snapshot"
+            },
+            "classifications": [
+              {
+                "category_id": "file_management_sync",
+                "kind": "category",
+                "parent_id": "files_media_storage",
+                "placement_source": "cat08-canonical-reconciliation",
+                "role": "primary",
+                "title": "File Management & Synchronization"
+              },
+              {
+                "category_id": "collaboration_knowledge",
+                "kind": "category",
+                "parent_id": null,
+                "placement_source": "cat08-canonical-reconciliation",
+                "role": "secondary",
+                "title": "Knowledge & Collaborative Workspaces"
+              }
+            ],
+            "corpus_kind": "catalog_snapshot",
+            "delivery": {
+              "deployment": {
+                "rationale": null,
+                "values": []
+              },
+              "difficulty": "intermediate",
+              "form": {
+                "rationale": null,
+                "value": "application"
+              },
+              "hosting": null,
+              "lifecycle": null,
+              "maturity": null,
+              "persona": "both",
+              "requires_server": null
+            },
+            "descriptions": {
+              "catalog": ":cloud: ownCloud web server core (Files, DAV, etc.)",
+              "catalog_origin": "upstream",
+              "upstream": ":cloud: ownCloud web server core (Files, DAV, etc.)"
+            },
+            "evidence": [
+              {
+                "evidence_id": "ev-catalog-card",
+                "fields": [
+                  "/identity",
+                  "/catalog",
+                  "/descriptions",
+                  "/classifications",
+                  "/delivery",
+                  "/advisory",
+                  "/provenance"
+                ],
+                "observed_at": "2026-09-01T02:58:26.744389Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/5550552",
+                "verification": "derived_reviewed"
+              },
+              {
+                "evidence_id": "ev-catalog-repository",
+                "fields": [
+                  "/repository",
+                  "/activity"
+                ],
+                "observed_at": "2026-09-01T02:58:26.744389Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/5550552",
+                "verification": "source_reported"
+              }
+            ],
+            "identity": {
+              "catalog_record_id": "gh-pending:owncloud/core",
+              "full_name": "owncloud/core",
+              "full_name_aliases": [],
+              "github_repository_id": 5550552,
+              "identity_status": "resolved",
+              "merged_catalog_record_ids": [],
+              "url": "https://github.com/owncloud/core"
+            },
+            "provenance": {
+              "frozen_pins": {
+                "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                "field_contract_sha256": "9c0d6fd6e12ef42a37e26d8607405a7cbafdf1b7a633c8f8b53da159eaa7f456",
+                "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+              },
+              "sources": [
+                {
+                  "observed_at": "2026-09-01T02:58:26.744389Z",
+                  "source_id": "src-catalog-snapshot",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/5550552",
+                  "verification": "derived_reviewed"
+                }
+              ]
+            },
+            "repository": {
+              "archived": false,
+              "availability": "available",
+              "default_branch": "master",
+              "disabled": false,
+              "forks": 2062,
+              "homepage": "https://owncloud.com",
+              "is_fork": false,
+              "languages": [
+                {
+                  "name": "PHP",
+                  "scope": "primary"
+                },
+                {
+                  "name": "JavaScript",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Gherkin",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "CSS",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Shell",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Starlark",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Makefile",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Perl",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "HTML",
+                  "scope": "secondary"
+                }
+              ],
+              "license": {
+                "confidence": "source_reported",
+                "name": "GNU Affero General Public License v3.0",
+                "source": "https://api.github.com/licenses/agpl-3.0",
+                "spdx": "AGPL-3.0"
+              },
+              "size_kb": 358579,
+              "stack": [
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "technology": "PHP"
+                }
+              ],
+              "stars": 8829,
+              "topics": [
+                "enterprise",
+                "federated",
+                "file-sharing",
+                "file-sync",
+                "javascript",
+                "owncloud",
+                "owncloud-classic",
+                "php",
+                "platform",
+                "self-hosted",
+                "self-hosting",
+                "server",
+                "sharing",
+                "webdav"
+              ],
+              "visibility": "public",
+              "watchers": 431,
+              "watchers_scope": "subscribers_count"
+            },
+            "schema_version": "2.0.0"
+          },
+          "retrieval_rank": 3,
+          "eligibility": {
+            "schema_version": "2.1.0",
+            "github_repository_id": 5550552,
+            "query_id": "request-28a198a32cb2acbf805a517b",
+            "status": "reference_only",
+            "checks": [
+              {
+                "field": "availability",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "archived",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "advisory_evidence",
+                "outcome": "unknown",
+                "evidence_refs": [
+                  "ev-catalog-card"
+                ]
+              }
+            ],
+            "reason_codes": [
+              "mandatory_fact_unknown"
+            ],
+            "required_verifications": [
+              "Verify the advisory fit fields against source-backed public evidence."
+            ]
+          },
+          "rrf_score": 0.015873015873015872,
+          "matched_fields": [
+            "topics",
+            "category_labels"
+          ]
+        },
+        {
+          "card": {
+            "activity": {
+              "created_at": "2022-12-16T00:46:07Z",
+              "last_commit_at": "2026-08-30T21:52:40Z",
+              "last_commit_branch": "main",
+              "last_commit_sha": "6279d3e30d1d1290caee3b81549f8128a8b01d9f",
+              "last_release_at": "2026-08-21T14:02:01Z",
+              "last_synced_at": "2026-08-30T16:00:00Z",
+              "observations": [
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "created_at",
+                  "observed_at": "2026-09-01T04:46:20.847268Z",
+                  "source_field": "activity.createdAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "repository_updated_at",
+                  "observed_at": "2026-09-01T04:46:20.847268Z",
+                  "source_field": "activity.updatedAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "pushed_at",
+                  "observed_at": "2026-09-01T04:46:20.847268Z",
+                  "source_field": "activity.pushedAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_commit_at",
+                  "observed_at": "2026-09-01T04:46:22.538449Z",
+                  "source_field": "activity.lastCommitAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_release_at",
+                  "observed_at": "2026-09-01T04:46:26.531983Z",
+                  "source_field": "activity.lastReleaseAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_synced_at",
+                  "observed_at": "2026-09-01T04:46:20.847268Z",
+                  "source_field": "activity.lastSyncedAt",
+                  "verification": "derived_reviewed"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "observed_at",
+                  "observed_at": "2026-09-01T04:46:20.847268Z",
+                  "source_field": "activity.observedAt",
+                  "verification": "source_reported"
+                }
+              ],
+              "observed_at": "2026-09-01T04:46:20.847268Z",
+              "pushed_at": "2026-06-05T10:03:22Z",
+              "repository_updated_at": "2026-06-05T10:03:22Z",
+              "schema_version": "2.0.0",
+              "status": "enriched"
+            },
+            "advisory": {
+              "adoption_mode": null,
+              "adoption_status": null,
+              "avoid_if": [],
+              "best_for": [],
+              "compatibility": [],
+              "complexity": null,
+              "eligibility": {
+                "catalog_acceptance_changed": false,
+                "data_gate_passed": false,
+                "evidence_completeness": 77.42,
+                "minimum_stars": 500,
+                "reasons": [
+                  "mandatory_fields_unresolved"
+                ],
+                "replacement_required": false
+              },
+              "gaps": [],
+              "integration_surface": null,
+              "project_stages": [],
+              "recommendation_reason": null,
+              "recommendation_status": null,
+              "tradeoffs": [],
+              "use_cases": []
+            },
+            "catalog": {
+              "evidence_stage": "identity_validated",
+              "membership_cohort": "baseline",
+              "review_status": "source_verified_batch",
+              "status": "accepted",
+              "status_source": "catalog_snapshot"
+            },
+            "classifications": [
+              {
+                "category_id": "file_management_sync",
+                "kind": "category",
+                "parent_id": "files_media_storage",
+                "placement_source": "cat08-canonical-reconciliation",
+                "role": "primary",
+                "title": "File Management & Synchronization"
+              }
+            ],
+            "corpus_kind": "catalog_snapshot",
+            "delivery": {
+              "deployment": {
+                "rationale": null,
+                "values": []
+              },
+              "difficulty": "intermediate",
+              "form": {
+                "rationale": null,
+                "value": "library"
+              },
+              "hosting": null,
+              "lifecycle": "active",
+              "maturity": "emerging",
+              "persona": "both",
+              "requires_server": null
+            },
+            "descriptions": {
+              "catalog": null,
+              "catalog_origin": null,
+              "upstream": "An open-source cross-platform alternative to AirDrop"
+            },
+            "evidence": [
+              {
+                "evidence_id": "ev-catalog-card",
+                "fields": [
+                  "/identity",
+                  "/catalog",
+                  "/descriptions",
+                  "/classifications",
+                  "/delivery",
+                  "/advisory",
+                  "/provenance"
+                ],
+                "observed_at": "2026-09-01T04:46:20.847268Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/578822531",
+                "verification": "derived_reviewed"
+              },
+              {
+                "evidence_id": "ev-catalog-repository",
+                "fields": [
+                  "/repository",
+                  "/activity"
+                ],
+                "observed_at": "2026-09-01T04:46:20.847268Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/578822531",
+                "verification": "source_reported"
+              }
+            ],
+            "identity": {
+              "catalog_record_id": "gh:localsend/localsend",
+              "full_name": "localsend/localsend",
+              "full_name_aliases": [],
+              "github_repository_id": 578822531,
+              "identity_status": "resolved",
+              "merged_catalog_record_ids": [],
+              "url": "https://github.com/localsend/localsend"
+            },
+            "provenance": {
+              "frozen_pins": {
+                "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                "field_contract_sha256": "9c0d6fd6e12ef42a37e26d8607405a7cbafdf1b7a633c8f8b53da159eaa7f456",
+                "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+              },
+              "sources": [
+                {
+                  "observed_at": "2026-09-01T04:46:20.847268Z",
+                  "source_id": "src-catalog-snapshot",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/578822531",
+                  "verification": "derived_reviewed"
+                }
+              ]
+            },
+            "repository": {
+              "archived": false,
+              "availability": "available",
+              "default_branch": "main",
+              "disabled": false,
+              "forks": 0,
+              "homepage": "https://localsend.org",
+              "is_fork": false,
+              "languages": [
+                {
+                  "name": "Dart",
+                  "scope": "primary"
+                },
+                {
+                  "name": "Rust",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Inno Setup",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Kotlin",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "C++",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Swift",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "CMake",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "HTML",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Shell",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "PowerShell",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Ruby",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "D2",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Batchfile",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "C",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Dockerfile",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Objective-C",
+                  "scope": "secondary"
+                }
+              ],
+              "license": {
+                "confidence": "source_reported",
+                "name": "Apache License 2.0",
+                "source": "Hugging Face: Mieaz/github-repos-metadata-ge3 (snapshot 2026-06-13; last_active mapped to Last push)",
+                "spdx": "Apache-2.0"
+              },
+              "size_kb": 0,
+              "stack": [
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "technology": "Dart"
+                }
+              ],
+              "stars": 83253,
+              "topics": [
+                "dart",
+                "file-sharing",
+                "flutter",
+                "flutter-apps"
+              ],
+              "visibility": "public",
+              "watchers": 0,
+              "watchers_scope": "subscribers_count"
+            },
+            "schema_version": "2.0.0"
+          },
+          "retrieval_rank": 4,
+          "eligibility": {
+            "schema_version": "2.1.0",
+            "github_repository_id": 578822531,
+            "query_id": "request-28a198a32cb2acbf805a517b",
+            "status": "reference_only",
+            "checks": [
+              {
+                "field": "availability",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "archived",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "advisory_evidence",
+                "outcome": "unknown",
+                "evidence_refs": [
+                  "ev-catalog-card"
+                ]
+              }
+            ],
+            "reason_codes": [
+              "mandatory_fact_unknown"
+            ],
+            "required_verifications": [
+              "Verify the advisory fit fields against source-backed public evidence."
+            ]
+          },
+          "rrf_score": 0.015625,
+          "matched_fields": [
+            "topics",
+            "category_labels"
+          ]
+        },
+        {
+          "card": {
+            "activity": {
+              "created_at": "2021-09-27T05:09:04Z",
+              "last_commit_at": "2026-07-29T00:31:23Z",
+              "last_commit_branch": "main",
+              "last_commit_sha": "6dfeccf2113039e35f2ce735f945e70dc3e4ea45",
+              "last_release_at": "2025-03-24T14:16:59Z",
+              "last_synced_at": "2026-08-30T17:15:00Z",
+              "observations": [
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "created_at",
+                  "observed_at": "2026-09-01T05:00:08.417903Z",
+                  "source_field": "activity.createdAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "repository_updated_at",
+                  "observed_at": "2026-09-01T05:00:08.417903Z",
+                  "source_field": "activity.updatedAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "pushed_at",
+                  "observed_at": "2026-09-01T05:00:08.417903Z",
+                  "source_field": "activity.pushedAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_commit_at",
+                  "observed_at": "2026-09-01T05:00:09.375349Z",
+                  "source_field": "activity.lastCommitAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_release_at",
+                  "observed_at": "2026-09-01T05:00:13.937755Z",
+                  "source_field": "activity.lastReleaseAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_synced_at",
+                  "observed_at": "2026-09-01T05:00:08.417903Z",
+                  "source_field": "activity.lastSyncedAt",
+                  "verification": "derived_reviewed"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "observed_at",
+                  "observed_at": "2026-09-01T05:00:08.417903Z",
+                  "source_field": "activity.observedAt",
+                  "verification": "source_reported"
+                }
+              ],
+              "observed_at": "2026-09-01T05:00:08.417903Z",
+              "pushed_at": "2026-04-19T08:27:55Z",
+              "repository_updated_at": "2026-04-19T08:27:55Z",
+              "schema_version": "2.0.0",
+              "status": "enriched"
+            },
+            "advisory": {
+              "adoption_mode": null,
+              "adoption_status": null,
+              "avoid_if": [],
+              "best_for": [
+                "Teams evaluating file, media, content, and asset workflows."
+              ],
+              "compatibility": [],
+              "complexity": null,
+              "eligibility": {
+                "catalog_acceptance_changed": false,
+                "data_gate_passed": false,
+                "evidence_completeness": 77.42,
+                "minimum_stars": 500,
+                "reasons": [
+                  "mandatory_fields_unresolved"
+                ],
+                "replacement_required": false
+              },
+              "gaps": [],
+              "integration_surface": null,
+              "project_stages": [],
+              "recommendation_reason": "Selected for direct fit with Files, Media & Asset Processing: the repository provides cross-platform file explorer powered by a virtual distributed filesystem written in rust. Its Rust stack, 38,221 GitHub stars, and source snapshot showing activity on 2026-04-19 make it a high-signal candidate for evaluation.",
+              "recommendation_status": null,
+              "tradeoffs": [
+                "Review storage model, metadata portability, content rights, transcoding cost, and backup requirements. Reported license: other; verify the current repository license before adoption."
+              ],
+              "use_cases": []
+            },
+            "catalog": {
+              "evidence_stage": "identity_validated",
+              "membership_cohort": "baseline",
+              "review_status": "source_verified_required_fields",
+              "status": "candidate",
+              "status_source": "catalog_snapshot"
+            },
+            "classifications": [
+              {
+                "category_id": "file_management_sync",
+                "kind": "category",
+                "parent_id": "files_media_storage",
+                "placement_source": "cat08-canonical-reconciliation",
+                "role": "primary",
+                "title": "File Management & Synchronization"
+              }
+            ],
+            "corpus_kind": "catalog_snapshot",
+            "delivery": {
+              "deployment": {
+                "rationale": null,
+                "values": []
+              },
+              "difficulty": "intermediate",
+              "form": {
+                "rationale": null,
+                "value": "component"
+              },
+              "hosting": null,
+              "lifecycle": "active",
+              "maturity": "established",
+              "persona": "both",
+              "requires_server": null
+            },
+            "descriptions": {
+              "catalog": null,
+              "catalog_origin": null,
+              "upstream": "Cross-platform file explorer powered by a virtual distributed filesystem written in Rust."
+            },
+            "evidence": [
+              {
+                "evidence_id": "ev-catalog-card",
+                "fields": [
+                  "/identity",
+                  "/catalog",
+                  "/descriptions",
+                  "/classifications",
+                  "/delivery",
+                  "/advisory",
+                  "/provenance"
+                ],
+                "observed_at": "2026-09-01T05:00:08.417903Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/410749029",
+                "verification": "derived_reviewed"
+              },
+              {
+                "evidence_id": "ev-catalog-repository",
+                "fields": [
+                  "/repository",
+                  "/activity"
+                ],
+                "observed_at": "2026-09-01T05:00:08.417903Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/410749029",
+                "verification": "source_reported"
+              }
+            ],
+            "identity": {
+              "catalog_record_id": "gh-1500:spacedriveapp/spacedrive",
+              "full_name": "spacedriveapp/spacedrive",
+              "full_name_aliases": [],
+              "github_repository_id": 410749029,
+              "identity_status": "resolved",
+              "merged_catalog_record_ids": [],
+              "url": "https://github.com/spacedriveapp/spacedrive"
+            },
+            "provenance": {
+              "frozen_pins": {
+                "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                "field_contract_sha256": "9c0d6fd6e12ef42a37e26d8607405a7cbafdf1b7a633c8f8b53da159eaa7f456",
+                "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+              },
+              "sources": [
+                {
+                  "observed_at": "2026-09-01T05:00:08.417903Z",
+                  "source_id": "src-catalog-snapshot",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/410749029",
+                  "verification": "derived_reviewed"
+                }
+              ]
+            },
+            "repository": {
+              "archived": false,
+              "availability": "available",
+              "default_branch": "main",
+              "disabled": false,
+              "forks": 1288,
+              "homepage": "https://spacedrive.com",
+              "is_fork": false,
+              "languages": [
+                {
+                  "name": "Rust",
+                  "scope": "primary"
+                }
+              ],
+              "license": {
+                "confidence": "source_reported",
+                "name": "Other",
+                "source": "Hugging Face: Mieaz/github-repos-metadata-ge3",
+                "spdx": "other"
+              },
+              "size_kb": 270410,
+              "stack": [
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "technology": "Rust"
+                }
+              ],
+              "stars": 38221,
+              "topics": [
+                "cross-platform",
+                "distributed-systems",
+                "encryption",
+                "file-manager",
+                "open-source",
+                "rust",
+                "storage",
+                "typescript"
+              ],
+              "visibility": "public",
+              "watchers": 234,
+              "watchers_scope": "subscribers_count"
+            },
+            "schema_version": "2.0.0"
+          },
+          "retrieval_rank": 5,
+          "eligibility": {
+            "schema_version": "2.1.0",
+            "github_repository_id": 410749029,
+            "query_id": "request-28a198a32cb2acbf805a517b",
+            "status": "reference_only",
+            "checks": [
+              {
+                "field": "availability",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "archived",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "advisory_evidence",
+                "outcome": "unknown",
+                "evidence_refs": [
+                  "ev-catalog-card"
+                ]
+              }
+            ],
+            "reason_codes": [
+              "mandatory_fact_unknown"
+            ],
+            "required_verifications": [
+              "Verify the advisory fit fields against source-backed public evidence."
+            ]
+          },
+          "rrf_score": 0.015384615384615385,
+          "matched_fields": [
+            "upstream_description",
+            "topics",
+            "category_labels",
+            "best_for"
+          ]
+        },
+        {
+          "card": {
+            "activity": {
+              "created_at": "2020-12-23T17:40:29Z",
+              "last_commit_at": "2026-08-31T09:00:52Z",
+              "last_commit_branch": "main",
+              "last_commit_sha": "680a2de6f2dad9950ee554d979915f0a6713c2a6",
+              "last_release_at": "2026-08-05T08:04:59Z",
+              "last_synced_at": "2026-08-30T17:15:00Z",
+              "observations": [
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "created_at",
+                  "observed_at": "2026-09-01T04:55:32.471384Z",
+                  "source_field": "activity.createdAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "repository_updated_at",
+                  "observed_at": "2026-09-01T04:55:32.471384Z",
+                  "source_field": "activity.updatedAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "pushed_at",
+                  "observed_at": "2026-09-01T04:55:32.471384Z",
+                  "source_field": "activity.pushedAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_commit_at",
+                  "observed_at": "2026-09-01T04:55:33.813085Z",
+                  "source_field": "activity.lastCommitAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_release_at",
+                  "observed_at": "2026-09-01T04:55:38.092986Z",
+                  "source_field": "activity.lastReleaseAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_synced_at",
+                  "observed_at": "2026-09-01T04:55:32.471384Z",
+                  "source_field": "activity.lastSyncedAt",
+                  "verification": "derived_reviewed"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "observed_at",
+                  "observed_at": "2026-09-01T04:55:32.471384Z",
+                  "source_field": "activity.observedAt",
+                  "verification": "source_reported"
+                }
+              ],
+              "observed_at": "2026-09-01T04:55:32.471384Z",
+              "pushed_at": "2024-10-04T07:46:25Z",
+              "repository_updated_at": "2024-10-04T07:46:25Z",
+              "schema_version": "2.0.0",
+              "status": "enriched"
+            },
+            "advisory": {
+              "adoption_mode": null,
+              "adoption_status": null,
+              "avoid_if": [],
+              "best_for": [
+                "Teams evaluating storage, key-value data, SQL operations, and self-hosted data services."
+              ],
+              "compatibility": [],
+              "complexity": null,
+              "eligibility": {
+                "catalog_acceptance_changed": false,
+                "data_gate_passed": false,
+                "evidence_completeness": 77.42,
+                "minimum_stars": 500,
+                "reasons": [
+                  "mandatory_fields_unresolved"
+                ],
+                "replacement_required": false
+              },
+              "gaps": [],
+              "integration_surface": null,
+              "project_stages": [],
+              "recommendation_reason": "Selected for direct fit with Databases, Storage & Caching: the repository provides a file-list and webdav program that supports multiple storage providers. Its Go stack, 42,553 GitHub stars, and source snapshot showing activity on 2024-10-04 make it a high-signal candidate for evaluation.",
+              "recommendation_status": null,
+              "tradeoffs": [
+                "Benchmark durability, backup/restore, consistency, migration, and operational complexity for the target workload. Reported license: agpl-3.0; verify the current repository license before adoption."
+              ],
+              "use_cases": []
+            },
+            "catalog": {
+              "evidence_stage": "identity_validated",
+              "membership_cohort": "baseline",
+              "review_status": "source_verified_required_fields",
+              "status": "candidate",
+              "status_source": "catalog_snapshot"
+            },
+            "classifications": [
+              {
+                "category_id": "file_management_sync",
+                "kind": "category",
+                "parent_id": "files_media_storage",
+                "placement_source": "cat08-canonical-reconciliation",
+                "role": "primary",
+                "title": "File Management & Synchronization"
+              }
+            ],
+            "corpus_kind": "catalog_snapshot",
+            "delivery": {
+              "deployment": {
+                "rationale": null,
+                "values": []
+              },
+              "difficulty": "intermediate",
+              "form": {
+                "rationale": null,
+                "value": "component"
+              },
+              "hosting": null,
+              "lifecycle": "active",
+              "maturity": "established",
+              "persona": "both",
+              "requires_server": null
+            },
+            "descriptions": {
+              "catalog": null,
+              "catalog_origin": null,
+              "upstream": "A file-list and WebDAV program that supports multiple storage providers."
+            },
+            "evidence": [
+              {
+                "evidence_id": "ev-catalog-card",
+                "fields": [
+                  "/identity",
+                  "/catalog",
+                  "/descriptions",
+                  "/classifications",
+                  "/delivery",
+                  "/advisory",
+                  "/provenance"
+                ],
+                "observed_at": "2026-09-01T04:55:32.471384Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/323965659",
+                "verification": "derived_reviewed"
+              },
+              {
+                "evidence_id": "ev-catalog-repository",
+                "fields": [
+                  "/repository",
+                  "/activity"
+                ],
+                "observed_at": "2026-09-01T04:55:32.471384Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/323965659",
+                "verification": "source_reported"
+              }
+            ],
+            "identity": {
+              "catalog_record_id": "gh-1500:alist-org/alist",
+              "full_name": "AlistGo/alist",
+              "full_name_aliases": [
+                "alist-org/alist"
+              ],
+              "github_repository_id": 323965659,
+              "identity_status": "resolved",
+              "merged_catalog_record_ids": [],
+              "url": "https://github.com/AlistGo/alist"
+            },
+            "provenance": {
+              "frozen_pins": {
+                "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                "field_contract_sha256": "9c0d6fd6e12ef42a37e26d8607405a7cbafdf1b7a633c8f8b53da159eaa7f456",
+                "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+              },
+              "sources": [
+                {
+                  "observed_at": "2026-09-01T04:55:32.471384Z",
+                  "source_id": "src-catalog-snapshot",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/323965659",
+                  "verification": "derived_reviewed"
+                }
+              ]
+            },
+            "repository": {
+              "archived": false,
+              "availability": "available",
+              "default_branch": "main",
+              "disabled": false,
+              "forks": 5503,
+              "homepage": "https://alistgo.com",
+              "is_fork": false,
+              "languages": [
+                {
+                  "name": "Go",
+                  "scope": "primary"
+                }
+              ],
+              "license": {
+                "confidence": "source_reported",
+                "name": "GNU Affero General Public License v3.0",
+                "source": "Hugging Face: Mieaz/github-repos-metadata-ge3",
+                "spdx": "agpl-3.0"
+              },
+              "size_kb": 6745,
+              "stack": [
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "technology": "Go"
+                }
+              ],
+              "stars": 42553,
+              "topics": [
+                "file-server",
+                "gin",
+                "golang",
+                "onedrive",
+                "solidjs",
+                "webdav"
+              ],
+              "visibility": "public",
+              "watchers": 219,
+              "watchers_scope": "subscribers_count"
+            },
+            "schema_version": "2.0.0"
+          },
+          "retrieval_rank": 6,
+          "eligibility": {
+            "schema_version": "2.1.0",
+            "github_repository_id": 323965659,
+            "query_id": "request-28a198a32cb2acbf805a517b",
+            "status": "reference_only",
+            "checks": [
+              {
+                "field": "availability",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "archived",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "advisory_evidence",
+                "outcome": "unknown",
+                "evidence_refs": [
+                  "ev-catalog-card"
+                ]
+              }
+            ],
+            "reason_codes": [
+              "mandatory_fact_unknown"
+            ],
+            "required_verifications": [
+              "Verify the advisory fit fields against source-backed public evidence."
+            ]
+          },
+          "rrf_score": 0.015151515151515152,
+          "matched_fields": [
+            "upstream_description",
+            "topics",
+            "category_labels"
+          ]
+        },
+        {
+          "card": {
+            "activity": {
+              "created_at": "2024-11-28T12:15:08Z",
+              "last_commit_at": "2025-11-23T17:20:25Z",
+              "last_commit_branch": "main",
+              "last_commit_sha": "ba3f07f22c309d932fa9b1cebe1eb7c55fcbb83b",
+              "last_release_at": "2025-06-22T20:23:14Z",
+              "last_synced_at": "2026-08-30T12:35:20Z",
+              "observations": [
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "created_at",
+                  "observed_at": "2026-09-01T05:20:28.809546Z",
+                  "source_field": "activity.createdAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "repository_updated_at",
+                  "observed_at": "2026-09-01T05:20:28.809546Z",
+                  "source_field": "activity.updatedAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "pushed_at",
+                  "observed_at": "2026-09-01T05:20:28.809546Z",
+                  "source_field": "activity.pushedAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_commit_at",
+                  "observed_at": "2026-09-01T05:20:29.633789Z",
+                  "source_field": "activity.lastCommitAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_release_at",
+                  "observed_at": "2026-09-01T05:20:33.523976Z",
+                  "source_field": "activity.lastReleaseAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_synced_at",
+                  "observed_at": "2026-09-01T05:20:28.809546Z",
+                  "source_field": "activity.lastSyncedAt",
+                  "verification": "derived_reviewed"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "observed_at",
+                  "observed_at": "2026-09-01T05:20:28.809546Z",
+                  "source_field": "activity.observedAt",
+                  "verification": "source_reported"
+                }
+              ],
+              "observed_at": "2026-09-01T05:20:28.809546Z",
+              "pushed_at": "2025-11-24T15:46:55Z",
+              "repository_updated_at": "2026-08-29T17:47:04Z",
+              "schema_version": "2.0.0",
+              "status": "enriched"
+            },
+            "advisory": {
+              "adoption_mode": null,
+              "adoption_status": "adopt-with-validation",
+              "avoid_if": [],
+              "best_for": [
+                "Teams automating spreadsheet, video, CAD, and other rich-file workflows through agents."
+              ],
+              "compatibility": [],
+              "complexity": null,
+              "eligibility": {
+                "catalog_acceptance_changed": false,
+                "data_gate_passed": false,
+                "evidence_completeness": 77.42,
+                "minimum_stars": 500,
+                "reasons": [
+                  "mandatory_fields_unresolved"
+                ],
+                "replacement_required": false
+              },
+              "gaps": [],
+              "integration_surface": null,
+              "project_stages": [],
+              "recommendation_reason": "Selected as a specialized document, media, or authoring-tool integration because its source description maps directly to Files, Media & Asset Processing: Go server implementing Model Context Protocol (MCP) for filesystem operations. The scanner snapshot records a Go stack, 678 GitHub stars, creation on 2024-11-28, and a last push on 2025-11-24. These are discovery signals for evaluation, not production, security, legal, or procurement approval.",
+              "recommendation_status": null,
+              "tradeoffs": [
+                "Use backups and non-production assets first. Validate file-format fidelity, application version support, destructive operations, plugin trust, and undo/rollback."
+              ],
+              "use_cases": []
+            },
+            "catalog": {
+              "evidence_stage": "identity_validated",
+              "membership_cohort": "baseline",
+              "review_status": "source_verified_required_fields",
+              "status": "candidate",
+              "status_source": "catalog_snapshot"
+            },
+            "classifications": [
+              {
+                "category_id": "file_management_sync",
+                "kind": "category",
+                "parent_id": "files_media_storage",
+                "placement_source": "cat08-canonical-reconciliation",
+                "role": "primary",
+                "title": "File Management & Synchronization"
+              }
+            ],
+            "corpus_kind": "catalog_snapshot",
+            "delivery": {
+              "deployment": {
+                "rationale": null,
+                "values": []
+              },
+              "difficulty": "intermediate",
+              "form": {
+                "rationale": null,
+                "value": "integration"
+              },
+              "hosting": null,
+              "lifecycle": "active",
+              "maturity": null,
+              "persona": "both",
+              "requires_server": null
+            },
+            "descriptions": {
+              "catalog": null,
+              "catalog_origin": null,
+              "upstream": "Go server implementing Model Context Protocol (MCP) for filesystem operations."
+            },
+            "evidence": [
+              {
+                "evidence_id": "ev-catalog-card",
+                "fields": [
+                  "/identity",
+                  "/catalog",
+                  "/descriptions",
+                  "/classifications",
+                  "/delivery",
+                  "/advisory",
+                  "/provenance"
+                ],
+                "observed_at": "2026-09-01T05:20:28.809546Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/895547074",
+                "verification": "derived_reviewed"
+              },
+              {
+                "evidence_id": "ev-catalog-repository",
+                "fields": [
+                  "/repository",
+                  "/activity"
+                ],
+                "observed_at": "2026-09-01T05:20:28.809546Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/895547074",
+                "verification": "source_reported"
+              }
+            ],
+            "identity": {
+              "catalog_record_id": "gh-1700:mark3labs/mcp-filesystem-server",
+              "full_name": "mark3labs/mcp-filesystem-server",
+              "full_name_aliases": [],
+              "github_repository_id": 895547074,
+              "identity_status": "resolved",
+              "merged_catalog_record_ids": [],
+              "url": "https://github.com/mark3labs/mcp-filesystem-server"
+            },
+            "provenance": {
+              "frozen_pins": {
+                "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                "field_contract_sha256": "9c0d6fd6e12ef42a37e26d8607405a7cbafdf1b7a633c8f8b53da159eaa7f456",
+                "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+              },
+              "sources": [
+                {
+                  "observed_at": "2026-09-01T05:20:28.809546Z",
+                  "source_id": "src-catalog-snapshot",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/895547074",
+                  "verification": "derived_reviewed"
+                }
+              ]
+            },
+            "repository": {
+              "archived": false,
+              "availability": "available",
+              "default_branch": "main",
+              "disabled": false,
+              "forks": 111,
+              "homepage": null,
+              "is_fork": false,
+              "languages": [
+                {
+                  "name": "Go",
+                  "scope": "primary"
+                }
+              ],
+              "license": {
+                "confidence": "not_collected_for_batch",
+                "name": "MIT License",
+                "source": "PurpleHaze2320/mcp-ecosystem-scanner:data/latest.json",
+                "spdx": "MIT"
+              },
+              "size_kb": 90,
+              "stack": [
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "technology": "Go"
+                }
+              ],
+              "stars": 678,
+              "topics": [],
+              "visibility": "public",
+              "watchers": 9,
+              "watchers_scope": "subscribers_count"
+            },
+            "schema_version": "2.0.0"
+          },
+          "retrieval_rank": 7,
+          "eligibility": {
+            "schema_version": "2.1.0",
+            "github_repository_id": 895547074,
+            "query_id": "request-28a198a32cb2acbf805a517b",
+            "status": "reference_only",
+            "checks": [
+              {
+                "field": "availability",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "archived",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "advisory_evidence",
+                "outcome": "unknown",
+                "evidence_refs": [
+                  "ev-catalog-card"
+                ]
+              }
+            ],
+            "reason_codes": [
+              "mandatory_fact_unknown"
+            ],
+            "required_verifications": [
+              "Verify the advisory fit fields against source-backed public evidence."
+            ]
+          },
+          "rrf_score": 0.014925373134328358,
+          "matched_fields": [
+            "category_labels",
+            "best_for"
+          ]
+        },
+        {
+          "card": {
+            "activity": {
+              "created_at": "2019-05-26T15:28:33Z",
+              "last_commit_at": "2026-08-31T14:36:55Z",
+              "last_commit_branch": "hovudstraum",
+              "last_commit_sha": "936e8a3bf374503adf6c018840ffd2db9878aaf3",
+              "last_release_at": "2026-08-17T22:19:23Z",
+              "last_synced_at": "2026-08-30T17:15:00Z",
+              "observations": [
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "created_at",
+                  "observed_at": "2026-09-01T04:55:39.177580Z",
+                  "source_field": "activity.createdAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "repository_updated_at",
+                  "observed_at": "2026-09-01T04:55:39.177580Z",
+                  "source_field": "activity.updatedAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "pushed_at",
+                  "observed_at": "2026-09-01T04:55:39.177580Z",
+                  "source_field": "activity.pushedAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_commit_at",
+                  "observed_at": "2026-09-01T04:55:40.272990Z",
+                  "source_field": "activity.lastCommitAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_release_at",
+                  "observed_at": "2026-09-01T04:55:44.252546Z",
+                  "source_field": "activity.lastReleaseAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_synced_at",
+                  "observed_at": "2026-09-01T04:55:39.177580Z",
+                  "source_field": "activity.lastSyncedAt",
+                  "verification": "derived_reviewed"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "observed_at",
+                  "observed_at": "2026-09-01T04:55:39.177580Z",
+                  "source_field": "activity.observedAt",
+                  "verification": "source_reported"
+                }
+              ],
+              "observed_at": "2026-09-01T04:55:39.177580Z",
+              "pushed_at": "2026-02-19T17:53:55Z",
+              "repository_updated_at": "2026-02-19T17:53:55Z",
+              "schema_version": "2.0.0",
+              "status": "enriched"
+            },
+            "advisory": {
+              "adoption_mode": null,
+              "adoption_status": null,
+              "avoid_if": [],
+              "best_for": [
+                "Teams evaluating storage, key-value data, SQL operations, and self-hosted data services."
+              ],
+              "compatibility": [],
+              "complexity": null,
+              "eligibility": {
+                "catalog_acceptance_changed": false,
+                "data_gate_passed": false,
+                "evidence_completeness": 77.42,
+                "minimum_stars": 500,
+                "reasons": [
+                  "mandatory_fields_unresolved"
+                ],
+                "replacement_required": false
+              },
+              "gaps": [],
+              "integration_surface": null,
+              "project_stages": [],
+              "recommendation_reason": "Selected for direct fit with Databases, Storage & Caching: the repository provides portable all-in-one file server with resumable uploads, deduplication, webdav, sftp, ftp, and media indexing. Its Python stack, 42,503 GitHub stars, and source snapshot showing activity on 2026-02-19 make it a high-signal candidate for evaluation.",
+              "recommendation_status": null,
+              "tradeoffs": [
+                "Benchmark durability, backup/restore, consistency, migration, and operational complexity for the target workload. Reported license: mit; verify the current repository license before adoption."
+              ],
+              "use_cases": []
+            },
+            "catalog": {
+              "evidence_stage": "identity_validated",
+              "membership_cohort": "baseline",
+              "review_status": "source_verified_required_fields",
+              "status": "candidate",
+              "status_source": "catalog_snapshot"
+            },
+            "classifications": [
+              {
+                "category_id": "file_management_sync",
+                "kind": "category",
+                "parent_id": "files_media_storage",
+                "placement_source": "cat08-canonical-reconciliation",
+                "role": "primary",
+                "title": "File Management & Synchronization"
+              }
+            ],
+            "corpus_kind": "catalog_snapshot",
+            "delivery": {
+              "deployment": {
+                "rationale": null,
+                "values": []
+              },
+              "difficulty": "intermediate",
+              "form": {
+                "rationale": null,
+                "value": "component"
+              },
+              "hosting": null,
+              "lifecycle": "active",
+              "maturity": "established",
+              "persona": "both",
+              "requires_server": null
+            },
+            "descriptions": {
+              "catalog": null,
+              "catalog_origin": null,
+              "upstream": "Portable all-in-one file server with resumable uploads, deduplication, WebDAV, SFTP, FTP, and media indexing."
+            },
+            "evidence": [
+              {
+                "evidence_id": "ev-catalog-card",
+                "fields": [
+                  "/identity",
+                  "/catalog",
+                  "/descriptions",
+                  "/classifications",
+                  "/delivery",
+                  "/advisory",
+                  "/provenance"
+                ],
+                "observed_at": "2026-09-01T04:55:39.177580Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/188700274",
+                "verification": "derived_reviewed"
+              },
+              {
+                "evidence_id": "ev-catalog-repository",
+                "fields": [
+                  "/repository",
+                  "/activity"
+                ],
+                "observed_at": "2026-09-01T04:55:39.177580Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/188700274",
+                "verification": "source_reported"
+              }
+            ],
+            "identity": {
+              "catalog_record_id": "gh-1500:9001/copyparty",
+              "full_name": "9001/copyparty",
+              "full_name_aliases": [],
+              "github_repository_id": 188700274,
+              "identity_status": "resolved",
+              "merged_catalog_record_ids": [],
+              "url": "https://github.com/9001/copyparty"
+            },
+            "provenance": {
+              "frozen_pins": {
+                "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                "field_contract_sha256": "9c0d6fd6e12ef42a37e26d8607405a7cbafdf1b7a633c8f8b53da159eaa7f456",
+                "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+              },
+              "sources": [
+                {
+                  "observed_at": "2026-09-01T04:55:39.177580Z",
+                  "source_id": "src-catalog-snapshot",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/188700274",
+                  "verification": "derived_reviewed"
+                }
+              ]
+            },
+            "repository": {
+              "archived": false,
+              "availability": "available",
+              "default_branch": "hovudstraum",
+              "disabled": false,
+              "forks": 1733,
+              "homepage": null,
+              "is_fork": false,
+              "languages": [
+                {
+                  "name": "Python",
+                  "scope": "primary"
+                }
+              ],
+              "license": {
+                "confidence": "source_reported",
+                "name": "MIT License",
+                "source": "Hugging Face: Mieaz/github-repos-metadata-ge3",
+                "spdx": "mit"
+              },
+              "size_kb": 10096,
+              "stack": [
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "technology": "Python"
+                }
+              ],
+              "stars": 42503,
+              "topics": [
+                "copyparty",
+                "file-server",
+                "file-sharing",
+                "file-upload-server",
+                "ftp-server",
+                "nas-frontend",
+                "tftp-server",
+                "webdav-server"
+              ],
+              "visibility": "public",
+              "watchers": 141,
+              "watchers_scope": "subscribers_count"
+            },
+            "schema_version": "2.0.0"
+          },
+          "retrieval_rank": 8,
+          "eligibility": {
+            "schema_version": "2.1.0",
+            "github_repository_id": 188700274,
+            "query_id": "request-28a198a32cb2acbf805a517b",
+            "status": "reference_only",
+            "checks": [
+              {
+                "field": "availability",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "archived",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "advisory_evidence",
+                "outcome": "unknown",
+                "evidence_refs": [
+                  "ev-catalog-card"
+                ]
+              }
+            ],
+            "reason_codes": [
+              "mandatory_fact_unknown"
+            ],
+            "required_verifications": [
+              "Verify the advisory fit fields against source-backed public evidence."
+            ]
+          },
+          "rrf_score": 0.014705882352941176,
+          "matched_fields": [
+            "upstream_description",
+            "topics",
+            "category_labels"
+          ]
+        },
+        {
+          "card": {
+            "activity": {
+              "created_at": "2015-09-11T21:21:58Z",
+              "last_commit_at": "2026-07-28T05:53:06Z",
+              "last_commit_branch": "master",
+              "last_commit_sha": "833d908884d5c801f30f5c098d7977177eb3a36b",
+              "last_release_at": "2026-07-27T20:03:21Z",
+              "last_synced_at": "2026-08-11T11:30:04Z",
+              "observations": [
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "created_at",
+                  "observed_at": "2026-08-31T19:11:32.542272Z",
+                  "source_field": "activity.createdAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "repository_updated_at",
+                  "observed_at": "2026-08-31T19:11:32.542272Z",
+                  "source_field": "activity.updatedAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "pushed_at",
+                  "observed_at": "2026-08-31T19:11:32.542272Z",
+                  "source_field": "activity.pushedAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_commit_at",
+                  "observed_at": "2026-08-31T19:11:34.045124Z",
+                  "source_field": "activity.lastCommitAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_release_at",
+                  "observed_at": "2026-08-31T19:11:37.741190Z",
+                  "source_field": "activity.lastReleaseAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_synced_at",
+                  "observed_at": "2026-08-31T19:11:32.542272Z",
+                  "source_field": "activity.lastSyncedAt",
+                  "verification": "derived_reviewed"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "observed_at",
+                  "observed_at": "2026-08-31T19:11:32.542272Z",
+                  "source_field": "activity.observedAt",
+                  "verification": "source_reported"
+                }
+              ],
+              "observed_at": "2026-08-31T19:11:32.542272Z",
+              "pushed_at": "2026-07-31T10:06:58Z",
+              "repository_updated_at": "2026-08-31T14:10:26Z",
+              "schema_version": "2.0.0",
+              "status": "pending_enrichment"
+            },
+            "advisory": {
+              "adoption_mode": null,
+              "adoption_status": null,
+              "avoid_if": [],
+              "best_for": [],
+              "compatibility": [],
+              "complexity": null,
+              "eligibility": {
+                "catalog_acceptance_changed": false,
+                "data_gate_passed": false,
+                "evidence_completeness": 77.42,
+                "minimum_stars": 500,
+                "reasons": [
+                  "mandatory_fields_unresolved"
+                ],
+                "replacement_required": false
+              },
+              "gaps": [],
+              "integration_surface": null,
+              "project_stages": [],
+              "recommendation_reason": null,
+              "recommendation_status": null,
+              "tradeoffs": [],
+              "use_cases": []
+            },
+            "catalog": {
+              "evidence_stage": "identity_validated",
+              "membership_cohort": "baseline",
+              "review_status": "curated_seed_needs_metadata",
+              "status": "candidate",
+              "status_source": "catalog_snapshot"
+            },
+            "classifications": [
+              {
+                "category_id": "file_management_sync",
+                "kind": "category",
+                "parent_id": "files_media_storage",
+                "placement_source": "cat08-canonical-reconciliation",
+                "role": "primary",
+                "title": "File Management & Synchronization"
+              }
+            ],
+            "corpus_kind": "catalog_snapshot",
+            "delivery": {
+              "deployment": {
+                "rationale": null,
+                "values": []
+              },
+              "difficulty": "intermediate",
+              "form": {
+                "rationale": null,
+                "value": "application"
+              },
+              "hosting": null,
+              "lifecycle": null,
+              "maturity": null,
+              "persona": "both",
+              "requires_server": null
+            },
+            "descriptions": {
+              "catalog": "File Browser provides a file managing interface within a specified directory and it can be used to upload, delete, preview and edit your files.",
+              "catalog_origin": "upstream",
+              "upstream": "File Browser provides a file managing interface within a specified directory and it can be used to upload, delete, preview and edit your files."
+            },
+            "evidence": [
+              {
+                "evidence_id": "ev-catalog-card",
+                "fields": [
+                  "/identity",
+                  "/catalog",
+                  "/descriptions",
+                  "/classifications",
+                  "/delivery",
+                  "/advisory",
+                  "/provenance"
+                ],
+                "observed_at": "2026-08-31T19:11:32.542272Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/42332863",
+                "verification": "derived_reviewed"
+              },
+              {
+                "evidence_id": "ev-catalog-repository",
+                "fields": [
+                  "/repository",
+                  "/activity"
+                ],
+                "observed_at": "2026-08-31T19:11:32.542272Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/42332863",
+                "verification": "source_reported"
+              }
+            ],
+            "identity": {
+              "catalog_record_id": "gh-pending:filebrowser/filebrowser",
+              "full_name": "filebrowser/filebrowser",
+              "full_name_aliases": [],
+              "github_repository_id": 42332863,
+              "identity_status": "resolved",
+              "merged_catalog_record_ids": [],
+              "url": "https://github.com/filebrowser/filebrowser"
+            },
+            "provenance": {
+              "frozen_pins": {
+                "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                "field_contract_sha256": "9c0d6fd6e12ef42a37e26d8607405a7cbafdf1b7a633c8f8b53da159eaa7f456",
+                "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+              },
+              "sources": [
+                {
+                  "observed_at": "2026-08-31T19:11:32.542272Z",
+                  "source_id": "src-catalog-snapshot",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/42332863",
+                  "verification": "derived_reviewed"
+                }
+              ]
+            },
+            "repository": {
+              "archived": false,
+              "availability": "available",
+              "default_branch": "master",
+              "disabled": false,
+              "forks": 4044,
+              "homepage": null,
+              "is_fork": false,
+              "languages": [
+                {
+                  "name": "Go",
+                  "scope": "primary"
+                },
+                {
+                  "name": "Vue",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "TypeScript",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "CSS",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "HTML",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Shell",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Dockerfile",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "JavaScript",
+                  "scope": "secondary"
+                }
+              ],
+              "license": {
+                "confidence": "source_reported",
+                "name": "Apache License 2.0",
+                "source": "https://api.github.com/licenses/apache-2.0",
+                "spdx": "Apache-2.0"
+              },
+              "size_kb": 24323,
+              "stack": [
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "technology": "Go"
+                }
+              ],
+              "stars": 35972,
+              "topics": [
+                "file-browser",
+                "file-manager",
+                "file-sharing",
+                "go",
+                "material-design",
+                "self-hosted",
+                "vue"
+              ],
+              "visibility": "public",
+              "watchers": 331,
+              "watchers_scope": "subscribers_count"
+            },
+            "schema_version": "2.0.0"
+          },
+          "retrieval_rank": 9,
+          "eligibility": {
+            "schema_version": "2.1.0",
+            "github_repository_id": 42332863,
+            "query_id": "request-28a198a32cb2acbf805a517b",
+            "status": "reference_only",
+            "checks": [
+              {
+                "field": "availability",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "archived",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "advisory_evidence",
+                "outcome": "unknown",
+                "evidence_refs": [
+                  "ev-catalog-card"
+                ]
+              }
+            ],
+            "reason_codes": [
+              "mandatory_fact_unknown"
+            ],
+            "required_verifications": [
+              "Verify the advisory fit fields against source-backed public evidence."
+            ]
+          },
+          "rrf_score": 0.014492753623188406,
+          "matched_fields": [
+            "upstream_description",
+            "catalog_description",
+            "topics",
+            "category_labels"
+          ]
+        },
+        {
+          "card": {
+            "activity": {
+              "created_at": "2023-07-08T11:45:55Z",
+              "last_commit_at": "2026-09-01T00:17:23Z",
+              "last_commit_branch": "main",
+              "last_commit_sha": "a6f4b78c1b1e7a4d6c7c51d411799ee11f2adf3b",
+              "last_release_at": "2026-08-15T08:15:56Z",
+              "last_synced_at": "2026-08-30T17:15:00Z",
+              "observations": [
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "created_at",
+                  "observed_at": "2026-09-01T04:57:43.919112Z",
+                  "source_field": "activity.createdAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "repository_updated_at",
+                  "observed_at": "2026-09-01T04:57:43.919112Z",
+                  "source_field": "activity.updatedAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "pushed_at",
+                  "observed_at": "2026-09-01T04:57:43.919112Z",
+                  "source_field": "activity.pushedAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_commit_at",
+                  "observed_at": "2026-09-01T04:57:44.726657Z",
+                  "source_field": "activity.lastCommitAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_release_at",
+                  "observed_at": "2026-09-01T04:57:48.143943Z",
+                  "source_field": "activity.lastReleaseAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_synced_at",
+                  "observed_at": "2026-09-01T04:57:43.919112Z",
+                  "source_field": "activity.lastSyncedAt",
+                  "verification": "derived_reviewed"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "observed_at",
+                  "observed_at": "2026-09-01T04:57:43.919112Z",
+                  "source_field": "activity.observedAt",
+                  "verification": "source_reported"
+                }
+              ],
+              "observed_at": "2026-09-01T04:57:43.919112Z",
+              "pushed_at": "2026-06-07T14:01:59Z",
+              "repository_updated_at": "2026-06-07T14:01:59Z",
+              "schema_version": "2.0.0",
+              "status": "enriched"
+            },
+            "advisory": {
+              "adoption_mode": null,
+              "adoption_status": null,
+              "avoid_if": [],
+              "best_for": [
+                "Teams evaluating developer productivity, local tooling, and command-line workflows."
+              ],
+              "compatibility": [],
+              "complexity": null,
+              "eligibility": {
+                "catalog_acceptance_changed": false,
+                "data_gate_passed": false,
+                "evidence_completeness": 77.42,
+                "minimum_stars": 500,
+                "reasons": [
+                  "mandatory_fields_unresolved"
+                ],
+                "replacement_required": false
+              },
+              "gaps": [],
+              "integration_surface": null,
+              "project_stages": [],
+              "recommendation_reason": "Selected for direct fit with Developer Tools & CLI: the repository provides fast terminal file manager written in rust and based on asynchronous i/o. Its Rust stack, 39,179 GitHub stars, and source snapshot showing activity on 2026-06-07 make it a high-signal candidate for evaluation.",
+              "recommendation_status": null,
+              "tradeoffs": [
+                "Check operating-system support, extension points, maintenance cadence, and compatibility with the existing toolchain. Reported license: mit; verify the current repository license before adoption."
+              ],
+              "use_cases": []
+            },
+            "catalog": {
+              "evidence_stage": "identity_validated",
+              "membership_cohort": "baseline",
+              "review_status": "source_verified_required_fields",
+              "status": "candidate",
+              "status_source": "catalog_snapshot"
+            },
+            "classifications": [
+              {
+                "category_id": "file_management_sync",
+                "kind": "category",
+                "parent_id": "files_media_storage",
+                "placement_source": "cat08-canonical-reconciliation",
+                "role": "primary",
+                "title": "File Management & Synchronization"
+              }
+            ],
+            "corpus_kind": "catalog_snapshot",
+            "delivery": {
+              "deployment": {
+                "rationale": null,
+                "values": []
+              },
+              "difficulty": "intermediate",
+              "form": {
+                "rationale": null,
+                "value": "cli"
+              },
+              "hosting": null,
+              "lifecycle": "active",
+              "maturity": "established",
+              "persona": "both",
+              "requires_server": null
+            },
+            "descriptions": {
+              "catalog": null,
+              "catalog_origin": null,
+              "upstream": "Fast terminal file manager written in Rust and based on asynchronous I/O."
+            },
+            "evidence": [
+              {
+                "evidence_id": "ev-catalog-card",
+                "fields": [
+                  "/identity",
+                  "/catalog",
+                  "/descriptions",
+                  "/classifications",
+                  "/delivery",
+                  "/advisory",
+                  "/provenance"
+                ],
+                "observed_at": "2026-09-01T04:57:43.919112Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/663900193",
+                "verification": "derived_reviewed"
+              },
+              {
+                "evidence_id": "ev-catalog-repository",
+                "fields": [
+                  "/repository",
+                  "/activity"
+                ],
+                "observed_at": "2026-09-01T04:57:43.919112Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/663900193",
+                "verification": "source_reported"
+              }
+            ],
+            "identity": {
+              "catalog_record_id": "gh-1500:sxyazi/yazi",
+              "full_name": "sxyazi/yazi",
+              "full_name_aliases": [],
+              "github_repository_id": 663900193,
+              "identity_status": "resolved",
+              "merged_catalog_record_ids": [],
+              "url": "https://github.com/sxyazi/yazi"
+            },
+            "provenance": {
+              "frozen_pins": {
+                "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                "field_contract_sha256": "9c0d6fd6e12ef42a37e26d8607405a7cbafdf1b7a633c8f8b53da159eaa7f456",
+                "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+              },
+              "sources": [
+                {
+                  "observed_at": "2026-09-01T04:57:43.919112Z",
+                  "source_id": "src-catalog-snapshot",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/663900193",
+                  "verification": "derived_reviewed"
+                }
+              ]
+            },
+            "repository": {
+              "archived": false,
+              "availability": "available",
+              "default_branch": "main",
+              "disabled": false,
+              "forks": 890,
+              "homepage": "https://yazi-rs.github.io",
+              "is_fork": false,
+              "languages": [
+                {
+                  "name": "Rust",
+                  "scope": "primary"
+                }
+              ],
+              "license": {
+                "confidence": "source_reported",
+                "name": "MIT License",
+                "source": "Hugging Face: Mieaz/github-repos-metadata-ge3",
+                "spdx": "mit"
+              },
+              "size_kb": 9449,
+              "stack": [
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "technology": "Rust"
+                }
+              ],
+              "stars": 39179,
+              "topics": [
+                "android",
+                "asyncio",
+                "cli",
+                "command-line",
+                "concurrency",
+                "cross-platform",
+                "developer-tools",
+                "file-explorer",
+                "file-manager",
+                "filesystem",
+                "linux",
+                "macos",
+                "neovim",
+                "productivity",
+                "rust",
+                "terminal",
+                "tui",
+                "vim",
+                "windows"
+              ],
+              "visibility": "public",
+              "watchers": 101,
+              "watchers_scope": "subscribers_count"
+            },
+            "schema_version": "2.0.0"
+          },
+          "retrieval_rank": 10,
+          "eligibility": {
+            "schema_version": "2.1.0",
+            "github_repository_id": 663900193,
+            "query_id": "request-28a198a32cb2acbf805a517b",
+            "status": "reference_only",
+            "checks": [
+              {
+                "field": "availability",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "archived",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "advisory_evidence",
+                "outcome": "unknown",
+                "evidence_refs": [
+                  "ev-catalog-card"
+                ]
+              }
+            ],
+            "reason_codes": [
+              "mandatory_fact_unknown"
+            ],
+            "required_verifications": [
+              "Verify the advisory fit fields against source-backed public evidence."
+            ]
+          },
+          "rrf_score": 0.014285714285714285,
+          "matched_fields": [
+            "upstream_description",
+            "topics",
+            "category_labels"
+          ]
+        },
+        {
+          "card": {
+            "activity": {
+              "created_at": "2016-06-02T07:44:14Z",
+              "last_commit_at": "2026-09-01T00:28:48Z",
+              "last_commit_branch": "master",
+              "last_commit_sha": "31b2c78374d21090a15fe0460f9ce92470ba3bcf",
+              "last_release_at": "2026-08-13T10:48:44Z",
+              "last_synced_at": "2026-08-11T13:03:47Z",
+              "observations": [
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "created_at",
+                  "observed_at": "2026-09-01T02:47:33.710441Z",
+                  "source_field": "activity.createdAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "repository_updated_at",
+                  "observed_at": "2026-09-01T02:47:33.710441Z",
+                  "source_field": "activity.updatedAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "pushed_at",
+                  "observed_at": "2026-09-01T02:47:33.710441Z",
+                  "source_field": "activity.pushedAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_commit_at",
+                  "observed_at": "2026-09-01T02:47:35.510117Z",
+                  "source_field": "activity.lastCommitAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_release_at",
+                  "observed_at": "2026-09-01T02:47:39.491272Z",
+                  "source_field": "activity.lastReleaseAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_synced_at",
+                  "observed_at": "2026-09-01T02:47:33.710441Z",
+                  "source_field": "activity.lastSyncedAt",
+                  "verification": "derived_reviewed"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "observed_at",
+                  "observed_at": "2026-09-01T02:47:33.710441Z",
+                  "source_field": "activity.observedAt",
+                  "verification": "source_reported"
+                }
+              ],
+              "observed_at": "2026-09-01T02:47:33.710441Z",
+              "pushed_at": "2026-09-01T02:29:00Z",
+              "repository_updated_at": "2026-09-01T02:35:19Z",
+              "schema_version": "2.0.0",
+              "status": "pending_enrichment"
+            },
+            "advisory": {
+              "adoption_mode": null,
+              "adoption_status": null,
+              "avoid_if": [],
+              "best_for": [],
+              "compatibility": [],
+              "complexity": null,
+              "eligibility": {
+                "catalog_acceptance_changed": false,
+                "data_gate_passed": false,
+                "evidence_completeness": 77.42,
+                "minimum_stars": 500,
+                "reasons": [
+                  "mandatory_fields_unresolved"
+                ],
+                "replacement_required": false
+              },
+              "gaps": [],
+              "integration_surface": null,
+              "project_stages": [],
+              "recommendation_reason": null,
+              "recommendation_status": null,
+              "tradeoffs": [],
+              "use_cases": []
+            },
+            "catalog": {
+              "evidence_stage": "identity_validated",
+              "membership_cohort": "baseline",
+              "review_status": "curated_seed_needs_metadata",
+              "status": "candidate",
+              "status_source": "catalog_snapshot"
+            },
+            "classifications": [
+              {
+                "category_id": "file_management_sync",
+                "kind": "category",
+                "parent_id": "files_media_storage",
+                "placement_source": "cat08-canonical-reconciliation",
+                "role": "primary",
+                "title": "File Management & Synchronization"
+              },
+              {
+                "category_id": "collaboration_knowledge",
+                "kind": "category",
+                "parent_id": null,
+                "placement_source": "cat08-canonical-reconciliation",
+                "role": "secondary",
+                "title": "Knowledge & Collaborative Workspaces"
+              }
+            ],
+            "corpus_kind": "catalog_snapshot",
+            "delivery": {
+              "deployment": {
+                "rationale": null,
+                "values": []
+              },
+              "difficulty": "intermediate",
+              "form": {
+                "rationale": null,
+                "value": "application"
+              },
+              "hosting": null,
+              "lifecycle": null,
+              "maturity": null,
+              "persona": "both",
+              "requires_server": null
+            },
+            "descriptions": {
+              "catalog": "☁️ Nextcloud server, a safe home for all your data",
+              "catalog_origin": "upstream",
+              "upstream": "☁️ Nextcloud server, a safe home for all your data"
+            },
+            "evidence": [
+              {
+                "evidence_id": "ev-catalog-card",
+                "fields": [
+                  "/identity",
+                  "/catalog",
+                  "/descriptions",
+                  "/classifications",
+                  "/delivery",
+                  "/advisory",
+                  "/provenance"
+                ],
+                "observed_at": "2026-09-01T02:47:33.710441Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/60243197",
+                "verification": "derived_reviewed"
+              },
+              {
+                "evidence_id": "ev-catalog-repository",
+                "fields": [
+                  "/repository",
+                  "/activity"
+                ],
+                "observed_at": "2026-09-01T02:47:33.710441Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/60243197",
+                "verification": "source_reported"
+              }
+            ],
+            "identity": {
+              "catalog_record_id": "gh-pending:nextcloud/server",
+              "full_name": "nextcloud/server",
+              "full_name_aliases": [],
+              "github_repository_id": 60243197,
+              "identity_status": "resolved",
+              "merged_catalog_record_ids": [],
+              "url": "https://github.com/nextcloud/server"
+            },
+            "provenance": {
+              "frozen_pins": {
+                "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                "field_contract_sha256": "9c0d6fd6e12ef42a37e26d8607405a7cbafdf1b7a633c8f8b53da159eaa7f456",
+                "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+              },
+              "sources": [
+                {
+                  "observed_at": "2026-09-01T02:47:33.710441Z",
+                  "source_id": "src-catalog-snapshot",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/60243197",
+                  "verification": "derived_reviewed"
+                }
+              ]
+            },
+            "repository": {
+              "archived": false,
+              "availability": "available",
+              "default_branch": "master",
+              "disabled": false,
+              "forks": 5148,
+              "homepage": "https://nextcloud.com",
+              "is_fork": false,
+              "languages": [
+                {
+                  "name": "PHP",
+                  "scope": "primary"
+                },
+                {
+                  "name": "JavaScript",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "TypeScript",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Vue",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Gherkin",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "SCSS",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Shell",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "HTML",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "CSS",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Dockerfile",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Nix",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Makefile",
+                  "scope": "secondary"
+                }
+              ],
+              "license": {
+                "confidence": "source_reported",
+                "name": "GNU Affero General Public License v3.0",
+                "source": "https://api.github.com/licenses/agpl-3.0",
+                "spdx": "AGPL-3.0"
+              },
+              "size_kb": 6928928,
+              "stack": [
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "technology": "PHP"
+                }
+              ],
+              "stars": 36651,
+              "topics": [
+                "cloud",
+                "collaboration",
+                "decentralized",
+                "design",
+                "distributed",
+                "enterprise",
+                "federation",
+                "file-sharing",
+                "free-software",
+                "hacktoberfest",
+                "javascript",
+                "nextcloud",
+                "open-source",
+                "opensource",
+                "owncloud",
+                "php",
+                "self-hosting",
+                "sharing",
+                "usability",
+                "ux"
+              ],
+              "visibility": "public",
+              "watchers": 552,
+              "watchers_scope": "subscribers_count"
+            },
+            "schema_version": "2.0.0"
+          },
+          "retrieval_rank": 11,
+          "eligibility": {
+            "schema_version": "2.1.0",
+            "github_repository_id": 60243197,
+            "query_id": "request-28a198a32cb2acbf805a517b",
+            "status": "reference_only",
+            "checks": [
+              {
+                "field": "availability",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "archived",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "advisory_evidence",
+                "outcome": "unknown",
+                "evidence_refs": [
+                  "ev-catalog-card"
+                ]
+              }
+            ],
+            "reason_codes": [
+              "mandatory_fact_unknown"
+            ],
+            "required_verifications": [
+              "Verify the advisory fit fields against source-backed public evidence."
+            ]
+          },
+          "rrf_score": 0.014084507042253521,
+          "matched_fields": [
+            "topics",
+            "category_labels"
+          ]
+        }
+      ],
+      "exclusions": [],
+      "truncated": false,
+      "reason_codes": []
+    },
+    "public_observations": [],
+    "observations_persisted": false,
+    "raw_ranked_ids": [
+      14712850,
+      4999959,
+      5550552,
+      578822531,
+      410749029,
+      323965659,
+      895547074,
+      188700274,
+      42332863,
+      663900193,
+      60243197
+    ],
+    "selected_ids": [
+      14712850,
+      4999959,
+      5550552,
+      578822531,
+      410749029,
+      323965659,
+      895547074,
+      188700274,
+      42332863,
+      663900193,
+      60243197
+    ]
+  },
+  "native_trace": {
+    "prepare_ms": 411.6039,
+    "gates": {
+      "one_count": true,
+      "one_ranked_match": true,
+      "no_sql_writes": true,
+      "immutable_connections": true
+    },
+    "connections": [
+      {
+        "database": "file:///C:/Users/user/Desktop/project/github_research/agentic-engineering-catalog/plugins/myai-stackguide/assets/catalog.search.sqlite?mode=ro&immutable=1",
+        "uri": true
+      },
+      {
+        "database": "file:///C:/Users/user/Desktop/project/github_research/agentic-engineering-catalog/plugins/myai-stackguide/assets/catalog.search.sqlite?mode=ro&immutable=1",
+        "uri": true
+      }
+    ],
+    "sql_trace": [
+      {
+        "connection": 0,
+        "sql": "SELECT 1 FROM taxonomy_route_registry WHERE route_id = 'file_management_sync' LIMIT 1"
+      },
+      {
+        "connection": 0,
+        "sql": "SELECT k, v FROM 'main'.'repository_fts_config'"
+      },
+      {
+        "connection": 0,
+        "sql": "SELECT count(*) FROM repository_fts WHERE repository_fts MATCH '\"file\" OR \"synchronization\" OR \"devices\"' AND EXISTS (SELECT 1 FROM repository_classifications rc JOIN taxonomy_route_registry tr ON tr.match_category_id = rc.category_id WHERE rc.github_repository_id = repository_fts.rowid AND tr.route_id = 'file_management_sync')"
+      },
+      {
+        "connection": 0,
+        "sql": "-- PRAGMA 'main'.data_version"
+      },
+      {
+        "connection": 0,
+        "sql": "-- PRAGMA 'main'.data_version"
+      },
+      {
+        "connection": 0,
+        "sql": "-- SELECT k, v FROM 'main'.'repository_fts_config'"
+      },
+      {
+        "connection": 0,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 0,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 0,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 0,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 0,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 0,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "SELECT 1 FROM taxonomy_route_registry WHERE route_id = 'file_management_sync' LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "SELECT k, v FROM 'main'.'repository_fts_config'"
+      },
+      {
+        "connection": 1,
+        "sql": "SELECT repository_fts.rowid AS github_repository_id, bm25(repository_fts, 0.25, 0.25, 3.0, 3.0, 1.0, 0.25, 1.0, 1.0, 1.0) AS score, highlight(repository_fts, 0, char(1), char(2)) AS h0, highlight(repository_fts, 1, char(1), char(2)) AS h1, highlight(repository_fts, 2, char(1), char(2)) AS h2, highlight(repository_fts, 3, char(1), char(2)) AS h3, highlight(repository_fts, 4, char(1), char(2)) AS h4, highlight(repository_fts, 5, char(1), char(2)) AS h5, highlight(repository_fts, 6, char(1), char(2)) AS h6, highlight(repository_fts, 7, char(1), char(2)) AS h7, highlight(repository_fts, 8, char(1), char(2)) AS h8 FROM repository_fts WHERE repository_fts MATCH '\"file\" OR \"synchronization\" OR \"devices\" OR \"management\" OR \"sync\"' AND EXISTS (SELECT 1 FROM repository_classifications AS rc JOIN taxonomy_route_registry AS tr ON tr.match_category_id = rc.category_id WHERE rc.github_repository_id = repository_fts.rowid AND tr.route_id = 'file_management_sync') ORDER BY score ASC, github_repository_id ASC LIMIT 150"
+      },
+      {
+        "connection": 1,
+        "sql": "-- PRAGMA 'main'.data_version"
+      },
+      {
+        "connection": 1,
+        "sql": "-- PRAGMA 'main'.data_version"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT k, v FROM 'main'.'repository_fts_config'"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT sz FROM 'main'.'repository_fts_docsize' WHERE id=?"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT T.'github_repository_id', T.'full_name', T.'full_name_aliases', T.'upstream_description', T.'catalog_description', T.'topics', T.'category_labels', T.'use_cases', T.'integration_surface', T.'best_for' FROM 'main'.'repository_search_rows' T WHERE T.'github_repository_id'=?"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT sz FROM 'main'.'repository_fts_docsize' WHERE id=?"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT T.'github_repository_id', T.'full_name', T.'full_name_aliases', T.'upstream_description', T.'catalog_description', T.'topics', T.'category_labels', T.'use_cases', T.'integration_surface', T.'best_for' FROM 'main'.'repository_search_rows' T WHERE T.'github_repository_id'=?"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT sz FROM 'main'.'repository_fts_docsize' WHERE id=?"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT T.'github_repository_id', T.'full_name', T.'full_name_aliases', T.'upstream_description', T.'catalog_description', T.'topics', T.'category_labels', T.'use_cases', T.'integration_surface', T.'best_for' FROM 'main'.'repository_search_rows' T WHERE T.'github_repository_id'=?"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT sz FROM 'main'.'repository_fts_docsize' WHERE id=?"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT T.'github_repository_id', T.'full_name', T.'full_name_aliases', T.'upstream_description', T.'catalog_description', T.'topics', T.'category_labels', T.'use_cases', T.'integration_surface', T.'best_for' FROM 'main'.'repository_search_rows' T WHERE T.'github_repository_id'=?"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT sz FROM 'main'.'repository_fts_docsize' WHERE id=?"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT T.'github_repository_id', T.'full_name', T.'full_name_aliases', T.'upstream_description', T.'catalog_description', T.'topics', T.'category_labels', T.'use_cases', T.'integration_surface', T.'best_for' FROM 'main'.'repository_search_rows' T WHERE T.'github_repository_id'=?"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT sz FROM 'main'.'repository_fts_docsize' WHERE id=?"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT T.'github_repository_id', T.'full_name', T.'full_name_aliases', T.'upstream_description', T.'catalog_description', T.'topics', T.'category_labels', T.'use_cases', T.'integration_surface', T.'best_for' FROM 'main'.'repository_search_rows' T WHERE T.'github_repository_id'=?"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT sz FROM 'main'.'repository_fts_docsize' WHERE id=?"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT T.'github_repository_id', T.'full_name', T.'full_name_aliases', T.'upstream_description', T.'catalog_description', T.'topics', T.'category_labels', T.'use_cases', T.'integration_surface', T.'best_for' FROM 'main'.'repository_search_rows' T WHERE T.'github_repository_id'=?"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT sz FROM 'main'.'repository_fts_docsize' WHERE id=?"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT T.'github_repository_id', T.'full_name', T.'full_name_aliases', T.'upstream_description', T.'catalog_description', T.'topics', T.'category_labels', T.'use_cases', T.'integration_surface', T.'best_for' FROM 'main'.'repository_search_rows' T WHERE T.'github_repository_id'=?"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT sz FROM 'main'.'repository_fts_docsize' WHERE id=?"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT T.'github_repository_id', T.'full_name', T.'full_name_aliases', T.'upstream_description', T.'catalog_description', T.'topics', T.'category_labels', T.'use_cases', T.'integration_surface', T.'best_for' FROM 'main'.'repository_search_rows' T WHERE T.'github_repository_id'=?"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT sz FROM 'main'.'repository_fts_docsize' WHERE id=?"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT T.'github_repository_id', T.'full_name', T.'full_name_aliases', T.'upstream_description', T.'catalog_description', T.'topics', T.'category_labels', T.'use_cases', T.'integration_surface', T.'best_for' FROM 'main'.'repository_search_rows' T WHERE T.'github_repository_id'=?"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT sz FROM 'main'.'repository_fts_docsize' WHERE id=?"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT T.'github_repository_id', T.'full_name', T.'full_name_aliases', T.'upstream_description', T.'catalog_description', T.'topics', T.'category_labels', T.'use_cases', T.'integration_surface', T.'best_for' FROM 'main'.'repository_search_rows' T WHERE T.'github_repository_id'=?"
+      }
+    ]
+  },
+  "preview_sha256": "14ceceea866bf8e402d3f9e7a36a1ab3ef0858b342d0fab42e33ba14422ecbdf",
+  "new_actual_model_calls": 0
+}

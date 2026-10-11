@@ -1,0 +1,2305 @@
+{
+  "schema_version": "cp04_final_summary_v1",
+  "verdict": "no_go",
+  "promotion_ready": false,
+  "evidence_kind": "exposed_source_qualified_development_regression",
+  "plan_sha256": "2bbb6c4b3a4195ab383348b9bca7b230dd24e5b3e78b9506c9d842db47076aee",
+  "candidate_macro": {
+    "recall_at_k": 0.9451127819548872,
+    "ndcg_at_k": 0.9014084831296351
+  },
+  "original_literal_macro": {
+    "recall_at_k": 0.8720893141945772,
+    "ndcg_at_k": 0.8925157143186061
+  },
+  "strata": {
+    "thin_leaf": {
+      "case_ids": [
+        "FINAL-HOLD-01",
+        "FINAL-HOLD-03",
+        "FINAL-HOLD-04",
+        "FINAL-HOLD-05",
+        "FINAL-HOLD-06",
+        "FINAL-HOLD-08",
+        "FINAL-HOLD-10",
+        "FINAL-HOLD-11",
+        "FINAL-HOLD-13"
+      ],
+      "candidate": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.9006306164382658
+      },
+      "baseline": {
+        "recall_at_k": 0.9629629629629629,
+        "ndcg_at_k": 0.9241005750802673
+      }
+    },
+    "dense_leaf": {
+      "case_ids": [
+        "FINAL-HOLD-02",
+        "FINAL-HOLD-07",
+        "FINAL-HOLD-12"
+      ],
+      "candidate": {
+        "recall_at_k": 0.7771929824561403,
+        "ndcg_at_k": 0.912609886112579
+      },
+      "baseline": {
+        "recall_at_k": 0.7596491228070175,
+        "ndcg_at_k": 0.877246051715562
+      }
+    },
+    "baseline_cohort": {
+      "case_ids": [
+        "FINAL-HOLD-01",
+        "FINAL-HOLD-02",
+        "FINAL-HOLD-03",
+        "FINAL-HOLD-04",
+        "FINAL-HOLD-05",
+        "FINAL-HOLD-06",
+        "FINAL-HOLD-07",
+        "FINAL-HOLD-08",
+        "FINAL-HOLD-09",
+        "FINAL-HOLD-10",
+        "FINAL-HOLD-11",
+        "FINAL-HOLD-12",
+        "FINAL-HOLD-13",
+        "FINAL-HOLD-14"
+      ],
+      "candidate": {
+        "recall_at_k": 0.9451127819548872,
+        "ndcg_at_k": 0.9014084831296351
+      },
+      "baseline": {
+        "recall_at_k": 0.8720893141945772,
+        "ndcg_at_k": 0.8925157143186061
+      }
+    },
+    "expansion_cohort": {
+      "case_ids": [
+        "FINAL-HOLD-02",
+        "FINAL-HOLD-07"
+      ],
+      "candidate": {
+        "recall_at_k": 0.6657894736842105,
+        "ndcg_at_k": 0.8689148291688685
+      },
+      "baseline": {
+        "recall_at_k": 0.6394736842105263,
+        "ndcg_at_k": 0.815869077573343
+      }
+    },
+    "dual_descriptions": {
+      "case_ids": [
+        "FINAL-HOLD-01",
+        "FINAL-HOLD-02",
+        "FINAL-HOLD-03",
+        "FINAL-HOLD-04",
+        "FINAL-HOLD-06",
+        "FINAL-HOLD-07",
+        "FINAL-HOLD-08",
+        "FINAL-HOLD-09",
+        "FINAL-HOLD-10",
+        "FINAL-HOLD-11",
+        "FINAL-HOLD-12",
+        "FINAL-HOLD-13",
+        "FINAL-HOLD-14"
+      ],
+      "candidate": {
+        "recall_at_k": 0.9408906882591093,
+        "ndcg_at_k": 0.9012880079561822
+      },
+      "baseline": {
+        "recall_at_k": 0.8622500306710832,
+        "ndcg_at_k": 0.8967942491810013
+      }
+    },
+    "secondary_dedupe": {
+      "case_ids": [
+        "FINAL-HOLD-02",
+        "FINAL-HOLD-05",
+        "FINAL-HOLD-07",
+        "FINAL-HOLD-12"
+      ],
+      "candidate": {
+        "recall_at_k": 0.8328947368421052,
+        "ndcg_at_k": 0.9102010796805649
+      },
+      "baseline": {
+        "recall_at_k": 0.8197368421052631,
+        "ndcg_at_k": 0.8671582290635387
+      }
+    },
+    "container_union": {
+      "case_ids": [
+        "FINAL-HOLD-07"
+      ],
+      "candidate": {
+        "recall_at_k": 0.7,
+        "ndcg_at_k": 0.9001616903255698
+      },
+      "baseline": {
+        "recall_at_k": 0.7,
+        "ndcg_at_k": 0.8338462100882492
+      }
+    },
+    "lexical_ru": {
+      "case_ids": [
+        "FINAL-HOLD-03",
+        "FINAL-HOLD-05",
+        "FINAL-HOLD-09"
+      ],
+      "candidate": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.9274858298922662
+      },
+      "baseline": {
+        "recall_at_k": 0.787878787878788,
+        "ndcg_at_k": 0.8225811993505104
+      }
+    },
+    "lexical_en": {
+      "case_ids": [
+        "FINAL-HOLD-01",
+        "FINAL-HOLD-02",
+        "FINAL-HOLD-03",
+        "FINAL-HOLD-04",
+        "FINAL-HOLD-05",
+        "FINAL-HOLD-06",
+        "FINAL-HOLD-07",
+        "FINAL-HOLD-08",
+        "FINAL-HOLD-09",
+        "FINAL-HOLD-10",
+        "FINAL-HOLD-11",
+        "FINAL-HOLD-12",
+        "FINAL-HOLD-13",
+        "FINAL-HOLD-14"
+      ],
+      "candidate": {
+        "recall_at_k": 0.9451127819548872,
+        "ndcg_at_k": 0.9014084831296351
+      },
+      "baseline": {
+        "recall_at_k": 0.8720893141945772,
+        "ndcg_at_k": 0.8925157143186061
+      }
+    },
+    "activity_unknown": {
+      "case_ids": [
+        "FINAL-HOLD-01",
+        "FINAL-HOLD-02",
+        "FINAL-HOLD-03",
+        "FINAL-HOLD-05",
+        "FINAL-HOLD-07",
+        "FINAL-HOLD-08",
+        "FINAL-HOLD-09",
+        "FINAL-HOLD-10",
+        "FINAL-HOLD-12",
+        "FINAL-HOLD-13",
+        "FINAL-HOLD-14"
+      ],
+      "candidate": {
+        "recall_at_k": 0.9301435406698565,
+        "ndcg_at_k": 0.906338408831168
+      },
+      "baseline": {
+        "recall_at_k": 0.8372045817021893,
+        "ndcg_at_k": 0.8907160580232717
+      }
+    },
+    "developer_tools_cli_general": {
+      "case_ids": [
+        "FINAL-HOLD-01"
+      ],
+      "candidate": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.9725446355281335
+      },
+      "baseline": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.8654999782255441
+      }
+    },
+    "testing_qa": {
+      "case_ids": [
+        "FINAL-HOLD-02"
+      ],
+      "candidate": {
+        "recall_at_k": 0.631578947368421,
+        "ndcg_at_k": 0.8376679680121673
+      },
+      "baseline": {
+        "recall_at_k": 0.5789473684210527,
+        "ndcg_at_k": 0.7978919450584367
+      }
+    },
+    "files_media_storage": {
+      "case_ids": [
+        "FINAL-HOLD-03"
+      ],
+      "candidate": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "baseline": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 1.0
+      }
+    },
+    "frontend_frameworks_ui": {
+      "case_ids": [
+        "FINAL-HOLD-04"
+      ],
+      "candidate": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.9324441894571632
+      },
+      "baseline": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.9324441894571632
+      }
+    },
+    "accounting_finance_erp": {
+      "case_ids": [
+        "FINAL-HOLD-05"
+      ],
+      "candidate": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.9029746603845225
+      },
+      "baseline": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.8368947611074689
+      }
+    },
+    "cms_content_knowledge": {
+      "case_ids": [
+        "FINAL-HOLD-06"
+      ],
+      "candidate": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.7175520772148791
+      },
+      "baseline": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.7648991727473325
+      }
+    },
+    "communications_personal_ops": {
+      "case_ids": [
+        "FINAL-HOLD-07"
+      ],
+      "candidate": {
+        "recall_at_k": 0.7,
+        "ndcg_at_k": 0.9001616903255698
+      },
+      "baseline": {
+        "recall_at_k": 0.7,
+        "ndcg_at_k": 0.8338462100882492
+      }
+    },
+    "ecommerce_payments_revenue": {
+      "case_ids": [
+        "FINAL-HOLD-08"
+      ],
+      "candidate": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.9610012895088121
+      },
+      "baseline": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.9610012895088121
+      }
+    },
+    "operations_project_management": {
+      "case_ids": [
+        "FINAL-HOLD-09"
+      ],
+      "candidate": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.8794828292922762
+      },
+      "baseline": {
+        "recall_at_k": 0.36363636363636365,
+        "ndcg_at_k": 0.6308488369440626
+      }
+    },
+    "data_ingestion_etl_cdc": {
+      "case_ids": [
+        "FINAL-HOLD-10"
+      ],
+      "candidate": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.6419288461539238
+      },
+      "baseline": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 1.0
+      }
+    },
+    "databases_storage_caching": {
+      "case_ids": [
+        "FINAL-HOLD-11"
+      ],
+      "candidate": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "baseline": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 1.0
+      }
+    },
+    "backend_baas_api": {
+      "case_ids": [
+        "FINAL-HOLD-12"
+      ],
+      "candidate": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "baseline": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 1.0
+      }
+    },
+    "deployment_containers_paas": {
+      "case_ids": [
+        "FINAL-HOLD-13"
+      ],
+      "candidate": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.9772298496969573
+      },
+      "baseline": {
+        "recall_at_k": 0.6666666666666666,
+        "ndcg_at_k": 0.9561657846760856
+      }
+    },
+    "supply_chain_devsecops": {
+      "case_ids": [
+        "FINAL-HOLD-14"
+      ],
+      "candidate": {
+        "recall_at_k": 0.9,
+        "ndcg_at_k": 0.8967307282404868
+      },
+      "baseline": {
+        "recall_at_k": 0.9,
+        "ndcg_at_k": 0.91572783264733
+      }
+    }
+  },
+  "gates": {
+    "held_out_macro_recall_at_12_min": true,
+    "baseline_non_regression_recall_at_k": true,
+    "held_out_macro_ndcg_at_12_min": true,
+    "baseline_non_regression_ndcg_at_k": true,
+    "required_strata": true,
+    "hard_constraint_violations": true,
+    "false_exclusions": true,
+    "duplicate_canonical_ids": true,
+    "alias_success_rate_min": true,
+    "evidence_pack_survival_rate_min": true,
+    "all_statuses_match": true,
+    "container_registry_coverage": true,
+    "leaf_registry_coverage": true
+  },
+  "incomplete_oracle_cases": [],
+  "measured_route_case_count": 15,
+  "registry_counts": {
+    "container": 14,
+    "category": 111
+  },
+  "known_pool_survival_diagnostic": {
+    "numerator": 78,
+    "denominator": 78
+  },
+  "official_pack_survival": 1.0,
+  "adjacent_gaps": [
+    "human oracle calibration",
+    "same-canonical RU/EN meaning and usefulness",
+    "browser no-call switching",
+    "state/publication recovery",
+    "fresh host interpretation behavior",
+    "headroom capacity not rerun here"
+  ],
+  "interpretation_limit": "Preauthored interpretation evaluates deterministic Brief/FTS wiring, not real host interpretation/model behavior. Source sparse facts and all unknowns retained. Human acceptance absent; prior failed held-out is not waived.",
+  "first_capture_at": "2026-10-11T09:41:17.927689+00:00",
+  "fresh_unseen_evidence": false,
+  "regression_gates_pass": true,
+  "prior_capture_sha256": "8574aacaeeeb90328c6d3aab3471232349b989658a2a8c9b380da80c74b41782",
+  "cases": [
+    {
+      "case_id": "FINAL-HOLD-01",
+      "prior_fts_ids": [
+        130879558,
+        440752086,
+        112892985,
+        82933315,
+        254879070,
+        143896900,
+        486125557
+      ],
+      "repaired_fts_ids": [
+        130879558,
+        440752086,
+        112892985,
+        82933315,
+        254879070,
+        143896900,
+        486125557
+      ],
+      "prior_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 1.0,
+          "ndcg_at_k": 0.9725446355281335,
+          "relevant_count": 6
+        },
+        "unjudged_ids": []
+      },
+      "repaired_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 1.0,
+          "ndcg_at_k": 0.9725446355281335,
+          "relevant_count": 6
+        },
+        "unjudged_ids": []
+      },
+      "original_literal_unchanged": true,
+      "previous_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-0fc657295c0fd43fe0ba8967",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "ff6e8444c4664492bb099f0819b2d284aa5c28f0d44c7a745c63f434c3489dbf",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "development_environments",
+        "language": "en",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "cloud",
+              "development",
+              "environments"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      },
+      "repaired_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-0fc657295c0fd43fe0ba8967",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "5b172b4fca5b2666fb61cba4e306c217c3ef29bb7d2eec0e478f7115370fb356",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "development_environments",
+        "language": "en",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "cloud"
+            ]
+          },
+          {
+            "variant_id": "q2",
+            "terms": [
+              "cloud",
+              "development",
+              "environments"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      }
+    },
+    {
+      "case_id": "FINAL-HOLD-02",
+      "prior_fts_ids": [
+        813783,
+        442096414,
+        51917537,
+        155733693,
+        34106396,
+        1195492297,
+        221981891,
+        859537060,
+        7613257,
+        1266125334,
+        80435465,
+        105399035,
+        17420614,
+        486525050,
+        1146193768,
+        61308714,
+        31629751,
+        832452447,
+        125568868,
+        997037661,
+        175869201,
+        116392590,
+        230096072,
+        232162578,
+        282658795,
+        277879045,
+        291930234,
+        756709451,
+        189969701,
+        199141711
+      ],
+      "repaired_fts_ids": [
+        813783,
+        1195492297,
+        34106396,
+        7613257,
+        442096414,
+        51917537,
+        155733693,
+        221981891,
+        832452447,
+        31629751,
+        125568868,
+        1266125334,
+        105399035,
+        859537060,
+        80435465,
+        116392590,
+        997037661,
+        486525050,
+        17420614,
+        175869201,
+        1146193768,
+        61308714,
+        230096072,
+        277879045,
+        282658795,
+        232162578,
+        189969701,
+        291930234,
+        756709451,
+        199141711
+      ],
+      "prior_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 0.5789473684210527,
+          "ndcg_at_k": 0.7787768215803351,
+          "relevant_count": 19
+        },
+        "unjudged_ids": []
+      },
+      "repaired_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 0.631578947368421,
+          "ndcg_at_k": 0.8376679680121673,
+          "relevant_count": 19
+        },
+        "unjudged_ids": []
+      },
+      "original_literal_unchanged": true,
+      "previous_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-e09fb5390157ca60b2b18493",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "ff6e8444c4664492bb099f0819b2d284aa5c28f0d44c7a745c63f434c3489dbf",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "browser_mobile_testing",
+        "language": "en",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "browser",
+              "automation",
+              "testing"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      },
+      "repaired_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-e09fb5390157ca60b2b18493",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "5b172b4fca5b2666fb61cba4e306c217c3ef29bb7d2eec0e478f7115370fb356",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "browser_mobile_testing",
+        "language": "en",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "browser"
+            ]
+          },
+          {
+            "variant_id": "q2",
+            "terms": [
+              "browser",
+              "automation",
+              "testing"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      }
+    },
+    {
+      "case_id": "FINAL-HOLD-03",
+      "prior_fts_ids": [
+        187961907
+      ],
+      "repaired_fts_ids": [
+        187961907
+      ],
+      "prior_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 1.0,
+          "ndcg_at_k": 1.0,
+          "relevant_count": 1
+        },
+        "unjudged_ids": []
+      },
+      "repaired_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 1.0,
+          "ndcg_at_k": 1.0,
+          "relevant_count": 1
+        },
+        "unjudged_ids": []
+      },
+      "original_literal_unchanged": true,
+      "previous_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-cd89535747f85cded6676555",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "ff6e8444c4664492bb099f0819b2d284aa5c28f0d44c7a745c63f434c3489dbf",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "media_libraries_readers",
+        "language": "ru",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "Android",
+              "книг",
+              "чтение"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      },
+      "repaired_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-cd89535747f85cded6676555",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "5b172b4fca5b2666fb61cba4e306c217c3ef29bb7d2eec0e478f7115370fb356",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "media_libraries_readers",
+        "language": "ru",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "Android"
+            ]
+          },
+          {
+            "variant_id": "q2",
+            "terms": [
+              "Android",
+              "книг",
+              "чтение"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      }
+    },
+    {
+      "case_id": "FINAL-HOLD-04",
+      "prior_fts_ids": [
+        245704608,
+        90194616,
+        35914020,
+        174038031,
+        94367677,
+        75044525
+      ],
+      "repaired_fts_ids": [
+        245704608,
+        174038031,
+        90194616,
+        35914020,
+        94367677,
+        75044525
+      ],
+      "prior_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 1.0,
+          "ndcg_at_k": 0.95583058934618,
+          "relevant_count": 2
+        },
+        "unjudged_ids": []
+      },
+      "repaired_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 1.0,
+          "ndcg_at_k": 0.9324441894571632,
+          "relevant_count": 2
+        },
+        "unjudged_ids": []
+      },
+      "original_literal_unchanged": true,
+      "previous_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-4470588af478781f1748cb38",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "ff6e8444c4664492bb099f0819b2d284aa5c28f0d44c7a745c63f434c3489dbf",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "forms_validation",
+        "language": "en",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "TypeScript",
+              "schema",
+              "validation"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      },
+      "repaired_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-4470588af478781f1748cb38",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "5b172b4fca5b2666fb61cba4e306c217c3ef29bb7d2eec0e478f7115370fb356",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "forms_validation",
+        "language": "en",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "TypeScript"
+            ]
+          },
+          {
+            "variant_id": "q2",
+            "terms": [
+              "TypeScript",
+              "schema",
+              "validation"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      }
+    },
+    {
+      "case_id": "FINAL-HOLD-05",
+      "prior_fts_ids": [
+        304981340,
+        920995405,
+        1864233,
+        19745004,
+        1957456,
+        189829392
+      ],
+      "repaired_fts_ids": [
+        304981340,
+        920995405,
+        1864233,
+        19745004,
+        1957456,
+        189829392
+      ],
+      "prior_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 1.0,
+          "ndcg_at_k": 0.9029746603845225,
+          "relevant_count": 6
+        },
+        "unjudged_ids": []
+      },
+      "repaired_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 1.0,
+          "ndcg_at_k": 0.9029746603845225,
+          "relevant_count": 6
+        },
+        "unjudged_ids": []
+      },
+      "original_literal_unchanged": true,
+      "previous_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-338706374840f791a46fefca",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "ff6e8444c4664492bb099f0819b2d284aa5c28f0d44c7a745c63f434c3489dbf",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "erp_business_suites",
+        "language": "ru",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "ERP",
+              "счета",
+              "управление"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      },
+      "repaired_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-338706374840f791a46fefca",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "5b172b4fca5b2666fb61cba4e306c217c3ef29bb7d2eec0e478f7115370fb356",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "erp_business_suites",
+        "language": "ru",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "ERP"
+            ]
+          },
+          {
+            "variant_id": "q2",
+            "terms": [
+              "ERP",
+              "счета",
+              "управление"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      }
+    },
+    {
+      "case_id": "FINAL-HOLD-06",
+      "prior_fts_ids": [
+        12820537,
+        15830664,
+        614933136,
+        11180687,
+        65252,
+        260338399,
+        50617428,
+        94911145
+      ],
+      "repaired_fts_ids": [
+        12820537,
+        15830664,
+        260338399,
+        65252,
+        614933136,
+        11180687,
+        50617428,
+        94911145
+      ],
+      "prior_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 1.0,
+          "ndcg_at_k": 0.7433811952350708,
+          "relevant_count": 7
+        },
+        "unjudged_ids": []
+      },
+      "repaired_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 1.0,
+          "ndcg_at_k": 0.7175520772148791,
+          "relevant_count": 7
+        },
+        "unjudged_ids": []
+      },
+      "original_literal_unchanged": true,
+      "previous_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-b6ccb45fb680852c1d0fd58a",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "ff6e8444c4664492bb099f0819b2d284aa5c28f0d44c7a745c63f434c3489dbf",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "documentation_site_generators",
+        "language": "en",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "static",
+              "API",
+              "documentation"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      },
+      "repaired_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-b6ccb45fb680852c1d0fd58a",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "5b172b4fca5b2666fb61cba4e306c217c3ef29bb7d2eec0e478f7115370fb356",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "documentation_site_generators",
+        "language": "en",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "static"
+            ]
+          },
+          {
+            "variant_id": "q2",
+            "terms": [
+              "static",
+              "API",
+              "documentation"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      }
+    },
+    {
+      "case_id": "FINAL-HOLD-07",
+      "prior_fts_ids": [
+        684382,
+        326059244,
+        15225670,
+        372296109,
+        253182958,
+        120541771,
+        26661222,
+        992325192,
+        1173545104,
+        928857407,
+        1143312686,
+        39487546,
+        43160685,
+        144494851
+      ],
+      "repaired_fts_ids": [
+        15225670,
+        684382,
+        326059244,
+        372296109,
+        253182958,
+        26661222,
+        120541771,
+        992325192,
+        1173545104,
+        928857407,
+        1143312686,
+        39487546,
+        43160685,
+        144494851
+      ],
+      "prior_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 0.7,
+          "ndcg_at_k": 0.8262969818870673,
+          "relevant_count": 10
+        },
+        "unjudged_ids": []
+      },
+      "repaired_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 0.7,
+          "ndcg_at_k": 0.9001616903255698,
+          "relevant_count": 10
+        },
+        "unjudged_ids": []
+      },
+      "original_literal_unchanged": true,
+      "previous_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-e540553a76fd3a4580e804ca",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "ff6e8444c4664492bb099f0819b2d284aa5c28f0d44c7a745c63f434c3489dbf",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "communications_personal_ops",
+        "language": "en",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "video",
+              "conferencing",
+              "web"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      },
+      "repaired_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-e540553a76fd3a4580e804ca",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "5b172b4fca5b2666fb61cba4e306c217c3ef29bb7d2eec0e478f7115370fb356",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "communications_personal_ops",
+        "language": "en",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "video"
+            ]
+          },
+          {
+            "variant_id": "q2",
+            "terms": [
+              "video",
+              "conferencing",
+              "web"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      }
+    },
+    {
+      "case_id": "FINAL-HOLD-08",
+      "prior_fts_ids": [
+        1953389,
+        20545279,
+        2471804,
+        221280225,
+        235391869,
+        552877440,
+        202768861,
+        14861133
+      ],
+      "repaired_fts_ids": [
+        1953389,
+        20545279,
+        2471804,
+        221280225,
+        235391869,
+        552877440,
+        202768861,
+        14861133
+      ],
+      "prior_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 1.0,
+          "ndcg_at_k": 0.9610012895088121,
+          "relevant_count": 2
+        },
+        "unjudged_ids": []
+      },
+      "repaired_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 1.0,
+          "ndcg_at_k": 0.9610012895088121,
+          "relevant_count": 2
+        },
+        "unjudged_ids": []
+      },
+      "original_literal_unchanged": true,
+      "previous_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-9c7e83987ad18cfebf918e22",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "ff6e8444c4664492bb099f0819b2d284aa5c28f0d44c7a745c63f434c3489dbf",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "payment_processing_sdks",
+        "language": "en",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "Python",
+              "Stripe",
+              "API"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      },
+      "repaired_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-9c7e83987ad18cfebf918e22",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "5b172b4fca5b2666fb61cba4e306c217c3ef29bb7d2eec0e478f7115370fb356",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "payment_processing_sdks",
+        "language": "en",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "Python"
+            ]
+          },
+          {
+            "variant_id": "q2",
+            "terms": [
+              "Python",
+              "Stripe",
+              "API"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      }
+    },
+    {
+      "case_id": "FINAL-HOLD-09",
+      "prior_fts_ids": [
+        16238673,
+        583598619,
+        6899875,
+        29745084
+      ],
+      "repaired_fts_ids": [
+        16238673,
+        583598619,
+        6899875,
+        29745084,
+        568098118,
+        301793434,
+        357894794,
+        159556794,
+        897809208,
+        1030580992,
+        16089035
+      ],
+      "prior_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 0.36363636363636365,
+          "ndcg_at_k": 0.5744342725440797,
+          "relevant_count": 11
+        },
+        "unjudged_ids": []
+      },
+      "repaired_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 1.0,
+          "ndcg_at_k": 0.8794828292922762,
+          "relevant_count": 11
+        },
+        "unjudged_ids": []
+      },
+      "original_literal_unchanged": true,
+      "previous_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-1113f6c13630551e9a035d98",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "ff6e8444c4664492bb099f0819b2d284aa5c28f0d44c7a745c63f434c3489dbf",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "project_task_management",
+        "language": "ru",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "agile",
+              "задачи",
+              "спринты",
+              "проект"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      },
+      "repaired_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-1113f6c13630551e9a035d98",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "5b172b4fca5b2666fb61cba4e306c217c3ef29bb7d2eec0e478f7115370fb356",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "project_task_management",
+        "language": "ru",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "agile"
+            ]
+          },
+          {
+            "variant_id": "q2",
+            "terms": [
+              "agile",
+              "задачи",
+              "спринты",
+              "проект"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      }
+    },
+    {
+      "case_id": "FINAL-HOLD-10",
+      "prior_fts_ids": [
+        21827146,
+        29261473,
+        327859577,
+        2310495,
+        208038454,
+        158256479,
+        182849188
+      ],
+      "repaired_fts_ids": [
+        29261473,
+        21827146,
+        327859577,
+        2310495,
+        208038454,
+        158256479,
+        182849188
+      ],
+      "prior_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 1.0,
+          "ndcg_at_k": 0.9324441894571632,
+          "relevant_count": 2
+        },
+        "unjudged_ids": []
+      },
+      "repaired_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 1.0,
+          "ndcg_at_k": 0.6419288461539238,
+          "relevant_count": 2
+        },
+        "unjudged_ids": []
+      },
+      "original_literal_unchanged": true,
+      "previous_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-dbf62495c37123f7b52eb3a7",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "ff6e8444c4664492bb099f0819b2d284aa5c28f0d44c7a745c63f434c3489dbf",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "data_lakes_object_storage",
+        "language": "en",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "S3",
+              "object",
+              "storage"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      },
+      "repaired_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-dbf62495c37123f7b52eb3a7",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "5b172b4fca5b2666fb61cba4e306c217c3ef29bb7d2eec0e478f7115370fb356",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "data_lakes_object_storage",
+        "language": "en",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "S3"
+            ]
+          },
+          {
+            "variant_id": "q2",
+            "terms": [
+              "S3",
+              "object",
+              "storage"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      }
+    },
+    {
+      "case_id": "FINAL-HOLD-11",
+      "prior_fts_ids": [
+        156018,
+        775743011,
+        437245741,
+        23405758,
+        48833910,
+        11225014
+      ],
+      "repaired_fts_ids": [
+        156018,
+        437245741,
+        775743011,
+        23405758,
+        48833910,
+        11225014
+      ],
+      "prior_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 1.0,
+          "ndcg_at_k": 1.0,
+          "relevant_count": 3
+        },
+        "unjudged_ids": []
+      },
+      "repaired_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 1.0,
+          "ndcg_at_k": 1.0,
+          "relevant_count": 3
+        },
+        "unjudged_ids": []
+      },
+      "original_literal_unchanged": true,
+      "previous_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-f60433ddac323a9e15fd00b4",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "ff6e8444c4664492bb099f0819b2d284aa5c28f0d44c7a745c63f434c3489dbf",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "caches_key_value_stores",
+        "language": "en",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "cache",
+              "caching",
+              "Redis"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      },
+      "repaired_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-f60433ddac323a9e15fd00b4",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "5b172b4fca5b2666fb61cba4e306c217c3ef29bb7d2eec0e478f7115370fb356",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "caches_key_value_stores",
+        "language": "en",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "cache"
+            ]
+          },
+          {
+            "variant_id": "q2",
+            "terms": [
+              "cache",
+              "caching",
+              "Redis"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      }
+    },
+    {
+      "case_id": "FINAL-HOLD-12",
+      "prior_fts_ids": [
+        20904437,
+        44344606,
+        234231371,
+        138597372,
+        435625572,
+        31504491,
+        105379569,
+        1864194,
+        394929332,
+        160919119,
+        78452015,
+        372172254,
+        7548986,
+        458058,
+        1148753,
+        80945428,
+        40772809,
+        596892,
+        438384984,
+        2609642,
+        40136600,
+        4164482,
+        124230204,
+        237159,
+        69495170,
+        1863329,
+        75505125,
+        17620347,
+        8514,
+        16072585,
+        6296790
+      ],
+      "repaired_fts_ids": [
+        44344606,
+        20904437,
+        234231371,
+        31504491,
+        138597372,
+        435625572,
+        105379569,
+        1864194,
+        394929332,
+        160919119,
+        78452015,
+        372172254,
+        7548986,
+        458058,
+        1148753,
+        80945428,
+        40772809,
+        596892,
+        438384984,
+        2609642,
+        40136600,
+        4164482,
+        124230204,
+        237159,
+        69495170,
+        1863329,
+        75505125,
+        17620347,
+        8514,
+        16072585,
+        6296790
+      ],
+      "prior_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 1.0,
+          "ndcg_at_k": 0.9709286432396581,
+          "relevant_count": 4
+        },
+        "unjudged_ids": []
+      },
+      "repaired_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 1.0,
+          "ndcg_at_k": 1.0,
+          "relevant_count": 4
+        },
+        "unjudged_ids": []
+      },
+      "original_literal_unchanged": true,
+      "previous_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-28c5c18a11e7945c323b2866",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "ff6e8444c4664492bb099f0819b2d284aa5c28f0d44c7a745c63f434c3489dbf",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "backend_frameworks",
+        "language": "en",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "Go",
+              "HTTP",
+              "framework",
+              "REST"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [
+            "Go"
+          ],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      },
+      "repaired_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-28c5c18a11e7945c323b2866",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "5b172b4fca5b2666fb61cba4e306c217c3ef29bb7d2eec0e478f7115370fb356",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "backend_frameworks",
+        "language": "en",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "Go"
+            ]
+          },
+          {
+            "variant_id": "q2",
+            "terms": [
+              "Go",
+              "HTTP",
+              "framework",
+              "REST"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [
+            "Go"
+          ],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      }
+    },
+    {
+      "case_id": "FINAL-HOLD-13",
+      "prior_fts_ids": [
+        10567197,
+        332880689,
+        788847937,
+        108221729,
+        34302698,
+        426659329,
+        474540881,
+        1145216439,
+        10187082
+      ],
+      "repaired_fts_ids": [
+        332880689,
+        10567197,
+        788847937,
+        108221729,
+        34302698,
+        426659329,
+        474540881,
+        1145216439,
+        10187082
+      ],
+      "prior_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 1.0,
+          "ndcg_at_k": 0.9772298496969573,
+          "relevant_count": 6
+        },
+        "unjudged_ids": []
+      },
+      "repaired_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 1.0,
+          "ndcg_at_k": 0.9772298496969573,
+          "relevant_count": 6
+        },
+        "unjudged_ids": []
+      },
+      "original_literal_unchanged": true,
+      "previous_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-bd65518c8655bd613d1b3765",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "ff6e8444c4664492bb099f0819b2d284aa5c28f0d44c7a745c63f434c3489dbf",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "application_paas",
+        "language": "en",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "self",
+              "hosted",
+              "PaaS",
+              "applications"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      },
+      "repaired_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-bd65518c8655bd613d1b3765",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "5b172b4fca5b2666fb61cba4e306c217c3ef29bb7d2eec0e478f7115370fb356",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "application_paas",
+        "language": "en",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "self"
+            ]
+          },
+          {
+            "variant_id": "q2",
+            "terms": [
+              "self",
+              "hosted",
+              "PaaS",
+              "applications"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      }
+    },
+    {
+      "case_id": "FINAL-HOLD-14",
+      "prior_fts_ids": [
+        252813491,
+        1129086590,
+        36817565,
+        1065059442,
+        959903176,
+        965808054,
+        141447532,
+        962125208,
+        140457254,
+        961915719,
+        267713284,
+        962587799,
+        1198251684
+      ],
+      "repaired_fts_ids": [
+        252813491,
+        1129086590,
+        36817565,
+        965808054,
+        141447532,
+        962125208,
+        1065059442,
+        140457254,
+        959903176,
+        961915719,
+        267713284,
+        962587799,
+        1198251684
+      ],
+      "prior_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 0.9,
+          "ndcg_at_k": 0.9155803358538875,
+          "relevant_count": 10
+        },
+        "unjudged_ids": []
+      },
+      "repaired_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 0.9,
+          "ndcg_at_k": 0.8967307282404868,
+          "relevant_count": 10
+        },
+        "unjudged_ids": []
+      },
+      "original_literal_unchanged": true,
+      "previous_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-358c0b3fa9fd65b40c56649a",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "ff6e8444c4664492bb099f0819b2d284aa5c28f0d44c7a745c63f434c3489dbf",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "security_testing",
+        "language": "en",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "vulnerability",
+              "scanner",
+              "web",
+              "applications"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      },
+      "repaired_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-358c0b3fa9fd65b40c56649a",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "5b172b4fca5b2666fb61cba4e306c217c3ef29bb7d2eec0e478f7115370fb356",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "security_testing",
+        "language": "en",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "vulnerability"
+            ]
+          },
+          {
+            "variant_id": "q2",
+            "terms": [
+              "vulnerability",
+              "scanner",
+              "web",
+              "applications"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      }
+    },
+    {
+      "case_id": "FINAL-ALIAS-01",
+      "prior_fts_ids": [
+        5152285
+      ],
+      "repaired_fts_ids": [
+        5152285
+      ],
+      "prior_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 1.0,
+          "ndcg_at_k": 1.0,
+          "relevant_count": 1
+        },
+        "unjudged_ids": []
+      },
+      "repaired_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 1.0,
+          "ndcg_at_k": 1.0,
+          "relevant_count": 1
+        },
+        "unjudged_ids": []
+      },
+      "original_literal_unchanged": true,
+      "previous_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-d929ce6c31b8e4cee1e3f6ac",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "ff6e8444c4664492bb099f0819b2d284aa5c28f0d44c7a745c63f434c3489dbf",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "api_graphql_rpc",
+        "language": "en",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "square/okhttp"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      },
+      "repaired_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-d929ce6c31b8e4cee1e3f6ac",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "5b172b4fca5b2666fb61cba4e306c217c3ef29bb7d2eec0e478f7115370fb356",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "api_graphql_rpc",
+        "language": "en",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "square/okhttp"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      }
+    }
+  ]
+}

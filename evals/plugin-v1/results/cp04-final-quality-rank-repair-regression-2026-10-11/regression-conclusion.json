@@ -1,0 +1,6189 @@
+{
+  "schema_version": "cp04_final_summary_v1",
+  "verdict": "regression_verified_only",
+  "promotion_ready": false,
+  "evidence_kind": "exposed_two_suite_development_regression",
+  "plan_sha256": "56579b4e01eb5a3a353c788c216576973ce9825adf9c2409fd58302dac5d78c6",
+  "candidate_macro": {
+    "recall_at_k": 0.9437102371312898,
+    "ndcg_at_k": 0.9286707562588494
+  },
+  "original_literal_macro": {
+    "recall_at_k": 0.8846710307236624,
+    "ndcg_at_k": 0.9141533166401362
+  },
+  "strata": {
+    "thin_leaf": {
+      "case_ids": [
+        "FINAL-HOLD-01",
+        "FINAL-HOLD-03",
+        "FINAL-HOLD-04",
+        "FINAL-HOLD-05",
+        "FINAL-HOLD-06",
+        "FINAL-HOLD-08",
+        "FINAL-HOLD-10",
+        "FINAL-HOLD-11",
+        "FINAL-HOLD-13",
+        "INDEPENDENT-HOLD-01",
+        "INDEPENDENT-HOLD-02",
+        "INDEPENDENT-HOLD-03",
+        "INDEPENDENT-HOLD-07",
+        "INDEPENDENT-HOLD-11",
+        "INDEPENDENT-HOLD-12",
+        "INDEPENDENT-HOLD-14"
+      ],
+      "candidate": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.921832875175296
+      },
+      "baseline": {
+        "recall_at_k": 0.9541666666666666,
+        "ndcg_at_k": 0.9295992836702399
+      }
+    },
+    "dense_leaf": {
+      "case_ids": [
+        "FINAL-HOLD-02",
+        "FINAL-HOLD-07",
+        "FINAL-HOLD-12",
+        "INDEPENDENT-HOLD-04"
+      ],
+      "candidate": {
+        "recall_at_k": 0.8328947368421052,
+        "ndcg_at_k": 0.906346733350702
+      },
+      "baseline": {
+        "recall_at_k": 0.8197368421052631,
+        "ndcg_at_k": 0.9036450957633564
+      }
+    },
+    "baseline_cohort": {
+      "case_ids": [
+        "FINAL-HOLD-01",
+        "FINAL-HOLD-02",
+        "FINAL-HOLD-03",
+        "FINAL-HOLD-04",
+        "FINAL-HOLD-05",
+        "FINAL-HOLD-06",
+        "FINAL-HOLD-07",
+        "FINAL-HOLD-08",
+        "FINAL-HOLD-09",
+        "FINAL-HOLD-10",
+        "FINAL-HOLD-11",
+        "FINAL-HOLD-12",
+        "FINAL-HOLD-13",
+        "FINAL-HOLD-14",
+        "INDEPENDENT-HOLD-01",
+        "INDEPENDENT-HOLD-02",
+        "INDEPENDENT-HOLD-03",
+        "INDEPENDENT-HOLD-04",
+        "INDEPENDENT-HOLD-05",
+        "INDEPENDENT-HOLD-06",
+        "INDEPENDENT-HOLD-07",
+        "INDEPENDENT-HOLD-08",
+        "INDEPENDENT-HOLD-09",
+        "INDEPENDENT-HOLD-10",
+        "INDEPENDENT-HOLD-11",
+        "INDEPENDENT-HOLD-12",
+        "INDEPENDENT-HOLD-13",
+        "INDEPENDENT-HOLD-14"
+      ],
+      "candidate": {
+        "recall_at_k": 0.9437102371312898,
+        "ndcg_at_k": 0.9286707562588494
+      },
+      "baseline": {
+        "recall_at_k": 0.8846710307236624,
+        "ndcg_at_k": 0.9141533166401362
+      }
+    },
+    "expansion_cohort": {
+      "case_ids": [
+        "FINAL-HOLD-02",
+        "FINAL-HOLD-07",
+        "INDEPENDENT-HOLD-05"
+      ],
+      "candidate": {
+        "recall_at_k": 0.7002699055330633,
+        "ndcg_at_k": 0.8550060011912582
+      },
+      "baseline": {
+        "recall_at_k": 0.6058029689608637,
+        "ndcg_at_k": 0.7813241373077958
+      }
+    },
+    "dual_descriptions": {
+      "case_ids": [
+        "FINAL-HOLD-01",
+        "FINAL-HOLD-02",
+        "FINAL-HOLD-03",
+        "FINAL-HOLD-04",
+        "FINAL-HOLD-06",
+        "FINAL-HOLD-07",
+        "FINAL-HOLD-08",
+        "FINAL-HOLD-09",
+        "FINAL-HOLD-10",
+        "FINAL-HOLD-11",
+        "FINAL-HOLD-12",
+        "FINAL-HOLD-13",
+        "FINAL-HOLD-14",
+        "INDEPENDENT-HOLD-01",
+        "INDEPENDENT-HOLD-02",
+        "INDEPENDENT-HOLD-03",
+        "INDEPENDENT-HOLD-04",
+        "INDEPENDENT-HOLD-05",
+        "INDEPENDENT-HOLD-06",
+        "INDEPENDENT-HOLD-07",
+        "INDEPENDENT-HOLD-08",
+        "INDEPENDENT-HOLD-09",
+        "INDEPENDENT-HOLD-10",
+        "INDEPENDENT-HOLD-11",
+        "INDEPENDENT-HOLD-12",
+        "INDEPENDENT-HOLD-13",
+        "INDEPENDENT-HOLD-14"
+      ],
+      "candidate": {
+        "recall_at_k": 0.9416254310991152,
+        "ndcg_at_k": 0.935070893328516
+      },
+      "baseline": {
+        "recall_at_k": 0.8803995874171313,
+        "ndcg_at_k": 0.9170147446228276
+      }
+    },
+    "secondary_dedupe": {
+      "case_ids": [
+        "FINAL-HOLD-02",
+        "FINAL-HOLD-05",
+        "FINAL-HOLD-07",
+        "FINAL-HOLD-12",
+        "INDEPENDENT-HOLD-09"
+      ],
+      "candidate": {
+        "recall_at_k": 0.8663157894736842,
+        "ndcg_at_k": 0.8745519981413862
+      },
+      "baseline": {
+        "recall_at_k": 0.8557894736842104,
+        "ndcg_at_k": 0.8859908097958689
+      }
+    },
+    "container_union": {
+      "case_ids": [
+        "FINAL-HOLD-07",
+        "INDEPENDENT-HOLD-07"
+      ],
+      "candidate": {
+        "recall_at_k": 0.85,
+        "ndcg_at_k": 0.8998726900656102
+      },
+      "baseline": {
+        "recall_at_k": 0.85,
+        "ndcg_at_k": 0.9029837149505903
+      }
+    },
+    "lexical_ru": {
+      "case_ids": [
+        "FINAL-HOLD-03",
+        "FINAL-HOLD-05",
+        "FINAL-HOLD-09",
+        "INDEPENDENT-HOLD-05",
+        "INDEPENDENT-HOLD-07"
+      ],
+      "candidate": {
+        "recall_at_k": 0.9538461538461538,
+        "ndcg_at_k": 0.9242118008396414
+      },
+      "baseline": {
+        "recall_at_k": 0.7804195804195804,
+        "ndcg_at_k": 0.8304198149282328
+      }
+    },
+    "lexical_en": {
+      "case_ids": [
+        "FINAL-HOLD-01",
+        "FINAL-HOLD-02",
+        "FINAL-HOLD-03",
+        "FINAL-HOLD-04",
+        "FINAL-HOLD-05",
+        "FINAL-HOLD-06",
+        "FINAL-HOLD-07",
+        "FINAL-HOLD-08",
+        "FINAL-HOLD-09",
+        "FINAL-HOLD-10",
+        "FINAL-HOLD-11",
+        "FINAL-HOLD-12",
+        "FINAL-HOLD-13",
+        "FINAL-HOLD-14",
+        "INDEPENDENT-HOLD-01",
+        "INDEPENDENT-HOLD-02",
+        "INDEPENDENT-HOLD-03",
+        "INDEPENDENT-HOLD-04",
+        "INDEPENDENT-HOLD-06",
+        "INDEPENDENT-HOLD-08",
+        "INDEPENDENT-HOLD-09",
+        "INDEPENDENT-HOLD-10",
+        "INDEPENDENT-HOLD-11",
+        "INDEPENDENT-HOLD-12",
+        "INDEPENDENT-HOLD-13",
+        "INDEPENDENT-HOLD-14"
+      ],
+      "candidate": {
+        "recall_at_k": 0.9482559950171285,
+        "ndcg_at_k": 0.9275873535194251
+      },
+      "baseline": {
+        "recall_at_k": 0.8935510508385002,
+        "ndcg_at_k": 0.9196898995897762
+      }
+    },
+    "activity_unknown": {
+      "case_ids": [
+        "FINAL-HOLD-01",
+        "FINAL-HOLD-02",
+        "FINAL-HOLD-03",
+        "FINAL-HOLD-05",
+        "FINAL-HOLD-07",
+        "FINAL-HOLD-08",
+        "FINAL-HOLD-09",
+        "FINAL-HOLD-10",
+        "FINAL-HOLD-12",
+        "FINAL-HOLD-13",
+        "FINAL-HOLD-14",
+        "INDEPENDENT-HOLD-01",
+        "INDEPENDENT-HOLD-02",
+        "INDEPENDENT-HOLD-03",
+        "INDEPENDENT-HOLD-04",
+        "INDEPENDENT-HOLD-05",
+        "INDEPENDENT-HOLD-06",
+        "INDEPENDENT-HOLD-07",
+        "INDEPENDENT-HOLD-08",
+        "INDEPENDENT-HOLD-09",
+        "INDEPENDENT-HOLD-10",
+        "INDEPENDENT-HOLD-11",
+        "INDEPENDENT-HOLD-12",
+        "INDEPENDENT-HOLD-13",
+        "INDEPENDENT-HOLD-14"
+      ],
+      "candidate": {
+        "recall_at_k": 0.9369554655870445,
+        "ndcg_at_k": 0.9341113963430295
+      },
+      "baseline": {
+        "recall_at_k": 0.8708315544105019,
+        "ndcg_at_k": 0.9159579801487727
+      }
+    },
+    "developer_tools_cli_general": {
+      "case_ids": [
+        "FINAL-HOLD-01",
+        "INDEPENDENT-HOLD-01"
+      ],
+      "candidate": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.9582413777484061
+      },
+      "baseline": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.9110278653408472
+      }
+    },
+    "testing_qa": {
+      "case_ids": [
+        "FINAL-HOLD-02",
+        "INDEPENDENT-HOLD-02"
+      ],
+      "candidate": {
+        "recall_at_k": 0.8157894736842105,
+        "ndcg_at_k": 0.8908283726473599
+      },
+      "baseline": {
+        "recall_at_k": 0.7894736842105263,
+        "ndcg_at_k": 0.8849132067657077
+      }
+    },
+    "files_media_storage": {
+      "case_ids": [
+        "FINAL-HOLD-03",
+        "INDEPENDENT-HOLD-03"
+      ],
+      "candidate": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.9972727022289976
+      },
+      "baseline": {
+        "recall_at_k": 0.8,
+        "ndcg_at_k": 0.9740203568849501
+      }
+    },
+    "frontend_frameworks_ui": {
+      "case_ids": [
+        "FINAL-HOLD-04",
+        "INDEPENDENT-HOLD-04"
+      ],
+      "candidate": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.9531009416079974
+      },
+      "baseline": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.9576432086819515
+      }
+    },
+    "accounting_finance_erp": {
+      "case_ids": [
+        "FINAL-HOLD-05",
+        "INDEPENDENT-HOLD-05"
+      ],
+      "candidate": {
+        "recall_at_k": 0.8846153846153846,
+        "ndcg_at_k": 0.8346279096538243
+      },
+      "baseline": {
+        "recall_at_k": 0.7692307692307692,
+        "ndcg_at_k": 0.7745645089420852
+      }
+    },
+    "cms_content_knowledge": {
+      "case_ids": [
+        "FINAL-HOLD-06",
+        "INDEPENDENT-HOLD-06"
+      ],
+      "candidate": {
+        "recall_at_k": 0.9285714285714286,
+        "ndcg_at_k": 0.8271443024289611
+      },
+      "baseline": {
+        "recall_at_k": 0.9285714285714286,
+        "ndcg_at_k": 0.8473822966210751
+      }
+    },
+    "communications_personal_ops": {
+      "case_ids": [
+        "FINAL-HOLD-07",
+        "INDEPENDENT-HOLD-07"
+      ],
+      "candidate": {
+        "recall_at_k": 0.85,
+        "ndcg_at_k": 0.8998726900656102
+      },
+      "baseline": {
+        "recall_at_k": 0.85,
+        "ndcg_at_k": 0.9029837149505903
+      }
+    },
+    "ecommerce_payments_revenue": {
+      "case_ids": [
+        "FINAL-HOLD-08",
+        "INDEPENDENT-HOLD-08"
+      ],
+      "candidate": {
+        "recall_at_k": 0.9285714285714286,
+        "ndcg_at_k": 0.980500644754406
+      },
+      "baseline": {
+        "recall_at_k": 0.9285714285714286,
+        "ndcg_at_k": 0.980500644754406
+      }
+    },
+    "operations_project_management": {
+      "case_ids": [
+        "FINAL-HOLD-09",
+        "INDEPENDENT-HOLD-09"
+      ],
+      "candidate": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.972472830381366
+      },
+      "baseline": {
+        "recall_at_k": 0.6818181818181819,
+        "ndcg_at_k": 0.7960849848346263
+      }
+    },
+    "data_ingestion_etl_cdc": {
+      "case_ids": [
+        "FINAL-HOLD-10",
+        "INDEPENDENT-HOLD-10"
+      ],
+      "candidate": {
+        "recall_at_k": 0.9615384615384616,
+        "ndcg_at_k": 0.9306583247674958
+      },
+      "baseline": {
+        "recall_at_k": 0.9615384615384616,
+        "ndcg_at_k": 0.9838625639031751
+      }
+    },
+    "databases_storage_caching": {
+      "case_ids": [
+        "FINAL-HOLD-11",
+        "INDEPENDENT-HOLD-11"
+      ],
+      "candidate": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.9879618067953051
+      },
+      "baseline": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.961396441830354
+      }
+    },
+    "backend_baas_api": {
+      "case_ids": [
+        "FINAL-HOLD-12",
+        "INDEPENDENT-HOLD-12"
+      ],
+      "candidate": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "baseline": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 1.0
+      }
+    },
+    "deployment_containers_paas": {
+      "case_ids": [
+        "FINAL-HOLD-13",
+        "INDEPENDENT-HOLD-13"
+      ],
+      "candidate": {
+        "recall_at_k": 0.8928571428571428,
+        "ndcg_at_k": 0.9910425417544821
+      },
+      "baseline": {
+        "recall_at_k": 0.7261904761904762,
+        "ndcg_at_k": 0.9732835607140917
+      }
+    },
+    "supply_chain_devsecops": {
+      "case_ids": [
+        "FINAL-HOLD-14",
+        "INDEPENDENT-HOLD-14"
+      ],
+      "candidate": {
+        "recall_at_k": 0.95,
+        "ndcg_at_k": 0.7776661427896794
+      },
+      "baseline": {
+        "recall_at_k": 0.95,
+        "ndcg_at_k": 0.8504830787380471
+      }
+    }
+  },
+  "gates": {
+    "held_out_macro_recall_at_12_min": true,
+    "baseline_non_regression_recall_at_k": true,
+    "held_out_macro_ndcg_at_12_min": true,
+    "baseline_non_regression_ndcg_at_k": true,
+    "required_strata": true,
+    "hard_constraint_violations": true,
+    "false_exclusions": true,
+    "duplicate_canonical_ids": true,
+    "alias_success_rate_min": true,
+    "evidence_pack_survival_rate_min": true,
+    "all_statuses_match": true,
+    "container_registry_coverage": true,
+    "leaf_registry_coverage": true
+  },
+  "incomplete_oracle_cases": [],
+  "measured_route_case_count": 30,
+  "registry_counts": {
+    "container": 14,
+    "category": 111
+  },
+  "known_pool_survival_diagnostic": {
+    "numerator": 195,
+    "denominator": 195
+  },
+  "official_pack_survival": 1.0,
+  "adjacent_gaps": [
+    "human oracle calibration",
+    "same-canonical RU/EN meaning and usefulness",
+    "browser no-call switching",
+    "state/publication recovery",
+    "fresh host interpretation behavior",
+    "headroom capacity not rerun here",
+    "Fresh prospective retrieval acceptance after exposed rank calibration",
+    "Human acceptance and browser no-call/state recovery"
+  ],
+  "interpretation_limit": "Preauthored interpretation evaluates deterministic Brief/FTS wiring, not real host interpretation/model behavior. Source sparse facts and all unknowns retained. Human acceptance absent; prior failed held-out is not waived.",
+  "first_capture_at": "2026-10-11T10:29:41.027772+00:00",
+  "regression_gates_pass": true,
+  "suite_summaries": {
+    "source_qualified15": {
+      "candidate_macro": {
+        "recall_at_k": 0.9451127819548872,
+        "ndcg_at_k": 0.9147972596561278
+      },
+      "original_literal_macro": {
+        "recall_at_k": 0.8720893141945772,
+        "ndcg_at_k": 0.8925157143186061
+      },
+      "strata": {
+        "thin_leaf": {
+          "case_ids": [
+            "FINAL-HOLD-01",
+            "FINAL-HOLD-03",
+            "FINAL-HOLD-04",
+            "FINAL-HOLD-05",
+            "FINAL-HOLD-06",
+            "FINAL-HOLD-08",
+            "FINAL-HOLD-10",
+            "FINAL-HOLD-11",
+            "FINAL-HOLD-13"
+          ],
+          "candidate": {
+            "recall_at_k": 1.0,
+            "ndcg_at_k": 0.9179196613683567
+          },
+          "baseline": {
+            "recall_at_k": 0.9629629629629629,
+            "ndcg_at_k": 0.9241005750802673
+          }
+        },
+        "dense_leaf": {
+          "case_ids": [
+            "FINAL-HOLD-02",
+            "FINAL-HOLD-07",
+            "FINAL-HOLD-12"
+          ],
+          "candidate": {
+            "recall_at_k": 0.7771929824561403,
+            "ndcg_at_k": 0.8838764132146588
+          },
+          "baseline": {
+            "recall_at_k": 0.7596491228070175,
+            "ndcg_at_k": 0.877246051715562
+          }
+        },
+        "baseline_cohort": {
+          "case_ids": [
+            "FINAL-HOLD-01",
+            "FINAL-HOLD-02",
+            "FINAL-HOLD-03",
+            "FINAL-HOLD-04",
+            "FINAL-HOLD-05",
+            "FINAL-HOLD-06",
+            "FINAL-HOLD-07",
+            "FINAL-HOLD-08",
+            "FINAL-HOLD-09",
+            "FINAL-HOLD-10",
+            "FINAL-HOLD-11",
+            "FINAL-HOLD-12",
+            "FINAL-HOLD-13",
+            "FINAL-HOLD-14"
+          ],
+          "candidate": {
+            "recall_at_k": 0.9451127819548872,
+            "ndcg_at_k": 0.9147972596561278
+          },
+          "baseline": {
+            "recall_at_k": 0.8720893141945772,
+            "ndcg_at_k": 0.8925157143186061
+          }
+        },
+        "expansion_cohort": {
+          "case_ids": [
+            "FINAL-HOLD-02",
+            "FINAL-HOLD-07"
+          ],
+          "candidate": {
+            "recall_at_k": 0.6657894736842105,
+            "ndcg_at_k": 0.8258146198219882
+          },
+          "baseline": {
+            "recall_at_k": 0.6394736842105263,
+            "ndcg_at_k": 0.815869077573343
+          }
+        },
+        "dual_descriptions": {
+          "case_ids": [
+            "FINAL-HOLD-01",
+            "FINAL-HOLD-02",
+            "FINAL-HOLD-03",
+            "FINAL-HOLD-04",
+            "FINAL-HOLD-06",
+            "FINAL-HOLD-07",
+            "FINAL-HOLD-08",
+            "FINAL-HOLD-09",
+            "FINAL-HOLD-10",
+            "FINAL-HOLD-11",
+            "FINAL-HOLD-12",
+            "FINAL-HOLD-13",
+            "FINAL-HOLD-14"
+          ],
+          "candidate": {
+            "recall_at_k": 0.9408906882591093,
+            "ndcg_at_k": 0.927022659985226
+          },
+          "baseline": {
+            "recall_at_k": 0.8622500306710832,
+            "ndcg_at_k": 0.8967942491810013
+          }
+        },
+        "secondary_dedupe": {
+          "case_ids": [
+            "FINAL-HOLD-02",
+            "FINAL-HOLD-05",
+            "FINAL-HOLD-07",
+            "FINAL-HOLD-12"
+          ],
+          "candidate": {
+            "recall_at_k": 0.8328947368421052,
+            "ndcg_at_k": 0.8518740737554567
+          },
+          "baseline": {
+            "recall_at_k": 0.8197368421052631,
+            "ndcg_at_k": 0.8671582290635387
+          }
+        },
+        "container_union": {
+          "case_ids": [
+            "FINAL-HOLD-07"
+          ],
+          "candidate": {
+            "recall_at_k": 0.7,
+            "ndcg_at_k": 0.8276241603182892
+          },
+          "baseline": {
+            "recall_at_k": 0.7,
+            "ndcg_at_k": 0.8338462100882492
+          }
+        },
+        "lexical_ru": {
+          "case_ids": [
+            "FINAL-HOLD-03",
+            "FINAL-HOLD-05",
+            "FINAL-HOLD-09"
+          ],
+          "candidate": {
+            "recall_at_k": 1.0,
+            "ndcg_at_k": 0.9118496734851592
+          },
+          "baseline": {
+            "recall_at_k": 0.787878787878788,
+            "ndcg_at_k": 0.8225811993505104
+          }
+        },
+        "lexical_en": {
+          "case_ids": [
+            "FINAL-HOLD-01",
+            "FINAL-HOLD-02",
+            "FINAL-HOLD-03",
+            "FINAL-HOLD-04",
+            "FINAL-HOLD-05",
+            "FINAL-HOLD-06",
+            "FINAL-HOLD-07",
+            "FINAL-HOLD-08",
+            "FINAL-HOLD-09",
+            "FINAL-HOLD-10",
+            "FINAL-HOLD-11",
+            "FINAL-HOLD-12",
+            "FINAL-HOLD-13",
+            "FINAL-HOLD-14"
+          ],
+          "candidate": {
+            "recall_at_k": 0.9451127819548872,
+            "ndcg_at_k": 0.9147972596561278
+          },
+          "baseline": {
+            "recall_at_k": 0.8720893141945772,
+            "ndcg_at_k": 0.8925157143186061
+          }
+        },
+        "activity_unknown": {
+          "case_ids": [
+            "FINAL-HOLD-01",
+            "FINAL-HOLD-02",
+            "FINAL-HOLD-03",
+            "FINAL-HOLD-05",
+            "FINAL-HOLD-07",
+            "FINAL-HOLD-08",
+            "FINAL-HOLD-09",
+            "FINAL-HOLD-10",
+            "FINAL-HOLD-12",
+            "FINAL-HOLD-13",
+            "FINAL-HOLD-14"
+          ],
+          "candidate": {
+            "recall_at_k": 0.9301435406698565,
+            "ndcg_at_k": 0.923378669864886
+          },
+          "baseline": {
+            "recall_at_k": 0.8372045817021893,
+            "ndcg_at_k": 0.8907160580232717
+          }
+        },
+        "developer_tools_cli_general": {
+          "case_ids": [
+            "FINAL-HOLD-01"
+          ],
+          "candidate": {
+            "recall_at_k": 1.0,
+            "ndcg_at_k": 0.9694344162682397
+          },
+          "baseline": {
+            "recall_at_k": 1.0,
+            "ndcg_at_k": 0.8654999782255441
+          }
+        },
+        "testing_qa": {
+          "case_ids": [
+            "FINAL-HOLD-02"
+          ],
+          "candidate": {
+            "recall_at_k": 0.631578947368421,
+            "ndcg_at_k": 0.8240050793256873
+          },
+          "baseline": {
+            "recall_at_k": 0.5789473684210527,
+            "ndcg_at_k": 0.7978919450584367
+          }
+        },
+        "files_media_storage": {
+          "case_ids": [
+            "FINAL-HOLD-03"
+          ],
+          "candidate": {
+            "recall_at_k": 1.0,
+            "ndcg_at_k": 1.0
+          },
+          "baseline": {
+            "recall_at_k": 1.0,
+            "ndcg_at_k": 1.0
+          }
+        },
+        "frontend_frameworks_ui": {
+          "case_ids": [
+            "FINAL-HOLD-04"
+          ],
+          "candidate": {
+            "recall_at_k": 1.0,
+            "ndcg_at_k": 0.9324441894571632
+          },
+          "baseline": {
+            "recall_at_k": 1.0,
+            "ndcg_at_k": 0.9324441894571632
+          }
+        },
+        "accounting_finance_erp": {
+          "case_ids": [
+            "FINAL-HOLD-05"
+          ],
+          "candidate": {
+            "recall_at_k": 1.0,
+            "ndcg_at_k": 0.75586705537785
+          },
+          "baseline": {
+            "recall_at_k": 1.0,
+            "ndcg_at_k": 0.8368947611074689
+          }
+        },
+        "cms_content_knowledge": {
+          "case_ids": [
+            "FINAL-HOLD-06"
+          ],
+          "candidate": {
+            "recall_at_k": 1.0,
+            "ndcg_at_k": 0.7175520772148791
+          },
+          "baseline": {
+            "recall_at_k": 1.0,
+            "ndcg_at_k": 0.7648991727473325
+          }
+        },
+        "communications_personal_ops": {
+          "case_ids": [
+            "FINAL-HOLD-07"
+          ],
+          "candidate": {
+            "recall_at_k": 0.7,
+            "ndcg_at_k": 0.8276241603182892
+          },
+          "baseline": {
+            "recall_at_k": 0.7,
+            "ndcg_at_k": 0.8338462100882492
+          }
+        },
+        "ecommerce_payments_revenue": {
+          "case_ids": [
+            "FINAL-HOLD-08"
+          ],
+          "candidate": {
+            "recall_at_k": 1.0,
+            "ndcg_at_k": 0.9610012895088121
+          },
+          "baseline": {
+            "recall_at_k": 1.0,
+            "ndcg_at_k": 0.9610012895088121
+          }
+        },
+        "operations_project_management": {
+          "case_ids": [
+            "FINAL-HOLD-09"
+          ],
+          "candidate": {
+            "recall_at_k": 1.0,
+            "ndcg_at_k": 0.9796819650776274
+          },
+          "baseline": {
+            "recall_at_k": 0.36363636363636365,
+            "ndcg_at_k": 0.6308488369440626
+          }
+        },
+        "data_ingestion_etl_cdc": {
+          "case_ids": [
+            "FINAL-HOLD-10"
+          ],
+          "candidate": {
+            "recall_at_k": 1.0,
+            "ndcg_at_k": 0.9324441894571632
+          },
+          "baseline": {
+            "recall_at_k": 1.0,
+            "ndcg_at_k": 1.0
+          }
+        },
+        "databases_storage_caching": {
+          "case_ids": [
+            "FINAL-HOLD-11"
+          ],
+          "candidate": {
+            "recall_at_k": 1.0,
+            "ndcg_at_k": 1.0
+          },
+          "baseline": {
+            "recall_at_k": 1.0,
+            "ndcg_at_k": 1.0
+          }
+        },
+        "backend_baas_api": {
+          "case_ids": [
+            "FINAL-HOLD-12"
+          ],
+          "candidate": {
+            "recall_at_k": 1.0,
+            "ndcg_at_k": 1.0
+          },
+          "baseline": {
+            "recall_at_k": 1.0,
+            "ndcg_at_k": 1.0
+          }
+        },
+        "deployment_containers_paas": {
+          "case_ids": [
+            "FINAL-HOLD-13"
+          ],
+          "candidate": {
+            "recall_at_k": 1.0,
+            "ndcg_at_k": 0.9925337350311029
+          },
+          "baseline": {
+            "recall_at_k": 0.6666666666666666,
+            "ndcg_at_k": 0.9561657846760856
+          }
+        },
+        "supply_chain_devsecops": {
+          "case_ids": [
+            "FINAL-HOLD-14"
+          ],
+          "candidate": {
+            "recall_at_k": 0.9,
+            "ndcg_at_k": 0.9145734781489755
+          },
+          "baseline": {
+            "recall_at_k": 0.9,
+            "ndcg_at_k": 0.91572783264733
+          }
+        }
+      },
+      "gates": {
+        "held_out_macro_recall_at_12_min": true,
+        "baseline_non_regression_recall_at_k": true,
+        "held_out_macro_ndcg_at_12_min": true,
+        "baseline_non_regression_ndcg_at_k": true,
+        "required_strata": true,
+        "hard_constraint_violations": true,
+        "false_exclusions": true,
+        "duplicate_canonical_ids": true,
+        "alias_success_rate_min": true,
+        "evidence_pack_survival_rate_min": true,
+        "all_statuses_match": true
+      },
+      "official_pack_survival": 1.0,
+      "pack_counts": {
+        "numerator": 78,
+        "denominator": 78
+      }
+    },
+    "independent_now_exposed15": {
+      "candidate_macro": {
+        "recall_at_k": 0.9423076923076923,
+        "ndcg_at_k": 0.9425442528615708
+      },
+      "original_literal_macro": {
+        "recall_at_k": 0.8972527472527473,
+        "ndcg_at_k": 0.9357909189616664
+      },
+      "strata": {
+        "thin_leaf": {
+          "case_ids": [
+            "INDEPENDENT-HOLD-01",
+            "INDEPENDENT-HOLD-02",
+            "INDEPENDENT-HOLD-03",
+            "INDEPENDENT-HOLD-07",
+            "INDEPENDENT-HOLD-11",
+            "INDEPENDENT-HOLD-12",
+            "INDEPENDENT-HOLD-14"
+          ],
+          "candidate": {
+            "recall_at_k": 1.0,
+            "ndcg_at_k": 0.9268641500699321
+          },
+          "baseline": {
+            "recall_at_k": 0.9428571428571428,
+            "ndcg_at_k": 0.9366690518573476
+          }
+        },
+        "dense_leaf": {
+          "case_ids": [
+            "INDEPENDENT-HOLD-04"
+          ],
+          "candidate": {
+            "recall_at_k": 1.0,
+            "ndcg_at_k": 0.9737576937588317
+          },
+          "baseline": {
+            "recall_at_k": 1.0,
+            "ndcg_at_k": 0.9828422279067397
+          }
+        },
+        "baseline_cohort": {
+          "case_ids": [
+            "INDEPENDENT-HOLD-01",
+            "INDEPENDENT-HOLD-02",
+            "INDEPENDENT-HOLD-03",
+            "INDEPENDENT-HOLD-04",
+            "INDEPENDENT-HOLD-05",
+            "INDEPENDENT-HOLD-06",
+            "INDEPENDENT-HOLD-07",
+            "INDEPENDENT-HOLD-08",
+            "INDEPENDENT-HOLD-09",
+            "INDEPENDENT-HOLD-10",
+            "INDEPENDENT-HOLD-11",
+            "INDEPENDENT-HOLD-12",
+            "INDEPENDENT-HOLD-13",
+            "INDEPENDENT-HOLD-14"
+          ],
+          "candidate": {
+            "recall_at_k": 0.9423076923076923,
+            "ndcg_at_k": 0.9425442528615708
+          },
+          "baseline": {
+            "recall_at_k": 0.8972527472527473,
+            "ndcg_at_k": 0.9357909189616664
+          }
+        },
+        "expansion_cohort": {
+          "case_ids": [
+            "INDEPENDENT-HOLD-05"
+          ],
+          "candidate": {
+            "recall_at_k": 0.7692307692307693,
+            "ndcg_at_k": 0.9133887639297984
+          },
+          "baseline": {
+            "recall_at_k": 0.5384615384615384,
+            "ndcg_at_k": 0.7122342567767014
+          }
+        },
+        "dual_descriptions": {
+          "case_ids": [
+            "INDEPENDENT-HOLD-01",
+            "INDEPENDENT-HOLD-02",
+            "INDEPENDENT-HOLD-03",
+            "INDEPENDENT-HOLD-04",
+            "INDEPENDENT-HOLD-05",
+            "INDEPENDENT-HOLD-06",
+            "INDEPENDENT-HOLD-07",
+            "INDEPENDENT-HOLD-08",
+            "INDEPENDENT-HOLD-09",
+            "INDEPENDENT-HOLD-10",
+            "INDEPENDENT-HOLD-11",
+            "INDEPENDENT-HOLD-12",
+            "INDEPENDENT-HOLD-13",
+            "INDEPENDENT-HOLD-14"
+          ],
+          "candidate": {
+            "recall_at_k": 0.9423076923076923,
+            "ndcg_at_k": 0.9425442528615708
+          },
+          "baseline": {
+            "recall_at_k": 0.8972527472527473,
+            "ndcg_at_k": 0.9357909189616664
+          }
+        },
+        "secondary_dedupe": {
+          "case_ids": [
+            "INDEPENDENT-HOLD-09"
+          ],
+          "candidate": {
+            "recall_at_k": 1.0,
+            "ndcg_at_k": 0.9652636956851046
+          },
+          "baseline": {
+            "recall_at_k": 1.0,
+            "ndcg_at_k": 0.9613211327251899
+          }
+        },
+        "container_union": {
+          "case_ids": [
+            "INDEPENDENT-HOLD-07"
+          ],
+          "candidate": {
+            "recall_at_k": 1.0,
+            "ndcg_at_k": 0.9721212198129313
+          },
+          "baseline": {
+            "recall_at_k": 1.0,
+            "ndcg_at_k": 0.9721212198129313
+          }
+        },
+        "lexical_ru": {
+          "case_ids": [
+            "INDEPENDENT-HOLD-05",
+            "INDEPENDENT-HOLD-07"
+          ],
+          "candidate": {
+            "recall_at_k": 0.8846153846153846,
+            "ndcg_at_k": 0.9427549918713649
+          },
+          "baseline": {
+            "recall_at_k": 0.7692307692307692,
+            "ndcg_at_k": 0.8421777382948163
+          }
+        },
+        "lexical_en": {
+          "case_ids": [
+            "INDEPENDENT-HOLD-01",
+            "INDEPENDENT-HOLD-02",
+            "INDEPENDENT-HOLD-03",
+            "INDEPENDENT-HOLD-04",
+            "INDEPENDENT-HOLD-06",
+            "INDEPENDENT-HOLD-08",
+            "INDEPENDENT-HOLD-09",
+            "INDEPENDENT-HOLD-10",
+            "INDEPENDENT-HOLD-11",
+            "INDEPENDENT-HOLD-12",
+            "INDEPENDENT-HOLD-13",
+            "INDEPENDENT-HOLD-14"
+          ],
+          "candidate": {
+            "recall_at_k": 0.951923076923077,
+            "ndcg_at_k": 0.9425091296932719
+          },
+          "baseline": {
+            "recall_at_k": 0.9185897435897435,
+            "ndcg_at_k": 0.9513931157394747
+          }
+        },
+        "activity_unknown": {
+          "case_ids": [
+            "INDEPENDENT-HOLD-01",
+            "INDEPENDENT-HOLD-02",
+            "INDEPENDENT-HOLD-03",
+            "INDEPENDENT-HOLD-04",
+            "INDEPENDENT-HOLD-05",
+            "INDEPENDENT-HOLD-06",
+            "INDEPENDENT-HOLD-07",
+            "INDEPENDENT-HOLD-08",
+            "INDEPENDENT-HOLD-09",
+            "INDEPENDENT-HOLD-10",
+            "INDEPENDENT-HOLD-11",
+            "INDEPENDENT-HOLD-12",
+            "INDEPENDENT-HOLD-13",
+            "INDEPENDENT-HOLD-14"
+          ],
+          "candidate": {
+            "recall_at_k": 0.9423076923076923,
+            "ndcg_at_k": 0.9425442528615708
+          },
+          "baseline": {
+            "recall_at_k": 0.8972527472527473,
+            "ndcg_at_k": 0.9357909189616664
+          }
+        },
+        "developer_tools_cli_general": {
+          "case_ids": [
+            "INDEPENDENT-HOLD-01"
+          ],
+          "candidate": {
+            "recall_at_k": 1.0,
+            "ndcg_at_k": 0.9470483392285726
+          },
+          "baseline": {
+            "recall_at_k": 1.0,
+            "ndcg_at_k": 0.9565557524561504
+          }
+        },
+        "testing_qa": {
+          "case_ids": [
+            "INDEPENDENT-HOLD-02"
+          ],
+          "candidate": {
+            "recall_at_k": 1.0,
+            "ndcg_at_k": 0.9576516659690325
+          },
+          "baseline": {
+            "recall_at_k": 1.0,
+            "ndcg_at_k": 0.9719344684729788
+          }
+        },
+        "files_media_storage": {
+          "case_ids": [
+            "INDEPENDENT-HOLD-03"
+          ],
+          "candidate": {
+            "recall_at_k": 1.0,
+            "ndcg_at_k": 0.9945454044579952
+          },
+          "baseline": {
+            "recall_at_k": 0.6,
+            "ndcg_at_k": 0.9480407137699002
+          }
+        },
+        "frontend_frameworks_ui": {
+          "case_ids": [
+            "INDEPENDENT-HOLD-04"
+          ],
+          "candidate": {
+            "recall_at_k": 1.0,
+            "ndcg_at_k": 0.9737576937588317
+          },
+          "baseline": {
+            "recall_at_k": 1.0,
+            "ndcg_at_k": 0.9828422279067397
+          }
+        },
+        "accounting_finance_erp": {
+          "case_ids": [
+            "INDEPENDENT-HOLD-05"
+          ],
+          "candidate": {
+            "recall_at_k": 0.7692307692307693,
+            "ndcg_at_k": 0.9133887639297984
+          },
+          "baseline": {
+            "recall_at_k": 0.5384615384615384,
+            "ndcg_at_k": 0.7122342567767014
+          }
+        },
+        "cms_content_knowledge": {
+          "case_ids": [
+            "INDEPENDENT-HOLD-06"
+          ],
+          "candidate": {
+            "recall_at_k": 0.8571428571428571,
+            "ndcg_at_k": 0.936736527643043
+          },
+          "baseline": {
+            "recall_at_k": 0.8571428571428571,
+            "ndcg_at_k": 0.9298654204948177
+          }
+        },
+        "communications_personal_ops": {
+          "case_ids": [
+            "INDEPENDENT-HOLD-07"
+          ],
+          "candidate": {
+            "recall_at_k": 1.0,
+            "ndcg_at_k": 0.9721212198129313
+          },
+          "baseline": {
+            "recall_at_k": 1.0,
+            "ndcg_at_k": 0.9721212198129313
+          }
+        },
+        "ecommerce_payments_revenue": {
+          "case_ids": [
+            "INDEPENDENT-HOLD-08"
+          ],
+          "candidate": {
+            "recall_at_k": 0.8571428571428571,
+            "ndcg_at_k": 1.0
+          },
+          "baseline": {
+            "recall_at_k": 0.8571428571428571,
+            "ndcg_at_k": 1.0
+          }
+        },
+        "operations_project_management": {
+          "case_ids": [
+            "INDEPENDENT-HOLD-09"
+          ],
+          "candidate": {
+            "recall_at_k": 1.0,
+            "ndcg_at_k": 0.9652636956851046
+          },
+          "baseline": {
+            "recall_at_k": 1.0,
+            "ndcg_at_k": 0.9613211327251899
+          }
+        },
+        "data_ingestion_etl_cdc": {
+          "case_ids": [
+            "INDEPENDENT-HOLD-10"
+          ],
+          "candidate": {
+            "recall_at_k": 0.9230769230769231,
+            "ndcg_at_k": 0.9288724600778284
+          },
+          "baseline": {
+            "recall_at_k": 0.9230769230769231,
+            "ndcg_at_k": 0.96772512780635
+          }
+        },
+        "databases_storage_caching": {
+          "case_ids": [
+            "INDEPENDENT-HOLD-11"
+          ],
+          "candidate": {
+            "recall_at_k": 1.0,
+            "ndcg_at_k": 0.9759236135906101
+          },
+          "baseline": {
+            "recall_at_k": 1.0,
+            "ndcg_at_k": 0.922792883660708
+          }
+        },
+        "backend_baas_api": {
+          "case_ids": [
+            "INDEPENDENT-HOLD-12"
+          ],
+          "candidate": {
+            "recall_at_k": 1.0,
+            "ndcg_at_k": 1.0
+          },
+          "baseline": {
+            "recall_at_k": 1.0,
+            "ndcg_at_k": 1.0
+          }
+        },
+        "deployment_containers_paas": {
+          "case_ids": [
+            "INDEPENDENT-HOLD-13"
+          ],
+          "candidate": {
+            "recall_at_k": 0.7857142857142857,
+            "ndcg_at_k": 0.9895513484778613
+          },
+          "baseline": {
+            "recall_at_k": 0.7857142857142857,
+            "ndcg_at_k": 0.9904013367520977
+          }
+        },
+        "supply_chain_devsecops": {
+          "case_ids": [
+            "INDEPENDENT-HOLD-14"
+          ],
+          "candidate": {
+            "recall_at_k": 1.0,
+            "ndcg_at_k": 0.6407588074303833
+          },
+          "baseline": {
+            "recall_at_k": 1.0,
+            "ndcg_at_k": 0.785238324828764
+          }
+        }
+      },
+      "gates": {
+        "held_out_macro_recall_at_12_min": true,
+        "baseline_non_regression_recall_at_k": true,
+        "held_out_macro_ndcg_at_12_min": true,
+        "baseline_non_regression_ndcg_at_k": true,
+        "required_strata": true,
+        "hard_constraint_violations": true,
+        "false_exclusions": true,
+        "duplicate_canonical_ids": true,
+        "alias_success_rate_min": true,
+        "evidence_pack_survival_rate_min": true,
+        "all_statuses_match": true
+      },
+      "official_pack_survival": 1.0,
+      "pack_counts": {
+        "numerator": 117,
+        "denominator": 117
+      }
+    }
+  },
+  "comparisons": [
+    {
+      "case_id": "FINAL-HOLD-01",
+      "suite_id": "source_qualified15",
+      "prior_fts_ids": [
+        130879558,
+        440752086,
+        112892985,
+        82933315,
+        254879070,
+        143896900,
+        486125557
+      ],
+      "current_fts_ids": [
+        130879558,
+        440752086,
+        112892985,
+        254879070,
+        82933315,
+        143896900,
+        486125557
+      ],
+      "prior_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 1.0,
+          "ndcg_at_k": 0.9725446355281335,
+          "relevant_count": 6
+        },
+        "unjudged_ids": []
+      },
+      "current_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 1.0,
+          "ndcg_at_k": 0.9694344162682397,
+          "relevant_count": 6
+        },
+        "unjudged_ids": []
+      },
+      "original_literal_unchanged": true,
+      "previous_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-0fc657295c0fd43fe0ba8967",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "5b172b4fca5b2666fb61cba4e306c217c3ef29bb7d2eec0e478f7115370fb356",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "development_environments",
+        "language": "en",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "cloud"
+            ]
+          },
+          {
+            "variant_id": "q2",
+            "terms": [
+              "cloud",
+              "development",
+              "environments"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      },
+      "current_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-0fc657295c0fd43fe0ba8967",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "development_environments",
+        "language": "en",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "cloud",
+              "development",
+              "environments"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      },
+      "query_derivation": {
+        "original_terms": [
+          "cloud",
+          "development",
+          "environments"
+        ],
+        "original_match_count": 7,
+        "added_route_terms": [],
+        "source": null,
+        "original_query_sha256": "f6e7ce3913acaca79f2d66c5d1b8798e6e8d8e4573d043268240b57c871acb91",
+        "final_query_sha256": "f6e7ce3913acaca79f2d66c5d1b8798e6e8d8e4573d043268240b57c871acb91",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "ranked_retrieval_calls": 1
+    },
+    {
+      "case_id": "FINAL-HOLD-02",
+      "suite_id": "source_qualified15",
+      "prior_fts_ids": [
+        813783,
+        1195492297,
+        34106396,
+        7613257,
+        442096414,
+        51917537,
+        155733693,
+        221981891,
+        832452447,
+        31629751,
+        125568868,
+        1266125334,
+        105399035,
+        859537060,
+        80435465,
+        116392590,
+        997037661,
+        486525050,
+        17420614,
+        175869201,
+        1146193768,
+        61308714,
+        230096072,
+        277879045,
+        282658795,
+        232162578,
+        189969701,
+        291930234,
+        756709451,
+        199141711
+      ],
+      "current_fts_ids": [
+        813783,
+        51917537,
+        34106396,
+        1195492297,
+        442096414,
+        7613257,
+        155733693,
+        221981891,
+        17420614,
+        31629751,
+        859537060,
+        1266125334,
+        125568868,
+        80435465,
+        486525050,
+        1146193768,
+        105399035,
+        832452447,
+        61308714,
+        175869201,
+        230096072,
+        997037661,
+        232162578,
+        282658795,
+        756709451,
+        189969701,
+        291930234,
+        116392590,
+        277879045,
+        199141711
+      ],
+      "prior_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 0.631578947368421,
+          "ndcg_at_k": 0.8376679680121673,
+          "relevant_count": 19
+        },
+        "unjudged_ids": []
+      },
+      "current_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 0.631578947368421,
+          "ndcg_at_k": 0.8240050793256873,
+          "relevant_count": 19
+        },
+        "unjudged_ids": []
+      },
+      "original_literal_unchanged": true,
+      "previous_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-e09fb5390157ca60b2b18493",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "5b172b4fca5b2666fb61cba4e306c217c3ef29bb7d2eec0e478f7115370fb356",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "browser_mobile_testing",
+        "language": "en",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "browser"
+            ]
+          },
+          {
+            "variant_id": "q2",
+            "terms": [
+              "browser",
+              "automation",
+              "testing"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      },
+      "current_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-e09fb5390157ca60b2b18493",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "browser_mobile_testing",
+        "language": "en",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "browser",
+              "automation",
+              "testing"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      },
+      "query_derivation": {
+        "original_terms": [
+          "browser",
+          "automation",
+          "testing"
+        ],
+        "original_match_count": 30,
+        "added_route_terms": [],
+        "source": null,
+        "original_query_sha256": "e3d4aad6efa33c7830dfdc280faf874aaaf67108a30309879792065b3fe6c351",
+        "final_query_sha256": "e3d4aad6efa33c7830dfdc280faf874aaaf67108a30309879792065b3fe6c351",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "ranked_retrieval_calls": 1
+    },
+    {
+      "case_id": "FINAL-HOLD-03",
+      "suite_id": "source_qualified15",
+      "prior_fts_ids": [
+        187961907
+      ],
+      "current_fts_ids": [
+        187961907,
+        161012019,
+        221316636,
+        119160553,
+        455229168
+      ],
+      "prior_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 1.0,
+          "ndcg_at_k": 1.0,
+          "relevant_count": 1
+        },
+        "unjudged_ids": []
+      },
+      "current_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 1.0,
+          "ndcg_at_k": 1.0,
+          "relevant_count": 1
+        },
+        "unjudged_ids": []
+      },
+      "original_literal_unchanged": true,
+      "previous_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-cd89535747f85cded6676555",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "5b172b4fca5b2666fb61cba4e306c217c3ef29bb7d2eec0e478f7115370fb356",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "media_libraries_readers",
+        "language": "ru",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "Android"
+            ]
+          },
+          {
+            "variant_id": "q2",
+            "terms": [
+              "Android",
+              "книг",
+              "чтение"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      },
+      "current_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-cd89535747f85cded6676555",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "media_libraries_readers",
+        "language": "ru",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "Android",
+              "книг",
+              "чтение",
+              "media",
+              "libraries",
+              "readers"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      },
+      "query_derivation": {
+        "original_terms": [
+          "Android",
+          "книг",
+          "чтение"
+        ],
+        "original_match_count": 1,
+        "added_route_terms": [
+          "media",
+          "libraries",
+          "readers"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "original_query_sha256": "05d94d9d1d75ba95727ff74a007009e5b6c865fb53b1b0b93453bd5315408e2b",
+        "final_query_sha256": "e43957a4a6bb40135f03041e1e4af50b95d6ef48a45b6d38d9d2a1471dda38bc",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "ranked_retrieval_calls": 1
+    },
+    {
+      "case_id": "FINAL-HOLD-04",
+      "suite_id": "source_qualified15",
+      "prior_fts_ids": [
+        245704608,
+        174038031,
+        90194616,
+        35914020,
+        94367677,
+        75044525
+      ],
+      "current_fts_ids": [
+        245704608,
+        90194616,
+        174038031,
+        35914020,
+        94367677,
+        75044525
+      ],
+      "prior_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 1.0,
+          "ndcg_at_k": 0.9324441894571632,
+          "relevant_count": 2
+        },
+        "unjudged_ids": []
+      },
+      "current_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 1.0,
+          "ndcg_at_k": 0.9324441894571632,
+          "relevant_count": 2
+        },
+        "unjudged_ids": []
+      },
+      "original_literal_unchanged": true,
+      "previous_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-4470588af478781f1748cb38",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "5b172b4fca5b2666fb61cba4e306c217c3ef29bb7d2eec0e478f7115370fb356",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "forms_validation",
+        "language": "en",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "TypeScript"
+            ]
+          },
+          {
+            "variant_id": "q2",
+            "terms": [
+              "TypeScript",
+              "schema",
+              "validation"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      },
+      "current_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-4470588af478781f1748cb38",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "forms_validation",
+        "language": "en",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "TypeScript",
+              "schema",
+              "validation",
+              "forms"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      },
+      "query_derivation": {
+        "original_terms": [
+          "TypeScript",
+          "schema",
+          "validation"
+        ],
+        "original_match_count": 6,
+        "added_route_terms": [
+          "forms"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "original_query_sha256": "bde6b2d667681fe82eddb9c371ec45bdcb842c72e6a5c00ff0b2dc6f2e181c08",
+        "final_query_sha256": "36ae20b41b02229be620a200c68a73660a7d5eadfc1307b47746862fd48a5004",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "ranked_retrieval_calls": 1
+    },
+    {
+      "case_id": "FINAL-HOLD-05",
+      "suite_id": "source_qualified15",
+      "prior_fts_ids": [
+        304981340,
+        920995405,
+        1864233,
+        19745004,
+        1957456,
+        189829392
+      ],
+      "current_fts_ids": [
+        19745004,
+        189829392,
+        920995405,
+        1864233,
+        304981340,
+        1957456
+      ],
+      "prior_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 1.0,
+          "ndcg_at_k": 0.9029746603845225,
+          "relevant_count": 6
+        },
+        "unjudged_ids": []
+      },
+      "current_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 1.0,
+          "ndcg_at_k": 0.75586705537785,
+          "relevant_count": 6
+        },
+        "unjudged_ids": []
+      },
+      "original_literal_unchanged": true,
+      "previous_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-338706374840f791a46fefca",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "5b172b4fca5b2666fb61cba4e306c217c3ef29bb7d2eec0e478f7115370fb356",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "erp_business_suites",
+        "language": "ru",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "ERP"
+            ]
+          },
+          {
+            "variant_id": "q2",
+            "terms": [
+              "ERP",
+              "счета",
+              "управление"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      },
+      "current_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-338706374840f791a46fefca",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "erp_business_suites",
+        "language": "ru",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "ERP",
+              "счета",
+              "управление",
+              "business",
+              "suites"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      },
+      "query_derivation": {
+        "original_terms": [
+          "ERP",
+          "счета",
+          "управление"
+        ],
+        "original_match_count": 6,
+        "added_route_terms": [
+          "business",
+          "suites"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "original_query_sha256": "a3fbdd3fc5234bb2363bc3034b77f63787bae8f0c6c011049ffbcc020ae640d9",
+        "final_query_sha256": "b1479f9c17f33a594fed70b84736ed78e4e1b6b631dbfed350df29cc0200f368",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "ranked_retrieval_calls": 1
+    },
+    {
+      "case_id": "FINAL-HOLD-06",
+      "suite_id": "source_qualified15",
+      "prior_fts_ids": [
+        12820537,
+        15830664,
+        260338399,
+        65252,
+        614933136,
+        11180687,
+        50617428,
+        94911145
+      ],
+      "current_fts_ids": [
+        12820537,
+        15830664,
+        260338399,
+        65252,
+        614933136,
+        11180687,
+        50617428,
+        94911145
+      ],
+      "prior_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 1.0,
+          "ndcg_at_k": 0.7175520772148791,
+          "relevant_count": 7
+        },
+        "unjudged_ids": []
+      },
+      "current_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 1.0,
+          "ndcg_at_k": 0.7175520772148791,
+          "relevant_count": 7
+        },
+        "unjudged_ids": []
+      },
+      "original_literal_unchanged": true,
+      "previous_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-b6ccb45fb680852c1d0fd58a",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "5b172b4fca5b2666fb61cba4e306c217c3ef29bb7d2eec0e478f7115370fb356",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "documentation_site_generators",
+        "language": "en",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "static"
+            ]
+          },
+          {
+            "variant_id": "q2",
+            "terms": [
+              "static",
+              "API",
+              "documentation"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      },
+      "current_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-b6ccb45fb680852c1d0fd58a",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "documentation_site_generators",
+        "language": "en",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "static",
+              "API",
+              "documentation",
+              "site",
+              "generators"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      },
+      "query_derivation": {
+        "original_terms": [
+          "static",
+          "API",
+          "documentation"
+        ],
+        "original_match_count": 8,
+        "added_route_terms": [
+          "site",
+          "generators"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "original_query_sha256": "b8f681a237c667300aa4445c6afeaf94a9a0b79c3804d54b48964eb0d22fd4b9",
+        "final_query_sha256": "d34f02bec72b0e3041c6a39967bf9355a669db6fb90a2345e3da2206980feaab",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "ranked_retrieval_calls": 1
+    },
+    {
+      "case_id": "FINAL-HOLD-07",
+      "suite_id": "source_qualified15",
+      "prior_fts_ids": [
+        15225670,
+        684382,
+        326059244,
+        372296109,
+        253182958,
+        26661222,
+        120541771,
+        992325192,
+        1173545104,
+        928857407,
+        1143312686,
+        39487546,
+        43160685,
+        144494851
+      ],
+      "current_fts_ids": [
+        684382,
+        326059244,
+        372296109,
+        15225670,
+        253182958,
+        120541771,
+        26661222,
+        992325192,
+        1173545104,
+        928857407,
+        39487546,
+        43160685,
+        1143312686,
+        144494851
+      ],
+      "prior_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 0.7,
+          "ndcg_at_k": 0.9001616903255698,
+          "relevant_count": 10
+        },
+        "unjudged_ids": []
+      },
+      "current_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 0.7,
+          "ndcg_at_k": 0.8276241603182892,
+          "relevant_count": 10
+        },
+        "unjudged_ids": []
+      },
+      "original_literal_unchanged": true,
+      "previous_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-e540553a76fd3a4580e804ca",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "5b172b4fca5b2666fb61cba4e306c217c3ef29bb7d2eec0e478f7115370fb356",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "communications_personal_ops",
+        "language": "en",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "video"
+            ]
+          },
+          {
+            "variant_id": "q2",
+            "terms": [
+              "video",
+              "conferencing",
+              "web"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      },
+      "current_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-e540553a76fd3a4580e804ca",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "communications_personal_ops",
+        "language": "en",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "video",
+              "conferencing",
+              "web"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      },
+      "query_derivation": {
+        "original_terms": [
+          "video",
+          "conferencing",
+          "web"
+        ],
+        "original_match_count": 14,
+        "added_route_terms": [],
+        "source": null,
+        "original_query_sha256": "b3e260afd98027bf8cd84fa5e058074f423913ce6db9512cf6d28c95814bcb9b",
+        "final_query_sha256": "b3e260afd98027bf8cd84fa5e058074f423913ce6db9512cf6d28c95814bcb9b",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "ranked_retrieval_calls": 1
+    },
+    {
+      "case_id": "FINAL-HOLD-08",
+      "suite_id": "source_qualified15",
+      "prior_fts_ids": [
+        1953389,
+        20545279,
+        2471804,
+        221280225,
+        235391869,
+        552877440,
+        202768861,
+        14861133
+      ],
+      "current_fts_ids": [
+        1953389,
+        20545279,
+        2471804,
+        235391869,
+        221280225,
+        552877440,
+        202768861,
+        14861133,
+        100711978
+      ],
+      "prior_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 1.0,
+          "ndcg_at_k": 0.9610012895088121,
+          "relevant_count": 2
+        },
+        "unjudged_ids": []
+      },
+      "current_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 1.0,
+          "ndcg_at_k": 0.9610012895088121,
+          "relevant_count": 2
+        },
+        "unjudged_ids": []
+      },
+      "original_literal_unchanged": true,
+      "previous_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-9c7e83987ad18cfebf918e22",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "5b172b4fca5b2666fb61cba4e306c217c3ef29bb7d2eec0e478f7115370fb356",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "payment_processing_sdks",
+        "language": "en",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "Python"
+            ]
+          },
+          {
+            "variant_id": "q2",
+            "terms": [
+              "Python",
+              "Stripe",
+              "API"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      },
+      "current_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-9c7e83987ad18cfebf918e22",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "payment_processing_sdks",
+        "language": "en",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "Python",
+              "Stripe",
+              "API",
+              "payment",
+              "processing",
+              "sdks"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      },
+      "query_derivation": {
+        "original_terms": [
+          "Python",
+          "Stripe",
+          "API"
+        ],
+        "original_match_count": 8,
+        "added_route_terms": [
+          "payment",
+          "processing",
+          "sdks"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "original_query_sha256": "96dcd31a736a7383a104e062396f13c0bad9af101fba968c90a4d3471fc04e4c",
+        "final_query_sha256": "a404c29df91d71a79727aac14ba3f33de8a4afdcc2c492bfd214f468aa782539",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "ranked_retrieval_calls": 1
+    },
+    {
+      "case_id": "FINAL-HOLD-09",
+      "suite_id": "source_qualified15",
+      "prior_fts_ids": [
+        16238673,
+        583598619,
+        6899875,
+        29745084,
+        568098118,
+        301793434,
+        357894794,
+        159556794,
+        897809208,
+        1030580992,
+        16089035
+      ],
+      "current_fts_ids": [
+        568098118,
+        583598619,
+        16238673,
+        6899875,
+        29745084,
+        357894794,
+        159556794,
+        301793434,
+        897809208,
+        1030580992,
+        16089035
+      ],
+      "prior_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 1.0,
+          "ndcg_at_k": 0.8794828292922762,
+          "relevant_count": 11
+        },
+        "unjudged_ids": []
+      },
+      "current_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 1.0,
+          "ndcg_at_k": 0.9796819650776274,
+          "relevant_count": 11
+        },
+        "unjudged_ids": []
+      },
+      "original_literal_unchanged": true,
+      "previous_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-1113f6c13630551e9a035d98",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "5b172b4fca5b2666fb61cba4e306c217c3ef29bb7d2eec0e478f7115370fb356",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "project_task_management",
+        "language": "ru",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "agile"
+            ]
+          },
+          {
+            "variant_id": "q2",
+            "terms": [
+              "agile",
+              "задачи",
+              "спринты",
+              "проект"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      },
+      "current_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-1113f6c13630551e9a035d98",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "project_task_management",
+        "language": "ru",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "agile",
+              "задачи",
+              "спринты",
+              "проект",
+              "project",
+              "task",
+              "management"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      },
+      "query_derivation": {
+        "original_terms": [
+          "agile",
+          "задачи",
+          "спринты",
+          "проект"
+        ],
+        "original_match_count": 11,
+        "added_route_terms": [
+          "project",
+          "task",
+          "management"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "original_query_sha256": "e98f5be5dcf3d637fe3cac4ec59e56976708a6fe0b6daa9fda27b3853099f5ed",
+        "final_query_sha256": "3f4aaf21c89eb0d2b1c0399e7d0dbcce92795ddc6950d0a24a2d444444400e4c",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "ranked_retrieval_calls": 1
+    },
+    {
+      "case_id": "FINAL-HOLD-10",
+      "suite_id": "source_qualified15",
+      "prior_fts_ids": [
+        29261473,
+        21827146,
+        327859577,
+        2310495,
+        208038454,
+        158256479,
+        182849188
+      ],
+      "current_fts_ids": [
+        21827146,
+        29261473,
+        327859577,
+        2310495,
+        208038454,
+        158256479,
+        182849188
+      ],
+      "prior_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 1.0,
+          "ndcg_at_k": 0.6419288461539238,
+          "relevant_count": 2
+        },
+        "unjudged_ids": []
+      },
+      "current_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 1.0,
+          "ndcg_at_k": 0.9324441894571632,
+          "relevant_count": 2
+        },
+        "unjudged_ids": []
+      },
+      "original_literal_unchanged": true,
+      "previous_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-dbf62495c37123f7b52eb3a7",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "5b172b4fca5b2666fb61cba4e306c217c3ef29bb7d2eec0e478f7115370fb356",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "data_lakes_object_storage",
+        "language": "en",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "S3"
+            ]
+          },
+          {
+            "variant_id": "q2",
+            "terms": [
+              "S3",
+              "object",
+              "storage"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      },
+      "current_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-dbf62495c37123f7b52eb3a7",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "data_lakes_object_storage",
+        "language": "en",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "S3",
+              "object",
+              "storage",
+              "data",
+              "lakes"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      },
+      "query_derivation": {
+        "original_terms": [
+          "S3",
+          "object",
+          "storage"
+        ],
+        "original_match_count": 7,
+        "added_route_terms": [
+          "data",
+          "lakes"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "original_query_sha256": "e279aa3fa31d568b95bbecdaa42bba22c9af156f5ba4620c6333ae836e1486b8",
+        "final_query_sha256": "4626211da99e311f5cf73b069c9bb4d5cef1147314cdb14b04b35e0ea67df7df",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "ranked_retrieval_calls": 1
+    },
+    {
+      "case_id": "FINAL-HOLD-11",
+      "suite_id": "source_qualified15",
+      "prior_fts_ids": [
+        156018,
+        437245741,
+        775743011,
+        23405758,
+        48833910,
+        11225014
+      ],
+      "current_fts_ids": [
+        775743011,
+        156018,
+        437245741,
+        48833910,
+        23405758,
+        11225014
+      ],
+      "prior_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 1.0,
+          "ndcg_at_k": 1.0,
+          "relevant_count": 3
+        },
+        "unjudged_ids": []
+      },
+      "current_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 1.0,
+          "ndcg_at_k": 1.0,
+          "relevant_count": 3
+        },
+        "unjudged_ids": []
+      },
+      "original_literal_unchanged": true,
+      "previous_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-f60433ddac323a9e15fd00b4",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "5b172b4fca5b2666fb61cba4e306c217c3ef29bb7d2eec0e478f7115370fb356",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "caches_key_value_stores",
+        "language": "en",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "cache"
+            ]
+          },
+          {
+            "variant_id": "q2",
+            "terms": [
+              "cache",
+              "caching",
+              "Redis"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      },
+      "current_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-f60433ddac323a9e15fd00b4",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "caches_key_value_stores",
+        "language": "en",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "cache",
+              "caching",
+              "Redis",
+              "caches",
+              "key",
+              "value",
+              "stores"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      },
+      "query_derivation": {
+        "original_terms": [
+          "cache",
+          "caching",
+          "Redis"
+        ],
+        "original_match_count": 6,
+        "added_route_terms": [
+          "caches",
+          "key",
+          "value",
+          "stores"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "original_query_sha256": "682c17cf2dbd354a97db0b5e7b67015d4d23607f619c205e5663273dd6684bed",
+        "final_query_sha256": "35617aa616501a6c53d91296d5d06b3a239f3668ac59a86af5a1fb1c2902096f",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "ranked_retrieval_calls": 1
+    },
+    {
+      "case_id": "FINAL-HOLD-12",
+      "suite_id": "source_qualified15",
+      "prior_fts_ids": [
+        44344606,
+        20904437,
+        234231371,
+        31504491,
+        138597372,
+        435625572,
+        105379569,
+        1864194,
+        394929332,
+        160919119,
+        78452015,
+        372172254,
+        7548986,
+        458058,
+        1148753,
+        80945428,
+        40772809,
+        596892,
+        438384984,
+        2609642,
+        40136600,
+        4164482,
+        124230204,
+        237159,
+        69495170,
+        1863329,
+        75505125,
+        17620347,
+        8514,
+        16072585,
+        6296790
+      ],
+      "current_fts_ids": [
+        20904437,
+        44344606,
+        234231371,
+        31504491,
+        105379569,
+        138597372,
+        435625572,
+        394929332,
+        1864194,
+        160919119,
+        372172254,
+        78452015,
+        458058,
+        124230204,
+        7548986,
+        596892,
+        438384984,
+        237159,
+        2609642,
+        40136600,
+        80945428,
+        4164482,
+        69495170,
+        40772809,
+        1148753,
+        17620347,
+        1863329,
+        75505125,
+        8514,
+        16072585,
+        6296790
+      ],
+      "prior_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 1.0,
+          "ndcg_at_k": 1.0,
+          "relevant_count": 4
+        },
+        "unjudged_ids": []
+      },
+      "current_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 1.0,
+          "ndcg_at_k": 1.0,
+          "relevant_count": 4
+        },
+        "unjudged_ids": []
+      },
+      "original_literal_unchanged": true,
+      "previous_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-28c5c18a11e7945c323b2866",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "5b172b4fca5b2666fb61cba4e306c217c3ef29bb7d2eec0e478f7115370fb356",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "backend_frameworks",
+        "language": "en",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "Go"
+            ]
+          },
+          {
+            "variant_id": "q2",
+            "terms": [
+              "Go",
+              "HTTP",
+              "framework",
+              "REST"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [
+            "Go"
+          ],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      },
+      "current_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-28c5c18a11e7945c323b2866",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "backend_frameworks",
+        "language": "en",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "Go",
+              "HTTP",
+              "framework",
+              "REST"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [
+            "Go"
+          ],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      },
+      "query_derivation": {
+        "original_terms": [
+          "Go",
+          "HTTP",
+          "framework",
+          "REST"
+        ],
+        "original_match_count": 31,
+        "added_route_terms": [],
+        "source": null,
+        "original_query_sha256": "f876c32010d730ef86c4af43b716abb8efacf09689eebfa4367c9a23c4b41390",
+        "final_query_sha256": "f876c32010d730ef86c4af43b716abb8efacf09689eebfa4367c9a23c4b41390",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "ranked_retrieval_calls": 1
+    },
+    {
+      "case_id": "FINAL-HOLD-13",
+      "suite_id": "source_qualified15",
+      "prior_fts_ids": [
+        332880689,
+        10567197,
+        788847937,
+        108221729,
+        34302698,
+        426659329,
+        474540881,
+        1145216439,
+        10187082
+      ],
+      "current_fts_ids": [
+        10567197,
+        332880689,
+        108221729,
+        788847937,
+        34302698,
+        1145216439,
+        426659329,
+        474540881,
+        10187082
+      ],
+      "prior_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 1.0,
+          "ndcg_at_k": 0.9772298496969573,
+          "relevant_count": 6
+        },
+        "unjudged_ids": []
+      },
+      "current_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 1.0,
+          "ndcg_at_k": 0.9925337350311029,
+          "relevant_count": 6
+        },
+        "unjudged_ids": []
+      },
+      "original_literal_unchanged": true,
+      "previous_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-bd65518c8655bd613d1b3765",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "5b172b4fca5b2666fb61cba4e306c217c3ef29bb7d2eec0e478f7115370fb356",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "application_paas",
+        "language": "en",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "self"
+            ]
+          },
+          {
+            "variant_id": "q2",
+            "terms": [
+              "self",
+              "hosted",
+              "PaaS",
+              "applications"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      },
+      "current_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-bd65518c8655bd613d1b3765",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "application_paas",
+        "language": "en",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "self",
+              "hosted",
+              "PaaS",
+              "applications",
+              "application"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      },
+      "query_derivation": {
+        "original_terms": [
+          "self",
+          "hosted",
+          "PaaS",
+          "applications"
+        ],
+        "original_match_count": 9,
+        "added_route_terms": [
+          "application"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "original_query_sha256": "fd5a0cd8ac10347fcc1a73a429d4d75bd920a645125d09add55b91c95c3500be",
+        "final_query_sha256": "25c775324a0ccd0c905c3dfa97802339305c614803fd392d8e2aa14e88bd64a3",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "ranked_retrieval_calls": 1
+    },
+    {
+      "case_id": "FINAL-HOLD-14",
+      "suite_id": "source_qualified15",
+      "prior_fts_ids": [
+        252813491,
+        1129086590,
+        36817565,
+        965808054,
+        141447532,
+        962125208,
+        1065059442,
+        140457254,
+        959903176,
+        961915719,
+        267713284,
+        962587799,
+        1198251684
+      ],
+      "current_fts_ids": [
+        252813491,
+        1065059442,
+        1129086590,
+        36817565,
+        959903176,
+        965808054,
+        141447532,
+        962125208,
+        140457254,
+        961915719,
+        267713284,
+        962587799,
+        1198251684
+      ],
+      "prior_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 0.9,
+          "ndcg_at_k": 0.8967307282404868,
+          "relevant_count": 10
+        },
+        "unjudged_ids": []
+      },
+      "current_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 0.9,
+          "ndcg_at_k": 0.9145734781489755,
+          "relevant_count": 10
+        },
+        "unjudged_ids": []
+      },
+      "original_literal_unchanged": true,
+      "previous_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-358c0b3fa9fd65b40c56649a",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "5b172b4fca5b2666fb61cba4e306c217c3ef29bb7d2eec0e478f7115370fb356",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "security_testing",
+        "language": "en",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "vulnerability"
+            ]
+          },
+          {
+            "variant_id": "q2",
+            "terms": [
+              "vulnerability",
+              "scanner",
+              "web",
+              "applications"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      },
+      "current_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-358c0b3fa9fd65b40c56649a",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "security_testing",
+        "language": "en",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "vulnerability",
+              "scanner",
+              "web",
+              "applications"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      },
+      "query_derivation": {
+        "original_terms": [
+          "vulnerability",
+          "scanner",
+          "web",
+          "applications"
+        ],
+        "original_match_count": 13,
+        "added_route_terms": [],
+        "source": null,
+        "original_query_sha256": "1370b964cbcd7417696a82ddbb922c593a866e8af37d2547ec1c151bbde9fea2",
+        "final_query_sha256": "1370b964cbcd7417696a82ddbb922c593a866e8af37d2547ec1c151bbde9fea2",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "ranked_retrieval_calls": 1
+    },
+    {
+      "case_id": "FINAL-ALIAS-01",
+      "suite_id": "source_qualified15",
+      "prior_fts_ids": [
+        5152285
+      ],
+      "current_fts_ids": [
+        56899284,
+        43056951,
+        137724480,
+        391811592,
+        38307428,
+        5152285,
+        148332388,
+        900049352,
+        27729907,
+        460076976,
+        56271158,
+        162690887,
+        121086193,
+        40518025,
+        4710920,
+        542284380,
+        118695306,
+        20787122,
+        45250726,
+        203587744,
+        20300177,
+        113701924,
+        52630616,
+        679280065,
+        1362490,
+        61567304,
+        133134007,
+        74436942,
+        280557054,
+        2006876,
+        2055965,
+        27729880,
+        741524414,
+        212465715,
+        899744532,
+        74170071,
+        22458259,
+        219705144,
+        142165796,
+        238402553
+      ],
+      "prior_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 1.0,
+          "ndcg_at_k": 1.0,
+          "relevant_count": 1
+        },
+        "unjudged_ids": []
+      },
+      "current_metrics": {
+        "valid": false,
+        "reason": "incomplete_judgments",
+        "ranking": null,
+        "unjudged_ids": [
+          56899284,
+          43056951,
+          137724480,
+          391811592,
+          38307428,
+          148332388,
+          900049352,
+          27729907,
+          460076976,
+          56271158,
+          162690887,
+          121086193,
+          40518025,
+          4710920,
+          542284380,
+          118695306,
+          20787122,
+          45250726,
+          203587744,
+          20300177,
+          113701924,
+          52630616,
+          679280065,
+          1362490,
+          61567304,
+          133134007,
+          74436942,
+          280557054,
+          2006876,
+          2055965,
+          27729880,
+          741524414,
+          212465715,
+          899744532,
+          74170071,
+          22458259,
+          219705144,
+          142165796,
+          238402553
+        ]
+      },
+      "original_literal_unchanged": true,
+      "previous_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-d929ce6c31b8e4cee1e3f6ac",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "5b172b4fca5b2666fb61cba4e306c217c3ef29bb7d2eec0e478f7115370fb356",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "api_graphql_rpc",
+        "language": "en",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "square/okhttp"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      },
+      "current_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-d929ce6c31b8e4cee1e3f6ac",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "api_graphql_rpc",
+        "language": "en",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "square/okhttp",
+              "api",
+              "graphql",
+              "rpc"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      },
+      "query_derivation": {
+        "original_terms": [
+          "square/okhttp"
+        ],
+        "original_match_count": 1,
+        "added_route_terms": [
+          "api",
+          "graphql",
+          "rpc"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "original_query_sha256": "b69fcc6b47aac4985047210da6fbb5dcfbb1ba6efd2c3aa8e02a0ce69e8bfd98",
+        "final_query_sha256": "2c705aabce7f18412145e5beb4306b71fc40d5d3d0942588074f113f1a5f3fca",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "ranked_retrieval_calls": 1
+    },
+    {
+      "case_id": "INDEPENDENT-HOLD-01",
+      "suite_id": "independent_now_exposed15",
+      "prior_fts_ids": [
+        268424739,
+        340547520,
+        41881900,
+        40997482,
+        16408992,
+        144590939
+      ],
+      "current_fts_ids": [
+        268424739,
+        41881900,
+        40997482,
+        340547520,
+        16408992,
+        144590939
+      ],
+      "prior_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 1.0,
+          "ndcg_at_k": 0.9320088550187923,
+          "relevant_count": 6
+        },
+        "unjudged_ids": []
+      },
+      "current_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 1.0,
+          "ndcg_at_k": 0.9470483392285726,
+          "relevant_count": 6
+        },
+        "unjudged_ids": []
+      },
+      "original_literal_unchanged": true,
+      "previous_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-57fa9f2c582cecfe446ecc42",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "5b172b4fca5b2666fb61cba4e306c217c3ef29bb7d2eec0e478f7115370fb356",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "editors_ides",
+        "language": "en",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "modal"
+            ]
+          },
+          {
+            "variant_id": "q2",
+            "terms": [
+              "modal",
+              "editor",
+              "terminal"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      },
+      "current_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-57fa9f2c582cecfe446ecc42",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "editors_ides",
+        "language": "en",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "modal",
+              "editor",
+              "terminal",
+              "editors",
+              "ides"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      },
+      "query_derivation": {
+        "original_terms": [
+          "modal",
+          "editor",
+          "terminal"
+        ],
+        "original_match_count": 6,
+        "added_route_terms": [
+          "editors",
+          "ides"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "original_query_sha256": "157732136124382a9adea78cd3d1b8cc86cd06958906464550d3b4d7a76b37e9",
+        "final_query_sha256": "5dd459efe94ce3ca7f8b43277384357ed2ebe8c50f40c435fbd0b4589f5add64",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "ranked_retrieval_calls": 1
+    },
+    {
+      "case_id": "INDEPENDENT-HOLD-02",
+      "suite_id": "independent_now_exposed15",
+      "prior_fts_ids": [
+        60344592,
+        2544305,
+        1011539,
+        8426406,
+        54172257,
+        81226206,
+        85806183,
+        203157084,
+        157397583,
+        97478419
+      ],
+      "current_fts_ids": [
+        60344592,
+        1011539,
+        85806183,
+        2544305,
+        81226206,
+        8426406,
+        203157084,
+        54172257,
+        157397583,
+        97478419
+      ],
+      "prior_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 1.0,
+          "ndcg_at_k": 0.8775483935699409,
+          "relevant_count": 10
+        },
+        "unjudged_ids": []
+      },
+      "current_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 1.0,
+          "ndcg_at_k": 0.9576516659690325,
+          "relevant_count": 10
+        },
+        "unjudged_ids": []
+      },
+      "original_literal_unchanged": true,
+      "previous_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-4b9ed521a8d652a06c30e906",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "5b172b4fca5b2666fb61cba4e306c217c3ef29bb7d2eec0e478f7115370fb356",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "api_contract_testing",
+        "language": "en",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "contract",
+              "HTTP"
+            ]
+          },
+          {
+            "variant_id": "q2",
+            "terms": [
+              "contract",
+              "HTTP",
+              "testing"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      },
+      "current_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-4b9ed521a8d652a06c30e906",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "api_contract_testing",
+        "language": "en",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "contract",
+              "HTTP",
+              "testing",
+              "api"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      },
+      "query_derivation": {
+        "original_terms": [
+          "contract",
+          "HTTP",
+          "testing"
+        ],
+        "original_match_count": 10,
+        "added_route_terms": [
+          "api"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "original_query_sha256": "0a605e219f8df91073fa47f49b2457b9350bb7aa6803c95bceabf46737c79700",
+        "final_query_sha256": "6c53274c32fb7dc1a3be362ecfcdd618771e6056dcc67e1f222dd299fc859383",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "ranked_retrieval_calls": 1
+    },
+    {
+      "case_id": "INDEPENDENT-HOLD-03",
+      "suite_id": "independent_now_exposed15",
+      "prior_fts_ids": [
+        323846389,
+        458648791,
+        197263888
+      ],
+      "current_fts_ids": [
+        458648791,
+        323846389,
+        197263888,
+        1663468,
+        361044034,
+        210702427,
+        931365873,
+        952831973,
+        594155488
+      ],
+      "prior_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 0.6,
+          "ndcg_at_k": 0.9480407137699002,
+          "relevant_count": 5
+        },
+        "unjudged_ids": []
+      },
+      "current_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 1.0,
+          "ndcg_at_k": 0.9945454044579952,
+          "relevant_count": 5
+        },
+        "unjudged_ids": []
+      },
+      "original_literal_unchanged": true,
+      "previous_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-be91eeebbf80992cd6bf314f",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "5b172b4fca5b2666fb61cba4e306c217c3ef29bb7d2eec0e478f7115370fb356",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "document_management_processing",
+        "language": "en",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "scanned"
+            ]
+          },
+          {
+            "variant_id": "q2",
+            "terms": [
+              "scanned",
+              "documents",
+              "archive"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      },
+      "current_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-be91eeebbf80992cd6bf314f",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "document_management_processing",
+        "language": "en",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "scanned",
+              "documents",
+              "archive",
+              "document",
+              "management",
+              "processing"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      },
+      "query_derivation": {
+        "original_terms": [
+          "scanned",
+          "documents",
+          "archive"
+        ],
+        "original_match_count": 3,
+        "added_route_terms": [
+          "document",
+          "management",
+          "processing"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "original_query_sha256": "b976bce8c8a4487a3baac0bf28c927956bbb88903642e0de51941af488dcd5df",
+        "final_query_sha256": "6cdc190dadee0cf1e66739d728056ac4c925c8f31e64a0931483b0bdfd7c174f",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "ranked_retrieval_calls": 1
+    },
+    {
+      "case_id": "INDEPENDENT-HOLD-04",
+      "suite_id": "independent_now_exposed15",
+      "prior_fts_ids": [
+        60630844,
+        60537144,
+        67962648,
+        54173593,
+        327628682,
+        585146387,
+        76666208,
+        160313905,
+        208362715,
+        202890778,
+        316836816,
+        360522116,
+        935450522,
+        281319253,
+        23083156,
+        9309093,
+        5239185,
+        23974149,
+        270722949,
+        273499522,
+        243546335,
+        107422373,
+        84835535,
+        3721224,
+        11507163,
+        106017343,
+        34526884,
+        54994103,
+        2126244,
+        71487058,
+        961975051
+      ],
+      "current_fts_ids": [
+        60630844,
+        60537144,
+        327628682,
+        54173593,
+        585146387,
+        67962648,
+        935450522,
+        76666208,
+        160313905,
+        208362715,
+        202890778,
+        316836816,
+        360522116,
+        5239185,
+        23974149,
+        281319253,
+        23083156,
+        9309093,
+        270722949,
+        273499522,
+        243546335,
+        107422373,
+        84835535,
+        3721224,
+        11507163,
+        106017343,
+        34526884,
+        54994103,
+        2126244,
+        71487058,
+        961975051
+      ],
+      "prior_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 1.0,
+          "ndcg_at_k": 0.9737576937588317,
+          "relevant_count": 2
+        },
+        "unjudged_ids": []
+      },
+      "current_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 1.0,
+          "ndcg_at_k": 0.9737576937588317,
+          "relevant_count": 2
+        },
+        "unjudged_ids": []
+      },
+      "original_literal_unchanged": true,
+      "previous_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-1713a7f83b69e1e7dc994f4e",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "5b172b4fca5b2666fb61cba4e306c217c3ef29bb7d2eec0e478f7115370fb356",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "ui_component_libraries",
+        "language": "en",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "browser",
+              "code editor"
+            ]
+          },
+          {
+            "variant_id": "q2",
+            "terms": [
+              "browser",
+              "code editor",
+              "components"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      },
+      "current_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-1713a7f83b69e1e7dc994f4e",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "ui_component_libraries",
+        "language": "en",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "browser",
+              "code editor",
+              "components"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      },
+      "query_derivation": {
+        "original_terms": [
+          "browser",
+          "code editor",
+          "components"
+        ],
+        "original_match_count": 31,
+        "added_route_terms": [],
+        "source": null,
+        "original_query_sha256": "7eadec74e0b2a9e6bb47f980177997dc30b1a34048a44d35b8de4af5de013c03",
+        "final_query_sha256": "7eadec74e0b2a9e6bb47f980177997dc30b1a34048a44d35b8de4af5de013c03",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "ranked_retrieval_calls": 1
+    },
+    {
+      "case_id": "INDEPENDENT-HOLD-05",
+      "suite_id": "independent_now_exposed15",
+      "prior_fts_ids": [
+        20021038,
+        71485542,
+        95011974,
+        946010740,
+        1009628866,
+        412750377,
+        408868487
+      ],
+      "current_fts_ids": [
+        1009628866,
+        20021038,
+        95011974,
+        946010740,
+        408868487,
+        71485542,
+        412750377,
+        116673933,
+        7966650,
+        1044391725,
+        9572512,
+        266158455,
+        1046711235,
+        51411118,
+        16309,
+        47411155,
+        86850921,
+        55025852,
+        123909654,
+        9301414,
+        155289518,
+        18551709,
+        99786834
+      ],
+      "prior_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 0.5384615384615384,
+          "ndcg_at_k": 0.7138869228011865,
+          "relevant_count": 13
+        },
+        "unjudged_ids": []
+      },
+      "current_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 0.7692307692307693,
+          "ndcg_at_k": 0.9133887639297984,
+          "relevant_count": 13
+        },
+        "unjudged_ids": []
+      },
+      "original_literal_unchanged": true,
+      "previous_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-bac52d8da371c2ea2b05e8d6",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "5b172b4fca5b2666fb61cba4e306c217c3ef29bb7d2eec0e478f7115370fb356",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "accounting_invoicing",
+        "language": "ru",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "invoice",
+              "invoices"
+            ]
+          },
+          {
+            "variant_id": "q2",
+            "terms": [
+              "invoice",
+              "invoices",
+              "payments",
+              "счета"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      },
+      "current_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-bac52d8da371c2ea2b05e8d6",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "accounting_invoicing",
+        "language": "ru",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "invoice",
+              "invoices",
+              "payments",
+              "счета",
+              "accounting",
+              "invoicing"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      },
+      "query_derivation": {
+        "original_terms": [
+          "invoice",
+          "invoices",
+          "payments",
+          "счета"
+        ],
+        "original_match_count": 7,
+        "added_route_terms": [
+          "accounting",
+          "invoicing"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "original_query_sha256": "3a4b587856d3426b15c01d68443dd70c7f00d99437e9283d3a15166ca540bfce",
+        "final_query_sha256": "ee0d6fa4b2c6779df3079e8590f2193c148fc8262d42d2912ee32e04954582dc",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "ranked_retrieval_calls": 1
+    },
+    {
+      "case_id": "INDEPENDENT-HOLD-06",
+      "suite_id": "independent_now_exposed15",
+      "prior_fts_ids": [
+        43441403,
+        128193054,
+        111562942,
+        327089870,
+        7122594,
+        2464908,
+        143580,
+        22553797,
+        16479108,
+        1319183,
+        9852918,
+        126178683,
+        100695,
+        75645659
+      ],
+      "current_fts_ids": [
+        43441403,
+        128193054,
+        327089870,
+        111562942,
+        7122594,
+        2464908,
+        22553797,
+        16479108,
+        143580,
+        1319183,
+        126178683,
+        9852918,
+        100695,
+        75645659
+      ],
+      "prior_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 0.8571428571428571,
+          "ndcg_at_k": 0.9204408798046172,
+          "relevant_count": 14
+        },
+        "unjudged_ids": []
+      },
+      "current_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 0.8571428571428571,
+          "ndcg_at_k": 0.936736527643043,
+          "relevant_count": 14
+        },
+        "unjudged_ids": []
+      },
+      "original_literal_unchanged": true,
+      "previous_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-902ec02e116ef675e397a5cc",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "5b172b4fca5b2666fb61cba4e306c217c3ef29bb7d2eec0e478f7115370fb356",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "content_management_systems",
+        "language": "en",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "headless",
+              "CMS"
+            ]
+          },
+          {
+            "variant_id": "q2",
+            "terms": [
+              "headless",
+              "CMS",
+              "content",
+              "frontend"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      },
+      "current_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-902ec02e116ef675e397a5cc",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "content_management_systems",
+        "language": "en",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "headless",
+              "CMS",
+              "content",
+              "frontend"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      },
+      "query_derivation": {
+        "original_terms": [
+          "headless",
+          "CMS",
+          "content",
+          "frontend"
+        ],
+        "original_match_count": 14,
+        "added_route_terms": [],
+        "source": null,
+        "original_query_sha256": "a418a19d98016592f97777dc63d22bab4a0d8f79663207cb3681b4c282d7cf6b",
+        "final_query_sha256": "a418a19d98016592f97777dc63d22bab4a0d8f79663207cb3681b4c282d7cf6b",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "ranked_retrieval_calls": 1
+    },
+    {
+      "case_id": "INDEPENDENT-HOLD-07",
+      "suite_id": "independent_now_exposed15",
+      "prior_fts_ids": [
+        1121557390,
+        973788136,
+        350360184,
+        945223589,
+        943286066,
+        1003342581
+      ],
+      "current_fts_ids": [
+        1121557390,
+        973788136,
+        350360184,
+        945223589,
+        943286066,
+        1003342581
+      ],
+      "prior_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 1.0,
+          "ndcg_at_k": 0.9721212198129313,
+          "relevant_count": 3
+        },
+        "unjudged_ids": []
+      },
+      "current_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 1.0,
+          "ndcg_at_k": 0.9721212198129313,
+          "relevant_count": 3
+        },
+        "unjudged_ids": []
+      },
+      "original_literal_unchanged": true,
+      "previous_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-3b1ff7b4f1cc15a1e37481c2",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "5b172b4fca5b2666fb61cba4e306c217c3ef29bb7d2eec0e478f7115370fb356",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "communications_personal_ops",
+        "language": "ru",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "calendar"
+            ]
+          },
+          {
+            "variant_id": "q2",
+            "terms": [
+              "calendar",
+              "sync",
+              "scheduling"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      },
+      "current_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-3b1ff7b4f1cc15a1e37481c2",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "communications_personal_ops",
+        "language": "ru",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "calendar",
+              "sync",
+              "scheduling",
+              "communications",
+              "personal",
+              "ops"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      },
+      "query_derivation": {
+        "original_terms": [
+          "calendar",
+          "sync",
+          "scheduling"
+        ],
+        "original_match_count": 6,
+        "added_route_terms": [
+          "communications",
+          "personal",
+          "ops"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "original_query_sha256": "b9cbf0bfef147af81002c6e4a3d1cbd02099308b2cd8a4af031d8a8431ea949e",
+        "final_query_sha256": "2b3b199bd8e31e00ca0c1eeee4081d21294d16a1db791a7d5643f8ad286038f3",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "ranked_retrieval_calls": 1
+    },
+    {
+      "case_id": "INDEPENDENT-HOLD-08",
+      "suite_id": "independent_now_exposed15",
+      "prior_fts_ids": [
+        136938012,
+        3314,
+        8162715,
+        6763587,
+        1151051,
+        131995661,
+        234739976,
+        2179920,
+        148129143,
+        18586705,
+        30985840,
+        2717549,
+        127988011,
+        2884111
+      ],
+      "current_fts_ids": [
+        8162715,
+        131995661,
+        136938012,
+        2179920,
+        3314,
+        6763587,
+        1151051,
+        234739976,
+        148129143,
+        18586705,
+        30985840,
+        2717549,
+        2884111,
+        127988011
+      ],
+      "prior_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 0.8571428571428571,
+          "ndcg_at_k": 1.0,
+          "relevant_count": 14
+        },
+        "unjudged_ids": []
+      },
+      "current_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 0.8571428571428571,
+          "ndcg_at_k": 1.0,
+          "relevant_count": 14
+        },
+        "unjudged_ids": []
+      },
+      "original_literal_unchanged": true,
+      "previous_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-35dcf5c3b151a307e44979d9",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "5b172b4fca5b2666fb61cba4e306c217c3ef29bb7d2eec0e478f7115370fb356",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "ecommerce_platforms",
+        "language": "en",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "ecommerce",
+              "commerce"
+            ]
+          },
+          {
+            "variant_id": "q2",
+            "terms": [
+              "ecommerce",
+              "commerce",
+              "store"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      },
+      "current_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-35dcf5c3b151a307e44979d9",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "ecommerce_platforms",
+        "language": "en",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "ecommerce",
+              "commerce",
+              "store"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      },
+      "query_derivation": {
+        "original_terms": [
+          "ecommerce",
+          "commerce",
+          "store"
+        ],
+        "original_match_count": 14,
+        "added_route_terms": [],
+        "source": null,
+        "original_query_sha256": "ce66a49f82eddd77814b4aa316fe55aaca2d312ccf3a1300e355e47d8471be4e",
+        "final_query_sha256": "ce66a49f82eddd77814b4aa316fe55aaca2d312ccf3a1300e355e47d8471be4e",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "ranked_retrieval_calls": 1
+    },
+    {
+      "case_id": "INDEPENDENT-HOLD-09",
+      "suite_id": "independent_now_exposed15",
+      "prior_fts_ids": [
+        331293626,
+        275993885,
+        88464704,
+        63226588,
+        190729906,
+        101394335,
+        630039746,
+        306829688,
+        352933140,
+        206509491,
+        108761645,
+        159152904
+      ],
+      "current_fts_ids": [
+        331293626,
+        275993885,
+        190729906,
+        88464704,
+        352933140,
+        63226588,
+        101394335,
+        306829688,
+        630039746,
+        206509491,
+        108761645,
+        159152904
+      ],
+      "prior_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 1.0,
+          "ndcg_at_k": 0.9438220076416048,
+          "relevant_count": 12
+        },
+        "unjudged_ids": []
+      },
+      "current_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 1.0,
+          "ndcg_at_k": 0.9652636956851046,
+          "relevant_count": 12
+        },
+        "unjudged_ids": []
+      },
+      "original_literal_unchanged": true,
+      "previous_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-f0956578b7542e1982b8de88",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "5b172b4fca5b2666fb61cba4e306c217c3ef29bb7d2eec0e478f7115370fb356",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "internal_tools_builders",
+        "language": "en",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "internal",
+              "admin"
+            ]
+          },
+          {
+            "variant_id": "q2",
+            "terms": [
+              "internal",
+              "admin",
+              "apps",
+              "data"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      },
+      "current_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-f0956578b7542e1982b8de88",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "internal_tools_builders",
+        "language": "en",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "internal",
+              "admin",
+              "apps",
+              "data"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      },
+      "query_derivation": {
+        "original_terms": [
+          "internal",
+          "admin",
+          "apps",
+          "data"
+        ],
+        "original_match_count": 12,
+        "added_route_terms": [],
+        "source": null,
+        "original_query_sha256": "24ab9aa995bcadbb857139344895255bfcdd4daa65e5cdb28ce43fb8351204f2",
+        "final_query_sha256": "24ab9aa995bcadbb857139344895255bfcdd4daa65e5cdb28ce43fb8351204f2",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "ranked_retrieval_calls": 1
+    },
+    {
+      "case_id": "INDEPENDENT-HOLD-10",
+      "suite_id": "independent_now_exposed15",
+      "prior_fts_ids": [
+        99412308,
+        210579021,
+        378997214,
+        285012857,
+        493014338,
+        197743848,
+        283046497,
+        27911088,
+        3591964,
+        947516890,
+        54435102,
+        452221115,
+        53548867
+      ],
+      "current_fts_ids": [
+        99412308,
+        378997214,
+        285012857,
+        210579021,
+        493014338,
+        197743848,
+        283046497,
+        27911088,
+        3591964,
+        947516890,
+        54435102,
+        452221115,
+        53548867
+      ],
+      "prior_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 0.9230769230769231,
+          "ndcg_at_k": 0.9087090215531134,
+          "relevant_count": 13
+        },
+        "unjudged_ids": []
+      },
+      "current_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 0.9230769230769231,
+          "ndcg_at_k": 0.9288724600778284,
+          "relevant_count": 13
+        },
+        "unjudged_ids": []
+      },
+      "original_literal_unchanged": true,
+      "previous_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-d319486242122637a087504f",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "5b172b4fca5b2666fb61cba4e306c217c3ef29bb7d2eec0e478f7115370fb356",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "data_ingestion_connectors",
+        "language": "en",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "data ingestion",
+              "data integration"
+            ]
+          },
+          {
+            "variant_id": "q2",
+            "terms": [
+              "data ingestion",
+              "data integration",
+              "API",
+              "database"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      },
+      "current_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-d319486242122637a087504f",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "data_ingestion_connectors",
+        "language": "en",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "data ingestion",
+              "data integration",
+              "API",
+              "database"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      },
+      "query_derivation": {
+        "original_terms": [
+          "data ingestion",
+          "data integration",
+          "API",
+          "database"
+        ],
+        "original_match_count": 13,
+        "added_route_terms": [],
+        "source": null,
+        "original_query_sha256": "9b056d5c0b40beeba0692d79c8f0dd5f15df2bd521949968f9f32608bcfac5eb",
+        "final_query_sha256": "9b056d5c0b40beeba0692d79c8f0dd5f15df2bd521949968f9f32608bcfac5eb",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "ranked_retrieval_calls": 1
+    },
+    {
+      "case_id": "INDEPENDENT-HOLD-11",
+      "suite_id": "independent_now_exposed15",
+      "prior_fts_ids": [
+        44662669,
+        1142800652,
+        945530209,
+        813564769,
+        896203400,
+        902619224,
+        960484071,
+        900806525,
+        898128804,
+        933144612
+      ],
+      "current_fts_ids": [
+        44662669,
+        1142800652,
+        945530209,
+        896203400,
+        902619224,
+        900806525,
+        960484071,
+        813564769,
+        898128804,
+        933144612
+      ],
+      "prior_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 1.0,
+          "ndcg_at_k": 0.9909553371413427,
+          "relevant_count": 10
+        },
+        "unjudged_ids": []
+      },
+      "current_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 1.0,
+          "ndcg_at_k": 0.9759236135906101,
+          "relevant_count": 10
+        },
+        "unjudged_ids": []
+      },
+      "original_literal_unchanged": true,
+      "previous_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-608fca2760dec2f773edb1a3",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "5b172b4fca5b2666fb61cba4e306c217c3ef29bb7d2eec0e478f7115370fb356",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "database_clients_admin",
+        "language": "en",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "SQL",
+              "database"
+            ]
+          },
+          {
+            "variant_id": "q2",
+            "terms": [
+              "SQL",
+              "database",
+              "schema",
+              "client"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      },
+      "current_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-608fca2760dec2f773edb1a3",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "database_clients_admin",
+        "language": "en",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "SQL",
+              "database",
+              "schema",
+              "client",
+              "clients",
+              "admin"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      },
+      "query_derivation": {
+        "original_terms": [
+          "SQL",
+          "database",
+          "schema",
+          "client"
+        ],
+        "original_match_count": 10,
+        "added_route_terms": [
+          "clients",
+          "admin"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "original_query_sha256": "8c1e950fcc003ffe49dbce3a38630e4e2f26904cdfbfd0c3bb7225a972356bbb",
+        "final_query_sha256": "25aaca5dc06acd5b28999f33676de5b844ef7b67fde6a242294a8d8cc59eae3d",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "ranked_retrieval_calls": 1
+    },
+    {
+      "case_id": "INDEPENDENT-HOLD-12",
+      "suite_id": "independent_now_exposed15",
+      "prior_fts_ids": [
+        769023213,
+        337414495,
+        510607652,
+        1028159967,
+        180190854,
+        214587193,
+        50603846
+      ],
+      "current_fts_ids": [
+        769023213,
+        1028159967,
+        510607652,
+        337414495,
+        50603846,
+        214587193,
+        180190854
+      ],
+      "prior_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 1.0,
+          "ndcg_at_k": 1.0,
+          "relevant_count": 7
+        },
+        "unjudged_ids": []
+      },
+      "current_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 1.0,
+          "ndcg_at_k": 1.0,
+          "relevant_count": 7
+        },
+        "unjudged_ids": []
+      },
+      "original_literal_unchanged": true,
+      "previous_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-22736c6df94a42e67556301f",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "5b172b4fca5b2666fb61cba4e306c217c3ef29bb7d2eec0e478f7115370fb356",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "baas_platforms",
+        "language": "en",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "backend"
+            ]
+          },
+          {
+            "variant_id": "q2",
+            "terms": [
+              "backend",
+              "database",
+              "app"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      },
+      "current_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-22736c6df94a42e67556301f",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "baas_platforms",
+        "language": "en",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "backend",
+              "database",
+              "app",
+              "baas",
+              "platforms"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      },
+      "query_derivation": {
+        "original_terms": [
+          "backend",
+          "database",
+          "app"
+        ],
+        "original_match_count": 7,
+        "added_route_terms": [
+          "baas",
+          "platforms"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "original_query_sha256": "ed968c4dcaf2e921e63d1c7ac58b92319ee8fa06444f1bcf154d6c61fc1efe6d",
+        "final_query_sha256": "c67cf2d9fcc021c0315279d7466332d564a55585d25f1d69ee54a75361bae3b0",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "ranked_retrieval_calls": 1
+    },
+    {
+      "case_id": "INDEPENDENT-HOLD-13",
+      "suite_id": "independent_now_exposed15",
+      "prior_fts_ids": [
+        1390248,
+        17728164,
+        910744,
+        679421146,
+        3638964,
+        4542716,
+        108278,
+        1032135422,
+        72477752,
+        24948315,
+        973373852,
+        967503541,
+        952238700,
+        1219009070,
+        951693330
+      ],
+      "current_fts_ids": [
+        1390248,
+        17728164,
+        3638964,
+        108278,
+        910744,
+        679421146,
+        72477752,
+        4542716,
+        1032135422,
+        24948315,
+        973373852,
+        967503541,
+        952238700,
+        1219009070,
+        951693330
+      ],
+      "prior_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 0.7857142857142857,
+          "ndcg_at_k": 0.9806865001760198,
+          "relevant_count": 14
+        },
+        "unjudged_ids": []
+      },
+      "current_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 0.7857142857142857,
+          "ndcg_at_k": 0.9895513484778613,
+          "relevant_count": 14
+        },
+        "unjudged_ids": []
+      },
+      "original_literal_unchanged": true,
+      "previous_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-12338df0a283c402d09d4a9b",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "5b172b4fca5b2666fb61cba4e306c217c3ef29bb7d2eec0e478f7115370fb356",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "infrastructure_automation",
+        "language": "en",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "infrastructure",
+              "configuration"
+            ]
+          },
+          {
+            "variant_id": "q2",
+            "terms": [
+              "infrastructure",
+              "configuration",
+              "automation"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      },
+      "current_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-12338df0a283c402d09d4a9b",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "infrastructure_automation",
+        "language": "en",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "infrastructure",
+              "configuration",
+              "automation"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      },
+      "query_derivation": {
+        "original_terms": [
+          "infrastructure",
+          "configuration",
+          "automation"
+        ],
+        "original_match_count": 15,
+        "added_route_terms": [],
+        "source": null,
+        "original_query_sha256": "73fb4dea19685d38a636d643346e28f5489b3a3c391a9e320be0752a3e4bca97",
+        "final_query_sha256": "73fb4dea19685d38a636d643346e28f5489b3a3c391a9e320be0752a3e4bca97",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "ranked_retrieval_calls": 1
+    },
+    {
+      "case_id": "INDEPENDENT-HOLD-14",
+      "suite_id": "independent_now_exposed15",
+      "prior_fts_ids": [
+        103084166,
+        40556106,
+        395283401,
+        49986046,
+        66474729,
+        94779471,
+        313853293,
+        224386599,
+        157735858
+      ],
+      "current_fts_ids": [
+        103084166,
+        395283401,
+        40556106,
+        49986046,
+        224386599,
+        66474729,
+        94779471,
+        313853293,
+        157735858
+      ],
+      "prior_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 1.0,
+          "ndcg_at_k": 0.5623386549262038,
+          "relevant_count": 5
+        },
+        "unjudged_ids": []
+      },
+      "current_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 1.0,
+          "ndcg_at_k": 0.6407588074303833,
+          "relevant_count": 5
+        },
+        "unjudged_ids": []
+      },
+      "original_literal_unchanged": true,
+      "previous_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-706e07e6b63ed9b2b3b7f585",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "5b172b4fca5b2666fb61cba4e306c217c3ef29bb7d2eec0e478f7115370fb356",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "infrastructure_security",
+        "language": "en",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "configuration",
+              "IaC"
+            ]
+          },
+          {
+            "variant_id": "q2",
+            "terms": [
+              "configuration",
+              "IaC",
+              "security",
+              "scanning"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      },
+      "current_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-706e07e6b63ed9b2b3b7f585",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "infrastructure_security",
+        "language": "en",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "configuration",
+              "IaC",
+              "security",
+              "scanning",
+              "infrastructure"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      },
+      "query_derivation": {
+        "original_terms": [
+          "configuration",
+          "IaC",
+          "security",
+          "scanning"
+        ],
+        "original_match_count": 9,
+        "added_route_terms": [
+          "infrastructure"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "original_query_sha256": "3a517f3e7d287320761cf72854e195f5e7d0fe912975a51863273056c26baf2f",
+        "final_query_sha256": "3a72099e4d177e874f7c13e9828fa516de9e39fa10ec6350f5e2d77e9379faf3",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "ranked_retrieval_calls": 1
+    },
+    {
+      "case_id": "INDEPENDENT-ALIAS-01",
+      "suite_id": "independent_now_exposed15",
+      "prior_fts_ids": [
+        5152285
+      ],
+      "current_fts_ids": [
+        56899284,
+        43056951,
+        137724480,
+        391811592,
+        38307428,
+        5152285,
+        148332388,
+        900049352,
+        27729907,
+        460076976,
+        56271158,
+        162690887,
+        121086193,
+        40518025,
+        4710920,
+        542284380,
+        118695306,
+        20787122,
+        45250726,
+        203587744,
+        20300177,
+        113701924,
+        52630616,
+        679280065,
+        1362490,
+        61567304,
+        133134007,
+        74436942,
+        280557054,
+        2006876,
+        2055965,
+        27729880,
+        741524414,
+        212465715,
+        899744532,
+        74170071,
+        22458259,
+        219705144,
+        142165796,
+        238402553
+      ],
+      "prior_metrics": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 1.0,
+          "ndcg_at_k": 1.0,
+          "relevant_count": 1
+        },
+        "unjudged_ids": []
+      },
+      "current_metrics": {
+        "valid": false,
+        "reason": "incomplete_judgments",
+        "ranking": null,
+        "unjudged_ids": [
+          56899284,
+          43056951,
+          137724480,
+          391811592,
+          38307428,
+          148332388,
+          900049352,
+          27729907,
+          460076976,
+          56271158,
+          162690887,
+          121086193,
+          40518025,
+          4710920,
+          542284380,
+          118695306,
+          20787122,
+          45250726,
+          203587744,
+          20300177,
+          113701924,
+          52630616,
+          679280065,
+          1362490,
+          61567304,
+          133134007,
+          74436942,
+          280557054,
+          2006876,
+          2055965,
+          27729880,
+          741524414,
+          212465715,
+          899744532,
+          74170071,
+          22458259,
+          219705144,
+          142165796,
+          238402553
+        ]
+      },
+      "original_literal_unchanged": true,
+      "previous_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-62684c280654d0b16ebe49b2",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "5b172b4fca5b2666fb61cba4e306c217c3ef29bb7d2eec0e478f7115370fb356",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "api_graphql_rpc",
+        "language": "en",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "square/okhttp"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      },
+      "current_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-62684c280654d0b16ebe49b2",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "api_graphql_rpc",
+        "language": "en",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "square/okhttp",
+              "api",
+              "graphql",
+              "rpc"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      },
+      "query_derivation": {
+        "original_terms": [
+          "square/okhttp"
+        ],
+        "original_match_count": 1,
+        "added_route_terms": [
+          "api",
+          "graphql",
+          "rpc"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "original_query_sha256": "606131fbc43019d6ee61c746d7d197181237a0efc372ca0b3da77a6e89fc8fae",
+        "final_query_sha256": "f82ab1dd143daf26a9f15e077643775bd5a63ec645a9caf685497e37796377a1",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "ranked_retrieval_calls": 1
+    }
+  ],
+  "fresh_unseen_evidence": false,
+  "human_acceptance": false,
+  "acceptance_limit": "Prior failures remain frozen. All30 goals/judgments are exposed. Legacy held_out threshold names are compatibility labels, not a fresh holdout claim. Prospective acceptance and human/browser checks remain open."
+}

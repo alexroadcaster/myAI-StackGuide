@@ -1,0 +1,52 @@
+{
+  "schema_version": "cp04_rank_repair_evidence_review_v1",
+  "reviewer": "/root/cp04_final_review",
+  "reviewer_wrote_artifact": false,
+  "approved": true,
+  "approval_scope": "Current local source/pin/protocol integrity, preserved literal baseline, exposed regression evidence, guard containment and resource receipt scope only; not primary grading or promotion acceptance.",
+  "unresolved": [],
+  "artifact_hashes": {
+    "regression_declaration_sha256": "fb3a1ebc7fa40cfddef776f009dff861433c9f0b91f63f30b837b31edefb81e6",
+    "regression_observations_sha256": "d477e7ba974aaebe9a32f5e12009fef25914f78a95417291dfd52cc229922613",
+    "regression_conclusion_sha256": "9965854cdb995a46a5f3710348910a7294308e752b8d24ffffc5e322155a6ba8",
+    "guard_declaration_sha256": "88611a4af9f01e4423a8b9bb9ed45b8ef0dfe91a3f937818429ccc73f81021ab",
+    "guard_observations_sha256": "373998518198386b9309f528e1ebd001f145238d5563edb1bb673a881f8ecd46",
+    "guard_independent_audit_sha256": "73b24bb4ca1941f34a5ebad288a06ff8d6131ccf555022665299083a4f2420bb",
+    "resource_receipt_sha256": "51141b76e781bde157f8a8793d2e3150c635d13b763b17ba7dba8240a65a11f4"
+  },
+  "production_tuple": {
+    "recommendation_request_sha256": "3c3d188d51d5c6da55de2fc1655874d15f4919cecae9bea40fa71810d3084ad9",
+    "retrieval_sha256": "6cd0a8012ed47374afee68c957a7369020775562d21b0d8b2649ec3b850f14dd",
+    "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+    "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+    "manifest_sha256": "4c1c9eccf6df60d92da5d780a8152ce3fb00e43ccbf80e8ed01c3c660135a1bb"
+  },
+  "verified": {
+    "current_source_asset_output_hash_mismatches": 0,
+    "frozen_payload_and_literal_orders_metrics_unchanged_cases": 30,
+    "query_derivation_hashes_and_pins_consistent_cases": 30,
+    "aggregate_and_ranked_calls_per_resolved_capture": [1, 1],
+    "blocked_raw_hits_absent_from_selection_and_pack": 8,
+    "ambiguity_cases_zero_count_zero_retrieval_no_pack": 3,
+    "resource_cold_samples": 30,
+    "resource_warm_samples": 30,
+    "resource_all_statuses_ok": true
+  },
+  "inspection_findings": [
+    "Native parameterized COUNT opens immutable read-only trusted SQLite and returns scalar match count; complete query and exclusions validate before aggregate. Failures are explicit; no widened fallback.",
+    "Underfilled lookup adds only selected pinned route-ID words within the existing term cap; final query remains bounded quoted OR. Route vocabulary does not establish capability fit or conjunctive satisfaction.",
+    "Policy content weights and exact hashes changed together with index/manifest/trust consumers; public cards and serialized C9 schema/index format remain unchanged. No permission expansion found."
+  ],
+  "retained_limits": [
+    "Both suites and all30 goals/judgments/rankings are exposed development regressions. Prior no_go captures remain frozen; this replay is not fresh acceptance.",
+    "Quality owner reports all accepted suite macro/floor/constraint gates pass. Reviewer verified provenance and immutable comparisons, not an independent numerical relevance oracle.",
+    "INDEPENDENT-HOLD-14 security nDCG remains0.6407588074 versus its own literal0.7852383248; macro passing does not erase this per-case loss.",
+    "Resource sample profile has original match count15 and no added route terms. It measures prepared Brief/COUNT/C9 for that profile; underfilled-route and worst-case pool performance are not established. One guard/pack diagnostic is not an SLA.",
+    "No new model generation or current-tuple answer behavior was reviewed. The eight portable answers and prior agent agreement are historical old-tuple evidence; identical narratives do not prove current autonomous interpretation/routing.",
+    "Prospective source-first acceptance capture and actual human acceptance remain open."
+  ],
+  "agent_proxy": true,
+  "primary_quality_verdict": false,
+  "human_acceptance": false,
+  "promotion_approved": false
+}

@@ -37,18 +37,44 @@ implementation request under its actual authorization boundary.
 
 After reviewing a validated Brief, interpret the user's positive capabilities,
 context, explicit product/dependency prohibitions and decision-changing gaps.
-Use `scripts/recommendation_request.py` with a UTF-8 stdin object containing
-`brief`, `interpretation` and transient `public_observations`. Bind interpretation
+Use `scripts/recommendation_decision.py --stdio` with a UTF-8 JSON Lines stdin
+object containing `brief`, `interpretation` and transient `public_observations`.
+Bind interpretation
 to the exact Brief SHA256 and version; copy canonical Brief constraints rather
 than resetting them. Keep exclusions out of positive query terms. The entry point
-constructs the pinned C9 query and filters documented conflicts before the pack.
+constructs the pinned C9 query and returns a complete, narrow candidate preview.
 When a material goal is ambiguous, leave route/terms/intent null and supply
 localized unresolved questions with alternatives. Ask the smallest question,
 retain all prohibitions when the user answers, and reinterpret the corrected Brief
 before retrieval. A changed Brief invalidates the previous interpretation.
 
-Use the returned pack together with its request and selection annotations for
-composition. Never present an explicitly excluded product or a documented
+Keep one foreground process session alive between the initial request and the
+reply. The helper retains trusted inputs only in memory; two separate shell
+calls cannot resume it. Prefer retained raw stdin/stdout pipes, including the
+available host REPL process adapter. Terminal rendering can change long JSON
+lines; do not treat wrapped console text as verified source data. Stop if the
+transport cannot preserve the UTF-8 objects and their bindings.
+Order every preview ID once for the confirmed goal:
+mandatory capabilities first, project context as supporting information, weak
+fit and blocked candidates later. Unknown or truncated evidence remains unknown.
+Return only `{"decision_order":[...]}` to that same stdin session. The helper
+validates the permutation, sources and independent guards, then emits a separate
+decision receipt and guarded decision pack. Native ranks and scores remain native
+evidence. A missing, invalid or stale reply produces an explicit failure with no
+pack; unavailable retained stdin must be reported as an unavailable bridge.
+
+The [candidate decision contract](../../../../specs/retrieval/candidate-decision-contract.md)
+defines the source projection and one shared budget. Account for actual UTF-8
+instruction/tool/schema wrappers in `wrapper_bytes` before preparation; preview,
+receipt and final pack share the evidence allowance across both phases. Never
+provide complete cards in the preview or add a new allowance per model call.
+Preserve an explicitly limited pack and its omitted identities. A corrected
+Brief, interpretation or source context invalidates the pending session; stop
+it and prepare a new request. This bridge does not call a model, scan or save
+state. The existing host Codex makes the ordering decision.
+
+Use the validated decision pack and its bound preview/receipt for composition.
+Never present an explicitly excluded product or a documented
 dependency conflict as an eligible recommendation. Missing dependency facts and
 available alternative configurations remain conditional, with concrete checks;
 surviving a filter does not prove full fit. Public observations are host-supplied,
@@ -75,41 +101,53 @@ saved in the offline HTML. A display switch, render-only request or explanation
 of an existing result does not trigger a new check unless the user asks to verify
 or update it.
 
-Lead each recommendation with why it helps this project's confirmed technical,
-architectural and product goals. Connect a goal or constraint from the Brief to
-a source-supported repository capability, its proposed place in the existing
-system, and the expected project benefit. Mark inferred benefits and unverified
-compatibility explicitly; never invent project facts or promise measured savings.
-Explain why the option is preferable to a relevant alternative or keeping the
-current component, what integration/operation trade-off it introduces, and which
-condition would reverse the choice. If the Brief does not settle that comparison,
-give a conditional preference and ask the smallest decision-changing question.
-If the evidence cannot justify a preference, say so and name the decisive unknown.
-For a proposed set, explain each member's distinct role, how they connect and why
-the set adds value over a single component; same-role alternatives are choices,
-not a set to install together. Finish with a concrete check of the decisive
-unknown. Keep the explanation readable for the user's role; technical eligibility
-labels and retrieval rank are evidence details, not the reason for the choice.
+Default to a compact answer, normally three to five short paragraphs or equivalent
+short bullets. Connect the Brief's confirmed goal or constraint to a source-backed
+repository capability, its proposed architectural role and the expected product
+outcome. Show retained/new components, their connections and material data
+boundaries; identify what the repository covers and what the team still owns.
+For a set, give each member a distinct role and explain value over one component;
+same-role alternatives are choices.
+Mark inferred benefits and unverified compatibility explicitly. Use product and
+repository names in the core explanation; keep internal IDs, eligibility/status
+labels and retrieval ranks in evidence details only when requested. Write normal
+Markdown with actual line breaks; preserve code, paths and other technical
+literals exactly. Expand background, matrices and detailed phases on request.
 
-Describe the proposed solution stack: retained and new components, distinct roles,
-connections and data boundaries. Separate the technical work, proposed architecture
-and product outcome; identify problems the repository covers and work the project
-team still owns. Explain implementation complexity through concrete drivers such
-as compatibility, data migration, security boundaries, operations and rollback.
-Give approximate implementation ranges when a planning scenario is supportable:
-state scope, prerequisites, team/experience assumptions, confidence and phases;
-distinguish engineering effort, elapsed working time and external waiting. Label
-these as planning estimates, not measured results or delivery commitments. Separate
-a first validation slice from complete adoption. For a quantified scoped total,
-give phase ranges in engineer-hours, state hours per engineer-day and allocation,
-and include the first validation once in the total. Derive the total and elapsed
-range consistently from those assumptions; unknown waiting stays separate. If project facts are insufficient,
-give a clearly conditional scenario or mark the total unknown and ask for the
-decisive scope fact. Compare reuse with equivalent-scope custom development and
-the current/native solution, including integration, dependency and ongoing
-maintenance costs. Do not assume reuse wins or invent time/cost savings, proven
-reliability or unsupported repository features.
+Include the complexity drivers that change the decision, a planning estimate
+when supportable, and an equivalent-scope comparison with custom development and
+the current/native solution. Include integration, dependencies and maintenance;
+do not assume reuse wins or invent savings, measured reliability or features.
+Cite the decisive sources and state which condition would reverse the choice.
+Finish with the material caveat, a concrete validation check and a reversible
+trial boundary. Describe how to return to the existing path without losing
+authoritative data or queued work; if no existing path is known, keep the trial
+isolated and state that limitation. These are proposed steps, never executed actions. If evidence does
+not justify a preference, state the decisive
+unknown or a conditional preference and ask the smallest question. Brevity must
+retain uncertainty, provenance and implementation-authorization limits.
 
+Use one explicit planning scenario: scope, prerequisites, team/experience,
+confidence, hours per engineer-day and allocated capacity. Label all ranges as
+hypothetical planning estimates, never measurements or delivery commitments.
+Separate first validation from complete adoption. If full scope is insufficient,
+give only the first validation range and keep the adoption total and elapsed time
+unknown. For a scoped total, give post-validation phase ranges in engineer-hours,
+count validation once and derive total effort and elapsed working days from the
+same capacity assumptions; external waiting remains separate and unknown unless
+supported. Reuse these exact planning facts and ranges in RU/EN projections of
+the same result. A translation cannot choose a new scenario or estimate. Use
+`scripts/answer_presentation.py` for deterministic newline normalization, planning
+arithmetic and locale binding checks at the host composition boundary. These
+transient checks neither save state nor establish translation meaning, estimate
+accuracy or CP-11 lifecycle acceptance; saving uses the accepted writer contract.
+
+Compose one canonical recommendation narrative before localization. Translate
+that narrative without dropping prerequisites, decisive caveats, rollback,
+uncertainty or action authority; independent recomposition is not a translation. Return only the requested
+language in each projection. If composition includes explicitly labelled
+bilingual sections, use `project_answer_locale` at the host display boundary
+and retain the unmodified capture; never guess a language boundary.
 RU/EN presentation is one view of one canonical result. A display-language
 change does not scan, retrieve, call a model, or write domain state. Missing
 translation remains explicit and canonical technical literals stay unchanged.

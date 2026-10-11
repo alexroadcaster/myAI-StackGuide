@@ -1,0 +1,2670 @@
+{
+  "preview_request": {
+    "schema_version": "1.1.0",
+    "artifact_type": "candidate_preview_request",
+    "bindings": {
+      "contract_schema_sha256": "53f8bd0ddf7dcc29cc355e813c42b495d4f87e7804db8de699768fe82afd5303",
+      "contract_document_sha256": "21b190b68699a1373c647b1570884954d726393066d6f45f2bfd54e46d043b9a",
+      "run_id": "e70e9ee2-6359-501d-826f-cdc396bc252c",
+      "brief_id": "FINAL-HOLD-04",
+      "brief_version": 1,
+      "brief_sha256": "35429e0415104655582d3a7b5962f08042c38d5e4a68898daf4a8afb70aa1ade",
+      "interpretation_sha256": "4470588af478781f1748cb38fb9c1d52692507d5b60f90dafb55693ac0afb063",
+      "guard_context_sha256": "c9f0bf59f77a16054f0966eca8aa56ce3f6adf934c3be5b414a791296701feb3",
+      "query_id": "request-4470588af478781f1748cb38",
+      "query_sha256": "36ae20b41b02229be620a200c68a73660a7d5eadfc1307b47746862fd48a5004",
+      "native_result_sha256": "19c96efb1ac4e7f02268bcc5e11c60ba3787245774d3ed8e6e0f3bcd3b67fca5",
+      "candidate_pool_sha256": "bab832ad26f840aa972716a536a24ee982a8f73a74f64911fb6f707bca4fb86f",
+      "pins": {
+        "activity_schema_version": "2.0.0",
+        "card_schema_version": "2.0.0",
+        "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+        "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+        "corpus_kind": "catalog_snapshot",
+        "index_format_version": 3,
+        "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+        "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+        "retrieval_policy_version": "2.1.0",
+        "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+        "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+      }
+    },
+    "method": "host_codex_full_pool_v1_1",
+    "decision_context": {
+      "goal": "A TypeScript service wants schema validation with inferred static types, independent of UI form management; JSON schema is an alternative.",
+      "intent": {
+        "required_groups": [
+          [
+            "TypeScript"
+          ]
+        ],
+        "context_terms": [
+          "schema",
+          "validation"
+        ]
+      }
+    },
+    "candidates": [
+      {
+        "github_repository_id": 245704608,
+        "full_name": "colinhacks/zod",
+        "source_card_sha256": "75cab1ddc9bce6496c78c473c39183c5ed2ab65ca067cdcce934e7cb932332b2",
+        "retrieval_rank": 1,
+        "rrf_score": 0.01639344262295082,
+        "taxonomy_category_ids": [
+          "forms_validation"
+        ],
+        "eligibility_status": "reference_only",
+        "eligibility_reason_codes": [
+          "mandatory_fact_unknown"
+        ],
+        "guard_status": "reference_only",
+        "guard_reason_codes": [
+          "mandatory_fact_unknown"
+        ],
+        "fields": [
+          {
+            "source_field": "/descriptions/upstream",
+            "text": "TypeScript-first schema validation with static type inference",
+            "coverage": "complete"
+          },
+          {
+            "source_field": "/descriptions/catalog",
+            "text": "TypeScript-first schema validation with static type inference",
+            "coverage": "complete"
+          },
+          {
+            "source_field": "/repository/topics",
+            "text": "runtime-validation\nschema-validation\nstatic-types\ntype-inference\ntypescript",
+            "coverage": "complete"
+          },
+          {
+            "source_field": "/advisory/use_cases",
+            "text": null,
+            "coverage": "unknown"
+          },
+          {
+            "source_field": "/advisory/integration_surface",
+            "text": null,
+            "coverage": "unknown"
+          },
+          {
+            "source_field": "/advisory/best_for",
+            "text": null,
+            "coverage": "unknown"
+          }
+        ]
+      },
+      {
+        "github_repository_id": 90194616,
+        "full_name": "pydantic/pydantic",
+        "source_card_sha256": "8dc882cee03838ffd41c5ba7f1244dc34a573bdfa0213bac7f4774ecf35d1fe8",
+        "retrieval_rank": 2,
+        "rrf_score": 0.016129032258064516,
+        "taxonomy_category_ids": [
+          "forms_validation"
+        ],
+        "eligibility_status": "reference_only",
+        "eligibility_reason_codes": [
+          "mandatory_fact_unknown"
+        ],
+        "guard_status": "reference_only",
+        "guard_reason_codes": [
+          "mandatory_fact_unknown"
+        ],
+        "fields": [
+          {
+            "source_field": "/descriptions/upstream",
+            "text": "Data validation using Python type hints",
+            "coverage": "complete"
+          },
+          {
+            "source_field": "/descriptions/catalog",
+            "text": "Data validation using Python type hints",
+            "coverage": "complete"
+          },
+          {
+            "source_field": "/repository/topics",
+            "text": "hints\njson-schema\nparsing\npydantic\npython\npython310\npython311\npython312\npython313\npython39\nvalidation",
+            "coverage": "complete"
+          },
+          {
+            "source_field": "/advisory/use_cases",
+            "text": null,
+            "coverage": "unknown"
+          },
+          {
+            "source_field": "/advisory/integration_surface",
+            "text": null,
+            "coverage": "unknown"
+          },
+          {
+            "source_field": "/advisory/best_for",
+            "text": null,
+            "coverage": "unknown"
+          }
+        ]
+      },
+      {
+        "github_repository_id": 174038031,
+        "full_name": "react-hook-form/react-hook-form",
+        "source_card_sha256": "cc85708fd0f57137362b17e437b482786c244e98d54979c7c3ecbd6432ede8ed",
+        "retrieval_rank": 3,
+        "rrf_score": 0.015873015873015872,
+        "taxonomy_category_ids": [
+          "forms_validation"
+        ],
+        "eligibility_status": "reference_only",
+        "eligibility_reason_codes": [
+          "mandatory_fact_unknown"
+        ],
+        "guard_status": "reference_only",
+        "guard_reason_codes": [
+          "mandatory_fact_unknown"
+        ],
+        "fields": [
+          {
+            "source_field": "/descriptions/upstream",
+            "text": "📋 React Hooks for form state management and validation (Web + React Native)",
+            "coverage": "complete"
+          },
+          {
+            "source_field": "/descriptions/catalog",
+            "text": "📋 React Hooks for form state management and validation (Web + React Native)",
+            "coverage": "complete"
+          },
+          {
+            "source_field": "/repository/topics",
+            "text": "dx\nform-builder\nforms\nreact-hooks\nreact-native\nreactjs\ntypescript\nux\nvalidation",
+            "coverage": "complete"
+          },
+          {
+            "source_field": "/advisory/use_cases",
+            "text": null,
+            "coverage": "unknown"
+          },
+          {
+            "source_field": "/advisory/integration_surface",
+            "text": null,
+            "coverage": "unknown"
+          },
+          {
+            "source_field": "/advisory/best_for",
+            "text": null,
+            "coverage": "unknown"
+          }
+        ]
+      },
+      {
+        "github_repository_id": 35914020,
+        "full_name": "ajv-validator/ajv",
+        "source_card_sha256": "993af0246808ce450f24f1c84bbd40a1a495ca49a01f6f5f5ae191dc942ce945",
+        "retrieval_rank": 4,
+        "rrf_score": 0.015625,
+        "taxonomy_category_ids": [
+          "forms_validation"
+        ],
+        "eligibility_status": "reference_only",
+        "eligibility_reason_codes": [
+          "mandatory_fact_unknown"
+        ],
+        "guard_status": "reference_only",
+        "guard_reason_codes": [
+          "mandatory_fact_unknown"
+        ],
+        "fields": [
+          {
+            "source_field": "/descriptions/upstream",
+            "text": "The fastest JSON schema Validator. Supports JSON Schema draft-04/06/07/2019-09/2020-12 and JSON Type Definition (RFC8927)",
+            "coverage": "complete"
+          },
+          {
+            "source_field": "/descriptions/catalog",
+            "text": "The fastest JSON schema Validator. Supports JSON Schema draft-04/06/07/2019-09/2020-12 and JSON Type Definition (RFC8927)",
+            "coverage": "complete"
+          },
+          {
+            "source_field": "/repository/topics",
+            "text": "ajv\njson-schema\nvalidator",
+            "coverage": "complete"
+          },
+          {
+            "source_field": "/advisory/use_cases",
+            "text": null,
+            "coverage": "unknown"
+          },
+          {
+            "source_field": "/advisory/integration_surface",
+            "text": null,
+            "coverage": "unknown"
+          },
+          {
+            "source_field": "/advisory/best_for",
+            "text": null,
+            "coverage": "unknown"
+          }
+        ]
+      },
+      {
+        "github_repository_id": 94367677,
+        "full_name": "jaredpalmer/formik",
+        "source_card_sha256": "302ca2cd39ea28b333076fa15e089d23f3fb58f497fdb85a945ddeb81be4b595",
+        "retrieval_rank": 5,
+        "rrf_score": 0.015384615384615385,
+        "taxonomy_category_ids": [
+          "forms_validation"
+        ],
+        "eligibility_status": "reference_only",
+        "eligibility_reason_codes": [
+          "mandatory_fact_unknown"
+        ],
+        "guard_status": "reference_only",
+        "guard_reason_codes": [
+          "mandatory_fact_unknown"
+        ],
+        "fields": [
+          {
+            "source_field": "/descriptions/upstream",
+            "text": "Build forms in React, without the tears 😭",
+            "coverage": "complete"
+          },
+          {
+            "source_field": "/descriptions/catalog",
+            "text": "Build forms in React, without the tears 😭",
+            "coverage": "complete"
+          },
+          {
+            "source_field": "/repository/topics",
+            "text": "form\nformik\nforms\nhigher-order-component\nhooks\nreact\nreact-hooks\nreact-native\nrender-props",
+            "coverage": "complete"
+          },
+          {
+            "source_field": "/advisory/use_cases",
+            "text": null,
+            "coverage": "unknown"
+          },
+          {
+            "source_field": "/advisory/integration_surface",
+            "text": null,
+            "coverage": "unknown"
+          },
+          {
+            "source_field": "/advisory/best_for",
+            "text": null,
+            "coverage": "unknown"
+          }
+        ]
+      },
+      {
+        "github_repository_id": 75044525,
+        "full_name": "TanStack/form",
+        "source_card_sha256": "6d3cd686227de4fbd062e6e82009a66c628000184e4bca45b84fbf0280284bb0",
+        "retrieval_rank": 6,
+        "rrf_score": 0.015151515151515152,
+        "taxonomy_category_ids": [
+          "forms_validation"
+        ],
+        "eligibility_status": "reference_only",
+        "eligibility_reason_codes": [
+          "mandatory_fact_unknown"
+        ],
+        "guard_status": "reference_only",
+        "guard_reason_codes": [
+          "mandatory_fact_unknown"
+        ],
+        "fields": [
+          {
+            "source_field": "/descriptions/upstream",
+            "text": "🤖 Headless, performant, and type-safe form state management for TS/JS, React, Vue, Angular, Solid, and Lit.",
+            "coverage": "complete"
+          },
+          {
+            "source_field": "/descriptions/catalog",
+            "text": "🤖 Headless, performant, and type-safe form state management for TS/JS, React, Vue, Angular, Solid, and Lit.",
+            "coverage": "complete"
+          },
+          {
+            "source_field": "/repository/topics",
+            "text": "angular\nform\nforms\nhacktoberfest\nhooks\nlit\nreact\nsolid\ntanstack\nvue\nyup\nzod",
+            "coverage": "complete"
+          },
+          {
+            "source_field": "/advisory/use_cases",
+            "text": null,
+            "coverage": "unknown"
+          },
+          {
+            "source_field": "/advisory/integration_surface",
+            "text": null,
+            "coverage": "unknown"
+          },
+          {
+            "source_field": "/advisory/best_for",
+            "text": null,
+            "coverage": "unknown"
+          }
+        ]
+      }
+    ],
+    "reservation": {
+      "receipt_bytes": 1829,
+      "pack_bytes": 20997
+    }
+  },
+  "native_raw_result": {
+    "schema_version": "2.1.0",
+    "run_id": "e70e9ee2-6359-501d-826f-cdc396bc252c",
+    "query_id": "request-4470588af478781f1748cb38",
+    "query_sha256": "36ae20b41b02229be620a200c68a73660a7d5eadfc1307b47746862fd48a5004",
+    "brief_version": 1,
+    "source_mode": "catalog_only",
+    "retrieval_engine": "sqlite_fts5",
+    "pins": {
+      "activity_schema_version": "2.0.0",
+      "card_schema_version": "2.0.0",
+      "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+      "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+      "corpus_kind": "catalog_snapshot",
+      "index_format_version": 3,
+      "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+      "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+      "retrieval_policy_version": "2.1.0",
+      "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+      "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+    },
+    "status": "ok",
+    "executed_variants": 1,
+    "retrieved_hits": 6,
+    "candidates": [
+      {
+        "github_repository_id": 245704608,
+        "rank": 1,
+        "rrf_score": 0.01639344262295082,
+        "variant_ranks": [
+          {
+            "variant_id": "q1",
+            "rank": 1,
+            "bm25": -27.122000140602886
+          }
+        ],
+        "matched_fields": [
+          "upstream_description",
+          "catalog_description",
+          "topics",
+          "category_labels"
+        ],
+        "missing_facts": []
+      },
+      {
+        "github_repository_id": 90194616,
+        "rank": 2,
+        "rrf_score": 0.016129032258064516,
+        "variant_ranks": [
+          {
+            "variant_id": "q1",
+            "rank": 2,
+            "bm25": -18.665989528957127
+          }
+        ],
+        "matched_fields": [
+          "upstream_description",
+          "catalog_description",
+          "topics",
+          "category_labels"
+        ],
+        "missing_facts": []
+      },
+      {
+        "github_repository_id": 174038031,
+        "rank": 3,
+        "rrf_score": 0.015873015873015872,
+        "variant_ranks": [
+          {
+            "variant_id": "q1",
+            "rank": 3,
+            "bm25": -17.524796549184384
+          }
+        ],
+        "matched_fields": [
+          "upstream_description",
+          "catalog_description",
+          "topics",
+          "category_labels"
+        ],
+        "missing_facts": []
+      },
+      {
+        "github_repository_id": 35914020,
+        "rank": 4,
+        "rrf_score": 0.015625,
+        "variant_ranks": [
+          {
+            "variant_id": "q1",
+            "rank": 4,
+            "bm25": -15.071988235900587
+          }
+        ],
+        "matched_fields": [
+          "upstream_description",
+          "catalog_description",
+          "topics",
+          "category_labels"
+        ],
+        "missing_facts": []
+      },
+      {
+        "github_repository_id": 94367677,
+        "rank": 5,
+        "rrf_score": 0.015384615384615385,
+        "variant_ranks": [
+          {
+            "variant_id": "q1",
+            "rank": 5,
+            "bm25": -13.107974549596511
+          }
+        ],
+        "matched_fields": [
+          "upstream_description",
+          "catalog_description",
+          "topics",
+          "category_labels"
+        ],
+        "missing_facts": []
+      },
+      {
+        "github_repository_id": 75044525,
+        "rank": 6,
+        "rrf_score": 0.015151515151515152,
+        "variant_ranks": [
+          {
+            "variant_id": "q1",
+            "rank": 6,
+            "bm25": -8.345108597795003
+          }
+        ],
+        "matched_fields": [
+          "topics",
+          "category_labels"
+        ],
+        "missing_facts": []
+      }
+    ],
+    "truncated": false,
+    "reason_codes": []
+  },
+  "native_control": {
+    "status": "ready",
+    "request": {
+      "schema_version": "cp04_recommendation_request_v1",
+      "status": "ready",
+      "catalog_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-4470588af478781f1748cb38",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "forms_validation",
+        "language": "en",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "TypeScript",
+              "schema",
+              "validation",
+              "forms"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      },
+      "intent": {
+        "required_groups": [
+          [
+            "TypeScript"
+          ]
+        ],
+        "context_terms": [
+          "schema",
+          "validation"
+        ]
+      },
+      "exclusions": {
+        "repository_ids": [],
+        "dependencies": []
+      },
+      "unresolved": [],
+      "aggregate_calls": 1,
+      "query_derivation": {
+        "original_terms": [
+          "TypeScript",
+          "schema",
+          "validation"
+        ],
+        "original_match_count": 6,
+        "added_route_terms": [
+          "forms"
+        ],
+        "source": "selected_pinned_taxonomy_route_id",
+        "added_term_origins": [
+          {
+            "term": "forms",
+            "source_kind": "selected_pinned_taxonomy_route_id",
+            "source": "forms_validation"
+          }
+        ],
+        "original_query_sha256": "bde6b2d667681fe82eddb9c371ec45bdcb842c72e6a5c00ff0b2dc6f2e181c08",
+        "final_query_sha256": "36ae20b41b02229be620a200c68a73660a7d5eadfc1307b47746862fd48a5004",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    "selection": {
+      "status": "ready",
+      "selected_ids": [
+        245704608,
+        90194616,
+        174038031,
+        35914020,
+        94367677,
+        75044525
+      ],
+      "excluded": [],
+      "verification_required": [],
+      "conditional_configuration_ids": []
+    },
+    "aggregate_calls": 1,
+    "retrieval_calls": 1,
+    "evidence_pack": {
+      "schema_version": "2.1.0",
+      "run_id": "e70e9ee2-6359-501d-826f-cdc396bc252c",
+      "pack_id": "request-pack-4470588af478781f1748cb38",
+      "query_id": "request-4470588af478781f1748cb38",
+      "query_sha256": "36ae20b41b02229be620a200c68a73660a7d5eadfc1307b47746862fd48a5004",
+      "brief_version": 1,
+      "pins": {
+        "activity_schema_version": "2.0.0",
+        "card_schema_version": "2.0.0",
+        "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+        "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+        "corpus_kind": "catalog_snapshot",
+        "index_format_version": 3,
+        "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+        "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+        "retrieval_policy_version": "2.1.0",
+        "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+        "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+      },
+      "status": "ready",
+      "cards": [
+        {
+          "card": {
+            "activity": {
+              "created_at": "2020-03-07T20:59:08Z",
+              "last_commit_at": "2026-08-31T18:55:04Z",
+              "last_commit_branch": "main",
+              "last_commit_sha": "0227e53d03b5652be75422b6d10e0dd9bf340f0b",
+              "last_release_at": "2026-08-29T17:55:55Z",
+              "last_synced_at": "2026-08-11T11:03:09Z",
+              "observations": [
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "created_at",
+                  "observed_at": "2026-08-31T18:57:20.520495Z",
+                  "source_field": "activity.createdAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "repository_updated_at",
+                  "observed_at": "2026-08-31T18:57:20.520495Z",
+                  "source_field": "activity.updatedAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "pushed_at",
+                  "observed_at": "2026-08-31T18:57:20.520495Z",
+                  "source_field": "activity.pushedAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_commit_at",
+                  "observed_at": "2026-08-31T18:57:21.989302Z",
+                  "source_field": "activity.lastCommitAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_release_at",
+                  "observed_at": "2026-08-31T18:57:24.918021Z",
+                  "source_field": "activity.lastReleaseAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_synced_at",
+                  "observed_at": "2026-08-31T18:57:20.520495Z",
+                  "source_field": "activity.lastSyncedAt",
+                  "verification": "derived_reviewed"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "observed_at",
+                  "observed_at": "2026-08-31T18:57:20.520495Z",
+                  "source_field": "activity.observedAt",
+                  "verification": "source_reported"
+                }
+              ],
+              "observed_at": "2026-08-31T18:57:20.520495Z",
+              "pushed_at": "2026-08-31T18:57:00Z",
+              "repository_updated_at": "2026-08-31T18:53:31Z",
+              "schema_version": "2.0.0",
+              "status": "pending_enrichment"
+            },
+            "advisory": {
+              "adoption_mode": null,
+              "adoption_status": null,
+              "avoid_if": [],
+              "best_for": [],
+              "compatibility": [],
+              "complexity": null,
+              "eligibility": {
+                "catalog_acceptance_changed": false,
+                "data_gate_passed": false,
+                "evidence_completeness": 77.42,
+                "minimum_stars": 500,
+                "reasons": [
+                  "mandatory_fields_unresolved"
+                ],
+                "replacement_required": false
+              },
+              "gaps": [],
+              "integration_surface": null,
+              "project_stages": [],
+              "recommendation_reason": null,
+              "recommendation_status": null,
+              "tradeoffs": [],
+              "use_cases": []
+            },
+            "catalog": {
+              "evidence_stage": "identity_validated",
+              "membership_cohort": "baseline",
+              "review_status": "curated_seed_needs_metadata",
+              "status": "candidate",
+              "status_source": "catalog_snapshot"
+            },
+            "classifications": [
+              {
+                "category_id": "forms_validation",
+                "kind": "category",
+                "parent_id": "frontend_frameworks_ui",
+                "placement_source": "cat08-canonical-reconciliation",
+                "role": "primary",
+                "title": "Forms & Input Validation"
+              }
+            ],
+            "corpus_kind": "catalog_snapshot",
+            "delivery": {
+              "deployment": {
+                "rationale": null,
+                "values": []
+              },
+              "difficulty": "intermediate",
+              "form": {
+                "rationale": null,
+                "value": "framework"
+              },
+              "hosting": null,
+              "lifecycle": null,
+              "maturity": null,
+              "persona": "both",
+              "requires_server": null
+            },
+            "descriptions": {
+              "catalog": "TypeScript-first schema validation with static type inference",
+              "catalog_origin": "upstream",
+              "upstream": "TypeScript-first schema validation with static type inference"
+            },
+            "evidence": [
+              {
+                "evidence_id": "ev-catalog-card",
+                "fields": [
+                  "/identity",
+                  "/catalog",
+                  "/descriptions",
+                  "/classifications",
+                  "/delivery",
+                  "/advisory",
+                  "/provenance"
+                ],
+                "observed_at": "2026-08-31T18:57:20.520495Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/245704608",
+                "verification": "derived_reviewed"
+              },
+              {
+                "evidence_id": "ev-catalog-repository",
+                "fields": [
+                  "/repository",
+                  "/activity"
+                ],
+                "observed_at": "2026-08-31T18:57:20.520495Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/245704608",
+                "verification": "source_reported"
+              }
+            ],
+            "identity": {
+              "catalog_record_id": "gh-pending:colinhacks/zod",
+              "full_name": "colinhacks/zod",
+              "full_name_aliases": [],
+              "github_repository_id": 245704608,
+              "identity_status": "resolved",
+              "merged_catalog_record_ids": [],
+              "url": "https://github.com/colinhacks/zod"
+            },
+            "provenance": {
+              "frozen_pins": {
+                "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                "field_contract_sha256": "9c0d6fd6e12ef42a37e26d8607405a7cbafdf1b7a633c8f8b53da159eaa7f456",
+                "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+              },
+              "sources": [
+                {
+                  "observed_at": "2026-08-31T18:57:20.520495Z",
+                  "source_id": "src-catalog-snapshot",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/245704608",
+                  "verification": "derived_reviewed"
+                }
+              ]
+            },
+            "repository": {
+              "archived": false,
+              "availability": "available",
+              "default_branch": "main",
+              "disabled": false,
+              "forks": 2161,
+              "homepage": "https://zod.dev",
+              "is_fork": false,
+              "languages": [
+                {
+                  "name": "TypeScript",
+                  "scope": "primary"
+                },
+                {
+                  "name": "MDX",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "HTML",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "JavaScript",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "CSS",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Shell",
+                  "scope": "secondary"
+                }
+              ],
+              "license": {
+                "confidence": "source_reported",
+                "name": "MIT License",
+                "source": "https://api.github.com/licenses/mit",
+                "spdx": "MIT"
+              },
+              "size_kb": 26255,
+              "stack": [
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "technology": "TypeScript"
+                }
+              ],
+              "stars": 43728,
+              "topics": [
+                "runtime-validation",
+                "schema-validation",
+                "static-types",
+                "type-inference",
+                "typescript"
+              ],
+              "visibility": "public",
+              "watchers": 79,
+              "watchers_scope": "subscribers_count"
+            },
+            "schema_version": "2.0.0"
+          },
+          "retrieval_rank": 1,
+          "eligibility": {
+            "schema_version": "2.1.0",
+            "github_repository_id": 245704608,
+            "query_id": "request-4470588af478781f1748cb38",
+            "status": "reference_only",
+            "checks": [
+              {
+                "field": "availability",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "archived",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "advisory_evidence",
+                "outcome": "unknown",
+                "evidence_refs": [
+                  "ev-catalog-card"
+                ]
+              }
+            ],
+            "reason_codes": [
+              "mandatory_fact_unknown"
+            ],
+            "required_verifications": [
+              "Verify the advisory fit fields against source-backed public evidence."
+            ]
+          },
+          "rrf_score": 0.01639344262295082,
+          "matched_fields": [
+            "upstream_description",
+            "catalog_description",
+            "topics",
+            "category_labels"
+          ]
+        },
+        {
+          "card": {
+            "activity": {
+              "created_at": "2017-05-03T21:23:58Z",
+              "last_commit_at": "2026-08-29T10:43:36Z",
+              "last_commit_branch": "main",
+              "last_commit_sha": "f512b087202f58ec90a9d38c9102858567d72440",
+              "last_release_at": "2026-08-28T14:06:45Z",
+              "last_synced_at": "2026-08-11T13:41:45Z",
+              "observations": [
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "created_at",
+                  "observed_at": "2026-09-01T03:20:55.404987Z",
+                  "source_field": "activity.createdAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "repository_updated_at",
+                  "observed_at": "2026-09-01T03:20:55.404987Z",
+                  "source_field": "activity.updatedAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "pushed_at",
+                  "observed_at": "2026-09-01T03:20:55.404987Z",
+                  "source_field": "activity.pushedAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_commit_at",
+                  "observed_at": "2026-09-01T03:20:56.965411Z",
+                  "source_field": "activity.lastCommitAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_release_at",
+                  "observed_at": "2026-09-01T03:21:00.090545Z",
+                  "source_field": "activity.lastReleaseAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_synced_at",
+                  "observed_at": "2026-09-01T03:20:55.404987Z",
+                  "source_field": "activity.lastSyncedAt",
+                  "verification": "derived_reviewed"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "observed_at",
+                  "observed_at": "2026-09-01T03:20:55.404987Z",
+                  "source_field": "activity.observedAt",
+                  "verification": "source_reported"
+                }
+              ],
+              "observed_at": "2026-09-01T03:20:55.404987Z",
+              "pushed_at": "2026-08-31T16:03:28Z",
+              "repository_updated_at": "2026-09-01T02:58:19Z",
+              "schema_version": "2.0.0",
+              "status": "pending_enrichment"
+            },
+            "advisory": {
+              "adoption_mode": null,
+              "adoption_status": null,
+              "avoid_if": [],
+              "best_for": [],
+              "compatibility": [],
+              "complexity": null,
+              "eligibility": {
+                "catalog_acceptance_changed": false,
+                "data_gate_passed": false,
+                "evidence_completeness": 77.42,
+                "minimum_stars": 500,
+                "reasons": [
+                  "mandatory_fields_unresolved"
+                ],
+                "replacement_required": false
+              },
+              "gaps": [],
+              "integration_surface": null,
+              "project_stages": [],
+              "recommendation_reason": null,
+              "recommendation_status": null,
+              "tradeoffs": [],
+              "use_cases": []
+            },
+            "catalog": {
+              "evidence_stage": "identity_validated",
+              "membership_cohort": "baseline",
+              "review_status": "curated_seed_needs_metadata",
+              "status": "candidate",
+              "status_source": "catalog_snapshot"
+            },
+            "classifications": [
+              {
+                "category_id": "forms_validation",
+                "kind": "category",
+                "parent_id": "frontend_frameworks_ui",
+                "placement_source": "cat08-canonical-reconciliation",
+                "role": "primary",
+                "title": "Forms & Input Validation"
+              }
+            ],
+            "corpus_kind": "catalog_snapshot",
+            "delivery": {
+              "deployment": {
+                "rationale": null,
+                "values": []
+              },
+              "difficulty": "intermediate",
+              "form": {
+                "rationale": null,
+                "value": "framework"
+              },
+              "hosting": null,
+              "lifecycle": null,
+              "maturity": null,
+              "persona": "both",
+              "requires_server": null
+            },
+            "descriptions": {
+              "catalog": "Data validation using Python type hints",
+              "catalog_origin": "upstream",
+              "upstream": "Data validation using Python type hints"
+            },
+            "evidence": [
+              {
+                "evidence_id": "ev-catalog-card",
+                "fields": [
+                  "/identity",
+                  "/catalog",
+                  "/descriptions",
+                  "/classifications",
+                  "/delivery",
+                  "/advisory",
+                  "/provenance"
+                ],
+                "observed_at": "2026-09-01T03:20:55.404987Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/90194616",
+                "verification": "derived_reviewed"
+              },
+              {
+                "evidence_id": "ev-catalog-repository",
+                "fields": [
+                  "/repository",
+                  "/activity"
+                ],
+                "observed_at": "2026-09-01T03:20:55.404987Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/90194616",
+                "verification": "source_reported"
+              }
+            ],
+            "identity": {
+              "catalog_record_id": "gh-pending:pydantic/pydantic",
+              "full_name": "pydantic/pydantic",
+              "full_name_aliases": [],
+              "github_repository_id": 90194616,
+              "identity_status": "resolved",
+              "merged_catalog_record_ids": [],
+              "url": "https://github.com/pydantic/pydantic"
+            },
+            "provenance": {
+              "frozen_pins": {
+                "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                "field_contract_sha256": "9c0d6fd6e12ef42a37e26d8607405a7cbafdf1b7a633c8f8b53da159eaa7f456",
+                "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+              },
+              "sources": [
+                {
+                  "observed_at": "2026-09-01T03:20:55.404987Z",
+                  "source_id": "src-catalog-snapshot",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/90194616",
+                  "verification": "derived_reviewed"
+                }
+              ]
+            },
+            "repository": {
+              "archived": false,
+              "availability": "available",
+              "default_branch": "main",
+              "disabled": false,
+              "forks": 2908,
+              "homepage": "https://pydantic.dev/docs/validation",
+              "is_fork": false,
+              "languages": [
+                {
+                  "name": "Python",
+                  "scope": "primary"
+                },
+                {
+                  "name": "Rust",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Makefile",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "JavaScript",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "HTML",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Shell",
+                  "scope": "secondary"
+                }
+              ],
+              "license": {
+                "confidence": "source_reported",
+                "name": "MIT License",
+                "source": "https://api.github.com/licenses/mit",
+                "spdx": "MIT"
+              },
+              "size_kb": 440923,
+              "stack": [
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "technology": "Python"
+                }
+              ],
+              "stars": 28673,
+              "topics": [
+                "hints",
+                "json-schema",
+                "parsing",
+                "pydantic",
+                "python",
+                "python310",
+                "python311",
+                "python312",
+                "python313",
+                "python39",
+                "validation"
+              ],
+              "visibility": "public",
+              "watchers": 164,
+              "watchers_scope": "subscribers_count"
+            },
+            "schema_version": "2.0.0"
+          },
+          "retrieval_rank": 2,
+          "eligibility": {
+            "schema_version": "2.1.0",
+            "github_repository_id": 90194616,
+            "query_id": "request-4470588af478781f1748cb38",
+            "status": "reference_only",
+            "checks": [
+              {
+                "field": "availability",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "archived",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "advisory_evidence",
+                "outcome": "unknown",
+                "evidence_refs": [
+                  "ev-catalog-card"
+                ]
+              }
+            ],
+            "reason_codes": [
+              "mandatory_fact_unknown"
+            ],
+            "required_verifications": [
+              "Verify the advisory fit fields against source-backed public evidence."
+            ]
+          },
+          "rrf_score": 0.016129032258064516,
+          "matched_fields": [
+            "upstream_description",
+            "catalog_description",
+            "topics",
+            "category_labels"
+          ]
+        },
+        {
+          "card": {
+            "activity": {
+              "created_at": "2019-03-05T23:47:10Z",
+              "last_commit_at": "2026-08-31T11:09:45Z",
+              "last_commit_branch": "master",
+              "last_commit_sha": "911f84678d0c4270dc8b3e88a099c85459a24c68",
+              "last_release_at": "2026-08-30T02:41:55Z",
+              "last_synced_at": "2026-08-11T13:41:45Z",
+              "observations": [
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "created_at",
+                  "observed_at": "2026-09-01T03:23:25.341214Z",
+                  "source_field": "activity.createdAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "repository_updated_at",
+                  "observed_at": "2026-09-01T03:23:25.341214Z",
+                  "source_field": "activity.updatedAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "pushed_at",
+                  "observed_at": "2026-09-01T03:23:25.341214Z",
+                  "source_field": "activity.pushedAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_commit_at",
+                  "observed_at": "2026-09-01T03:23:26.877722Z",
+                  "source_field": "activity.lastCommitAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_release_at",
+                  "observed_at": "2026-09-01T03:23:29.823011Z",
+                  "source_field": "activity.lastReleaseAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_synced_at",
+                  "observed_at": "2026-09-01T03:23:25.341214Z",
+                  "source_field": "activity.lastSyncedAt",
+                  "verification": "derived_reviewed"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "observed_at",
+                  "observed_at": "2026-09-01T03:23:25.341214Z",
+                  "source_field": "activity.observedAt",
+                  "verification": "source_reported"
+                }
+              ],
+              "observed_at": "2026-09-01T03:23:25.341214Z",
+              "pushed_at": "2026-08-31T11:09:46Z",
+              "repository_updated_at": "2026-09-01T02:33:14Z",
+              "schema_version": "2.0.0",
+              "status": "pending_enrichment"
+            },
+            "advisory": {
+              "adoption_mode": null,
+              "adoption_status": null,
+              "avoid_if": [],
+              "best_for": [],
+              "compatibility": [],
+              "complexity": null,
+              "eligibility": {
+                "catalog_acceptance_changed": false,
+                "data_gate_passed": false,
+                "evidence_completeness": 77.42,
+                "minimum_stars": 500,
+                "reasons": [
+                  "mandatory_fields_unresolved"
+                ],
+                "replacement_required": false
+              },
+              "gaps": [],
+              "integration_surface": null,
+              "project_stages": [],
+              "recommendation_reason": null,
+              "recommendation_status": null,
+              "tradeoffs": [],
+              "use_cases": []
+            },
+            "catalog": {
+              "evidence_stage": "identity_validated",
+              "membership_cohort": "baseline",
+              "review_status": "curated_seed_needs_metadata",
+              "status": "candidate",
+              "status_source": "catalog_snapshot"
+            },
+            "classifications": [
+              {
+                "category_id": "forms_validation",
+                "kind": "category",
+                "parent_id": "frontend_frameworks_ui",
+                "placement_source": "cat08-canonical-reconciliation",
+                "role": "primary",
+                "title": "Forms & Input Validation"
+              }
+            ],
+            "corpus_kind": "catalog_snapshot",
+            "delivery": {
+              "deployment": {
+                "rationale": null,
+                "values": []
+              },
+              "difficulty": "intermediate",
+              "form": {
+                "rationale": null,
+                "value": "framework"
+              },
+              "hosting": null,
+              "lifecycle": null,
+              "maturity": null,
+              "persona": "both",
+              "requires_server": null
+            },
+            "descriptions": {
+              "catalog": "📋 React Hooks for form state management and validation (Web + React Native)",
+              "catalog_origin": "upstream",
+              "upstream": "📋 React Hooks for form state management and validation (Web + React Native)"
+            },
+            "evidence": [
+              {
+                "evidence_id": "ev-catalog-card",
+                "fields": [
+                  "/identity",
+                  "/catalog",
+                  "/descriptions",
+                  "/classifications",
+                  "/delivery",
+                  "/advisory",
+                  "/provenance"
+                ],
+                "observed_at": "2026-09-01T03:23:25.341214Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/174038031",
+                "verification": "derived_reviewed"
+              },
+              {
+                "evidence_id": "ev-catalog-repository",
+                "fields": [
+                  "/repository",
+                  "/activity"
+                ],
+                "observed_at": "2026-09-01T03:23:25.341214Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/174038031",
+                "verification": "source_reported"
+              }
+            ],
+            "identity": {
+              "catalog_record_id": "gh-pending:react-hook-form/react-hook-form",
+              "full_name": "react-hook-form/react-hook-form",
+              "full_name_aliases": [],
+              "github_repository_id": 174038031,
+              "identity_status": "resolved",
+              "merged_catalog_record_ids": [],
+              "url": "https://github.com/react-hook-form/react-hook-form"
+            },
+            "provenance": {
+              "frozen_pins": {
+                "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                "field_contract_sha256": "9c0d6fd6e12ef42a37e26d8607405a7cbafdf1b7a633c8f8b53da159eaa7f456",
+                "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+              },
+              "sources": [
+                {
+                  "observed_at": "2026-09-01T03:23:25.341214Z",
+                  "source_id": "src-catalog-snapshot",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/174038031",
+                  "verification": "derived_reviewed"
+                }
+              ]
+            },
+            "repository": {
+              "archived": false,
+              "availability": "available",
+              "default_branch": "master",
+              "disabled": false,
+              "forks": 2468,
+              "homepage": "https://react-hook-form.com",
+              "is_fork": false,
+              "languages": [
+                {
+                  "name": "TypeScript",
+                  "scope": "primary"
+                },
+                {
+                  "name": "JavaScript",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "CSS",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "HTML",
+                  "scope": "secondary"
+                }
+              ],
+              "license": {
+                "confidence": "source_reported",
+                "name": "MIT License",
+                "source": "https://api.github.com/licenses/mit",
+                "spdx": "MIT"
+              },
+              "size_kb": 32106,
+              "stack": [
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "technology": "TypeScript"
+                }
+              ],
+              "stars": 44843,
+              "topics": [
+                "dx",
+                "form-builder",
+                "forms",
+                "react-hooks",
+                "react-native",
+                "reactjs",
+                "typescript",
+                "ux",
+                "validation"
+              ],
+              "visibility": "public",
+              "watchers": 181,
+              "watchers_scope": "subscribers_count"
+            },
+            "schema_version": "2.0.0"
+          },
+          "retrieval_rank": 3,
+          "eligibility": {
+            "schema_version": "2.1.0",
+            "github_repository_id": 174038031,
+            "query_id": "request-4470588af478781f1748cb38",
+            "status": "reference_only",
+            "checks": [
+              {
+                "field": "availability",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "archived",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "advisory_evidence",
+                "outcome": "unknown",
+                "evidence_refs": [
+                  "ev-catalog-card"
+                ]
+              }
+            ],
+            "reason_codes": [
+              "mandatory_fact_unknown"
+            ],
+            "required_verifications": [
+              "Verify the advisory fit fields against source-backed public evidence."
+            ]
+          },
+          "rrf_score": 0.015873015873015872,
+          "matched_fields": [
+            "upstream_description",
+            "catalog_description",
+            "topics",
+            "category_labels"
+          ]
+        },
+        {
+          "card": {
+            "activity": {
+              "created_at": "2015-05-19T23:23:32Z",
+              "last_commit_at": "2026-04-24T13:46:21Z",
+              "last_commit_branch": "master",
+              "last_commit_sha": "f177fe323420ccb23e1a79445fd470cbf80aee7c",
+              "last_release_at": "2026-04-24T13:24:27Z",
+              "last_synced_at": "2026-08-11T10:45:33Z",
+              "observations": [
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "created_at",
+                  "observed_at": "2026-08-31T18:20:07.639006Z",
+                  "source_field": "activity.createdAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "repository_updated_at",
+                  "observed_at": "2026-08-31T18:20:07.639006Z",
+                  "source_field": "activity.updatedAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "pushed_at",
+                  "observed_at": "2026-08-31T18:20:07.639006Z",
+                  "source_field": "activity.pushedAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_commit_at",
+                  "observed_at": "2026-08-31T18:20:09.226734Z",
+                  "source_field": "activity.lastCommitAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_release_at",
+                  "observed_at": "2026-08-31T18:20:12.278151Z",
+                  "source_field": "activity.lastReleaseAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_synced_at",
+                  "observed_at": "2026-08-31T18:20:07.639006Z",
+                  "source_field": "activity.lastSyncedAt",
+                  "verification": "derived_reviewed"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "observed_at",
+                  "observed_at": "2026-08-31T18:20:07.639006Z",
+                  "source_field": "activity.observedAt",
+                  "verification": "source_reported"
+                }
+              ],
+              "observed_at": "2026-08-31T18:20:07.639006Z",
+              "pushed_at": "2026-05-12T07:38:47Z",
+              "repository_updated_at": "2026-08-31T09:30:35Z",
+              "schema_version": "2.0.0",
+              "status": "pending_enrichment"
+            },
+            "advisory": {
+              "adoption_mode": null,
+              "adoption_status": null,
+              "avoid_if": [],
+              "best_for": [],
+              "compatibility": [],
+              "complexity": null,
+              "eligibility": {
+                "catalog_acceptance_changed": false,
+                "data_gate_passed": false,
+                "evidence_completeness": 77.42,
+                "minimum_stars": 500,
+                "reasons": [
+                  "mandatory_fields_unresolved"
+                ],
+                "replacement_required": false
+              },
+              "gaps": [],
+              "integration_surface": null,
+              "project_stages": [],
+              "recommendation_reason": null,
+              "recommendation_status": null,
+              "tradeoffs": [],
+              "use_cases": []
+            },
+            "catalog": {
+              "evidence_stage": "identity_validated",
+              "membership_cohort": "baseline",
+              "review_status": "curated_seed_needs_metadata",
+              "status": "candidate",
+              "status_source": "catalog_snapshot"
+            },
+            "classifications": [
+              {
+                "category_id": "forms_validation",
+                "kind": "category",
+                "parent_id": "frontend_frameworks_ui",
+                "placement_source": "cat08-canonical-reconciliation",
+                "role": "primary",
+                "title": "Forms & Input Validation"
+              }
+            ],
+            "corpus_kind": "catalog_snapshot",
+            "delivery": {
+              "deployment": {
+                "rationale": null,
+                "values": []
+              },
+              "difficulty": "intermediate",
+              "form": {
+                "rationale": null,
+                "value": "framework"
+              },
+              "hosting": null,
+              "lifecycle": null,
+              "maturity": null,
+              "persona": "both",
+              "requires_server": null
+            },
+            "descriptions": {
+              "catalog": "The fastest JSON schema Validator. Supports JSON Schema draft-04/06/07/2019-09/2020-12 and JSON Type Definition (RFC8927)",
+              "catalog_origin": "upstream",
+              "upstream": "The fastest JSON schema Validator. Supports JSON Schema draft-04/06/07/2019-09/2020-12 and JSON Type Definition (RFC8927)"
+            },
+            "evidence": [
+              {
+                "evidence_id": "ev-catalog-card",
+                "fields": [
+                  "/identity",
+                  "/catalog",
+                  "/descriptions",
+                  "/classifications",
+                  "/delivery",
+                  "/advisory",
+                  "/provenance"
+                ],
+                "observed_at": "2026-08-31T18:20:07.639006Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/35914020",
+                "verification": "derived_reviewed"
+              },
+              {
+                "evidence_id": "ev-catalog-repository",
+                "fields": [
+                  "/repository",
+                  "/activity"
+                ],
+                "observed_at": "2026-08-31T18:20:07.639006Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/35914020",
+                "verification": "source_reported"
+              }
+            ],
+            "identity": {
+              "catalog_record_id": "gh-pending:ajv-validator/ajv",
+              "full_name": "ajv-validator/ajv",
+              "full_name_aliases": [],
+              "github_repository_id": 35914020,
+              "identity_status": "resolved",
+              "merged_catalog_record_ids": [],
+              "url": "https://github.com/ajv-validator/ajv"
+            },
+            "provenance": {
+              "frozen_pins": {
+                "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                "field_contract_sha256": "9c0d6fd6e12ef42a37e26d8607405a7cbafdf1b7a633c8f8b53da159eaa7f456",
+                "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+              },
+              "sources": [
+                {
+                  "observed_at": "2026-08-31T18:20:07.639006Z",
+                  "source_id": "src-catalog-snapshot",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/35914020",
+                  "verification": "derived_reviewed"
+                }
+              ]
+            },
+            "repository": {
+              "archived": false,
+              "availability": "available",
+              "default_branch": "master",
+              "disabled": false,
+              "forks": 1043,
+              "homepage": "https://ajv.js.org",
+              "is_fork": false,
+              "languages": [
+                {
+                  "name": "TypeScript",
+                  "scope": "primary"
+                },
+                {
+                  "name": "JavaScript",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Shell",
+                  "scope": "secondary"
+                }
+              ],
+              "license": {
+                "confidence": "source_reported",
+                "name": "MIT License",
+                "source": "https://api.github.com/licenses/mit",
+                "spdx": "MIT"
+              },
+              "size_kb": 39053,
+              "stack": [
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "technology": "TypeScript"
+                }
+              ],
+              "stars": 14820,
+              "topics": [
+                "ajv",
+                "json-schema",
+                "validator"
+              ],
+              "visibility": "public",
+              "watchers": 110,
+              "watchers_scope": "subscribers_count"
+            },
+            "schema_version": "2.0.0"
+          },
+          "retrieval_rank": 4,
+          "eligibility": {
+            "schema_version": "2.1.0",
+            "github_repository_id": 35914020,
+            "query_id": "request-4470588af478781f1748cb38",
+            "status": "reference_only",
+            "checks": [
+              {
+                "field": "availability",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "archived",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "advisory_evidence",
+                "outcome": "unknown",
+                "evidence_refs": [
+                  "ev-catalog-card"
+                ]
+              }
+            ],
+            "reason_codes": [
+              "mandatory_fact_unknown"
+            ],
+            "required_verifications": [
+              "Verify the advisory fit fields against source-backed public evidence."
+            ]
+          },
+          "rrf_score": 0.015625,
+          "matched_fields": [
+            "upstream_description",
+            "catalog_description",
+            "topics",
+            "category_labels"
+          ]
+        },
+        {
+          "card": {
+            "activity": {
+              "created_at": "2017-06-14T19:50:59Z",
+              "last_commit_at": "2025-11-10T17:00:46Z",
+              "last_commit_branch": "main",
+              "last_commit_sha": "91475adbf33579561e580eceea0c031f4ec2e992",
+              "last_release_at": "2025-11-10T17:02:10Z",
+              "last_synced_at": "2026-08-11T12:07:57Z",
+              "observations": [
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "created_at",
+                  "observed_at": "2026-09-01T02:33:54.307488Z",
+                  "source_field": "activity.createdAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "repository_updated_at",
+                  "observed_at": "2026-09-01T02:33:54.307488Z",
+                  "source_field": "activity.updatedAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "pushed_at",
+                  "observed_at": "2026-09-01T02:33:54.307488Z",
+                  "source_field": "activity.pushedAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_commit_at",
+                  "observed_at": "2026-09-01T02:33:55.968735Z",
+                  "source_field": "activity.lastCommitAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_release_at",
+                  "observed_at": "2026-09-01T02:33:59.146102Z",
+                  "source_field": "activity.lastReleaseAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_synced_at",
+                  "observed_at": "2026-09-01T02:33:54.307488Z",
+                  "source_field": "activity.lastSyncedAt",
+                  "verification": "derived_reviewed"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "observed_at",
+                  "observed_at": "2026-09-01T02:33:54.307488Z",
+                  "source_field": "activity.observedAt",
+                  "verification": "source_reported"
+                }
+              ],
+              "observed_at": "2026-09-01T02:33:54.307488Z",
+              "pushed_at": "2025-11-10T17:02:06Z",
+              "repository_updated_at": "2026-09-01T01:41:51Z",
+              "schema_version": "2.0.0",
+              "status": "pending_enrichment"
+            },
+            "advisory": {
+              "adoption_mode": null,
+              "adoption_status": null,
+              "avoid_if": [],
+              "best_for": [],
+              "compatibility": [],
+              "complexity": null,
+              "eligibility": {
+                "catalog_acceptance_changed": false,
+                "data_gate_passed": false,
+                "evidence_completeness": 77.42,
+                "minimum_stars": 500,
+                "reasons": [
+                  "mandatory_fields_unresolved"
+                ],
+                "replacement_required": false
+              },
+              "gaps": [],
+              "integration_surface": null,
+              "project_stages": [],
+              "recommendation_reason": null,
+              "recommendation_status": null,
+              "tradeoffs": [],
+              "use_cases": []
+            },
+            "catalog": {
+              "evidence_stage": "identity_validated",
+              "membership_cohort": "baseline",
+              "review_status": "curated_seed_needs_metadata",
+              "status": "candidate",
+              "status_source": "catalog_snapshot"
+            },
+            "classifications": [
+              {
+                "category_id": "forms_validation",
+                "kind": "category",
+                "parent_id": "frontend_frameworks_ui",
+                "placement_source": "cat08-canonical-reconciliation",
+                "role": "primary",
+                "title": "Forms & Input Validation"
+              }
+            ],
+            "corpus_kind": "catalog_snapshot",
+            "delivery": {
+              "deployment": {
+                "rationale": null,
+                "values": []
+              },
+              "difficulty": "intermediate",
+              "form": {
+                "rationale": null,
+                "value": "framework"
+              },
+              "hosting": null,
+              "lifecycle": null,
+              "maturity": null,
+              "persona": "both",
+              "requires_server": null
+            },
+            "descriptions": {
+              "catalog": "Build forms in React, without the tears 😭",
+              "catalog_origin": "upstream",
+              "upstream": "Build forms in React, without the tears 😭"
+            },
+            "evidence": [
+              {
+                "evidence_id": "ev-catalog-card",
+                "fields": [
+                  "/identity",
+                  "/catalog",
+                  "/descriptions",
+                  "/classifications",
+                  "/delivery",
+                  "/advisory",
+                  "/provenance"
+                ],
+                "observed_at": "2026-09-01T02:33:54.307488Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/94367677",
+                "verification": "derived_reviewed"
+              },
+              {
+                "evidence_id": "ev-catalog-repository",
+                "fields": [
+                  "/repository",
+                  "/activity"
+                ],
+                "observed_at": "2026-09-01T02:33:54.307488Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/94367677",
+                "verification": "source_reported"
+              }
+            ],
+            "identity": {
+              "catalog_record_id": "gh-pending:jaredpalmer/formik",
+              "full_name": "jaredpalmer/formik",
+              "full_name_aliases": [],
+              "github_repository_id": 94367677,
+              "identity_status": "resolved",
+              "merged_catalog_record_ids": [],
+              "url": "https://github.com/jaredpalmer/formik"
+            },
+            "provenance": {
+              "frozen_pins": {
+                "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                "field_contract_sha256": "9c0d6fd6e12ef42a37e26d8607405a7cbafdf1b7a633c8f8b53da159eaa7f456",
+                "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+              },
+              "sources": [
+                {
+                  "observed_at": "2026-09-01T02:33:54.307488Z",
+                  "source_id": "src-catalog-snapshot",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/94367677",
+                  "verification": "derived_reviewed"
+                }
+              ]
+            },
+            "repository": {
+              "archived": false,
+              "availability": "available",
+              "default_branch": "main",
+              "disabled": false,
+              "forks": 2779,
+              "homepage": "https://formik.org",
+              "is_fork": false,
+              "languages": [
+                {
+                  "name": "TypeScript",
+                  "scope": "primary"
+                },
+                {
+                  "name": "JavaScript",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "CSS",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Shell",
+                  "scope": "secondary"
+                }
+              ],
+              "license": {
+                "confidence": "source_reported",
+                "name": "Apache License 2.0",
+                "source": "https://api.github.com/licenses/apache-2.0",
+                "spdx": "Apache-2.0"
+              },
+              "size_kb": 17152,
+              "stack": [
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "technology": "TypeScript"
+                }
+              ],
+              "stars": 34328,
+              "topics": [
+                "form",
+                "formik",
+                "forms",
+                "higher-order-component",
+                "hooks",
+                "react",
+                "react-hooks",
+                "react-native",
+                "render-props"
+              ],
+              "visibility": "public",
+              "watchers": 228,
+              "watchers_scope": "subscribers_count"
+            },
+            "schema_version": "2.0.0"
+          },
+          "retrieval_rank": 5,
+          "eligibility": {
+            "schema_version": "2.1.0",
+            "github_repository_id": 94367677,
+            "query_id": "request-4470588af478781f1748cb38",
+            "status": "reference_only",
+            "checks": [
+              {
+                "field": "availability",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "archived",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "advisory_evidence",
+                "outcome": "unknown",
+                "evidence_refs": [
+                  "ev-catalog-card"
+                ]
+              }
+            ],
+            "reason_codes": [
+              "mandatory_fact_unknown"
+            ],
+            "required_verifications": [
+              "Verify the advisory fit fields against source-backed public evidence."
+            ]
+          },
+          "rrf_score": 0.015384615384615385,
+          "matched_fields": [
+            "upstream_description",
+            "catalog_description",
+            "topics",
+            "category_labels"
+          ]
+        },
+        {
+          "card": {
+            "activity": {
+              "created_at": "2016-11-29T04:53:07Z",
+              "last_commit_at": "2026-08-17T06:08:11Z",
+              "last_commit_branch": "main",
+              "last_commit_sha": "57a855b42b9b99cee5ca12890b70c7df84e2982c",
+              "last_release_at": "2026-08-11T12:45:19Z",
+              "last_synced_at": "2026-08-11T13:41:45Z",
+              "observations": [
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "created_at",
+                  "observed_at": "2026-09-01T03:33:26.572979Z",
+                  "source_field": "activity.createdAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "repository_updated_at",
+                  "observed_at": "2026-09-01T03:33:26.572979Z",
+                  "source_field": "activity.updatedAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "pushed_at",
+                  "observed_at": "2026-09-01T03:33:26.572979Z",
+                  "source_field": "activity.pushedAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_commit_at",
+                  "observed_at": "2026-09-01T03:33:28.124970Z",
+                  "source_field": "activity.lastCommitAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_release_at",
+                  "observed_at": "2026-09-01T03:33:31.045380Z",
+                  "source_field": "activity.lastReleaseAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_synced_at",
+                  "observed_at": "2026-09-01T03:33:26.572979Z",
+                  "source_field": "activity.lastSyncedAt",
+                  "verification": "derived_reviewed"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "observed_at",
+                  "observed_at": "2026-09-01T03:33:26.572979Z",
+                  "source_field": "activity.observedAt",
+                  "verification": "source_reported"
+                }
+              ],
+              "observed_at": "2026-09-01T03:33:26.572979Z",
+              "pushed_at": "2026-08-28T10:25:18Z",
+              "repository_updated_at": "2026-09-01T02:20:28Z",
+              "schema_version": "2.0.0",
+              "status": "pending_enrichment"
+            },
+            "advisory": {
+              "adoption_mode": null,
+              "adoption_status": null,
+              "avoid_if": [],
+              "best_for": [],
+              "compatibility": [],
+              "complexity": null,
+              "eligibility": {
+                "catalog_acceptance_changed": false,
+                "data_gate_passed": false,
+                "evidence_completeness": 77.42,
+                "minimum_stars": 500,
+                "reasons": [
+                  "mandatory_fields_unresolved"
+                ],
+                "replacement_required": false
+              },
+              "gaps": [],
+              "integration_surface": null,
+              "project_stages": [],
+              "recommendation_reason": null,
+              "recommendation_status": null,
+              "tradeoffs": [],
+              "use_cases": []
+            },
+            "catalog": {
+              "evidence_stage": "identity_validated",
+              "membership_cohort": "baseline",
+              "review_status": "curated_seed_needs_metadata",
+              "status": "candidate",
+              "status_source": "catalog_snapshot"
+            },
+            "classifications": [
+              {
+                "category_id": "forms_validation",
+                "kind": "category",
+                "parent_id": "frontend_frameworks_ui",
+                "placement_source": "cat08-canonical-reconciliation",
+                "role": "primary",
+                "title": "Forms & Input Validation"
+              }
+            ],
+            "corpus_kind": "catalog_snapshot",
+            "delivery": {
+              "deployment": {
+                "rationale": null,
+                "values": []
+              },
+              "difficulty": "intermediate",
+              "form": {
+                "rationale": null,
+                "value": "framework"
+              },
+              "hosting": null,
+              "lifecycle": null,
+              "maturity": null,
+              "persona": "both",
+              "requires_server": null
+            },
+            "descriptions": {
+              "catalog": "🤖 Headless, performant, and type-safe form state management for TS/JS, React, Vue, Angular, Solid, and Lit.",
+              "catalog_origin": "upstream",
+              "upstream": "🤖 Headless, performant, and type-safe form state management for TS/JS, React, Vue, Angular, Solid, and Lit."
+            },
+            "evidence": [
+              {
+                "evidence_id": "ev-catalog-card",
+                "fields": [
+                  "/identity",
+                  "/catalog",
+                  "/descriptions",
+                  "/classifications",
+                  "/delivery",
+                  "/advisory",
+                  "/provenance"
+                ],
+                "observed_at": "2026-09-01T03:33:26.572979Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/75044525",
+                "verification": "derived_reviewed"
+              },
+              {
+                "evidence_id": "ev-catalog-repository",
+                "fields": [
+                  "/repository",
+                  "/activity"
+                ],
+                "observed_at": "2026-09-01T03:33:26.572979Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/75044525",
+                "verification": "source_reported"
+              }
+            ],
+            "identity": {
+              "catalog_record_id": "gh-pending:tanstack/form",
+              "full_name": "TanStack/form",
+              "full_name_aliases": [],
+              "github_repository_id": 75044525,
+              "identity_status": "resolved",
+              "merged_catalog_record_ids": [],
+              "url": "https://github.com/TanStack/form"
+            },
+            "provenance": {
+              "frozen_pins": {
+                "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                "field_contract_sha256": "9c0d6fd6e12ef42a37e26d8607405a7cbafdf1b7a633c8f8b53da159eaa7f456",
+                "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+              },
+              "sources": [
+                {
+                  "observed_at": "2026-09-01T03:33:26.572979Z",
+                  "source_id": "src-catalog-snapshot",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/75044525",
+                  "verification": "derived_reviewed"
+                }
+              ]
+            },
+            "repository": {
+              "archived": false,
+              "availability": "available",
+              "default_branch": "main",
+              "disabled": false,
+              "forks": 672,
+              "homepage": "https://tanstack.com/form",
+              "is_fork": false,
+              "languages": [
+                {
+                  "name": "TypeScript",
+                  "scope": "primary"
+                },
+                {
+                  "name": "Svelte",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "JavaScript",
+                  "scope": "secondary"
+                }
+              ],
+              "license": {
+                "confidence": "source_reported",
+                "name": "MIT License",
+                "source": "https://api.github.com/licenses/mit",
+                "spdx": "MIT"
+              },
+              "size_kb": 45663,
+              "stack": [
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "technology": "TypeScript"
+                }
+              ],
+              "stars": 6676,
+              "topics": [
+                "angular",
+                "form",
+                "forms",
+                "hacktoberfest",
+                "hooks",
+                "lit",
+                "react",
+                "solid",
+                "tanstack",
+                "vue",
+                "yup",
+                "zod"
+              ],
+              "visibility": "public",
+              "watchers": 40,
+              "watchers_scope": "subscribers_count"
+            },
+            "schema_version": "2.0.0"
+          },
+          "retrieval_rank": 6,
+          "eligibility": {
+            "schema_version": "2.1.0",
+            "github_repository_id": 75044525,
+            "query_id": "request-4470588af478781f1748cb38",
+            "status": "reference_only",
+            "checks": [
+              {
+                "field": "availability",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "archived",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "advisory_evidence",
+                "outcome": "unknown",
+                "evidence_refs": [
+                  "ev-catalog-card"
+                ]
+              }
+            ],
+            "reason_codes": [
+              "mandatory_fact_unknown"
+            ],
+            "required_verifications": [
+              "Verify the advisory fit fields against source-backed public evidence."
+            ]
+          },
+          "rrf_score": 0.015151515151515152,
+          "matched_fields": [
+            "topics",
+            "category_labels"
+          ]
+        }
+      ],
+      "exclusions": [],
+      "truncated": false,
+      "reason_codes": []
+    },
+    "public_observations": [],
+    "observations_persisted": false,
+    "raw_ranked_ids": [
+      245704608,
+      90194616,
+      174038031,
+      35914020,
+      94367677,
+      75044525
+    ],
+    "selected_ids": [
+      245704608,
+      90194616,
+      174038031,
+      35914020,
+      94367677,
+      75044525
+    ]
+  },
+  "native_trace": {
+    "prepare_ms": 393.4616,
+    "gates": {
+      "one_count": true,
+      "one_ranked_match": true,
+      "no_sql_writes": true,
+      "immutable_connections": true
+    },
+    "connections": [
+      {
+        "database": "file:///C:/Users/user/Desktop/project/github_research/agentic-engineering-catalog/plugins/myai-stackguide/assets/catalog.search.sqlite?mode=ro&immutable=1",
+        "uri": true
+      },
+      {
+        "database": "file:///C:/Users/user/Desktop/project/github_research/agentic-engineering-catalog/plugins/myai-stackguide/assets/catalog.search.sqlite?mode=ro&immutable=1",
+        "uri": true
+      }
+    ],
+    "sql_trace": [
+      {
+        "connection": 0,
+        "sql": "SELECT 1 FROM taxonomy_route_registry WHERE route_id = 'forms_validation' LIMIT 1"
+      },
+      {
+        "connection": 0,
+        "sql": "SELECT k, v FROM 'main'.'repository_fts_config'"
+      },
+      {
+        "connection": 0,
+        "sql": "SELECT count(*) FROM repository_fts WHERE repository_fts MATCH '\"TypeScript\" OR \"schema\" OR \"validation\"' AND EXISTS (SELECT 1 FROM repository_classifications rc JOIN taxonomy_route_registry tr ON tr.match_category_id = rc.category_id WHERE rc.github_repository_id = repository_fts.rowid AND tr.route_id = 'forms_validation')"
+      },
+      {
+        "connection": 0,
+        "sql": "-- PRAGMA 'main'.data_version"
+      },
+      {
+        "connection": 0,
+        "sql": "-- PRAGMA 'main'.data_version"
+      },
+      {
+        "connection": 0,
+        "sql": "-- SELECT k, v FROM 'main'.'repository_fts_config'"
+      },
+      {
+        "connection": 0,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 0,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 0,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 0,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 0,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 0,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "SELECT 1 FROM taxonomy_route_registry WHERE route_id = 'forms_validation' LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "SELECT k, v FROM 'main'.'repository_fts_config'"
+      },
+      {
+        "connection": 1,
+        "sql": "SELECT repository_fts.rowid AS github_repository_id, bm25(repository_fts, 0.25, 0.25, 3.0, 3.0, 1.0, 0.25, 1.0, 1.0, 1.0) AS score, highlight(repository_fts, 0, char(1), char(2)) AS h0, highlight(repository_fts, 1, char(1), char(2)) AS h1, highlight(repository_fts, 2, char(1), char(2)) AS h2, highlight(repository_fts, 3, char(1), char(2)) AS h3, highlight(repository_fts, 4, char(1), char(2)) AS h4, highlight(repository_fts, 5, char(1), char(2)) AS h5, highlight(repository_fts, 6, char(1), char(2)) AS h6, highlight(repository_fts, 7, char(1), char(2)) AS h7, highlight(repository_fts, 8, char(1), char(2)) AS h8 FROM repository_fts WHERE repository_fts MATCH '\"TypeScript\" OR \"schema\" OR \"validation\" OR \"forms\"' AND EXISTS (SELECT 1 FROM repository_classifications AS rc JOIN taxonomy_route_registry AS tr ON tr.match_category_id = rc.category_id WHERE rc.github_repository_id = repository_fts.rowid AND tr.route_id = 'forms_validation') ORDER BY score ASC, github_repository_id ASC LIMIT 150"
+      },
+      {
+        "connection": 1,
+        "sql": "-- PRAGMA 'main'.data_version"
+      },
+      {
+        "connection": 1,
+        "sql": "-- PRAGMA 'main'.data_version"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT k, v FROM 'main'.'repository_fts_config'"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT pgno FROM 'main'.'repository_fts_idx' WHERE segid=? AND term<=? ORDER BY term DESC LIMIT 1"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT sz FROM 'main'.'repository_fts_docsize' WHERE id=?"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT T.'github_repository_id', T.'full_name', T.'full_name_aliases', T.'upstream_description', T.'catalog_description', T.'topics', T.'category_labels', T.'use_cases', T.'integration_surface', T.'best_for' FROM 'main'.'repository_search_rows' T WHERE T.'github_repository_id'=?"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT sz FROM 'main'.'repository_fts_docsize' WHERE id=?"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT T.'github_repository_id', T.'full_name', T.'full_name_aliases', T.'upstream_description', T.'catalog_description', T.'topics', T.'category_labels', T.'use_cases', T.'integration_surface', T.'best_for' FROM 'main'.'repository_search_rows' T WHERE T.'github_repository_id'=?"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT sz FROM 'main'.'repository_fts_docsize' WHERE id=?"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT T.'github_repository_id', T.'full_name', T.'full_name_aliases', T.'upstream_description', T.'catalog_description', T.'topics', T.'category_labels', T.'use_cases', T.'integration_surface', T.'best_for' FROM 'main'.'repository_search_rows' T WHERE T.'github_repository_id'=?"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT sz FROM 'main'.'repository_fts_docsize' WHERE id=?"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT T.'github_repository_id', T.'full_name', T.'full_name_aliases', T.'upstream_description', T.'catalog_description', T.'topics', T.'category_labels', T.'use_cases', T.'integration_surface', T.'best_for' FROM 'main'.'repository_search_rows' T WHERE T.'github_repository_id'=?"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT sz FROM 'main'.'repository_fts_docsize' WHERE id=?"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT T.'github_repository_id', T.'full_name', T.'full_name_aliases', T.'upstream_description', T.'catalog_description', T.'topics', T.'category_labels', T.'use_cases', T.'integration_surface', T.'best_for' FROM 'main'.'repository_search_rows' T WHERE T.'github_repository_id'=?"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT sz FROM 'main'.'repository_fts_docsize' WHERE id=?"
+      },
+      {
+        "connection": 1,
+        "sql": "-- SELECT T.'github_repository_id', T.'full_name', T.'full_name_aliases', T.'upstream_description', T.'catalog_description', T.'topics', T.'category_labels', T.'use_cases', T.'integration_surface', T.'best_for' FROM 'main'.'repository_search_rows' T WHERE T.'github_repository_id'=?"
+      }
+    ]
+  },
+  "preview_sha256": "5e93b3131e2968deb8e1421ce11464a26cb22236b4243c5c1025592195aa0254",
+  "new_actual_model_calls": 0
+}

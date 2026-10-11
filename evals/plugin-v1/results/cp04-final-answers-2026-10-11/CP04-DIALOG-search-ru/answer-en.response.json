@@ -1,0 +1,29 @@
+{
+  "answer_markdown": "**Conditionally prefer Meilisearch for first validation** of product-catalog search with typo tolerance and brand/price filters. The supplied host observation dated 2026-10-11 confirms application search, typo tolerance and facets, strengthening the fit suggested by the frozen 2026-09-01 catalog snapshot. Easier product discovery is an expected benefit to test, not a measured result. Typesense remains excluded. [Meilisearch repository](https://github.com/meilisearch/meilisearch)\n\nKeep your application, product database and buyer interface; add Meilisearch as a derived search index. Proposed flow: product database → application-owned synchronization → Meilisearch → application search endpoint → buyer interface. Index only product fields needed for search and display; keep customer data and privileged indexing credentials outside the buyer-facing interface. Meilisearch supplies search capabilities; your developer still owns indexing, updates/deletions, filter configuration, UI integration and relevance validation. These project responsibilities are also identified in the supplied observation. [Meilisearch repository](https://github.com/meilisearch/meilisearch)\n\nCompare all approaches against the same scope: typo handling, combined brand/price filtering, useful ranking and fresh product data. Your current database/native search may be preferable if it already meets those requirements, avoiding another service and synchronization path; its capabilities are unknown. Custom development would leave search behavior, integration, testing and maintenance with your team. Meilisearch offers existing search capabilities but adds a service dependency and operational work. No effort savings are established. Catalog size, update frequency, deployment constraints and JavaScript/version compatibility could change the decision.\n\n**Hypothetical first-validation estimate: 6–10 engineer-hours, with low confidence.** This single scenario assumes a runnable isolated application, representative synthetic data, and one engineer familiar with the application and HTTP or Python integration, allocated at 8 hours per engineer-day. The target environment and chosen version remain to be verified. This estimate covers first validation only; complete adoption effort and elapsed working days are unknown.\n\nThe material caveat is that license suitability, compatibility, price-filter behavior and operational fit remain unverified; supplied host reads are evidence, not my own network checks or a catalog refresh. Reverse the preference if another service is unacceptable or native search passes the same checks with less maintenance. The proposed validation is to index representative synthetic products, test realistic misspellings with combined brand and numeric price filters, verify updates/deletions reach results, and compare relevance and response time with the current solution. No integration has been executed; implementation requires a separate explicit request.",
+  "recommended_ids": [
+    130688011
+  ],
+  "cited_urls": [
+    "https://github.com/meilisearch/meilisearch"
+  ],
+  "planning_binding": {
+    "planning_sha256": "e1d366862c85d74936a4baa610363af059425eddeb203e20c6b73437b5d4d03b",
+    "scenario_id": "CP04-DIALOG-search-ru-first-validation",
+    "assumptions": {
+      "prerequisites": [
+        "Runnable isolated application and access to representative synthetic data.",
+        "Target environment and chosen version remain to be verified."
+      ],
+      "team_experience": "One engineer familiar with the application and HTTP or Python integration.",
+      "confidence": "low",
+      "hours_per_engineer_day": 8,
+      "allocated_engineers": 1
+    },
+    "first_validation": {
+      "min": 6,
+      "max": 10
+    },
+    "total_engineer_hours": null,
+    "elapsed_working_days": null
+  }
+}

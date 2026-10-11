@@ -1,0 +1,324 @@
+{
+  "schema_version": "cp04_chat_repair_declaration_v1",
+  "plan_sha256": "77e741a657f2e78286fa1dc75a0fcc74c30e3953365bb66dd013e2bfbef91153",
+  "source_hashes": {
+    "evals/plugin-v1/evaluate_retrieval.py": "29baacad27b68dd507193a9c6f564e7a55e7662fbeadb659797e0cd7bccf7488",
+    "evals/plugin-v1/quality-plan.json": "cb2765fda7c90693212bb96041ea21c5eb4743607002cb3c89f0dfdb2ef695e3",
+    "evals/plugin-v1/rubric.json": "96f67da80234d4ade36c9b5e5fb50276398acce76751513e9e041926b74f3fef",
+    "evals/plugin-v1/run_final_prospective.py": "c00775d70392b6a59b46bd585408d36473fcbeb8d26b461ce3988ae8e53ae294",
+    "evals/plugin-v1/run_final_quality.py": "fab447bcf2925d0cf8f0078ccc3b3c5d81fd8b743fc8a9abbece87d14656bab9",
+    "evals/plugin-v1/run_final_rank_repair_regression.py": "08eb85edde1643ff90aa02d0043e81d9198a8e0e52ec34b557b5c075c0998e8c",
+    "evals/plugin-v1/run_quality.py": "e6ba2970a955319f5cc6d5c06b554d911263ed7f00bbe8bd17347aad8e80a321",
+    "plugins/myai-stackguide/assets/catalog.search-manifest.json": "4c1c9eccf6df60d92da5d780a8152ce3fb00e43ccbf80e8ed01c3c660135a1bb",
+    "plugins/myai-stackguide/assets/catalog.search.sqlite": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+    "plugins/myai-stackguide/assets/catalog.snapshot.json": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+    "plugins/myai-stackguide/assets/retrieval-policy.json": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+    "plugins/myai-stackguide/scripts/context.py": "e47623d6c3147c7702d3d5b3565bcd651838b2d107ae105a996989cf60fc29dd",
+    "plugins/myai-stackguide/scripts/context_pack.py": "0dd03df31580b3980275aa42fcdae01e3d446986e9e32995879f4502c1198276",
+    "plugins/myai-stackguide/scripts/matcher.py": "c560158f15390f662e55eac39e9ffc31fd983a9af8c5086a234fbec0280933c2",
+    "plugins/myai-stackguide/scripts/recommendation_request.py": "4f45e1c0e17aca09149e94602fbc8d84f2d2a74ce25f53de40b48f5f14c53b56",
+    "plugins/myai-stackguide/scripts/request_guard.py": "e6745044d2e90a17b830bc6ba7d14a46ea7b7ba7a7ca2141a2b97d3b9639d775",
+    "plugins/myai-stackguide/scripts/retrieval.py": "7d2385c3143b85f9089c422ffa930650bf0dd799ded665416e02e78768f5f6b5",
+    "specs/retrieval/retrieval-policy.json": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+    "evals/plugin-v1/run_final_chat_repair.py": "e71594f23bfc11aa80a35f014b1cff861642b02f10c35e2a3ef9c1d013b84d4a"
+  },
+  "input_hashes": {
+    "evals/plugin-v1/final-quality-rank-repair-regression-2026-10-11.json": "56579b4e01eb5a3a353c788c216576973ce9825adf9c2409fd58302dac5d78c6",
+    "evals/plugin-v1/final-quality-prospective-2026-10-11.json": "37041760032aea200987092c97b49066e824d63cb208d63c3556791257e4833f",
+    "evals/plugin-v1/results/cp04-final-quality-rank-repair-regression-2026-10-11/observations.json": "d477e7ba974aaebe9a32f5e12009fef25914f78a95417291dfd52cc229922613",
+    "evals/plugin-v1/results/cp04-final-quality-rank-repair-regression-2026-10-11/declaration.json": "fb3a1ebc7fa40cfddef776f009dff861433c9f0b91f63f30b837b31edefb81e6",
+    "evals/plugin-v1/results/cp04-final-quality-prospective-2026-10-11/observations.json": "258c5baf3b9b37a4841ba50fe53dad5569696e5a2943c21eea10c4fdec9f4639",
+    "evals/plugin-v1/results/cp04-final-quality-prospective-2026-10-11/declaration.json": "0fa7f99acb4ded3b97a3c3456a8f7e80a94b68e80e964fa39b01af3a097a5362",
+    "evals/plugin-v1/results/cp04-final-quality-prospective-2026-10-11/source-independent-review.json": "78351b82df6763e72546c0f342db80133708fc3b695e09dfe6b887adfed77f2d",
+    "evals/plugin-v1/results/cp04-final-quality-prospective-2026-10-11/source-review-questions.json": "2fa87a67566373b85c66a57825d85916888bc04de065d46c76ef7dee9795bc92",
+    "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/observations.json": "bd97758a1ef1de9286c8a9e11b4dd0332f96e1e6fe702ebeafe9d90ca8b033ff",
+    "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/declaration.json": "93e180ddf242412e335a6aead40dfeb8fb816a67e67ae70860260c68fd375718"
+  },
+  "pins": {
+    "activity_schema_version": "2.0.0",
+    "card_schema_version": "2.0.0",
+    "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+    "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+    "corpus_kind": "catalog_snapshot",
+    "index_format_version": 3,
+    "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+    "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+    "retrieval_policy_version": "2.1.0",
+    "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+    "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+  },
+  "thresholds": {
+    "held_out_macro_recall_at_12_min": 0.75,
+    "held_out_macro_ndcg_at_12_min": 0.65,
+    "candidate_not_worse_than_baseline_recall_delta_min": 0.0,
+    "candidate_not_worse_than_baseline_ndcg_delta_min": 0.0,
+    "required_stratum_recall_at_12_min": 0.6,
+    "required_stratum_ndcg_at_12_min": 0.5,
+    "hard_constraint_violations_max": 0,
+    "false_exclusions_max": 0,
+    "duplicate_canonical_ids_max": 0,
+    "alias_success_rate_min": 1.0,
+    "evidence_pack_survival_rate_min": 0.9,
+    "container_route_coverage_min": 14,
+    "leaf_route_coverage_min": 111,
+    "human_total_min": 16,
+    "human_critical_dimension_min": 1,
+    "human_critical_failures_max": 0,
+    "actual_warm_p95_ms_max": 100,
+    "actual_cold_p95_ms_max": 250,
+    "synthetic_warm_p95_ms_max": 200,
+    "synthetic_cold_p95_ms_max": 500,
+    "peak_memory_bytes_max": 268435456,
+    "index_bytes_max": 67108864
+  },
+  "cases": [
+    {
+      "case_id": "FINAL-HOLD-01",
+      "case_sha256": "e1021ab8b67231c592576122ff0ac5a7af9139dc2ecd9a81c1bc32cd28448e44",
+      "payload_sha256": "b08066a17bb8dff33fdb6d50d75f970791fc65499370bc62ee493e4b359ad827"
+    },
+    {
+      "case_id": "FINAL-HOLD-02",
+      "case_sha256": "ea7b2fac142e9d67604397fe58344ab1add43cbf30627177905bb6dd7305a4eb",
+      "payload_sha256": "eb9a3ffac01de430d859a7a4f3b06416c1661cc60dc4ed2e8912c5639d18319f"
+    },
+    {
+      "case_id": "FINAL-HOLD-03",
+      "case_sha256": "bfe39cd844260c7ab1bf542f66931564fa048bc3f30742aaa9fa08be1c6b9232",
+      "payload_sha256": "56443a24d8558f9d12decad19d98fc9d54296fc9a50290ff3befe8a4aaf58585"
+    },
+    {
+      "case_id": "FINAL-HOLD-04",
+      "case_sha256": "4e735ddea25ac1c612e7c54b8be82297e54d4d877ca24c4da6eae813a889c01b",
+      "payload_sha256": "333ffce0dbdcc68839323ad8b9a669ed646104b0e3b112bd1188d2d926cfa710"
+    },
+    {
+      "case_id": "FINAL-HOLD-05",
+      "case_sha256": "141e6f351281d5999eb090e39cb43960be6af22f72d5ac9fdd58da2d900e6089",
+      "payload_sha256": "9d88747efda9b2256f52a0ba8033f1afad17015ca11baf4f0b6c05e9d006cf45"
+    },
+    {
+      "case_id": "FINAL-HOLD-06",
+      "case_sha256": "53b5e47cc423b5bfba1efa12f069982cd7d5be2cfc894a4de36ea833ca0d0345",
+      "payload_sha256": "12db3457330ccf0d37f2f9b1701ff0f4240d7574fa729df0e1477a868d44cbb8"
+    },
+    {
+      "case_id": "FINAL-HOLD-07",
+      "case_sha256": "606b470ab395d3feae6e5f9655da70bb9aa4426d03cad30405ab4e3532414ba1",
+      "payload_sha256": "6e3419ec103f7bb715833731451198ead09a11288b28268fe55efa03c8525ed1"
+    },
+    {
+      "case_id": "FINAL-HOLD-08",
+      "case_sha256": "5529ad7717652dbf9b003859736e8952daccd08ee182189f711fc0966a2bd272",
+      "payload_sha256": "b45f20655e9ef86388e799ba1d320c5116f31f842f3d2934bbdcc3c8a76c6b4d"
+    },
+    {
+      "case_id": "FINAL-HOLD-09",
+      "case_sha256": "0be2999844b1c4f775424009dab9e54c113e75bc4c40f7633da95266af09339e",
+      "payload_sha256": "f0de4b6247e28ee72e1f270130efae60d77fb921bcbe51162dda8e9da30984e9"
+    },
+    {
+      "case_id": "FINAL-HOLD-10",
+      "case_sha256": "52d92edac9183457fcf84ef9d801be9021620967ad4bcbb5f26b05fe9317ecd6",
+      "payload_sha256": "a9e341a29ab4ce82e8935955ee0da5fd54ef37ecd8b486d3634e152d4d226202"
+    },
+    {
+      "case_id": "FINAL-HOLD-11",
+      "case_sha256": "020dceda2e49b15949298e5b1c882605117fd7bc8aaa4ca5d9e815528acd69de",
+      "payload_sha256": "20715e3352d535ec0f407455a50dad9352f1fe87f88052b0a9d3c9067385252f"
+    },
+    {
+      "case_id": "FINAL-HOLD-12",
+      "case_sha256": "0dfed822c68d0db83772cda84c4b66b476f9422abc161a82e19ff9e13dd96180",
+      "payload_sha256": "3afa963fb8cef511904e44b7f67ad7a3bc99e161ac9fc0166652b048d68fa2b9"
+    },
+    {
+      "case_id": "FINAL-HOLD-13",
+      "case_sha256": "5926fc1ff840a190efc4226484d56420f370fba996f2a1fb61de7dac8bcdf725",
+      "payload_sha256": "32b1da8780d72e8b923747dece5059452871b03ed78e96b94c5fbf8e834a8114"
+    },
+    {
+      "case_id": "FINAL-HOLD-14",
+      "case_sha256": "1d072cc624a2bfc7f10bd0f01f87eba799959a38a01c547f2313c80a7e1dab25",
+      "payload_sha256": "6322fab500f100bf591b23b7b185fdbcbc5a46b8b9e8f1a04a193dc3adec995f"
+    },
+    {
+      "case_id": "FINAL-ALIAS-01",
+      "case_sha256": "05cea27667ef3923d30f0f00e269ab265fad4468d34517b759ce87b7de2b691d",
+      "payload_sha256": "8b2b6f5003b368b978ecb5d2d0c478d3b3e770dc9a02d82b01efd44c0a8558bc"
+    },
+    {
+      "case_id": "INDEPENDENT-HOLD-01",
+      "case_sha256": "ccc6e6c53c355811a44487ee47fc3a53b5d4629ed51990de6f8cdcb67f751d12",
+      "payload_sha256": "f57ddfd8f842419826adcc0bab508426ced64cb6fca7cebaf2972c2712ec478e"
+    },
+    {
+      "case_id": "INDEPENDENT-HOLD-02",
+      "case_sha256": "6de302d5ebac7f899e076c9d419667eac2072def93983791ea0a601e0696f7c8",
+      "payload_sha256": "74c272ea525b48b39cec3fc7cbaf7453812afdce4a64fe61c98531f53ffdb98a"
+    },
+    {
+      "case_id": "INDEPENDENT-HOLD-03",
+      "case_sha256": "a4bed8e3647a44e842e47efa916afa8da3335016f97ead524b660d7b61f4b13d",
+      "payload_sha256": "26e04f61c212ee498577b3365746c2be36c5d2063cdde137a612223e101d0f65"
+    },
+    {
+      "case_id": "INDEPENDENT-HOLD-04",
+      "case_sha256": "ab4008c1a0818ab57539ee6a11a304a54fb8363ebe8e45647c4a07be4500b7b4",
+      "payload_sha256": "b2d4bb4837ae7b78e8dfa165203a5b1d07f7f43a36b32cfaf20965795a304528"
+    },
+    {
+      "case_id": "INDEPENDENT-HOLD-05",
+      "case_sha256": "e472caa97e90a1ba0bb5157afa9cc9003e78353236ad6a42fda636e688910a39",
+      "payload_sha256": "a50744f9cd7d08582a41f5d779235bd95d58c46fdd7955604326ae187282a2c2"
+    },
+    {
+      "case_id": "INDEPENDENT-HOLD-06",
+      "case_sha256": "00847efefa63b3d76d2382c35638c9c8e634e0f572b3faf8ed4a895b79b0b4c0",
+      "payload_sha256": "30d562de7f0913e2fca483dfa2f5575fefb238c902b6aa2af96b0c5ea7cd94c9"
+    },
+    {
+      "case_id": "INDEPENDENT-HOLD-07",
+      "case_sha256": "f20321691b32490c525661b130b1fb392b6995e952c66c393900574694dc78c5",
+      "payload_sha256": "b2da8174819e35310702e081f7f1d7c6c1f11f08bb5e8aa23cc43b34504cb437"
+    },
+    {
+      "case_id": "INDEPENDENT-HOLD-08",
+      "case_sha256": "20612c0249a870b5d61db4642b07ccb1c536dcc9f6490ce983f267d1255f03c9",
+      "payload_sha256": "0ddc9fcf564d897689af620af7f28093716d2a4d7dcf55b8bc0bfc708d4ec2a1"
+    },
+    {
+      "case_id": "INDEPENDENT-HOLD-09",
+      "case_sha256": "f4589d876bb493690a5660233e830061a38239ff0c0297439b16183adb60fccf",
+      "payload_sha256": "eac98dd944cccf047b8154c9651f95c0eab1e69287fe1eae69eda10180938a08"
+    },
+    {
+      "case_id": "INDEPENDENT-HOLD-10",
+      "case_sha256": "ca16368a00c17d0005fe5d3ea37fac01eeec9fbb4d7f2b5326f60ddb2975e12f",
+      "payload_sha256": "e152bda26ba8c85f87bf96ebb17b2caa69acb0083c0d566b781626e08505494e"
+    },
+    {
+      "case_id": "INDEPENDENT-HOLD-11",
+      "case_sha256": "4b2435fd3493996096e1a08486ca5a1ff145391826964ede32f1032a8ccebea4",
+      "payload_sha256": "2dfd079a1d2ade2a8817f9843421e75f34738433a2e074a26e16c4425ead7d61"
+    },
+    {
+      "case_id": "INDEPENDENT-HOLD-12",
+      "case_sha256": "b0da695268dc8235aa665ec728813b0cac02ff034178cb2382453ef74c1c6166",
+      "payload_sha256": "ec13cc510fefee9b899160d44bf0698a9b07407b4bdc237680c41eb1be3c6820"
+    },
+    {
+      "case_id": "INDEPENDENT-HOLD-13",
+      "case_sha256": "ac91bec594c61ab254e80092c08053ce89b199bd94522bb844c7b80569db8d33",
+      "payload_sha256": "4e308ab85e03bd0ecbf655e6db33454a0c86c3ebb547e343268c56edfbf6cd9b"
+    },
+    {
+      "case_id": "INDEPENDENT-HOLD-14",
+      "case_sha256": "fdb4dcdbfc0263c42a8d7ede71c5473a7ddb9af193487dfae67f77aa37225b0c",
+      "payload_sha256": "0019f5d5649bbccedfdee096c937e92e94e86f31a035a90bcbc45e19544a8711"
+    },
+    {
+      "case_id": "INDEPENDENT-ALIAS-01",
+      "case_sha256": "6dc16a366aa911d3f791440c2373d838308a89ff83c230214c315a4a8fb58103",
+      "payload_sha256": "d42fbf95b0aa9ffa2e4478f2724a1fc2cb9b979d201f4d6c1f84f22ba38c2f1a"
+    },
+    {
+      "case_id": "PROSPECTIVE-HOLD-01",
+      "case_sha256": "b55f7aee2e0832978b425373f89da0c71edd991b94e69c8abbabdcce0ca89bd1",
+      "payload_sha256": "a0605c1665bd7b165e2199f0de0f907977306809151550bda287252262c0e6a0"
+    },
+    {
+      "case_id": "PROSPECTIVE-HOLD-02",
+      "case_sha256": "77d3ab2655619f7fd67a7b801974bc1a7be7fe9ab45b6c75b3b67c21bf3b0df1",
+      "payload_sha256": "efe83d8b17540475f64fc17b9ab1f9145625f79c3697432aff5d988f79d9505f"
+    },
+    {
+      "case_id": "PROSPECTIVE-HOLD-03",
+      "case_sha256": "89692e78fb0c8896fb5982e8dfd5a2e67985bec32639231b93cf2cde30c0246b",
+      "payload_sha256": "69e6d7246899b22eadd6f37ffbf678094372218a2a4582b0e4253d29f443980b"
+    },
+    {
+      "case_id": "PROSPECTIVE-HOLD-04",
+      "case_sha256": "e1545f1df748f4c870b5ff842d6959481a466c6f847a10ad5b7a4f67519d9179",
+      "payload_sha256": "003366931a83e68f647803878d49274d06b87d35c59955b2941a3949c3ef1c1c"
+    },
+    {
+      "case_id": "PROSPECTIVE-HOLD-05",
+      "case_sha256": "4c528adbf6418105c591e999eb5bd7b358c84f79467bebee24c26bab25ad64bb",
+      "payload_sha256": "9482921e6e7fcf72dd792ddb0f3d936fc4f3d232becf1c9c02329421f73d0b30"
+    },
+    {
+      "case_id": "PROSPECTIVE-HOLD-06",
+      "case_sha256": "9a5bd4b963b8f8221ce76578218c66b277ac6e30515a723d4f32a6c3de0cd4af",
+      "payload_sha256": "5818ded3053e58e26144d41b97dbb457cb43a4e87a199dbd77e816d0fe1ad2ce"
+    },
+    {
+      "case_id": "PROSPECTIVE-HOLD-07",
+      "case_sha256": "2d4ae981ec54f73af808a47324afb317126bfed88f5dfcb8f2e29c85075133f5",
+      "payload_sha256": "d7c53c75e244a7d0778c1fee85392995d4772d0f283d43974323c0b508bfb32c"
+    },
+    {
+      "case_id": "PROSPECTIVE-HOLD-08",
+      "case_sha256": "22445420cec3f44f14c0fa7ac87c04639467fbd37e1e807f09fb775c5c373af4",
+      "payload_sha256": "dec4ddfe8035e52b631d5ca23dfced99912309a74d2e374e144a460e073d8a25"
+    },
+    {
+      "case_id": "PROSPECTIVE-HOLD-09",
+      "case_sha256": "b94d9cfe66f9c16bce96a6d8951c5a3bee06161ace7fa495102bc66f9de19578",
+      "payload_sha256": "402556e92db7f143cfc3029aacc31555df935b992e4bd0a6ec75d2d01df3fcd0"
+    },
+    {
+      "case_id": "PROSPECTIVE-HOLD-10",
+      "case_sha256": "c0b75932b50cffc0a76eb19ce48186cabc0299c85eaec3530230cdaa070ae48a",
+      "payload_sha256": "3d1f0e1e554ac65c5208d025d15a4879756c450850471c4b308036d06821cdea"
+    },
+    {
+      "case_id": "PROSPECTIVE-HOLD-11",
+      "case_sha256": "438762a5e7df7cbef7d91cb243deeb8587a1994954335b3879db013cf91f8f30",
+      "payload_sha256": "d9a56414d5147aaaed7532f0383db08cf82fa33e1ffe3cb22c94c3f042dbdb66"
+    },
+    {
+      "case_id": "PROSPECTIVE-HOLD-12",
+      "case_sha256": "0e31904c4d347030b7e423dd6851fe6e53fa2b3f8f528c2c2cb317eac5f2bcee",
+      "payload_sha256": "b9198b2d4df0d61b5593ac4bc221ccafd4cbcd2d1da1deb259014588ede6ca19"
+    },
+    {
+      "case_id": "PROSPECTIVE-HOLD-13",
+      "case_sha256": "47197810a0cc8423c78310fc75250af377b574edc60c170d2b7ecf643f03b866",
+      "payload_sha256": "52dfad77bda9bd7adaeced51ca5de3208dfa2e3d567e2d1f35358f68cb9a09f9"
+    },
+    {
+      "case_id": "PROSPECTIVE-HOLD-14",
+      "case_sha256": "21dd14825ac6364505f37349d6acb9c64c0ec12981dbe40a8ed09cc43ebfc7e7",
+      "payload_sha256": "ed6ad0623b552f2b2e93b949d122419665eae376d0eb5ba72f712f795d17bfb6"
+    },
+    {
+      "case_id": "PROSPECTIVE-ALIAS-01",
+      "case_sha256": "49aff583d5bf48f02bb729ac4d1514db3de0b5c1311931862790678cb965a37f",
+      "payload_sha256": "8d9b40c2a43072d0ff1cc27868e63886ad097dfa5bb78a0edebe5a8eb92368c6"
+    }
+  ],
+  "formal_inputs": [
+    {
+      "case_id": "CP04-DEV-08",
+      "payload_sha256": "561329ed45dff6d00212c451c8f676c7a8523ca2648ff44579e20a2f587c3cc5"
+    },
+    {
+      "case_id": "CP04-HOLD-10",
+      "payload_sha256": "29c27362d1aa2eab394d9ab3ebb3f6735d3056ead48a38558f54d69bc4ba6b59"
+    },
+    {
+      "case_id": "CP04-DEV-11",
+      "payload_sha256": "2a062c4f0ba74ffa7f2bb338a8ffb98c04a53afafa0eaec9266a1ba757630daf"
+    },
+    {
+      "case_id": "CP04-HOLD-12",
+      "payload_sha256": "b1b8f4340a64357329dbf00355e0bb940e27ee2f706105d7f2832218946d55f5"
+    }
+  ],
+  "candidate": "Actual runtime.run + native immutable SQLite COUNT/metadata/FTS + guard/pack",
+  "baseline": "Unchanged historical original literal orders, independently recomputed; no transport adapter",
+  "evidence_limit": "Exposed regression; no fresh/human/promotion acceptance",
+  "human_acceptance": false,
+  "promotion_ready": false
+}

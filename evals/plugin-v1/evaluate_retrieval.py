@@ -384,7 +384,13 @@ class Contracts:
             raise RuntimeError('Development-only jsonschema/referencing is required; '
                                'missing validation is not a passing gate.') from exc
 
-        files = sorted((ROOT / 'specs').rglob('*.schema.json'))
+        # These named outer contracts have separate validators and are not C8.
+        # Keep the closed C8 registry; unknown additional schemas still fail.
+        files = sorted(path for path in (ROOT / 'specs').rglob('*.schema.json')
+                       if path not in {
+                           ROOT / 'specs/catalog/capability-enrichment.schema.json',
+                           ROOT / 'specs/retrieval/candidate-decision.schema.json',
+                       })
         files += [ROOT / 'evals/scenario.schema.json', ROOT / 'evals/result.schema.json']
         self.schemas = {}
         self.by_relative = {}
@@ -509,14 +515,24 @@ def require_v2_pins(pins):
             pins['retrieval_policy_version'] == '2.1.0', 'mixed C9 version pins')
 
 
-def validate_cases(cases, contracts):
+def fixture_policy_hash(policy_source):
+    """Explicitly reproduce frozen synthetic fixtures without trusting arbitrary policies."""
+    allowed = {'specs/retrieval/retrieval-policy.json', 'tests/fixtures/plugin_retrieval_policy.json'}
+    require(policy_source in allowed, 'unsupported policy source')
+    value = hashlib.sha256((ROOT / policy_source).read_bytes()).hexdigest()
+    if policy_source.startswith('tests/'):
+        require(value == 'ff6e8444c4664492bb099f0819b2d284aa5c28f0d44c7a745c63f434c3489dbf', 'frozen fixture policy integrity')
+    return value
+
+
+def validate_cases(cases, contracts, *, policy_source='specs/retrieval/retrieval-policy.json'):
     contracts.validate('evals/scenario.schema.json', cases)
     require(cases['contract_set_sha256'] == contracts.schema_set_sha256, 'stale contract set')
     unique([case['case_id'] for case in cases['cases']], 'case ID')
     unique([case['case_id'] for case in cases['presentation_cases']], 'presentation case ID')
     require({case['canonical_case_id'] for case in cases['presentation_cases']} <=
             {case['case_id'] for case in cases['cases']}, 'unknown canonical presentation case')
-    policy_hash = hashlib.sha256((ROOT / 'specs/retrieval/retrieval-policy.json').read_bytes()).hexdigest()
+    policy_hash = fixture_policy_hash(policy_source)
     taxonomy_hash = hashlib.sha256((ROOT / 'specs/catalog/taxonomy.yaml').read_bytes()).hexdigest()
     for case in cases['cases']:
         query, manifest = case['query'], case['index_manifest']
@@ -777,9 +793,9 @@ def ranking_metrics(ranked_ids, judgments, k):
             'relevant_count': len(relevant)}
 
 
-def evaluate(cases, captures, contracts=None):
+def evaluate(cases, captures, contracts=None, *, policy_source='specs/retrieval/retrieval-policy.json'):
     contracts = contracts or Contracts()
-    validate_cases(cases, contracts)
+    validate_cases(cases, contracts, policy_source=policy_source)
     contracts.validate('evals/result.schema.json', captures)
     require(captures['case_set_sha256'] == digest(cases), 'case-set digest mismatch')
     ids = [item['case_id'] for item in captures['records']]
@@ -821,6 +837,7 @@ def main(argv=None):
     source.add_argument('--cases')
     source.add_argument('--quality-plan')
     parser.add_argument('--results')
+    parser.add_argument('--policy-source', default='specs/retrieval/retrieval-policy.json', choices=['specs/retrieval/retrieval-policy.json','tests/fixtures/plugin_retrieval_policy.json'], help='Explicit policy owner; frozen synthetic compatibility only.')
     args = parser.parse_args(argv)
     try:
         if args.quality_plan:
@@ -830,10 +847,10 @@ def main(argv=None):
             contracts = Contracts()
             cases = load_json(args.cases)
             if args.results is None:
-                validate_cases(cases, contracts)
+                validate_cases(cases, contracts, policy_source=args.policy_source)
                 report = {'valid': True, 'promotion_ready': False, 'case_count': len(cases['cases'])}
             else:
-                report = evaluate(cases, load_json(args.results), contracts)
+                report = evaluate(cases, load_json(args.results), contracts, policy_source=args.policy_source)
         print(json.dumps(report, ensure_ascii=False, sort_keys=True, allow_nan=False))
         return 0 if report.get('passed', True) else 1
     except (ValueError, RuntimeError, OSError, RecursionError) as exc:

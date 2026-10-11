@@ -23,7 +23,7 @@ MAX_INPUT_BYTES = 8192
 COMMIT_SCAN_INPUT_BYTES = 2_500_000
 COMMIT_CONTEXT_INPUT_BYTES = 32_768
 APPLICATION_ID = 1297695049
-TRUSTED_MANIFEST_SHA256 = "1d090b0e2e56f4c7cd38276d0d8b08be2436e0c75b77649cf00d32c13cb9497f"
+TRUSTED_MANIFEST_SHA256 = "4c1c9eccf6df60d92da5d780a8152ce3fb00e43ccbf80e8ed01c3c660135a1bb"
 INDEX_FORMAT_VERSION = 3
 MANIFEST_SCHEMA_VERSION = "2.1.0"
 ROUTE_REGISTRY_SCHEMA_VERSION = "1.0.0"
@@ -37,10 +37,10 @@ FTS_COLUMNS = (
     "integration_surface", "best_for",
 )
 FIELD_WEIGHTS = {
-    "full_name": 5.0, "full_name_aliases": 5.0,
+    "full_name": 0.25, "full_name_aliases": 0.25,
     "upstream_description": 3.0, "catalog_description": 3.0,
-    "topics": 3.0, "category_labels": 1.0, "use_cases": 3.0,
-    "integration_surface": 3.0, "best_for": 2.0,
+    "topics": 1.0, "category_labels": 0.25, "use_cases": 1.0,
+    "integration_surface": 1.0, "best_for": 1.0,
 }
 
 

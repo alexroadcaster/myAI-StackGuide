@@ -1,0 +1,38 @@
+{
+  "schema_version": "cp04_host_source_receipt_v1",
+  "observed_on": "2026-10-11",
+  "method": "Built-in web open and find; authorized public README reads, no shell network",
+  "sources": [
+    {
+      "url": "https://github.com/stripe/stripe-python",
+      "locator": "README Requirements/Usage/Configuring Automatic Retries",
+      "retrieval_ref": "turn170view0",
+      "scope": "SDK capability and key/prerequisite facts only"
+    },
+    {
+      "url": "https://github.com/intelligent-machine-learning/dlrover",
+      "locator": "README Features/Under Kubernetes/Under Ray",
+      "retrieval_ref": "turn171view0 and turn171view3",
+      "scope": "training roles and platform distinctions only"
+    },
+    {
+      "url": "https://github.com/firecrawl/firecrawl",
+      "locator": "README Search/Scrape/Open Source vs Cloud/License",
+      "retrieval_ref": "turn171view2 and turn171view5",
+      "scope": "core role and license/cloud distinction only"
+    },
+    {
+      "url": "https://github.com/firecrawl/firecrawl-mcp-server",
+      "locator": "README Hosted MCP/Configuration",
+      "retrieval_ref": "turn171view1 and turn171view4",
+      "scope": "adapter/keyless versus keyed capability distinction only"
+    }
+  ],
+  "limitations": [
+    "No repository code execution, release compatibility, API tests or upstream numeric identity read",
+    "Greptime activity, license, visibility and source-availability evidence remain missing in its pinned card; no new activity observation is invented",
+    "No catalog refresh or mutation, no credentials or hosted provider connection"
+  ],
+  "host_facts_file_sha256": "e5c5d140967a1db6ddf6716aa33a3b15ec2db40d43610f8483b09c7cc8a98f1b",
+  "promotion_ready": false
+}

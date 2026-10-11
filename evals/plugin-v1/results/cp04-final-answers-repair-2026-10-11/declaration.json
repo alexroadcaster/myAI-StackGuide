@@ -1,0 +1,40 @@
+{
+  "schema_version": "cp04_final_answer_declaration_v1",
+  "source_hashes": {
+    "evals/plugin-v1/run_final_answers_repair.py": "1cb9a5b45824da540591a1b0b41e0a4537063a14972dc913a2bab969664ce8d6",
+    "evals/plugin-v1/audit_final_answers_repair.py": "e72ed4c95d131d2c2628fcb900423487f64299fbe0bbf9a5b8b2993fb83c422f",
+    "evals/plugin-v1/final-answer.schema.json": "6b42babdc4e2b66ac72753eb30ad6fb7d82a645bc6f9df6404a81d6110124fee",
+    "evals/plugin-v1/final-answer-sources-2026-10-11.json": "d26492759b7ee8a5e46e2c715f4b80bb11640c2c97c8c68a67a8e3630fbd4f22",
+    "plugins/myai-stackguide/skills/myai-stackguide/SKILL.md": "61c2cd3904238a4f80fcabf5223d03c425a790cf4dc73afeb8dd544c62ef1291",
+    "plugins/myai-stackguide/scripts/recommendation_request.py": "48ed641f15f22e4a50230171ba8a11e660455ae20b5d4071606f6ec6440da70c",
+    "plugins/myai-stackguide/scripts/answer_presentation.py": "9dbd8fee050846ef6dc4b422772ac0f40a83e7c12ff95f7c9d9c2add2f9f6343",
+    "evals/plugin-v1/audit_final_answers.py": "f26d33748970ea22728e475ec0dd2dfd6e051c22d2e64cf6d24e31934cc57a8d",
+    "tests/test_plugin_final_answer_eval.py": "fc0ee6dba687fa8a35e26a7386d449ad8bc471bd9f7f3c0586d0042b0845c43a",
+    "plugins/myai-stackguide/scripts/request_guard.py": "e6745044d2e90a17b830bc6ba7d14a46ea7b7ba7a7ca2141a2b97d3b9639d775",
+    "plugins/myai-stackguide/scripts/retrieval.py": "97db3368ee5400485aa4b0b11e191a0a4d2a3851c62c5a7546ee58d2e4026e4e",
+    "plugins/myai-stackguide/scripts/context_pack.py": "40882aa8fc7065c78ad00ca5ae01599b678e270521fc83d1b6fb16a389b67e6e",
+    "plugins/myai-stackguide/scripts/context.py": "e47623d6c3147c7702d3d5b3565bcd651838b2d107ae105a996989cf60fc29dd",
+    "evals/plugin-v1/run_brief_dialogue.py": "7b0b8f53f071ccbfeb7772b01f5759bd1905da268cb79f0dd06e46dded8aeb35",
+    ".codex/config.toml": "5691850c7dd4679723f95ac806b9419de29b85f1b418ad823056587fd872b612",
+    "evals/plugin-v1/rubric.json": "96f67da80234d4ade36c9b5e5fb50276398acce76751513e9e041926b74f3fef",
+    "evals/plugin-v1/results/cp04-final-answers-repair-2026-10-11/cases.json": "50ffcd56a49e7ede8cd2bd14bbb22c596361ed53d33aee7b71afdffe2eea856a",
+    "evals/plugin-v1/results/cp04-dialogue-full-pack-2026-10-11/observations.json": "159359dbb7912524e816972e814de13611411d54b1cf95c72d7217c460aa4407",
+    "evals/plugin-v1/results/cp04-final-quality-2026-10-11/observations.json": "9d0f22e24882a8ccede0d3584dfc46c1a8f94718eeb4c7d94611af84c973aae4",
+    "plugins/myai-stackguide/assets/catalog.snapshot.json": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+    "plugins/myai-stackguide/assets/catalog.search.sqlite": "17c5fc5dde7e612fdac4d1285f631106424fd15185e37ba6c4a23a400e3b121b",
+    "plugins/myai-stackguide/assets/catalog.search-manifest.json": "c51863dde5f9ee37bda9d73412fad236d2ac704019c9d3921780f4ffd03db5c2",
+    "plugins/myai-stackguide/assets/retrieval-policy.json": "5b172b4fca5b2666fb61cba4e306c217c3ef29bb7d2eec0e478f7115370fb356"
+  },
+  "canonical_case_sha256": "d61545d435580de2de39c63a4dcdcc307df3a919f8f2cf78f9586d960992c3e3",
+  "model_selection": "Inherited repository configuration without model/effort overrides",
+  "scope": "Same canonical RU/EN answer projections: two prior exposed-dialogue regressions plus two previously exposed source-authored scenarios; successor regression only. No new model interpretation or desktop lifecycle claim; freshness gaps remain.",
+  "frozen_objective_checks": [
+    "same canonical result hash, planning binding and recommendation IDs across locales",
+    "recommendations restricted to pack and explicit exclusions",
+    "source URLs restricted to supplied evidence",
+    "no literal newline escapes outside code after normalization",
+    "no model tool items"
+  ],
+  "meaning_review": "independent agent proxy then actual owner acceptance; no automatic human quality score",
+  "promotion_ready": false
+}

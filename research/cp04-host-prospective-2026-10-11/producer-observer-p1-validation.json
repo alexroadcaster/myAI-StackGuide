@@ -1,0 +1,36 @@
+{
+  "schema_version": "cp04_host_observer_p1_repair_receipt_v1",
+  "scope": "Outer observer only; include explicit_product_exclusion and documented_dependency_conflict in independently oracle-allowed false exclusions, including grade0 IDs. Native observer and thresholds unchanged.",
+  "pre_repair_producer_sha256": "ed60257585bfb14b7bb0fd6a973e0af84a879027453f525a9512be7a2d1809ef",
+  "producer_sha256": "ce6011565ed1412d860aa177d30758d3e331f14266fd74af9488f333f54fd0ad",
+  "test_sha256": "775237388ba8cab613e4e763b95113461dd715e9d317b9f0b9431f72f88fb712",
+  "command": "python -B -m unittest discover -s tests -p test_plugin_host_decision_eval.py -v",
+  "red": {
+    "exit_code": 1,
+    "tests": 3,
+    "failed": 2,
+    "failures": [
+      "allowed zero-fit product exclusion [] != [1]",
+      "allowed zero-fit documented dependency conflict [] != [1]"
+    ],
+    "denied_control": "passed"
+  },
+  "green": {
+    "exit_code": 0,
+    "tests": 3,
+    "failed": 0,
+    "denied_controls": 2
+  },
+  "static_checks": "AST/import, immutable source plans/captures, source review and unchanged canonical thresholds passed",
+  "frozen_inputs": {
+    "evals/plugin-v1/results/cp04-final-chat-repair-2026-10-11/frozen-plan.json": "77e741a657f2e78286fa1dc75a0fcc74c30e3953365bb66dd013e2bfbef91153",
+    "evals/plugin-v1/results/cp04-final-chat-repair-2026-10-11/observations.json": "f3fc90d08f006c7a6b2ab07be41ede7d473754618c464d1d3a0299747dbdffb3",
+    "evals/plugin-v1/final-quality-host-prospective-2026-10-11.json": "aceba6767fafcadf0f937de9bb078b2474894b036d3966635747c1e77177b475",
+    "research/cp04-host-prospective-2026-10-11/source-review-questions.json": "bbcc1b9eb3613f4496ea7bd659825de5f2cfaa24399ff527e12a7fe4eb223f56",
+    "evals/plugin-v1/host-decision-eval-contract-2026-10-11.json": "d9851beb9692039906602380fedea1d95ec3a5b9dd7489f5d0cb2b75edb56d48"
+  },
+  "new_test_bound_at_successor_freeze": true,
+  "rank_count_model_calls": 0,
+  "human_acceptance": false,
+  "promotion_ready": false
+}

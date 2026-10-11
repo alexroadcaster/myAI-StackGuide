@@ -1,0 +1,49 @@
+{
+  "schema": "cp04_prospective_source_review_v1",
+  "reviewer": "cp04_final_review / evidence_reviewer",
+  "source_questions_sha256": "2fa87a67566373b85c66a57825d85916888bc04de065d46c76ef7dee9795bc92",
+  "prospective_plan_sha256": "37041760032aea200987092c97b49066e824d63cb208d63c3556791257e4833f",
+  "goal_draft_sha256": "9d41fe032f190b4f60a6362bab50bb4d7ea3715cb9abdf2dc80977a2a1c74515",
+  "approved": true,
+  "unresolved": [],
+  "approval_scope": "Grade-free source facts, routed-universe completeness, goal/query intent, archive expectations, exposure accounting and arithmetic feasibility only; no numerical relevance-grade, ranking-quality, human-acceptance or promotion approval.",
+  "reviewer_wrote_artifact": false,
+  "agent_proxy": true,
+  "human_acceptance": false,
+  "promotion_approved": false,
+  "checks": {
+    "semantic_cases": 14,
+    "semantic_rows": 244,
+    "semantic_unique_repository_ids": 244,
+    "identity_probe_rows": 1,
+    "full_routed_universes_match_current_cards": true,
+    "identities_archive_availability_languages_descriptions_provenance_match_current_cards": true,
+    "goals_routes_terms_intents_match_immutable_draft": true,
+    "required_context_partition_matches_terms": true,
+    "prior_unique_repository_ids": 357,
+    "disjoint_from_declared_prior_union": 159,
+    "seen_in_declared_prior_union": 85,
+    "primary_clarification_records": 34,
+    "primary_clarification_unique_repository_ids": 32,
+    "primary_clarifications_independently_supported": true,
+    "archived_repository_denials": [
+      {"github_repository_id": 12820537, "full_name": "slatedocs/slate"},
+      {"github_repository_id": 79585104, "full_name": "matrix-org/dendrite"}
+    ],
+    "thresholds_match_prior_accepted_contract": true,
+    "capacity_arithmetic_verified": true,
+    "individual_numerical_grades_read": false,
+    "prospective_ranked_output_read": false,
+    "count_or_ranked_lookup_executed_by_reviewer": false
+  },
+  "supported_facts": "All 14 complete route universes and all 244 identity/provenance records are supported by the pinned catalog/card sources. All 34 bounded primary-source clarification records for 32 identities were checked against official repository/documentation sources. The primary workflows described in the grade-free roles are supported; optional features not established by those sources remain explicitly unknown. Archived Slate and Dendrite remain denied under the declared archive constraint. The unchanged goal draft and query intent are consistent with the source-role packet.",
+  "limits": [
+    "The disjoint/seen partition is relative to the declared 357-ID prior union only; broader historical catalog exposure remains possible. Do not describe this suite as globally unseen.",
+    "This receipt precedes prospective rankings and approves source qualification only. Numerical relevance grades, positive-denominator judgments, evaluation execution and primary quality verdict remain the quality owner's responsibility.",
+    "Arithmetic feasibility uses the owner's declared positive counts without approving individual grades. Billing has 20 declared allowed positives and an exact top-12 Recall ceiling of 12/20 = 0.60; no source, goal, grade or threshold tuning for comfort is authorized by this review.",
+    "Role mismatch means a different primary workflow; it does not establish absence of optional integrations or features. Unknown capabilities are not converted into factual negatives.",
+    "Supporting-role fit does not establish a complete implementation or current adoption readiness. Snapshot language/description/archive facts remain dated; the full catalog was not refreshed.",
+    "Primary-source reads support documentation facts, not executed integration, performance, deployment, security readiness or provider operation. Examples requiring companion tools, server architecture, credentials or model/data providers retain those limits.",
+    "No human acceptance, current-model answer behavior, external action or promotion is approved by this agent-proxy receipt. Earlier failed frozen evidence remains preserved."
+  ]
+}

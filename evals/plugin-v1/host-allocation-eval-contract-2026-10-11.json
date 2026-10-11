@@ -1,0 +1,179 @@
+{
+  "schema_version": "cp04_host_allocation_eval_contract_v1",
+  "thresholds": {"held_out_macro_recall_at_12_min":0.75,"held_out_macro_ndcg_at_12_min":0.65,"candidate_not_worse_than_baseline_recall_delta_min":0,"candidate_not_worse_than_baseline_ndcg_delta_min":0,"required_stratum_recall_at_12_min":0.6,"required_stratum_ndcg_at_12_min":0.5,"hard_constraint_violations_max":0,"false_exclusions_max":0,"duplicate_canonical_ids_max":0,"alias_success_rate_min":1,"evidence_pack_survival_rate_min":0.9,"container_route_coverage_min":14,"leaf_route_coverage_min":111,"human_total_min":16,"human_critical_dimension_min":1,"human_critical_failures_max":0,"actual_warm_p95_ms_max":100,"actual_cold_p95_ms_max":250,"synthetic_warm_p95_ms_max":200,"synthetic_cold_p95_ms_max":500,"peak_memory_bytes_max":268435456,"index_bytes_max":67108864},
+  "stratification": {"container_ids":["developer_tools_cli_general","testing_qa","files_media_storage","frontend_frameworks_ui","accounting_finance_erp","cms_content_knowledge","communications_personal_ops","ecommerce_payments_revenue","operations_project_management","data_ingestion_etl_cdc","databases_storage_caching","backend_baas_api","deployment_containers_paas","supply_chain_devsecops"],"leaf_route_count":111,"thin_leaf_max_cards":10,"dense_leaf_min_cards":30,"required_case_tags":["thin_leaf","dense_leaf","baseline_cohort","expansion_cohort","historical_alias","dual_descriptions","secondary_dedupe","container_union","lexical_ru","lexical_en","activity_unknown"]},
+  "contract_id": "cp04-host-allocation-eval-2026-10-11",
+  "status": "technically_accepted_for_offline_replay_pending_actual_current_usefulness",
+  "authority": {
+    "product_review": "work/cp04-final/allocation-product-review.json",
+    "quality_packet": "work/cp04-final/host-allocation-quality-packet.md",
+    "architect_contract": "specs/retrieval/candidate-decision-contract.md",
+    "architect_schema": "specs/retrieval/candidate-decision.schema.json",
+    "architect_binding": {
+      "source_hashes": {
+        "specs/retrieval/candidate-decision.schema.json": "53f8bd0ddf7dcc29cc355e813c42b495d4f87e7804db8de699768fe82afd5303",
+        "specs/retrieval/candidate-decision-contract.md": "21b190b68699a1373c647b1570884954d726393066d6f45f2bfd54e46d043b9a"
+      },
+      "outer_schema_version": "1.1.0",
+      "method": "host_codex_full_pool_v1_1"
+    },
+    "activation_approved": false,
+    "product_review_sha256": "046e11d25800a2c79941ca0c099f2fff98a7447423fae9f91d0733871c4114f4",
+    "baseline_mapping": {
+      "path": "evals/plugin-v1/host-decision-eval-contract-2026-10-11.json",
+      "sha256": "d9851beb9692039906602380fedea1d95ec3a5b9dd7489f5d0cb2b75edb56d48"
+    }
+  },
+  "threshold_source": {
+    "path": "evals/plugin-v1/quality-plan.json",
+    "sha256": "cb2765fda7c90693212bb96041ea21c5eb4743607002cb3c89f0dfdb2ef695e3",
+    "pointer": "/thresholds",
+    "stratification_pointer": "/stratification",
+    "scale_protocol_pointer": "/scale_protocol",
+    "rule": "Exact unchanged objects are copied into each frozen successor declaration and validated against this source; no new floor, raised limit or waiver."
+  },
+  "method": {
+    "selector": "Host decision ordering for every resolved query with a native candidate pool, including alias probes; never selected by case ID, oracle grade, known winner or prior failure.",
+    "selected_ranking_endpoint": "Complete validated host decision_order permutation BEFORE hard eligibility and detailed-card packing.",
+    "candidate_pool": "Exactly every identity in the actual bounded native C9 candidate result; no additions, omissions, duplicates or grade-aware filtering.",
+    "native_control": "Publish original native candidate order/ranks/scores/results and metrics independently. Retain all old native failures as failed control evidence.",
+    "literal_control": "Unchanged literal-field-or-v1 formulas, original terms, complete route membership, source cards, numeric IDs, constraints and limit. Independently verify exact original45 literal orders/metrics.",
+    "no_fallback": "Missing, invalid, stale, oversized or incomplete host decision fails closed or returns needs_selection. No automatic native pass or hidden retry/fallback.",
+    "model_location": "Existing authorized host Codex driver only. Local preview/validation/guard/packing never call model/network/provider/scanner/writer."
+  },
+  "quality_mapping": {
+    "recall_ndcg": "Use complete decision_order and unchanged full numeric judgments, denied-grade handling, positive denominator, k=12, exponential gain and tie formulas from existing evaluator. Score IDs beyond top12 too; unjudged identities or unknown grades invalidate the case.",
+    "required_strata": "Freeze same required tags and all14 container IDs; independently report gates for each old15, independent-now-exposed15, prospective-now-exposed15 and new14+alias suite. Aggregate success cannot mask a failed suite/required stratum.",
+    "non_regression": "Selected successor macro must meet unchanged Recall/nDCG floors and non-regression against exact literal comparator. Report every per-case loss against literal/native/prior even when aggregate floors pass.",
+    "hard_constraints": "Apply unchanged source/unknown eligibility and independent allowed/denied oracle. Zero packed hard violations, false exclusions and canonical duplicates. Host fit is never proof of compatibility or eligibility.",
+    "pack_survival": "Denominator is independently positive non-denied top12 in preguard decision_order; numerator is those identities surviving actual final detailed pack. Keep native top12 survival separately. Never compact ranking after guard or use packed-only denominator.",
+    "coverage_alias": "Exact unchanged alias1.0 and full111 leaf/14 container registry semantics; source-card/routed-universe dedupe retains numeric identities and secondary assignments.",
+    "human": "Same canonical input for paired RU/EN; unchanged16/20, critical>=1 and zero critical failures. Agent proxies remain separate and actual human acceptance false until real accepted scores exist."
+  },
+  "resource_mapping": {
+    "native_query": {
+      "measurement": "Actual original COUNT plus native candidate FTS and trusted bundle validation under pinned immutable SQLite; publish stage and total native-path time.",
+      "cold_threshold_key": "actual_cold_p95_ms_max",
+      "warm_threshold_key": "actual_warm_p95_ms_max",
+      "index_threshold_key": "index_bytes_max",
+      "synthetic_rule": "Existing synthetic cold/warm ceilings apply only to labeled headroom; never relevance proof.",
+      "protocol": "Exact source scale_protocol:30 cold new-process samples;30 warm same-process samples after discarded warm-up. Record OS cache state, not claimed flush; hardware/runtime and serialized bytes required."
+    },
+    "local_outer_work": {
+      "stages": [
+        "native query",
+        "narrow preview preparation",
+        "decision receipt validation",
+        "hard guard",
+        "detailed decision pack",
+        "joint-budget accounting"
+      ],
+      "measurement": "Record each local stage wall time and summed total local work, excluding time waiting for host model. Preserve actual measured local RSS including all in-process local stages and input/output envelopes.",
+      "memory_threshold_key": "peak_memory_bytes_max",
+      "total_local_latency": "Publish cold/warm p50/p95 and every stage. Existing numeric query p95 thresholds remain native-query SLA; no source assigns a host inference SLA. Total local work is disclosed independently and must receive explicit resource owner review; it cannot inherit native-only pass.",
+      "memory_method": "Real process peak RSS with recorded platform/method; do not substitute shallow Python object sizes. Host/remote process RSS unavailable remains null."
+    },
+    "host_stage": {
+      "resolved_cases": "Exactly one bounded ordering invocation per resolved pool; one canonical decision reused for RU/EN presentation.",
+      "max_concurrent_calls": 2,
+      "timeout_seconds_per_call": 240,
+      "automatic_retries": 0,
+      "limits_basis": "Existing bounded development driver precedent from accepted product review; operational cap only, not a calibrated user latency SLA or spending authorization.",
+      "capture_required": [
+        "actual model/configured effort or explicit unknown",
+        "walltime",
+        "available input/output tokens",
+        "available cost",
+        "timeout/error",
+        "exact prompt/request/preview/receipt hashes",
+        "complete candidate identity coverage"
+      ],
+      "unavailable_values": "Unavailable tokens/cost/remote memory are null with reason, never zero. No added provider/API/key/install/cost boundary.",
+      "end_to_end": "Measure full path from accepted Brief through final validated decision pack including native/local work, host wait and orchestration. Publish independently of SQLite p95; assess added latency/cost/usefulness explicitly before any activation decision."
+    },
+    "shared_budget": {
+      "source": "Accepted product budget_contract and final architect joint-budget accounting; exact schema semantics bound before capture.",
+      "max_native_candidate_identities": 150,
+      "max_complete_detailed_cards": 12,
+      "shared_evidence_utf8_bytes_max": 163840,
+      "total_controlled_input_utf8_bytes_max": 204800,
+      "accounting": "Narrow preview + complete decision receipt + final detailed pack + evidence-bearing wrappers share160KiB across phases; Brief16KiB/context16KiB/request8KiB remain within total200KiB. Count canonical serialized UTF-8 bytes with final schema wrappers; no per-phase reset or char-count approximation.",
+      "preview": "Every pool identity retained in a genuinely narrow allowed field projection with source-card hashes and visible truncation/unknown markers. Complete card structures are forbidden in preview.",
+      "failure": "Any global/field/card limit violation, missing identity/receipt or inadequate valid pack reserve fails explicitly; no truncation of identity set or fabricated success.",
+      "excluded_feasibility": "Earlier28 full-card host ordering experiment exceeds detailed-card boundary; never compliant resource/quality acceptance."
+    }
+  },
+  "protocol_checks": [
+    "Freeze exact outer schema/contract/runtime/driver/scorer/policy/index/cards/pins and source-only approved plan before one candidate capture.",
+    "Every source oracle covers its complete routed universe. New goal novelty and repository exposure are independent fields.",
+    "Incomplete/stale/mixed/duplicate/nonpool/fabricated decisions, malformed exclusions, ambiguity and budget failure remain distinct negative cases with zero unauthorized lookup/model/pack effects as applicable.",
+    "Bind actual preview/decision order/validation/guard/pack/input hashes; never accept a fabricated static permutation as observed host inference.",
+    "Actual helper native evidence, model trace and independent technical review are distinct from source-only fact review.",
+    "Preserve immutable old45 plans/captures and the new first acceptance capture, then label further reuse as exposed regression.",
+    "No claim of installed runtime activation, browser behavior, state/publication recovery or external integration from local helper checks.",
+    "Version1.0 artifacts retain archived original validators/source pins. Version1.1 current replay receipts are new offline artifacts; old receipts are never upgraded.",
+    "Freeze current helper/runtime/driver/scorer/mapping/policy/index/cards/source authority and immutable original60 inputs before local replay. Root stable ready receipt is mandatory.",
+    "Semantic equality comparator may ignore only the six explicitly listed operational differences; malformed or extra reservation fields remain meaningful failures.",
+    "Publish0newmodelcalls, retained60actualmodelcalls and60newlocalnativechecks, every suite/stratum/per-case metric/control/survival and explicit resource/usefulness/human gaps."
+  ],
+  "capture_preconditions": [
+    "Architect schema/contract final accepted exact hashes",
+    "Resource mapping accepted by root/resource owner before measurements",
+    "New14 goal full-source plan independently reviewed grade-free before candidate exposure",
+    "Producer helper/model driver stable and separately authorized exact hashes",
+    "Frozen input declaration and unchanged acceptance objects",
+    "No private source or secret-bearing fixtures",
+    "Root final stable allocation helper source receipt before --freeze/--run; no full replay while implementation is pending."
+  ],
+  "no_go_rule": "Any applicable selected quality/constraint/alias/pack/source/budget/resource gate fails =>no_go. Never erase native failed control, reinterpret earlier scores, waive fresh/human gaps or use model completion as human acceptance.",
+  "human_acceptance": false,
+  "promotion_ready": false,
+  "model_or_rank_calls_during_authoring": 0,
+  "technical_acceptance": {
+    "reviewer": "quality_evaluator",
+    "scope": "Generic allocation1.1 technical mapping and conditional retained actual-order compatibility only; runtime proof/actual current usefulness/resources remain pending.",
+    "previous_mapping_sha256": "d9851beb9692039906602380fedea1d95ec3a5b9dd7489f5d0cb2b75edb56d48",
+    "allowed_runtime_slice": "Separately assigned helper and runtime test files; Quality owns only new allocation mapping/replay utility/receipt.",
+    "runtime_source_pending": false,
+    "runtime_source_hashes": {"plugins/myai-stackguide/scripts/recommendation_decision.py":"7895a5fd4eeccb339b01da7992fed056b8cb742b26eb9e5406d16772954ef746","tests/test_plugin_candidate_decision.py":"39c59948d06143986d3fb59f732fc572042779c2f3fe7667d2469f488bfe371c"},
+    "actual_model_execution_authorized_by_this_receipt": false,
+    "activation_approved": false,
+    "human_acceptance": false,
+    "promotion_ready": false
+  },
+  "allocation": {
+    "target": "min(3,query.max_cards,selectable_count)",
+    "applies_to": "Every successful nonempty pool; primary_eligible/reference_only selectable, blocked IDs retained.",
+    "worst_size_reserve": "Complete worst-increment target-sized canonical pack, full receipt and all truthful exclusions/wrappers; maximum decision-rank digit width. Rank size increments by bytes then native rank/numeric ID.",
+    "downshift": "Only mandatory complete empty/truncated projection skeleton plus worst-target reserve/wrappers cannot fit; decrement target; target1 failure is budget_exceeded, target0 only all-blocked.",
+    "projection": "Existing longest-first source projection; no source/identity/guard corruption or omitted IDs.",
+    "post_selection": "Preserve primary-then-reference host order; try more cards up to unchanged cap with actual residual bytes.",
+    "limits": "All original card/evidence/input caps, ranking thresholds, source/native controls and human rubric unchanged; target3 is prospective capacity policy, not a relevance/output floor."
+  },
+  "evidence_compatibility": {
+    "retained_actual60": {
+      "plan_path": "evals/plugin-v1/results/cp04-final-host-decision-2026-10-11/frozen-plan.json",
+      "plan_sha256": "d47db040edf529edceee77ba00eead3a48f37e48553c31959b4b9c39bc0b4522",
+      "observations_path": "evals/plugin-v1/results/cp04-final-host-decision-2026-10-11/observations.json",
+      "observations_sha256": "efc773667601b8c3709fde1ff35a7943e065fa6030b018a660c48e89b066c9cc",
+      "actual_outer_version": "1.0.0",
+      "actual_method": "host_codex_full_pool_v1",
+      "new_actual_model_calls": 0
+    },
+    "current_local60": "Fresh native prepare+finalize under accepted1.1 pins, explicitly supplied recorded actual orders; never silently rebind old receipts or call them new actual host inference.",
+    "ignored_preview_differences": [
+      "/schema_version:1.0.0 versus1.1.0",
+      "/method:host_codex_full_pool_v1 versus host_codex_full_pool_v1_1",
+      "/bindings/contract_schema_sha256",
+      "/bindings/contract_document_sha256",
+      "/reservation/receipt_bytes:positive integer bytes only",
+      "/reservation/pack_bytes:positive integer bytes only"
+    ],
+    "exact_remaining_fields": "Whole remaining preview deep-exact, typed and ordered: identities/native ranks/scores/source-card hashes/source projection text/coverage/pointers, classification metadata, intent/context/guards/native pins and all key sets. Same ordering instruction/schema/SKILL source bytes.",
+    "meaningful_change": "Record exact differing case/paths and stop retained-order relevance claim; separate actual successor evaluation needed for affected scope. No auto-rerank, fallback, reinterpretation or model call.",
+    "controls": "All60 exact native query/raw result/control pack/observed metric and recomputed original literal order+metrics. All45 earlier control chain remains intact; unchanged goals/judgments/thresholds/suites.",
+    "selected_metrics": "All full preguard recorded orders checked exact and rescored with original pure functions; current detailed packs independently recompute positive top12 survival, hard/false exclusions, dedupe, exhaustive ID accounting, source/rank evidence and shared bytes.",
+    "remaining_required": "Root-owned fresh actual4 ordering+8 compositions (changed99 training preview), independent80dimension/4pair quality/usefulness review, current30cold/30warm local resource protocol and root review. No restored training usefulness from allocation arithmetic or numeric rubric pass alone.",
+    "label": "retained_v1_actual_order_plus_current_local_recorded_order_regression; no new60 actualmodel/freshheldout/globalunseen claim"
+  }
+}

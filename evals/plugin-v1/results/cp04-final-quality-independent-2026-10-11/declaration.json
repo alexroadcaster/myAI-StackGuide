@@ -1,0 +1,173 @@
+{
+  "schema_version": "cp04_final_declaration_v1",
+  "plan_file_sha256": "1c05adda0a4523cfa681dc669b912295007a2503a142553737e040337f2a2b33",
+  "plan_canonical_sha256": "5b6c0cac4ca19509c956d69344aae4a156a78a876ee74d6c10663d70f3b44019",
+  "source_hashes": {
+    "evals/plugin-v1/run_final_quality.py": "fab447bcf2925d0cf8f0078ccc3b3c5d81fd8b743fc8a9abbece87d14656bab9",
+    "tests/test_plugin_final_quality.py": "efca80503c515f53e864c25b7509251a4eb0b54cf2a03b62565de258238f4527",
+    "evals/plugin-v1/run_quality.py": "e6ba2970a955319f5cc6d5c06b554d911263ed7f00bbe8bd17347aad8e80a321",
+    "evals/plugin-v1/evaluate_retrieval.py": "29baacad27b68dd507193a9c6f564e7a55e7662fbeadb659797e0cd7bccf7488",
+    "plugins/myai-stackguide/scripts/recommendation_request.py": "48ed641f15f22e4a50230171ba8a11e660455ae20b5d4071606f6ec6440da70c",
+    "plugins/myai-stackguide/scripts/request_guard.py": "e6745044d2e90a17b830bc6ba7d14a46ea7b7ba7a7ca2141a2b97d3b9639d775",
+    "plugins/myai-stackguide/scripts/retrieval.py": "97db3368ee5400485aa4b0b11e191a0a4d2a3851c62c5a7546ee58d2e4026e4e",
+    "plugins/myai-stackguide/scripts/context.py": "e47623d6c3147c7702d3d5b3565bcd651838b2d107ae105a996989cf60fc29dd",
+    "plugins/myai-stackguide/scripts/context_pack.py": "40882aa8fc7065c78ad00ca5ae01599b678e270521fc83d1b6fb16a389b67e6e",
+    "plugins/myai-stackguide/scripts/matcher.py": "c560158f15390f662e55eac39e9ffc31fd983a9af8c5086a234fbec0280933c2"
+  },
+  "asset_hashes": {
+    "plugins/myai-stackguide/assets/catalog.snapshot.json": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+    "plugins/myai-stackguide/assets/catalog.search.sqlite": "17c5fc5dde7e612fdac4d1285f631106424fd15185e37ba6c4a23a400e3b121b",
+    "plugins/myai-stackguide/assets/catalog.search-manifest.json": "c51863dde5f9ee37bda9d73412fad236d2ac704019c9d3921780f4ffd03db5c2",
+    "plugins/myai-stackguide/assets/retrieval-policy.json": "5b172b4fca5b2666fb61cba4e306c217c3ef29bb7d2eec0e478f7115370fb356",
+    "evals/plugin-v1/quality-plan.json": "cb2765fda7c90693212bb96041ea21c5eb4743607002cb3c89f0dfdb2ef695e3",
+    "evals/plugin-v1/rubric.json": "96f67da80234d4ade36c9b5e5fb50276398acce76751513e9e041926b74f3fef",
+    "evals/plugin-v1/results/cp04-final-quality-qualified-2026-10-11/source-questions.json": "1096613b4d55d3ad0d7354e98ea2c5c8b002d8916660e8a50c6c6c562849d580",
+    "evals/plugin-v1/final-quality-qualified-2026-10-11.json": "8f6f9b57fab0538a3203fd745511015215aeecbfdf8bd8de81bbac4cac160684",
+    "evals/plugin-v1/final-quality-repair-2026-10-11.json": "2bbb6c4b3a4195ab383348b9bca7b230dd24e5b3e78b9506c9d842db47076aee",
+    "evals/plugin-v1/results/cp04-final-quality-independent-2026-10-11/source-review-questions.json": "801443a96fac31cf56ee5d20ea5bd797ff3ae0704c2c1c739994d8a5ed99dbd7"
+  },
+  "pins": {
+    "activity_schema_version": "2.0.0",
+    "card_schema_version": "2.0.0",
+    "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+    "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+    "corpus_kind": "catalog_snapshot",
+    "index_format_version": 3,
+    "index_sha256": "17c5fc5dde7e612fdac4d1285f631106424fd15185e37ba6c4a23a400e3b121b",
+    "policy_sha256": "5b172b4fca5b2666fb61cba4e306c217c3ef29bb7d2eec0e478f7115370fb356",
+    "retrieval_policy_version": "2.1.0",
+    "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+    "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+  },
+  "thresholds": {
+    "held_out_macro_recall_at_12_min": 0.75,
+    "held_out_macro_ndcg_at_12_min": 0.65,
+    "candidate_not_worse_than_baseline_recall_delta_min": 0.0,
+    "candidate_not_worse_than_baseline_ndcg_delta_min": 0.0,
+    "required_stratum_recall_at_12_min": 0.6,
+    "required_stratum_ndcg_at_12_min": 0.5,
+    "hard_constraint_violations_max": 0,
+    "false_exclusions_max": 0,
+    "duplicate_canonical_ids_max": 0,
+    "alias_success_rate_min": 1.0,
+    "evidence_pack_survival_rate_min": 0.9,
+    "container_route_coverage_min": 14,
+    "leaf_route_coverage_min": 111,
+    "human_total_min": 16,
+    "human_critical_dimension_min": 1,
+    "human_critical_failures_max": 0,
+    "actual_warm_p95_ms_max": 100,
+    "actual_cold_p95_ms_max": 250,
+    "synthetic_warm_p95_ms_max": 200,
+    "synthetic_cold_p95_ms_max": 500,
+    "peak_memory_bytes_max": 268435456,
+    "index_bytes_max": 67108864
+  },
+  "cases": [
+    {
+      "case_id": "INDEPENDENT-HOLD-01",
+      "case_sha256": "ccc6e6c53c355811a44487ee47fc3a53b5d4629ed51990de6f8cdcb67f751d12",
+      "payload_sha256": "f57ddfd8f842419826adcc0bab508426ced64cb6fca7cebaf2972c2712ec478e"
+    },
+    {
+      "case_id": "INDEPENDENT-HOLD-02",
+      "case_sha256": "6de302d5ebac7f899e076c9d419667eac2072def93983791ea0a601e0696f7c8",
+      "payload_sha256": "74c272ea525b48b39cec3fc7cbaf7453812afdce4a64fe61c98531f53ffdb98a"
+    },
+    {
+      "case_id": "INDEPENDENT-HOLD-03",
+      "case_sha256": "a4bed8e3647a44e842e47efa916afa8da3335016f97ead524b660d7b61f4b13d",
+      "payload_sha256": "26e04f61c212ee498577b3365746c2be36c5d2063cdde137a612223e101d0f65"
+    },
+    {
+      "case_id": "INDEPENDENT-HOLD-04",
+      "case_sha256": "ab4008c1a0818ab57539ee6a11a304a54fb8363ebe8e45647c4a07be4500b7b4",
+      "payload_sha256": "b2d4bb4837ae7b78e8dfa165203a5b1d07f7f43a36b32cfaf20965795a304528"
+    },
+    {
+      "case_id": "INDEPENDENT-HOLD-05",
+      "case_sha256": "e472caa97e90a1ba0bb5157afa9cc9003e78353236ad6a42fda636e688910a39",
+      "payload_sha256": "a50744f9cd7d08582a41f5d779235bd95d58c46fdd7955604326ae187282a2c2"
+    },
+    {
+      "case_id": "INDEPENDENT-HOLD-06",
+      "case_sha256": "00847efefa63b3d76d2382c35638c9c8e634e0f572b3faf8ed4a895b79b0b4c0",
+      "payload_sha256": "30d562de7f0913e2fca483dfa2f5575fefb238c902b6aa2af96b0c5ea7cd94c9"
+    },
+    {
+      "case_id": "INDEPENDENT-HOLD-07",
+      "case_sha256": "f20321691b32490c525661b130b1fb392b6995e952c66c393900574694dc78c5",
+      "payload_sha256": "b2da8174819e35310702e081f7f1d7c6c1f11f08bb5e8aa23cc43b34504cb437"
+    },
+    {
+      "case_id": "INDEPENDENT-HOLD-08",
+      "case_sha256": "20612c0249a870b5d61db4642b07ccb1c536dcc9f6490ce983f267d1255f03c9",
+      "payload_sha256": "0ddc9fcf564d897689af620af7f28093716d2a4d7dcf55b8bc0bfc708d4ec2a1"
+    },
+    {
+      "case_id": "INDEPENDENT-HOLD-09",
+      "case_sha256": "f4589d876bb493690a5660233e830061a38239ff0c0297439b16183adb60fccf",
+      "payload_sha256": "eac98dd944cccf047b8154c9651f95c0eab1e69287fe1eae69eda10180938a08"
+    },
+    {
+      "case_id": "INDEPENDENT-HOLD-10",
+      "case_sha256": "ca16368a00c17d0005fe5d3ea37fac01eeec9fbb4d7f2b5326f60ddb2975e12f",
+      "payload_sha256": "e152bda26ba8c85f87bf96ebb17b2caa69acb0083c0d566b781626e08505494e"
+    },
+    {
+      "case_id": "INDEPENDENT-HOLD-11",
+      "case_sha256": "4b2435fd3493996096e1a08486ca5a1ff145391826964ede32f1032a8ccebea4",
+      "payload_sha256": "2dfd079a1d2ade2a8817f9843421e75f34738433a2e074a26e16c4425ead7d61"
+    },
+    {
+      "case_id": "INDEPENDENT-HOLD-12",
+      "case_sha256": "b0da695268dc8235aa665ec728813b0cac02ff034178cb2382453ef74c1c6166",
+      "payload_sha256": "ec13cc510fefee9b899160d44bf0698a9b07407b4bdc237680c41eb1be3c6820"
+    },
+    {
+      "case_id": "INDEPENDENT-HOLD-13",
+      "case_sha256": "ac91bec594c61ab254e80092c08053ce89b199bd94522bb844c7b80569db8d33",
+      "payload_sha256": "4e308ab85e03bd0ecbf655e6db33454a0c86c3ebb547e343268c56edfbf6cd9b"
+    },
+    {
+      "case_id": "INDEPENDENT-HOLD-14",
+      "case_sha256": "fdb4dcdbfc0263c42a8d7ede71c5473a7ddb9af193487dfae67f77aa37225b0c",
+      "payload_sha256": "0019f5d5649bbccedfdee096c937e92e94e86f31a035a90bcbc45e19544a8711"
+    },
+    {
+      "case_id": "INDEPENDENT-ALIAS-01",
+      "case_sha256": "6dc16a366aa911d3f791440c2373d838308a89ff83c230214c315a4a8fb58103",
+      "payload_sha256": "d42fbf95b0aa9ffa2e4478f2724a1fc2cb9b979d201f4d6c1f84f22ba38c2f1a"
+    }
+  ],
+  "candidate": "Stable repaired Brief intent planner -> trusted FTS5 -> guard -> context_pack",
+  "baseline": "Original literal-field-or-v1, injected transport adapter, exact same prepared query/route/constraints/guard/pack; placeholder RRF only for transport.",
+  "grading": "Full routed oracle; any unknown grade invalidates whole case and official macro, including unretrieved unknowns. No ranked exposure before freeze.",
+  "commands": [
+    "python -B evals/plugin-v1/run_final_independent.py --predeclare --review evals/plugin-v1/results/cp04-final-quality-independent-2026-10-11/source-independent-review.json",
+    "python -B evals/plugin-v1/run_final_independent.py --run --review evals/plugin-v1/results/cp04-final-quality-independent-2026-10-11/source-independent-review.json"
+  ],
+  "promotion_ready": false,
+  "prior_failed_held_out_retained": true,
+  "independent_runner_sha256": "9e2a6190b02ca5243e82fde33e76c4c42b9c3caa70cbec0e32cc43a543763838",
+  "review_path": "evals/plugin-v1/results/cp04-final-quality-independent-2026-10-11/source-independent-review.json",
+  "source_review_sha256": "15ed6b8751682a2df6830f820fdc52cb0620c205cf3797f88d8f34ba1be7fe05",
+  "source_questions_sha256": "801443a96fac31cf56ee5d20ea5bd797ff3ae0704c2c1c739994d8a5ed99dbd7",
+  "evidence_kind": "newly_frozen_functional_queries_mixed_source_exposure",
+  "exposure": {
+    "new_semantic_cases": 14,
+    "semantic_source_judgments": 205,
+    "disjoint_ids_relative_to_original184": 173,
+    "seen_scheduling_ids": 6,
+    "identity_probe_judgments": 1,
+    "primary_role_clarifications": 23,
+    "unknown_role_grades": 0,
+    "globally_unseen_repositories": false,
+    "seen_communications_ids": 32,
+    "role_unknown_grades": 0,
+    "container_union_route": "communications_personal_ops",
+    "secondary_placement_route": "internal_tools_builders",
+    "expansion_cohort_route": "accounting_invoicing"
+  },
+  "globally_unseen_repositories": false
+}

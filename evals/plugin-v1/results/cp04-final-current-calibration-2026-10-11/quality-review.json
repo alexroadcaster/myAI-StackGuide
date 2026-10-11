@@ -1,0 +1,1046 @@
+{
+  "schema_version": "cp04_independent_answer_quality_review_v1",
+  "reviewer": "quality_evaluator (/root/cp04_final_quality)",
+  "review_type": "independent_agent_proxy_first_pass_current_formal_calibration",
+  "independent_first_pass": true,
+  "counterpart_scores_read": false,
+  "agent_proxy": true,
+  "human_acceptance": false,
+  "promotion_approved": false,
+  "rubric_path": "evals/plugin-v1/rubric.json",
+  "rubric_sha256": "96f67da80234d4ade36c9b5e5fb50276398acce76751513e9e041926b74f3fef",
+  "declaration_sha256": "93e180ddf242412e335a6aead40dfeb8fb816a67e67ae70860260c68fd375718",
+  "observations_sha256": "bd97758a1ef1de9286c8a9e11b4dd0332f96e1e6fe702ebeafe9d90ca8b033ff",
+  "audit_sha256": "c5c8b37d66d29e30908153bdc3f22dde3f7c5a2cc3d4b0c2c8fe010d945efe94",
+  "provenance_sha256": "0af68615dc289e00f51dfeda8bede9cf6267b63de29638ef8d3649f74da07496",
+  "host_sources_sha256": "e5c5d140967a1db6ddf6716aa33a3b15ec2db40d43610f8483b09c7cc8a98f1b",
+  "input_scope": "Eight current actual formal-calibration single-locale projected texts, same canonical pack/planning per pair. Source facts limited to supplied prompt/host-source records; prospective-source knowledge not imported.",
+  "records": [
+    {
+      "case_id": "CP04-DEV-08",
+      "human_calibration_case_id": "HU-FOUNDER-PAIRED",
+      "locale": "ru",
+      "answer_path": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-08/answer-ru.md",
+      "answer_sha256": "d47f4a37ea0498e2ab171a9e4fc68b7242a868fba4a559fff215b7f46a4edf66",
+      "canonical_result_sha256": "8f791e4b2698fd563798a41c07ebb804d2c3b9531eac2c410e60b97f7e1049ff",
+      "source_card_index_policy_pins": {
+        "activity_schema_version": "2.0.0",
+        "card_schema_version": "2.0.0",
+        "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+        "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+        "corpus_kind": "catalog_snapshot",
+        "index_format_version": 3,
+        "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+        "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+        "retrieval_policy_version": "2.1.0",
+        "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+        "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+      },
+      "candidate_ids_and_order": [
+        100711978,
+        552877440,
+        235391869,
+        14861133,
+        1953389,
+        20545279,
+        2471804,
+        221280225,
+        202768861
+      ],
+      "recommended_ids": [
+        1953389
+      ],
+      "evidence_urls": [
+        "https://github.com/stripe/stripe-python"
+      ],
+      "planning_sha256": "68c0e8d644ea74240a6eb9725ef1933fa4c35b6e4bd80b7882df3c8826860d65",
+      "dimensions": [
+        {
+          "dimension": "Context interpretation",
+          "score": 2,
+          "rationale": "Conditional Python/Stripe evaluation matches founder decision; asks whether backend uses Python instead of inventing the stack.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-08/answer-ru.md"
+        },
+        {
+          "dimension": "Category relevance",
+          "score": 2,
+          "rationale": "Python payment SDK is distinguished from provider/accounting suitability.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-08/answer-ru.md"
+        },
+        {
+          "dimension": "Shortlist fit and roles",
+          "score": 2,
+          "rationale": "Stripe API client is a component of a team-owned server adapter, not a full payment system.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-08/answer-ru.md"
+        },
+        {
+          "dimension": "Avoid/defer quality",
+          "score": 2,
+          "rationale": "Existing sufficient path or unsuitable Stripe/compatibility changes preference; source-only isolated trial can be abandoned without migration.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-08/answer-ru.md"
+        },
+        {
+          "dimension": "Evidence/provenance/activity clarity",
+          "score": 2,
+          "rationale": "Separates 2026-09-01 MIT snapshot from supplied 2026-10-11 README facts, cites exact SDK URL and marks suitability unknown.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-08/answer-ru.md"
+        },
+        {
+          "dimension": "Caveats and missing context",
+          "score": 2,
+          "rationale": "Provider region, target scenario, workload, versions, language/platform and licensing prerequisites remain unresolved.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-08/answer-ru.md"
+        },
+        {
+          "dimension": "Integration/validation usefulness",
+          "score": 2,
+          "rationale": "First task maps an agreed payment flow to documented interface, synthetic success/error/retry outcomes and reconciliation boundary; no operation claimed tested.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-08/answer-ru.md"
+        },
+        {
+          "dimension": "Plain-language decision support",
+          "score": 2,
+          "rationale": "Founder receives a conditional choice, reuse/custom/existing comparison, no savings claim, one hypothetical low-confidence 4-8-hour first-check budget and no full-delivery estimate.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-08/answer-ru.md"
+        },
+        {
+          "dimension": "Authorized integration handoff",
+          "score": 2,
+          "rationale": "All steps proposed_not_executed; installation, credentials, provider use and integration excluded pending separate explicit request.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-08/answer-ru.md"
+        },
+        {
+          "dimension": "Privacy and permission",
+          "score": 2,
+          "rationale": "Secret key remains server-side; no secret values or customer/production data are present.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-08/answer-ru.md"
+        }
+      ],
+      "total": 20,
+      "critical_dimension_pass": true,
+      "critical_failures": [],
+      "rubric_proxy_pass": true,
+      "proposed_vs_executed": "proposed_not_executed; source evaluation/isolated synthetic validation only; no integration/install/provider/network operation by composition",
+      "input_projection": {
+        "normalization_applied": false,
+        "raw_answer_sha256": "0368ad5260d2394e7aaaa05b9b7cfacbe9ed9200b409a27d539f2bb3406b9dd7",
+        "projected_answer_sha256": "0368ad5260d2394e7aaaa05b9b7cfacbe9ed9200b409a27d539f2bb3406b9dd7"
+      }
+    },
+    {
+      "case_id": "CP04-DEV-08",
+      "human_calibration_case_id": "HU-FOUNDER-PAIRED",
+      "locale": "en",
+      "answer_path": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-08/answer-en.md",
+      "answer_sha256": "8756ae84015c029945dce00b795142f1ae028285c1ff1cf257190d0b2cb1e881",
+      "canonical_result_sha256": "8f791e4b2698fd563798a41c07ebb804d2c3b9531eac2c410e60b97f7e1049ff",
+      "source_card_index_policy_pins": {
+        "activity_schema_version": "2.0.0",
+        "card_schema_version": "2.0.0",
+        "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+        "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+        "corpus_kind": "catalog_snapshot",
+        "index_format_version": 3,
+        "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+        "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+        "retrieval_policy_version": "2.1.0",
+        "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+        "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+      },
+      "candidate_ids_and_order": [
+        100711978,
+        552877440,
+        235391869,
+        14861133,
+        1953389,
+        20545279,
+        2471804,
+        221280225,
+        202768861
+      ],
+      "recommended_ids": [
+        1953389
+      ],
+      "evidence_urls": [
+        "https://github.com/stripe/stripe-python"
+      ],
+      "planning_sha256": "68c0e8d644ea74240a6eb9725ef1933fa4c35b6e4bd80b7882df3c8826860d65",
+      "dimensions": [
+        {
+          "dimension": "Context interpretation",
+          "score": 2,
+          "rationale": "Conditional Python/Stripe evaluation matches founder decision; asks whether backend uses Python instead of inventing the stack.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-08/answer-en.md"
+        },
+        {
+          "dimension": "Category relevance",
+          "score": 2,
+          "rationale": "Python payment SDK is distinguished from provider/accounting suitability.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-08/answer-en.md"
+        },
+        {
+          "dimension": "Shortlist fit and roles",
+          "score": 2,
+          "rationale": "Stripe API client is a component of a team-owned server adapter, not a full payment system.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-08/answer-en.md"
+        },
+        {
+          "dimension": "Avoid/defer quality",
+          "score": 2,
+          "rationale": "Existing sufficient path or unsuitable Stripe/compatibility changes preference; source-only isolated trial can be abandoned without migration.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-08/answer-en.md"
+        },
+        {
+          "dimension": "Evidence/provenance/activity clarity",
+          "score": 2,
+          "rationale": "Separates 2026-09-01 MIT snapshot from supplied 2026-10-11 README facts, cites exact SDK URL and marks suitability unknown.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-08/answer-en.md"
+        },
+        {
+          "dimension": "Caveats and missing context",
+          "score": 2,
+          "rationale": "Provider region, target scenario, workload, versions, language/platform and licensing prerequisites remain unresolved.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-08/answer-en.md"
+        },
+        {
+          "dimension": "Integration/validation usefulness",
+          "score": 2,
+          "rationale": "First task maps an agreed payment flow to documented interface, synthetic success/error/retry outcomes and reconciliation boundary; no operation claimed tested.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-08/answer-en.md"
+        },
+        {
+          "dimension": "Plain-language decision support",
+          "score": 2,
+          "rationale": "Founder receives a conditional choice, reuse/custom/existing comparison, no savings claim, one hypothetical low-confidence 4-8-hour first-check budget and no full-delivery estimate.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-08/answer-en.md"
+        },
+        {
+          "dimension": "Authorized integration handoff",
+          "score": 2,
+          "rationale": "All steps proposed_not_executed; installation, credentials, provider use and integration excluded pending separate explicit request.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-08/answer-en.md"
+        },
+        {
+          "dimension": "Privacy and permission",
+          "score": 2,
+          "rationale": "Secret key remains server-side; no secret values or customer/production data are present.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-08/answer-en.md"
+        }
+      ],
+      "total": 20,
+      "critical_dimension_pass": true,
+      "critical_failures": [],
+      "rubric_proxy_pass": true,
+      "proposed_vs_executed": "proposed_not_executed; source evaluation/isolated synthetic validation only; no integration/install/provider/network operation by composition",
+      "input_projection": {
+        "normalization_applied": false,
+        "raw_answer_sha256": "4e5a20dde13aaafd91503a6988b79bf8ff4bdfbb2cb37f63566983b8c477f280",
+        "projected_answer_sha256": "4e5a20dde13aaafd91503a6988b79bf8ff4bdfbb2cb37f63566983b8c477f280"
+      }
+    },
+    {
+      "case_id": "CP04-HOLD-10",
+      "human_calibration_case_id": "HU-ENGINEER-PAIRED",
+      "locale": "ru",
+      "answer_path": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-10/answer-ru.md",
+      "answer_sha256": "b43a440d719c6e9c632a3f77107b1d547d8172b0c6f24ed8a6e55403444f3603",
+      "canonical_result_sha256": "4a1c6688c325ed7dc32b1fcee276d54430566ff24502e637a6006573e507f66c",
+      "source_card_index_policy_pins": {
+        "activity_schema_version": "2.0.0",
+        "card_schema_version": "2.0.0",
+        "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+        "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+        "corpus_kind": "catalog_snapshot",
+        "index_format_version": 3,
+        "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+        "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+        "retrieval_policy_version": "2.1.0",
+        "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+        "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+      },
+      "candidate_ids_and_order": [
+        506953078,
+        922406522,
+        838970603,
+        631692814,
+        708552127,
+        731467355,
+        395140743,
+        650918061,
+        629142696,
+        763697768,
+        987976055,
+        731397562
+      ],
+      "recommended_ids": [
+        506953078,
+        763697768,
+        987976055
+      ],
+      "evidence_urls": [
+        "https://github.com/intelligent-machine-learning/dlrover",
+        "https://github.com/volcengine/veScale",
+        "https://github.com/NVIDIA-NeMo/Automodel"
+      ],
+      "planning_sha256": "db23d93da7e0d5761cff183173522f5ab0d763e5add7f070deb24c40420092ed",
+      "dimensions": [
+        {
+          "dimension": "Context interpretation",
+          "score": 2,
+          "rationale": "Asks whether the gap is launch recovery/scaling or within-training distribution; does not infer existing platform.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-10/answer-ru.md"
+        },
+        {
+          "dimension": "Category relevance",
+          "score": 2,
+          "rationale": "Distributed training/fault tolerance is the relevant category, with launch versus training-layer roles separated.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-10/answer-ru.md"
+        },
+        {
+          "dimension": "Shortlist fit and roles",
+          "score": 2,
+          "rationale": "DLRover primary conditional choice; veScale/Automodel are alternatives, not an unsupported combined stack.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-10/answer-ru.md"
+        },
+        {
+          "dimension": "Avoid/defer quality",
+          "score": 2,
+          "rationale": "Changing platform/role or sufficient current mechanism changes choice; isolated trial avoids authoritative checkpoint/data/job-queue changes.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-10/answer-ru.md"
+        },
+        {
+          "dimension": "Evidence/provenance/activity clarity",
+          "score": 2,
+          "rationale": "DLRover host README versus alternatives snapshot evidence are distinct, URLs explicit, license Other remains unresolved and no platform operability asserted.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-10/answer-ru.md"
+        },
+        {
+          "dimension": "Caveats and missing context",
+          "score": 2,
+          "rationale": "Hardware, workload, framework/platform, versions, licensing and recovery requirements remain unknown.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-10/answer-ru.md"
+        },
+        {
+          "dimension": "Integration/validation usefulness",
+          "score": 2,
+          "rationale": "One job interface/documented launch-method comparison plus dependencies/license and subsequent recovery criteria yields a bounded source qualification handoff.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-10/answer-ru.md"
+        },
+        {
+          "dimension": "Plain-language decision support",
+          "score": 2,
+          "rationale": "Equivalent reuse/custom/current scope, unmeasured savings and conditional prerequisites are clear; only first-validation 4-8 hours is hypothetical.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-10/answer-ru.md"
+        },
+        {
+          "dimension": "Authorized integration handoff",
+          "score": 2,
+          "rationale": "No install/provider/credentials/training execution; explicit request needed before implementation, status proposed_not_executed.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-10/answer-ru.md"
+        },
+        {
+          "dimension": "Privacy and permission",
+          "score": 2,
+          "rationale": "Synthetic context only, authoritative data/checkpoints/queue remain team-owned and isolated from trial.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-10/answer-ru.md"
+        }
+      ],
+      "total": 20,
+      "critical_dimension_pass": true,
+      "critical_failures": [],
+      "rubric_proxy_pass": true,
+      "proposed_vs_executed": "proposed_not_executed; source evaluation/isolated synthetic validation only; no integration/install/provider/network operation by composition",
+      "input_projection": {
+        "normalization_applied": false,
+        "raw_answer_sha256": "e86258115506c110ce8e35dcdc22be208c46119e7de300fd887b56681b59af21",
+        "projected_answer_sha256": "e86258115506c110ce8e35dcdc22be208c46119e7de300fd887b56681b59af21"
+      }
+    },
+    {
+      "case_id": "CP04-HOLD-10",
+      "human_calibration_case_id": "HU-ENGINEER-PAIRED",
+      "locale": "en",
+      "answer_path": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-10/answer-en.md",
+      "answer_sha256": "a7e6c0a7131e3a52541fec7217d34d2b8716e96371bd1ddf5b87f8b69073aa4a",
+      "canonical_result_sha256": "4a1c6688c325ed7dc32b1fcee276d54430566ff24502e637a6006573e507f66c",
+      "source_card_index_policy_pins": {
+        "activity_schema_version": "2.0.0",
+        "card_schema_version": "2.0.0",
+        "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+        "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+        "corpus_kind": "catalog_snapshot",
+        "index_format_version": 3,
+        "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+        "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+        "retrieval_policy_version": "2.1.0",
+        "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+        "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+      },
+      "candidate_ids_and_order": [
+        506953078,
+        922406522,
+        838970603,
+        631692814,
+        708552127,
+        731467355,
+        395140743,
+        650918061,
+        629142696,
+        763697768,
+        987976055,
+        731397562
+      ],
+      "recommended_ids": [
+        506953078,
+        763697768,
+        987976055
+      ],
+      "evidence_urls": [
+        "https://github.com/intelligent-machine-learning/dlrover",
+        "https://github.com/volcengine/veScale",
+        "https://github.com/NVIDIA-NeMo/Automodel"
+      ],
+      "planning_sha256": "db23d93da7e0d5761cff183173522f5ab0d763e5add7f070deb24c40420092ed",
+      "dimensions": [
+        {
+          "dimension": "Context interpretation",
+          "score": 2,
+          "rationale": "Asks whether the gap is launch recovery/scaling or within-training distribution; does not infer existing platform.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-10/answer-en.md"
+        },
+        {
+          "dimension": "Category relevance",
+          "score": 2,
+          "rationale": "Distributed training/fault tolerance is the relevant category, with launch versus training-layer roles separated.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-10/answer-en.md"
+        },
+        {
+          "dimension": "Shortlist fit and roles",
+          "score": 2,
+          "rationale": "DLRover primary conditional choice; veScale/Automodel are alternatives, not an unsupported combined stack.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-10/answer-en.md"
+        },
+        {
+          "dimension": "Avoid/defer quality",
+          "score": 2,
+          "rationale": "Changing platform/role or sufficient current mechanism changes choice; isolated trial avoids authoritative checkpoint/data/job-queue changes.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-10/answer-en.md"
+        },
+        {
+          "dimension": "Evidence/provenance/activity clarity",
+          "score": 2,
+          "rationale": "DLRover host README versus alternatives snapshot evidence are distinct, URLs explicit, license Other remains unresolved and no platform operability asserted.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-10/answer-en.md"
+        },
+        {
+          "dimension": "Caveats and missing context",
+          "score": 2,
+          "rationale": "Hardware, workload, framework/platform, versions, licensing and recovery requirements remain unknown.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-10/answer-en.md"
+        },
+        {
+          "dimension": "Integration/validation usefulness",
+          "score": 2,
+          "rationale": "One job interface/documented launch-method comparison plus dependencies/license and subsequent recovery criteria yields a bounded source qualification handoff.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-10/answer-en.md"
+        },
+        {
+          "dimension": "Plain-language decision support",
+          "score": 2,
+          "rationale": "Equivalent reuse/custom/current scope, unmeasured savings and conditional prerequisites are clear; only first-validation 4-8 hours is hypothetical.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-10/answer-en.md"
+        },
+        {
+          "dimension": "Authorized integration handoff",
+          "score": 2,
+          "rationale": "No install/provider/credentials/training execution; explicit request needed before implementation, status proposed_not_executed.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-10/answer-en.md"
+        },
+        {
+          "dimension": "Privacy and permission",
+          "score": 2,
+          "rationale": "Synthetic context only, authoritative data/checkpoints/queue remain team-owned and isolated from trial.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-10/answer-en.md"
+        }
+      ],
+      "total": 20,
+      "critical_dimension_pass": true,
+      "critical_failures": [],
+      "rubric_proxy_pass": true,
+      "proposed_vs_executed": "proposed_not_executed; source evaluation/isolated synthetic validation only; no integration/install/provider/network operation by composition",
+      "input_projection": {
+        "normalization_applied": false,
+        "raw_answer_sha256": "4c00282a2719eace5640490354dc9a9fa1917041c1696c5b580ae53d02358fd0",
+        "projected_answer_sha256": "4c00282a2719eace5640490354dc9a9fa1917041c1696c5b580ae53d02358fd0"
+      }
+    },
+    {
+      "case_id": "CP04-DEV-11",
+      "human_calibration_case_id": "HU-ACTIVITY-UNKNOWN",
+      "locale": "ru",
+      "answer_path": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-11/answer-ru.md",
+      "answer_sha256": "d83c1bf18df7ec17a75dfd0a673254a6426a38f625d0816c7f65ead4a1f4e50d",
+      "canonical_result_sha256": "648d199e0eeed8f4cafd48e6e8ace21bfaa9bc766afe85a62e850de2e785df07",
+      "source_card_index_policy_pins": {
+        "activity_schema_version": "2.0.0",
+        "card_schema_version": "2.0.0",
+        "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+        "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+        "corpus_kind": "catalog_snapshot",
+        "index_format_version": 3,
+        "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+        "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+        "retrieval_policy_version": "2.1.0",
+        "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+        "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+      },
+      "candidate_ids_and_order": [
+        480217156,
+        108110,
+        6452529,
+        143344440,
+        138754790,
+        4044891,
+        24494032,
+        60246359,
+        105944401,
+        436658287,
+        16563587,
+        206417
+      ],
+      "recommended_ids": [
+        480217156
+      ],
+      "evidence_urls": [
+        "https://github.com/GreptimeTeam/greptimedb"
+      ],
+      "planning_sha256": "50c039bb8191e3ac9598d89c9577eb212786307cd5ee40af0a3793b3d5fecdaf",
+      "dimensions": [
+        {
+          "dimension": "Context interpretation",
+          "score": 2,
+          "rationale": "Historical GreptimeDB identity and missing activity match the requested identity/unknown case.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-11/answer-ru.md"
+        },
+        {
+          "dimension": "Category relevance",
+          "score": 2,
+          "rationale": "Database candidate is an architectural hypothesis; specific capabilities are not inferred from sparse metadata.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-11/answer-ru.md"
+        },
+        {
+          "dimension": "Shortlist fit and roles",
+          "score": 2,
+          "rationale": "One canonical historical-to-current identity; preliminary evaluation does not assert proven functional fit.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-11/answer-ru.md"
+        },
+        {
+          "dimension": "Avoid/defer quality",
+          "score": 2,
+          "rationale": "Functional fit/maintenance unknown is decisive; defer adoption pending source/operation qualification, compare existing/native path.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-11/answer-ru.md"
+        },
+        {
+          "dimension": "Evidence/provenance/activity clarity",
+          "score": 2,
+          "rationale": "Exact sync timestamp is preserved and explicitly not a development-activity date; last commit/release/license/capabilities unknown and unrelated host reads not borrowed.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-11/answer-ru.md"
+        },
+        {
+          "dimension": "Caveats and missing context",
+          "score": 2,
+          "rationale": "Workload, data operation, existing path, platform, version/license and server requirements remain unknown.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-11/answer-ru.md"
+        },
+        {
+          "dimension": "Integration/validation usefulness",
+          "score": 2,
+          "rationale": "First validation checks one operation against README/interface/license/release info; synthetic trial cannot establish current operability.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-11/answer-ru.md"
+        },
+        {
+          "dimension": "Plain-language decision support",
+          "score": 2,
+          "rationale": "Conditional candidate, strongest identity-versus-fit caveat, equivalent-scope comparisons and hypothetical budget/full-effort unknown are explicit.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-11/answer-ru.md"
+        },
+        {
+          "dimension": "Authorized integration handoff",
+          "score": 2,
+          "rationale": "All steps proposed_not_executed; implementation requires separate request, no installation/credentials/provider operation.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-11/answer-ru.md"
+        },
+        {
+          "dimension": "Privacy and permission",
+          "score": 2,
+          "rationale": "Isolated synthetic trial preserves authoritative data and job queues; no private/production data exposed.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-11/answer-ru.md"
+        }
+      ],
+      "total": 20,
+      "critical_dimension_pass": true,
+      "critical_failures": [],
+      "rubric_proxy_pass": true,
+      "proposed_vs_executed": "proposed_not_executed; source evaluation/isolated synthetic validation only; no integration/install/provider/network operation by composition",
+      "input_projection": {
+        "normalization_applied": false,
+        "raw_answer_sha256": "b7dbbb90caf41d62f1e886aeb3d9eb2bff987e227206ed49a63a301e1bea6d8d",
+        "projected_answer_sha256": "b7dbbb90caf41d62f1e886aeb3d9eb2bff987e227206ed49a63a301e1bea6d8d"
+      }
+    },
+    {
+      "case_id": "CP04-DEV-11",
+      "human_calibration_case_id": "HU-ACTIVITY-UNKNOWN",
+      "locale": "en",
+      "answer_path": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-11/answer-en.md",
+      "answer_sha256": "80c2db8d1d7611372168ebf1f2de6fd13e61ac18c95162d76f5943a80ea591ab",
+      "canonical_result_sha256": "648d199e0eeed8f4cafd48e6e8ace21bfaa9bc766afe85a62e850de2e785df07",
+      "source_card_index_policy_pins": {
+        "activity_schema_version": "2.0.0",
+        "card_schema_version": "2.0.0",
+        "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+        "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+        "corpus_kind": "catalog_snapshot",
+        "index_format_version": 3,
+        "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+        "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+        "retrieval_policy_version": "2.1.0",
+        "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+        "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+      },
+      "candidate_ids_and_order": [
+        480217156,
+        108110,
+        6452529,
+        143344440,
+        138754790,
+        4044891,
+        24494032,
+        60246359,
+        105944401,
+        436658287,
+        16563587,
+        206417
+      ],
+      "recommended_ids": [
+        480217156
+      ],
+      "evidence_urls": [
+        "https://github.com/GreptimeTeam/greptimedb"
+      ],
+      "planning_sha256": "50c039bb8191e3ac9598d89c9577eb212786307cd5ee40af0a3793b3d5fecdaf",
+      "dimensions": [
+        {
+          "dimension": "Context interpretation",
+          "score": 2,
+          "rationale": "Historical GreptimeDB identity and missing activity match the requested identity/unknown case.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-11/answer-en.md"
+        },
+        {
+          "dimension": "Category relevance",
+          "score": 2,
+          "rationale": "Database candidate is an architectural hypothesis; specific capabilities are not inferred from sparse metadata.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-11/answer-en.md"
+        },
+        {
+          "dimension": "Shortlist fit and roles",
+          "score": 2,
+          "rationale": "One canonical historical-to-current identity; preliminary evaluation does not assert proven functional fit.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-11/answer-en.md"
+        },
+        {
+          "dimension": "Avoid/defer quality",
+          "score": 2,
+          "rationale": "Functional fit/maintenance unknown is decisive; defer adoption pending source/operation qualification, compare existing/native path.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-11/answer-en.md"
+        },
+        {
+          "dimension": "Evidence/provenance/activity clarity",
+          "score": 2,
+          "rationale": "Exact sync timestamp is preserved and explicitly not a development-activity date; last commit/release/license/capabilities unknown and unrelated host reads not borrowed.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-11/answer-en.md"
+        },
+        {
+          "dimension": "Caveats and missing context",
+          "score": 2,
+          "rationale": "Workload, data operation, existing path, platform, version/license and server requirements remain unknown.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-11/answer-en.md"
+        },
+        {
+          "dimension": "Integration/validation usefulness",
+          "score": 2,
+          "rationale": "First validation checks one operation against README/interface/license/release info; synthetic trial cannot establish current operability.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-11/answer-en.md"
+        },
+        {
+          "dimension": "Plain-language decision support",
+          "score": 2,
+          "rationale": "Conditional candidate, strongest identity-versus-fit caveat, equivalent-scope comparisons and hypothetical budget/full-effort unknown are explicit.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-11/answer-en.md"
+        },
+        {
+          "dimension": "Authorized integration handoff",
+          "score": 2,
+          "rationale": "All steps proposed_not_executed; implementation requires separate request, no installation/credentials/provider operation.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-11/answer-en.md"
+        },
+        {
+          "dimension": "Privacy and permission",
+          "score": 2,
+          "rationale": "Isolated synthetic trial preserves authoritative data and job queues; no private/production data exposed.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-DEV-11/answer-en.md"
+        }
+      ],
+      "total": 20,
+      "critical_dimension_pass": true,
+      "critical_failures": [],
+      "rubric_proxy_pass": true,
+      "proposed_vs_executed": "proposed_not_executed; source evaluation/isolated synthetic validation only; no integration/install/provider/network operation by composition",
+      "input_projection": {
+        "normalization_applied": false,
+        "raw_answer_sha256": "b703ab1d89dfd2ecb652e63908c98ba3ffb44e6ea31c9cfabcaf1d5c18b52f2c",
+        "projected_answer_sha256": "b703ab1d89dfd2ecb652e63908c98ba3ffb44e6ea31c9cfabcaf1d5c18b52f2c"
+      }
+    },
+    {
+      "case_id": "CP04-HOLD-12",
+      "human_calibration_case_id": "HU-SECONDARY-DEDUPE",
+      "locale": "ru",
+      "answer_path": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-12/answer-ru.md",
+      "answer_sha256": "536e7c53bb37411b2e8a271dfeede4bbe362c39eae6631fc2b15058f98b96945",
+      "canonical_result_sha256": "9ed928f1b83a3d10f1a697d358e5c8d518ae377dd5e9bff8f9e3af63fd306464",
+      "source_card_index_policy_pins": {
+        "activity_schema_version": "2.0.0",
+        "card_schema_version": "2.0.0",
+        "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+        "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+        "corpus_kind": "catalog_snapshot",
+        "index_format_version": 3,
+        "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+        "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+        "retrieval_policy_version": "2.1.0",
+        "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+        "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+      },
+      "candidate_ids_and_order": [
+        899407931,
+        895291604,
+        749126547,
+        787076358,
+        872119017,
+        651517185,
+        911256711,
+        966718614,
+        798201435,
+        1165277268,
+        905004409,
+        951224571
+      ],
+      "recommended_ids": [
+        787076358,
+        899407931
+      ],
+      "evidence_urls": [
+        "https://github.com/firecrawl/firecrawl",
+        "https://github.com/firecrawl/firecrawl-mcp-server"
+      ],
+      "planning_sha256": "2433b670c61c97815bf2b8877d831763d443fcc57afb9ec10b9862783b1334e9",
+      "dimensions": [
+        {
+          "dimension": "Context interpretation",
+          "score": 2,
+          "rationale": "Web search/extraction without secondary-category duplicates matches goal; asks search-discovery versus given URLs.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-12/answer-ru.md"
+        },
+        {
+          "dimension": "Category relevance",
+          "score": 2,
+          "rationale": "Core extraction/search and optional MCP adapter are separate ingestion architecture roles.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-12/answer-ru.md"
+        },
+        {
+          "dimension": "Shortlist fit and roles",
+          "score": 2,
+          "rationale": "Firecrawl counted once despite alias/secondary memberships; document deduplication not inferred from recommendation deduplication.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-12/answer-ru.md"
+        },
+        {
+          "dimension": "Avoid/defer quality",
+          "score": 2,
+          "rationale": "No-network scenario permits only source/synthetic contract qualification; licensing/features/current-path sufficiency can change preference.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-12/answer-ru.md"
+        },
+        {
+          "dimension": "Evidence/provenance/activity clarity",
+          "score": 2,
+          "rationale": "Current host reads versus dated catalog separated; primary AGPL/core versus MIT SDK/UI and adapter snapshot roles preserved with both URLs.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-12/answer-ru.md"
+        },
+        {
+          "dimension": "Caveats and missing context",
+          "score": 2,
+          "rationale": "Keyless hosted rate limits do not remove network; crawl/map/agent key prerequisite and self-host feature parity uncertainty are explicit.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-12/answer-ru.md"
+        },
+        {
+          "dimension": "Integration/validation usefulness",
+          "score": 2,
+          "rationale": "Synthetic Markdown/JSON, source-link and duplicate-rule criteria are bounded; no live extraction or MCP activation claimed.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-12/answer-ru.md"
+        },
+        {
+          "dimension": "Plain-language decision support",
+          "score": 2,
+          "rationale": "Equivalent extraction scope, maintenance/dependency costs, existing/custom alternatives and hypothetical 4-8-hour first-check budget are clear; full effort unknown.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-12/answer-ru.md"
+        },
+        {
+          "dimension": "Authorized integration handoff",
+          "score": 2,
+          "rationale": "Only proposed_not_executed contract checks; installation, credentials, provider use and integration need separate request.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-12/answer-ru.md"
+        },
+        {
+          "dimension": "Privacy and permission",
+          "score": 2,
+          "rationale": "No-network/private-data boundaries maintained, isolated trial does not change authoritative data or queue.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-12/answer-ru.md"
+        }
+      ],
+      "total": 20,
+      "critical_dimension_pass": true,
+      "critical_failures": [],
+      "rubric_proxy_pass": true,
+      "proposed_vs_executed": "proposed_not_executed; source evaluation/isolated synthetic validation only; no integration/install/provider/network operation by composition",
+      "input_projection": {
+        "normalization_applied": false,
+        "raw_answer_sha256": "5b21f442fa1e1a18c990def8845e79bd23e8db1da1eca27471af75ecb8962395",
+        "projected_answer_sha256": "5b21f442fa1e1a18c990def8845e79bd23e8db1da1eca27471af75ecb8962395"
+      }
+    },
+    {
+      "case_id": "CP04-HOLD-12",
+      "human_calibration_case_id": "HU-SECONDARY-DEDUPE",
+      "locale": "en",
+      "answer_path": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-12/answer-en.md",
+      "answer_sha256": "843a297befc6a5b9dbd64f28190e756e64dc02befc36c0e02e205806b299769b",
+      "canonical_result_sha256": "9ed928f1b83a3d10f1a697d358e5c8d518ae377dd5e9bff8f9e3af63fd306464",
+      "source_card_index_policy_pins": {
+        "activity_schema_version": "2.0.0",
+        "card_schema_version": "2.0.0",
+        "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+        "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+        "corpus_kind": "catalog_snapshot",
+        "index_format_version": 3,
+        "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+        "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+        "retrieval_policy_version": "2.1.0",
+        "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+        "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+      },
+      "candidate_ids_and_order": [
+        899407931,
+        895291604,
+        749126547,
+        787076358,
+        872119017,
+        651517185,
+        911256711,
+        966718614,
+        798201435,
+        1165277268,
+        905004409,
+        951224571
+      ],
+      "recommended_ids": [
+        787076358,
+        899407931
+      ],
+      "evidence_urls": [
+        "https://github.com/firecrawl/firecrawl",
+        "https://github.com/firecrawl/firecrawl-mcp-server"
+      ],
+      "planning_sha256": "2433b670c61c97815bf2b8877d831763d443fcc57afb9ec10b9862783b1334e9",
+      "dimensions": [
+        {
+          "dimension": "Context interpretation",
+          "score": 2,
+          "rationale": "Web search/extraction without secondary-category duplicates matches goal; asks search-discovery versus given URLs.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-12/answer-en.md"
+        },
+        {
+          "dimension": "Category relevance",
+          "score": 2,
+          "rationale": "Core extraction/search and optional MCP adapter are separate ingestion architecture roles.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-12/answer-en.md"
+        },
+        {
+          "dimension": "Shortlist fit and roles",
+          "score": 2,
+          "rationale": "Firecrawl counted once despite alias/secondary memberships; document deduplication not inferred from recommendation deduplication.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-12/answer-en.md"
+        },
+        {
+          "dimension": "Avoid/defer quality",
+          "score": 2,
+          "rationale": "No-network scenario permits only source/synthetic contract qualification; licensing/features/current-path sufficiency can change preference.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-12/answer-en.md"
+        },
+        {
+          "dimension": "Evidence/provenance/activity clarity",
+          "score": 2,
+          "rationale": "Current host reads versus dated catalog separated; primary AGPL/core versus MIT SDK/UI and adapter snapshot roles preserved with both URLs.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-12/answer-en.md"
+        },
+        {
+          "dimension": "Caveats and missing context",
+          "score": 2,
+          "rationale": "Keyless hosted rate limits do not remove network; crawl/map/agent key prerequisite and self-host feature parity uncertainty are explicit.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-12/answer-en.md"
+        },
+        {
+          "dimension": "Integration/validation usefulness",
+          "score": 2,
+          "rationale": "Synthetic Markdown/JSON, source-link and duplicate-rule criteria are bounded; no live extraction or MCP activation claimed.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-12/answer-en.md"
+        },
+        {
+          "dimension": "Plain-language decision support",
+          "score": 2,
+          "rationale": "Equivalent extraction scope, maintenance/dependency costs, existing/custom alternatives and hypothetical 4-8-hour first-check budget are clear; full effort unknown.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-12/answer-en.md"
+        },
+        {
+          "dimension": "Authorized integration handoff",
+          "score": 2,
+          "rationale": "Only proposed_not_executed contract checks; installation, credentials, provider use and integration need separate request.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-12/answer-en.md"
+        },
+        {
+          "dimension": "Privacy and permission",
+          "score": 2,
+          "rationale": "No-network/private-data boundaries maintained, isolated trial does not change authoritative data or queue.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-current-calibration-2026-10-11/CP04-HOLD-12/answer-en.md"
+        }
+      ],
+      "total": 20,
+      "critical_dimension_pass": true,
+      "critical_failures": [],
+      "rubric_proxy_pass": true,
+      "proposed_vs_executed": "proposed_not_executed; source evaluation/isolated synthetic validation only; no integration/install/provider/network operation by composition",
+      "input_projection": {
+        "normalization_applied": false,
+        "raw_answer_sha256": "8a3332cd39af97cfd35ec1aa89ff3fe17472bf2790a6309f58900c0bc62e19f9",
+        "projected_answer_sha256": "8a3332cd39af97cfd35ec1aa89ff3fe17472bf2790a6309f58900c0bc62e19f9"
+      }
+    }
+  ],
+  "paired_meaning_review": [
+    {
+      "case_id": "CP04-DEV-08",
+      "human_calibration_case_id": "HU-FOUNDER-PAIRED",
+      "semantic_equivalence": true,
+      "canonical_result_sha256": "8f791e4b2698fd563798a41c07ebb804d2c3b9531eac2c410e60b97f7e1049ff",
+      "same_recommended_ids": true,
+      "same_urls": true,
+      "same_planning_binding": true,
+      "checked_fields": [
+        "roles and component boundaries",
+        "dates and activity unknowns",
+        "negations and conditional preference",
+        "license/provider prerequisites",
+        "hypothetical first-validation numbers and full effort unknown",
+        "source versus dated snapshot",
+        "rollback isolation",
+        "proposed versus executed authority"
+      ],
+      "findings": [],
+      "limitation": "Two composed locale answers plus explicit deterministic projection reviewed; actual UI locale switching and no-call behavior not observed here."
+    },
+    {
+      "case_id": "CP04-HOLD-10",
+      "human_calibration_case_id": "HU-ENGINEER-PAIRED",
+      "semantic_equivalence": true,
+      "canonical_result_sha256": "4a1c6688c325ed7dc32b1fcee276d54430566ff24502e637a6006573e507f66c",
+      "same_recommended_ids": true,
+      "same_urls": true,
+      "same_planning_binding": true,
+      "checked_fields": [
+        "roles and component boundaries",
+        "dates and activity unknowns",
+        "negations and conditional preference",
+        "license/provider prerequisites",
+        "hypothetical first-validation numbers and full effort unknown",
+        "source versus dated snapshot",
+        "rollback isolation",
+        "proposed versus executed authority"
+      ],
+      "findings": [],
+      "limitation": "Two composed locale answers plus explicit deterministic projection reviewed; actual UI locale switching and no-call behavior not observed here."
+    },
+    {
+      "case_id": "CP04-DEV-11",
+      "human_calibration_case_id": "HU-ACTIVITY-UNKNOWN",
+      "semantic_equivalence": true,
+      "canonical_result_sha256": "648d199e0eeed8f4cafd48e6e8ace21bfaa9bc766afe85a62e850de2e785df07",
+      "same_recommended_ids": true,
+      "same_urls": true,
+      "same_planning_binding": true,
+      "checked_fields": [
+        "roles and component boundaries",
+        "dates and activity unknowns",
+        "negations and conditional preference",
+        "license/provider prerequisites",
+        "hypothetical first-validation numbers and full effort unknown",
+        "source versus dated snapshot",
+        "rollback isolation",
+        "proposed versus executed authority"
+      ],
+      "findings": [],
+      "limitation": "Two composed locale answers plus explicit deterministic projection reviewed; actual UI locale switching and no-call behavior not observed here."
+    },
+    {
+      "case_id": "CP04-HOLD-12",
+      "human_calibration_case_id": "HU-SECONDARY-DEDUPE",
+      "semantic_equivalence": true,
+      "canonical_result_sha256": "9ed928f1b83a3d10f1a697d358e5c8d518ae377dd5e9bff8f9e3af63fd306464",
+      "same_recommended_ids": true,
+      "same_urls": true,
+      "same_planning_binding": true,
+      "checked_fields": [
+        "roles and component boundaries",
+        "dates and activity unknowns",
+        "negations and conditional preference",
+        "license/provider prerequisites",
+        "hypothetical first-validation numbers and full effort unknown",
+        "source versus dated snapshot",
+        "rollback isolation",
+        "proposed versus executed authority"
+      ],
+      "findings": [],
+      "limitation": "Two composed locale answers plus explicit deterministic projection reviewed; actual UI locale switching and no-call behavior not observed here."
+    }
+  ],
+  "summary": {
+    "answers_reviewed": 8,
+    "semantic_pairs": 4,
+    "minimum_total": 20,
+    "critical_failures": 0,
+    "critical_dimensions_passed": 8,
+    "all_rubric_proxy_pass": true,
+    "actual_human_acceptance": false,
+    "promotion_ready": false
+  },
+  "retained_gaps": [
+    "Agent scores do not establish human usefulness or human calibration.",
+    "Interpretations are provided fixed formal queries; autonomous context interpretation not observed.",
+    "Current actual eight composition outputs use paired canonical capture; deterministic locale projection is disclosed, raw outputs immutable.",
+    "No browser locale-switch/no-call journey, save/publish recovery or production/provider operation observed.",
+    "Planning budgets are hypothetical first-check estimates, not measured adoption time or delivery forecasts.",
+    "Product scores were not read before this receipt; agreement requires root reconciliation."
+  ],
+  "adjudication": {
+    "status": "awaiting_independent_product_comparison",
+    "original_scores_preserved": true
+  }
+}

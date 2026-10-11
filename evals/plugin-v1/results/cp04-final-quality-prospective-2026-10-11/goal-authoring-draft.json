@@ -1,0 +1,907 @@
+{
+  "schema_version": "cp04_prospective_goal_draft_v1",
+  "authoring": "New functional goals chosen from accepted route coverage before any prospective ranks; source role grading still in progress.",
+  "prior_exposed_unique_ids": 357,
+  "semantic_judgments": 244,
+  "unique_ids": 244,
+  "disjoint_from_prior_two_suite_ids": 159,
+  "source_seen_ids": 85,
+  "globally_unseen_repositories": false,
+  "goals": [
+    {
+      "case_id": "PROSPECTIVE-HOLD-01",
+      "route": "code_quality",
+      "goal": "Find Python source problems before merging changes; Python lint tools are primary, formatters/hooks/duplicate detectors support the check, and other-language-only type or lint workflows have distinct roles.",
+      "terms": [
+        "python",
+        "lint",
+        "source code"
+      ],
+      "intent": {
+        "required_groups": [
+          [
+            "python"
+          ],
+          [
+            "lint"
+          ]
+        ],
+        "context_terms": [
+          "source code"
+        ]
+      },
+      "language": "en",
+      "universe_ids": [
+        1222504,
+        6093316,
+        6731432,
+        10353211,
+        11061773,
+        17689377,
+        75104123,
+        125266328,
+        304830226,
+        523043277,
+        671654508
+      ],
+      "source_seen_ids": [],
+      "source_disjoint_ids": [
+        1222504,
+        6093316,
+        6731432,
+        10353211,
+        11061773,
+        17689377,
+        75104123,
+        125266328,
+        304830226,
+        523043277,
+        671654508
+      ]
+    },
+    {
+      "case_id": "PROSPECTIVE-HOLD-02",
+      "route": "unit_component_testing",
+      "goal": "Test pure JavaScript functions in isolation; JavaScript unit-test frameworks are primary and DOM/component test utilities are supporting tools. Other language test stacks solve a different integration task.",
+      "terms": [
+        "unit testing",
+        "javascript",
+        "functions"
+      ],
+      "intent": {
+        "required_groups": [
+          [
+            "unit testing"
+          ],
+          [
+            "javascript"
+          ]
+        ],
+        "context_terms": [
+          "functions"
+        ]
+      },
+      "language": "en",
+      "universe_ids": [
+        84009,
+        1451352,
+        6247705,
+        12332444,
+        15062869,
+        26820798,
+        29102367,
+        37489525,
+        39840932,
+        83229186,
+        125863507,
+        128396076,
+        434708679
+      ],
+      "source_seen_ids": [],
+      "source_disjoint_ids": [
+        84009,
+        1451352,
+        6247705,
+        12332444,
+        15062869,
+        26820798,
+        29102367,
+        37489525,
+        39840932,
+        83229186,
+        125863507,
+        128396076,
+        434708679
+      ]
+    },
+    {
+      "case_id": "PROSPECTIVE-HOLD-03",
+      "route": "file_management_sync",
+      "goal": "Keep a folder synchronized between two devices under our control; continuous sync engines are preferred, hosted sync servers and manual transfer are alternatives, and file managers or protocol bridges support file handling.",
+      "terms": [
+        "file",
+        "synchronization",
+        "devices"
+      ],
+      "intent": {
+        "required_groups": [
+          [
+            "synchronization"
+          ]
+        ],
+        "context_terms": [
+          "file",
+          "devices"
+        ]
+      },
+      "language": "en",
+      "universe_ids": [
+        4999959,
+        5550552,
+        14712850,
+        42332863,
+        60243197,
+        188700274,
+        323965659,
+        410749029,
+        578822531,
+        663900193,
+        895547074
+      ],
+      "source_seen_ids": [],
+      "source_disjoint_ids": [
+        4999959,
+        5550552,
+        14712850,
+        42332863,
+        60243197,
+        188700274,
+        323965659,
+        410749029,
+        578822531,
+        663900193,
+        895547074
+      ]
+    },
+    {
+      "case_id": "PROSPECTIVE-HOLD-04",
+      "route": "frontend_state_data",
+      "goal": "Share and update local application state across React components; state stores are primary, immutable update helpers are supporting, server-query caches are a different supporting state domain, and routing is a separate role.",
+      "terms": [
+        "state management",
+        "React",
+        "shared"
+      ],
+      "intent": {
+        "required_groups": [
+          [
+            "state management"
+          ],
+          [
+            "React"
+          ]
+        ],
+        "context_terms": [
+          "shared"
+        ]
+      },
+      "language": "en",
+      "universe_ids": [
+        36535156,
+        115720575,
+        123732482,
+        165670309,
+        180328715,
+        207645083,
+        286867459,
+        304120355,
+        685274424
+      ],
+      "source_seen_ids": [],
+      "source_disjoint_ids": [
+        36535156,
+        115720575,
+        123732482,
+        165670309,
+        180328715,
+        207645083,
+        286867459,
+        304120355,
+        685274424
+      ]
+    },
+    {
+      "case_id": "PROSPECTIVE-HOLD-05",
+      "route": "financial_market_tools",
+      "goal": "Evaluate historical strategy backtesting using synthetic or permitted historical data without placing trades. Backtest engines are primary; market-analysis and data tools support research; execution bridges require separate authorization and are not backtest engines.",
+      "terms": [
+        "backtesting",
+        "strategy",
+        "historical data"
+      ],
+      "intent": {
+        "required_groups": [
+          [
+            "backtesting"
+          ]
+        ],
+        "context_terms": [
+          "strategy",
+          "historical data"
+        ]
+      },
+      "language": "en",
+      "universe_ids": [
+        31522041,
+        91253698,
+        91629816,
+        816848129,
+        849406496,
+        896144595,
+        944516885,
+        963828488,
+        995562554,
+        1034736943,
+        1081891045,
+        1131513930,
+        1195329660
+      ],
+      "source_seen_ids": [],
+      "source_disjoint_ids": [
+        31522041,
+        91253698,
+        91629816,
+        816848129,
+        849406496,
+        896144595,
+        944516885,
+        963828488,
+        995562554,
+        1034736943,
+        1081891045,
+        1131513930,
+        1195329660
+      ]
+    },
+    {
+      "case_id": "PROSPECTIVE-HOLD-06",
+      "route": "documentation_site_generators",
+      "goal": "Maintain independently navigable documentation for multiple released product versions from Markdown; version-aware documentation generators are preferred, generic prose/site generation supports a manual version-publication workflow, and latest-only API reference is insufficient by itself.",
+      "terms": [
+        "versioned",
+        "documentation",
+        "Markdown"
+      ],
+      "intent": {
+        "required_groups": [
+          [
+            "versioned"
+          ],
+          [
+            "documentation"
+          ]
+        ],
+        "context_terms": [
+          "Markdown"
+        ]
+      },
+      "language": "en",
+      "universe_ids": [
+        65252,
+        11180687,
+        12820537,
+        15830664,
+        50617428,
+        94911145,
+        260338399,
+        614933136
+      ],
+      "source_seen_ids": [
+        65252,
+        11180687,
+        12820537,
+        15830664,
+        50617428,
+        94911145,
+        260338399,
+        614933136
+      ],
+      "source_disjoint_ids": []
+    },
+    {
+      "case_id": "PROSPECTIVE-HOLD-07",
+      "route": "communications_personal_ops",
+      "goal": "Host asynchronous team text conversations with persistent discussion context; team-chat applications are primary, clients/homeservers and messaging bridges support the architecture, while live meetings, calendars and personal-device data tools have different primary roles.",
+      "terms": [
+        "team chat",
+        "asynchronous",
+        "messages"
+      ],
+      "intent": {
+        "required_groups": [
+          [
+            "team chat"
+          ],
+          [
+            "messages"
+          ]
+        ],
+        "context_terms": [
+          "asynchronous"
+        ]
+      },
+      "language": "en",
+      "universe_ids": [
+        684382,
+        15225670,
+        26661222,
+        31670053,
+        35866694,
+        37448451,
+        39487546,
+        43160685,
+        79585104,
+        110445107,
+        120541771,
+        144494851,
+        253182958,
+        326059244,
+        350360184,
+        372296109,
+        575865240,
+        731190011,
+        898004429,
+        928857407,
+        943286066,
+        945223589,
+        951958279,
+        960342594,
+        965085580,
+        973788136,
+        992325192,
+        1003342581,
+        1121557390,
+        1143312686,
+        1168978399,
+        1173545104
+      ],
+      "source_seen_ids": [
+        684382,
+        15225670,
+        26661222,
+        31670053,
+        35866694,
+        37448451,
+        39487546,
+        43160685,
+        79585104,
+        110445107,
+        120541771,
+        144494851,
+        253182958,
+        326059244,
+        350360184,
+        372296109,
+        575865240,
+        731190011,
+        898004429,
+        928857407,
+        943286066,
+        945223589,
+        951958279,
+        960342594,
+        965085580,
+        973788136,
+        992325192,
+        1003342581,
+        1121557390,
+        1143312686,
+        1168978399,
+        1173545104
+      ],
+      "source_disjoint_ids": []
+    },
+    {
+      "case_id": "PROSPECTIVE-HOLD-08",
+      "route": "subscription_billing",
+      "goal": "Collect usage events and calculate usage-based charges for a SaaS service; metering/billing infrastructure is primary, subscription/payment and invoicing components are alternatives or supporting layers, and mobile receipt checks or unrelated time/energy apps are different workflows.",
+      "terms": [
+        "usage-based billing",
+        "metering",
+        "events"
+      ],
+      "intent": {
+        "required_groups": [
+          [
+            "usage-based billing"
+          ],
+          [
+            "metering"
+          ]
+        ],
+        "context_terms": [
+          "events"
+        ]
+      },
+      "language": "en",
+      "universe_ids": [
+        6325420,
+        7239495,
+        11901762,
+        17388759,
+        18471236,
+        19971572,
+        22337952,
+        27529089,
+        114730000,
+        139323243,
+        175471189,
+        373845609,
+        374072543,
+        464415161,
+        493550477,
+        516192901,
+        611669523,
+        621902641,
+        650344440,
+        666069735,
+        764642350,
+        883769819,
+        919664598,
+        932308018,
+        978384239,
+        1034520943,
+        1153120067,
+        1203556545
+      ],
+      "source_seen_ids": [],
+      "source_disjoint_ids": [
+        6325420,
+        7239495,
+        11901762,
+        17388759,
+        18471236,
+        19971572,
+        22337952,
+        27529089,
+        114730000,
+        139323243,
+        175471189,
+        373845609,
+        374072543,
+        464415161,
+        493550477,
+        516192901,
+        611669523,
+        621902641,
+        650344440,
+        666069735,
+        764642350,
+        883769819,
+        919664598,
+        932308018,
+        978384239,
+        1034520943,
+        1153120067,
+        1203556545
+      ]
+    },
+    {
+      "case_id": "PROSPECTIVE-HOLD-09",
+      "route": "project_task_management",
+      "goal": "Команде нужен учёт затраченного времени по work items и отчётность о трудозатратах. Подтверждённый time tracking — основная роль; task boards и project platforms без подтверждённого учёта времени остаются ограниченными supporting components, а connector не заменяет приложение.",
+      "terms": [
+        "учёт времени",
+        "time tracking",
+        "work items"
+      ],
+      "intent": {
+        "required_groups": [
+          [
+            "учёт времени"
+          ],
+          [
+            "time tracking"
+          ]
+        ],
+        "context_terms": [
+          "work items"
+        ]
+      },
+      "language": "ru",
+      "universe_ids": [
+        6899875,
+        16089035,
+        16238673,
+        29745084,
+        159556794,
+        301793434,
+        357894794,
+        568098118,
+        583598619,
+        897809208,
+        1030580992
+      ],
+      "source_seen_ids": [
+        6899875,
+        16089035,
+        16238673,
+        29745084,
+        159556794,
+        301793434,
+        357894794,
+        568098118,
+        583598619,
+        897809208,
+        1030580992
+      ],
+      "source_disjoint_ids": []
+    },
+    {
+      "case_id": "PROSPECTIVE-HOLD-10",
+      "route": "data_processing_compute",
+      "goal": "Transform local tabular batches using Python DataFrames; DataFrame libraries are primary, distributed or SQL compute engines are alternatives, columnar interchange and stream engines support adjacent processing stages.",
+      "terms": [
+        "dataframe",
+        "batch",
+        "Python"
+      ],
+      "intent": {
+        "required_groups": [
+          [
+            "dataframe"
+          ],
+          [
+            "Python"
+          ]
+        ],
+        "context_terms": [
+          "batch"
+        ]
+      },
+      "language": "en",
+      "universe_ids": [
+        858127,
+        5349565,
+        17165658,
+        20587599,
+        24528468,
+        28782747,
+        51905353,
+        71932349,
+        166515022,
+        263727855,
+        455655192,
+        485548415,
+        571186647
+      ],
+      "source_seen_ids": [],
+      "source_disjoint_ids": [
+        858127,
+        5349565,
+        17165658,
+        20587599,
+        24528468,
+        28782747,
+        51905353,
+        71932349,
+        166515022,
+        263727855,
+        455655192,
+        485548415,
+        571186647
+      ]
+    },
+    {
+      "case_id": "PROSPECTIVE-HOLD-11",
+      "route": "database_engines",
+      "goal": "Run SQL analytics over local files within an application process; embedded SQL analytics is preferred, an embedded general SQL engine is an alternative, server SQL/analytical stores require a separate service, and document/mobile object stores have different primary roles.",
+      "terms": [
+        "embedded",
+        "SQL",
+        "analytics",
+        "local files"
+      ],
+      "intent": {
+        "required_groups": [
+          [
+            "embedded"
+          ],
+          [
+            "SQL"
+          ],
+          [
+            "analytics"
+          ]
+        ],
+        "context_terms": [
+          "local files"
+        ]
+      },
+      "language": "en",
+      "universe_ids": [
+        108110,
+        206417,
+        206424,
+        927442,
+        4044891,
+        6452529,
+        13124802,
+        16563587,
+        19257422,
+        19816070,
+        24494032,
+        28449431,
+        41986369,
+        60246359,
+        84240850,
+        105944401,
+        114187903,
+        138754790,
+        143344440,
+        176278485,
+        235075339,
+        422821402,
+        436658287,
+        480217156
+      ],
+      "source_seen_ids": [],
+      "source_disjoint_ids": [
+        108110,
+        206417,
+        206424,
+        927442,
+        4044891,
+        6452529,
+        13124802,
+        16563587,
+        19257422,
+        19816070,
+        24494032,
+        28449431,
+        41986369,
+        60246359,
+        84240850,
+        105944401,
+        114187903,
+        138754790,
+        143344440,
+        176278485,
+        235075339,
+        422821402,
+        436658287,
+        480217156
+      ]
+    },
+    {
+      "case_id": "PROSPECTIVE-HOLD-12",
+      "route": "backend_frameworks",
+      "goal": "A Python application needs long-lived WebSocket connection handling; Python ASGI frameworks with documented WebSockets are primary, Python HTTP/framework stacks are supporting hosts requiring separate realtime components, and non-Python stacks do not satisfy the language role.",
+      "terms": [
+        "Python",
+        "WebSocket",
+        "ASGI"
+      ],
+      "intent": {
+        "required_groups": [
+          [
+            "Python"
+          ],
+          [
+            "WebSocket"
+          ]
+        ],
+        "context_terms": [
+          "ASGI"
+        ]
+      },
+      "language": "en",
+      "universe_ids": [
+        8514,
+        237159,
+        458058,
+        596892,
+        1148753,
+        1863329,
+        1864194,
+        2609642,
+        4164482,
+        6296790,
+        7548986,
+        11551538,
+        16072585,
+        17620347,
+        20904437,
+        31504491,
+        40136600,
+        40772809,
+        44344606,
+        69495170,
+        75505125,
+        78452015,
+        80945428,
+        105379569,
+        124230204,
+        138597372,
+        139914932,
+        160919119,
+        234231371,
+        372172254,
+        394929332,
+        435625572,
+        438384984,
+        952098631
+      ],
+      "source_seen_ids": [
+        8514,
+        237159,
+        458058,
+        596892,
+        1148753,
+        1863329,
+        1864194,
+        2609642,
+        4164482,
+        6296790,
+        7548986,
+        11551538,
+        16072585,
+        17620347,
+        20904437,
+        31504491,
+        40136600,
+        40772809,
+        44344606,
+        69495170,
+        75505125,
+        78452015,
+        80945428,
+        105379569,
+        124230204,
+        138597372,
+        139914932,
+        160919119,
+        234231371,
+        372172254,
+        394929332,
+        435625572,
+        438384984,
+        952098631
+      ],
+      "source_disjoint_ids": []
+    },
+    {
+      "case_id": "PROSPECTIVE-HOLD-13",
+      "route": "network_proxies_gateways",
+      "goal": "Put an HTTPS reverse proxy in front of existing application services; application proxies/load balancers are primary, API gateways or service meshes are alternatives, request clients support validation, and DNS ad-blocking/outbound-proxy GUIs are different roles.",
+      "terms": [
+        "reverse proxy",
+        "HTTPS",
+        "application"
+      ],
+      "intent": {
+        "required_groups": [
+          [
+            "reverse proxy"
+          ],
+          [
+            "HTTPS"
+          ]
+        ],
+        "context_terms": [
+          "application"
+        ]
+      },
+      "language": "en",
+      "universe_ids": [
+        569041,
+        3544424,
+        19537979,
+        20619036,
+        26783295,
+        29207621,
+        37912398,
+        42408804,
+        48378947,
+        65214191,
+        74175805,
+        112944063,
+        128791889,
+        180481986,
+        519895363,
+        721767116,
+        970267776
+      ],
+      "source_seen_ids": [],
+      "source_disjoint_ids": [
+        569041,
+        3544424,
+        19537979,
+        20619036,
+        26783295,
+        29207621,
+        37912398,
+        42408804,
+        48378947,
+        65214191,
+        74175805,
+        112944063,
+        128791889,
+        180481986,
+        519895363,
+        721767116,
+        970267776
+      ]
+    },
+    {
+      "case_id": "PROSPECTIVE-HOLD-14",
+      "route": "software_supply_chain_security",
+      "goal": "Generate or inspect a software dependency inventory/SBOM and check dependency vulnerabilities before shipping an artifact; SBOM/composition tools are primary, package scanners are alternatives, integrity/provenance and source analysis support separate steps, and credential-only scans do not establish dependency inventory.",
+      "terms": [
+        "SBOM",
+        "dependencies",
+        "vulnerabilities"
+      ],
+      "intent": {
+        "required_groups": [
+          [
+            "SBOM"
+          ],
+          [
+            "dependencies"
+          ]
+        ],
+        "context_terms": [
+          "vulnerabilities"
+        ]
+      },
+      "language": "en",
+      "universe_ids": [
+        5663857,
+        11457947,
+        45247496,
+        59531400,
+        63625434,
+        77726177,
+        119190187,
+        131129792,
+        180687624,
+        227803815,
+        239106765,
+        262126497,
+        267054247,
+        272963353,
+        302670797,
+        335952417,
+        565629124,
+        950213855,
+        1062952726,
+        1244911834
+      ],
+      "source_seen_ids": [],
+      "source_disjoint_ids": [
+        5663857,
+        11457947,
+        45247496,
+        59531400,
+        63625434,
+        77726177,
+        119190187,
+        131129792,
+        180687624,
+        227803815,
+        239106765,
+        262126497,
+        267054247,
+        272963353,
+        302670797,
+        335952417,
+        565629124,
+        950213855,
+        1062952726,
+        1244911834
+      ]
+    }
+  ],
+  "ranked_capture_count": 0
+}

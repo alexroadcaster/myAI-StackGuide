@@ -1,0 +1,389 @@
+{
+  "schema_version": "cp04_qualified_failure_analysis_v1",
+  "verdict": "no_go",
+  "promotion_ready": false,
+  "evidence_ceiling": "Complete source-qualified exposed snapshot-fit regression, not fresh unseen/product/human/current-adoption acceptance. Numerical grades owned by Quality Evaluator agent proxy; reviewer approved factual role support only.",
+  "qualified_plan_sha256": "8f6f9b57fab0538a3203fd745511015215aeecbfdf8bd8de81bbac4cac160684",
+  "source_review_sha256": "6476da89297a8f2d6af1dbcaba2673d17b8448817248706c53b12dccc082783e",
+  "pins": {
+    "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+    "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+    "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+    "index_sha256": "9678f5e265e4e3a33df3818f94c509c60728e994051ee72ec2050b0b093306c4",
+    "policy_sha256": "ff6e8444c4664492bb099f0819b2d284aa5c28f0d44c7a745c63f434c3489dbf",
+    "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f",
+    "card_schema_version": "2.0.0",
+    "activity_schema_version": "2.0.0",
+    "index_format_version": 3,
+    "retrieval_policy_version": "2.1.0",
+    "corpus_kind": "catalog_snapshot"
+  },
+  "failed_requirements": [
+    {
+      "case_id": "FINAL-HOLD-02",
+      "case_sha256": "ea7b2fac142e9d67604397fe58344ab1add43cbf30627177905bb6dd7305a4eb",
+      "query_sha256": "688d4c5d9dd7909adaf61f6030c9da4be3b074a8019a4cbbcd970327f61f0631",
+      "candidate_ranking": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 0.5789473684210527,
+          "ndcg_at_k": 0.7787768215803351,
+          "relevant_count": 19
+        },
+        "unjudged_ids": []
+      },
+      "original_literal_ranking": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 0.5789473684210527,
+          "ndcg_at_k": 0.7978919450584367,
+          "relevant_count": 19
+        },
+        "unjudged_ids": []
+      },
+      "raw_pool_count": 30,
+      "positive_count": 19,
+      "missing_positive_top12": [
+        {
+          "github_repository_id": 17420614,
+          "full_name": "seleniumbase/SeleniumBase",
+          "grade": 2,
+          "raw_rank": 13
+        },
+        {
+          "github_repository_id": 31629751,
+          "full_name": "cypress-io/cypress",
+          "grade": 2,
+          "raw_rank": 17
+        },
+        {
+          "github_repository_id": 61308714,
+          "full_name": "serenity-js/serenity-js",
+          "grade": 2,
+          "raw_rank": 16
+        },
+        {
+          "github_repository_id": 125568868,
+          "full_name": "symfony/panther",
+          "grade": 2,
+          "raw_rank": 19
+        },
+        {
+          "github_repository_id": 175869201,
+          "full_name": "NoriSte/ui-testing-best-practices",
+          "grade": 1,
+          "raw_rank": 21
+        },
+        {
+          "github_repository_id": 232162578,
+          "full_name": "cypress-io/cypress-realworld-app",
+          "grade": 1,
+          "raw_rank": 24
+        },
+        {
+          "github_repository_id": 486525050,
+          "full_name": "microsoft/HydraLab",
+          "grade": 1,
+          "raw_rank": 14
+        },
+        {
+          "github_repository_id": 832452447,
+          "full_name": "web-infra-dev/midscene",
+          "grade": 2,
+          "raw_rank": 18
+        }
+      ],
+      "zero_grade_top12": [
+        80435465
+      ],
+      "threshold_floor": {
+        "recall": 0.6,
+        "ndcg": 0.5
+      },
+      "cause": "Retrieved pool covers all19 positives, but pure OR BM25/RRF top12 has11 positives plus mobile-only Cavy; relevant8 below cutoff. Category/topic lexical hits do not establish browser task fit."
+    },
+    {
+      "case_id": "FINAL-HOLD-09",
+      "case_sha256": "0be2999844b1c4f775424009dab9e54c113e75bc4c40f7633da95266af09339e",
+      "query_sha256": "593bac86501e97fa7e21b73303f54f51adf36537b6db17fc464dceaf4a338d16",
+      "candidate_ranking": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 0.36363636363636365,
+          "ndcg_at_k": 0.5744342725440797,
+          "relevant_count": 11
+        },
+        "unjudged_ids": []
+      },
+      "original_literal_ranking": {
+        "valid": true,
+        "reason": null,
+        "ranking": {
+          "recall_at_k": 0.36363636363636365,
+          "ndcg_at_k": 0.6308488369440626,
+          "relevant_count": 11
+        },
+        "unjudged_ids": []
+      },
+      "raw_pool_count": 4,
+      "positive_count": 11,
+      "missing_positive_top12": [
+        {
+          "github_repository_id": 16089035,
+          "full_name": "wekan/wekan",
+          "grade": 2,
+          "raw_rank": null
+        },
+        {
+          "github_repository_id": 159556794,
+          "full_name": "go-vikunja/vikunja",
+          "grade": 2,
+          "raw_rank": null
+        },
+        {
+          "github_repository_id": 301793434,
+          "full_name": "mattermost-community/focalboard",
+          "grade": 2,
+          "raw_rank": null
+        },
+        {
+          "github_repository_id": 357894794,
+          "full_name": "taigaio/taiga-back",
+          "grade": 1,
+          "raw_rank": null
+        },
+        {
+          "github_repository_id": 568098118,
+          "full_name": "makeplane/plane",
+          "grade": 3,
+          "raw_rank": null
+        },
+        {
+          "github_repository_id": 897809208,
+          "full_name": "sooperset/mcp-atlassian",
+          "grade": 1,
+          "raw_rank": null
+        },
+        {
+          "github_repository_id": 1030580992,
+          "full_name": "atlassian/atlassian-mcp-server",
+          "grade": 1,
+          "raw_rank": null
+        }
+      ],
+      "zero_grade_top12": [],
+      "threshold_floor": {
+        "recall": 0.6,
+        "ndcg": 0.5
+      },
+      "cause": "Only agile is shared with observed English snapshot; Russian task/project terms compile unchanged with no applicable policy alias. Both FTS and original literal retrieve only4 of11 positive candidates. Preauthored interpretation lexical coverage fails, not a provider/backend failure."
+    }
+  ],
+  "candidate_macro": {
+    "recall_at_k": 0.8958988380041012,
+    "ndcg_at_k": 0.8936731045901334
+  },
+  "original_literal_macro": {
+    "recall_at_k": 0.8720893141945772,
+    "ndcg_at_k": 0.8925157143186061
+  },
+  "gate_summary": {
+    "held_out_macro_recall_at_12_min": true,
+    "baseline_non_regression_recall_at_k": true,
+    "held_out_macro_ndcg_at_12_min": true,
+    "baseline_non_regression_ndcg_at_k": true,
+    "required_strata": false,
+    "hard_constraint_violations": true,
+    "false_exclusions": true,
+    "duplicate_canonical_ids": true,
+    "alias_success_rate_min": true,
+    "evidence_pack_survival_rate_min": true,
+    "all_statuses_match": true,
+    "container_registry_coverage": true,
+    "leaf_registry_coverage": true
+  },
+  "all_capture_bindings_unchanged": {
+    "FINAL-HOLD-01": {
+      "payload_unchanged": true,
+      "query_unchanged": true,
+      "raw_ranked_ids_unchanged": true,
+      "packed_ids_unchanged": true
+    },
+    "FINAL-HOLD-02": {
+      "payload_unchanged": true,
+      "query_unchanged": true,
+      "raw_ranked_ids_unchanged": true,
+      "packed_ids_unchanged": true
+    },
+    "FINAL-HOLD-03": {
+      "payload_unchanged": true,
+      "query_unchanged": true,
+      "raw_ranked_ids_unchanged": true,
+      "packed_ids_unchanged": true
+    },
+    "FINAL-HOLD-04": {
+      "payload_unchanged": true,
+      "query_unchanged": true,
+      "raw_ranked_ids_unchanged": true,
+      "packed_ids_unchanged": true
+    },
+    "FINAL-HOLD-05": {
+      "payload_unchanged": true,
+      "query_unchanged": true,
+      "raw_ranked_ids_unchanged": true,
+      "packed_ids_unchanged": true
+    },
+    "FINAL-HOLD-06": {
+      "payload_unchanged": true,
+      "query_unchanged": true,
+      "raw_ranked_ids_unchanged": true,
+      "packed_ids_unchanged": true
+    },
+    "FINAL-HOLD-07": {
+      "payload_unchanged": true,
+      "query_unchanged": true,
+      "raw_ranked_ids_unchanged": true,
+      "packed_ids_unchanged": true
+    },
+    "FINAL-HOLD-08": {
+      "payload_unchanged": true,
+      "query_unchanged": true,
+      "raw_ranked_ids_unchanged": true,
+      "packed_ids_unchanged": true
+    },
+    "FINAL-HOLD-09": {
+      "payload_unchanged": true,
+      "query_unchanged": true,
+      "raw_ranked_ids_unchanged": true,
+      "packed_ids_unchanged": true
+    },
+    "FINAL-HOLD-10": {
+      "payload_unchanged": true,
+      "query_unchanged": true,
+      "raw_ranked_ids_unchanged": true,
+      "packed_ids_unchanged": true
+    },
+    "FINAL-HOLD-11": {
+      "payload_unchanged": true,
+      "query_unchanged": true,
+      "raw_ranked_ids_unchanged": true,
+      "packed_ids_unchanged": true
+    },
+    "FINAL-HOLD-12": {
+      "payload_unchanged": true,
+      "query_unchanged": true,
+      "raw_ranked_ids_unchanged": true,
+      "packed_ids_unchanged": true
+    },
+    "FINAL-HOLD-13": {
+      "payload_unchanged": true,
+      "query_unchanged": true,
+      "raw_ranked_ids_unchanged": true,
+      "packed_ids_unchanged": true
+    },
+    "FINAL-HOLD-14": {
+      "payload_unchanged": true,
+      "query_unchanged": true,
+      "raw_ranked_ids_unchanged": true,
+      "packed_ids_unchanged": true
+    },
+    "FINAL-ALIAS-01": {
+      "payload_unchanged": true,
+      "query_unchanged": true,
+      "raw_ranked_ids_unchanged": true,
+      "packed_ids_unchanged": true
+    }
+  },
+  "current_adoption_notes": [
+    {
+      "github_repository_id": 187961907,
+      "full_name": "gedoor/legado",
+      "source_url": "https://github.com/gedoor/legado",
+      "observed_on": "2026-10-11",
+      "primary_reported_fact": "Current default branch source listing only README and announcement image; README says project content removed.",
+      "evaluation_binding": "Snapshot historical reader role remains separate from current source availability; source-qualified ranking scores historical fit only, not current adoption readiness. Current availability unresolved/contradicted; primary answer must disclose and abstain from source-available adoption claim."
+    }
+  ],
+  "per_case_baseline_ndcg_regressions": [
+    {
+      "case_id": "FINAL-HOLD-02",
+      "candidate_ndcg": 0.7787768215803351,
+      "baseline_ndcg": 0.7978919450584367
+    },
+    {
+      "case_id": "FINAL-HOLD-06",
+      "candidate_ndcg": 0.7433811952350708,
+      "baseline_ndcg": 0.7648991727473325
+    },
+    {
+      "case_id": "FINAL-HOLD-07",
+      "candidate_ndcg": 0.8262969818870673,
+      "baseline_ndcg": 0.8338462100882492
+    },
+    {
+      "case_id": "FINAL-HOLD-09",
+      "candidate_ndcg": 0.5744342725440797,
+      "baseline_ndcg": 0.6308488369440626
+    },
+    {
+      "case_id": "FINAL-HOLD-10",
+      "candidate_ndcg": 0.9324441894571632,
+      "baseline_ndcg": 1.0
+    },
+    {
+      "case_id": "FINAL-HOLD-12",
+      "candidate_ndcg": 0.9709286432396581,
+      "baseline_ndcg": 1.0
+    },
+    {
+      "case_id": "FINAL-HOLD-14",
+      "candidate_ndcg": 0.9155803358538875,
+      "baseline_ndcg": 0.91572783264733
+    }
+  ],
+  "commands": [
+    {
+      "command": ".venv/Scripts/python.exe -B evals/plugin-v1/run_final_quality_qualified.py --predeclare --review evals/plugin-v1/results/cp04-final-quality-qualified-2026-10-11/source-independent-review.json",
+      "exit": 0
+    },
+    {
+      "command": ".venv/Scripts/python.exe -B evals/plugin-v1/run_final_quality_qualified.py --run --review evals/plugin-v1/results/cp04-final-quality-qualified-2026-10-11/source-independent-review.json",
+      "exit": 1,
+      "interpretation": "Retained complete observations and no_go, not setup failure"
+    }
+  ],
+  "unit_test_handoff": {
+    "owner": "quality_evaluator",
+    "file": "tests/test_plugin_final_quality.py",
+    "tests": [
+      "test_unknown_grade_invalidates_ranking_even_if_not_returned",
+      "test_failed_stratum_cannot_be_masked_by_macro",
+      "test_missing_stratum_stays_unknown",
+      "test_baseline_must_share_exact_query",
+      "test_existing_capture_prevents_retroactive_freeze"
+    ],
+    "passed": 5,
+    "behavior_regressions": {
+      "tests/test_plugin_brief_request.py": 6,
+      "tests/test_plugin_request_guard.py": 7,
+      "total_passed": 18
+    }
+  },
+  "accepted_gaps": [],
+  "mandatory_remaining": [
+    "Correct failed ranking/cutoff and RU lexical coverage within a separately scoped development change; these exposed cases can only be regression checks",
+    "Independent genuinely fresh final oracle and case set after accepted development change; all strata thresholds unchanged",
+    "Human calibration and same-canonical real-model RU/EN usefulness/meaning",
+    "Current source-availability review before reader adoption recommendation"
+  ],
+  "adjacent_task_gaps": [
+    "browser no-call locale switching",
+    "saved/published recovery",
+    "fresh natural-language host interpretation behavioral traces",
+    "CP-11/15/16 integration/release gates"
+  ],
+  "next_role": "Primary/Product Planner disposition; Plugin Runtime Builder for exact authorized development slice; Evidence Reviewer audits claim ceiling. Do not tune methods/terms on these final exposed cases."
+}

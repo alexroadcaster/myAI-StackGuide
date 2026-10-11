@@ -1,5 +1,7 @@
 # EVALS.md
 
+Current CP-04 quality evidence (2026-10-11): [canonical closure report](docs/reports/cp04-final-closure-2026-10-11.md) is authoritative at `technical_verified / needs_user_acceptance`. All60 current compatible replays retain actual host orders, native/literal controls and unchanged thresholds; independent numerical/provenance reviews pass. New actual4orders+8compositions restore useful training comparison. Independent80-dimension reviews and all four RU/EN meaning pairs pass; conservative totals19/19,19/19,19/19,19/20. All critical dimensions2 and no critical failures. [Exact owner examples](docs/reports/cp04-owner-acceptance-2026-10-11.md) await human calibration; human_acceptance and promotion_ready remain false. Prior scores/captures are immutable.
+
 CP-04 actual Brief/model dialogue evidence: [2026-10-11 report](docs/reports/cp04-brief-dialogue-2026-10-11.md). Four synthetic RU/EN conversations execute real Codex interpretation, optional clarification and active retrieval/composition. Separate fixed-interpretation full-pack replay corrects six-card prompt truncation. Objective checks and explicit primary self-review are distinct; no independent/human acceptance or statistical usefulness score is inferred. Installed skill activation cases remain specifications, not model-run discovery proof.
 
 Retrieval and recommendation-quality evaluation contract for local myAI-StackGuide V1. Owner revision: 2026-09-01; CP-04 successor v2 iteration recorded 2026-10-08 with complete routed judgments and `no_go`, product quality not accepted.

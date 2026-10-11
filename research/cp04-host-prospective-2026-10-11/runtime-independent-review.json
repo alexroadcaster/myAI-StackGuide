@@ -1,0 +1,67 @@
+{
+  "schema_version": "cp04_host_runtime_boundary_review_v1",
+  "reviewer": "cp04_final_review",
+  "reviewer_wrote_artifact": false,
+  "persisted_by": "root",
+  "provenance": "Independent reviewer communication before actual capture launch; distilled final receipt.",
+  "approved": true,
+  "unresolved": [],
+  "approval_scope": "Stable local helper, shipped bridge and producer enforcement inspection for frozen prospective evaluation only; no semantic quality, activation, external action, human or release approval.",
+  "runtime_ready_sha256": "0e0523888c9d05444396f02ba88cc5c30ee2518f47670044aba8507df15ce3fc",
+  "source_hashes": {
+    "plugins/myai-stackguide/scripts/recommendation_decision.py": "9e0466fe7bfc840ac5d12cebcfb23df04b8b3908daee87f13adad6cb82a5d9c6",
+    "tests/test_plugin_candidate_decision.py": "5166807cdee281d133409ae8b8613e0bffdbc9b97d006fa47f0151a2199d5097",
+    "evals/plugin-v1/run_final_host_decision.py": "ce6011565ed1412d860aa177d30758d3e331f14266fd74af9488f333f54fd0ad",
+    "tests/test_plugin_host_decision_eval.py": "775237388ba8cab613e4e763b95113461dd715e9d317b9f0b9431f72f88fb712",
+    "evals/plugin-v1/run_final_host_calibration.py": "bb7d03b78fe58f549e42cd24725811886034c2373da807cef649aaf0ce8c59f4",
+    "evals/plugin-v1/measure_final_host_decision.py": "6e7f9f59183a618319999815f27e212756a4520412ec99d3198a40bca0b1d7a3",
+    "plugins/myai-stackguide/skills/myai-stackguide/SKILL.md": "6632149a1cce38e4bded45c7804d4bc35ff78b42e6c57137b155ffd4a0f585a2",
+    "evals/plugin-v1/host-decision-eval-contract-2026-10-11.json": "d9851beb9692039906602380fedea1d95ec3a5b9dd7489f5d0cb2b75edb56d48",
+    "specs/retrieval/candidate-decision.schema.json": "83373eb4ec2b0f8270d4d7e6750bc1419591151338c023f018670214ec278f92",
+    "specs/retrieval/candidate-decision-contract.md": "21106a3d580672f1b86caaad6edec82d9e53f0e11e6b4689439ce909961d3bc6"
+  },
+  "resolved_p1": [
+    "Formal producer preserves empty original guard observations; public source facts remain composition-only.",
+    "Outer observer independently counts explicit_product_exclusion and documented_dependency_conflict false exclusions for all oracle-allowed IDs including grade zero; native observer and thresholds unchanged."
+  ],
+  "observed_receipt_reconciliation": {
+    "source_pin_mismatches": 0,
+    "transport_pool_ids": 6,
+    "transport_complete_permutation": true,
+    "transport_preview_receipt_digest_and_bindings": true,
+    "transport_complete_pack_accounting": true,
+    "transport_ledger_bytes_recomputed": 52677,
+    "resource_cold_samples": 30,
+    "resource_warm_samples": 30,
+    "resource_native_p95_ms": {
+      "cold": 156.77499998128042,
+      "warm": 80.45320003293455
+    },
+    "resource_total_local_p95_ms": {
+      "cold": 874.3577999994159,
+      "warm": 1547.291499999119
+    },
+    "resource_peak_memory_bytes": 86859776
+  },
+  "owner_test_evidence": {
+    "runtime": 19,
+    "observer": 3,
+    "native_inventory": 85,
+    "reviewer_reexecuted": false
+  },
+  "evidence_sha256": {
+    "transport_observations": "9242395ebe56e6b004b1110c913fbac08813d7e6c2bc5b3f1a3e25d0ce32cf0d",
+    "resource_check": "73f641acd5ea64655c25029930accfc6310644206836bc0e8ce0819641f15707",
+    "observer_p1_validation": "3f2625a3aaaaa0a6a0611635ae726563821bd585541bc4d9de5383cd15dbe57d"
+  },
+  "accepted_limits": [
+    "Raw-pipe fixture uses supplied order and proves transport only.",
+    "Resources cover one communications case without host inference; no worst-case claim.",
+    "Actual quality traces, paired meaning review and human acceptance remain required.",
+    "Failed native captures and invalid 28-full-card feasibility remain retained."
+  ],
+  "semantic_quality_verified": false,
+  "runtime_activation_approved": false,
+  "human_acceptance": false,
+  "promotion_ready": false
+}

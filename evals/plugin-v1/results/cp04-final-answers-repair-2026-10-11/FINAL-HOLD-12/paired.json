@@ -1,0 +1,2241 @@
+{
+  "case_id": "FINAL-HOLD-12",
+  "brief": {
+    "schema_version": "1.1.0",
+    "run_id": "c8d68571-e37d-55af-99f5-a11459093754",
+    "brief_id": "FINAL-HOLD-12",
+    "brief_version": 1,
+    "goal": "A Go team wants a web framework or HTTP router to implement a REST service; non-Go frameworks do not satisfy the language requirement.",
+    "decision": "evaluate",
+    "project_stage": "prototype",
+    "success_criterion": "Identify useful components and first validation; retain caveats.",
+    "constraints": {
+      "languages": [
+        "Go"
+      ],
+      "deployment": [],
+      "allowed_licenses": [],
+      "compatibility": [],
+      "require_no_server": null,
+      "mandatory_fields": []
+    },
+    "observations": {
+      "run_id": "c8d68571-e37d-55af-99f5-a11459093754"
+    },
+    "assumptions": [],
+    "user_corrections": [],
+    "context_status": "preliminary",
+    "updated_at": "2026-10-11T00:00:00Z",
+    "details": {
+      "problem": {
+        "text": null,
+        "kind": "unknown",
+        "evidence_refs": [],
+        "answer_ids": [],
+        "limitation": "Synthetic project fixture; not established."
+      },
+      "target_user": {
+        "text": null,
+        "kind": "unknown",
+        "evidence_refs": [],
+        "answer_ids": [],
+        "limitation": "Synthetic project fixture; not established."
+      },
+      "workflow": {
+        "text": null,
+        "kind": "unknown",
+        "evidence_refs": [],
+        "answer_ids": [],
+        "limitation": "Synthetic project fixture; not established."
+      },
+      "current_behavior": {
+        "text": null,
+        "kind": "unknown",
+        "evidence_refs": [],
+        "answer_ids": [],
+        "limitation": "Synthetic project fixture; not established."
+      },
+      "target_behavior": {
+        "text": null,
+        "kind": "unknown",
+        "evidence_refs": [],
+        "answer_ids": [],
+        "limitation": "Synthetic project fixture; not established."
+      },
+      "baseline": {
+        "text": null,
+        "kind": "unknown",
+        "evidence_refs": [],
+        "answer_ids": [],
+        "limitation": "Synthetic project fixture; not established."
+      },
+      "scope": {
+        "text": null,
+        "kind": "unknown",
+        "evidence_refs": [],
+        "answer_ids": [],
+        "limitation": "Synthetic project fixture; not established."
+      },
+      "non_goals": [],
+      "constraint_notes": [],
+      "tensions": []
+    }
+  },
+  "history": [
+    {
+      "role": "user",
+      "content": "A Go team wants a web framework or HTTP router to implement a REST service; non-Go frameworks do not satisfy the language requirement."
+    }
+  ],
+  "interpretation": {
+    "brief_sha256": "aba32cb18301e51b8777d0aee5c8ab1c48870dd203e3e548637c79604f422fde",
+    "brief_version": 1,
+    "language": "en",
+    "route": "backend_frameworks",
+    "terms": [
+      "Go",
+      "HTTP",
+      "framework",
+      "REST"
+    ],
+    "intent": {
+      "required_groups": [
+        [
+          "Go"
+        ]
+      ],
+      "context_terms": [
+        "HTTP",
+        "framework",
+        "REST"
+      ]
+    },
+    "excluded_repository_ids": [],
+    "excluded_dependencies": [],
+    "unresolved": []
+  },
+  "result": {
+    "status": "ready",
+    "request": {
+      "schema_version": "cp04_recommendation_request_v1",
+      "status": "ready",
+      "catalog_query": {
+        "schema_version": "2.1.0",
+        "query_id": "request-28c5c18a11e7945c323b2866",
+        "brief_version": 1,
+        "source_mode": "catalog_only",
+        "retrieval_engine": "sqlite_fts5",
+        "policy_version": "2.1.0",
+        "policy_sha256": "5b172b4fca5b2666fb61cba4e306c217c3ef29bb7d2eec0e478f7115370fb356",
+        "card_schema_version": "2.0.0",
+        "activity_schema_version": "2.0.0",
+        "index_format_version": 3,
+        "taxonomy_route_id": "backend_frameworks",
+        "language": "en",
+        "variants": [
+          {
+            "variant_id": "q1",
+            "terms": [
+              "Go"
+            ]
+          },
+          {
+            "variant_id": "q2",
+            "terms": [
+              "Go",
+              "HTTP",
+              "framework",
+              "REST"
+            ]
+          }
+        ],
+        "constraints": {
+          "languages": [
+            "Go"
+          ],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "max_candidates": 150,
+        "max_cards": 12,
+        "max_evidence_bytes": 163840
+      },
+      "intent": {
+        "required_groups": [
+          [
+            "Go"
+          ]
+        ],
+        "context_terms": [
+          "HTTP",
+          "framework",
+          "REST"
+        ]
+      },
+      "exclusions": {
+        "repository_ids": [],
+        "dependencies": []
+      },
+      "unresolved": []
+    },
+    "selection": {
+      "status": "ready",
+      "selected_ids": [
+        44344606,
+        20904437,
+        234231371,
+        31504491,
+        138597372,
+        435625572,
+        105379569,
+        1864194,
+        394929332,
+        160919119,
+        78452015,
+        372172254,
+        7548986,
+        458058,
+        1148753,
+        80945428,
+        40772809,
+        596892,
+        438384984,
+        2609642,
+        40136600,
+        4164482,
+        124230204,
+        237159,
+        69495170,
+        1863329,
+        75505125,
+        17620347,
+        8514,
+        16072585,
+        6296790
+      ],
+      "excluded": [],
+      "verification_required": [],
+      "conditional_configuration_ids": []
+    },
+    "retrieval_calls": 1,
+    "evidence_pack": {
+      "schema_version": "2.1.0",
+      "run_id": "c8d68571-e37d-55af-99f5-a11459093754",
+      "pack_id": "request-pack-28c5c18a11e7945c323b2866",
+      "query_id": "request-28c5c18a11e7945c323b2866",
+      "query_sha256": "f82f5c622732cf1514a7e5e5c26e0c42f691e1d7dae660990c1b952556b19f89",
+      "brief_version": 1,
+      "pins": {
+        "activity_schema_version": "2.0.0",
+        "card_schema_version": "2.0.0",
+        "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+        "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+        "corpus_kind": "catalog_snapshot",
+        "index_format_version": 3,
+        "index_sha256": "17c5fc5dde7e612fdac4d1285f631106424fd15185e37ba6c4a23a400e3b121b",
+        "policy_sha256": "5b172b4fca5b2666fb61cba4e306c217c3ef29bb7d2eec0e478f7115370fb356",
+        "retrieval_policy_version": "2.1.0",
+        "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+        "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+      },
+      "status": "ready",
+      "cards": [
+        {
+          "card": {
+            "activity": {
+              "created_at": "2015-10-15T20:46:29Z",
+              "last_commit_at": "2026-08-31T10:53:31Z",
+              "last_commit_branch": "master",
+              "last_commit_sha": "ae6be7469132cf471ca099d8c7bda4010c4ff7b2",
+              "last_release_at": "2026-08-20T10:04:47Z",
+              "last_synced_at": "2026-08-11T11:30:04Z",
+              "observations": [
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "created_at",
+                  "observed_at": "2026-09-01T02:27:07.589415Z",
+                  "source_field": "activity.createdAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "repository_updated_at",
+                  "observed_at": "2026-09-01T02:27:07.589415Z",
+                  "source_field": "activity.updatedAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "pushed_at",
+                  "observed_at": "2026-09-01T02:27:07.589415Z",
+                  "source_field": "activity.pushedAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_commit_at",
+                  "observed_at": "2026-09-01T02:27:09.667344Z",
+                  "source_field": "activity.lastCommitAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_release_at",
+                  "observed_at": "2026-09-01T02:27:12.568834Z",
+                  "source_field": "activity.lastReleaseAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_synced_at",
+                  "observed_at": "2026-09-01T02:27:07.589415Z",
+                  "source_field": "activity.lastSyncedAt",
+                  "verification": "derived_reviewed"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "observed_at",
+                  "observed_at": "2026-09-01T02:27:07.589415Z",
+                  "source_field": "activity.observedAt",
+                  "verification": "source_reported"
+                }
+              ],
+              "observed_at": "2026-09-01T02:27:07.589415Z",
+              "pushed_at": "2026-08-31T10:53:31Z",
+              "repository_updated_at": "2026-09-01T02:24:42Z",
+              "schema_version": "2.0.0",
+              "status": "pending_enrichment"
+            },
+            "advisory": {
+              "adoption_mode": null,
+              "adoption_status": null,
+              "avoid_if": [],
+              "best_for": [],
+              "compatibility": [],
+              "complexity": null,
+              "eligibility": {
+                "catalog_acceptance_changed": false,
+                "data_gate_passed": false,
+                "evidence_completeness": 77.42,
+                "minimum_stars": 500,
+                "reasons": [
+                  "mandatory_fields_unresolved"
+                ],
+                "replacement_required": false
+              },
+              "gaps": [],
+              "integration_surface": null,
+              "project_stages": [],
+              "recommendation_reason": null,
+              "recommendation_status": null,
+              "tradeoffs": [],
+              "use_cases": []
+            },
+            "catalog": {
+              "evidence_stage": "identity_validated",
+              "membership_cohort": "baseline",
+              "review_status": "curated_seed_needs_metadata",
+              "status": "candidate",
+              "status_source": "catalog_snapshot"
+            },
+            "classifications": [
+              {
+                "category_id": "backend_frameworks",
+                "kind": "category",
+                "parent_id": "backend_baas_api",
+                "placement_source": "cat08-canonical-reconciliation",
+                "role": "primary",
+                "title": "Backend Application Frameworks"
+              }
+            ],
+            "corpus_kind": "catalog_snapshot",
+            "delivery": {
+              "deployment": {
+                "rationale": null,
+                "values": []
+              },
+              "difficulty": "intermediate",
+              "form": {
+                "rationale": null,
+                "value": "framework"
+              },
+              "hosting": null,
+              "lifecycle": null,
+              "maturity": null,
+              "persona": "both",
+              "requires_server": null
+            },
+            "descriptions": {
+              "catalog": "lightweight, idiomatic and composable router for building Go HTTP services",
+              "catalog_origin": "upstream",
+              "upstream": "lightweight, idiomatic and composable router for building Go HTTP services"
+            },
+            "evidence": [
+              {
+                "evidence_id": "ev-catalog-card",
+                "fields": [
+                  "/identity",
+                  "/catalog",
+                  "/descriptions",
+                  "/classifications",
+                  "/delivery",
+                  "/advisory",
+                  "/provenance"
+                ],
+                "observed_at": "2026-09-01T02:27:07.589415Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/44344606",
+                "verification": "derived_reviewed"
+              },
+              {
+                "evidence_id": "ev-catalog-repository",
+                "fields": [
+                  "/repository",
+                  "/activity"
+                ],
+                "observed_at": "2026-09-01T02:27:07.589415Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/44344606",
+                "verification": "source_reported"
+              }
+            ],
+            "identity": {
+              "catalog_record_id": "gh-pending:go-chi/chi",
+              "full_name": "go-chi/chi",
+              "full_name_aliases": [],
+              "github_repository_id": 44344606,
+              "identity_status": "resolved",
+              "merged_catalog_record_ids": [],
+              "url": "https://github.com/go-chi/chi"
+            },
+            "provenance": {
+              "frozen_pins": {
+                "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                "field_contract_sha256": "9c0d6fd6e12ef42a37e26d8607405a7cbafdf1b7a633c8f8b53da159eaa7f456",
+                "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+              },
+              "sources": [
+                {
+                  "observed_at": "2026-09-01T02:27:07.589415Z",
+                  "source_id": "src-catalog-snapshot",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/44344606",
+                  "verification": "derived_reviewed"
+                }
+              ]
+            },
+            "repository": {
+              "archived": false,
+              "availability": "available",
+              "default_branch": "master",
+              "disabled": false,
+              "forks": 1153,
+              "homepage": "https://go-chi.io",
+              "is_fork": false,
+              "languages": [
+                {
+                  "name": "Go",
+                  "scope": "primary"
+                },
+                {
+                  "name": "Makefile",
+                  "scope": "secondary"
+                }
+              ],
+              "license": {
+                "confidence": "source_reported",
+                "name": "MIT License",
+                "source": "https://api.github.com/licenses/mit",
+                "spdx": "MIT"
+              },
+              "size_kb": 3934,
+              "stack": [
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "technology": "Go"
+                }
+              ],
+              "stars": 22763,
+              "topics": [
+                "api",
+                "context",
+                "go",
+                "golang",
+                "http",
+                "microservices",
+                "middleware",
+                "rest-api",
+                "router"
+              ],
+              "visibility": "public",
+              "watchers": 203,
+              "watchers_scope": "subscribers_count"
+            },
+            "schema_version": "2.0.0"
+          },
+          "retrieval_rank": 1,
+          "eligibility": {
+            "schema_version": "2.1.0",
+            "github_repository_id": 44344606,
+            "query_id": "request-28c5c18a11e7945c323b2866",
+            "status": "reference_only",
+            "checks": [
+              {
+                "field": "language",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "availability",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "archived",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "advisory_evidence",
+                "outcome": "unknown",
+                "evidence_refs": [
+                  "ev-catalog-card"
+                ]
+              }
+            ],
+            "reason_codes": [
+              "mandatory_fact_unknown"
+            ],
+            "required_verifications": [
+              "Verify the advisory fit fields against source-backed public evidence."
+            ]
+          },
+          "rrf_score": 0.03252247488101534,
+          "matched_fields": [
+            "full_name",
+            "upstream_description",
+            "catalog_description",
+            "topics"
+          ]
+        },
+        {
+          "card": {
+            "activity": {
+              "created_at": "2014-06-16T23:57:25Z",
+              "last_commit_at": "2026-08-15T05:44:19Z",
+              "last_commit_branch": "master",
+              "last_commit_sha": "dcaa4296d111981ffb31ac3eba90bb63e1eb5ab9",
+              "last_release_at": "2026-02-28T10:12:25Z",
+              "last_synced_at": "2026-08-11T11:30:04Z",
+              "observations": [
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "created_at",
+                  "observed_at": "2026-09-01T02:26:31.329420Z",
+                  "source_field": "activity.createdAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "repository_updated_at",
+                  "observed_at": "2026-09-01T02:26:31.329420Z",
+                  "source_field": "activity.updatedAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "pushed_at",
+                  "observed_at": "2026-09-01T02:26:31.329420Z",
+                  "source_field": "activity.pushedAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_commit_at",
+                  "observed_at": "2026-09-01T02:26:33.432981Z",
+                  "source_field": "activity.lastCommitAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_release_at",
+                  "observed_at": "2026-09-01T02:26:37.055916Z",
+                  "source_field": "activity.lastReleaseAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_synced_at",
+                  "observed_at": "2026-09-01T02:26:31.329420Z",
+                  "source_field": "activity.lastSyncedAt",
+                  "verification": "derived_reviewed"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "observed_at",
+                  "observed_at": "2026-09-01T02:26:31.329420Z",
+                  "source_field": "activity.observedAt",
+                  "verification": "source_reported"
+                }
+              ],
+              "observed_at": "2026-09-01T02:26:31.329420Z",
+              "pushed_at": "2026-08-15T05:44:19Z",
+              "repository_updated_at": "2026-09-01T01:43:08Z",
+              "schema_version": "2.0.0",
+              "status": "pending_enrichment"
+            },
+            "advisory": {
+              "adoption_mode": null,
+              "adoption_status": null,
+              "avoid_if": [],
+              "best_for": [],
+              "compatibility": [],
+              "complexity": null,
+              "eligibility": {
+                "catalog_acceptance_changed": false,
+                "data_gate_passed": false,
+                "evidence_completeness": 77.42,
+                "minimum_stars": 500,
+                "reasons": [
+                  "mandatory_fields_unresolved"
+                ],
+                "replacement_required": false
+              },
+              "gaps": [],
+              "integration_surface": null,
+              "project_stages": [],
+              "recommendation_reason": null,
+              "recommendation_status": null,
+              "tradeoffs": [],
+              "use_cases": []
+            },
+            "catalog": {
+              "evidence_stage": "identity_validated",
+              "membership_cohort": "baseline",
+              "review_status": "curated_seed_needs_metadata",
+              "status": "candidate",
+              "status_source": "catalog_snapshot"
+            },
+            "classifications": [
+              {
+                "category_id": "backend_frameworks",
+                "kind": "category",
+                "parent_id": "backend_baas_api",
+                "placement_source": "cat08-canonical-reconciliation",
+                "role": "primary",
+                "title": "Backend Application Frameworks"
+              }
+            ],
+            "corpus_kind": "catalog_snapshot",
+            "delivery": {
+              "deployment": {
+                "rationale": null,
+                "values": []
+              },
+              "difficulty": "intermediate",
+              "form": {
+                "rationale": null,
+                "value": "framework"
+              },
+              "hosting": null,
+              "lifecycle": null,
+              "maturity": null,
+              "persona": "both",
+              "requires_server": null
+            },
+            "descriptions": {
+              "catalog": "Gin is a high-performance HTTP web framework written in Go. It provides a Martini-like API but with significantly better performance—up to 40 times faster—thanks to httprouter. Gin is designed for building REST APIs, web applications, and microservices.",
+              "catalog_origin": "upstream",
+              "upstream": "Gin is a high-performance HTTP web framework written in Go. It provides a Martini-like API but with significantly better performance—up to 40 times faster—thanks to httprouter. Gin is designed for building REST APIs, web applications, and microservices."
+            },
+            "evidence": [
+              {
+                "evidence_id": "ev-catalog-card",
+                "fields": [
+                  "/identity",
+                  "/catalog",
+                  "/descriptions",
+                  "/classifications",
+                  "/delivery",
+                  "/advisory",
+                  "/provenance"
+                ],
+                "observed_at": "2026-09-01T02:26:31.329420Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/20904437",
+                "verification": "derived_reviewed"
+              },
+              {
+                "evidence_id": "ev-catalog-repository",
+                "fields": [
+                  "/repository",
+                  "/activity"
+                ],
+                "observed_at": "2026-09-01T02:26:31.329420Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/20904437",
+                "verification": "source_reported"
+              }
+            ],
+            "identity": {
+              "catalog_record_id": "gh-pending:gin-gonic/gin",
+              "full_name": "gin-gonic/gin",
+              "full_name_aliases": [],
+              "github_repository_id": 20904437,
+              "identity_status": "resolved",
+              "merged_catalog_record_ids": [],
+              "url": "https://github.com/gin-gonic/gin"
+            },
+            "provenance": {
+              "frozen_pins": {
+                "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                "field_contract_sha256": "9c0d6fd6e12ef42a37e26d8607405a7cbafdf1b7a633c8f8b53da159eaa7f456",
+                "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+              },
+              "sources": [
+                {
+                  "observed_at": "2026-09-01T02:26:31.329420Z",
+                  "source_id": "src-catalog-snapshot",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/20904437",
+                  "verification": "derived_reviewed"
+                }
+              ]
+            },
+            "repository": {
+              "archived": false,
+              "availability": "available",
+              "default_branch": "master",
+              "disabled": false,
+              "forks": 8680,
+              "homepage": "https://gin-gonic.com/",
+              "is_fork": false,
+              "languages": [
+                {
+                  "name": "Go",
+                  "scope": "primary"
+                },
+                {
+                  "name": "Makefile",
+                  "scope": "secondary"
+                }
+              ],
+              "license": {
+                "confidence": "source_reported",
+                "name": "MIT License",
+                "source": "https://api.github.com/licenses/mit",
+                "spdx": "MIT"
+              },
+              "size_kb": 10619,
+              "stack": [
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "technology": "Go"
+                }
+              ],
+              "stars": 89150,
+              "topics": [
+                "framework",
+                "gin",
+                "go",
+                "middleware",
+                "performance",
+                "router",
+                "server"
+              ],
+              "visibility": "public",
+              "watchers": 1359,
+              "watchers_scope": "subscribers_count"
+            },
+            "schema_version": "2.0.0"
+          },
+          "retrieval_rank": 2,
+          "eligibility": {
+            "schema_version": "2.1.0",
+            "github_repository_id": 20904437,
+            "query_id": "request-28c5c18a11e7945c323b2866",
+            "status": "reference_only",
+            "checks": [
+              {
+                "field": "language",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "availability",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "archived",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "advisory_evidence",
+                "outcome": "unknown",
+                "evidence_refs": [
+                  "ev-catalog-card"
+                ]
+              }
+            ],
+            "reason_codes": [
+              "mandatory_fact_unknown"
+            ],
+            "required_verifications": [
+              "Verify the advisory fit fields against source-backed public evidence."
+            ]
+          },
+          "rrf_score": 0.032018442622950824,
+          "matched_fields": [
+            "upstream_description",
+            "catalog_description",
+            "topics"
+          ]
+        },
+        {
+          "card": {
+            "activity": {
+              "created_at": "2020-01-16T03:59:20Z",
+              "last_commit_at": "2026-08-31T12:57:53Z",
+              "last_commit_branch": "main",
+              "last_commit_sha": "bd83fb46e30ece053ccdced93177bda7f49f656d",
+              "last_release_at": "2026-08-13T07:24:30Z",
+              "last_synced_at": "2026-08-11T12:07:57Z",
+              "observations": [
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "created_at",
+                  "observed_at": "2026-09-01T02:28:05.790274Z",
+                  "source_field": "activity.createdAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "repository_updated_at",
+                  "observed_at": "2026-09-01T02:28:05.790274Z",
+                  "source_field": "activity.updatedAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "pushed_at",
+                  "observed_at": "2026-09-01T02:28:05.790274Z",
+                  "source_field": "activity.pushedAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_commit_at",
+                  "observed_at": "2026-09-01T02:28:08.345434Z",
+                  "source_field": "activity.lastCommitAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_release_at",
+                  "observed_at": "2026-09-01T02:28:12.028335Z",
+                  "source_field": "activity.lastReleaseAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_synced_at",
+                  "observed_at": "2026-09-01T02:28:05.790274Z",
+                  "source_field": "activity.lastSyncedAt",
+                  "verification": "derived_reviewed"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "observed_at",
+                  "observed_at": "2026-09-01T02:28:05.790274Z",
+                  "source_field": "activity.observedAt",
+                  "verification": "source_reported"
+                }
+              ],
+              "observed_at": "2026-09-01T02:28:05.790274Z",
+              "pushed_at": "2026-08-31T13:56:30Z",
+              "repository_updated_at": "2026-09-01T02:20:37Z",
+              "schema_version": "2.0.0",
+              "status": "pending_enrichment"
+            },
+            "advisory": {
+              "adoption_mode": null,
+              "adoption_status": null,
+              "avoid_if": [],
+              "best_for": [],
+              "compatibility": [],
+              "complexity": null,
+              "eligibility": {
+                "catalog_acceptance_changed": false,
+                "data_gate_passed": false,
+                "evidence_completeness": 77.42,
+                "minimum_stars": 500,
+                "reasons": [
+                  "mandatory_fields_unresolved"
+                ],
+                "replacement_required": false
+              },
+              "gaps": [],
+              "integration_surface": null,
+              "project_stages": [],
+              "recommendation_reason": null,
+              "recommendation_status": null,
+              "tradeoffs": [],
+              "use_cases": []
+            },
+            "catalog": {
+              "evidence_stage": "identity_validated",
+              "membership_cohort": "baseline",
+              "review_status": "curated_seed_needs_metadata",
+              "status": "candidate",
+              "status_source": "catalog_snapshot"
+            },
+            "classifications": [
+              {
+                "category_id": "backend_frameworks",
+                "kind": "category",
+                "parent_id": "backend_baas_api",
+                "placement_source": "cat08-canonical-reconciliation",
+                "role": "primary",
+                "title": "Backend Application Frameworks"
+              }
+            ],
+            "corpus_kind": "catalog_snapshot",
+            "delivery": {
+              "deployment": {
+                "rationale": null,
+                "values": []
+              },
+              "difficulty": "intermediate",
+              "form": {
+                "rationale": null,
+                "value": "framework"
+              },
+              "hosting": null,
+              "lifecycle": null,
+              "maturity": null,
+              "persona": "both",
+              "requires_server": null
+            },
+            "descriptions": {
+              "catalog": "⚡️ Express inspired web framework written in Go",
+              "catalog_origin": "upstream",
+              "upstream": "⚡️ Express inspired web framework written in Go"
+            },
+            "evidence": [
+              {
+                "evidence_id": "ev-catalog-card",
+                "fields": [
+                  "/identity",
+                  "/catalog",
+                  "/descriptions",
+                  "/classifications",
+                  "/delivery",
+                  "/advisory",
+                  "/provenance"
+                ],
+                "observed_at": "2026-09-01T02:28:05.790274Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/234231371",
+                "verification": "derived_reviewed"
+              },
+              {
+                "evidence_id": "ev-catalog-repository",
+                "fields": [
+                  "/repository",
+                  "/activity"
+                ],
+                "observed_at": "2026-09-01T02:28:05.790274Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/234231371",
+                "verification": "source_reported"
+              }
+            ],
+            "identity": {
+              "catalog_record_id": "gh-pending:gofiber/fiber",
+              "full_name": "gofiber/fiber",
+              "full_name_aliases": [],
+              "github_repository_id": 234231371,
+              "identity_status": "resolved",
+              "merged_catalog_record_ids": [],
+              "url": "https://github.com/gofiber/fiber"
+            },
+            "provenance": {
+              "frozen_pins": {
+                "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                "field_contract_sha256": "9c0d6fd6e12ef42a37e26d8607405a7cbafdf1b7a633c8f8b53da159eaa7f456",
+                "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+              },
+              "sources": [
+                {
+                  "observed_at": "2026-09-01T02:28:05.790274Z",
+                  "source_id": "src-catalog-snapshot",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/234231371",
+                  "verification": "derived_reviewed"
+                }
+              ]
+            },
+            "repository": {
+              "archived": false,
+              "availability": "available",
+              "default_branch": "main",
+              "disabled": false,
+              "forks": 2026,
+              "homepage": "https://gofiber.io",
+              "is_fork": false,
+              "languages": [
+                {
+                  "name": "Go",
+                  "scope": "primary"
+                },
+                {
+                  "name": "Makefile",
+                  "scope": "secondary"
+                }
+              ],
+              "license": {
+                "confidence": "source_reported",
+                "name": "MIT License",
+                "source": "https://api.github.com/licenses/mit",
+                "spdx": "MIT"
+              },
+              "size_kb": 72455,
+              "stack": [
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "technology": "Go"
+                }
+              ],
+              "stars": 40104,
+              "topics": [
+                "express",
+                "expressjs",
+                "fast",
+                "fiber",
+                "flexible",
+                "framework",
+                "friendly",
+                "go",
+                "golang",
+                "hacktoberfest",
+                "hacktoberfest2020",
+                "nodejs",
+                "performance",
+                "rest-api",
+                "web"
+              ],
+              "visibility": "public",
+              "watchers": 284,
+              "watchers_scope": "subscribers_count"
+            },
+            "schema_version": "2.0.0"
+          },
+          "retrieval_rank": 3,
+          "eligibility": {
+            "schema_version": "2.1.0",
+            "github_repository_id": 234231371,
+            "query_id": "request-28c5c18a11e7945c323b2866",
+            "status": "reference_only",
+            "checks": [
+              {
+                "field": "language",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "availability",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "archived",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "advisory_evidence",
+                "outcome": "unknown",
+                "evidence_refs": [
+                  "ev-catalog-card"
+                ]
+              }
+            ],
+            "reason_codes": [
+              "mandatory_fact_unknown"
+            ],
+            "required_verifications": [
+              "Verify the advisory fit fields against source-backed public evidence."
+            ]
+          },
+          "rrf_score": 0.031746031746031744,
+          "matched_fields": [
+            "upstream_description",
+            "catalog_description",
+            "topics"
+          ]
+        },
+        {
+          "card": {
+            "activity": {
+              "created_at": "2015-03-01T17:43:01Z",
+              "last_commit_at": "2026-08-24T09:10:55Z",
+              "last_commit_branch": "master",
+              "last_commit_sha": "e552b4de75b640bc622411fe01eed33f7704c8a0",
+              "last_release_at": "2026-07-21T16:10:56Z",
+              "last_synced_at": "2026-08-11T12:51:00Z",
+              "observations": [
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "created_at",
+                  "observed_at": "2026-09-01T02:38:51.571155Z",
+                  "source_field": "activity.createdAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "repository_updated_at",
+                  "observed_at": "2026-09-01T02:38:51.571155Z",
+                  "source_field": "activity.updatedAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "pushed_at",
+                  "observed_at": "2026-09-01T02:38:51.571155Z",
+                  "source_field": "activity.pushedAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_commit_at",
+                  "observed_at": "2026-09-01T02:38:53.000729Z",
+                  "source_field": "activity.lastCommitAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_release_at",
+                  "observed_at": "2026-09-01T02:38:56.352092Z",
+                  "source_field": "activity.lastReleaseAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_synced_at",
+                  "observed_at": "2026-09-01T02:38:51.571155Z",
+                  "source_field": "activity.lastSyncedAt",
+                  "verification": "derived_reviewed"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "observed_at",
+                  "observed_at": "2026-09-01T02:38:51.571155Z",
+                  "source_field": "activity.observedAt",
+                  "verification": "source_reported"
+                }
+              ],
+              "observed_at": "2026-09-01T02:38:51.571155Z",
+              "pushed_at": "2026-08-24T09:10:55Z",
+              "repository_updated_at": "2026-09-01T02:37:00Z",
+              "schema_version": "2.0.0",
+              "status": "pending_enrichment"
+            },
+            "advisory": {
+              "adoption_mode": null,
+              "adoption_status": null,
+              "avoid_if": [],
+              "best_for": [],
+              "compatibility": [],
+              "complexity": null,
+              "eligibility": {
+                "catalog_acceptance_changed": false,
+                "data_gate_passed": false,
+                "evidence_completeness": 77.42,
+                "minimum_stars": 500,
+                "reasons": [
+                  "mandatory_fields_unresolved"
+                ],
+                "replacement_required": false
+              },
+              "gaps": [],
+              "integration_surface": null,
+              "project_stages": [],
+              "recommendation_reason": null,
+              "recommendation_status": null,
+              "tradeoffs": [],
+              "use_cases": []
+            },
+            "catalog": {
+              "evidence_stage": "identity_validated",
+              "membership_cohort": "baseline",
+              "review_status": "curated_seed_needs_metadata",
+              "status": "candidate",
+              "status_source": "catalog_snapshot"
+            },
+            "classifications": [
+              {
+                "category_id": "backend_frameworks",
+                "kind": "category",
+                "parent_id": "backend_baas_api",
+                "placement_source": "cat08-canonical-reconciliation",
+                "role": "primary",
+                "title": "Backend Application Frameworks"
+              }
+            ],
+            "corpus_kind": "catalog_snapshot",
+            "delivery": {
+              "deployment": {
+                "rationale": null,
+                "values": []
+              },
+              "difficulty": "intermediate",
+              "form": {
+                "rationale": null,
+                "value": "framework"
+              },
+              "hosting": null,
+              "lifecycle": null,
+              "maturity": null,
+              "persona": "both",
+              "requires_server": null
+            },
+            "descriptions": {
+              "catalog": "High performance, minimalist Go web framework",
+              "catalog_origin": "upstream",
+              "upstream": "High performance, minimalist Go web framework"
+            },
+            "evidence": [
+              {
+                "evidence_id": "ev-catalog-card",
+                "fields": [
+                  "/identity",
+                  "/catalog",
+                  "/descriptions",
+                  "/classifications",
+                  "/delivery",
+                  "/advisory",
+                  "/provenance"
+                ],
+                "observed_at": "2026-09-01T02:38:51.571155Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/31504491",
+                "verification": "derived_reviewed"
+              },
+              {
+                "evidence_id": "ev-catalog-repository",
+                "fields": [
+                  "/repository",
+                  "/activity"
+                ],
+                "observed_at": "2026-09-01T02:38:51.571155Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/31504491",
+                "verification": "source_reported"
+              }
+            ],
+            "identity": {
+              "catalog_record_id": "gh-pending:labstack/echo",
+              "full_name": "labstack/echo",
+              "full_name_aliases": [],
+              "github_repository_id": 31504491,
+              "identity_status": "resolved",
+              "merged_catalog_record_ids": [],
+              "url": "https://github.com/labstack/echo"
+            },
+            "provenance": {
+              "frozen_pins": {
+                "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                "field_contract_sha256": "9c0d6fd6e12ef42a37e26d8607405a7cbafdf1b7a633c8f8b53da159eaa7f456",
+                "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+              },
+              "sources": [
+                {
+                  "observed_at": "2026-09-01T02:38:51.571155Z",
+                  "source_id": "src-catalog-snapshot",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/31504491",
+                  "verification": "derived_reviewed"
+                }
+              ]
+            },
+            "repository": {
+              "archived": false,
+              "availability": "available",
+              "default_branch": "master",
+              "disabled": false,
+              "forks": 2361,
+              "homepage": "https://echo.labstack.com",
+              "is_fork": false,
+              "languages": [
+                {
+                  "name": "Go",
+                  "scope": "primary"
+                },
+                {
+                  "name": "Makefile",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "HTML",
+                  "scope": "secondary"
+                }
+              ],
+              "license": {
+                "confidence": "source_reported",
+                "name": "MIT License",
+                "source": "https://api.github.com/licenses/mit",
+                "spdx": "MIT"
+              },
+              "size_kb": 6715,
+              "stack": [
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "technology": "Go"
+                }
+              ],
+              "stars": 32673,
+              "topics": [
+                "echo",
+                "go",
+                "http2",
+                "https",
+                "labstack-echo",
+                "letsencrypt",
+                "micro-framework",
+                "microservice",
+                "middleware",
+                "ssl",
+                "web",
+                "web-framework",
+                "websocket"
+              ],
+              "visibility": "public",
+              "watchers": 529,
+              "watchers_scope": "subscribers_count"
+            },
+            "schema_version": "2.0.0"
+          },
+          "retrieval_rank": 4,
+          "eligibility": {
+            "schema_version": "2.1.0",
+            "github_repository_id": 31504491,
+            "query_id": "request-28c5c18a11e7945c323b2866",
+            "status": "reference_only",
+            "checks": [
+              {
+                "field": "language",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "availability",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "archived",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "advisory_evidence",
+                "outcome": "unknown",
+                "evidence_refs": [
+                  "ev-catalog-card"
+                ]
+              }
+            ],
+            "reason_codes": [
+              "mandatory_fact_unknown"
+            ],
+            "required_verifications": [
+              "Verify the advisory fit fields against source-backed public evidence."
+            ]
+          },
+          "rrf_score": 0.03128054740957967,
+          "matched_fields": [
+            "upstream_description",
+            "catalog_description",
+            "topics"
+          ]
+        },
+        {
+          "card": {
+            "activity": {
+              "created_at": "2016-12-03T22:56:24Z",
+              "last_commit_at": "2026-08-31T12:59:01Z",
+              "last_commit_branch": "dev",
+              "last_commit_sha": "1f7b7a56503515a6b26da6101ebc9d3921b461d9",
+              "last_release_at": "2026-07-27T08:14:12Z",
+              "last_synced_at": "2026-08-11T10:45:33Z",
+              "observations": [
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "created_at",
+                  "observed_at": "2026-08-31T15:05:50.466547Z",
+                  "source_field": "activity.createdAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "repository_updated_at",
+                  "observed_at": "2026-08-31T15:05:50.466547Z",
+                  "source_field": "activity.updatedAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "pushed_at",
+                  "observed_at": "2026-08-31T15:05:50.466547Z",
+                  "source_field": "activity.pushedAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_commit_at",
+                  "observed_at": "2026-08-31T15:05:51.775004Z",
+                  "source_field": "activity.lastCommitAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_release_at",
+                  "observed_at": "2026-08-31T15:05:53.980270Z",
+                  "source_field": "activity.lastReleaseAt",
+                  "verification": "source_reported"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "last_synced_at",
+                  "observed_at": "2026-08-31T15:05:50.466547Z",
+                  "source_field": "activity.lastSyncedAt",
+                  "verification": "derived_reviewed"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "field": "observed_at",
+                  "observed_at": "2026-08-31T15:05:50.466547Z",
+                  "source_field": "activity.observedAt",
+                  "verification": "source_reported"
+                }
+              ],
+              "observed_at": "2026-08-31T15:05:50.466547Z",
+              "pushed_at": "2026-08-31T12:59:03Z",
+              "repository_updated_at": "2026-08-31T13:01:22Z",
+              "schema_version": "2.0.0",
+              "status": "pending_enrichment"
+            },
+            "advisory": {
+              "adoption_mode": null,
+              "adoption_status": "compare_selected_modules_and_release_before_adoption",
+              "avoid_if": [],
+              "best_for": [
+                ".NET teams assessing modular monoliths or multi-tenant business applications with reusable framework modules."
+              ],
+              "compatibility": [],
+              "complexity": null,
+              "eligibility": {
+                "catalog_acceptance_changed": false,
+                "data_gate_passed": true,
+                "evidence_completeness": 100.0,
+                "minimum_stars": 500,
+                "reasons": [],
+                "replacement_required": false
+              },
+              "gaps": [],
+              "integration_surface": null,
+              "project_stages": [],
+              "recommendation_reason": "Worth comparing when a .NET business application needs coordinated modularity, tenancy and cross-cutting infrastructure rather than a minimal web framework.",
+              "recommendation_status": null,
+              "tradeoffs": [
+                "The architecture is opinionated and adds framework conventions. The README links both open-source and Pro/commercial modules and tools; availability must be checked for the selected component. The observed default branch is dev, so adoption needs a chosen release and compatibility review. Reported LGPL-3.0 metadata is not a legal approval."
+              ],
+              "use_cases": []
+            },
+            "catalog": {
+              "evidence_stage": "identity_validated",
+              "membership_cohort": "baseline",
+              "review_status": "curated_seed_needs_metadata",
+              "status": "candidate",
+              "status_source": "catalog_snapshot"
+            },
+            "classifications": [
+              {
+                "category_id": "backend_frameworks",
+                "kind": "category",
+                "parent_id": "backend_baas_api",
+                "placement_source": "cat08-canonical-reconciliation",
+                "role": "primary",
+                "title": "Backend Application Frameworks"
+              }
+            ],
+            "corpus_kind": "catalog_snapshot",
+            "delivery": {
+              "deployment": {
+                "rationale": null,
+                "values": []
+              },
+              "difficulty": "intermediate",
+              "form": {
+                "rationale": null,
+                "value": "framework"
+              },
+              "hosting": null,
+              "lifecycle": null,
+              "maturity": null,
+              "persona": "both",
+              "requires_server": null
+            },
+            "descriptions": {
+              "catalog": "An application framework for .NET and ASP.NET Core with modular architecture, multi-tenancy, infrastructure services and application templates.",
+              "catalog_origin": null,
+              "upstream": "Open-source web application framework for ASP.NET Core! Offers an opinionated architecture to build enterprise software solutions with best practices on top of the .NET. Provides the fundamental infrastructure, cross-cutting-concern implementations, startup templates, application modules, UI themes, tooling and documentation."
+            },
+            "evidence": [
+              {
+                "evidence_id": "ev-catalog-card",
+                "fields": [
+                  "/identity",
+                  "/catalog",
+                  "/descriptions",
+                  "/classifications",
+                  "/delivery",
+                  "/advisory",
+                  "/provenance"
+                ],
+                "observed_at": "2026-08-31T15:05:50.466547Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/75505125",
+                "verification": "derived_reviewed"
+              },
+              {
+                "evidence_id": "ev-catalog-repository",
+                "fields": [
+                  "/repository",
+                  "/activity"
+                ],
+                "observed_at": "2026-08-31T15:05:50.466547Z",
+                "source_kind": "catalog_snapshot",
+                "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/75505125",
+                "verification": "source_reported"
+              }
+            ],
+            "identity": {
+              "catalog_record_id": "gh-pending:abpframework/abp",
+              "full_name": "abpframework/abp",
+              "full_name_aliases": [],
+              "github_repository_id": 75505125,
+              "identity_status": "resolved",
+              "merged_catalog_record_ids": [],
+              "url": "https://github.com/abpframework/abp"
+            },
+            "provenance": {
+              "frozen_pins": {
+                "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                "field_contract_sha256": "9c0d6fd6e12ef42a37e26d8607405a7cbafdf1b7a633c8f8b53da159eaa7f456",
+                "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+              },
+              "sources": [
+                {
+                  "observed_at": "2026-08-31T15:05:50.466547Z",
+                  "source_id": "src-catalog-snapshot",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/75505125",
+                  "verification": "derived_reviewed"
+                }
+              ]
+            },
+            "repository": {
+              "archived": false,
+              "availability": "available",
+              "default_branch": "dev",
+              "disabled": false,
+              "forks": 3715,
+              "homepage": "https://abp.io",
+              "is_fork": false,
+              "languages": [
+                {
+                  "name": "C#",
+                  "scope": "primary"
+                },
+                {
+                  "name": "JavaScript",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "TypeScript",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "HTML",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "CSS",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "SCSS",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "PowerShell",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Go",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Less",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Dockerfile",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Shell",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Batchfile",
+                  "scope": "secondary"
+                },
+                {
+                  "name": "Go Template",
+                  "scope": "secondary"
+                }
+              ],
+              "license": {
+                "confidence": "source_reported",
+                "name": "GNU Lesser General Public License v3.0",
+                "source": "https://api.github.com/licenses/lgpl-3.0",
+                "spdx": "LGPL-3.0"
+              },
+              "size_kb": 2888057,
+              "stack": [
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "technology": "C#"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "technology": ".NET"
+                },
+                {
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ],
+                  "technology": "ASP.NET Core"
+                }
+              ],
+              "stars": 14420,
+              "topics": [
+                "abp",
+                "angular",
+                "architecture",
+                "aspnet",
+                "aspnet-core",
+                "aspnetcore",
+                "blazor",
+                "c-sharp",
+                "csharp",
+                "domain-driven-design",
+                "dotnet-core",
+                "framework",
+                "modular-monolith",
+                "multi-tenancy",
+                "saas"
+              ],
+              "visibility": "public",
+              "watchers": 320,
+              "watchers_scope": "subscribers_count"
+            },
+            "schema_version": "2.0.0"
+          },
+          "retrieval_rank": 27,
+          "eligibility": {
+            "schema_version": "2.1.0",
+            "github_repository_id": 75505125,
+            "query_id": "request-28c5c18a11e7945c323b2866",
+            "status": "reference_only",
+            "checks": [
+              {
+                "field": "language",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "availability",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "archived",
+                "outcome": "pass",
+                "evidence_refs": [
+                  "ev-catalog-repository"
+                ]
+              },
+              {
+                "field": "advisory_evidence",
+                "outcome": "unknown",
+                "evidence_refs": [
+                  "ev-catalog-card"
+                ]
+              }
+            ],
+            "reason_codes": [
+              "mandatory_fact_unknown"
+            ],
+            "required_verifications": [
+              "Verify the advisory fit fields against source-backed public evidence."
+            ]
+          },
+          "rrf_score": 0.011494252873563218,
+          "matched_fields": [
+            "upstream_description",
+            "catalog_description",
+            "topics",
+            "best_for"
+          ]
+        }
+      ],
+      "exclusions": [
+        {
+          "github_repository_id": 138597372,
+          "reason_codes": [
+            "constraint_mismatch",
+            "mandatory_fact_unknown"
+          ]
+        },
+        {
+          "github_repository_id": 435625572,
+          "reason_codes": [
+            "constraint_mismatch",
+            "mandatory_fact_unknown"
+          ]
+        },
+        {
+          "github_repository_id": 105379569,
+          "reason_codes": [
+            "constraint_mismatch",
+            "mandatory_fact_unknown"
+          ]
+        },
+        {
+          "github_repository_id": 1864194,
+          "reason_codes": [
+            "constraint_mismatch",
+            "mandatory_fact_unknown"
+          ]
+        },
+        {
+          "github_repository_id": 394929332,
+          "reason_codes": [
+            "constraint_mismatch",
+            "mandatory_fact_unknown"
+          ]
+        },
+        {
+          "github_repository_id": 160919119,
+          "reason_codes": [
+            "constraint_mismatch",
+            "mandatory_fact_unknown"
+          ]
+        },
+        {
+          "github_repository_id": 78452015,
+          "reason_codes": [
+            "constraint_mismatch",
+            "mandatory_fact_unknown"
+          ]
+        },
+        {
+          "github_repository_id": 372172254,
+          "reason_codes": [
+            "constraint_mismatch",
+            "mandatory_fact_unknown"
+          ]
+        },
+        {
+          "github_repository_id": 7548986,
+          "reason_codes": [
+            "constraint_mismatch",
+            "mandatory_fact_unknown"
+          ]
+        },
+        {
+          "github_repository_id": 458058,
+          "reason_codes": [
+            "constraint_mismatch",
+            "mandatory_fact_unknown"
+          ]
+        },
+        {
+          "github_repository_id": 1148753,
+          "reason_codes": [
+            "constraint_mismatch",
+            "mandatory_fact_unknown"
+          ]
+        },
+        {
+          "github_repository_id": 80945428,
+          "reason_codes": [
+            "constraint_mismatch",
+            "mandatory_fact_unknown"
+          ]
+        },
+        {
+          "github_repository_id": 40772809,
+          "reason_codes": [
+            "constraint_mismatch",
+            "mandatory_fact_unknown"
+          ]
+        },
+        {
+          "github_repository_id": 596892,
+          "reason_codes": [
+            "constraint_mismatch",
+            "mandatory_fact_unknown"
+          ]
+        },
+        {
+          "github_repository_id": 438384984,
+          "reason_codes": [
+            "constraint_mismatch",
+            "mandatory_fact_unknown"
+          ]
+        },
+        {
+          "github_repository_id": 2609642,
+          "reason_codes": [
+            "constraint_mismatch",
+            "mandatory_fact_unknown"
+          ]
+        },
+        {
+          "github_repository_id": 40136600,
+          "reason_codes": [
+            "constraint_mismatch",
+            "mandatory_fact_unknown"
+          ]
+        },
+        {
+          "github_repository_id": 4164482,
+          "reason_codes": [
+            "constraint_mismatch",
+            "mandatory_fact_unknown"
+          ]
+        },
+        {
+          "github_repository_id": 124230204,
+          "reason_codes": [
+            "constraint_mismatch",
+            "mandatory_fact_unknown"
+          ]
+        },
+        {
+          "github_repository_id": 237159,
+          "reason_codes": [
+            "constraint_mismatch",
+            "mandatory_fact_unknown"
+          ]
+        },
+        {
+          "github_repository_id": 69495170,
+          "reason_codes": [
+            "constraint_mismatch",
+            "mandatory_fact_unknown"
+          ]
+        },
+        {
+          "github_repository_id": 1863329,
+          "reason_codes": [
+            "constraint_mismatch",
+            "mandatory_fact_unknown"
+          ]
+        },
+        {
+          "github_repository_id": 17620347,
+          "reason_codes": [
+            "constraint_mismatch",
+            "mandatory_fact_unknown"
+          ]
+        },
+        {
+          "github_repository_id": 8514,
+          "reason_codes": [
+            "constraint_mismatch",
+            "mandatory_fact_unknown"
+          ]
+        },
+        {
+          "github_repository_id": 16072585,
+          "reason_codes": [
+            "constraint_mismatch",
+            "mandatory_fact_unknown"
+          ]
+        },
+        {
+          "github_repository_id": 6296790,
+          "reason_codes": [
+            "constraint_mismatch",
+            "mandatory_fact_unknown"
+          ]
+        }
+      ],
+      "truncated": false,
+      "reason_codes": [
+        "constraint_mismatch",
+        "mandatory_fact_unknown"
+      ]
+    },
+    "public_observations": [],
+    "observations_persisted": false,
+    "raw_ranked_ids": [
+      44344606,
+      20904437,
+      234231371,
+      31504491,
+      138597372,
+      435625572,
+      105379569,
+      1864194,
+      394929332,
+      160919119,
+      78452015,
+      372172254,
+      7548986,
+      458058,
+      1148753,
+      80945428,
+      40772809,
+      596892,
+      438384984,
+      2609642,
+      40136600,
+      4164482,
+      124230204,
+      237159,
+      69495170,
+      1863329,
+      75505125,
+      17620347,
+      8514,
+      16072585,
+      6296790
+    ],
+    "selected_ids": [
+      44344606,
+      20904437,
+      234231371,
+      31504491,
+      138597372,
+      435625572,
+      105379569,
+      1864194,
+      394929332,
+      160919119,
+      78452015,
+      372172254,
+      7548986,
+      458058,
+      1148753,
+      80945428,
+      40772809,
+      596892,
+      438384984,
+      2609642,
+      40136600,
+      4164482,
+      124230204,
+      237159,
+      69495170,
+      1863329,
+      75505125,
+      17620347,
+      8514,
+      16072585,
+      6296790
+    ]
+  },
+  "planning": {
+    "scenario_id": "FINAL-HOLD-12-first-validation",
+    "scope_status": "validation_only",
+    "assumptions": {
+      "prerequisites": [
+        "Runnable isolated application and access to representative synthetic data.",
+        "Target environment and chosen version remain to be verified."
+      ],
+      "team_experience": "One engineer experienced in Go HTTP application development.",
+      "confidence": "low",
+      "hours_per_engineer_day": 8,
+      "allocated_engineers": 1
+    },
+    "first_validation": {
+      "min": 6,
+      "max": 10
+    },
+    "phases": [],
+    "total_engineer_hours": null,
+    "elapsed_working_days": null
+  },
+  "prior_interpretation_reused": false,
+  "source_authored_interpretation": true,
+  "locales": [
+    "ru",
+    "en"
+  ],
+  "answers": {
+    "ru": {
+      "raw": {
+        "answer_markdown": "**Русский**\n\nДля первого изолированного пилота условно рекомендую **gin-gonic/gin**: предоставленное наблюдение хоста от 2026-10-11 подтверждает, что README описывает Go HTTP framework для REST API. Это поддерживает выбор по языку и назначению, но не доказывает совместимость с вашим проектом, ускорение разработки или готовность к production. Каталог — снимок от 2026-09-01; наблюдение хоста не является моим сетевым запросом или обновлением каталога. **ABP исключаю**: его основа — .NET/ASP.NET Core; наличие вторичного Go не удовлетворяет требованию Go framework. [Gin](https://github.com/gin-gonic/gin), [ABP](https://github.com/abpframework/abp).\n\nПредлагаемая роль Gin — HTTP routing и middleware перед Go domain handlers; бизнес-логика, хранение данных, авторизация и эксплуатация остаются ответственностью команды. Для одного и того же REST endpoint сравните Gin со стандартным `net/http`, включая собственный код интеграции и дальнейшее сопровождение. Если стандартный вариант уже удовлетворяет требованиям, дополнительная зависимость может не оправдаться. Выбор меняют совместимость middleware, обработка ошибок и отмены запросов, требования к Go версии и зависимости; выбранную версию и ее лицензию еще нужно проверить. Подтвержденной экономии относительно собственной разработки нет.\n\nГипотетическая оценка **только первой проверки — 6–10 инженерочасов**, с низкой уверенностью: один инженер с опытом разработки Go HTTP приложений, выделенная емкость — один инженер при 8 часах на инженерный рабочий день. Предпосылки — запускаемое изолированное приложение и доступ к репрезентативным синтетическим данным; целевую среду и выбранную версию еще предстоит проверить. Полный объем внедрения, суммарные трудозатраты и календарная длительность в рабочих днях неизвестны.\n\nПилот — один изолированный REST endpoint на синтетических данных без изменения авторитетных данных и переключения основного сервиса. Приемка: проверены версия и лицензия, успешные и ошибочные запросы дают согласованные JSON ответы и HTTP статусы, middleware и отмена запросов работают по установленному контракту. Безопасный откат — отключить endpoint; восстановить прежний handler можно только если он известен. Существующий путь здесь не установлен, поэтому пилот остается изолированным. Следующая ограниченная задача, которую пользователь может отдельно разрешить: реализовать этот endpoint на Gin, добавить проверки контракта и сравнить эквивалентный вариант на `net/http`. Это предложения; инструменты, код и сетевые обращения не выполнялись, внедрение не разрешено этим ответом.\n\n**English — translation**\n\nFor the first isolated pilot, I conditionally recommend **gin-gonic/gin**: the supplied host observation dated 2026-10-11 confirms that its README describes a Go HTTP framework for REST APIs. This supports the choice by language and purpose, but does not prove compatibility with your project, faster development, or production readiness. The catalog is a snapshot dated 2026-09-01; the host observation is neither my own network request nor a catalog refresh. **I exclude ABP**: its foundation is .NET/ASP.NET Core; the presence of secondary Go does not satisfy the Go framework requirement. [Gin](https://github.com/gin-gonic/gin), [ABP](https://github.com/abpframework/abp).\n\nGin's proposed role is HTTP routing and middleware in front of Go domain handlers; business logic, data storage, authorization, and operations remain the team's responsibility. For the same REST endpoint, compare Gin with standard `net/http`, including custom integration code and ongoing maintenance. If the standard option already meets the requirements, the additional dependency may not be justified. Middleware compatibility, error and request cancellation handling, Go version requirements, and dependencies can change the choice; the selected version and its license still need verification. There are no confirmed savings compared with custom development.\n\nThe hypothetical estimate **for first validation only is 6–10 engineer-hours**, with low confidence: one engineer experienced in Go HTTP application development, with an allocated capacity of one engineer at 8 hours per engineer-day. Prerequisites are a runnable isolated application and access to representative synthetic data; the target environment and selected version remain to be verified. The full adoption scope, total effort, and elapsed working days are unknown.\n\nThe pilot is one isolated REST endpoint using synthetic data, without changing authoritative data or switching the main service. Acceptance: the version and license are verified, successful and erroneous requests produce agreed JSON responses and HTTP statuses, and middleware and request cancellation follow the established contract. Safe rollback is to disable the endpoint; the prior handler can be restored only if it is known. An existing path is not established here, so the pilot remains isolated. The next bounded task that the user could separately authorize is to implement this endpoint with Gin, add contract checks, and compare an equivalent implementation using `net/http`. These are proposals; no tools, code, or network calls were executed, and this answer does not authorize implementation.",
+        "recommended_ids": [
+          20904437
+        ],
+        "cited_urls": [
+          "https://github.com/gin-gonic/gin",
+          "https://github.com/abpframework/abp"
+        ],
+        "planning_binding": {
+          "planning_sha256": "ca28b7e3b8cee508a71ecbd00c65ae546a569dcee656df25595363c5034b0b31",
+          "scenario_id": "FINAL-HOLD-12-first-validation",
+          "assumptions": {
+            "prerequisites": [
+              "Runnable isolated application and access to representative synthetic data.",
+              "Target environment and chosen version remain to be verified."
+            ],
+            "team_experience": "One engineer experienced in Go HTTP application development.",
+            "confidence": "low",
+            "hours_per_engineer_day": 8,
+            "allocated_engineers": 1
+          },
+          "first_validation": {
+            "min": 6,
+            "max": 10
+          },
+          "total_engineer_hours": null,
+          "elapsed_working_days": null
+        }
+      },
+      "normalized": {
+        "answer_markdown": "**Русский**\n\nДля первого изолированного пилота условно рекомендую **gin-gonic/gin**: предоставленное наблюдение хоста от 2026-10-11 подтверждает, что README описывает Go HTTP framework для REST API. Это поддерживает выбор по языку и назначению, но не доказывает совместимость с вашим проектом, ускорение разработки или готовность к production. Каталог — снимок от 2026-09-01; наблюдение хоста не является моим сетевым запросом или обновлением каталога. **ABP исключаю**: его основа — .NET/ASP.NET Core; наличие вторичного Go не удовлетворяет требованию Go framework. [Gin](https://github.com/gin-gonic/gin), [ABP](https://github.com/abpframework/abp).\n\nПредлагаемая роль Gin — HTTP routing и middleware перед Go domain handlers; бизнес-логика, хранение данных, авторизация и эксплуатация остаются ответственностью команды. Для одного и того же REST endpoint сравните Gin со стандартным `net/http`, включая собственный код интеграции и дальнейшее сопровождение. Если стандартный вариант уже удовлетворяет требованиям, дополнительная зависимость может не оправдаться. Выбор меняют совместимость middleware, обработка ошибок и отмены запросов, требования к Go версии и зависимости; выбранную версию и ее лицензию еще нужно проверить. Подтвержденной экономии относительно собственной разработки нет.\n\nГипотетическая оценка **только первой проверки — 6–10 инженерочасов**, с низкой уверенностью: один инженер с опытом разработки Go HTTP приложений, выделенная емкость — один инженер при 8 часах на инженерный рабочий день. Предпосылки — запускаемое изолированное приложение и доступ к репрезентативным синтетическим данным; целевую среду и выбранную версию еще предстоит проверить. Полный объем внедрения, суммарные трудозатраты и календарная длительность в рабочих днях неизвестны.\n\nПилот — один изолированный REST endpoint на синтетических данных без изменения авторитетных данных и переключения основного сервиса. Приемка: проверены версия и лицензия, успешные и ошибочные запросы дают согласованные JSON ответы и HTTP статусы, middleware и отмена запросов работают по установленному контракту. Безопасный откат — отключить endpoint; восстановить прежний handler можно только если он известен. Существующий путь здесь не установлен, поэтому пилот остается изолированным. Следующая ограниченная задача, которую пользователь может отдельно разрешить: реализовать этот endpoint на Gin, добавить проверки контракта и сравнить эквивалентный вариант на `net/http`. Это предложения; инструменты, код и сетевые обращения не выполнялись, внедрение не разрешено этим ответом.\n\n**English — translation**\n\nFor the first isolated pilot, I conditionally recommend **gin-gonic/gin**: the supplied host observation dated 2026-10-11 confirms that its README describes a Go HTTP framework for REST APIs. This supports the choice by language and purpose, but does not prove compatibility with your project, faster development, or production readiness. The catalog is a snapshot dated 2026-09-01; the host observation is neither my own network request nor a catalog refresh. **I exclude ABP**: its foundation is .NET/ASP.NET Core; the presence of secondary Go does not satisfy the Go framework requirement. [Gin](https://github.com/gin-gonic/gin), [ABP](https://github.com/abpframework/abp).\n\nGin's proposed role is HTTP routing and middleware in front of Go domain handlers; business logic, data storage, authorization, and operations remain the team's responsibility. For the same REST endpoint, compare Gin with standard `net/http`, including custom integration code and ongoing maintenance. If the standard option already meets the requirements, the additional dependency may not be justified. Middleware compatibility, error and request cancellation handling, Go version requirements, and dependencies can change the choice; the selected version and its license still need verification. There are no confirmed savings compared with custom development.\n\nThe hypothetical estimate **for first validation only is 6–10 engineer-hours**, with low confidence: one engineer experienced in Go HTTP application development, with an allocated capacity of one engineer at 8 hours per engineer-day. Prerequisites are a runnable isolated application and access to representative synthetic data; the target environment and selected version remain to be verified. The full adoption scope, total effort, and elapsed working days are unknown.\n\nThe pilot is one isolated REST endpoint using synthetic data, without changing authoritative data or switching the main service. Acceptance: the version and license are verified, successful and erroneous requests produce agreed JSON responses and HTTP statuses, and middleware and request cancellation follow the established contract. Safe rollback is to disable the endpoint; the prior handler can be restored only if it is known. An existing path is not established here, so the pilot remains isolated. The next bounded task that the user could separately authorize is to implement this endpoint with Gin, add contract checks, and compare an equivalent implementation using `net/http`. These are proposals; no tools, code, or network calls were executed, and this answer does not authorize implementation.",
+        "recommended_ids": [
+          20904437
+        ],
+        "cited_urls": [
+          "https://github.com/gin-gonic/gin",
+          "https://github.com/abpframework/abp"
+        ],
+        "planning_binding": {
+          "planning_sha256": "ca28b7e3b8cee508a71ecbd00c65ae546a569dcee656df25595363c5034b0b31",
+          "scenario_id": "FINAL-HOLD-12-first-validation",
+          "assumptions": {
+            "prerequisites": [
+              "Runnable isolated application and access to representative synthetic data.",
+              "Target environment and chosen version remain to be verified."
+            ],
+            "team_experience": "One engineer experienced in Go HTTP application development.",
+            "confidence": "low",
+            "hours_per_engineer_day": 8,
+            "allocated_engineers": 1
+          },
+          "first_validation": {
+            "min": 6,
+            "max": 10
+          },
+          "total_engineer_hours": null,
+          "elapsed_working_days": null
+        }
+      },
+      "canonical_result_sha256": "541f79fdeb7ab3900d2d7256447b173e5a50fe6395fbd2f555376a5ba639be53",
+      "normalization_applied": false
+    },
+    "en": {
+      "raw": {
+        "answer_markdown": "For the first isolated pilot, I conditionally recommend **gin-gonic/gin**: the supplied host observation dated 2026-10-11 confirms that its README describes a Go HTTP framework for REST APIs. This supports the choice by language and purpose, but does not prove compatibility with your project, faster development, or production readiness. The catalog is a snapshot dated 2026-09-01; the host observation is neither my own network request nor a catalog refresh. **I exclude ABP**: its foundation is .NET/ASP.NET Core; the presence of secondary Go does not satisfy the Go framework requirement. [Gin](https://github.com/gin-gonic/gin), [ABP](https://github.com/abpframework/abp).\n\nGin's proposed role is HTTP routing and middleware in front of Go domain handlers; business logic, data storage, authorization, and operations remain the team's responsibility. For the same REST endpoint, compare Gin with standard `net/http`, including custom integration code and ongoing maintenance. If the standard option already meets the requirements, the additional dependency may not be justified. Middleware compatibility, error and request cancellation handling, Go version requirements, and dependencies can change the choice; the selected version and its license still need verification. There are no confirmed savings compared with custom development.\n\nThe hypothetical estimate **for first validation only is 6–10 engineer-hours**, with low confidence: one engineer experienced in Go HTTP application development, with an allocated capacity of one engineer at 8 hours per engineer-day. Prerequisites are a runnable isolated application and access to representative synthetic data; the target environment and selected version remain to be verified. The full adoption scope, total effort, and elapsed working days are unknown.\n\nThe pilot is one isolated REST endpoint using synthetic data, without changing authoritative data or switching the main service. Acceptance: the version and license are verified, successful and erroneous requests produce agreed JSON responses and HTTP statuses, and middleware and request cancellation follow the established contract. Safe rollback is to disable the endpoint; the prior handler can be restored only if it is known. An existing path is not established here, so the pilot remains isolated. The next bounded task that the user could separately authorize is to implement this endpoint with Gin, add contract checks, and compare an equivalent implementation using `net/http`. These are proposals; no tools, code, or network calls were executed, and this answer does not authorize implementation.",
+        "recommended_ids": [
+          20904437
+        ],
+        "cited_urls": [
+          "https://github.com/gin-gonic/gin",
+          "https://github.com/abpframework/abp"
+        ],
+        "planning_binding": {
+          "planning_sha256": "ca28b7e3b8cee508a71ecbd00c65ae546a569dcee656df25595363c5034b0b31",
+          "scenario_id": "FINAL-HOLD-12-first-validation",
+          "assumptions": {
+            "prerequisites": [
+              "Runnable isolated application and access to representative synthetic data.",
+              "Target environment and chosen version remain to be verified."
+            ],
+            "team_experience": "One engineer experienced in Go HTTP application development.",
+            "confidence": "low",
+            "hours_per_engineer_day": 8,
+            "allocated_engineers": 1
+          },
+          "first_validation": {
+            "min": 6,
+            "max": 10
+          },
+          "total_engineer_hours": null,
+          "elapsed_working_days": null
+        }
+      },
+      "normalized": {
+        "answer_markdown": "For the first isolated pilot, I conditionally recommend **gin-gonic/gin**: the supplied host observation dated 2026-10-11 confirms that its README describes a Go HTTP framework for REST APIs. This supports the choice by language and purpose, but does not prove compatibility with your project, faster development, or production readiness. The catalog is a snapshot dated 2026-09-01; the host observation is neither my own network request nor a catalog refresh. **I exclude ABP**: its foundation is .NET/ASP.NET Core; the presence of secondary Go does not satisfy the Go framework requirement. [Gin](https://github.com/gin-gonic/gin), [ABP](https://github.com/abpframework/abp).\n\nGin's proposed role is HTTP routing and middleware in front of Go domain handlers; business logic, data storage, authorization, and operations remain the team's responsibility. For the same REST endpoint, compare Gin with standard `net/http`, including custom integration code and ongoing maintenance. If the standard option already meets the requirements, the additional dependency may not be justified. Middleware compatibility, error and request cancellation handling, Go version requirements, and dependencies can change the choice; the selected version and its license still need verification. There are no confirmed savings compared with custom development.\n\nThe hypothetical estimate **for first validation only is 6–10 engineer-hours**, with low confidence: one engineer experienced in Go HTTP application development, with an allocated capacity of one engineer at 8 hours per engineer-day. Prerequisites are a runnable isolated application and access to representative synthetic data; the target environment and selected version remain to be verified. The full adoption scope, total effort, and elapsed working days are unknown.\n\nThe pilot is one isolated REST endpoint using synthetic data, without changing authoritative data or switching the main service. Acceptance: the version and license are verified, successful and erroneous requests produce agreed JSON responses and HTTP statuses, and middleware and request cancellation follow the established contract. Safe rollback is to disable the endpoint; the prior handler can be restored only if it is known. An existing path is not established here, so the pilot remains isolated. The next bounded task that the user could separately authorize is to implement this endpoint with Gin, add contract checks, and compare an equivalent implementation using `net/http`. These are proposals; no tools, code, or network calls were executed, and this answer does not authorize implementation.",
+        "recommended_ids": [
+          20904437
+        ],
+        "cited_urls": [
+          "https://github.com/gin-gonic/gin",
+          "https://github.com/abpframework/abp"
+        ],
+        "planning_binding": {
+          "planning_sha256": "ca28b7e3b8cee508a71ecbd00c65ae546a569dcee656df25595363c5034b0b31",
+          "scenario_id": "FINAL-HOLD-12-first-validation",
+          "assumptions": {
+            "prerequisites": [
+              "Runnable isolated application and access to representative synthetic data.",
+              "Target environment and chosen version remain to be verified."
+            ],
+            "team_experience": "One engineer experienced in Go HTTP application development.",
+            "confidence": "low",
+            "hours_per_engineer_day": 8,
+            "allocated_engineers": 1
+          },
+          "first_validation": {
+            "min": 6,
+            "max": 10
+          },
+          "total_engineer_hours": null,
+          "elapsed_working_days": null
+        }
+      },
+      "canonical_result_sha256": "541f79fdeb7ab3900d2d7256447b173e5a50fe6395fbd2f555376a5ba639be53",
+      "normalization_applied": false
+    }
+  }
+}

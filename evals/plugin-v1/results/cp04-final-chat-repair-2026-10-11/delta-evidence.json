@@ -1,0 +1,329 @@
+{
+  "schema_version": "cp04_chat_repair_delta_v1",
+  "rank_calls": 0,
+  "changed_metric_cases": [
+    {
+      "case_id": "PROSPECTIVE-HOLD-07",
+      "previous": {
+        "recall_at_k": 0.25,
+        "ndcg_at_k": 0.3876282738275397,
+        "relevant_count": 16
+      },
+      "current": {
+        "recall_at_k": 0.625,
+        "ndcg_at_k": 0.6991792687396979,
+        "relevant_count": 16
+      },
+      "delta": {
+        "recall_at_k": 0.375,
+        "ndcg_at_k": 0.3115509949121582
+      }
+    },
+    {
+      "case_id": "PROSPECTIVE-HOLD-08",
+      "previous": {
+        "recall_at_k": 0.5,
+        "ndcg_at_k": 0.8808884898767885,
+        "relevant_count": 20
+      },
+      "current": {
+        "recall_at_k": 0.55,
+        "ndcg_at_k": 0.9170321537237652,
+        "relevant_count": 20
+      },
+      "delta": {
+        "recall_at_k": 0.050000000000000044,
+        "ndcg_at_k": 0.03614366384697676
+      }
+    },
+    {
+      "case_id": "PROSPECTIVE-HOLD-09",
+      "previous": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.9763778542271594,
+        "relevant_count": 11
+      },
+      "current": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.9317631951895788,
+        "relevant_count": 11
+      },
+      "delta": {
+        "recall_at_k": 0.0,
+        "ndcg_at_k": -0.04461465903758055
+      }
+    },
+    {
+      "case_id": "PROSPECTIVE-HOLD-13",
+      "previous": {
+        "recall_at_k": 0.7857142857142857,
+        "ndcg_at_k": 0.8350332235470305,
+        "relevant_count": 14
+      },
+      "current": {
+        "recall_at_k": 0.7857142857142857,
+        "ndcg_at_k": 0.8031093098992031,
+        "relevant_count": 14
+      },
+      "delta": {
+        "recall_at_k": 0.0,
+        "ndcg_at_k": -0.03192391364782732
+      }
+    }
+  ],
+  "literal_ndcg_regressions_retained": [
+    {
+      "case_id": "FINAL-HOLD-05",
+      "candidate": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.75586705537785,
+        "relevant_count": 6
+      },
+      "literal": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.8368947611074689,
+        "relevant_count": 6
+      }
+    },
+    {
+      "case_id": "FINAL-HOLD-06",
+      "candidate": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.7175520772148791,
+        "relevant_count": 7
+      },
+      "literal": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.7648991727473325,
+        "relevant_count": 7
+      }
+    },
+    {
+      "case_id": "FINAL-HOLD-07",
+      "candidate": {
+        "recall_at_k": 0.7,
+        "ndcg_at_k": 0.8276241603182892,
+        "relevant_count": 10
+      },
+      "literal": {
+        "recall_at_k": 0.7,
+        "ndcg_at_k": 0.8338462100882492,
+        "relevant_count": 10
+      }
+    },
+    {
+      "case_id": "FINAL-HOLD-10",
+      "candidate": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.9324441894571632,
+        "relevant_count": 2
+      },
+      "literal": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 1.0,
+        "relevant_count": 2
+      }
+    },
+    {
+      "case_id": "FINAL-HOLD-14",
+      "candidate": {
+        "recall_at_k": 0.9,
+        "ndcg_at_k": 0.9145734781489755,
+        "relevant_count": 10
+      },
+      "literal": {
+        "recall_at_k": 0.9,
+        "ndcg_at_k": 0.91572783264733,
+        "relevant_count": 10
+      }
+    },
+    {
+      "case_id": "INDEPENDENT-HOLD-01",
+      "candidate": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.9470483392285726,
+        "relevant_count": 6
+      },
+      "literal": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.9565557524561504,
+        "relevant_count": 6
+      }
+    },
+    {
+      "case_id": "INDEPENDENT-HOLD-02",
+      "candidate": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.9576516659690325,
+        "relevant_count": 10
+      },
+      "literal": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.9719344684729788,
+        "relevant_count": 10
+      }
+    },
+    {
+      "case_id": "INDEPENDENT-HOLD-04",
+      "candidate": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.9737576937588317,
+        "relevant_count": 2
+      },
+      "literal": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.9828422279067397,
+        "relevant_count": 2
+      }
+    },
+    {
+      "case_id": "INDEPENDENT-HOLD-10",
+      "candidate": {
+        "recall_at_k": 0.9230769230769231,
+        "ndcg_at_k": 0.9288724600778284,
+        "relevant_count": 13
+      },
+      "literal": {
+        "recall_at_k": 0.9230769230769231,
+        "ndcg_at_k": 0.96772512780635,
+        "relevant_count": 13
+      }
+    },
+    {
+      "case_id": "INDEPENDENT-HOLD-13",
+      "candidate": {
+        "recall_at_k": 0.7857142857142857,
+        "ndcg_at_k": 0.9895513484778613,
+        "relevant_count": 14
+      },
+      "literal": {
+        "recall_at_k": 0.7857142857142857,
+        "ndcg_at_k": 0.9904013367520977,
+        "relevant_count": 14
+      }
+    },
+    {
+      "case_id": "INDEPENDENT-HOLD-14",
+      "candidate": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.6407588074303833,
+        "relevant_count": 5
+      },
+      "literal": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.785238324828764,
+        "relevant_count": 5
+      }
+    },
+    {
+      "case_id": "PROSPECTIVE-HOLD-01",
+      "candidate": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.6583752428457631,
+        "relevant_count": 6
+      },
+      "literal": {
+        "recall_at_k": 0.8333333333333334,
+        "ndcg_at_k": 0.7327207221123936,
+        "relevant_count": 6
+      }
+    },
+    {
+      "case_id": "PROSPECTIVE-HOLD-02",
+      "candidate": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.8668815589003327,
+        "relevant_count": 7
+      },
+      "literal": {
+        "recall_at_k": 0.8571428571428571,
+        "ndcg_at_k": 0.8755459351794088,
+        "relevant_count": 7
+      }
+    },
+    {
+      "case_id": "PROSPECTIVE-HOLD-06",
+      "candidate": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.566228908178573,
+        "relevant_count": 7
+      },
+      "literal": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.7210292106105951,
+        "relevant_count": 7
+      }
+    },
+    {
+      "case_id": "PROSPECTIVE-HOLD-10",
+      "candidate": {
+        "recall_at_k": 0.9230769230769231,
+        "ndcg_at_k": 0.8511157738048476,
+        "relevant_count": 13
+      },
+      "literal": {
+        "recall_at_k": 0.7692307692307693,
+        "ndcg_at_k": 0.8739679857959115,
+        "relevant_count": 13
+      }
+    },
+    {
+      "case_id": "PROSPECTIVE-HOLD-12",
+      "candidate": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.9048569128789122,
+        "relevant_count": 6
+      },
+      "literal": {
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 0.9204708908216057,
+        "relevant_count": 6
+      }
+    }
+  ],
+  "formal_result_field_changes": [
+    {
+      "case_id": "CP04-DEV-08",
+      "changed_top_level_fields": [
+        "request"
+      ],
+      "changed_request_fields": [
+        "query_derivation"
+      ]
+    },
+    {
+      "case_id": "CP04-HOLD-10",
+      "changed_top_level_fields": [
+        "request",
+        "selection",
+        "evidence_pack",
+        "raw_ranked_ids",
+        "selected_ids"
+      ],
+      "changed_request_fields": [
+        "catalog_query",
+        "query_derivation"
+      ]
+    },
+    {
+      "case_id": "CP04-DEV-11",
+      "changed_top_level_fields": [
+        "request"
+      ],
+      "changed_request_fields": [
+        "query_derivation"
+      ]
+    },
+    {
+      "case_id": "CP04-HOLD-12",
+      "changed_top_level_fields": [
+        "request"
+      ],
+      "changed_request_fields": [
+        "query_derivation"
+      ]
+    }
+  ],
+  "human_acceptance": false,
+  "promotion_ready": false
+}

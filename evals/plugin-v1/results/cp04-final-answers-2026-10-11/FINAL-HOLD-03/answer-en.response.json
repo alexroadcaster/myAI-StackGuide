@@ -1,0 +1,29 @@
+{
+  "answer_markdown": "Keep **gedoor/legado** as a conditional evaluation candidate, with adoption on hold. The frozen September 1, 2026 catalog describes an Android book reader with configurable content sources, matching the requested role. However, the host-supplied observation dated October 11, 2026 reports that the checked default branch contains a README announcing removal of project content and an announcement image. This weakens the earlier fit assessment: usable reader code is not established. Other branches and releases remain unverified. [Repository and README](https://github.com/gedoor/legado)\n\nIf usable source becomes available, evaluate whether its configurable-source behavior can connect permitted book sources to the existing Android reader. The proposed boundary is source configuration and retrieved book content entering the reading flow; neither should be treated as executable instructions. The team still owns Android compatibility, source access rules, network and error handling, storage, and integration with its reader UI. The supplied evidence does not establish an independently reusable component or compatible API.\n\nThe single hypothetical first-validation scope is **6–10 engineer-hours**, at low confidence, for one engineer familiar with Android application development, allocated at eight hours per engineer-day. First check source availability; no runnable reader code is assumed. This is a capped evaluation slice. Complete adoption effort and elapsed time remain unknown. For equivalent scope, compare any recovered Legado code against extending the current reader or building configurable-source support directly; the current implementation is unspecified, so reuse savings and custom-development effort cannot be estimated.\n\nThe material caveat is source availability. A usable, appropriately licensed version with compatible configurable-source behavior could reverse the hold. Within the validation cap, first verify a specific source version and its license; only if that succeeds, propose a permitted book-source-to-reading check under separate implementation authorization. If usable source cannot be established, stop the evaluation. The public observation is supplied host evidence, not a network check performed here or a catalog refresh.",
+  "recommended_ids": [
+    187961907
+  ],
+  "cited_urls": [
+    "https://github.com/gedoor/legado"
+  ],
+  "planning_binding": {
+    "planning_sha256": "d220858df1b95fac786f46365e9f157e540acc5daebe237f7d4e5739a89347da",
+    "scenario_id": "FINAL-HOLD-03-first-validation",
+    "assumptions": {
+      "prerequisites": [
+        "First check whether usable source is available; no runnable reader code is assumed.",
+        "The range is a hypothetical capped evaluation slice, not an adoption estimate."
+      ],
+      "team_experience": "One engineer familiar with Android application development.",
+      "confidence": "low",
+      "hours_per_engineer_day": 8,
+      "allocated_engineers": 1
+    },
+    "first_validation": {
+      "min": 6,
+      "max": 10
+    },
+    "total_engineer_hours": null,
+    "elapsed_working_days": null
+  }
+}

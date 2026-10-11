@@ -1,0 +1,59 @@
+{
+  "schema_version": "cp04_final_reconciliation_review_v1",
+  "reviewer": "/root/cp04_final_review",
+  "reviewer_wrote_artifact": false,
+  "evidence_integrity_approved": true,
+  "promotion_approved": false,
+  "technical_closure_approved": false,
+  "human_acceptance": false,
+  "agent_proxy": true,
+  "primary_quality_verdict": false,
+  "artifact_hashes": {
+    "prospective_declaration_sha256": "0fa7f99acb4ded3b97a3c3456a8f7e80a94b68e80e964fa39b01af3a097a5362",
+    "prospective_observations_sha256": "258c5baf3b9b37a4841ba50fe53dad5569696e5a2943c21eea10c4fdec9f4639",
+    "prospective_conclusion_sha256": "ddca42a11638b3e2e7265cba48e62b1b47a0d178806693c99df011c7b1423685",
+    "prospective_source_review_sha256": "78351b82df6763e72546c0f342db80133708fc3b695e09dfe6b887adfed77f2d",
+    "current_answer_declaration_file_sha256": "93e180ddf242412e335a6aead40dfeb8fb816a67e67ae70860260c68fd375718",
+    "current_answer_observations_sha256": "bd97758a1ef1de9286c8a9e11b4dd0332f96e1e6fe702ebeafe9d90ca8b033ff",
+    "current_answer_provenance_sha256": "0af68615dc289e00f51dfeda8bede9cf6267b63de29638ef8d3649f74da07496",
+    "current_product_review_sha256": "2acf1f094cf5ec22ea3f7b4fbaeaef6cc1a0f09164ad1628ad7487c7daa911b7",
+    "current_quality_review_sha256": "0e4595f9b67ce83b81417e45fe7ff4fb43a9d2ac15fb3de1e559410d93e4fd6e",
+    "current_answer_agreement_sha256": "6b7d8948d15f69168d28fd1a29c7ed5c872acb42635f43a630876e2efb5e7939",
+    "queue_resource_sha256": "51141b76e781bde157f8a8793d2e3150c635d13b763b17ba7dba8240a65a11f4",
+    "underfill_resource_sha256": "026edfa1fd6c696de014dcaff124a9d9787e1a3d3ad07198f97425a7277cd6ea"
+  },
+  "verified": {
+    "prospective_source_asset_output_hash_mismatches": 0,
+    "prospective_case_payload_query_capture_digest_mismatches": 0,
+    "prospective_records": 15,
+    "prospective_resolved_count_rank_calls_per_record": [1, 1],
+    "prospective_packs_have_current_pins_unique_ids_and_cap": true,
+    "current_answer_source_provenance_hash_mismatches": 0,
+    "actual_current_answer_completion_traces": 8,
+    "observed_current_answer_tool_items": 0,
+    "current_formal_case_canonical_pairs": 4,
+    "agreement_dimension_pairs_reconciled": 80,
+    "critical_pass_fail_agreement": true,
+    "per_dimension_score_delta_max": 1,
+    "conservative_minimum_arithmetic_matches": true,
+    "resource_profiles": 2,
+    "samples_per_profile": [30, 30],
+    "resource_percentiles_and_cold_peak_recomputed": true,
+    "underfill_original_count": 7,
+    "underfill_added_route_terms": ["accounting", "invoicing"],
+    "underfill_peak_memory_bytes": 69414912
+  },
+  "blockers": [
+    "Prospective retrieval required_strata=false, verdict=no_go: communications/container_union Recall0.25 and nDCG0.3876282738; ecommerce billing Recall0.50; expansion_cohort Recall0.375. Macro improvements do not waive these accepted floors.",
+    "Actual human calibration and owner acceptance remain absent. Agents cannot supply them."
+  ],
+  "retained_limits": [
+    "Previous failed captures remain immutable; original exposed suites passing cannot replace this prospective failure.",
+    "Source-only approval does not approve relevance grades, ranks or adoption readiness. Broader historical identity exposure remains possible.",
+    "Current formal answers are actual composition with fixed supplied interpretations and bounded prompt; no autonomous routing/interpretation or desktop language-switch proof.",
+    "Semantic pair inspection found no material factual/negation/authority drift; primary formal scoring belongs the independent product and quality owners. Critical pass judgments agree, critical numeric scores are not all identical.",
+    "Resource timings exclude process launch and unflushed OS cache; full guard/pack diagnostics are not an SLA or worst-case/headroom proof.",
+    "Current report still requires prospective no_go/status reconciliation; no final report byte approval is included here. CP10 browser, CP11 lifecycle and release remain separate."
+  ],
+  "next_safe_role": "Primary reconciles canonical report with frozen prospective no_go and retains blockers; product/quality/runtime owners may define the smallest source-grounded repair without tuning exposed goals, oracle grades or thresholds."
+}

@@ -1,0 +1,116 @@
+{
+  "schema_version": "cp04_final_source_audit_v1",
+  "reviewer": "quality_evaluator_self_review_agent_proxy",
+  "review_timing": "after_capture",
+  "plan_sha256": "f6b3c28eb816f2f5622734ad7b36f37a2aef1897bac32a57a0732872db4e7cad",
+  "observations_sha256": "9d0f22e24882a8ccede0d3584dfc46c1a8f94718eeb4c7d94611af84c973aae4",
+  "oracle_contradictions": [
+    {
+      "case_id": "FINAL-HOLD-06",
+      "github_repository_id": 12820537,
+      "full_name": "slatedocs/slate",
+      "frozen_constraint": "allowed",
+      "source_archived": true,
+      "source_availability": "available",
+      "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/12820537",
+      "source_pointer": "/repository/archived",
+      "observed_exclusion": [
+        {
+          "github_repository_id": 12820537,
+          "reason_codes": [
+            "mandatory_fact_unknown",
+            "archived"
+          ]
+        }
+      ],
+      "classification": "invalid_oracle_constraint_expectation_not_runtime_failure"
+    },
+    {
+      "case_id": "FINAL-HOLD-10",
+      "github_repository_id": 29261473,
+      "full_name": "minio/minio",
+      "frozen_constraint": "allowed",
+      "source_archived": true,
+      "source_availability": "available",
+      "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/29261473",
+      "source_pointer": "/repository/archived",
+      "observed_exclusion": [
+        {
+          "github_repository_id": 29261473,
+          "reason_codes": [
+            "mandatory_fact_unknown",
+            "archived"
+          ]
+        }
+      ],
+      "classification": "invalid_oracle_constraint_expectation_not_runtime_failure"
+    }
+  ],
+  "effect": "No valid false-exclusion product claim. FINAL-HOLD-06 and FINAL-HOLD-10 archived constraint expectations invalidate their acceptance ranking denominators. Frozen plan/results retained unchanged; no relabel, recapture or tuning. Official both macro scores already null from independent unknowns.",
+  "accepted_gaps": [],
+  "mandatory_gaps": [
+    "Complete source-supported grades for 16 unknowns across six full routed oracles; no implicit zero",
+    "Pre-exposure constraint oracle must bind archived/availability and all applicable adoption facts before any new independent final set",
+    "Independent oracle review before next final freeze",
+    "Whole 14-container and required-stratum final gates plus original literal non-regression",
+    "Human calibration and real paired RU/EN answer meaning/usefulness"
+  ],
+  "next_role": "product_planner for disposition + evidence_reviewer for independent source audit; primary for same-capture paired answers",
+  "verdict": "no_go",
+  "promotion_ready": false,
+  "prior_capacity_reuse": {
+    "declaration_path": "evals/plugin-v1/results/cp04-v3-2026-10-08/actual-capacity-r4-declaration.json",
+    "declaration_sha256": "556e85df6685af92da1333019436d4bb464d0bda06e89c1bcc0fe7aed99bb9b9",
+    "runtime_hash_comparison": {
+      "plugins/myai-stackguide/scripts/context_pack.py": {
+        "frozen_sha256": "688f7abd3721d0ac515ce1eb3f04714cd7f397dfbb65bf3345ac5b13d15803e2",
+        "current_sha256": "688f7abd3721d0ac515ce1eb3f04714cd7f397dfbb65bf3345ac5b13d15803e2",
+        "unchanged": true
+      },
+      "plugins/myai-stackguide/scripts/matcher.py": {
+        "frozen_sha256": "c560158f15390f662e55eac39e9ffc31fd983a9af8c5086a234fbec0280933c2",
+        "current_sha256": "c560158f15390f662e55eac39e9ffc31fd983a9af8c5086a234fbec0280933c2",
+        "unchanged": true
+      },
+      "plugins/myai-stackguide/scripts/retrieval.py": {
+        "frozen_sha256": "dccc5c5a1fb980f5d407a4acadf5a054d04d9efa69cc32e7d27fedce85c3ba2b",
+        "current_sha256": "dccc5c5a1fb980f5d407a4acadf5a054d04d9efa69cc32e7d27fedce85c3ba2b",
+        "unchanged": true
+      }
+    },
+    "scope": "Historical unchanged underlying C9 retrieval/packing capacity only; does not measure current recommendation_request total runtime or final cases."
+  },
+  "tests": {
+    "red": {
+      "runner_assertion": "unknown grade yielded numeric ranking instead of null",
+      "exit": 1,
+      "unrelated_environment_error": "tempfile path write denied; test changed to mocked existence without filesystem setup",
+      "evidence": "First recorded execution in current task; no historical evidence relabeling."
+    },
+    "green": {
+      "commands": [
+        ".venv/Scripts/python.exe -B -m unittest discover -s tests -p test_plugin_final_quality.py -v",
+        ".venv/Scripts/python.exe -B -m unittest discover -s tests -p test_plugin_brief_request.py -v",
+        ".venv/Scripts/python.exe -B -m unittest discover -s tests -p test_plugin_request_guard.py -v"
+      ],
+      "counts": [
+        5,
+        6,
+        7
+      ],
+      "exits": [
+        0,
+        0,
+        0
+      ]
+    },
+    "predeclare": {
+      "exit": 0
+    },
+    "capture": {
+      "exit": 1,
+      "reason": "retained no_go"
+    }
+  },
+  "rollback": "Remove only newly assigned final-quality plan/runner/test and own new result lane; no runtime/assets/state changed."
+}

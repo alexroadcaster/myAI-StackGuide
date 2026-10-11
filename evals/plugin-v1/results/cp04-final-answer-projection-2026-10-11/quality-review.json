@@ -1,0 +1,1018 @@
+{
+  "schema_version": "cp04_final_answer_quality_review_v1",
+  "reviewer": "cp04_final_quality / quality_evaluator",
+  "review_type": "independent_agent_proxy_first_pass",
+  "independent_first_pass": true,
+  "counterpart_scores_read": false,
+  "rubric_path": "evals/plugin-v1/rubric.json",
+  "rubric_sha256": "96f67da80234d4ade36c9b5e5fb50276398acce76751513e9e041926b74f3fef",
+  "declaration_sha256": "e66f984f087a207704fdc126f39e98091da3d032f3d275742ae7e1b660717e4c",
+  "observations_sha256": "2b25bffb870c3d52cd93f8af77e7c9a58758cb22d267cc190b80ceca5ed94dc1",
+  "generation_capture_sha256": "b15d17f069d5722590c8a6084701d386053d7a72288eecd1a1420eb362e5f828",
+  "source_cases_sha256": "50ffcd56a49e7ede8cd2bd14bbb22c596361ed53d33aee7b71afdffe2eea856a",
+  "input_scope": "Eight deterministic single-locale projections of existing actual model generation. Four exposed goal interpretations; no new model or retrieval calls by this review. Product scores and product-review.json not read.",
+  "records": [
+    {
+      "case_id": "CP04-DIALOG-queue-ru",
+      "locale": "ru",
+      "answer_path": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-queue-ru/answer-ru.md",
+      "answer_sha256": "6f98104b47bdb9766e23f381251a6d07ccbb04e1e559589333bc2b72bf9c7fd5",
+      "canonical_result_sha256": "f6d60cd245b3d9a3ea1a547d812ed6f6f6fe8606db17c014fba0f48ae57012a0",
+      "canonical_capture_sha256": "f6d60cd245b3d9a3ea1a547d812ed6f6f6fe8606db17c014fba0f48ae57012a0",
+      "source_card_index_policy_pins": {
+        "activity_schema_version": "2.0.0",
+        "card_schema_version": "2.0.0",
+        "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+        "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+        "corpus_kind": "catalog_snapshot",
+        "index_format_version": 3,
+        "index_sha256": "17c5fc5dde7e612fdac4d1285f631106424fd15185e37ba6c4a23a400e3b121b",
+        "policy_sha256": "5b172b4fca5b2666fb61cba4e306c217c3ef29bb7d2eec0e478f7115370fb356",
+        "retrieval_policy_version": "2.1.0",
+        "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+        "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+      },
+      "candidate_ids_and_order": [
+        716228772,
+        3195124,
+        162494199,
+        221849341,
+        572570113,
+        451613653,
+        2703394,
+        92827980,
+        139199684,
+        184460,
+        732124850,
+        131619646,
+        488804911,
+        33884891
+      ],
+      "recommended_ids": [
+        2703394
+      ],
+      "evidence_urls": [
+        "https://github.com/coleifer/huey"
+      ],
+      "planning_sha256": "5d286a2326c86ad5bb65d9dd66ca312fe39204f07aa32e864196cd0ff010b346",
+      "dimensions": [
+        {
+          "dimension": "Context interpretation",
+          "score": 2,
+          "rationale": "Python tasks, retries, schedules and all four prohibited dependencies are preserved.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-queue-ru/answer-ru.md"
+        },
+        {
+          "dimension": "Category relevance",
+          "score": 2,
+          "rationale": "Background-job queue and scheduler fit the route and goal.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-queue-ru/answer-ru.md"
+        },
+        {
+          "dimension": "Shortlist fit and roles",
+          "score": 2,
+          "rationale": "Huey SQLite has a conditional preferred role; API, handlers, idempotency, operations and business consistency remain team-owned.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-queue-ru/answer-ru.md"
+        },
+        {
+          "dimension": "Avoid/defer quality",
+          "score": 2,
+          "rationale": "Existing-path/custom comparisons use the same task scope and preference reversal depends on recovery and SQLite limits.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-queue-ru/answer-ru.md"
+        },
+        {
+          "dimension": "Evidence/provenance/activity clarity",
+          "score": 2,
+          "rationale": "Repository URL, dated catalog snapshot and supplied host observation are distinguished; no fresh network or implementation claim.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-queue-ru/answer-ru.md"
+        },
+        {
+          "dimension": "Caveats and missing context",
+          "score": 2,
+          "rationale": "Version, license, environment, throughput, locking, total adoption effort and non-atomic cross-store writes remain unresolved; hours are hypothetical.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-queue-ru/answer-ru.md"
+        },
+        {
+          "dimension": "Integration/validation usefulness",
+          "score": 2,
+          "rationale": "Isolated synthetic task, cron, deliberate error, restart and outbox crash windows are concrete; rollback preserves both stores and reconciles pending/in-flight work.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-queue-ru/answer-ru.md"
+        },
+        {
+          "dimension": "Plain-language decision support",
+          "score": 2,
+          "rationale": "The recommendation and reuse/custom tradeoff are explained; non-atomic writes and retry reconciliation are connected to business effects.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-queue-ru/answer-ru.md"
+        },
+        {
+          "dimension": "Authorized integration handoff",
+          "score": 2,
+          "rationale": "The separately authorized bounded pilot names inputs, tests, acceptance, data preservation and recovery; real API switching is excluded from the proposal.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-queue-ru/answer-ru.md"
+        },
+        {
+          "dimension": "Privacy and permission",
+          "score": 2,
+          "rationale": "Prohibited dependencies, synthetic inputs, authoritative business data preservation and action authority remain explicit.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-queue-ru/answer-ru.md"
+        }
+      ],
+      "total": 20,
+      "critical_dimension_pass": true,
+      "critical_failures": [],
+      "rubric_proxy_pass": true,
+      "proposed_vs_executed": "All pilots, coding and checks are proposals; deterministic locale projection reuses immutable actual model outputs and canonical result."
+    },
+    {
+      "case_id": "CP04-DIALOG-queue-ru",
+      "locale": "en",
+      "answer_path": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-queue-ru/answer-en.md",
+      "answer_sha256": "10b23e685fe9db103957facbf13f74447a13aff287e4c57aa5b99eaf04c457df",
+      "canonical_result_sha256": "f6d60cd245b3d9a3ea1a547d812ed6f6f6fe8606db17c014fba0f48ae57012a0",
+      "canonical_capture_sha256": "f6d60cd245b3d9a3ea1a547d812ed6f6f6fe8606db17c014fba0f48ae57012a0",
+      "source_card_index_policy_pins": {
+        "activity_schema_version": "2.0.0",
+        "card_schema_version": "2.0.0",
+        "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+        "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+        "corpus_kind": "catalog_snapshot",
+        "index_format_version": 3,
+        "index_sha256": "17c5fc5dde7e612fdac4d1285f631106424fd15185e37ba6c4a23a400e3b121b",
+        "policy_sha256": "5b172b4fca5b2666fb61cba4e306c217c3ef29bb7d2eec0e478f7115370fb356",
+        "retrieval_policy_version": "2.1.0",
+        "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+        "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+      },
+      "candidate_ids_and_order": [
+        716228772,
+        3195124,
+        162494199,
+        221849341,
+        572570113,
+        451613653,
+        2703394,
+        92827980,
+        139199684,
+        184460,
+        732124850,
+        131619646,
+        488804911,
+        33884891
+      ],
+      "recommended_ids": [
+        2703394
+      ],
+      "evidence_urls": [
+        "https://github.com/coleifer/huey"
+      ],
+      "planning_sha256": "5d286a2326c86ad5bb65d9dd66ca312fe39204f07aa32e864196cd0ff010b346",
+      "dimensions": [
+        {
+          "dimension": "Context interpretation",
+          "score": 2,
+          "rationale": "Python tasks, retries, schedules and all four prohibited dependencies are preserved.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-queue-ru/answer-en.md"
+        },
+        {
+          "dimension": "Category relevance",
+          "score": 2,
+          "rationale": "Background-job queue and scheduler fit the route and goal.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-queue-ru/answer-en.md"
+        },
+        {
+          "dimension": "Shortlist fit and roles",
+          "score": 2,
+          "rationale": "Huey SQLite has a conditional preferred role; API, handlers, idempotency, operations and business consistency remain team-owned.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-queue-ru/answer-en.md"
+        },
+        {
+          "dimension": "Avoid/defer quality",
+          "score": 2,
+          "rationale": "Existing-path/custom comparisons use the same task scope and preference reversal depends on recovery and SQLite limits.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-queue-ru/answer-en.md"
+        },
+        {
+          "dimension": "Evidence/provenance/activity clarity",
+          "score": 2,
+          "rationale": "Repository URL, dated catalog snapshot and supplied host observation are distinguished; no fresh network or implementation claim.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-queue-ru/answer-en.md"
+        },
+        {
+          "dimension": "Caveats and missing context",
+          "score": 2,
+          "rationale": "Version, license, environment, throughput, locking, total adoption effort and non-atomic cross-store writes remain unresolved; hours are hypothetical.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-queue-ru/answer-en.md"
+        },
+        {
+          "dimension": "Integration/validation usefulness",
+          "score": 2,
+          "rationale": "Isolated synthetic task, cron, deliberate error, restart and outbox crash windows are concrete; rollback preserves both stores and reconciles pending/in-flight work.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-queue-ru/answer-en.md"
+        },
+        {
+          "dimension": "Plain-language decision support",
+          "score": 2,
+          "rationale": "The recommendation and reuse/custom tradeoff are explained; non-atomic writes and retry reconciliation are connected to business effects.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-queue-ru/answer-en.md"
+        },
+        {
+          "dimension": "Authorized integration handoff",
+          "score": 2,
+          "rationale": "The separately authorized bounded pilot names inputs, tests, acceptance, data preservation and recovery; real API switching is excluded from the proposal.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-queue-ru/answer-en.md"
+        },
+        {
+          "dimension": "Privacy and permission",
+          "score": 2,
+          "rationale": "Prohibited dependencies, synthetic inputs, authoritative business data preservation and action authority remain explicit.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-queue-ru/answer-en.md"
+        }
+      ],
+      "total": 20,
+      "critical_dimension_pass": true,
+      "critical_failures": [],
+      "rubric_proxy_pass": true,
+      "proposed_vs_executed": "All pilots, coding and checks are proposals; deterministic locale projection reuses immutable actual model outputs and canonical result."
+    },
+    {
+      "case_id": "CP04-DIALOG-search-ru",
+      "locale": "ru",
+      "answer_path": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-search-ru/answer-ru.md",
+      "answer_sha256": "f2e0e4628f9af93ac0e605bd5e1db5c9108622dca702c6d25f9ad7cb1003d03d",
+      "canonical_result_sha256": "d2cb9a736585f2b315554ce6b06299678569f1e5a70f1cfd0d3f52075614a974",
+      "canonical_capture_sha256": "d2cb9a736585f2b315554ce6b06299678569f1e5a70f1cfd0d3f52075614a974",
+      "source_card_index_policy_pins": {
+        "activity_schema_version": "2.0.0",
+        "card_schema_version": "2.0.0",
+        "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+        "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+        "corpus_kind": "catalog_snapshot",
+        "index_format_version": 3,
+        "index_sha256": "17c5fc5dde7e612fdac4d1285f631106424fd15185e37ba6c4a23a400e3b121b",
+        "policy_sha256": "5b172b4fca5b2666fb61cba4e306c217c3ef29bb7d2eec0e478f7115370fb356",
+        "retrieval_policy_version": "2.1.0",
+        "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+        "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+      },
+      "candidate_ids_and_order": [
+        130688011,
+        60377070,
+        334274271,
+        507775,
+        1048068299,
+        1009504831,
+        357707809,
+        49412556,
+        357241735,
+        997125912,
+        787076358,
+        902662933,
+        434218673,
+        66670819,
+        1005553140,
+        937346388,
+        30231828,
+        41943138,
+        18893367,
+        105279544,
+        122775780,
+        946214670,
+        1034777076,
+        118311747,
+        66387122,
+        974086497,
+        529502,
+        798201435,
+        14681876,
+        956842312,
+        945763259,
+        1153178500,
+        180136168
+      ],
+      "recommended_ids": [
+        130688011
+      ],
+      "evidence_urls": [
+        "https://github.com/meilisearch/meilisearch"
+      ],
+      "planning_sha256": "5d6389974899f801aa5723644465d0aedfa549ef8fd58d7e9042222287ee3f66",
+      "dimensions": [
+        {
+          "dimension": "Context interpretation",
+          "score": 2,
+          "rationale": "Product-catalog typo and combined brand/price filters, JavaScript and Typesense exclusion are retained.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-search-ru/answer-ru.md"
+        },
+        {
+          "dimension": "Category relevance",
+          "score": 2,
+          "rationale": "Local product-search engine fits the goal; internet search remains outside scope.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-search-ru/answer-ru.md"
+        },
+        {
+          "dimension": "Shortlist fit and roles",
+          "score": 2,
+          "rationale": "Meilisearch, JavaScript adapter and source database have distinct roles; index is a rebuildable permitted-field projection.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-search-ru/answer-ru.md"
+        },
+        {
+          "dimension": "Avoid/defer quality",
+          "score": 2,
+          "rationale": "Existing search/database and custom implementation comparison uses the same data and queries; license/dependency or sufficient current path can reverse preference.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-search-ru/answer-ru.md"
+        },
+        {
+          "dimension": "Evidence/provenance/activity clarity",
+          "score": 2,
+          "rationale": "Repository URL, snapshot and supplied dated observation are distinguished without a claimed catalog refresh.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-search-ru/answer-ru.md"
+        },
+        {
+          "dimension": "Caveats and missing context",
+          "score": 2,
+          "rationale": "Version, license, environment and operational uncertainty remain explicit; scenario familiarity and first-validation hours are assumptions, total effort/days unknown.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-search-ru/answer-ru.md"
+        },
+        {
+          "dimension": "Integration/validation usefulness",
+          "score": 2,
+          "rationale": "Pilot tests typos, joint filters, changes and deletions; rollback disables adapter, restores a known prior route only if established, and preserves source products.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-search-ru/answer-ru.md"
+        },
+        {
+          "dimension": "Plain-language decision support",
+          "score": 2,
+          "rationale": "Buyer benefit is a hypothesis; component roles and unproven reuse savings are understandable.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-search-ru/answer-ru.md"
+        },
+        {
+          "dimension": "Authorized integration handoff",
+          "score": 2,
+          "rationale": "Bounded separately authorized local adapter/test-index task includes synthetic data, filter configuration, acceptance and rollback.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-search-ru/answer-ru.md"
+        },
+        {
+          "dimension": "Privacy and permission",
+          "score": 2,
+          "rationale": "Only permitted indexed fields and synthetic data are proposed; no shopper switch or executed implementation is claimed.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-search-ru/answer-ru.md"
+        }
+      ],
+      "total": 20,
+      "critical_dimension_pass": true,
+      "critical_failures": [],
+      "rubric_proxy_pass": true,
+      "proposed_vs_executed": "All pilots, coding and checks are proposals; deterministic locale projection reuses immutable actual model outputs and canonical result."
+    },
+    {
+      "case_id": "CP04-DIALOG-search-ru",
+      "locale": "en",
+      "answer_path": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-search-ru/answer-en.md",
+      "answer_sha256": "1397cd208b4bd89b4189a26744f6cbf0212c818fabd8120af5dec3c8d97c39ab",
+      "canonical_result_sha256": "d2cb9a736585f2b315554ce6b06299678569f1e5a70f1cfd0d3f52075614a974",
+      "canonical_capture_sha256": "d2cb9a736585f2b315554ce6b06299678569f1e5a70f1cfd0d3f52075614a974",
+      "source_card_index_policy_pins": {
+        "activity_schema_version": "2.0.0",
+        "card_schema_version": "2.0.0",
+        "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+        "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+        "corpus_kind": "catalog_snapshot",
+        "index_format_version": 3,
+        "index_sha256": "17c5fc5dde7e612fdac4d1285f631106424fd15185e37ba6c4a23a400e3b121b",
+        "policy_sha256": "5b172b4fca5b2666fb61cba4e306c217c3ef29bb7d2eec0e478f7115370fb356",
+        "retrieval_policy_version": "2.1.0",
+        "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+        "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+      },
+      "candidate_ids_and_order": [
+        130688011,
+        60377070,
+        334274271,
+        507775,
+        1048068299,
+        1009504831,
+        357707809,
+        49412556,
+        357241735,
+        997125912,
+        787076358,
+        902662933,
+        434218673,
+        66670819,
+        1005553140,
+        937346388,
+        30231828,
+        41943138,
+        18893367,
+        105279544,
+        122775780,
+        946214670,
+        1034777076,
+        118311747,
+        66387122,
+        974086497,
+        529502,
+        798201435,
+        14681876,
+        956842312,
+        945763259,
+        1153178500,
+        180136168
+      ],
+      "recommended_ids": [
+        130688011
+      ],
+      "evidence_urls": [
+        "https://github.com/meilisearch/meilisearch"
+      ],
+      "planning_sha256": "5d6389974899f801aa5723644465d0aedfa549ef8fd58d7e9042222287ee3f66",
+      "dimensions": [
+        {
+          "dimension": "Context interpretation",
+          "score": 2,
+          "rationale": "Product-catalog typo and combined brand/price filters, JavaScript and Typesense exclusion are retained.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-search-ru/answer-en.md"
+        },
+        {
+          "dimension": "Category relevance",
+          "score": 2,
+          "rationale": "Local product-search engine fits the goal; internet search remains outside scope.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-search-ru/answer-en.md"
+        },
+        {
+          "dimension": "Shortlist fit and roles",
+          "score": 2,
+          "rationale": "Meilisearch, JavaScript adapter and source database have distinct roles; index is a rebuildable permitted-field projection.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-search-ru/answer-en.md"
+        },
+        {
+          "dimension": "Avoid/defer quality",
+          "score": 2,
+          "rationale": "Existing search/database and custom implementation comparison uses the same data and queries; license/dependency or sufficient current path can reverse preference.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-search-ru/answer-en.md"
+        },
+        {
+          "dimension": "Evidence/provenance/activity clarity",
+          "score": 2,
+          "rationale": "Repository URL, snapshot and supplied dated observation are distinguished without a claimed catalog refresh.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-search-ru/answer-en.md"
+        },
+        {
+          "dimension": "Caveats and missing context",
+          "score": 2,
+          "rationale": "Version, license, environment and operational uncertainty remain explicit; scenario familiarity and first-validation hours are assumptions, total effort/days unknown.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-search-ru/answer-en.md"
+        },
+        {
+          "dimension": "Integration/validation usefulness",
+          "score": 2,
+          "rationale": "Pilot tests typos, joint filters, changes and deletions; rollback disables adapter, restores a known prior route only if established, and preserves source products.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-search-ru/answer-en.md"
+        },
+        {
+          "dimension": "Plain-language decision support",
+          "score": 2,
+          "rationale": "Buyer benefit is a hypothesis; component roles and unproven reuse savings are understandable.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-search-ru/answer-en.md"
+        },
+        {
+          "dimension": "Authorized integration handoff",
+          "score": 2,
+          "rationale": "Bounded separately authorized local adapter/test-index task includes synthetic data, filter configuration, acceptance and rollback.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-search-ru/answer-en.md"
+        },
+        {
+          "dimension": "Privacy and permission",
+          "score": 2,
+          "rationale": "Only permitted indexed fields and synthetic data are proposed; no shopper switch or executed implementation is claimed.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/CP04-DIALOG-search-ru/answer-en.md"
+        }
+      ],
+      "total": 20,
+      "critical_dimension_pass": true,
+      "critical_failures": [],
+      "rubric_proxy_pass": true,
+      "proposed_vs_executed": "All pilots, coding and checks are proposals; deterministic locale projection reuses immutable actual model outputs and canonical result."
+    },
+    {
+      "case_id": "FINAL-HOLD-03",
+      "locale": "ru",
+      "answer_path": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-03/answer-ru.md",
+      "answer_sha256": "dd01bc2274321c1659f38d23702b2f32553a5cec9a3b4e37da1151a6f75e7f01",
+      "canonical_result_sha256": "5c66537ba1b0467f7cd0186627dedfb64829ec2f5fe0eaf19a0c3b78787fba77",
+      "canonical_capture_sha256": "5c66537ba1b0467f7cd0186627dedfb64829ec2f5fe0eaf19a0c3b78787fba77",
+      "source_card_index_policy_pins": {
+        "activity_schema_version": "2.0.0",
+        "card_schema_version": "2.0.0",
+        "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+        "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+        "corpus_kind": "catalog_snapshot",
+        "index_format_version": 3,
+        "index_sha256": "17c5fc5dde7e612fdac4d1285f631106424fd15185e37ba6c4a23a400e3b121b",
+        "policy_sha256": "5b172b4fca5b2666fb61cba4e306c217c3ef29bb7d2eec0e478f7115370fb356",
+        "retrieval_policy_version": "2.1.0",
+        "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+        "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+      },
+      "candidate_ids_and_order": [
+        187961907
+      ],
+      "recommended_ids": [],
+      "evidence_urls": [
+        "https://github.com/gedoor/legado"
+      ],
+      "planning_sha256": "d220858df1b95fac786f46365e9f157e540acc5daebe237f7d4e5739a89347da",
+      "dimensions": [
+        {
+          "dimension": "Context interpretation",
+          "score": 2,
+          "rationale": "Android configurable-source reader goal remains distinct from photo/media-server roles.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-03/answer-ru.md"
+        },
+        {
+          "dimension": "Category relevance",
+          "score": 2,
+          "rationale": "Historical reader fit is preserved while current code availability takes precedence for adoption.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-03/answer-ru.md"
+        },
+        {
+          "dimension": "Shortlist fit and roles",
+          "score": 2,
+          "rationale": "Legado is only a source-availability qualification subject; recommended_ids is empty in both locales.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-03/answer-ru.md"
+        },
+        {
+          "dimension": "Avoid/defer quality",
+          "score": 2,
+          "rationale": "Explicit defer persists until usable code/provenance/license are established; otherwise stop, other branches/releases remain unverified.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-03/answer-ru.md"
+        },
+        {
+          "dimension": "Evidence/provenance/activity clarity",
+          "score": 2,
+          "rationale": "Historical snapshot and supplied current default-branch removal observation are dated and distinguished; primary URL retained.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-03/answer-ru.md"
+        },
+        {
+          "dimension": "Caveats and missing context",
+          "score": 2,
+          "rationale": "No runnable reader code, rights/license, build reproducibility, source format, application compatibility or adoption effort is assumed.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-03/answer-ru.md"
+        },
+        {
+          "dimension": "Integration/validation usefulness",
+          "score": 2,
+          "rationale": "First acceptance is usable source/license; conditional later synthetic one-source build/read pilot remains isolated with preservation rollback.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-03/answer-ru.md"
+        },
+        {
+          "dimension": "Plain-language decision support",
+          "score": 2,
+          "rationale": "The source-removal consequence is explained directly and reuse/custom effort is not invented.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-03/answer-ru.md"
+        },
+        {
+          "dimension": "Authorized integration handoff",
+          "score": 2,
+          "rationale": "Bounded Android coding handoff is conditional on source/license success, with one-source acceptance and main-app/data preservation.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-03/answer-ru.md"
+        },
+        {
+          "dimension": "Privacy and permission",
+          "score": 2,
+          "rationale": "Permitted content, isolated data and separate action authority remain explicit; no legal approval or executed implementation is claimed.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-03/answer-ru.md"
+        }
+      ],
+      "total": 20,
+      "critical_dimension_pass": true,
+      "critical_failures": [],
+      "rubric_proxy_pass": true,
+      "proposed_vs_executed": "All pilots, coding and checks are proposals; deterministic locale projection reuses immutable actual model outputs and canonical result."
+    },
+    {
+      "case_id": "FINAL-HOLD-03",
+      "locale": "en",
+      "answer_path": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-03/answer-en.md",
+      "answer_sha256": "31c4f2555485225203e8939b57c91742ddf6390fb01901d623fcc401b36c1183",
+      "canonical_result_sha256": "5c66537ba1b0467f7cd0186627dedfb64829ec2f5fe0eaf19a0c3b78787fba77",
+      "canonical_capture_sha256": "5c66537ba1b0467f7cd0186627dedfb64829ec2f5fe0eaf19a0c3b78787fba77",
+      "source_card_index_policy_pins": {
+        "activity_schema_version": "2.0.0",
+        "card_schema_version": "2.0.0",
+        "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+        "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+        "corpus_kind": "catalog_snapshot",
+        "index_format_version": 3,
+        "index_sha256": "17c5fc5dde7e612fdac4d1285f631106424fd15185e37ba6c4a23a400e3b121b",
+        "policy_sha256": "5b172b4fca5b2666fb61cba4e306c217c3ef29bb7d2eec0e478f7115370fb356",
+        "retrieval_policy_version": "2.1.0",
+        "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+        "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+      },
+      "candidate_ids_and_order": [
+        187961907
+      ],
+      "recommended_ids": [],
+      "evidence_urls": [
+        "https://github.com/gedoor/legado"
+      ],
+      "planning_sha256": "d220858df1b95fac786f46365e9f157e540acc5daebe237f7d4e5739a89347da",
+      "dimensions": [
+        {
+          "dimension": "Context interpretation",
+          "score": 2,
+          "rationale": "Android configurable-source reader goal remains distinct from photo/media-server roles.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-03/answer-en.md"
+        },
+        {
+          "dimension": "Category relevance",
+          "score": 2,
+          "rationale": "Historical reader fit is preserved while current code availability takes precedence for adoption.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-03/answer-en.md"
+        },
+        {
+          "dimension": "Shortlist fit and roles",
+          "score": 2,
+          "rationale": "Legado is only a source-availability qualification subject; recommended_ids is empty in both locales.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-03/answer-en.md"
+        },
+        {
+          "dimension": "Avoid/defer quality",
+          "score": 2,
+          "rationale": "Explicit defer persists until usable code/provenance/license are established; otherwise stop, other branches/releases remain unverified.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-03/answer-en.md"
+        },
+        {
+          "dimension": "Evidence/provenance/activity clarity",
+          "score": 2,
+          "rationale": "Historical snapshot and supplied current default-branch removal observation are dated and distinguished; primary URL retained.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-03/answer-en.md"
+        },
+        {
+          "dimension": "Caveats and missing context",
+          "score": 2,
+          "rationale": "No runnable reader code, rights/license, build reproducibility, source format, application compatibility or adoption effort is assumed.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-03/answer-en.md"
+        },
+        {
+          "dimension": "Integration/validation usefulness",
+          "score": 2,
+          "rationale": "First acceptance is usable source/license; conditional later synthetic one-source build/read pilot remains isolated with preservation rollback.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-03/answer-en.md"
+        },
+        {
+          "dimension": "Plain-language decision support",
+          "score": 2,
+          "rationale": "The source-removal consequence is explained directly and reuse/custom effort is not invented.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-03/answer-en.md"
+        },
+        {
+          "dimension": "Authorized integration handoff",
+          "score": 2,
+          "rationale": "Bounded Android coding handoff is conditional on source/license success, with one-source acceptance and main-app/data preservation.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-03/answer-en.md"
+        },
+        {
+          "dimension": "Privacy and permission",
+          "score": 2,
+          "rationale": "Permitted content, isolated data and separate action authority remain explicit; no legal approval or executed implementation is claimed.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-03/answer-en.md"
+        }
+      ],
+      "total": 20,
+      "critical_dimension_pass": true,
+      "critical_failures": [],
+      "rubric_proxy_pass": true,
+      "proposed_vs_executed": "All pilots, coding and checks are proposals; deterministic locale projection reuses immutable actual model outputs and canonical result."
+    },
+    {
+      "case_id": "FINAL-HOLD-12",
+      "locale": "ru",
+      "answer_path": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-12/answer-ru.md",
+      "answer_sha256": "1ee0ca13d881ca545b7a29d1ccbfc33b45eb36fa41bf7df0f595e75feefe4d13",
+      "canonical_result_sha256": "541f79fdeb7ab3900d2d7256447b173e5a50fe6395fbd2f555376a5ba639be53",
+      "canonical_capture_sha256": "541f79fdeb7ab3900d2d7256447b173e5a50fe6395fbd2f555376a5ba639be53",
+      "source_card_index_policy_pins": {
+        "activity_schema_version": "2.0.0",
+        "card_schema_version": "2.0.0",
+        "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+        "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+        "corpus_kind": "catalog_snapshot",
+        "index_format_version": 3,
+        "index_sha256": "17c5fc5dde7e612fdac4d1285f631106424fd15185e37ba6c4a23a400e3b121b",
+        "policy_sha256": "5b172b4fca5b2666fb61cba4e306c217c3ef29bb7d2eec0e478f7115370fb356",
+        "retrieval_policy_version": "2.1.0",
+        "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+        "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+      },
+      "candidate_ids_and_order": [
+        44344606,
+        20904437,
+        234231371,
+        31504491,
+        138597372,
+        435625572,
+        105379569,
+        1864194,
+        394929332,
+        160919119,
+        78452015,
+        372172254,
+        7548986,
+        458058,
+        1148753,
+        80945428,
+        40772809,
+        596892,
+        438384984,
+        2609642,
+        40136600,
+        4164482,
+        124230204,
+        237159,
+        69495170,
+        1863329,
+        75505125,
+        17620347,
+        8514,
+        16072585,
+        6296790
+      ],
+      "recommended_ids": [
+        20904437
+      ],
+      "evidence_urls": [
+        "https://github.com/gin-gonic/gin",
+        "https://github.com/abpframework/abp"
+      ],
+      "planning_sha256": "ca28b7e3b8cee508a71ecbd00c65ae546a569dcee656df25595363c5034b0b31",
+      "dimensions": [
+        {
+          "dimension": "Context interpretation",
+          "score": 2,
+          "rationale": "Go HTTP/REST requirement is retained; a secondary Go label does not qualify ABP.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-12/answer-ru.md"
+        },
+        {
+          "dimension": "Category relevance",
+          "score": 2,
+          "rationale": "Gin routing/middleware fits the HTTP framework role.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-12/answer-ru.md"
+        },
+        {
+          "dimension": "Shortlist fit and roles",
+          "score": 2,
+          "rationale": "Gin precedes Go handlers; domain logic, storage, authorization and operations remain team-owned; net/http is a same-endpoint alternative.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-12/answer-ru.md"
+        },
+        {
+          "dimension": "Avoid/defer quality",
+          "score": 2,
+          "rationale": "ABP is excluded by actual .NET foundation; a sufficient standard-library option or incompatible middleware/version/dependency can reverse preference.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-12/answer-ru.md"
+        },
+        {
+          "dimension": "Evidence/provenance/activity clarity",
+          "score": 2,
+          "rationale": "Gin and ABP primary URLs, snapshot date and supplied fresh README observation are distinguished without production readiness.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-12/answer-ru.md"
+        },
+        {
+          "dimension": "Caveats and missing context",
+          "score": 2,
+          "rationale": "Go HTTP experience is an explicit scenario prerequisite in both locales; version/license, environment and total effort remain unknown.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-12/answer-ru.md"
+        },
+        {
+          "dimension": "Integration/validation usefulness",
+          "score": 2,
+          "rationale": "Isolated synthetic REST endpoint tests success/error JSON/status, middleware and cancellation; rollback disables endpoint and only restores a known handler.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-12/answer-ru.md"
+        },
+        {
+          "dimension": "Plain-language decision support",
+          "score": 2,
+          "rationale": "Conditional decision, dependency cost, same-scope comparison and unproven savings are understandable.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-12/answer-ru.md"
+        },
+        {
+          "dimension": "Authorized integration handoff",
+          "score": 2,
+          "rationale": "Separately authorized endpoint implementation, contract checks and net/http comparison form a concrete bounded handoff with acceptance and rollback.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-12/answer-ru.md"
+        },
+        {
+          "dimension": "Privacy and permission",
+          "score": 2,
+          "rationale": "No authoritative-data change, main-service switch, tools or network execution is claimed; implementation needs separate authorization.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-12/answer-ru.md"
+        }
+      ],
+      "total": 20,
+      "critical_dimension_pass": true,
+      "critical_failures": [],
+      "rubric_proxy_pass": true,
+      "proposed_vs_executed": "All pilots, coding and checks are proposals; deterministic locale projection reuses immutable actual model outputs and canonical result."
+    },
+    {
+      "case_id": "FINAL-HOLD-12",
+      "locale": "en",
+      "answer_path": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-12/answer-en.md",
+      "answer_sha256": "14ed3a49fefc1fb8bf3a5b3d02bf82b59209d2d9d8c2fe0398ae811b81193932",
+      "canonical_result_sha256": "541f79fdeb7ab3900d2d7256447b173e5a50fe6395fbd2f555376a5ba639be53",
+      "canonical_capture_sha256": "541f79fdeb7ab3900d2d7256447b173e5a50fe6395fbd2f555376a5ba639be53",
+      "source_card_index_policy_pins": {
+        "activity_schema_version": "2.0.0",
+        "card_schema_version": "2.0.0",
+        "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+        "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+        "corpus_kind": "catalog_snapshot",
+        "index_format_version": 3,
+        "index_sha256": "17c5fc5dde7e612fdac4d1285f631106424fd15185e37ba6c4a23a400e3b121b",
+        "policy_sha256": "5b172b4fca5b2666fb61cba4e306c217c3ef29bb7d2eec0e478f7115370fb356",
+        "retrieval_policy_version": "2.1.0",
+        "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+        "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+      },
+      "candidate_ids_and_order": [
+        44344606,
+        20904437,
+        234231371,
+        31504491,
+        138597372,
+        435625572,
+        105379569,
+        1864194,
+        394929332,
+        160919119,
+        78452015,
+        372172254,
+        7548986,
+        458058,
+        1148753,
+        80945428,
+        40772809,
+        596892,
+        438384984,
+        2609642,
+        40136600,
+        4164482,
+        124230204,
+        237159,
+        69495170,
+        1863329,
+        75505125,
+        17620347,
+        8514,
+        16072585,
+        6296790
+      ],
+      "recommended_ids": [
+        20904437
+      ],
+      "evidence_urls": [
+        "https://github.com/gin-gonic/gin",
+        "https://github.com/abpframework/abp"
+      ],
+      "planning_sha256": "ca28b7e3b8cee508a71ecbd00c65ae546a569dcee656df25595363c5034b0b31",
+      "dimensions": [
+        {
+          "dimension": "Context interpretation",
+          "score": 2,
+          "rationale": "Go HTTP/REST requirement is retained; a secondary Go label does not qualify ABP.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-12/answer-en.md"
+        },
+        {
+          "dimension": "Category relevance",
+          "score": 2,
+          "rationale": "Gin routing/middleware fits the HTTP framework role.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-12/answer-en.md"
+        },
+        {
+          "dimension": "Shortlist fit and roles",
+          "score": 2,
+          "rationale": "Gin precedes Go handlers; domain logic, storage, authorization and operations remain team-owned; net/http is a same-endpoint alternative.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-12/answer-en.md"
+        },
+        {
+          "dimension": "Avoid/defer quality",
+          "score": 2,
+          "rationale": "ABP is excluded by actual .NET foundation; a sufficient standard-library option or incompatible middleware/version/dependency can reverse preference.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-12/answer-en.md"
+        },
+        {
+          "dimension": "Evidence/provenance/activity clarity",
+          "score": 2,
+          "rationale": "Gin and ABP primary URLs, snapshot date and supplied fresh README observation are distinguished without production readiness.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-12/answer-en.md"
+        },
+        {
+          "dimension": "Caveats and missing context",
+          "score": 2,
+          "rationale": "Go HTTP experience is an explicit scenario prerequisite in both locales; version/license, environment and total effort remain unknown.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-12/answer-en.md"
+        },
+        {
+          "dimension": "Integration/validation usefulness",
+          "score": 2,
+          "rationale": "Isolated synthetic REST endpoint tests success/error JSON/status, middleware and cancellation; rollback disables endpoint and only restores a known handler.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-12/answer-en.md"
+        },
+        {
+          "dimension": "Plain-language decision support",
+          "score": 2,
+          "rationale": "Conditional decision, dependency cost, same-scope comparison and unproven savings are understandable.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-12/answer-en.md"
+        },
+        {
+          "dimension": "Authorized integration handoff",
+          "score": 2,
+          "rationale": "Separately authorized endpoint implementation, contract checks and net/http comparison form a concrete bounded handoff with acceptance and rollback.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-12/answer-en.md"
+        },
+        {
+          "dimension": "Privacy and permission",
+          "score": 2,
+          "rationale": "No authoritative-data change, main-service switch, tools or network execution is claimed; implementation needs separate authorization.",
+          "evidence_ref": "evals/plugin-v1/results/cp04-final-answer-projection-2026-10-11/FINAL-HOLD-12/answer-en.md"
+        }
+      ],
+      "total": 20,
+      "critical_dimension_pass": true,
+      "critical_failures": [],
+      "rubric_proxy_pass": true,
+      "proposed_vs_executed": "All pilots, coding and checks are proposals; deterministic locale projection reuses immutable actual model outputs and canonical result."
+    }
+  ],
+  "paired_meaning_review": [
+    {
+      "case_id": "CP04-DIALOG-queue-ru",
+      "canonical_result_sha256": "f6d60cd245b3d9a3ea1a547d812ed6f6f6fe8606db17c014fba0f48ae57012a0",
+      "meaning_pass": true,
+      "critical_meaning_changes": [],
+      "noncritical_detail_differences": [],
+      "same_result_hash": true,
+      "same_recommended_ids": true,
+      "same_evidence_urls": true,
+      "same_planning_binding": true,
+      "browser_no_call_locale_switch": "not_observed"
+    },
+    {
+      "case_id": "CP04-DIALOG-search-ru",
+      "canonical_result_sha256": "d2cb9a736585f2b315554ce6b06299678569f1e5a70f1cfd0d3f52075614a974",
+      "meaning_pass": true,
+      "critical_meaning_changes": [],
+      "noncritical_detail_differences": [],
+      "same_result_hash": true,
+      "same_recommended_ids": true,
+      "same_evidence_urls": true,
+      "same_planning_binding": true,
+      "browser_no_call_locale_switch": "not_observed"
+    },
+    {
+      "case_id": "FINAL-HOLD-03",
+      "canonical_result_sha256": "5c66537ba1b0467f7cd0186627dedfb64829ec2f5fe0eaf19a0c3b78787fba77",
+      "meaning_pass": true,
+      "critical_meaning_changes": [],
+      "noncritical_detail_differences": [],
+      "same_result_hash": true,
+      "same_recommended_ids": true,
+      "same_evidence_urls": true,
+      "same_planning_binding": true,
+      "browser_no_call_locale_switch": "not_observed"
+    },
+    {
+      "case_id": "FINAL-HOLD-12",
+      "canonical_result_sha256": "541f79fdeb7ab3900d2d7256447b173e5a50fe6395fbd2f555376a5ba639be53",
+      "meaning_pass": true,
+      "critical_meaning_changes": [],
+      "noncritical_detail_differences": [],
+      "same_result_hash": true,
+      "same_recommended_ids": true,
+      "same_evidence_urls": true,
+      "same_planning_binding": true,
+      "browser_no_call_locale_switch": "not_observed"
+    }
+  ],
+  "summary": {
+    "reviewed_answers": 8,
+    "minimum_observed_total": 20,
+    "maximum_observed_total": 20,
+    "rubric_proxy_passes": 8,
+    "critical_failures": 0,
+    "critical_dimension_passes": 8,
+    "meaning_pairs_passed": 4,
+    "human_acceptance": false,
+    "browser_behavior": "not_observed",
+    "runtime_locale_switch_no_call": "not_observed",
+    "promotion_ready": false
+  },
+  "retained_gaps": [
+    "Proxy review does not establish human acceptance, browser no-call switching, source operability or publication recovery.",
+    "Model generations use previously interpreted/source-authored cases; no fresh interpretation or globally unseen task claim.",
+    "Independent newly frozen retrieval capture failed baseline nDCG nonregression and invoice recall strata; answer proxy success cannot override retrieval failure.",
+    "Hours are validation-only hypothetical scenarios; no measured engineering speedup, total adoption estimate or delivery commitment."
+  ],
+  "adjudication": "Parent compares original independent receipts without rewriting first passes; dimension difference >1 or critical disagreement requires recorded adjudication."
+}

@@ -1,0 +1,34 @@
+{
+  "schema_version": "cp04_host_source_authoring_static_receipt_v1",
+  "checks": "passed",
+  "semantic_cases": 14,
+  "alias_regression_cases": 1,
+  "full_route_judgment_rows": 205,
+  "semantic_unique_ids": 205,
+  "source_seen": 205,
+  "source_disjoint": 0,
+  "unknown_grades": 0,
+  "primary_new_role_records": 17,
+  "capacity_cases_passed": 14,
+  "metadata_registry_select": true,
+  "count_or_match_or_model_calls": 0,
+  "hashes": {
+    "evals/plugin-v1/final-quality-host-prospective-2026-10-11.json": "aceba6767fafcadf0f937de9bb078b2474894b036d3966635747c1e77177b475",
+    "evals/plugin-v1/host-decision-eval-contract-2026-10-11.json": "a3bf3c87ebd36d404199c5adaa35e1b6ed1ec4ebd9ec7d952215da8549635e98",
+    "research/cp04-host-prospective-2026-10-11/goal-authoring-draft.json": "be4c06abf97e3c1c49460266772239d17434b08c7add13bc13145beea4d128b3",
+    "research/cp04-host-prospective-2026-10-11/source-review-questions.json": "bbcc1b9eb3613f4496ea7bd659825de5f2cfaa24399ff527e12a7fe4eb223f56",
+    "research/cp04-host-prospective-2026-10-11/capacity-feasibility.json": "48977d57e62f84351cc63636242dc99e44a9714dbb5eb1ba1bad3902eac3f414",
+    "research/cp04-host-prospective-2026-10-11/author_plan.py": "d59d9c08c78cc507f8cdd31acaf2d58c4b32132289becb1b43b0506eaa623072",
+    "research/cp04-host-prospective-2026-10-11/validate_authoring.py": "4dbe3d4d1c0d0c1ec2330069bd0faf0ca1c6737f147872739cd73bea0296d07b"
+  },
+  "remaining_gates": [
+    "Independent source-only review",
+    "Final architect/schema/hash binding",
+    "Producer/runtime/source freeze",
+    "Actual native/host/literal capture",
+    "Resource owner acceptance",
+    "Human acceptance"
+  ],
+  "human_acceptance": false,
+  "promotion_ready": false
+}

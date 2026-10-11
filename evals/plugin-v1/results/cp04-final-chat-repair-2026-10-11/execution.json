@@ -1,0 +1,17 @@
+{
+  "schema_version": "cp04_chat_repair_execution_v1",
+  "commands": [
+    {"command": ".venv/Scripts/python.exe -B evals/plugin-v1/run_final_chat_repair.py --freeze", "exit_code": 0, "rank_calls": 0},
+    {"command": ".venv/Scripts/python.exe -B evals/plugin-v1/run_final_chat_repair.py --run", "exit_code": 1, "rank_calls": 49, "verdict": "no_go"},
+    {"command": ".venv/Scripts/python.exe -B evals/plugin-v1/results/cp04-final-chat-repair-2026-10-11/audit_capture.py", "exit_code": 1, "rank_calls": 0, "reason": "Audit setup incorrectly treated retrieved_hits integer as a list; corrected before any audit artifact was written."},
+    {"command": ".venv/Scripts/python.exe -B evals/plugin-v1/results/cp04-final-chat-repair-2026-10-11/audit_capture.py", "exit_code": 1, "rank_calls": 0, "artifact": "audit.json", "reason": "Two invalid audit assumptions retained: MATCH substring confused match_category_id with SQL operator; packed IDs are not necessarily guard-selected prefix because pack eligibility/exclusions apply."},
+    {"command": ".venv/Scripts/python.exe -B evals/plugin-v1/results/cp04-final-chat-repair-2026-10-11/audit_capture.py", "exit_code": 0, "rank_calls": 0, "artifact": "audit-corrected.json", "errors": []}
+  ],
+  "environment_note": "Python launcher emits Failed to find real location of C:\\Python314\\python.exe before executing successfully; exit codes and completed artifacts retained.",
+  "production_implementation_edits_by_quality_owner": 0,
+  "model_calls": 0,
+  "network_calls": 0,
+  "human_acceptance": false,
+  "promotion_ready": false,
+  "frozen_capture_rewrites": 0
+}

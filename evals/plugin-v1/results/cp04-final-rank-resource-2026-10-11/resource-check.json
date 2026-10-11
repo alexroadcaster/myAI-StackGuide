@@ -1,0 +1,2108 @@
+{
+  "scope": "Prepared Brief plus COUNT and final C9 retrieval; guard/pack one separate diagnostic. Existing C9 ceilings applied conservatively to this larger timed seam; no end-to-end/model SLA",
+  "python": "3.14.6",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "processor": "",
+  "cold_definition": "30 new read-only processes/connections; OS cache not flushed, process launch excluded",
+  "warm_definition": "same process/immutable index after one discarded warmup",
+  "cold_samples": [
+    {
+      "ms": 72.14430000749417,
+      "prepare_count_ms": 64.87649999326095,
+      "c9_ms": 7.26879999274388,
+      "status": "ok",
+      "query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+      "query_derivation": {
+        "original_terms": [
+          "background jobs",
+          "scheduling",
+          "retries",
+          "python",
+          "sqlite"
+        ],
+        "original_match_count": 15,
+        "added_route_terms": [],
+        "source": null,
+        "original_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "final_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 33206272
+    },
+    {
+      "ms": 71.68900000397116,
+      "prepare_count_ms": 64.83859999570996,
+      "c9_ms": 6.851399986771867,
+      "status": "ok",
+      "query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+      "query_derivation": {
+        "original_terms": [
+          "background jobs",
+          "scheduling",
+          "retries",
+          "python",
+          "sqlite"
+        ],
+        "original_match_count": 15,
+        "added_route_terms": [],
+        "source": null,
+        "original_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "final_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 33304576
+    },
+    {
+      "ms": 67.08120001712814,
+      "prepare_count_ms": 59.792200016090646,
+      "c9_ms": 7.289999979548156,
+      "status": "ok",
+      "query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+      "query_derivation": {
+        "original_terms": [
+          "background jobs",
+          "scheduling",
+          "retries",
+          "python",
+          "sqlite"
+        ],
+        "original_match_count": 15,
+        "added_route_terms": [],
+        "source": null,
+        "original_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "final_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 33210368
+    },
+    {
+      "ms": 68.0729000014253,
+      "prepare_count_ms": 61.095999990357086,
+      "c9_ms": 6.977899989578873,
+      "status": "ok",
+      "query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+      "query_derivation": {
+        "original_terms": [
+          "background jobs",
+          "scheduling",
+          "retries",
+          "python",
+          "sqlite"
+        ],
+        "original_match_count": 15,
+        "added_route_terms": [],
+        "source": null,
+        "original_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "final_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 33169408
+    },
+    {
+      "ms": 68.51230000029318,
+      "prepare_count_ms": 61.448899999959394,
+      "c9_ms": 7.06430000718683,
+      "status": "ok",
+      "query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+      "query_derivation": {
+        "original_terms": [
+          "background jobs",
+          "scheduling",
+          "retries",
+          "python",
+          "sqlite"
+        ],
+        "original_match_count": 15,
+        "added_route_terms": [],
+        "source": null,
+        "original_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "final_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 33177600
+    },
+    {
+      "ms": 68.24090000009164,
+      "prepare_count_ms": 61.383599997498095,
+      "c9_ms": 6.858200009446591,
+      "status": "ok",
+      "query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+      "query_derivation": {
+        "original_terms": [
+          "background jobs",
+          "scheduling",
+          "retries",
+          "python",
+          "sqlite"
+        ],
+        "original_match_count": 15,
+        "added_route_terms": [],
+        "source": null,
+        "original_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "final_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 33308672
+    },
+    {
+      "ms": 64.80089999968186,
+      "prepare_count_ms": 57.94960001367144,
+      "c9_ms": 6.852099992102012,
+      "status": "ok",
+      "query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+      "query_derivation": {
+        "original_terms": [
+          "background jobs",
+          "scheduling",
+          "retries",
+          "python",
+          "sqlite"
+        ],
+        "original_match_count": 15,
+        "added_route_terms": [],
+        "source": null,
+        "original_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "final_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 33251328
+    },
+    {
+      "ms": 65.07350000902079,
+      "prepare_count_ms": 58.25050000566989,
+      "c9_ms": 6.823899981100112,
+      "status": "ok",
+      "query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+      "query_derivation": {
+        "original_terms": [
+          "background jobs",
+          "scheduling",
+          "retries",
+          "python",
+          "sqlite"
+        ],
+        "original_match_count": 15,
+        "added_route_terms": [],
+        "source": null,
+        "original_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "final_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 33165312
+    },
+    {
+      "ms": 66.95370000670664,
+      "prepare_count_ms": 60.06849999539554,
+      "c9_ms": 6.886100018164143,
+      "status": "ok",
+      "query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+      "query_derivation": {
+        "original_terms": [
+          "background jobs",
+          "scheduling",
+          "retries",
+          "python",
+          "sqlite"
+        ],
+        "original_match_count": 15,
+        "added_route_terms": [],
+        "source": null,
+        "original_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "final_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 33128448
+    },
+    {
+      "ms": 69.78890000027604,
+      "prepare_count_ms": 61.54900000547059,
+      "c9_ms": 8.24070000089705,
+      "status": "ok",
+      "query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+      "query_derivation": {
+        "original_terms": [
+          "background jobs",
+          "scheduling",
+          "retries",
+          "python",
+          "sqlite"
+        ],
+        "original_match_count": 15,
+        "added_route_terms": [],
+        "source": null,
+        "original_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "final_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 32997376
+    },
+    {
+      "ms": 64.28620000951923,
+      "prepare_count_ms": 57.41080001462251,
+      "c9_ms": 6.876300001749769,
+      "status": "ok",
+      "query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+      "query_derivation": {
+        "original_terms": [
+          "background jobs",
+          "scheduling",
+          "retries",
+          "python",
+          "sqlite"
+        ],
+        "original_match_count": 15,
+        "added_route_terms": [],
+        "source": null,
+        "original_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "final_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 33247232
+    },
+    {
+      "ms": 65.56350001483224,
+      "prepare_count_ms": 58.586400002241135,
+      "c9_ms": 6.978000019444153,
+      "status": "ok",
+      "query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+      "query_derivation": {
+        "original_terms": [
+          "background jobs",
+          "scheduling",
+          "retries",
+          "python",
+          "sqlite"
+        ],
+        "original_match_count": 15,
+        "added_route_terms": [],
+        "source": null,
+        "original_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "final_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 33153024
+    },
+    {
+      "ms": 66.18100000196137,
+      "prepare_count_ms": 59.30399999488145,
+      "c9_ms": 6.877899984829128,
+      "status": "ok",
+      "query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+      "query_derivation": {
+        "original_terms": [
+          "background jobs",
+          "scheduling",
+          "retries",
+          "python",
+          "sqlite"
+        ],
+        "original_match_count": 15,
+        "added_route_terms": [],
+        "source": null,
+        "original_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "final_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 33329152
+    },
+    {
+      "ms": 68.56540002627298,
+      "prepare_count_ms": 61.17940001422539,
+      "c9_ms": 7.386899989796802,
+      "status": "ok",
+      "query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+      "query_derivation": {
+        "original_terms": [
+          "background jobs",
+          "scheduling",
+          "retries",
+          "python",
+          "sqlite"
+        ],
+        "original_match_count": 15,
+        "added_route_terms": [],
+        "source": null,
+        "original_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "final_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 33292288
+    },
+    {
+      "ms": 66.36659998912364,
+      "prepare_count_ms": 59.54600000404753,
+      "c9_ms": 6.821499991929159,
+      "status": "ok",
+      "query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+      "query_derivation": {
+        "original_terms": [
+          "background jobs",
+          "scheduling",
+          "retries",
+          "python",
+          "sqlite"
+        ],
+        "original_match_count": 15,
+        "added_route_terms": [],
+        "source": null,
+        "original_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "final_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 33378304
+    },
+    {
+      "ms": 67.13260000105947,
+      "prepare_count_ms": 59.92209998657927,
+      "c9_ms": 7.211399992229417,
+      "status": "ok",
+      "query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+      "query_derivation": {
+        "original_terms": [
+          "background jobs",
+          "scheduling",
+          "retries",
+          "python",
+          "sqlite"
+        ],
+        "original_match_count": 15,
+        "added_route_terms": [],
+        "source": null,
+        "original_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "final_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 33263616
+    },
+    {
+      "ms": 68.38920002337545,
+      "prepare_count_ms": 61.15960000897758,
+      "c9_ms": 7.230499992147088,
+      "status": "ok",
+      "query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+      "query_derivation": {
+        "original_terms": [
+          "background jobs",
+          "scheduling",
+          "retries",
+          "python",
+          "sqlite"
+        ],
+        "original_match_count": 15,
+        "added_route_terms": [],
+        "source": null,
+        "original_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "final_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 33038336
+    },
+    {
+      "ms": 67.14299999293871,
+      "prepare_count_ms": 60.25539999245666,
+      "c9_ms": 6.888400006573647,
+      "status": "ok",
+      "query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+      "query_derivation": {
+        "original_terms": [
+          "background jobs",
+          "scheduling",
+          "retries",
+          "python",
+          "sqlite"
+        ],
+        "original_match_count": 15,
+        "added_route_terms": [],
+        "source": null,
+        "original_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "final_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 33124352
+    },
+    {
+      "ms": 66.40000001061708,
+      "prepare_count_ms": 59.585100010735914,
+      "c9_ms": 6.815799977630377,
+      "status": "ok",
+      "query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+      "query_derivation": {
+        "original_terms": [
+          "background jobs",
+          "scheduling",
+          "retries",
+          "python",
+          "sqlite"
+        ],
+        "original_match_count": 15,
+        "added_route_terms": [],
+        "source": null,
+        "original_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "final_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 33325056
+    },
+    {
+      "ms": 67.07230000756681,
+      "prepare_count_ms": 60.22720001055859,
+      "c9_ms": 6.846100004622713,
+      "status": "ok",
+      "query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+      "query_derivation": {
+        "original_terms": [
+          "background jobs",
+          "scheduling",
+          "retries",
+          "python",
+          "sqlite"
+        ],
+        "original_match_count": 15,
+        "added_route_terms": [],
+        "source": null,
+        "original_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "final_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 33316864
+    },
+    {
+      "ms": 67.37010000506416,
+      "prepare_count_ms": 60.65820000367239,
+      "c9_ms": 6.712699978379533,
+      "status": "ok",
+      "query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+      "query_derivation": {
+        "original_terms": [
+          "background jobs",
+          "scheduling",
+          "retries",
+          "python",
+          "sqlite"
+        ],
+        "original_match_count": 15,
+        "added_route_terms": [],
+        "source": null,
+        "original_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "final_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 33345536
+    },
+    {
+      "ms": 67.45579998823814,
+      "prepare_count_ms": 60.02879998413846,
+      "c9_ms": 7.428200013237074,
+      "status": "ok",
+      "query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+      "query_derivation": {
+        "original_terms": [
+          "background jobs",
+          "scheduling",
+          "retries",
+          "python",
+          "sqlite"
+        ],
+        "original_match_count": 15,
+        "added_route_terms": [],
+        "source": null,
+        "original_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "final_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 32964608
+    },
+    {
+      "ms": 63.61859999014996,
+      "prepare_count_ms": 56.94789998233318,
+      "c9_ms": 6.671800016192719,
+      "status": "ok",
+      "query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+      "query_derivation": {
+        "original_terms": [
+          "background jobs",
+          "scheduling",
+          "retries",
+          "python",
+          "sqlite"
+        ],
+        "original_match_count": 15,
+        "added_route_terms": [],
+        "source": null,
+        "original_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "final_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 33095680
+    },
+    {
+      "ms": 66.13290001405403,
+      "prepare_count_ms": 59.32679999386892,
+      "c9_ms": 6.8069999979343265,
+      "status": "ok",
+      "query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+      "query_derivation": {
+        "original_terms": [
+          "background jobs",
+          "scheduling",
+          "retries",
+          "python",
+          "sqlite"
+        ],
+        "original_match_count": 15,
+        "added_route_terms": [],
+        "source": null,
+        "original_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "final_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 33026048
+    },
+    {
+      "ms": 69.39940000302158,
+      "prepare_count_ms": 62.32209998415783,
+      "c9_ms": 7.078199996612966,
+      "status": "ok",
+      "query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+      "query_derivation": {
+        "original_terms": [
+          "background jobs",
+          "scheduling",
+          "retries",
+          "python",
+          "sqlite"
+        ],
+        "original_match_count": 15,
+        "added_route_terms": [],
+        "source": null,
+        "original_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "final_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 33177600
+    },
+    {
+      "ms": 65.08490000851452,
+      "prepare_count_ms": 58.233600022504106,
+      "c9_ms": 6.852199992863461,
+      "status": "ok",
+      "query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+      "query_derivation": {
+        "original_terms": [
+          "background jobs",
+          "scheduling",
+          "retries",
+          "python",
+          "sqlite"
+        ],
+        "original_match_count": 15,
+        "added_route_terms": [],
+        "source": null,
+        "original_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "final_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 33206272
+    },
+    {
+      "ms": 65.84660001681186,
+      "prepare_count_ms": 58.92370000947267,
+      "c9_ms": 6.923899985849857,
+      "status": "ok",
+      "query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+      "query_derivation": {
+        "original_terms": [
+          "background jobs",
+          "scheduling",
+          "retries",
+          "python",
+          "sqlite"
+        ],
+        "original_match_count": 15,
+        "added_route_terms": [],
+        "source": null,
+        "original_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "final_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 33136640
+    },
+    {
+      "ms": 65.74429999454878,
+      "prepare_count_ms": 59.009699994931,
+      "c9_ms": 6.735600007232279,
+      "status": "ok",
+      "query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+      "query_derivation": {
+        "original_terms": [
+          "background jobs",
+          "scheduling",
+          "retries",
+          "python",
+          "sqlite"
+        ],
+        "original_match_count": 15,
+        "added_route_terms": [],
+        "source": null,
+        "original_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "final_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 33210368
+    },
+    {
+      "ms": 65.92349999118596,
+      "prepare_count_ms": 59.10690000746399,
+      "c9_ms": 6.817399989813566,
+      "status": "ok",
+      "query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+      "query_derivation": {
+        "original_terms": [
+          "background jobs",
+          "scheduling",
+          "retries",
+          "python",
+          "sqlite"
+        ],
+        "original_match_count": 15,
+        "added_route_terms": [],
+        "source": null,
+        "original_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "final_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 32976896
+    },
+    {
+      "ms": 65.65529998624697,
+      "prepare_count_ms": 58.24379998375662,
+      "c9_ms": 7.412400009343401,
+      "status": "ok",
+      "query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+      "query_derivation": {
+        "original_terms": [
+          "background jobs",
+          "scheduling",
+          "retries",
+          "python",
+          "sqlite"
+        ],
+        "original_match_count": 15,
+        "added_route_terms": [],
+        "source": null,
+        "original_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "final_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      },
+      "peak_working_set_bytes": 33181696
+    }
+  ],
+  "warm_samples": [
+    {
+      "ms": 18.13309997669421,
+      "prepare_count_ms": 7.8686999913770705,
+      "c9_ms": 10.26609999826178,
+      "status": "ok",
+      "query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+      "query_derivation": {
+        "original_terms": [
+          "background jobs",
+          "scheduling",
+          "retries",
+          "python",
+          "sqlite"
+        ],
+        "original_match_count": 15,
+        "added_route_terms": [],
+        "source": null,
+        "original_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "final_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 20.786500012036413,
+      "prepare_count_ms": 10.723499988671392,
+      "c9_ms": 10.063900001114234,
+      "status": "ok",
+      "query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+      "query_derivation": {
+        "original_terms": [
+          "background jobs",
+          "scheduling",
+          "retries",
+          "python",
+          "sqlite"
+        ],
+        "original_match_count": 15,
+        "added_route_terms": [],
+        "source": null,
+        "original_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "final_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 19.23000000533648,
+      "prepare_count_ms": 10.54309998289682,
+      "c9_ms": 8.687499997904524,
+      "status": "ok",
+      "query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+      "query_derivation": {
+        "original_terms": [
+          "background jobs",
+          "scheduling",
+          "retries",
+          "python",
+          "sqlite"
+        ],
+        "original_match_count": 15,
+        "added_route_terms": [],
+        "source": null,
+        "original_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "final_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 15.322999999625608,
+      "prepare_count_ms": 7.9301999940071255,
+      "c9_ms": 7.393399981083348,
+      "status": "ok",
+      "query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+      "query_derivation": {
+        "original_terms": [
+          "background jobs",
+          "scheduling",
+          "retries",
+          "python",
+          "sqlite"
+        ],
+        "original_match_count": 15,
+        "added_route_terms": [],
+        "source": null,
+        "original_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "final_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 14.778299984754995,
+      "prepare_count_ms": 7.4210999882780015,
+      "c9_ms": 7.35770000028424,
+      "status": "ok",
+      "query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+      "query_derivation": {
+        "original_terms": [
+          "background jobs",
+          "scheduling",
+          "retries",
+          "python",
+          "sqlite"
+        ],
+        "original_match_count": 15,
+        "added_route_terms": [],
+        "source": null,
+        "original_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "final_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 23.685599997406825,
+      "prepare_count_ms": 11.052100016968325,
+      "c9_ms": 12.634399987291545,
+      "status": "ok",
+      "query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+      "query_derivation": {
+        "original_terms": [
+          "background jobs",
+          "scheduling",
+          "retries",
+          "python",
+          "sqlite"
+        ],
+        "original_match_count": 15,
+        "added_route_terms": [],
+        "source": null,
+        "original_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "final_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 18.769899994367734,
+      "prepare_count_ms": 9.645799989812076,
+      "c9_ms": 9.124800009885803,
+      "status": "ok",
+      "query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+      "query_derivation": {
+        "original_terms": [
+          "background jobs",
+          "scheduling",
+          "retries",
+          "python",
+          "sqlite"
+        ],
+        "original_match_count": 15,
+        "added_route_terms": [],
+        "source": null,
+        "original_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "final_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 18.71989999199286,
+      "prepare_count_ms": 9.588599990820512,
+      "c9_ms": 9.132100007263944,
+      "status": "ok",
+      "query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+      "query_derivation": {
+        "original_terms": [
+          "background jobs",
+          "scheduling",
+          "retries",
+          "python",
+          "sqlite"
+        ],
+        "original_match_count": 15,
+        "added_route_terms": [],
+        "source": null,
+        "original_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "final_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 19.524200004525483,
+      "prepare_count_ms": 9.920300013618544,
+      "c9_ms": 9.604799997759983,
+      "status": "ok",
+      "query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+      "query_derivation": {
+        "original_terms": [
+          "background jobs",
+          "scheduling",
+          "retries",
+          "python",
+          "sqlite"
+        ],
+        "original_match_count": 15,
+        "added_route_terms": [],
+        "source": null,
+        "original_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "final_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 20.21329998387955,
+      "prepare_count_ms": 10.271499981172383,
+      "c9_ms": 9.942700009560212,
+      "status": "ok",
+      "query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+      "query_derivation": {
+        "original_terms": [
+          "background jobs",
+          "scheduling",
+          "retries",
+          "python",
+          "sqlite"
+        ],
+        "original_match_count": 15,
+        "added_route_terms": [],
+        "source": null,
+        "original_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "final_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 18.931600003270432,
+      "prepare_count_ms": 10.139000019989908,
+      "c9_ms": 8.79339998937212,
+      "status": "ok",
+      "query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+      "query_derivation": {
+        "original_terms": [
+          "background jobs",
+          "scheduling",
+          "retries",
+          "python",
+          "sqlite"
+        ],
+        "original_match_count": 15,
+        "added_route_terms": [],
+        "source": null,
+        "original_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "final_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 18.394499988062307,
+      "prepare_count_ms": 9.399799979291856,
+      "c9_ms": 8.995500014862046,
+      "status": "ok",
+      "query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+      "query_derivation": {
+        "original_terms": [
+          "background jobs",
+          "scheduling",
+          "retries",
+          "python",
+          "sqlite"
+        ],
+        "original_match_count": 15,
+        "added_route_terms": [],
+        "source": null,
+        "original_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "final_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 18.046499986667186,
+      "prepare_count_ms": 9.225499990861863,
+      "c9_ms": 8.82160000037402,
+      "status": "ok",
+      "query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+      "query_derivation": {
+        "original_terms": [
+          "background jobs",
+          "scheduling",
+          "retries",
+          "python",
+          "sqlite"
+        ],
+        "original_match_count": 15,
+        "added_route_terms": [],
+        "source": null,
+        "original_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "final_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 18.257600022479892,
+      "prepare_count_ms": 9.286600019549951,
+      "c9_ms": 8.971599978394806,
+      "status": "ok",
+      "query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+      "query_derivation": {
+        "original_terms": [
+          "background jobs",
+          "scheduling",
+          "retries",
+          "python",
+          "sqlite"
+        ],
+        "original_match_count": 15,
+        "added_route_terms": [],
+        "source": null,
+        "original_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "final_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 18.16449998295866,
+      "prepare_count_ms": 9.259399987058714,
+      "c9_ms": 8.90580000123009,
+      "status": "ok",
+      "query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+      "query_derivation": {
+        "original_terms": [
+          "background jobs",
+          "scheduling",
+          "retries",
+          "python",
+          "sqlite"
+        ],
+        "original_match_count": 15,
+        "added_route_terms": [],
+        "source": null,
+        "original_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "final_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 18.1573000154458,
+      "prepare_count_ms": 9.339300013380125,
+      "c9_ms": 8.818699978291988,
+      "status": "ok",
+      "query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+      "query_derivation": {
+        "original_terms": [
+          "background jobs",
+          "scheduling",
+          "retries",
+          "python",
+          "sqlite"
+        ],
+        "original_match_count": 15,
+        "added_route_terms": [],
+        "source": null,
+        "original_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "final_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 18.49779998883605,
+      "prepare_count_ms": 9.337299998151138,
+      "c9_ms": 9.161599999060854,
+      "status": "ok",
+      "query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+      "query_derivation": {
+        "original_terms": [
+          "background jobs",
+          "scheduling",
+          "retries",
+          "python",
+          "sqlite"
+        ],
+        "original_match_count": 15,
+        "added_route_terms": [],
+        "source": null,
+        "original_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "final_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 19.250000012107193,
+      "prepare_count_ms": 10.000500013120472,
+      "c9_ms": 9.250200004316866,
+      "status": "ok",
+      "query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+      "query_derivation": {
+        "original_terms": [
+          "background jobs",
+          "scheduling",
+          "retries",
+          "python",
+          "sqlite"
+        ],
+        "original_match_count": 15,
+        "added_route_terms": [],
+        "source": null,
+        "original_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "final_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 18.971300014527515,
+      "prepare_count_ms": 9.819500002777204,
+      "c9_ms": 9.152799990260974,
+      "status": "ok",
+      "query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+      "query_derivation": {
+        "original_terms": [
+          "background jobs",
+          "scheduling",
+          "retries",
+          "python",
+          "sqlite"
+        ],
+        "original_match_count": 15,
+        "added_route_terms": [],
+        "source": null,
+        "original_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "final_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 18.911499995738268,
+      "prepare_count_ms": 9.935100009897724,
+      "c9_ms": 8.977399993455037,
+      "status": "ok",
+      "query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+      "query_derivation": {
+        "original_terms": [
+          "background jobs",
+          "scheduling",
+          "retries",
+          "python",
+          "sqlite"
+        ],
+        "original_match_count": 15,
+        "added_route_terms": [],
+        "source": null,
+        "original_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "final_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 20.293799985665828,
+      "prepare_count_ms": 10.522099997615442,
+      "c9_ms": 9.77269999566488,
+      "status": "ok",
+      "query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+      "query_derivation": {
+        "original_terms": [
+          "background jobs",
+          "scheduling",
+          "retries",
+          "python",
+          "sqlite"
+        ],
+        "original_match_count": 15,
+        "added_route_terms": [],
+        "source": null,
+        "original_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "final_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 21.157700015464798,
+      "prepare_count_ms": 10.878900007810444,
+      "c9_ms": 10.279699985403568,
+      "status": "ok",
+      "query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+      "query_derivation": {
+        "original_terms": [
+          "background jobs",
+          "scheduling",
+          "retries",
+          "python",
+          "sqlite"
+        ],
+        "original_match_count": 15,
+        "added_route_terms": [],
+        "source": null,
+        "original_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "final_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 21.21649999753572,
+      "prepare_count_ms": 10.632399993482977,
+      "c9_ms": 10.584800009382889,
+      "status": "ok",
+      "query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+      "query_derivation": {
+        "original_terms": [
+          "background jobs",
+          "scheduling",
+          "retries",
+          "python",
+          "sqlite"
+        ],
+        "original_match_count": 15,
+        "added_route_terms": [],
+        "source": null,
+        "original_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "final_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 29.98190000653267,
+      "prepare_count_ms": 15.555899997707456,
+      "c9_ms": 14.427400019485503,
+      "status": "ok",
+      "query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+      "query_derivation": {
+        "original_terms": [
+          "background jobs",
+          "scheduling",
+          "retries",
+          "python",
+          "sqlite"
+        ],
+        "original_match_count": 15,
+        "added_route_terms": [],
+        "source": null,
+        "original_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "final_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 21.742999990237877,
+      "prepare_count_ms": 8.23769997805357,
+      "c9_ms": 13.506899995263666,
+      "status": "ok",
+      "query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+      "query_derivation": {
+        "original_terms": [
+          "background jobs",
+          "scheduling",
+          "retries",
+          "python",
+          "sqlite"
+        ],
+        "original_match_count": 15,
+        "added_route_terms": [],
+        "source": null,
+        "original_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "final_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 28.552700008731335,
+      "prepare_count_ms": 14.339799992740154,
+      "c9_ms": 14.214300026651472,
+      "status": "ok",
+      "query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+      "query_derivation": {
+        "original_terms": [
+          "background jobs",
+          "scheduling",
+          "retries",
+          "python",
+          "sqlite"
+        ],
+        "original_match_count": 15,
+        "added_route_terms": [],
+        "source": null,
+        "original_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "final_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 22.93840001220815,
+      "prepare_count_ms": 9.767300012754276,
+      "c9_ms": 13.171899976441637,
+      "status": "ok",
+      "query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+      "query_derivation": {
+        "original_terms": [
+          "background jobs",
+          "scheduling",
+          "retries",
+          "python",
+          "sqlite"
+        ],
+        "original_match_count": 15,
+        "added_route_terms": [],
+        "source": null,
+        "original_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "final_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 27.920300024561584,
+      "prepare_count_ms": 14.39369999570772,
+      "c9_ms": 13.528000010410324,
+      "status": "ok",
+      "query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+      "query_derivation": {
+        "original_terms": [
+          "background jobs",
+          "scheduling",
+          "retries",
+          "python",
+          "sqlite"
+        ],
+        "original_match_count": 15,
+        "added_route_terms": [],
+        "source": null,
+        "original_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "final_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 24.756900005741045,
+      "prepare_count_ms": 11.265400011325255,
+      "c9_ms": 13.492700003553182,
+      "status": "ok",
+      "query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+      "query_derivation": {
+        "original_terms": [
+          "background jobs",
+          "scheduling",
+          "retries",
+          "python",
+          "sqlite"
+        ],
+        "original_match_count": 15,
+        "added_route_terms": [],
+        "source": null,
+        "original_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "final_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    },
+    {
+      "ms": 23.63470001728274,
+      "prepare_count_ms": 15.160700015258044,
+      "c9_ms": 8.475299982819706,
+      "status": "ok",
+      "query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+      "query_derivation": {
+        "original_terms": [
+          "background jobs",
+          "scheduling",
+          "retries",
+          "python",
+          "sqlite"
+        ],
+        "original_match_count": 15,
+        "added_route_terms": [],
+        "source": null,
+        "original_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "final_query_sha256": "f2fd552b925eedb6c4c3781c7a7022c0adef807f3c601e094eceefccd93dc9ea",
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+          "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        }
+      }
+    }
+  ],
+  "cold_p95_ms": 71.68900000397116,
+  "warm_p95_ms": 28.552700008731335,
+  "peak_memory_bytes": 33378304,
+  "index_bytes": 2048000,
+  "prior_whole_path_diagnostic": {
+    "ms": 402.20559999579564,
+    "status": "ready",
+    "scope": "One warm Brief/COUNT/C9/guard/pack diagnostic; no model or SLA"
+  },
+  "source_hashes": {
+    "evals/plugin-v1/measure_final_rank_request.py": "1376b1413a481ca5eee3b824a41d109781a11e36f30ba89038c293ab8193bbe6",
+    "plugins/myai-stackguide/scripts/recommendation_request.py": "3c3d188d51d5c6da55de2fc1655874d15f4919cecae9bea40fa71810d3084ad9",
+    "plugins/myai-stackguide/scripts/retrieval.py": "6cd0a8012ed47374afee68c957a7369020775562d21b0d8b2649ec3b850f14dd",
+    "evals/plugin-v1/results/cp04-final-answers-repair-2026-10-11/cases.json": "50ffcd56a49e7ede8cd2bd14bbb22c596361ed53d33aee7b71afdffe2eea856a",
+    "plugins/myai-stackguide/assets/catalog.search.sqlite": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+    "plugins/myai-stackguide/assets/catalog.search-manifest.json": "4c1c9eccf6df60d92da5d780a8152ce3fb00e43ccbf80e8ed01c3c660135a1bb",
+    "plugins/myai-stackguide/assets/retrieval-policy.json": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b"
+  },
+  "promotion_ready": false,
+  "gates": {
+    "cold_p95": true,
+    "warm_p95": true,
+    "peak_memory": true,
+    "index_bytes": true,
+    "statuses": true
+  }
+}

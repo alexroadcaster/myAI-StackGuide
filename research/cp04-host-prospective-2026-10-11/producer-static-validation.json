@@ -1,0 +1,32 @@
+{
+  "schema_version": "cp04_host_producer_static_receipt_v1",
+  "checks": "passed",
+  "producer_sha256": "ed60257585bfb14b7bb0fd6a973e0af84a879027453f525a9512be7a2d1809ef",
+  "contract_sha256": "d9851beb9692039906602380fedea1d95ec3a5b9dd7489f5d0cb2b75edb56d48",
+  "review_sha256": "f8c6e48aacaab52858d184f093d00a546362eb8e1e96af557632fb35dad0e7c0",
+  "native_contracts": 26,
+  "eval_schemas": 2,
+  "native_schema_set_sha256": "fd89076fdd2701ba138ec033bbbd235a312a4bf8c0c2f6c4ff845607b322b83d",
+  "pure_new_payloads": 15,
+  "immutable_inputs": {
+    "evals/plugin-v1/results/cp04-final-chat-repair-2026-10-11/frozen-plan.json": "77e741a657f2e78286fa1dc75a0fcc74c30e3953365bb66dd013e2bfbef91153",
+    "evals/plugin-v1/results/cp04-final-chat-repair-2026-10-11/observations.json": "f3fc90d08f006c7a6b2ab07be41ede7d473754618c464d1d3a0299747dbdffb3",
+    "evals/plugin-v1/final-quality-host-prospective-2026-10-11.json": "aceba6767fafcadf0f937de9bb078b2474894b036d3966635747c1e77177b475",
+    "research/cp04-host-prospective-2026-10-11/source-review-questions.json": "bbcc1b9eb3613f4496ea7bd659825de5f2cfaa24399ff527e12a7fe4eb223f56",
+    "evals/plugin-v1/host-decision-eval-contract-2026-10-11.json": "d9851beb9692039906602380fedea1d95ec3a5b9dd7489f5d0cb2b75edb56d48"
+  },
+  "grade_free_fixed_prompt": true,
+  "wrapper_bytes": 1091,
+  "bounded_host_concurrency": 2,
+  "native_instrumentation_serialized": true,
+  "rank_or_count_or_model_calls": 0,
+  "earlier_check_failure": "A static assertion initially counted26 native schemas as26 total; actual closed inventory is26 native+2 C8 eval schemas. Corrected without any schema changes.",
+  "remaining": [
+    "Final runtime/source stability receipt",
+    "Root freeze and actual native+host60 capture",
+    "Actual resources and source/trace review",
+    "Human calibration"
+  ],
+  "human_acceptance": false,
+  "promotion_ready": false
+}

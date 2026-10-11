@@ -1,0 +1,50 @@
+{
+  "command": [
+    "C:\\Users\\user\\AppData\\Roaming\\npm\\codex.cmd",
+    "exec",
+    "--ephemeral",
+    "--sandbox",
+    "read-only",
+    "--json",
+    "--output-schema",
+    "C:\\Users\\user\\Desktop\\project\\github_research\\agentic-engineering-catalog\\evals\\plugin-v1\\results\\cp04-final-host-calibration-cardinality-2026-10-11\\CP04-DEV-11\\host-order.schema.json",
+    "--output-last-message",
+    "C:\\Users\\user\\Desktop\\project\\github_research\\agentic-engineering-catalog\\evals\\plugin-v1\\results\\cp04-final-host-calibration-cardinality-2026-10-11\\CP04-DEV-11\\host.response.json",
+    "-"
+  ],
+  "exit_code": 0,
+  "failure": null,
+  "elapsed_seconds": 14.050828000006732,
+  "model_override": false,
+  "effort_override": false,
+  "model": null,
+  "model_unknown_reason": "CLI events omit actual model identity",
+  "effort": null,
+  "effort_unknown_reason": "Configured inherited effort; actual trace does not attest effective effort",
+  "available_usage": [
+    {
+      "input_tokens": 39155,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 190,
+      "reasoning_output_tokens": 82
+    }
+  ],
+  "usage_unknown_reason": null,
+  "completed_turn": true,
+  "cost": null,
+  "cost_unknown_reason": "CLI does not report billed cost",
+  "remote_peak_rss": null,
+  "remote_rss_unknown_reason": "Unavailable from host CLI",
+  "tool_items": [],
+  "event_parse_errors": [],
+  "prompt_sha256": "7a03ce757b95393eee166833089bfac18dddbff0156464c88a51527efa390c32",
+  "preview_sha256": "ef9da7e53c60d7b78cd72045f006cb6556f7adce8bb70e27521883e1e5850483",
+  "output_schema_sha256": "b7305a02caa434585a50481cc43c84583c0eb656bff737dbe35f572b8b4448fb",
+  "output_schema_utf8_bytes": 192,
+  "pool_count": 24,
+  "output_schema_worst_case_utf8_bytes": 194,
+  "automatic_retries": 0,
+  "controlled_prompt_and_schema_bytes": 30871,
+  "events_sha256": "25bbdfabcf6c38a6c75438e6e66624976a5aab4c26c467fc178318b86807dc8b"
+}

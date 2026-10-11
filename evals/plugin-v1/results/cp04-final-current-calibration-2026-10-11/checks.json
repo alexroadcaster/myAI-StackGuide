@@ -1,0 +1,19 @@
+{
+  "schema_version": "cp04_current_capture_checks_v1",
+  "checks": [
+    {
+      "name": "current canonical replay parity",
+      "command": "python -B - (import run_final_current_calibration and compare frozen cases to cases())",
+      "exit_code": 0,
+      "observed": "4/4 identical; current Brief digest, one COUNT/one retrieval, <=12 cards, unique canonical IDs"
+    },
+    {
+      "name": "initial default-sandbox CLI startup",
+      "exit_code": 1,
+      "observed": "Four child launches failed in <=0.2s before model initialization; Access denied in .codex/tmp/arg0 and in-process app-server. Immutable artifacts preserved under startup-failure-default-sandbox/."
+    }
+  ],
+  "recovery": "One auto-reviewed require_escalated host launch, child --sandbox read-only retained; no model or effort override. No installation, permission weakening or additional model retry.",
+  "human_acceptance": false,
+  "promotion_ready": false
+}

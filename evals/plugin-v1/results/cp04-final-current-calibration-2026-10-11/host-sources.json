@@ -1,0 +1,58 @@
+[
+  {
+    "github_repository_id": 1953389,
+    "full_name": "stripe/stripe-python",
+    "observed_on": "2026-10-11",
+    "source_urls": [
+      "https://github.com/stripe/stripe-python"
+    ],
+    "source_kind": "host_public_readme_read",
+    "facts": [
+      "Python library provides access to the Stripe API; README supports Python 3.9+.",
+      "Normal API usage requires a secret account key. README documents configurable retries and automatic idempotency keys.",
+      "SDK does not establish payment-provider availability, regulatory suitability or application reconciliation."
+    ]
+  },
+  {
+    "github_repository_id": 506953078,
+    "full_name": "intelligent-machine-learning/dlrover",
+    "observed_on": "2026-10-11",
+    "source_urls": [
+      "https://github.com/intelligent-machine-learning/dlrover"
+    ],
+    "source_kind": "host_public_readme_read",
+    "facts": [
+      "README describes distributed training, fault tolerance and scaling.",
+      "Kubernetes PyTorch path wraps training scripts that torchrun or torch.distributed.run can run; a separate Ray architecture exists.",
+      "Tutorial paths depend on selected platform. No project hardware, framework compatibility or license acceptance was tested."
+    ]
+  },
+  {
+    "github_repository_id": 787076358,
+    "full_name": "firecrawl/firecrawl",
+    "observed_on": "2026-10-11",
+    "source_urls": [
+      "https://github.com/firecrawl/firecrawl"
+    ],
+    "source_kind": "host_public_readme_read",
+    "facts": [
+      "README documents web search with full result content and scraping output as Markdown/JSON.",
+      "Core is primarily AGPL-3.0; SDKs and some UI components use MIT. Cloud includes additional features.",
+      "Cloud examples require an API key; self-hosting is a separate setup and not established as feature-equivalent."
+    ]
+  },
+  {
+    "github_repository_id": 899407931,
+    "full_name": "firecrawl/firecrawl-mcp-server",
+    "observed_on": "2026-10-11",
+    "source_urls": [
+      "https://github.com/firecrawl/firecrawl-mcp-server"
+    ],
+    "source_kind": "host_public_readme_read",
+    "facts": [
+      "MCP adapter exposes Firecrawl tools to clients, a distinct role from the core service.",
+      "README describes hosted rate-limited keyless scrape/search/parse; crawl/map/agent still need a key.",
+      "Local cloud mode requires API key; a self-hosted API URL is configurable. No endpoint or MCP activation was performed."
+    ]
+  }
+]

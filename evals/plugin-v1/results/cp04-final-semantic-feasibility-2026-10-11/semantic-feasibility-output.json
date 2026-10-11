@@ -1,0 +1,97 @@
+{
+  "input_sha256": "b55cd6f84ff9ee3a0a9daab6aed9446125a5cf2ae495a7b0c73e467370f102b1",
+  "candidate_order": [650344440, 464415161, 883769819, 666069735, 516192901, 1153120067, 1203556545, 611669523, 6325420, 17388759, 11901762, 932308018, 978384239, 1034520943, 621902641, 114730000, 7239495, 764642350, 493550477, 374072543, 18471236, 175471189, 139323243, 27529089, 19971572, 22337952, 919664598, 373845609],
+  "top12_notes": [
+    {
+      "repository_id": 650344440,
+      "full_name": "openmeterio/openmeter",
+      "proposed_role": "Primary metering and usage-billing infrastructure candidate",
+      "functional_justification": "The retained description explicitly links collecting and aggregating usage events to usage-based billing, matching both parts of the goal most directly.",
+      "uncertainties": "Reported scale and real-time behavior are unverified. Charge calculation rules, event deduplication, corrections, deployment and payment integration need inspection."
+    },
+    {
+      "repository_id": 464415161,
+      "full_name": "getlago/lago",
+      "proposed_role": "Primary metering and billing API candidate",
+      "functional_justification": "The description explicitly names metering, usage-based billing and consumption tracking; retained topics include events and ingestion. Payment orchestration could support the downstream billing layer.",
+      "uncertainties": "Topics do not prove event-processing semantics. Its card has unresolved mandatory metadata; compatibility, pricing-rule coverage and operational behavior remain unknown."
+    },
+    {
+      "repository_id": 883769819,
+      "full_name": "flexprice/flexprice",
+      "proposed_role": "Primary usage-pricing and billing candidate",
+      "functional_justification": "The description explicitly combines usage-based pricing and billing with usage metering; events appear in retained topics. Credits and top-ups are possible supporting capabilities.",
+      "uncertainties": "Real-time metering and hosting options are source claims. Event integrity, charge correctness, credit semantics and concrete integration requirements are unverified."
+    },
+    {
+      "repository_id": 666069735,
+      "full_name": "meteroid-oss/meteroid",
+      "proposed_role": "Primary pricing and usage-billing infrastructure alternative",
+      "functional_justification": "The description explicitly includes usage-based billing, pricing and invoicing; metering and SaaS topics reinforce relevance, although event collection is less explicit than for earlier candidates.",
+      "uncertainties": "Metering topics do not establish collection or aggregation behavior. Usage ingestion, correction rules, cost limiting and deployment compatibility need validation."
+    },
+    {
+      "repository_id": 516192901,
+      "full_name": "uselotus/lotus",
+      "proposed_role": "Usage-pricing and packaging infrastructure alternative",
+      "functional_justification": "Pricing infrastructure is explicit in the description, and retained topics name a pricing engine, usage-based billing and usage-based pricing. This supports investigation for charge calculation.",
+      "uncertainties": "The brief description does not establish usage-event collection or aggregation. End-to-end metering, billing features and operability are unknown."
+    },
+    {
+      "repository_id": 1153120067,
+      "full_name": "getpaykit/paykit",
+      "proposed_role": "Application-embedded billing and usage-state framework alternative",
+      "functional_justification": "The description explicitly identifies a TypeScript billing framework with products in code, Stripe, webhooks and usage state running in the application. Usage state is relevant to connecting a meter to billing.",
+      "uncertainties": "Usage state alone does not prove event aggregation or usage-charge computation. TypeScript application fit, provider requirements and state consistency must be checked."
+    },
+    {
+      "repository_id": 1203556545,
+      "full_name": "velobase/velobase-harness",
+      "proposed_role": "Broader AI SaaS infrastructure alternative with usage billing",
+      "functional_justification": "The description explicitly offers usage billing and payments for converting an AI prototype into paid SaaS. It is broader than the requested metering component but directly mentions the billing model.",
+      "uncertainties": "The goal does not specify AI SaaS. Metering implementation, charge calculation and the necessity of its other infrastructure are not established by this card."
+    },
+    {
+      "repository_id": 611669523,
+      "full_name": "billabear/billabear",
+      "proposed_role": "Supporting subscription and invoicing layer or billing alternative",
+      "functional_justification": "The description names subscription management and billing; invoice-generator, REST API and SaaS topics suggest a relevant downstream layer for amounts computed by a usage meter.",
+      "uncertainties": "Usage-event collection and usage-based pricing are not established. Its API and invoice integration with an external meter need inspection."
+    },
+    {
+      "repository_id": 6325420,
+      "full_name": "killbill/killbill",
+      "proposed_role": "Supporting subscription billing and payment platform alternative",
+      "functional_justification": "The retained upstream description explicitly identifies subscription billing and payments, making it relevant to billing lifecycle and collection after metering.",
+      "uncertainties": "The card does not establish metering or usage-rate calculation and has unresolved mandatory metadata. Extension requirements and operational fit remain unknown."
+    },
+    {
+      "repository_id": 17388759,
+      "full_name": "laravel/cashier-stripe",
+      "proposed_role": "Conditional Laravel and Stripe subscription-billing integration",
+      "functional_justification": "The description explicitly provides a Laravel interface to Stripe subscription billing, a possible application-facing supporting layer when that stack is selected.",
+      "uncertainties": "Neither Laravel nor Stripe is required by the goal. Metering, usage reporting and support for the required charge model are unverified."
+    },
+    {
+      "repository_id": 11901762,
+      "full_name": "dj-stripe/dj-stripe",
+      "proposed_role": "Conditional Django and Stripe billing-data synchronization layer",
+      "functional_justification": "The description explicitly synchronizes Stripe data into Django models, which could support local access to downstream billing and subscription records.",
+      "uncertainties": "The goal does not select Django or Stripe. Data synchronization does not establish usage metering or charge computation; synchronization semantics need inspection."
+    },
+    {
+      "repository_id": 932308018,
+      "full_name": "flowglad/flowglad",
+      "proposed_role": "Supporting payment-provider and subscription alternative",
+      "functional_justification": "The description identifies a payment provider, and retained topics include subscriptions and billing. This is relevant to collecting charges after usage amounts are determined.",
+      "uncertainties": "The zero-webhooks description is an unverified source claim. Event metering, charge calculation, provider dependencies and integration behavior are not established."
+    }
+  ],
+  "unsupported_claims": [
+    "This is a prospective model ordering for one exposed development goal; it is not native BM25/RRF output, runtime activation, held-out ranking evaluation or quality acceptance.",
+    "Functional justifications use only the supplied dated catalog cards. No live GitHub metadata, implementation, deployment or integration behavior was verified.",
+    "Within-role ordering is a proposal based on specificity of functional evidence, not measured superiority. No candidate is excluded because facts are missing.",
+    "The cards do not establish production readiness, security, current activity, compatibility, reliable charge calculation, event integrity, achieved savings or suitability for a specific SaaS stack.",
+    "Source descriptions and topics indicate investigation paths; they do not prove features, scale claims or a working combination of candidates."
+  ]
+}

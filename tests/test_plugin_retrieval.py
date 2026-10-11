@@ -58,6 +58,7 @@ def base_query():
             "retrieval/catalog-query.schema.json"
         ]
     )
+    query["policy_sha256"] = hashlib.sha256(POLICY_PATH.read_bytes()).hexdigest()
     query["taxonomy_route_id"] = None
     query["constraints"] = {
         "languages": [],
@@ -82,6 +83,85 @@ def execute_query(runtime, query, **overrides):
 
 class RetrievalRuntimeContractTests(unittest.TestCase):
     module_path = SCRIPT_DIR / "retrieval.py"
+
+    def test_opt_in_count_members_are_pinned_metadata_on_the_same_connection(self):
+        from unittest.mock import patch
+        runtime=load_runtime_module('retrieval');query=base_query()
+        query['taxonomy_route_id']='communications_personal_ops'
+        query['variants']=[dict(variant_id='q1',terms=['team chat','asynchronous','messages'])]
+        statements=[];connections=[];connect=runtime.sqlite3.connect
+        def traced_connect(*args,**kwargs):
+            connection=connect(*args,**kwargs);connection.set_trace_callback(statements.append)
+            connections.append(connection);return connection
+        with patch.object(runtime.sqlite3,'connect',side_effect=traced_connect):
+            result=runtime.count_matches(query,index_path=INDEX_PATH,manifest_path=MANIFEST_PATH,
+                policy_path=POLICY_PATH,include_route_leaf_ids=True)
+        self.assertEqual(result['status'],'ok')
+        self.assertLess(result['match_count'],query['max_cards'])
+        self.assertEqual(len(connections),1)
+        self.assertEqual(len([s for s in statements if 'repository_fts MATCH' in s]),1)
+        self.assertIn('messaging_chat',result['route_leaf_ids'])
+        with connect(INDEX_PATH.resolve().as_uri()+'?mode=ro&immutable=1',uri=True) as connection:
+            expected=[r[0] for r in connection.execute(
+                "SELECT match_category_id FROM taxonomy_route_registry WHERE route_id=? "
+                "AND match_category_kind='category' ORDER BY match_category_id",(query['taxonomy_route_id'],))]
+        self.assertEqual(result['route_leaf_ids'],expected)
+        self.assertNotIn('candidates',result)
+        query['taxonomy_route_id']=None
+        self.assertEqual(runtime.count_matches(query,index_path=INDEX_PATH,manifest_path=MANIFEST_PATH,
+            policy_path=POLICY_PATH,include_route_leaf_ids=True)['route_leaf_ids'],[])
+
+    def test_count_preflight_is_aggregate_without_candidate_hits(self):
+        runtime=load_runtime_module('retrieval')
+        self.assertTrue(callable(getattr(runtime,'count_matches',None)),
+                        'CP-04 expected RED: trusted COUNT preflight is absent')
+        query=base_query();query['taxonomy_route_id']='accounting_invoicing'
+        query['variants']=[dict(variant_id='q1',terms=['invoice','invoices','payments'])]
+        query['max_candidates']=1
+        before=INDEX_PATH.read_bytes()
+        result=runtime.count_matches(query,index_path=INDEX_PATH,
+                                     manifest_path=MANIFEST_PATH,policy_path=POLICY_PATH)
+        self.assertEqual(set(result),{'status','match_count'})
+        self.assertEqual(result['status'],'ok')
+        self.assertGreater(result['match_count'],query['max_candidates'])
+        self.assertEqual(INDEX_PATH.read_bytes(),before)
+
+    def test_count_preflight_failures_match_reader_and_never_report_zero(self):
+        runtime=load_runtime_module('retrieval');query=base_query()
+        with tempfile.TemporaryDirectory(dir=ROOT/'work/cp04-final') as directory:
+            directory=Path(directory)
+            corrupt_manifest=directory/'corrupt.json';corrupt_manifest.write_text('{',encoding='utf-8')
+            modified_manifest=directory/'modified.json'
+            manifest=json.loads(MANIFEST_PATH.read_bytes());manifest['row_count']+=1
+            modified_manifest.write_text(json.dumps(manifest),encoding='utf-8')
+            altered_policy=directory/'policy.json';policy=json.loads(POLICY_PATH.read_bytes())
+            policy['policy_id']='modified-diagnostic';altered_policy.write_text(json.dumps(policy),encoding='utf-8')
+            missing_route=copy.deepcopy(query);missing_route['taxonomy_route_id']='not-a-canonical-route'
+            invalid_literal=copy.deepcopy(query);invalid_literal['variants'][0]['terms']=['unsafe*']
+            for tested,changes in [(query,dict(index_path=directory/'missing.sqlite')),
+                (query,dict(manifest_path=corrupt_manifest)),(query,dict(manifest_path=modified_manifest)),
+                (query,dict(policy_path=altered_policy)),(missing_route,{}),(invalid_literal,{})]:
+                paths=dict(index_path=INDEX_PATH,manifest_path=MANIFEST_PATH,policy_path=POLICY_PATH)
+                paths.update(changes)
+                with self.subTest(changes=changes,route=tested['taxonomy_route_id']):
+                    result=runtime.count_matches(tested,**paths)
+                    self.assertEqual(result['status'],runtime.retrieve(tested,run_id=str(uuid.uuid4()),**paths)['status'])
+                    self.assertNotEqual(result['status'],'ok')
+                    self.assertIsNone(result['match_count'])
+                    opted=runtime.count_matches(tested,**paths,include_route_leaf_ids=True)
+                    self.assertEqual(opted['status'],result['status'])
+                    self.assertIsNone(opted['match_count'])
+                    self.assertIsNone(opted['route_leaf_ids'])
+
+    def test_count_preflight_zero_is_success_and_union_deduplicates(self):
+        runtime=load_runtime_module('retrieval');query=base_query()
+        query['variants']=[dict(variant_id='q1',terms=['zzzz-unmatched-synthetic-fixture'])]
+        paths=dict(index_path=INDEX_PATH,manifest_path=MANIFEST_PATH,policy_path=POLICY_PATH)
+        self.assertEqual(runtime.count_matches(query,**paths),dict(status='ok',match_count=0))
+        query['variants']=[dict(variant_id='q1',terms=['invoice'])]
+        single=runtime.count_matches(query,**paths)
+        query['variants'].append(dict(variant_id='q2',terms=['invoice']))
+        self.assertEqual(runtime.count_matches(query,**paths),single)
 
     def test_planned_retrieval_module_exists(self):
         self.assertTrue(
@@ -166,6 +246,17 @@ class RetrievalRuntimeContractTests(unittest.TestCase):
             runtime.compile_fts5_query(['x" OR *'], aliases=aliases),
             '"x"" OR *"',
         )
+
+    @unittest.skipUnless(module_path.is_file(), "planned retrieval runtime is absent")
+    def test_russian_project_terms_share_english_literal_queries(self):
+        runtime = load_runtime_module("retrieval")
+        policy = json.loads(POLICY_PATH.read_bytes())
+        for russian, english in (("задачи", "tasks"), ("спринты", "sprints"), ("проект", "project")):
+            with self.subTest(russian=russian):
+                self.assertEqual(runtime.compile_fts5_query([russian], aliases=policy["aliases"]),
+                                 runtime.compile_fts5_query([english], aliases=policy["aliases"]))
+        self.assertEqual(runtime.compile_fts5_query(["проектирование"], aliases=policy["aliases"]),
+                         '"проектирование"')
 
     @unittest.skipUnless(module_path.is_file(), "planned retrieval runtime is absent")
     def test_retrieve_rejects_non_uuid_run_id_before_returning_a_result(self):

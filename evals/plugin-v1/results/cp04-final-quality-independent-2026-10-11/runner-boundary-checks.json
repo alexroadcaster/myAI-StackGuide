@@ -1,0 +1,38 @@
+{
+  "schema_version": "cp04_independent_runner_checks_v1",
+  "checks": [
+    {
+      "check": "threshold weakening",
+      "rejected": true,
+      "reason": "active tuple or accepted settings changed: thresholds"
+    },
+    {
+      "check": "stale policy pin",
+      "rejected": true,
+      "reason": "active tuple or accepted settings changed: pins"
+    },
+    {
+      "check": "missing routed judgment",
+      "rejected": true,
+      "reason": "judgment identities invalid"
+    },
+    {
+      "check": "unknown role grade",
+      "rejected": true,
+      "reason": "unresolved role oracle"
+    },
+    {
+      "check": "false source exposure",
+      "rejected": true,
+      "reason": "source exposure misclassified"
+    },
+    {
+      "check": "false container tag",
+      "rejected": true,
+      "reason": "false container-union tag"
+    }
+  ],
+  "passed": 6,
+  "failed": 0,
+  "ranked_calls": 0
+}

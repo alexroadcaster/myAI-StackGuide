@@ -1,0 +1,29 @@
+{
+  "schema_version": "cp04_allocation_resource_provenance_v1",
+  "command": "python -B evals/plugin-v1/measure_final_host_allocation.py",
+  "declaration_path": "work/cp04-final/host-allocation-resource-declaration.json",
+  "declaration_sha256": "2ed911408bbf959c698a8c2d284fe4208a11b568e3dc11df5a912dffbf4263f8",
+  "result_path": "evals/plugin-v1/results/cp04-final-host-allocation-resource-2026-10-11/resource-check.json",
+  "result_sha256": "106e26533537e345c6483724beeda0991ed49fc41d22bb5ff7aa227d139bd5fb",
+  "runtime_ready_sha256": "b8bf0455775f7a8bbee8b46804e30fe60cb47c4790197d571a388c5dc1fb8f03",
+  "source_hashes": {
+    "evals/plugin-v1/measure_final_host_allocation.py": "3da8d558b82235d99aa6f278313770d61011d76343d9a87e267b65849dbe3616",
+    "evals/plugin-v1/measure_final_host_decision.py": "6e7f9f59183a618319999815f27e212756a4520412ec99d3198a40bca0b1d7a3",
+    "plugins/myai-stackguide/scripts/recommendation_decision.py": "7895a5fd4eeccb339b01da7992fed056b8cb742b26eb9e5406d16772954ef746",
+    "plugins/myai-stackguide/scripts/recommendation_request.py": "4f45e1c0e17aca09149e94602fbc8d84f2d2a74ce25f53de40b48f5f14c53b56",
+    "plugins/myai-stackguide/scripts/retrieval.py": "7d2385c3143b85f9089c422ffa930650bf0dd799ded665416e02e78768f5f6b5",
+    "specs/retrieval/candidate-decision.schema.json": "53f8bd0ddf7dcc29cc355e813c42b495d4f87e7804db8de699768fe82afd5303",
+    "specs/retrieval/candidate-decision-contract.md": "21b190b68699a1373c647b1570884954d726393066d6f45f2bfd54e46d043b9a",
+    "evals/plugin-v1/quality-plan.json": "cb2765fda7c90693212bb96041ea21c5eb4743607002cb3c89f0dfdb2ef695e3",
+    "evals/plugin-v1/results/cp04-final-chat-repair-2026-10-11/observations.json": "f3fc90d08f006c7a6b2ab07be41ede7d473754618c464d1d3a0299747dbdffb3",
+    "plugins/myai-stackguide/assets/catalog.search.sqlite": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+    "plugins/myai-stackguide/assets/catalog.search-manifest.json": "4c1c9eccf6df60d92da5d780a8152ce3fb00e43ccbf80e8ed01c3c660135a1bb",
+    "plugins/myai-stackguide/assets/catalog.snapshot.json": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+    "plugins/myai-stackguide/assets/retrieval-policy.json": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b"
+  },
+  "verified_source_hashes": 13,
+  "new_model_calls": 0,
+  "fixture_order_only": true,
+  "human_acceptance": false,
+  "promotion_ready": false
+}

@@ -1,0 +1,597 @@
+{
+  "schema_version": "cp04_host_goal_draft_v1",
+  "goals": [
+    {
+      "case_id": "HOST-PROSPECTIVE-HOLD-01",
+      "route": "code_quality",
+      "goal": "Automatically rewrite Python source into a consistent formatting style; standalone formatters are primary and hook/aggregate tooling can run them. Diagnostic-only and other-language tooling has a different primary workflow.",
+      "terms": [
+        "Python",
+        "formatting",
+        "rewrite"
+      ],
+      "language": "en",
+      "intent": {
+        "required_groups": [
+          [
+            "Python"
+          ],
+          [
+            "formatting"
+          ]
+        ],
+        "context_terms": [
+          "rewrite"
+        ]
+      },
+      "universe_ids": [
+        1222504,
+        6093316,
+        6731432,
+        10353211,
+        11061773,
+        17689377,
+        75104123,
+        125266328,
+        304830226,
+        523043277,
+        671654508
+      ],
+      "novelty": "Automatic formatting replaces source diagnostics as the required action.",
+      "prior_source_case_id": "PROSPECTIVE-HOLD-01"
+    },
+    {
+      "case_id": "HOST-PROSPECTIVE-HOLD-02",
+      "route": "unit_component_testing",
+      "goal": "Exercise rendered React component behavior through DOM queries and simulated user interactions in isolated tests; DOM utilities are primary and JavaScript test runners support execution. Pure-function-only language stacks are different integration roles.",
+      "terms": [
+        "React",
+        "DOM",
+        "interaction testing"
+      ],
+      "language": "en",
+      "intent": {
+        "required_groups": [
+          [
+            "React"
+          ],
+          [
+            "DOM"
+          ]
+        ],
+        "context_terms": [
+          "interaction testing"
+        ]
+      },
+      "universe_ids": [
+        84009,
+        1451352,
+        6247705,
+        12332444,
+        15062869,
+        26820798,
+        29102367,
+        37489525,
+        39840932,
+        83229186,
+        125863507,
+        128396076,
+        434708679
+      ],
+      "novelty": "Rendered user-facing component behavior replaces pure JavaScript function testing and browser-engine E2E automation.",
+      "prior_source_case_id": "PROSPECTIVE-HOLD-02"
+    },
+    {
+      "case_id": "HOST-PROSPECTIVE-HOLD-03",
+      "route": "file_management_sync",
+      "goal": "Offer a browser interface for people to upload, inspect and download existing server files; file-browser/file-serving implementations are preferred and cloud file suites are alternative hosts. Device synchronization alone or terminal explorers are distinct primary workflows.",
+      "terms": [
+        "browser",
+        "files",
+        "upload",
+        "download"
+      ],
+      "language": "en",
+      "intent": {
+        "required_groups": [
+          [
+            "browser"
+          ],
+          [
+            "files"
+          ]
+        ],
+        "context_terms": [
+          "upload",
+          "download"
+        ]
+      },
+      "universe_ids": [
+        4999959,
+        5550552,
+        14712850,
+        42332863,
+        60243197,
+        188700274,
+        323965659,
+        410749029,
+        578822531,
+        663900193,
+        895547074
+      ],
+      "novelty": "Human browser file handling replaces continuous two-device synchronization.",
+      "prior_source_case_id": "PROSPECTIVE-HOLD-03"
+    },
+    {
+      "case_id": "HOST-PROSPECTIVE-HOLD-04",
+      "route": "frontend_state_data",
+      "goal": "Cache and refresh remote server-query results for React views, including shared request state; server-query tooling is primary while general stores and immutable-update helpers support custom integration. Routing is a separate application responsibility.",
+      "terms": [
+        "React",
+        "server state",
+        "query cache"
+      ],
+      "language": "en",
+      "intent": {
+        "required_groups": [
+          [
+            "React"
+          ],
+          [
+            "server state"
+          ]
+        ],
+        "context_terms": [
+          "query cache"
+        ]
+      },
+      "universe_ids": [
+        36535156,
+        115720575,
+        123732482,
+        165670309,
+        180328715,
+        207645083,
+        286867459,
+        304120355,
+        685274424
+      ],
+      "novelty": "Remote request caching and invalidation replaces shared local component state.",
+      "prior_source_case_id": "PROSPECTIVE-HOLD-04"
+    },
+    {
+      "case_id": "HOST-PROSPECTIVE-HOLD-05",
+      "route": "financial_market_tools",
+      "goal": "Provide market-data access for a read-only research notebook or assistant, without placing orders or running strategy backtests. Data APIs and source-documented data tools are primary; analysis interfaces or strategy engines are alternatives/supporting consumers with explicit provider prerequisites.",
+      "terms": [
+        "market data",
+        "research",
+        "read only"
+      ],
+      "language": "en",
+      "intent": {
+        "required_groups": [
+          [
+            "market data"
+          ]
+        ],
+        "context_terms": [
+          "research",
+          "read only"
+        ]
+      },
+      "universe_ids": [
+        31522041,
+        91253698,
+        91629816,
+        816848129,
+        849406496,
+        896144595,
+        944516885,
+        963828488,
+        995562554,
+        1034736943,
+        1081891045,
+        1131513930,
+        1195329660
+      ],
+      "novelty": "Read-only data acquisition replaces historical strategy evaluation. Role evidence does not authorize trading.",
+      "prior_source_case_id": "PROSPECTIVE-HOLD-05"
+    },
+    {
+      "case_id": "HOST-PROSPECTIVE-HOLD-06",
+      "route": "documentation_site_generators",
+      "goal": "Publish a personal chronological blog from text/Markdown posts as static pages. General static/blog generators are primary; documentation engines can host prose as alternatives, while API-reference-specific generators support a different publication structure.",
+      "terms": [
+        "static blog",
+        "Markdown",
+        "posts"
+      ],
+      "language": "en",
+      "intent": {
+        "required_groups": [
+          [
+            "static blog"
+          ]
+        ],
+        "context_terms": [
+          "Markdown",
+          "posts"
+        ]
+      },
+      "universe_ids": [
+        65252,
+        11180687,
+        12820537,
+        15830664,
+        50617428,
+        94911145,
+        260338399,
+        614933136
+      ],
+      "novelty": "Chronological personal posts replace API-reference publication and versioned product manuals.",
+      "prior_source_case_id": "FINAL-HOLD-06"
+    },
+    {
+      "case_id": "HOST-PROSPECTIVE-HOLD-07",
+      "route": "communications_personal_ops",
+      "goal": "Для личного non-production прототипа индивидуального консультанта нужен scheduling application с интерфейсом выбора времени встречи. Calendar data/sync и time helpers могут поддержать workflow; chat, видеозвонки и transcription имеют другую основную роль.",
+      "terms": [
+        "appointment scheduling",
+        "personal",
+        "calendar"
+      ],
+      "language": "ru",
+      "intent": {
+        "required_groups": [
+          [
+            "appointment scheduling"
+          ]
+        ],
+        "context_terms": [
+          "personal",
+          "calendar"
+        ]
+      },
+      "universe_ids": [
+        684382,
+        15225670,
+        26661222,
+        31670053,
+        35866694,
+        37448451,
+        39487546,
+        43160685,
+        79585104,
+        110445107,
+        120541771,
+        144494851,
+        253182958,
+        326059244,
+        350360184,
+        372296109,
+        575865240,
+        731190011,
+        898004429,
+        928857407,
+        943286066,
+        945223589,
+        951958279,
+        960342594,
+        965085580,
+        973788136,
+        992325192,
+        1003342581,
+        1121557390,
+        1143312686,
+        1168978399,
+        1173545104
+      ],
+      "novelty": "Appointment selection/booking application replaces calendar synchronization, video rooms and asynchronous team text.",
+      "prior_source_case_id": "FINAL-HOLD-07"
+    },
+    {
+      "case_id": "HOST-PROSPECTIVE-HOLD-08",
+      "route": "payment_processing_sdks",
+      "goal": "Embed a Stripe payment-entry interface in an existing browser/React application. Browser Stripe.js/Elements components are primary, checkout samples demonstrate a workflow, and server API clients support the required backend. Other processors have a different integration target.",
+      "terms": [
+        "Stripe",
+        "browser",
+        "payment form"
+      ],
+      "language": "en",
+      "intent": {
+        "required_groups": [
+          [
+            "Stripe"
+          ],
+          [
+            "browser"
+          ]
+        ],
+        "context_terms": [
+          "payment form"
+        ]
+      },
+      "universe_ids": [
+        1953389,
+        2471804,
+        14861133,
+        20545279,
+        100711978,
+        202768861,
+        221280225,
+        235391869,
+        552877440
+      ],
+      "novelty": "Browser payment collection UI replaces the Python Stripe server API-client requirement.",
+      "prior_source_case_id": "FINAL-HOLD-08"
+    },
+    {
+      "case_id": "HOST-PROSPECTIVE-HOLD-09",
+      "route": "project_task_management",
+      "goal": "Нужна готовая kanban board для перемещения карточек задач между рабочими колонками. Board applications предпочтительны; широкие project platforms являются альтернативами, backend и existing-platform connectors — supporting components. Sprint planning и time reports не являются целью.",
+      "terms": [
+        "kanban",
+        "задачи",
+        "task cards"
+      ],
+      "language": "ru",
+      "intent": {
+        "required_groups": [
+          [
+            "kanban"
+          ]
+        ],
+        "context_terms": [
+          "задачи",
+          "task cards"
+        ]
+      },
+      "universe_ids": [
+        6899875,
+        16089035,
+        16238673,
+        29745084,
+        159556794,
+        301793434,
+        357894794,
+        568098118,
+        583598619,
+        897809208,
+        1030580992
+      ],
+      "novelty": "Visual task movement through columns replaces sprint planning and labor/time accounting.",
+      "prior_source_case_id": "FINAL-HOLD-09"
+    },
+    {
+      "case_id": "HOST-PROSPECTIVE-HOLD-10",
+      "route": "data_processing_compute",
+      "goal": "Continuously process arriving event records into updated derived results; documented stream-processing engines are preferred, general distributed compute is an alternative, and tabular/columnar tooling supports batch preparation or data interchange without being an established streaming engine.",
+      "terms": [
+        "stream processing",
+        "events",
+        "continuous"
+      ],
+      "language": "en",
+      "intent": {
+        "required_groups": [
+          [
+            "stream processing"
+          ]
+        ],
+        "context_terms": [
+          "events",
+          "continuous"
+        ]
+      },
+      "universe_ids": [
+        858127,
+        5349565,
+        17165658,
+        20587599,
+        24528468,
+        28782747,
+        51905353,
+        71932349,
+        166515022,
+        263727855,
+        455655192,
+        485548415,
+        571186647
+      ],
+      "novelty": "Processing continuously arriving records replaces local finite DataFrame batches.",
+      "prior_source_case_id": "PROSPECTIVE-HOLD-10"
+    },
+    {
+      "case_id": "HOST-PROSPECTIVE-HOLD-11",
+      "route": "caches_key_value_stores",
+      "goal": "Embed a durable ordered key-value storage library inside a native application process; an embedded ordered map is primary, distributed persistent key-value services are alternative architectures, and cache servers serve a different primary deployment role.",
+      "terms": [
+        "embedded",
+        "ordered",
+        "key value",
+        "storage"
+      ],
+      "language": "en",
+      "intent": {
+        "required_groups": [
+          [
+            "embedded"
+          ],
+          [
+            "ordered"
+          ]
+        ],
+        "context_terms": [
+          "key value",
+          "storage"
+        ]
+      },
+      "universe_ids": [
+        156018,
+        11225014,
+        23405758,
+        48833910,
+        437245741,
+        775743011
+      ],
+      "novelty": "Embedded durable ordered storage replaces a runtime caching-server requirement.",
+      "prior_source_case_id": "FINAL-HOLD-11"
+    },
+    {
+      "case_id": "HOST-PROSPECTIVE-HOLD-12",
+      "route": "backend_frameworks",
+      "goal": "Implement a Ruby application that renders HTML templates and processes web forms on the server; a Ruby MVC/view stack is primary and a Ruby-application inspection bridge can support development. Other implementation-language web frameworks are different integration roles.",
+      "terms": [
+        "Ruby",
+        "HTML templates",
+        "forms"
+      ],
+      "language": "en",
+      "intent": {
+        "required_groups": [
+          [
+            "Ruby"
+          ],
+          [
+            "HTML templates"
+          ]
+        ],
+        "context_terms": [
+          "forms"
+        ]
+      },
+      "universe_ids": [
+        8514,
+        237159,
+        458058,
+        596892,
+        1148753,
+        1863329,
+        1864194,
+        2609642,
+        4164482,
+        6296790,
+        7548986,
+        11551538,
+        16072585,
+        17620347,
+        20904437,
+        31504491,
+        40136600,
+        40772809,
+        44344606,
+        69495170,
+        75505125,
+        78452015,
+        80945428,
+        105379569,
+        124230204,
+        138597372,
+        139914932,
+        160919119,
+        234231371,
+        372172254,
+        394929332,
+        435625572,
+        438384984,
+        952098631
+      ],
+      "novelty": "Server-rendered HTML/form workflow replaces Go REST routing and Python long-lived WebSocket handling.",
+      "prior_source_case_id": "FINAL-HOLD-12"
+    },
+    {
+      "case_id": "HOST-PROSPECTIVE-HOLD-13",
+      "route": "infrastructure_automation",
+      "goal": "Define a reproducible local development shell with declaratively selected packages. Nix package/shell definitions are primary and Nix resource lookup supports authoring; remote fleet configuration, cloud provisioning and general SSH/provider bridges have different primary workflows.",
+      "terms": [
+        "development shell",
+        "packages",
+        "reproducible"
+      ],
+      "language": "en",
+      "intent": {
+        "required_groups": [
+          [
+            "development shell"
+          ]
+        ],
+        "context_terms": [
+          "packages",
+          "reproducible"
+        ]
+      },
+      "universe_ids": [
+        108278,
+        910744,
+        1390248,
+        3638964,
+        4542716,
+        17728164,
+        24948315,
+        72477752,
+        679421146,
+        951693330,
+        952238700,
+        967503541,
+        973373852,
+        1032135422,
+        1219009070
+      ],
+      "novelty": "Local package/shell environment replaces repeated infrastructure provisioning/configuration.",
+      "prior_source_case_id": "INDEPENDENT-HOLD-13"
+    },
+    {
+      "case_id": "HOST-PROSPECTIVE-HOLD-14",
+      "route": "software_supply_chain_security",
+      "goal": "Detect accidentally committed credentials or secret strings in source before sharing changes. Source secret scanners are primary, source-analysis tools support a broader review, and dependency inventories/signing or package-vulnerability tools target other supply-chain concerns.",
+      "terms": [
+        "secrets",
+        "credentials",
+        "source code"
+      ],
+      "language": "en",
+      "intent": {
+        "required_groups": [
+          [
+            "secrets"
+          ],
+          [
+            "credentials"
+          ]
+        ],
+        "context_terms": [
+          "source code"
+        ]
+      },
+      "universe_ids": [
+        5663857,
+        11457947,
+        45247496,
+        59531400,
+        63625434,
+        77726177,
+        119190187,
+        131129792,
+        180687624,
+        227803815,
+        239106765,
+        262126497,
+        267054247,
+        272963353,
+        302670797,
+        335952417,
+        565629124,
+        950213855,
+        1062952726,
+        1244911834
+      ],
+      "novelty": "Credential/string leak detection replaces dependency SBOM/vulnerability inventory and web/IaC security scanning.",
+      "prior_source_case_id": "PROSPECTIVE-HOLD-14"
+    }
+  ],
+  "ranking_or_model_calls": 0,
+  "independent_new_goals": true,
+  "globally_unseen_repositories": false
+}

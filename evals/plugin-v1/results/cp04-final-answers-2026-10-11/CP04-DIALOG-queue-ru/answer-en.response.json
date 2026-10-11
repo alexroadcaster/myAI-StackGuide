@@ -1,0 +1,29 @@
+{
+  "answer_markdown": "**Prefer Huey with its SQLite backend for first validation.** The supplied host observation dated 2026-10-11 confirms Python tasks, retries, cron scheduling and a separate task consumer, with SQLite documented as an alternative to Redis. This supports your small Python API and preserves the prohibitions on Redis, Valkey, RabbitMQ and Kubernetes. It strengthens the conditional preference from the frozen 2026-09-01 catalog; it is a host read, not my own network check or a catalog refresh. [Huey repository](https://github.com/coleifer/huey)\n\nRetain the API and application database. Proposed flow: API → Huey queue in a dedicated local SQLite file → separate Huey consumer → application task handlers; periodic tasks use Huey's scheduling support. Queue arguments and results remain local in this proposed configuration, with only necessary task data crossing the queue boundary. Huey supplies queue, retry and scheduling mechanisms; your engineer still owns business logic, idempotency, retry policy, process supervision, monitoring and backups. Reduced queue implementation work is an expected benefit, not measured delivery acceleration.\n\nFor equivalent background jobs, schedules and retries, custom development would leave persistence, execution coordination and failure handling with your engineer. The current framework and native facilities are unspecified, so their coverage cannot be established. Huey is preferable only if integration and ongoing dependency maintenance remain simpler than those options. The decision-changing complexities are deployment topology, SQLite write contention, task duration, restart behavior and duplicate side effects; compatibility and throughput remain unverified. [Huey repository](https://github.com/coleifer/huey)\n\n**Hypothetical first-validation estimate: 4–8 engineer-hours**, with low confidence. Assume one engineer familiar with the application and HTTP or Python integration, allocated at 8 hours per engineer-day, a runnable isolated application and representative synthetic data. The target environment and chosen version still require verification. Complete adoption effort and elapsed working time are unknown; this range is neither a measurement nor a delivery commitment.\n\nReverse the preference if the pilot cannot satisfy your required concurrency, recovery or scheduling behavior. In the isolated application, validate the chosen version and dependencies, enqueue a synthetic task, force a failure and observe retries, run a periodic task, then interrupt and restart the consumer to inspect pending work and duplicate effects. **Restart guarantees and deployment fit are the material caveats.** This is a proposal only; nothing was executed or saved, and implementation requires a separate request.",
+  "recommended_ids": [
+    2703394
+  ],
+  "cited_urls": [
+    "https://github.com/coleifer/huey"
+  ],
+  "planning_binding": {
+    "planning_sha256": "5d286a2326c86ad5bb65d9dd66ca312fe39204f07aa32e864196cd0ff010b346",
+    "scenario_id": "CP04-DIALOG-queue-ru-first-validation",
+    "assumptions": {
+      "prerequisites": [
+        "Runnable isolated application and access to representative synthetic data.",
+        "Target environment and chosen version remain to be verified."
+      ],
+      "team_experience": "One engineer familiar with the application and HTTP or Python integration.",
+      "confidence": "low",
+      "hours_per_engineer_day": 8,
+      "allocated_engineers": 1
+    },
+    "first_validation": {
+      "min": 4,
+      "max": 8
+    },
+    "total_engineer_hours": null,
+    "elapsed_working_days": null
+  }
+}

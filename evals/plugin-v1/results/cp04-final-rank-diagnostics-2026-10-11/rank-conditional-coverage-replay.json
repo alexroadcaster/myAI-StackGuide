@@ -1,0 +1,5989 @@
+{
+  "evidence_kind": "exposed_development_replay_only",
+  "activation": false,
+  "diagnostic_mode": "coverage",
+  "profiles": {
+    "active": {
+      "full_name": 5.0,
+      "full_name_aliases": 5.0,
+      "upstream_description": 3.0,
+      "catalog_description": 3.0,
+      "topics": 3.0,
+      "category_labels": 1.0,
+      "use_cases": 3.0,
+      "integration_surface": 3.0,
+      "best_for": 2.0
+    },
+    "equal": {
+      "full_name": 1.0,
+      "full_name_aliases": 1.0,
+      "upstream_description": 1.0,
+      "catalog_description": 1.0,
+      "topics": 1.0,
+      "category_labels": 1.0,
+      "use_cases": 1.0,
+      "integration_surface": 1.0,
+      "best_for": 1.0
+    },
+    "source_text": {
+      "full_name": 0.25,
+      "full_name_aliases": 0.25,
+      "upstream_description": 3.0,
+      "catalog_description": 3.0,
+      "topics": 1.0,
+      "category_labels": 0.25,
+      "use_cases": 1.0,
+      "integration_surface": 1.0,
+      "best_for": 1.0
+    },
+    "advisory": {
+      "full_name": 0.25,
+      "full_name_aliases": 0.25,
+      "upstream_description": 1.0,
+      "catalog_description": 1.0,
+      "topics": 1.0,
+      "category_labels": 0.25,
+      "use_cases": 5.0,
+      "integration_surface": 5.0,
+      "best_for": 5.0
+    },
+    "balanced": {
+      "full_name": 1.0,
+      "full_name_aliases": 1.0,
+      "upstream_description": 3.0,
+      "catalog_description": 3.0,
+      "topics": 3.0,
+      "category_labels": 0.25,
+      "use_cases": 3.0,
+      "integration_surface": 3.0,
+      "best_for": 3.0
+    },
+    "topics": {
+      "full_name": 0.25,
+      "full_name_aliases": 0.25,
+      "upstream_description": 1.0,
+      "catalog_description": 1.0,
+      "topics": 5.0,
+      "category_labels": 0.25,
+      "use_cases": 1.0,
+      "integration_surface": 1.0,
+      "best_for": 1.0
+    }
+  },
+  "active_pins": {
+    "activity_schema_version": "2.0.0",
+    "card_schema_version": "2.0.0",
+    "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+    "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+    "corpus_kind": "catalog_snapshot",
+    "index_format_version": 3,
+    "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+    "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+    "retrieval_policy_version": "2.1.0",
+    "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+    "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+  },
+  "source_hashes": {
+    "work\\cp04-final\\replay_rank_diagnostics.py": "85b43fbb2ae9d1d9b71424415b406fb95589f94441b2e4699f54ed0f55c1798f",
+    "plugins\\myai-stackguide\\scripts\\recommendation_request.py": "3c3d188d51d5c6da55de2fc1655874d15f4919cecae9bea40fa71810d3084ad9",
+    "plugins\\myai-stackguide\\scripts\\retrieval.py": "6cd0a8012ed47374afee68c957a7369020775562d21b0d8b2649ec3b850f14dd"
+  },
+  "suites": [
+    {
+      "label": "repair",
+      "plan_sha256": "2bbb6c4b3a4195ab383348b9bca7b230dd24e5b3e78b9506c9d842db47076aee",
+      "capture_sha256": "8cd0015145f7acd1902ba5d2510ea7dd01b31eb60f495b9545e00408afbb1aaf",
+      "original_literal_orders_preserved": 15,
+      "summary": {
+        "baseline": {
+          "macro": {
+            "recall_at_k": 0.8720893141945772,
+            "ndcg_at_k": 0.8925157143186061
+          },
+          "failed_strata": {
+            "testing_qa": {
+              "recall_at_k": 0.5789473684210527,
+              "ndcg_at_k": 0.7978919450584367
+            },
+            "operations_project_management": {
+              "recall_at_k": 0.36363636363636365,
+              "ndcg_at_k": 0.6308488369440626
+            }
+          }
+        },
+        "source_text__append_route": {
+          "macro": {
+            "recall_at_k": 0.9451127819548872,
+            "ndcg_at_k": 0.9147972596561278
+          },
+          "failed_strata": {}
+        },
+        "source_text__second_route": {
+          "macro": {
+            "recall_at_k": 0.9451127819548872,
+            "ndcg_at_k": 0.9203533430547723
+          },
+          "failed_strata": {}
+        }
+      },
+      "records": [
+        {
+          "case_id": "FINAL-HOLD-01",
+          "metric_family": "semantic",
+          "tags": [
+            "lexical_en",
+            "thin_leaf",
+            "baseline_cohort",
+            "dual_descriptions",
+            "activity_unknown"
+          ],
+          "container_domain_ids": [
+            "developer_tools_cli_general"
+          ],
+          "baseline": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 1.0,
+                "ndcg_at_k": 0.8654999782255441,
+                "relevant_count": 6
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              130879558,
+              112892985,
+              82933315,
+              254879070,
+              440752086,
+              143896900,
+              486125557
+            ],
+            "packed_ids": [
+              130879558,
+              112892985,
+              82933315,
+              254879070,
+              440752086,
+              143896900,
+              486125557
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 6,
+            "positive_survived_count": 6,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 48073
+          },
+          "source_text__append_route": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 1.0,
+                "ndcg_at_k": 0.9694344162682397,
+                "relevant_count": 6
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              130879558,
+              440752086,
+              112892985,
+              254879070,
+              82933315,
+              143896900,
+              486125557
+            ],
+            "packed_ids": [
+              130879558,
+              440752086,
+              112892985,
+              254879070,
+              82933315,
+              143896900,
+              486125557
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 6,
+            "positive_survived_count": 6,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 48073,
+            "query_variants": [
+              {
+                "variant_id": "q1",
+                "terms": [
+                  "cloud",
+                  "development",
+                  "environments"
+                ]
+              }
+            ],
+            "preflight": {
+              "original_match_count": 7
+            }
+          },
+          "source_text__second_route": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 1.0,
+                "ndcg_at_k": 0.9694344162682397,
+                "relevant_count": 6
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              130879558,
+              440752086,
+              112892985,
+              254879070,
+              82933315,
+              143896900,
+              486125557
+            ],
+            "packed_ids": [
+              130879558,
+              440752086,
+              112892985,
+              254879070,
+              82933315,
+              143896900,
+              486125557
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 6,
+            "positive_survived_count": 6,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 48070,
+            "query_variants": [
+              {
+                "variant_id": "q1",
+                "terms": [
+                  "cloud",
+                  "development",
+                  "environments"
+                ]
+              },
+              {
+                "variant_id": "q2",
+                "terms": [
+                  "development",
+                  "environments"
+                ]
+              }
+            ],
+            "preflight": {
+              "original_match_count": 7
+            }
+          }
+        },
+        {
+          "case_id": "FINAL-HOLD-02",
+          "metric_family": "semantic",
+          "tags": [
+            "lexical_en",
+            "dense_leaf",
+            "baseline_cohort",
+            "expansion_cohort",
+            "dual_descriptions",
+            "secondary_dedupe",
+            "activity_unknown"
+          ],
+          "container_domain_ids": [
+            "testing_qa"
+          ],
+          "baseline": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 0.5789473684210527,
+                "ndcg_at_k": 0.7978919450584367,
+                "relevant_count": 19
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              813783,
+              31629751,
+              1195492297,
+              7613257,
+              17420614,
+              51917537,
+              155733693,
+              221981891,
+              442096414,
+              1146193768,
+              34106396,
+              61308714,
+              125568868,
+              175869201,
+              291930234,
+              486525050,
+              832452447,
+              1266125334,
+              80435465,
+              105399035,
+              189969701,
+              199141711,
+              230096072,
+              232162578,
+              282658795,
+              756709451,
+              859537060,
+              116392590,
+              277879045,
+              997037661
+            ],
+            "packed_ids": [
+              813783,
+              31629751,
+              1195492297,
+              7613257,
+              17420614,
+              51917537,
+              155733693,
+              221981891,
+              442096414,
+              1146193768,
+              34106396,
+              61308714
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 11,
+            "positive_survived_count": 11,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 77871
+          },
+          "source_text__append_route": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 0.631578947368421,
+                "ndcg_at_k": 0.8240050793256873,
+                "relevant_count": 19
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              813783,
+              51917537,
+              34106396,
+              1195492297,
+              442096414,
+              7613257,
+              155733693,
+              221981891,
+              17420614,
+              31629751,
+              859537060,
+              1266125334,
+              125568868,
+              80435465,
+              486525050,
+              1146193768,
+              105399035,
+              832452447,
+              61308714,
+              175869201,
+              230096072,
+              997037661,
+              232162578,
+              282658795,
+              756709451,
+              189969701,
+              291930234,
+              116392590,
+              277879045,
+              199141711
+            ],
+            "packed_ids": [
+              813783,
+              51917537,
+              34106396,
+              1195492297,
+              442096414,
+              7613257,
+              155733693,
+              221981891,
+              17420614,
+              31629751,
+              859537060,
+              1266125334
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 12,
+            "positive_survived_count": 12,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 76373,
+            "query_variants": [
+              {
+                "variant_id": "q1",
+                "terms": [
+                  "browser",
+                  "automation",
+                  "testing"
+                ]
+              }
+            ],
+            "preflight": {
+              "original_match_count": 30
+            }
+          },
+          "source_text__second_route": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 0.631578947368421,
+                "ndcg_at_k": 0.8240050793256873,
+                "relevant_count": 19
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              813783,
+              51917537,
+              34106396,
+              1195492297,
+              442096414,
+              7613257,
+              155733693,
+              221981891,
+              17420614,
+              31629751,
+              859537060,
+              1266125334,
+              125568868,
+              80435465,
+              486525050,
+              1146193768,
+              105399035,
+              832452447,
+              61308714,
+              175869201,
+              230096072,
+              997037661,
+              232162578,
+              282658795,
+              756709451,
+              189969701,
+              291930234,
+              116392590,
+              277879045,
+              199141711
+            ],
+            "packed_ids": [
+              813783,
+              51917537,
+              34106396,
+              1195492297,
+              442096414,
+              7613257,
+              155733693,
+              221981891,
+              17420614,
+              31629751,
+              859537060,
+              1266125334
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 12,
+            "positive_survived_count": 12,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 76373,
+            "query_variants": [
+              {
+                "variant_id": "q1",
+                "terms": [
+                  "browser",
+                  "automation",
+                  "testing"
+                ]
+              }
+            ],
+            "preflight": {
+              "original_match_count": 30
+            }
+          }
+        },
+        {
+          "case_id": "FINAL-HOLD-03",
+          "metric_family": "semantic",
+          "tags": [
+            "lexical_en",
+            "thin_leaf",
+            "baseline_cohort",
+            "dual_descriptions",
+            "activity_unknown",
+            "lexical_ru"
+          ],
+          "container_domain_ids": [
+            "files_media_storage"
+          ],
+          "baseline": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 1.0,
+                "ndcg_at_k": 1.0,
+                "relevant_count": 1
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              187961907
+            ],
+            "packed_ids": [
+              187961907
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 1,
+            "positive_survived_count": 1,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 7238
+          },
+          "source_text__append_route": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 1.0,
+                "ndcg_at_k": 1.0,
+                "relevant_count": 1
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              187961907,
+              161012019,
+              221316636,
+              119160553,
+              455229168
+            ],
+            "packed_ids": [
+              187961907,
+              161012019,
+              221316636,
+              119160553,
+              455229168
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 1,
+            "positive_survived_count": 1,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 32790,
+            "query_variants": [
+              {
+                "variant_id": "q1",
+                "terms": [
+                  "Android",
+                  "книг",
+                  "чтение",
+                  "media",
+                  "libraries",
+                  "readers"
+                ]
+              }
+            ],
+            "preflight": {
+              "original_match_count": 1
+            }
+          },
+          "source_text__second_route": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 1.0,
+                "ndcg_at_k": 1.0,
+                "relevant_count": 1
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              187961907,
+              161012019,
+              221316636,
+              119160553,
+              455229168
+            ],
+            "packed_ids": [
+              187961907,
+              161012019,
+              221316636,
+              119160553,
+              455229168
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 1,
+            "positive_survived_count": 1,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 32790,
+            "query_variants": [
+              {
+                "variant_id": "q1",
+                "terms": [
+                  "Android",
+                  "книг",
+                  "чтение"
+                ]
+              },
+              {
+                "variant_id": "q2",
+                "terms": [
+                  "media",
+                  "libraries",
+                  "readers"
+                ]
+              }
+            ],
+            "preflight": {
+              "original_match_count": 1
+            }
+          }
+        },
+        {
+          "case_id": "FINAL-HOLD-04",
+          "metric_family": "semantic",
+          "tags": [
+            "lexical_en",
+            "thin_leaf",
+            "baseline_cohort",
+            "dual_descriptions"
+          ],
+          "container_domain_ids": [
+            "frontend_frameworks_ui"
+          ],
+          "baseline": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 1.0,
+                "ndcg_at_k": 0.9324441894571632,
+                "relevant_count": 2
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              245704608,
+              90194616,
+              174038031,
+              35914020,
+              75044525,
+              94367677
+            ],
+            "packed_ids": [
+              245704608,
+              90194616,
+              174038031,
+              35914020,
+              75044525,
+              94367677
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 2,
+            "positive_survived_count": 2,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 38358
+          },
+          "source_text__append_route": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 1.0,
+                "ndcg_at_k": 0.9324441894571632,
+                "relevant_count": 2
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              245704608,
+              90194616,
+              174038031,
+              35914020,
+              94367677,
+              75044525
+            ],
+            "packed_ids": [
+              245704608,
+              90194616,
+              174038031,
+              35914020,
+              94367677,
+              75044525
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 2,
+            "positive_survived_count": 2,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 38421,
+            "query_variants": [
+              {
+                "variant_id": "q1",
+                "terms": [
+                  "TypeScript",
+                  "schema",
+                  "validation",
+                  "forms"
+                ]
+              }
+            ],
+            "preflight": {
+              "original_match_count": 6
+            }
+          },
+          "source_text__second_route": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 1.0,
+                "ndcg_at_k": 0.9324441894571632,
+                "relevant_count": 2
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              245704608,
+              174038031,
+              90194616,
+              35914020,
+              94367677,
+              75044525
+            ],
+            "packed_ids": [
+              245704608,
+              174038031,
+              90194616,
+              35914020,
+              94367677,
+              75044525
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 2,
+            "positive_survived_count": 2,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 38432,
+            "query_variants": [
+              {
+                "variant_id": "q1",
+                "terms": [
+                  "TypeScript",
+                  "schema",
+                  "validation"
+                ]
+              },
+              {
+                "variant_id": "q2",
+                "terms": [
+                  "forms",
+                  "validation"
+                ]
+              }
+            ],
+            "preflight": {
+              "original_match_count": 6
+            }
+          }
+        },
+        {
+          "case_id": "FINAL-HOLD-05",
+          "metric_family": "semantic",
+          "tags": [
+            "lexical_en",
+            "thin_leaf",
+            "baseline_cohort",
+            "secondary_dedupe",
+            "activity_unknown",
+            "lexical_ru"
+          ],
+          "container_domain_ids": [
+            "accounting_finance_erp"
+          ],
+          "baseline": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 1.0,
+                "ndcg_at_k": 0.8368947611074689,
+                "relevant_count": 6
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              1864233,
+              304981340,
+              920995405,
+              1957456,
+              189829392,
+              19745004
+            ],
+            "packed_ids": [
+              1864233,
+              304981340,
+              920995405,
+              1957456,
+              189829392,
+              19745004
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 6,
+            "positive_survived_count": 6,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 38901
+          },
+          "source_text__append_route": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 1.0,
+                "ndcg_at_k": 0.75586705537785,
+                "relevant_count": 6
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              19745004,
+              189829392,
+              920995405,
+              1864233,
+              304981340,
+              1957456
+            ],
+            "packed_ids": [
+              19745004,
+              189829392,
+              920995405,
+              1864233,
+              304981340,
+              1957456
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 6,
+            "positive_survived_count": 6,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 38900,
+            "query_variants": [
+              {
+                "variant_id": "q1",
+                "terms": [
+                  "ERP",
+                  "счета",
+                  "управление",
+                  "business",
+                  "suites"
+                ]
+              }
+            ],
+            "preflight": {
+              "original_match_count": 6
+            }
+          },
+          "source_text__second_route": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 1.0,
+                "ndcg_at_k": 0.7543604253427029,
+                "relevant_count": 6
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              920995405,
+              304981340,
+              19745004,
+              189829392,
+              1864233,
+              1957456
+            ],
+            "packed_ids": [
+              920995405,
+              304981340,
+              19745004,
+              189829392,
+              1864233,
+              1957456
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 6,
+            "positive_survived_count": 6,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 38908,
+            "query_variants": [
+              {
+                "variant_id": "q1",
+                "terms": [
+                  "ERP",
+                  "счета",
+                  "управление"
+                ]
+              },
+              {
+                "variant_id": "q2",
+                "terms": [
+                  "erp",
+                  "business",
+                  "suites"
+                ]
+              }
+            ],
+            "preflight": {
+              "original_match_count": 6
+            }
+          }
+        },
+        {
+          "case_id": "FINAL-HOLD-06",
+          "metric_family": "semantic",
+          "tags": [
+            "lexical_en",
+            "thin_leaf",
+            "baseline_cohort",
+            "dual_descriptions"
+          ],
+          "container_domain_ids": [
+            "cms_content_knowledge"
+          ],
+          "baseline": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 1.0,
+                "ndcg_at_k": 0.7648991727473325,
+                "relevant_count": 7
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              12820537,
+              15830664,
+              614933136,
+              65252,
+              50617428,
+              94911145,
+              11180687,
+              260338399
+            ],
+            "packed_ids": [
+              15830664,
+              614933136,
+              65252,
+              50617428,
+              94911145,
+              11180687,
+              260338399
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 7,
+            "positive_survived_count": 7,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 45303
+          },
+          "source_text__append_route": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 1.0,
+                "ndcg_at_k": 0.7175520772148791,
+                "relevant_count": 7
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              12820537,
+              15830664,
+              260338399,
+              65252,
+              614933136,
+              11180687,
+              50617428,
+              94911145
+            ],
+            "packed_ids": [
+              15830664,
+              260338399,
+              65252,
+              614933136,
+              11180687,
+              50617428,
+              94911145
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 7,
+            "positive_survived_count": 7,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 45303,
+            "query_variants": [
+              {
+                "variant_id": "q1",
+                "terms": [
+                  "static",
+                  "API",
+                  "documentation",
+                  "site",
+                  "generators"
+                ]
+              }
+            ],
+            "preflight": {
+              "original_match_count": 8
+            }
+          },
+          "source_text__second_route": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 1.0,
+                "ndcg_at_k": 0.8697576264979893,
+                "relevant_count": 7
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              15830664,
+              12820537,
+              614933136,
+              65252,
+              260338399,
+              11180687,
+              50617428,
+              94911145
+            ],
+            "packed_ids": [
+              15830664,
+              614933136,
+              65252,
+              260338399,
+              11180687,
+              50617428,
+              94911145
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 7,
+            "positive_survived_count": 7,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 45297,
+            "query_variants": [
+              {
+                "variant_id": "q1",
+                "terms": [
+                  "static",
+                  "API",
+                  "documentation"
+                ]
+              },
+              {
+                "variant_id": "q2",
+                "terms": [
+                  "documentation",
+                  "site",
+                  "generators"
+                ]
+              }
+            ],
+            "preflight": {
+              "original_match_count": 8
+            }
+          }
+        },
+        {
+          "case_id": "FINAL-HOLD-07",
+          "metric_family": "semantic",
+          "tags": [
+            "lexical_en",
+            "dense_leaf",
+            "container_union",
+            "baseline_cohort",
+            "expansion_cohort",
+            "dual_descriptions",
+            "secondary_dedupe",
+            "activity_unknown"
+          ],
+          "container_domain_ids": [
+            "communications_personal_ops"
+          ],
+          "baseline": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 0.7,
+                "ndcg_at_k": 0.8338462100882492,
+                "relevant_count": 10
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              684382,
+              15225670,
+              326059244,
+              372296109,
+              253182958,
+              26661222,
+              39487546,
+              120541771,
+              43160685,
+              928857407,
+              992325192,
+              1143312686,
+              1173545104,
+              35866694,
+              144494851
+            ],
+            "packed_ids": [
+              684382,
+              15225670,
+              326059244,
+              372296109,
+              253182958,
+              26661222,
+              39487546,
+              120541771,
+              43160685,
+              928857407,
+              992325192,
+              1143312686
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 7,
+            "positive_survived_count": 7,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 77724
+          },
+          "source_text__append_route": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 0.7,
+                "ndcg_at_k": 0.8276241603182892,
+                "relevant_count": 10
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              684382,
+              326059244,
+              372296109,
+              15225670,
+              253182958,
+              120541771,
+              26661222,
+              992325192,
+              1173545104,
+              928857407,
+              39487546,
+              43160685,
+              1143312686,
+              144494851
+            ],
+            "packed_ids": [
+              684382,
+              326059244,
+              372296109,
+              15225670,
+              253182958,
+              120541771,
+              26661222,
+              992325192,
+              1173545104,
+              928857407,
+              39487546,
+              43160685
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 7,
+            "positive_survived_count": 7,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 77170,
+            "query_variants": [
+              {
+                "variant_id": "q1",
+                "terms": [
+                  "video",
+                  "conferencing",
+                  "web"
+                ]
+              }
+            ],
+            "preflight": {
+              "original_match_count": 14
+            }
+          },
+          "source_text__second_route": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 0.7,
+                "ndcg_at_k": 0.8276241603182892,
+                "relevant_count": 10
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              684382,
+              326059244,
+              372296109,
+              15225670,
+              253182958,
+              120541771,
+              26661222,
+              992325192,
+              1173545104,
+              928857407,
+              39487546,
+              43160685,
+              1143312686,
+              144494851
+            ],
+            "packed_ids": [
+              684382,
+              326059244,
+              372296109,
+              15225670,
+              253182958,
+              120541771,
+              26661222,
+              992325192,
+              1173545104,
+              928857407,
+              39487546,
+              43160685
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 7,
+            "positive_survived_count": 7,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 77170,
+            "query_variants": [
+              {
+                "variant_id": "q1",
+                "terms": [
+                  "video",
+                  "conferencing",
+                  "web"
+                ]
+              }
+            ],
+            "preflight": {
+              "original_match_count": 14
+            }
+          }
+        },
+        {
+          "case_id": "FINAL-HOLD-08",
+          "metric_family": "semantic",
+          "tags": [
+            "lexical_en",
+            "thin_leaf",
+            "baseline_cohort",
+            "dual_descriptions",
+            "activity_unknown"
+          ],
+          "container_domain_ids": [
+            "ecommerce_payments_revenue"
+          ],
+          "baseline": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 1.0,
+                "ndcg_at_k": 0.9610012895088121,
+                "relevant_count": 2
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              1953389,
+              2471804,
+              20545279,
+              14861133,
+              221280225,
+              235391869,
+              202768861,
+              552877440
+            ],
+            "packed_ids": [
+              1953389,
+              2471804,
+              20545279,
+              14861133,
+              221280225,
+              235391869,
+              202768861,
+              552877440
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 2,
+            "positive_survived_count": 2,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 50171
+          },
+          "source_text__append_route": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 1.0,
+                "ndcg_at_k": 0.9610012895088121,
+                "relevant_count": 2
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              1953389,
+              20545279,
+              2471804,
+              235391869,
+              221280225,
+              552877440,
+              202768861,
+              14861133,
+              100711978
+            ],
+            "packed_ids": [
+              1953389,
+              20545279,
+              2471804,
+              235391869,
+              221280225,
+              552877440,
+              202768861,
+              14861133,
+              100711978
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 2,
+            "positive_survived_count": 2,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 56662,
+            "query_variants": [
+              {
+                "variant_id": "q1",
+                "terms": [
+                  "Python",
+                  "Stripe",
+                  "API",
+                  "payment",
+                  "processing",
+                  "sdks"
+                ]
+              }
+            ],
+            "preflight": {
+              "original_match_count": 8
+            }
+          },
+          "source_text__second_route": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 1.0,
+                "ndcg_at_k": 0.9586597063564786,
+                "relevant_count": 2
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              1953389,
+              20545279,
+              235391869,
+              552877440,
+              2471804,
+              14861133,
+              221280225,
+              202768861,
+              100711978
+            ],
+            "packed_ids": [
+              1953389,
+              20545279,
+              235391869,
+              552877440,
+              2471804,
+              14861133,
+              221280225,
+              202768861,
+              100711978
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 2,
+            "positive_survived_count": 2,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 56670,
+            "query_variants": [
+              {
+                "variant_id": "q1",
+                "terms": [
+                  "Python",
+                  "Stripe",
+                  "API"
+                ]
+              },
+              {
+                "variant_id": "q2",
+                "terms": [
+                  "payment",
+                  "processing",
+                  "sdks"
+                ]
+              }
+            ],
+            "preflight": {
+              "original_match_count": 8
+            }
+          }
+        },
+        {
+          "case_id": "FINAL-HOLD-09",
+          "metric_family": "semantic",
+          "tags": [
+            "lexical_en",
+            "baseline_cohort",
+            "dual_descriptions",
+            "activity_unknown",
+            "lexical_ru"
+          ],
+          "container_domain_ids": [
+            "operations_project_management"
+          ],
+          "baseline": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 0.36363636363636365,
+                "ndcg_at_k": 0.6308488369440626,
+                "relevant_count": 11
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              6899875,
+              16238673,
+              29745084,
+              583598619
+            ],
+            "packed_ids": [
+              6899875,
+              16238673,
+              29745084,
+              583598619
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 4,
+            "positive_survived_count": 4,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 26984
+          },
+          "source_text__append_route": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 1.0,
+                "ndcg_at_k": 0.9796819650776274,
+                "relevant_count": 11
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              568098118,
+              583598619,
+              16238673,
+              6899875,
+              29745084,
+              357894794,
+              159556794,
+              301793434,
+              897809208,
+              1030580992,
+              16089035
+            ],
+            "packed_ids": [
+              568098118,
+              583598619,
+              16238673,
+              6899875,
+              29745084,
+              357894794,
+              159556794,
+              301793434,
+              897809208,
+              1030580992,
+              16089035
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 11,
+            "positive_survived_count": 11,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 69227,
+            "query_variants": [
+              {
+                "variant_id": "q1",
+                "terms": [
+                  "agile",
+                  "задачи",
+                  "спринты",
+                  "проект",
+                  "project",
+                  "task",
+                  "management"
+                ]
+              }
+            ],
+            "preflight": {
+              "original_match_count": 11
+            }
+          },
+          "source_text__second_route": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 1.0,
+                "ndcg_at_k": 0.9550400175946372,
+                "relevant_count": 11
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              583598619,
+              16238673,
+              568098118,
+              6899875,
+              29745084,
+              357894794,
+              301793434,
+              159556794,
+              897809208,
+              1030580992,
+              16089035
+            ],
+            "packed_ids": [
+              583598619,
+              16238673,
+              568098118,
+              6899875,
+              29745084,
+              357894794,
+              301793434,
+              159556794,
+              897809208,
+              1030580992,
+              16089035
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 11,
+            "positive_survived_count": 11,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 69235,
+            "query_variants": [
+              {
+                "variant_id": "q1",
+                "terms": [
+                  "agile",
+                  "задачи",
+                  "спринты",
+                  "проект"
+                ]
+              },
+              {
+                "variant_id": "q2",
+                "terms": [
+                  "project",
+                  "task",
+                  "management"
+                ]
+              }
+            ],
+            "preflight": {
+              "original_match_count": 11
+            }
+          }
+        },
+        {
+          "case_id": "FINAL-HOLD-10",
+          "metric_family": "semantic",
+          "tags": [
+            "lexical_en",
+            "thin_leaf",
+            "baseline_cohort",
+            "dual_descriptions",
+            "activity_unknown"
+          ],
+          "container_domain_ids": [
+            "data_ingestion_etl_cdc"
+          ],
+          "baseline": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 1.0,
+                "ndcg_at_k": 1.0,
+                "relevant_count": 2
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              21827146,
+              2310495,
+              29261473,
+              327859577,
+              182849188,
+              158256479,
+              208038454
+            ],
+            "packed_ids": [
+              21827146,
+              2310495,
+              327859577,
+              182849188,
+              158256479,
+              208038454
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 2,
+            "positive_survived_count": 2,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 38723
+          },
+          "source_text__append_route": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 1.0,
+                "ndcg_at_k": 0.9324441894571632,
+                "relevant_count": 2
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              21827146,
+              29261473,
+              327859577,
+              2310495,
+              208038454,
+              158256479,
+              182849188
+            ],
+            "packed_ids": [
+              21827146,
+              327859577,
+              2310495,
+              208038454,
+              158256479,
+              182849188
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 2,
+            "positive_survived_count": 2,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 38732,
+            "query_variants": [
+              {
+                "variant_id": "q1",
+                "terms": [
+                  "S3",
+                  "object",
+                  "storage",
+                  "data",
+                  "lakes"
+                ]
+              }
+            ],
+            "preflight": {
+              "original_match_count": 7
+            }
+          },
+          "source_text__second_route": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 1.0,
+                "ndcg_at_k": 1.0,
+                "relevant_count": 2
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              21827146,
+              2310495,
+              29261473,
+              208038454,
+              327859577,
+              158256479,
+              182849188
+            ],
+            "packed_ids": [
+              21827146,
+              2310495,
+              208038454,
+              327859577,
+              158256479,
+              182849188
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 2,
+            "positive_survived_count": 2,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 38744,
+            "query_variants": [
+              {
+                "variant_id": "q1",
+                "terms": [
+                  "S3",
+                  "object",
+                  "storage"
+                ]
+              },
+              {
+                "variant_id": "q2",
+                "terms": [
+                  "data",
+                  "lakes",
+                  "object",
+                  "storage"
+                ]
+              }
+            ],
+            "preflight": {
+              "original_match_count": 7
+            }
+          }
+        },
+        {
+          "case_id": "FINAL-HOLD-11",
+          "metric_family": "semantic",
+          "tags": [
+            "lexical_en",
+            "thin_leaf",
+            "baseline_cohort",
+            "dual_descriptions"
+          ],
+          "container_domain_ids": [
+            "databases_storage_caching"
+          ],
+          "baseline": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 1.0,
+                "ndcg_at_k": 1.0,
+                "relevant_count": 3
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              156018,
+              437245741,
+              775743011,
+              11225014,
+              23405758,
+              48833910
+            ],
+            "packed_ids": [
+              156018,
+              437245741,
+              775743011,
+              11225014,
+              23405758,
+              48833910
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 3,
+            "positive_survived_count": 3,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 39774
+          },
+          "source_text__append_route": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 1.0,
+                "ndcg_at_k": 1.0,
+                "relevant_count": 3
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              775743011,
+              156018,
+              437245741,
+              48833910,
+              23405758,
+              11225014
+            ],
+            "packed_ids": [
+              775743011,
+              156018,
+              437245741,
+              48833910,
+              23405758,
+              11225014
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 3,
+            "positive_survived_count": 3,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 39905,
+            "query_variants": [
+              {
+                "variant_id": "q1",
+                "terms": [
+                  "cache",
+                  "caching",
+                  "Redis",
+                  "caches",
+                  "key",
+                  "value",
+                  "stores"
+                ]
+              }
+            ],
+            "preflight": {
+              "original_match_count": 6
+            }
+          },
+          "source_text__second_route": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 1.0,
+                "ndcg_at_k": 0.8854598815714875,
+                "relevant_count": 3
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              775743011,
+              48833910,
+              156018,
+              23405758,
+              437245741,
+              11225014
+            ],
+            "packed_ids": [
+              775743011,
+              48833910,
+              156018,
+              23405758,
+              437245741,
+              11225014
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 3,
+            "positive_survived_count": 3,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 39914,
+            "query_variants": [
+              {
+                "variant_id": "q1",
+                "terms": [
+                  "cache",
+                  "caching",
+                  "Redis"
+                ]
+              },
+              {
+                "variant_id": "q2",
+                "terms": [
+                  "caches",
+                  "key",
+                  "value",
+                  "stores"
+                ]
+              }
+            ],
+            "preflight": {
+              "original_match_count": 6
+            }
+          }
+        },
+        {
+          "case_id": "FINAL-HOLD-12",
+          "metric_family": "semantic",
+          "tags": [
+            "lexical_en",
+            "dense_leaf",
+            "baseline_cohort",
+            "dual_descriptions",
+            "secondary_dedupe",
+            "activity_unknown"
+          ],
+          "container_domain_ids": [
+            "backend_baas_api"
+          ],
+          "baseline": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 1.0,
+                "ndcg_at_k": 1.0,
+                "relevant_count": 4
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              20904437,
+              44344606,
+              234231371,
+              31504491,
+              4164482,
+              75505125,
+              372172254,
+              1864194,
+              7548986,
+              105379569,
+              160919119,
+              394929332,
+              435625572,
+              458058,
+              596892,
+              1148753,
+              1863329,
+              2609642,
+              40136600,
+              40772809,
+              69495170,
+              80945428,
+              138597372,
+              438384984,
+              237159,
+              16072585,
+              17620347,
+              78452015,
+              124230204,
+              8514,
+              6296790,
+              11551538,
+              139914932,
+              952098631
+            ],
+            "packed_ids": [
+              20904437,
+              44344606,
+              234231371,
+              31504491,
+              75505125
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 4,
+            "positive_survived_count": 4,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 36967
+          },
+          "source_text__append_route": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 1.0,
+                "ndcg_at_k": 1.0,
+                "relevant_count": 4
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              20904437,
+              44344606,
+              234231371,
+              31504491,
+              105379569,
+              138597372,
+              435625572,
+              394929332,
+              1864194,
+              160919119,
+              372172254,
+              78452015,
+              458058,
+              124230204,
+              7548986,
+              596892,
+              438384984,
+              237159,
+              2609642,
+              40136600,
+              80945428,
+              4164482,
+              69495170,
+              40772809,
+              1148753,
+              17620347,
+              1863329,
+              75505125,
+              8514,
+              16072585,
+              6296790
+            ],
+            "packed_ids": [
+              20904437,
+              44344606,
+              234231371,
+              31504491,
+              75505125
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 4,
+            "positive_survived_count": 4,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 36546,
+            "query_variants": [
+              {
+                "variant_id": "q1",
+                "terms": [
+                  "Go",
+                  "HTTP",
+                  "framework",
+                  "REST"
+                ]
+              }
+            ],
+            "preflight": {
+              "original_match_count": 31
+            }
+          },
+          "source_text__second_route": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 1.0,
+                "ndcg_at_k": 1.0,
+                "relevant_count": 4
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              20904437,
+              44344606,
+              234231371,
+              31504491,
+              105379569,
+              138597372,
+              435625572,
+              394929332,
+              1864194,
+              160919119,
+              372172254,
+              78452015,
+              458058,
+              124230204,
+              7548986,
+              596892,
+              438384984,
+              237159,
+              2609642,
+              40136600,
+              80945428,
+              4164482,
+              69495170,
+              40772809,
+              1148753,
+              17620347,
+              1863329,
+              75505125,
+              8514,
+              16072585,
+              6296790
+            ],
+            "packed_ids": [
+              20904437,
+              44344606,
+              234231371,
+              31504491,
+              75505125
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 4,
+            "positive_survived_count": 4,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 36546,
+            "query_variants": [
+              {
+                "variant_id": "q1",
+                "terms": [
+                  "Go",
+                  "HTTP",
+                  "framework",
+                  "REST"
+                ]
+              }
+            ],
+            "preflight": {
+              "original_match_count": 31
+            }
+          }
+        },
+        {
+          "case_id": "FINAL-HOLD-13",
+          "metric_family": "semantic",
+          "tags": [
+            "lexical_en",
+            "thin_leaf",
+            "baseline_cohort",
+            "dual_descriptions",
+            "activity_unknown"
+          ],
+          "container_domain_ids": [
+            "deployment_containers_paas"
+          ],
+          "baseline": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 0.6666666666666666,
+                "ndcg_at_k": 0.9561657846760856,
+                "relevant_count": 6
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              332880689,
+              10567197,
+              108221729,
+              788847937,
+              34302698
+            ],
+            "packed_ids": [
+              332880689,
+              10567197,
+              108221729,
+              788847937,
+              34302698
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 4,
+            "positive_survived_count": 4,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 33651
+          },
+          "source_text__append_route": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 1.0,
+                "ndcg_at_k": 0.9925337350311029,
+                "relevant_count": 6
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              10567197,
+              332880689,
+              108221729,
+              788847937,
+              34302698,
+              1145216439,
+              426659329,
+              474540881,
+              10187082
+            ],
+            "packed_ids": [
+              10567197,
+              332880689,
+              108221729,
+              788847937,
+              34302698,
+              1145216439,
+              426659329,
+              474540881,
+              10187082
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 6,
+            "positive_survived_count": 6,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 59429,
+            "query_variants": [
+              {
+                "variant_id": "q1",
+                "terms": [
+                  "self",
+                  "hosted",
+                  "PaaS",
+                  "applications",
+                  "application"
+                ]
+              }
+            ],
+            "preflight": {
+              "original_match_count": 9
+            }
+          },
+          "source_text__second_route": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 1.0,
+                "ndcg_at_k": 0.9935878218851619,
+                "relevant_count": 6
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              10567197,
+              108221729,
+              332880689,
+              788847937,
+              426659329,
+              1145216439,
+              474540881,
+              34302698,
+              10187082
+            ],
+            "packed_ids": [
+              10567197,
+              108221729,
+              332880689,
+              788847937,
+              426659329,
+              1145216439,
+              474540881,
+              34302698,
+              10187082
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 6,
+            "positive_survived_count": 6,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 59436,
+            "query_variants": [
+              {
+                "variant_id": "q1",
+                "terms": [
+                  "self",
+                  "hosted",
+                  "PaaS",
+                  "applications"
+                ]
+              },
+              {
+                "variant_id": "q2",
+                "terms": [
+                  "application",
+                  "paas"
+                ]
+              }
+            ],
+            "preflight": {
+              "original_match_count": 9
+            }
+          }
+        },
+        {
+          "case_id": "FINAL-HOLD-14",
+          "metric_family": "semantic",
+          "tags": [
+            "lexical_en",
+            "baseline_cohort",
+            "dual_descriptions",
+            "activity_unknown"
+          ],
+          "container_domain_ids": [
+            "supply_chain_devsecops"
+          ],
+          "baseline": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 0.9,
+                "ndcg_at_k": 0.91572783264733,
+                "relevant_count": 10
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              252813491,
+              1065059442,
+              1129086590,
+              36817565,
+              959903176,
+              140457254,
+              141447532,
+              267713284,
+              961915719,
+              962125208,
+              962587799,
+              965808054,
+              1198251684
+            ],
+            "packed_ids": [
+              252813491,
+              1065059442,
+              1129086590,
+              36817565,
+              959903176,
+              140457254,
+              141447532,
+              267713284,
+              961915719,
+              962125208,
+              962587799,
+              965808054
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 9,
+            "positive_survived_count": 9,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 78886
+          },
+          "source_text__append_route": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 0.9,
+                "ndcg_at_k": 0.9145734781489755,
+                "relevant_count": 10
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              252813491,
+              1065059442,
+              1129086590,
+              36817565,
+              959903176,
+              965808054,
+              141447532,
+              962125208,
+              140457254,
+              961915719,
+              267713284,
+              962587799,
+              1198251684
+            ],
+            "packed_ids": [
+              252813491,
+              1065059442,
+              1129086590,
+              36817565,
+              959903176,
+              965808054,
+              141447532,
+              962125208,
+              140457254,
+              961915719,
+              267713284,
+              962587799
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 9,
+            "positive_survived_count": 9,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 78886,
+            "query_variants": [
+              {
+                "variant_id": "q1",
+                "terms": [
+                  "vulnerability",
+                  "scanner",
+                  "web",
+                  "applications"
+                ]
+              }
+            ],
+            "preflight": {
+              "original_match_count": 13
+            }
+          },
+          "source_text__second_route": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 0.9,
+                "ndcg_at_k": 0.9145734781489755,
+                "relevant_count": 10
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              252813491,
+              1065059442,
+              1129086590,
+              36817565,
+              959903176,
+              965808054,
+              141447532,
+              962125208,
+              140457254,
+              961915719,
+              267713284,
+              962587799,
+              1198251684
+            ],
+            "packed_ids": [
+              252813491,
+              1065059442,
+              1129086590,
+              36817565,
+              959903176,
+              965808054,
+              141447532,
+              962125208,
+              140457254,
+              961915719,
+              267713284,
+              962587799
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 9,
+            "positive_survived_count": 9,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 78886,
+            "query_variants": [
+              {
+                "variant_id": "q1",
+                "terms": [
+                  "vulnerability",
+                  "scanner",
+                  "web",
+                  "applications"
+                ]
+              }
+            ],
+            "preflight": {
+              "original_match_count": 13
+            }
+          }
+        },
+        {
+          "case_id": "FINAL-ALIAS-01",
+          "metric_family": "identity",
+          "tags": [
+            "historical_alias"
+          ],
+          "container_domain_ids": [],
+          "baseline": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 1.0,
+                "ndcg_at_k": 1.0,
+                "relevant_count": 1
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              5152285
+            ],
+            "packed_ids": [
+              5152285
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 1,
+            "positive_survived_count": 1,
+            "pack_survival": 1.0,
+            "alias_success": true,
+            "controlled_pack_bytes": 7283
+          },
+          "source_text__append_route": {
+            "ranking": {
+              "valid": false,
+              "reason": "incomplete_judgments",
+              "ranking": null,
+              "unjudged_ids": [
+                56899284,
+                43056951,
+                137724480,
+                391811592,
+                38307428,
+                148332388,
+                900049352,
+                27729907,
+                460076976,
+                56271158,
+                162690887,
+                121086193,
+                40518025,
+                4710920,
+                542284380,
+                118695306,
+                20787122,
+                45250726,
+                203587744,
+                20300177,
+                113701924,
+                52630616,
+                679280065,
+                1362490,
+                61567304,
+                133134007,
+                74436942,
+                280557054,
+                2006876,
+                2055965,
+                27729880,
+                741524414,
+                212465715,
+                899744532,
+                74170071,
+                22458259,
+                219705144,
+                142165796,
+                238402553
+              ]
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              56899284,
+              43056951,
+              137724480,
+              391811592,
+              38307428,
+              5152285,
+              148332388,
+              900049352,
+              27729907,
+              460076976,
+              56271158,
+              162690887,
+              121086193,
+              40518025,
+              4710920,
+              542284380,
+              118695306,
+              20787122,
+              45250726,
+              203587744,
+              20300177,
+              113701924,
+              52630616,
+              679280065,
+              1362490,
+              61567304,
+              133134007,
+              74436942,
+              280557054,
+              2006876,
+              2055965,
+              27729880,
+              741524414,
+              212465715,
+              899744532,
+              74170071,
+              22458259,
+              219705144,
+              142165796,
+              238402553
+            ],
+            "packed_ids": [
+              56899284,
+              43056951,
+              137724480,
+              391811592,
+              38307428,
+              5152285,
+              148332388,
+              900049352,
+              27729907,
+              460076976,
+              56271158,
+              162690887
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 1,
+            "positive_survived_count": 1,
+            "pack_survival": 1.0,
+            "alias_success": true,
+            "controlled_pack_bytes": 79108,
+            "query_variants": [
+              {
+                "variant_id": "q1",
+                "terms": [
+                  "square/okhttp",
+                  "api",
+                  "graphql",
+                  "rpc"
+                ]
+              }
+            ],
+            "preflight": {
+              "original_match_count": 1
+            }
+          },
+          "source_text__second_route": {
+            "ranking": {
+              "valid": false,
+              "reason": "incomplete_judgments",
+              "ranking": null,
+              "unjudged_ids": [
+                56899284,
+                43056951,
+                137724480,
+                391811592,
+                38307428,
+                148332388,
+                900049352,
+                27729907,
+                460076976,
+                56271158,
+                162690887,
+                121086193,
+                40518025,
+                4710920,
+                542284380,
+                118695306,
+                20787122,
+                45250726,
+                203587744,
+                20300177,
+                113701924,
+                52630616,
+                679280065,
+                1362490,
+                61567304,
+                133134007,
+                74436942,
+                280557054,
+                2006876,
+                2055965,
+                27729880,
+                741524414,
+                212465715,
+                899744532,
+                74170071,
+                22458259,
+                219705144,
+                142165796,
+                238402553
+              ]
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              5152285,
+              56899284,
+              43056951,
+              137724480,
+              391811592,
+              38307428,
+              148332388,
+              900049352,
+              27729907,
+              460076976,
+              56271158,
+              162690887,
+              121086193,
+              40518025,
+              4710920,
+              542284380,
+              118695306,
+              20787122,
+              45250726,
+              203587744,
+              20300177,
+              113701924,
+              52630616,
+              679280065,
+              1362490,
+              61567304,
+              133134007,
+              74436942,
+              280557054,
+              2006876,
+              2055965,
+              27729880,
+              741524414,
+              212465715,
+              899744532,
+              74170071,
+              22458259,
+              219705144,
+              142165796,
+              238402553
+            ],
+            "packed_ids": [
+              5152285,
+              56899284,
+              43056951,
+              137724480,
+              391811592,
+              38307428,
+              148332388,
+              900049352,
+              27729907,
+              460076976,
+              56271158,
+              162690887
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 1,
+            "positive_survived_count": 1,
+            "pack_survival": 1.0,
+            "alias_success": true,
+            "controlled_pack_bytes": 79107,
+            "query_variants": [
+              {
+                "variant_id": "q1",
+                "terms": [
+                  "square/okhttp"
+                ]
+              },
+              {
+                "variant_id": "q2",
+                "terms": [
+                  "api",
+                  "graphql",
+                  "rpc"
+                ]
+              }
+            ],
+            "preflight": {
+              "original_match_count": 1
+            }
+          }
+        }
+      ]
+    },
+    {
+      "label": "independent",
+      "plan_sha256": "1c05adda0a4523cfa681dc669b912295007a2503a142553737e040337f2a2b33",
+      "capture_sha256": "5f13eeceee07e863928e64f06ee586e3fda34f930aa677a44da4729f4ef31eda",
+      "original_literal_orders_preserved": 15,
+      "summary": {
+        "baseline": {
+          "macro": {
+            "recall_at_k": 0.8972527472527473,
+            "ndcg_at_k": 0.9357909189616664
+          },
+          "failed_strata": {
+            "expansion_cohort": {
+              "recall_at_k": 0.5384615384615384,
+              "ndcg_at_k": 0.7122342567767014
+            },
+            "accounting_finance_erp": {
+              "recall_at_k": 0.5384615384615384,
+              "ndcg_at_k": 0.7122342567767014
+            }
+          }
+        },
+        "source_text__append_route": {
+          "macro": {
+            "recall_at_k": 0.9423076923076923,
+            "ndcg_at_k": 0.9425442528615708
+          },
+          "failed_strata": {}
+        },
+        "source_text__second_route": {
+          "macro": {
+            "recall_at_k": 0.9423076923076923,
+            "ndcg_at_k": 0.901095811167788
+          },
+          "failed_strata": {}
+        }
+      },
+      "records": [
+        {
+          "case_id": "INDEPENDENT-HOLD-01",
+          "metric_family": "semantic",
+          "tags": [
+            "lexical_en",
+            "baseline_cohort",
+            "dual_descriptions",
+            "activity_unknown",
+            "thin_leaf"
+          ],
+          "container_domain_ids": [
+            "developer_tools_cli_general"
+          ],
+          "baseline": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 1.0,
+                "ndcg_at_k": 0.9565557524561504,
+                "relevant_count": 6
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              268424739,
+              340547520,
+              16408992,
+              40997482,
+              41881900,
+              144590939
+            ],
+            "packed_ids": [
+              268424739,
+              340547520,
+              16408992,
+              40997482,
+              41881900,
+              144590939
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 6,
+            "positive_survived_count": 6,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 41936
+          },
+          "source_text__append_route": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 1.0,
+                "ndcg_at_k": 0.9470483392285726,
+                "relevant_count": 6
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              268424739,
+              41881900,
+              40997482,
+              340547520,
+              16408992,
+              144590939
+            ],
+            "packed_ids": [
+              268424739,
+              41881900,
+              40997482,
+              340547520,
+              16408992,
+              144590939
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 6,
+            "positive_survived_count": 6,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 41936,
+            "query_variants": [
+              {
+                "variant_id": "q1",
+                "terms": [
+                  "modal",
+                  "editor",
+                  "terminal",
+                  "editors",
+                  "ides"
+                ]
+              }
+            ],
+            "preflight": {
+              "original_match_count": 6
+            }
+          },
+          "source_text__second_route": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 1.0,
+                "ndcg_at_k": 0.8669798084516637,
+                "relevant_count": 6
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              41881900,
+              268424739,
+              40997482,
+              340547520,
+              16408992,
+              144590939
+            ],
+            "packed_ids": [
+              41881900,
+              268424739,
+              40997482,
+              340547520,
+              16408992,
+              144590939
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 6,
+            "positive_survived_count": 6,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 41948,
+            "query_variants": [
+              {
+                "variant_id": "q1",
+                "terms": [
+                  "modal",
+                  "editor",
+                  "terminal"
+                ]
+              },
+              {
+                "variant_id": "q2",
+                "terms": [
+                  "editors",
+                  "ides"
+                ]
+              }
+            ],
+            "preflight": {
+              "original_match_count": 6
+            }
+          }
+        },
+        {
+          "case_id": "INDEPENDENT-HOLD-02",
+          "metric_family": "semantic",
+          "tags": [
+            "lexical_en",
+            "baseline_cohort",
+            "dual_descriptions",
+            "activity_unknown",
+            "thin_leaf"
+          ],
+          "container_domain_ids": [
+            "testing_qa"
+          ],
+          "baseline": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 1.0,
+                "ndcg_at_k": 0.9719344684729788,
+                "relevant_count": 10
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              60344592,
+              85806183,
+              8426406,
+              1011539,
+              2544305,
+              54172257,
+              81226206,
+              203157084,
+              97478419,
+              157397583
+            ],
+            "packed_ids": [
+              60344592,
+              85806183,
+              8426406,
+              1011539,
+              2544305,
+              54172257,
+              81226206,
+              203157084,
+              97478419,
+              157397583
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 10,
+            "positive_survived_count": 10,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 64693
+          },
+          "source_text__append_route": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 1.0,
+                "ndcg_at_k": 0.9576516659690325,
+                "relevant_count": 10
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              60344592,
+              1011539,
+              85806183,
+              2544305,
+              81226206,
+              8426406,
+              203157084,
+              54172257,
+              157397583,
+              97478419
+            ],
+            "packed_ids": [
+              60344592,
+              1011539,
+              85806183,
+              2544305,
+              81226206,
+              8426406,
+              203157084,
+              54172257,
+              157397583,
+              97478419
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 10,
+            "positive_survived_count": 10,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 64837,
+            "query_variants": [
+              {
+                "variant_id": "q1",
+                "terms": [
+                  "contract",
+                  "HTTP",
+                  "testing",
+                  "api"
+                ]
+              }
+            ],
+            "preflight": {
+              "original_match_count": 10
+            }
+          },
+          "source_text__second_route": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 1.0,
+                "ndcg_at_k": 0.9963870236985648,
+                "relevant_count": 10
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              60344592,
+              85806183,
+              81226206,
+              1011539,
+              2544305,
+              203157084,
+              8426406,
+              54172257,
+              157397583,
+              97478419
+            ],
+            "packed_ids": [
+              60344592,
+              85806183,
+              81226206,
+              1011539,
+              2544305,
+              203157084,
+              8426406,
+              54172257,
+              157397583,
+              97478419
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 10,
+            "positive_survived_count": 10,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 64844,
+            "query_variants": [
+              {
+                "variant_id": "q1",
+                "terms": [
+                  "contract",
+                  "HTTP",
+                  "testing"
+                ]
+              },
+              {
+                "variant_id": "q2",
+                "terms": [
+                  "api",
+                  "contract",
+                  "testing"
+                ]
+              }
+            ],
+            "preflight": {
+              "original_match_count": 10
+            }
+          }
+        },
+        {
+          "case_id": "INDEPENDENT-HOLD-03",
+          "metric_family": "semantic",
+          "tags": [
+            "lexical_en",
+            "baseline_cohort",
+            "dual_descriptions",
+            "activity_unknown",
+            "thin_leaf"
+          ],
+          "container_domain_ids": [
+            "files_media_storage"
+          ],
+          "baseline": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 0.6,
+                "ndcg_at_k": 0.9480407137699002,
+                "relevant_count": 5
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              458648791,
+              323846389,
+              197263888
+            ],
+            "packed_ids": [
+              458648791,
+              323846389,
+              197263888
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 3,
+            "positive_survived_count": 3,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 20858
+          },
+          "source_text__append_route": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 1.0,
+                "ndcg_at_k": 0.9945454044579952,
+                "relevant_count": 5
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              458648791,
+              323846389,
+              197263888,
+              1663468,
+              361044034,
+              210702427,
+              931365873,
+              952831973,
+              594155488
+            ],
+            "packed_ids": [
+              458648791,
+              323846389,
+              197263888,
+              1663468,
+              361044034,
+              210702427,
+              931365873,
+              952831973,
+              594155488
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 5,
+            "positive_survived_count": 5,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 60572,
+            "query_variants": [
+              {
+                "variant_id": "q1",
+                "terms": [
+                  "scanned",
+                  "documents",
+                  "archive",
+                  "document",
+                  "management",
+                  "processing"
+                ]
+              }
+            ],
+            "preflight": {
+              "original_match_count": 3
+            }
+          },
+          "source_text__second_route": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 1.0,
+                "ndcg_at_k": 0.9945454044579952,
+                "relevant_count": 5
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              458648791,
+              197263888,
+              323846389,
+              1663468,
+              361044034,
+              210702427,
+              931365873,
+              952831973,
+              594155488
+            ],
+            "packed_ids": [
+              458648791,
+              197263888,
+              323846389,
+              1663468,
+              361044034,
+              210702427,
+              931365873,
+              952831973,
+              594155488
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 5,
+            "positive_survived_count": 5,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 60570,
+            "query_variants": [
+              {
+                "variant_id": "q1",
+                "terms": [
+                  "scanned",
+                  "documents",
+                  "archive"
+                ]
+              },
+              {
+                "variant_id": "q2",
+                "terms": [
+                  "document",
+                  "management",
+                  "processing"
+                ]
+              }
+            ],
+            "preflight": {
+              "original_match_count": 3
+            }
+          }
+        },
+        {
+          "case_id": "INDEPENDENT-HOLD-04",
+          "metric_family": "semantic",
+          "tags": [
+            "lexical_en",
+            "baseline_cohort",
+            "dual_descriptions",
+            "activity_unknown",
+            "dense_leaf"
+          ],
+          "container_domain_ids": [
+            "frontend_frameworks_ui"
+          ],
+          "baseline": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 1.0,
+                "ndcg_at_k": 0.9828422279067397,
+                "relevant_count": 2
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              60630844,
+              60537144,
+              54173593,
+              327628682,
+              585146387,
+              935450522,
+              5239185,
+              9309093,
+              23083156,
+              23974149,
+              67962648,
+              76666208,
+              160313905,
+              202890778,
+              208362715,
+              243546335,
+              270722949,
+              273499522,
+              281319253,
+              316836816,
+              360522116,
+              2126244,
+              3721224,
+              11507163,
+              34526884,
+              54994103,
+              71487058,
+              84835535,
+              106017343,
+              107422373,
+              961975051
+            ],
+            "packed_ids": [
+              60630844,
+              60537144,
+              54173593,
+              327628682,
+              585146387,
+              935450522,
+              5239185,
+              9309093,
+              23083156,
+              23974149,
+              67962648,
+              202890778
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 2,
+            "positive_survived_count": 2,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 78875
+          },
+          "source_text__append_route": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 1.0,
+                "ndcg_at_k": 0.9737576937588317,
+                "relevant_count": 2
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              60630844,
+              60537144,
+              327628682,
+              54173593,
+              585146387,
+              67962648,
+              935450522,
+              76666208,
+              160313905,
+              208362715,
+              202890778,
+              316836816,
+              360522116,
+              5239185,
+              23974149,
+              281319253,
+              23083156,
+              9309093,
+              270722949,
+              273499522,
+              243546335,
+              107422373,
+              84835535,
+              3721224,
+              11507163,
+              106017343,
+              34526884,
+              54994103,
+              2126244,
+              71487058,
+              961975051
+            ],
+            "packed_ids": [
+              60630844,
+              60537144,
+              327628682,
+              54173593,
+              585146387,
+              67962648,
+              935450522,
+              208362715,
+              202890778,
+              316836816,
+              360522116,
+              5239185
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 2,
+            "positive_survived_count": 2,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 78580,
+            "query_variants": [
+              {
+                "variant_id": "q1",
+                "terms": [
+                  "browser",
+                  "code editor",
+                  "components"
+                ]
+              }
+            ],
+            "preflight": {
+              "original_match_count": 31
+            }
+          },
+          "source_text__second_route": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 1.0,
+                "ndcg_at_k": 0.9737576937588317,
+                "relevant_count": 2
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              60630844,
+              60537144,
+              327628682,
+              54173593,
+              585146387,
+              67962648,
+              935450522,
+              76666208,
+              160313905,
+              208362715,
+              202890778,
+              316836816,
+              360522116,
+              5239185,
+              23974149,
+              281319253,
+              23083156,
+              9309093,
+              270722949,
+              273499522,
+              243546335,
+              107422373,
+              84835535,
+              3721224,
+              11507163,
+              106017343,
+              34526884,
+              54994103,
+              2126244,
+              71487058,
+              961975051
+            ],
+            "packed_ids": [
+              60630844,
+              60537144,
+              327628682,
+              54173593,
+              585146387,
+              67962648,
+              935450522,
+              208362715,
+              202890778,
+              316836816,
+              360522116,
+              5239185
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 2,
+            "positive_survived_count": 2,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 78580,
+            "query_variants": [
+              {
+                "variant_id": "q1",
+                "terms": [
+                  "browser",
+                  "code editor",
+                  "components"
+                ]
+              }
+            ],
+            "preflight": {
+              "original_match_count": 31
+            }
+          }
+        },
+        {
+          "case_id": "INDEPENDENT-HOLD-05",
+          "metric_family": "semantic",
+          "tags": [
+            "lexical_ru",
+            "baseline_cohort",
+            "dual_descriptions",
+            "activity_unknown",
+            "expansion_cohort"
+          ],
+          "container_domain_ids": [
+            "accounting_finance_erp"
+          ],
+          "baseline": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 0.5384615384615384,
+                "ndcg_at_k": 0.7122342567767014,
+                "relevant_count": 13
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              20021038,
+              946010740,
+              1009628866,
+              71485542,
+              95011974,
+              408868487,
+              412750377
+            ],
+            "packed_ids": [
+              20021038,
+              946010740,
+              1009628866,
+              71485542,
+              95011974,
+              408868487,
+              412750377
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 7,
+            "positive_survived_count": 7,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 43883
+          },
+          "source_text__append_route": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 0.7692307692307693,
+                "ndcg_at_k": 0.9133887639297984,
+                "relevant_count": 13
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              1009628866,
+              20021038,
+              95011974,
+              946010740,
+              408868487,
+              71485542,
+              412750377,
+              116673933,
+              7966650,
+              1044391725,
+              9572512,
+              266158455,
+              1046711235,
+              51411118,
+              16309,
+              47411155,
+              86850921,
+              55025852,
+              123909654,
+              9301414,
+              155289518,
+              18551709,
+              99786834
+            ],
+            "packed_ids": [
+              1009628866,
+              20021038,
+              95011974,
+              946010740,
+              408868487,
+              71485542,
+              412750377,
+              116673933,
+              7966650,
+              1044391725,
+              9572512,
+              266158455
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 10,
+            "positive_survived_count": 10,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 75504,
+            "query_variants": [
+              {
+                "variant_id": "q1",
+                "terms": [
+                  "invoice",
+                  "invoices",
+                  "payments",
+                  "счета",
+                  "accounting",
+                  "invoicing"
+                ]
+              }
+            ],
+            "preflight": {
+              "original_match_count": 7
+            }
+          },
+          "source_text__second_route": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 0.7692307692307693,
+                "ndcg_at_k": 0.8111587937590039,
+                "relevant_count": 13
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              95011974,
+              408868487,
+              412750377,
+              1009628866,
+              20021038,
+              946010740,
+              71485542,
+              116673933,
+              7966650,
+              1044391725,
+              9572512,
+              266158455,
+              1046711235,
+              51411118,
+              16309,
+              47411155,
+              86850921,
+              55025852,
+              123909654,
+              9301414,
+              155289518,
+              18551709,
+              99786834
+            ],
+            "packed_ids": [
+              95011974,
+              408868487,
+              412750377,
+              1009628866,
+              20021038,
+              946010740,
+              71485542,
+              116673933,
+              7966650,
+              1044391725,
+              9572512,
+              266158455
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 10,
+            "positive_survived_count": 10,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 75514,
+            "query_variants": [
+              {
+                "variant_id": "q1",
+                "terms": [
+                  "invoice",
+                  "invoices",
+                  "payments",
+                  "счета"
+                ]
+              },
+              {
+                "variant_id": "q2",
+                "terms": [
+                  "accounting",
+                  "invoicing"
+                ]
+              }
+            ],
+            "preflight": {
+              "original_match_count": 7
+            }
+          }
+        },
+        {
+          "case_id": "INDEPENDENT-HOLD-06",
+          "metric_family": "semantic",
+          "tags": [
+            "lexical_en",
+            "baseline_cohort",
+            "dual_descriptions",
+            "activity_unknown"
+          ],
+          "container_domain_ids": [
+            "cms_content_knowledge"
+          ],
+          "baseline": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 0.8571428571428571,
+                "ndcg_at_k": 0.9298654204948177,
+                "relevant_count": 14
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              327089870,
+              43441403,
+              7122594,
+              111562942,
+              2464908,
+              128193054,
+              143580,
+              1319183,
+              22553797,
+              16479108,
+              126178683,
+              9852918,
+              100695,
+              75645659
+            ],
+            "packed_ids": [
+              327089870,
+              43441403,
+              7122594,
+              111562942,
+              2464908,
+              128193054,
+              143580,
+              1319183,
+              22553797,
+              16479108,
+              126178683,
+              9852918
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 12,
+            "positive_survived_count": 12,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 78579
+          },
+          "source_text__append_route": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 0.8571428571428571,
+                "ndcg_at_k": 0.936736527643043,
+                "relevant_count": 14
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              43441403,
+              128193054,
+              327089870,
+              111562942,
+              7122594,
+              2464908,
+              22553797,
+              16479108,
+              143580,
+              1319183,
+              126178683,
+              9852918,
+              100695,
+              75645659
+            ],
+            "packed_ids": [
+              43441403,
+              128193054,
+              327089870,
+              111562942,
+              7122594,
+              2464908,
+              22553797,
+              16479108,
+              143580,
+              1319183,
+              126178683,
+              9852918
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 12,
+            "positive_survived_count": 12,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 78567,
+            "query_variants": [
+              {
+                "variant_id": "q1",
+                "terms": [
+                  "headless",
+                  "CMS",
+                  "content",
+                  "frontend"
+                ]
+              }
+            ],
+            "preflight": {
+              "original_match_count": 14
+            }
+          },
+          "source_text__second_route": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 0.8571428571428571,
+                "ndcg_at_k": 0.936736527643043,
+                "relevant_count": 14
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              43441403,
+              128193054,
+              327089870,
+              111562942,
+              7122594,
+              2464908,
+              22553797,
+              16479108,
+              143580,
+              1319183,
+              126178683,
+              9852918,
+              100695,
+              75645659
+            ],
+            "packed_ids": [
+              43441403,
+              128193054,
+              327089870,
+              111562942,
+              7122594,
+              2464908,
+              22553797,
+              16479108,
+              143580,
+              1319183,
+              126178683,
+              9852918
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 12,
+            "positive_survived_count": 12,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 78567,
+            "query_variants": [
+              {
+                "variant_id": "q1",
+                "terms": [
+                  "headless",
+                  "CMS",
+                  "content",
+                  "frontend"
+                ]
+              }
+            ],
+            "preflight": {
+              "original_match_count": 14
+            }
+          }
+        },
+        {
+          "case_id": "INDEPENDENT-HOLD-07",
+          "metric_family": "semantic",
+          "tags": [
+            "lexical_ru",
+            "baseline_cohort",
+            "dual_descriptions",
+            "activity_unknown",
+            "thin_leaf",
+            "container_union"
+          ],
+          "container_domain_ids": [
+            "communications_personal_ops"
+          ],
+          "baseline": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 1.0,
+                "ndcg_at_k": 0.9721212198129313,
+                "relevant_count": 3
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              1121557390,
+              973788136,
+              350360184,
+              943286066,
+              945223589,
+              1003342581
+            ],
+            "packed_ids": [
+              1121557390,
+              973788136,
+              350360184,
+              943286066,
+              945223589,
+              1003342581
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 3,
+            "positive_survived_count": 3,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 41498
+          },
+          "source_text__append_route": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 1.0,
+                "ndcg_at_k": 0.9721212198129313,
+                "relevant_count": 3
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              1121557390,
+              973788136,
+              350360184,
+              945223589,
+              943286066,
+              1003342581
+            ],
+            "packed_ids": [
+              1121557390,
+              973788136,
+              350360184,
+              945223589,
+              943286066,
+              1003342581
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 3,
+            "positive_survived_count": 3,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 41498,
+            "query_variants": [
+              {
+                "variant_id": "q1",
+                "terms": [
+                  "calendar",
+                  "sync",
+                  "scheduling",
+                  "communications",
+                  "personal",
+                  "ops"
+                ]
+              }
+            ],
+            "preflight": {
+              "original_match_count": 6
+            }
+          },
+          "source_text__second_route": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 1.0,
+                "ndcg_at_k": 0.6710851172397473,
+                "relevant_count": 3
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              945223589,
+              1121557390,
+              350360184,
+              943286066,
+              973788136,
+              1003342581
+            ],
+            "packed_ids": [
+              945223589,
+              1121557390,
+              350360184,
+              943286066,
+              973788136,
+              1003342581
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 3,
+            "positive_survived_count": 3,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 41507,
+            "query_variants": [
+              {
+                "variant_id": "q1",
+                "terms": [
+                  "calendar",
+                  "sync",
+                  "scheduling"
+                ]
+              },
+              {
+                "variant_id": "q2",
+                "terms": [
+                  "communications",
+                  "personal",
+                  "ops"
+                ]
+              }
+            ],
+            "preflight": {
+              "original_match_count": 6
+            }
+          }
+        },
+        {
+          "case_id": "INDEPENDENT-HOLD-08",
+          "metric_family": "semantic",
+          "tags": [
+            "lexical_en",
+            "baseline_cohort",
+            "dual_descriptions",
+            "activity_unknown"
+          ],
+          "container_domain_ids": [
+            "ecommerce_payments_revenue"
+          ],
+          "baseline": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 0.8571428571428571,
+                "ndcg_at_k": 1.0,
+                "relevant_count": 14
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              18586705,
+              30985840,
+              3314,
+              2179920,
+              131995661,
+              136938012,
+              1151051,
+              2717549,
+              6763587,
+              8162715,
+              148129143,
+              234739976,
+              2884111,
+              127988011
+            ],
+            "packed_ids": [
+              18586705,
+              30985840,
+              3314,
+              2179920,
+              131995661,
+              136938012,
+              1151051,
+              2717549,
+              6763587,
+              8162715,
+              148129143,
+              234739976
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 12,
+            "positive_survived_count": 12,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 78173
+          },
+          "source_text__append_route": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 0.8571428571428571,
+                "ndcg_at_k": 1.0,
+                "relevant_count": 14
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              8162715,
+              131995661,
+              136938012,
+              2179920,
+              3314,
+              6763587,
+              1151051,
+              234739976,
+              148129143,
+              18586705,
+              30985840,
+              2717549,
+              2884111,
+              127988011
+            ],
+            "packed_ids": [
+              8162715,
+              131995661,
+              136938012,
+              2179920,
+              3314,
+              6763587,
+              1151051,
+              234739976,
+              148129143,
+              18586705,
+              30985840,
+              2717549
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 12,
+            "positive_survived_count": 12,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 78149,
+            "query_variants": [
+              {
+                "variant_id": "q1",
+                "terms": [
+                  "ecommerce",
+                  "commerce",
+                  "store"
+                ]
+              }
+            ],
+            "preflight": {
+              "original_match_count": 14
+            }
+          },
+          "source_text__second_route": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 0.8571428571428571,
+                "ndcg_at_k": 1.0,
+                "relevant_count": 14
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              8162715,
+              131995661,
+              136938012,
+              2179920,
+              3314,
+              6763587,
+              1151051,
+              234739976,
+              148129143,
+              18586705,
+              30985840,
+              2717549,
+              2884111,
+              127988011
+            ],
+            "packed_ids": [
+              8162715,
+              131995661,
+              136938012,
+              2179920,
+              3314,
+              6763587,
+              1151051,
+              234739976,
+              148129143,
+              18586705,
+              30985840,
+              2717549
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 12,
+            "positive_survived_count": 12,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 78149,
+            "query_variants": [
+              {
+                "variant_id": "q1",
+                "terms": [
+                  "ecommerce",
+                  "commerce",
+                  "store"
+                ]
+              }
+            ],
+            "preflight": {
+              "original_match_count": 14
+            }
+          }
+        },
+        {
+          "case_id": "INDEPENDENT-HOLD-09",
+          "metric_family": "semantic",
+          "tags": [
+            "lexical_en",
+            "baseline_cohort",
+            "dual_descriptions",
+            "activity_unknown",
+            "secondary_dedupe"
+          ],
+          "container_domain_ids": [
+            "operations_project_management"
+          ],
+          "baseline": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 1.0,
+                "ndcg_at_k": 0.9613211327251899,
+                "relevant_count": 12
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              331293626,
+              275993885,
+              190729906,
+              88464704,
+              206509491,
+              630039746,
+              63226588,
+              306829688,
+              352933140,
+              101394335,
+              108761645,
+              159152904
+            ],
+            "packed_ids": [
+              331293626,
+              275993885,
+              190729906,
+              88464704,
+              206509491,
+              630039746,
+              63226588,
+              306829688,
+              352933140,
+              101394335,
+              108761645,
+              159152904
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 12,
+            "positive_survived_count": 12,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 81436
+          },
+          "source_text__append_route": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 1.0,
+                "ndcg_at_k": 0.9652636956851046,
+                "relevant_count": 12
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              331293626,
+              275993885,
+              190729906,
+              88464704,
+              352933140,
+              63226588,
+              101394335,
+              306829688,
+              630039746,
+              206509491,
+              108761645,
+              159152904
+            ],
+            "packed_ids": [
+              331293626,
+              275993885,
+              190729906,
+              88464704,
+              352933140,
+              63226588,
+              101394335,
+              306829688,
+              630039746,
+              206509491,
+              108761645,
+              159152904
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 12,
+            "positive_survived_count": 12,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 81325,
+            "query_variants": [
+              {
+                "variant_id": "q1",
+                "terms": [
+                  "internal",
+                  "admin",
+                  "apps",
+                  "data"
+                ]
+              }
+            ],
+            "preflight": {
+              "original_match_count": 12
+            }
+          },
+          "source_text__second_route": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 1.0,
+                "ndcg_at_k": 0.9652636956851046,
+                "relevant_count": 12
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              331293626,
+              275993885,
+              190729906,
+              88464704,
+              352933140,
+              63226588,
+              101394335,
+              306829688,
+              630039746,
+              206509491,
+              108761645,
+              159152904
+            ],
+            "packed_ids": [
+              331293626,
+              275993885,
+              190729906,
+              88464704,
+              352933140,
+              63226588,
+              101394335,
+              306829688,
+              630039746,
+              206509491,
+              108761645,
+              159152904
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 12,
+            "positive_survived_count": 12,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 81325,
+            "query_variants": [
+              {
+                "variant_id": "q1",
+                "terms": [
+                  "internal",
+                  "admin",
+                  "apps",
+                  "data"
+                ]
+              }
+            ],
+            "preflight": {
+              "original_match_count": 12
+            }
+          }
+        },
+        {
+          "case_id": "INDEPENDENT-HOLD-10",
+          "metric_family": "semantic",
+          "tags": [
+            "lexical_en",
+            "baseline_cohort",
+            "dual_descriptions",
+            "activity_unknown"
+          ],
+          "container_domain_ids": [
+            "data_ingestion_etl_cdc"
+          ],
+          "baseline": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 0.9230769230769231,
+                "ndcg_at_k": 0.96772512780635,
+                "relevant_count": 13
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              283046497,
+              378997214,
+              99412308,
+              285012857,
+              3591964,
+              27911088,
+              53548867,
+              54435102,
+              197743848,
+              210579021,
+              452221115,
+              493014338,
+              947516890
+            ],
+            "packed_ids": [
+              283046497,
+              378997214,
+              99412308,
+              285012857,
+              3591964,
+              27911088,
+              53548867,
+              54435102,
+              197743848,
+              210579021,
+              452221115,
+              493014338
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 12,
+            "positive_survived_count": 12,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 79424
+          },
+          "source_text__append_route": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 0.9230769230769231,
+                "ndcg_at_k": 0.9288724600778284,
+                "relevant_count": 13
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              99412308,
+              378997214,
+              285012857,
+              210579021,
+              493014338,
+              197743848,
+              283046497,
+              27911088,
+              3591964,
+              947516890,
+              54435102,
+              452221115,
+              53548867
+            ],
+            "packed_ids": [
+              99412308,
+              378997214,
+              285012857,
+              210579021,
+              493014338,
+              197743848,
+              283046497,
+              27911088,
+              3591964,
+              947516890,
+              54435102,
+              452221115
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 12,
+            "positive_survived_count": 12,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 79375,
+            "query_variants": [
+              {
+                "variant_id": "q1",
+                "terms": [
+                  "data ingestion",
+                  "data integration",
+                  "API",
+                  "database"
+                ]
+              }
+            ],
+            "preflight": {
+              "original_match_count": 13
+            }
+          },
+          "source_text__second_route": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 0.9230769230769231,
+                "ndcg_at_k": 0.9288724600778284,
+                "relevant_count": 13
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              99412308,
+              378997214,
+              285012857,
+              210579021,
+              493014338,
+              197743848,
+              283046497,
+              27911088,
+              3591964,
+              947516890,
+              54435102,
+              452221115,
+              53548867
+            ],
+            "packed_ids": [
+              99412308,
+              378997214,
+              285012857,
+              210579021,
+              493014338,
+              197743848,
+              283046497,
+              27911088,
+              3591964,
+              947516890,
+              54435102,
+              452221115
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 12,
+            "positive_survived_count": 12,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 79375,
+            "query_variants": [
+              {
+                "variant_id": "q1",
+                "terms": [
+                  "data ingestion",
+                  "data integration",
+                  "API",
+                  "database"
+                ]
+              }
+            ],
+            "preflight": {
+              "original_match_count": 13
+            }
+          }
+        },
+        {
+          "case_id": "INDEPENDENT-HOLD-11",
+          "metric_family": "semantic",
+          "tags": [
+            "lexical_en",
+            "baseline_cohort",
+            "dual_descriptions",
+            "activity_unknown",
+            "thin_leaf"
+          ],
+          "container_domain_ids": [
+            "databases_storage_caching"
+          ],
+          "baseline": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 1.0,
+                "ndcg_at_k": 0.922792883660708,
+                "relevant_count": 10
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              1142800652,
+              945530209,
+              44662669,
+              900806525,
+              896203400,
+              898128804,
+              960484071,
+              902619224,
+              813564769,
+              933144612
+            ],
+            "packed_ids": [
+              1142800652,
+              945530209,
+              44662669,
+              900806525,
+              896203400,
+              898128804,
+              960484071,
+              902619224,
+              813564769,
+              933144612
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 10,
+            "positive_survived_count": 10,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 67304
+          },
+          "source_text__append_route": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 1.0,
+                "ndcg_at_k": 0.9759236135906101,
+                "relevant_count": 10
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              44662669,
+              1142800652,
+              945530209,
+              896203400,
+              902619224,
+              900806525,
+              960484071,
+              813564769,
+              898128804,
+              933144612
+            ],
+            "packed_ids": [
+              44662669,
+              1142800652,
+              945530209,
+              896203400,
+              902619224,
+              900806525,
+              960484071,
+              813564769,
+              898128804,
+              933144612
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 10,
+            "positive_survived_count": 10,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 67176,
+            "query_variants": [
+              {
+                "variant_id": "q1",
+                "terms": [
+                  "SQL",
+                  "database",
+                  "schema",
+                  "client",
+                  "clients",
+                  "admin"
+                ]
+              }
+            ],
+            "preflight": {
+              "original_match_count": 10
+            }
+          },
+          "source_text__second_route": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 1.0,
+                "ndcg_at_k": 0.9028578898292162,
+                "relevant_count": 10
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              44662669,
+              945530209,
+              896203400,
+              1142800652,
+              902619224,
+              813564769,
+              898128804,
+              900806525,
+              960484071,
+              933144612
+            ],
+            "packed_ids": [
+              44662669,
+              945530209,
+              896203400,
+              1142800652,
+              902619224,
+              813564769,
+              898128804,
+              900806525,
+              960484071,
+              933144612
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 10,
+            "positive_survived_count": 10,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 67185,
+            "query_variants": [
+              {
+                "variant_id": "q1",
+                "terms": [
+                  "SQL",
+                  "database",
+                  "schema",
+                  "client"
+                ]
+              },
+              {
+                "variant_id": "q2",
+                "terms": [
+                  "database",
+                  "clients",
+                  "admin"
+                ]
+              }
+            ],
+            "preflight": {
+              "original_match_count": 10
+            }
+          }
+        },
+        {
+          "case_id": "INDEPENDENT-HOLD-12",
+          "metric_family": "semantic",
+          "tags": [
+            "lexical_en",
+            "baseline_cohort",
+            "dual_descriptions",
+            "activity_unknown",
+            "thin_leaf"
+          ],
+          "container_domain_ids": [
+            "backend_baas_api"
+          ],
+          "baseline": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 1.0,
+                "ndcg_at_k": 1.0,
+                "relevant_count": 7
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              180190854,
+              769023213,
+              214587193,
+              510607652,
+              1028159967,
+              337414495,
+              50603846
+            ],
+            "packed_ids": [
+              180190854,
+              769023213,
+              214587193,
+              510607652,
+              1028159967,
+              337414495,
+              50603846
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 7,
+            "positive_survived_count": 7,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 45538
+          },
+          "source_text__append_route": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 1.0,
+                "ndcg_at_k": 1.0,
+                "relevant_count": 7
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              769023213,
+              1028159967,
+              510607652,
+              337414495,
+              50603846,
+              214587193,
+              180190854
+            ],
+            "packed_ids": [
+              769023213,
+              1028159967,
+              510607652,
+              337414495,
+              50603846,
+              214587193,
+              180190854
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 7,
+            "positive_survived_count": 7,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 45481,
+            "query_variants": [
+              {
+                "variant_id": "q1",
+                "terms": [
+                  "backend",
+                  "database",
+                  "app",
+                  "baas",
+                  "platforms"
+                ]
+              }
+            ],
+            "preflight": {
+              "original_match_count": 7
+            }
+          },
+          "source_text__second_route": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 1.0,
+                "ndcg_at_k": 1.0,
+                "relevant_count": 7
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              769023213,
+              510607652,
+              50603846,
+              1028159967,
+              337414495,
+              214587193,
+              180190854
+            ],
+            "packed_ids": [
+              769023213,
+              510607652,
+              50603846,
+              1028159967,
+              337414495,
+              214587193,
+              180190854
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 7,
+            "positive_survived_count": 7,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 45488,
+            "query_variants": [
+              {
+                "variant_id": "q1",
+                "terms": [
+                  "backend",
+                  "database",
+                  "app"
+                ]
+              },
+              {
+                "variant_id": "q2",
+                "terms": [
+                  "baas",
+                  "platforms"
+                ]
+              }
+            ],
+            "preflight": {
+              "original_match_count": 7
+            }
+          }
+        },
+        {
+          "case_id": "INDEPENDENT-HOLD-13",
+          "metric_family": "semantic",
+          "tags": [
+            "lexical_en",
+            "baseline_cohort",
+            "dual_descriptions",
+            "activity_unknown"
+          ],
+          "container_domain_ids": [
+            "deployment_containers_paas"
+          ],
+          "baseline": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 0.7857142857142857,
+                "ndcg_at_k": 0.9904013367520977,
+                "relevant_count": 14
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              1390248,
+              108278,
+              17728164,
+              3638964,
+              72477752,
+              910744,
+              679421146,
+              4542716,
+              24948315,
+              951693330,
+              952238700,
+              967503541,
+              973373852,
+              1032135422,
+              1219009070
+            ],
+            "packed_ids": [
+              1390248,
+              108278,
+              17728164,
+              3638964,
+              72477752,
+              910744,
+              679421146,
+              4542716,
+              24948315,
+              951693330,
+              952238700,
+              973373852
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 11,
+            "positive_survived_count": 11,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 81863
+          },
+          "source_text__append_route": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 0.7857142857142857,
+                "ndcg_at_k": 0.9895513484778613,
+                "relevant_count": 14
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              1390248,
+              17728164,
+              3638964,
+              108278,
+              910744,
+              679421146,
+              72477752,
+              4542716,
+              1032135422,
+              24948315,
+              973373852,
+              967503541,
+              952238700,
+              1219009070,
+              951693330
+            ],
+            "packed_ids": [
+              1390248,
+              17728164,
+              3638964,
+              108278,
+              910744,
+              679421146,
+              72477752,
+              4542716,
+              1032135422,
+              24948315,
+              973373852,
+              952238700
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 11,
+            "positive_survived_count": 11,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 81553,
+            "query_variants": [
+              {
+                "variant_id": "q1",
+                "terms": [
+                  "infrastructure",
+                  "configuration",
+                  "automation"
+                ]
+              }
+            ],
+            "preflight": {
+              "original_match_count": 15
+            }
+          },
+          "source_text__second_route": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 0.7857142857142857,
+                "ndcg_at_k": 0.9895513484778613,
+                "relevant_count": 14
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              1390248,
+              17728164,
+              3638964,
+              108278,
+              910744,
+              679421146,
+              72477752,
+              4542716,
+              1032135422,
+              24948315,
+              973373852,
+              967503541,
+              952238700,
+              1219009070,
+              951693330
+            ],
+            "packed_ids": [
+              1390248,
+              17728164,
+              3638964,
+              108278,
+              910744,
+              679421146,
+              72477752,
+              4542716,
+              1032135422,
+              24948315,
+              973373852,
+              952238700
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 11,
+            "positive_survived_count": 11,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 81553,
+            "query_variants": [
+              {
+                "variant_id": "q1",
+                "terms": [
+                  "infrastructure",
+                  "configuration",
+                  "automation"
+                ]
+              }
+            ],
+            "preflight": {
+              "original_match_count": 15
+            }
+          }
+        },
+        {
+          "case_id": "INDEPENDENT-HOLD-14",
+          "metric_family": "semantic",
+          "tags": [
+            "lexical_en",
+            "baseline_cohort",
+            "dual_descriptions",
+            "activity_unknown",
+            "thin_leaf"
+          ],
+          "container_domain_ids": [
+            "supply_chain_devsecops"
+          ],
+          "baseline": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 1.0,
+                "ndcg_at_k": 0.785238324828764,
+                "relevant_count": 5
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              395283401,
+              40556106,
+              49986046,
+              94779471,
+              103084166,
+              224386599,
+              66474729,
+              313853293,
+              157735858
+            ],
+            "packed_ids": [
+              395283401,
+              40556106,
+              49986046,
+              94779471,
+              224386599,
+              66474729,
+              313853293,
+              157735858
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 5,
+            "positive_survived_count": 5,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 54126
+          },
+          "source_text__append_route": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 1.0,
+                "ndcg_at_k": 0.6407588074303833,
+                "relevant_count": 5
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              103084166,
+              395283401,
+              40556106,
+              49986046,
+              224386599,
+              66474729,
+              94779471,
+              313853293,
+              157735858
+            ],
+            "packed_ids": [
+              395283401,
+              40556106,
+              49986046,
+              224386599,
+              66474729,
+              94779471,
+              313853293,
+              157735858
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 5,
+            "positive_survived_count": 5,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 54103,
+            "query_variants": [
+              {
+                "variant_id": "q1",
+                "terms": [
+                  "configuration",
+                  "IaC",
+                  "security",
+                  "scanning",
+                  "infrastructure"
+                ]
+              }
+            ],
+            "preflight": {
+              "original_match_count": 9
+            }
+          },
+          "source_text__second_route": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 1.0,
+                "ndcg_at_k": 0.5781455932701733,
+                "relevant_count": 5
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              103084166,
+              49986046,
+              395283401,
+              40556106,
+              66474729,
+              224386599,
+              94779471,
+              313853293,
+              157735858
+            ],
+            "packed_ids": [
+              49986046,
+              395283401,
+              40556106,
+              66474729,
+              224386599,
+              94779471,
+              313853293,
+              157735858
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 5,
+            "positive_survived_count": 5,
+            "pack_survival": 1.0,
+            "alias_success": null,
+            "controlled_pack_bytes": 54113,
+            "query_variants": [
+              {
+                "variant_id": "q1",
+                "terms": [
+                  "configuration",
+                  "IaC",
+                  "security",
+                  "scanning"
+                ]
+              },
+              {
+                "variant_id": "q2",
+                "terms": [
+                  "infrastructure",
+                  "security"
+                ]
+              }
+            ],
+            "preflight": {
+              "original_match_count": 9
+            }
+          }
+        },
+        {
+          "case_id": "INDEPENDENT-ALIAS-01",
+          "metric_family": "identity",
+          "tags": [
+            "historical_alias"
+          ],
+          "container_domain_ids": [],
+          "baseline": {
+            "ranking": {
+              "valid": true,
+              "reason": null,
+              "ranking": {
+                "recall_at_k": 1.0,
+                "ndcg_at_k": 1.0,
+                "relevant_count": 1
+              },
+              "unjudged_ids": []
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              5152285
+            ],
+            "packed_ids": [
+              5152285
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 1,
+            "positive_survived_count": 1,
+            "pack_survival": 1.0,
+            "alias_success": true,
+            "controlled_pack_bytes": 7283
+          },
+          "source_text__append_route": {
+            "ranking": {
+              "valid": false,
+              "reason": "incomplete_judgments",
+              "ranking": null,
+              "unjudged_ids": [
+                56899284,
+                43056951,
+                137724480,
+                391811592,
+                38307428,
+                148332388,
+                900049352,
+                27729907,
+                460076976,
+                56271158,
+                162690887,
+                121086193,
+                40518025,
+                4710920,
+                542284380,
+                118695306,
+                20787122,
+                45250726,
+                203587744,
+                20300177,
+                113701924,
+                52630616,
+                679280065,
+                1362490,
+                61567304,
+                133134007,
+                74436942,
+                280557054,
+                2006876,
+                2055965,
+                27729880,
+                741524414,
+                212465715,
+                899744532,
+                74170071,
+                22458259,
+                219705144,
+                142165796,
+                238402553
+              ]
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              56899284,
+              43056951,
+              137724480,
+              391811592,
+              38307428,
+              5152285,
+              148332388,
+              900049352,
+              27729907,
+              460076976,
+              56271158,
+              162690887,
+              121086193,
+              40518025,
+              4710920,
+              542284380,
+              118695306,
+              20787122,
+              45250726,
+              203587744,
+              20300177,
+              113701924,
+              52630616,
+              679280065,
+              1362490,
+              61567304,
+              133134007,
+              74436942,
+              280557054,
+              2006876,
+              2055965,
+              27729880,
+              741524414,
+              212465715,
+              899744532,
+              74170071,
+              22458259,
+              219705144,
+              142165796,
+              238402553
+            ],
+            "packed_ids": [
+              56899284,
+              43056951,
+              137724480,
+              391811592,
+              38307428,
+              5152285,
+              148332388,
+              900049352,
+              27729907,
+              460076976,
+              56271158,
+              162690887
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 1,
+            "positive_survived_count": 1,
+            "pack_survival": 1.0,
+            "alias_success": true,
+            "controlled_pack_bytes": 79108,
+            "query_variants": [
+              {
+                "variant_id": "q1",
+                "terms": [
+                  "square/okhttp",
+                  "api",
+                  "graphql",
+                  "rpc"
+                ]
+              }
+            ],
+            "preflight": {
+              "original_match_count": 1
+            }
+          },
+          "source_text__second_route": {
+            "ranking": {
+              "valid": false,
+              "reason": "incomplete_judgments",
+              "ranking": null,
+              "unjudged_ids": [
+                56899284,
+                43056951,
+                137724480,
+                391811592,
+                38307428,
+                148332388,
+                900049352,
+                27729907,
+                460076976,
+                56271158,
+                162690887,
+                121086193,
+                40518025,
+                4710920,
+                542284380,
+                118695306,
+                20787122,
+                45250726,
+                203587744,
+                20300177,
+                113701924,
+                52630616,
+                679280065,
+                1362490,
+                61567304,
+                133134007,
+                74436942,
+                280557054,
+                2006876,
+                2055965,
+                27729880,
+                741524414,
+                212465715,
+                899744532,
+                74170071,
+                22458259,
+                219705144,
+                142165796,
+                238402553
+              ]
+            },
+            "status": "ok",
+            "status_ok": true,
+            "raw_ranked_ids": [
+              5152285,
+              56899284,
+              43056951,
+              137724480,
+              391811592,
+              38307428,
+              148332388,
+              900049352,
+              27729907,
+              460076976,
+              56271158,
+              162690887,
+              121086193,
+              40518025,
+              4710920,
+              542284380,
+              118695306,
+              20787122,
+              45250726,
+              203587744,
+              20300177,
+              113701924,
+              52630616,
+              679280065,
+              1362490,
+              61567304,
+              133134007,
+              74436942,
+              280557054,
+              2006876,
+              2055965,
+              27729880,
+              741524414,
+              212465715,
+              899744532,
+              74170071,
+              22458259,
+              219705144,
+              142165796,
+              238402553
+            ],
+            "packed_ids": [
+              5152285,
+              56899284,
+              43056951,
+              137724480,
+              391811592,
+              38307428,
+              148332388,
+              900049352,
+              27729907,
+              460076976,
+              56271158,
+              162690887
+            ],
+            "hard_constraint_violations": [],
+            "false_exclusions": [],
+            "duplicate_canonical_ids": 0,
+            "positive_top12_count": 1,
+            "positive_survived_count": 1,
+            "pack_survival": 1.0,
+            "alias_success": true,
+            "controlled_pack_bytes": 79107,
+            "query_variants": [
+              {
+                "variant_id": "q1",
+                "terms": [
+                  "square/okhttp"
+                ]
+              },
+              {
+                "variant_id": "q2",
+                "terms": [
+                  "api",
+                  "graphql",
+                  "rpc"
+                ]
+              }
+            ],
+            "preflight": {
+              "original_match_count": 1
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
