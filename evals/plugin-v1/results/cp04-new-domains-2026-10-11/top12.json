@@ -1,0 +1,3306 @@
+{
+  "scope": "Known-target coverage only; non-targets unjudged",
+  "cases": [
+    {
+      "case_id": "CP04-ND-01",
+      "user_goal": "Автоматический HTTPS для публичного и внутреннего сервиса",
+      "known_useful_target": "caddyserver/caddy",
+      "source_url": "https://github.com/caddyserver/caddy",
+      "arms": {
+        "control": {
+          "target_rank": 3,
+          "target_packed": true,
+          "top12": [
+            {
+              "github_repository_id": 37912398,
+              "full_name": "nginx/nginx",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 128791889,
+              "full_name": "haproxy/haproxy",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 29207621,
+              "full_name": "caddyserver/caddy",
+              "assessment": "source_supported_positive"
+            },
+            {
+              "github_repository_id": 48378947,
+              "full_name": "fatedier/frp",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 42408804,
+              "full_name": "traefik/traefik",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 65214191,
+              "full_name": "envoyproxy/envoy",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 26783295,
+              "full_name": "Kong/kong",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 721767116,
+              "full_name": "clash-verge-rev/clash-verge-rev",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 180481986,
+              "full_name": "apache/apisix",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 112944063,
+              "full_name": "krakend/krakend-ce",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 19537979,
+              "full_name": "TykTechnologies/tyk",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 569041,
+              "full_name": "curl/curl",
+              "assessment": "unjudged"
+            }
+          ]
+        },
+        "baseline": {
+          "target_rank": 2,
+          "target_packed": true,
+          "top12": [
+            {
+              "github_repository_id": 128791889,
+              "full_name": "haproxy/haproxy",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 29207621,
+              "full_name": "caddyserver/caddy",
+              "assessment": "source_supported_positive"
+            },
+            {
+              "github_repository_id": 42408804,
+              "full_name": "traefik/traefik",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 65214191,
+              "full_name": "envoyproxy/envoy",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 37912398,
+              "full_name": "nginx/nginx",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 48378947,
+              "full_name": "fatedier/frp",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 569041,
+              "full_name": "curl/curl",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 19537979,
+              "full_name": "TykTechnologies/tyk",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 26783295,
+              "full_name": "Kong/kong",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 112944063,
+              "full_name": "krakend/krakend-ce",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 180481986,
+              "full_name": "apache/apisix",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 721767116,
+              "full_name": "clash-verge-rev/clash-verge-rev",
+              "assessment": "unjudged"
+            }
+          ]
+        },
+        "separated": {
+          "target_rank": 1,
+          "target_packed": true,
+          "top12": [
+            {
+              "github_repository_id": 29207621,
+              "full_name": "caddyserver/caddy",
+              "assessment": "source_supported_positive"
+            },
+            {
+              "github_repository_id": 128791889,
+              "full_name": "haproxy/haproxy",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 42408804,
+              "full_name": "traefik/traefik",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 65214191,
+              "full_name": "envoyproxy/envoy",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 37912398,
+              "full_name": "nginx/nginx",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 48378947,
+              "full_name": "fatedier/frp",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 569041,
+              "full_name": "curl/curl",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 19537979,
+              "full_name": "TykTechnologies/tyk",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 26783295,
+              "full_name": "Kong/kong",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 112944063,
+              "full_name": "krakend/krakend-ce",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 180481986,
+              "full_name": "apache/apisix",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 721767116,
+              "full_name": "clash-verge-rev/clash-verge-rev",
+              "assessment": "unjudged"
+            }
+          ]
+        },
+        "new_required_first": {
+          "target_rank": 1,
+          "target_packed": true,
+          "top12": [
+            {
+              "github_repository_id": 29207621,
+              "full_name": "caddyserver/caddy",
+              "assessment": "source_supported_positive"
+            },
+            {
+              "github_repository_id": 128791889,
+              "full_name": "haproxy/haproxy",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 42408804,
+              "full_name": "traefik/traefik",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 65214191,
+              "full_name": "envoyproxy/envoy",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 37912398,
+              "full_name": "nginx/nginx",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 48378947,
+              "full_name": "fatedier/frp",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 569041,
+              "full_name": "curl/curl",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 19537979,
+              "full_name": "TykTechnologies/tyk",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 26783295,
+              "full_name": "Kong/kong",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 112944063,
+              "full_name": "krakend/krakend-ce",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 180481986,
+              "full_name": "apache/apisix",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 721767116,
+              "full_name": "clash-verge-rev/clash-verge-rev",
+              "assessment": "unjudged"
+            }
+          ]
+        },
+        "all_required_first": {
+          "target_rank": 1,
+          "target_packed": true,
+          "top12": [
+            {
+              "github_repository_id": 29207621,
+              "full_name": "caddyserver/caddy",
+              "assessment": "source_supported_positive"
+            },
+            {
+              "github_repository_id": 128791889,
+              "full_name": "haproxy/haproxy",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 42408804,
+              "full_name": "traefik/traefik",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 65214191,
+              "full_name": "envoyproxy/envoy",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 37912398,
+              "full_name": "nginx/nginx",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 48378947,
+              "full_name": "fatedier/frp",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 569041,
+              "full_name": "curl/curl",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 19537979,
+              "full_name": "TykTechnologies/tyk",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 26783295,
+              "full_name": "Kong/kong",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 112944063,
+              "full_name": "krakend/krakend-ce",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 180481986,
+              "full_name": "apache/apisix",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 721767116,
+              "full_name": "clash-verge-rev/clash-verge-rev",
+              "assessment": "unjudged"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "case_id": "CP04-ND-02",
+      "user_goal": "Прокси для контейнеров с обновлением маршрутов без перезапуска",
+      "known_useful_target": "traefik/traefik",
+      "source_url": "https://github.com/traefik/traefik",
+      "arms": {
+        "control": {
+          "target_rank": 1,
+          "target_packed": true,
+          "top12": [
+            {
+              "github_repository_id": 42408804,
+              "full_name": "traefik/traefik",
+              "assessment": "source_supported_positive"
+            },
+            {
+              "github_repository_id": 26783295,
+              "full_name": "Kong/kong",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 180481986,
+              "full_name": "apache/apisix",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 74175805,
+              "full_name": "istio/istio",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 19537979,
+              "full_name": "TykTechnologies/tyk",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 112944063,
+              "full_name": "krakend/krakend-ce",
+              "assessment": "unjudged"
+            }
+          ]
+        },
+        "baseline": {
+          "target_rank": 1,
+          "target_packed": true,
+          "top12": [
+            {
+              "github_repository_id": 42408804,
+              "full_name": "traefik/traefik",
+              "assessment": "source_supported_positive"
+            },
+            {
+              "github_repository_id": 19537979,
+              "full_name": "TykTechnologies/tyk",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 26783295,
+              "full_name": "Kong/kong",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 74175805,
+              "full_name": "istio/istio",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 112944063,
+              "full_name": "krakend/krakend-ce",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 180481986,
+              "full_name": "apache/apisix",
+              "assessment": "unjudged"
+            }
+          ]
+        },
+        "separated": {
+          "target_rank": 1,
+          "target_packed": true,
+          "top12": [
+            {
+              "github_repository_id": 42408804,
+              "full_name": "traefik/traefik",
+              "assessment": "source_supported_positive"
+            },
+            {
+              "github_repository_id": 19537979,
+              "full_name": "TykTechnologies/tyk",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 26783295,
+              "full_name": "Kong/kong",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 74175805,
+              "full_name": "istio/istio",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 112944063,
+              "full_name": "krakend/krakend-ce",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 180481986,
+              "full_name": "apache/apisix",
+              "assessment": "unjudged"
+            }
+          ]
+        },
+        "new_required_first": {
+          "target_rank": 1,
+          "target_packed": true,
+          "top12": [
+            {
+              "github_repository_id": 42408804,
+              "full_name": "traefik/traefik",
+              "assessment": "source_supported_positive"
+            },
+            {
+              "github_repository_id": 19537979,
+              "full_name": "TykTechnologies/tyk",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 26783295,
+              "full_name": "Kong/kong",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 74175805,
+              "full_name": "istio/istio",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 112944063,
+              "full_name": "krakend/krakend-ce",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 180481986,
+              "full_name": "apache/apisix",
+              "assessment": "unjudged"
+            }
+          ]
+        },
+        "all_required_first": {
+          "target_rank": 1,
+          "target_packed": true,
+          "top12": [
+            {
+              "github_repository_id": 42408804,
+              "full_name": "traefik/traefik",
+              "assessment": "source_supported_positive"
+            },
+            {
+              "github_repository_id": 19537979,
+              "full_name": "TykTechnologies/tyk",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 26783295,
+              "full_name": "Kong/kong",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 74175805,
+              "full_name": "istio/istio",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 112944063,
+              "full_name": "krakend/krakend-ce",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 180481986,
+              "full_name": "apache/apisix",
+              "assessment": "unjudged"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "case_id": "CP04-ND-03",
+      "user_goal": "Ограничение частоты API-запросов и преобразование ответов",
+      "known_useful_target": "Kong/kong",
+      "source_url": "https://github.com/Kong/kong",
+      "arms": {
+        "control": {
+          "target_rank": 4,
+          "target_packed": true,
+          "top12": [
+            {
+              "github_repository_id": 180481986,
+              "full_name": "apache/apisix",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 19537979,
+              "full_name": "TykTechnologies/tyk",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 3544424,
+              "full_name": "httpie/cli",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 26783295,
+              "full_name": "Kong/kong",
+              "assessment": "source_supported_positive"
+            },
+            {
+              "github_repository_id": 112944063,
+              "full_name": "krakend/krakend-ce",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 74175805,
+              "full_name": "istio/istio",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 42408804,
+              "full_name": "traefik/traefik",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 65214191,
+              "full_name": "envoyproxy/envoy",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 48378947,
+              "full_name": "fatedier/frp",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 721767116,
+              "full_name": "clash-verge-rev/clash-verge-rev",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 20619036,
+              "full_name": "pi-hole/pi-hole",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 37912398,
+              "full_name": "nginx/nginx",
+              "assessment": "unjudged"
+            }
+          ]
+        },
+        "baseline": {
+          "target_rank": 3,
+          "target_packed": true,
+          "top12": [
+            {
+              "github_repository_id": 180481986,
+              "full_name": "apache/apisix",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 19537979,
+              "full_name": "TykTechnologies/tyk",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 26783295,
+              "full_name": "Kong/kong",
+              "assessment": "source_supported_positive"
+            },
+            {
+              "github_repository_id": 112944063,
+              "full_name": "krakend/krakend-ce",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 3544424,
+              "full_name": "httpie/cli",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 74175805,
+              "full_name": "istio/istio",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 519895363,
+              "full_name": "GyulyVGC/sniffnet",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 970267776,
+              "full_name": "sirkirby/unifi-mcp",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 569041,
+              "full_name": "curl/curl",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 20619036,
+              "full_name": "pi-hole/pi-hole",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 29207621,
+              "full_name": "caddyserver/caddy",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 37912398,
+              "full_name": "nginx/nginx",
+              "assessment": "unjudged"
+            }
+          ]
+        },
+        "separated": {
+          "target_rank": 1,
+          "target_packed": true,
+          "top12": [
+            {
+              "github_repository_id": 26783295,
+              "full_name": "Kong/kong",
+              "assessment": "source_supported_positive"
+            },
+            {
+              "github_repository_id": 180481986,
+              "full_name": "apache/apisix",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 19537979,
+              "full_name": "TykTechnologies/tyk",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 112944063,
+              "full_name": "krakend/krakend-ce",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 3544424,
+              "full_name": "httpie/cli",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 74175805,
+              "full_name": "istio/istio",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 519895363,
+              "full_name": "GyulyVGC/sniffnet",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 970267776,
+              "full_name": "sirkirby/unifi-mcp",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 569041,
+              "full_name": "curl/curl",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 20619036,
+              "full_name": "pi-hole/pi-hole",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 29207621,
+              "full_name": "caddyserver/caddy",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 37912398,
+              "full_name": "nginx/nginx",
+              "assessment": "unjudged"
+            }
+          ]
+        },
+        "new_required_first": {
+          "target_rank": 1,
+          "target_packed": true,
+          "top12": [
+            {
+              "github_repository_id": 26783295,
+              "full_name": "Kong/kong",
+              "assessment": "source_supported_positive"
+            },
+            {
+              "github_repository_id": 180481986,
+              "full_name": "apache/apisix",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 19537979,
+              "full_name": "TykTechnologies/tyk",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 112944063,
+              "full_name": "krakend/krakend-ce",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 3544424,
+              "full_name": "httpie/cli",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 74175805,
+              "full_name": "istio/istio",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 519895363,
+              "full_name": "GyulyVGC/sniffnet",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 970267776,
+              "full_name": "sirkirby/unifi-mcp",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 569041,
+              "full_name": "curl/curl",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 20619036,
+              "full_name": "pi-hole/pi-hole",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 29207621,
+              "full_name": "caddyserver/caddy",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 37912398,
+              "full_name": "nginx/nginx",
+              "assessment": "unjudged"
+            }
+          ]
+        },
+        "all_required_first": {
+          "target_rank": 1,
+          "target_packed": true,
+          "top12": [
+            {
+              "github_repository_id": 26783295,
+              "full_name": "Kong/kong",
+              "assessment": "source_supported_positive"
+            },
+            {
+              "github_repository_id": 180481986,
+              "full_name": "apache/apisix",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 19537979,
+              "full_name": "TykTechnologies/tyk",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 112944063,
+              "full_name": "krakend/krakend-ce",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 3544424,
+              "full_name": "httpie/cli",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 74175805,
+              "full_name": "istio/istio",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 519895363,
+              "full_name": "GyulyVGC/sniffnet",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 970267776,
+              "full_name": "sirkirby/unifi-mcp",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 569041,
+              "full_name": "curl/curl",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 20619036,
+              "full_name": "pi-hole/pi-hole",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 29207621,
+              "full_name": "caddyserver/caddy",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 37912398,
+              "full_name": "nginx/nginx",
+              "assessment": "unjudged"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "case_id": "CP04-ND-04",
+      "user_goal": "S3-хранилище файлов с каталогами и метаданными",
+      "known_useful_target": "seaweedfs/seaweedfs",
+      "source_url": "https://github.com/seaweedfs/seaweedfs",
+      "arms": {
+        "control": {
+          "target_rank": 1,
+          "target_packed": true,
+          "top12": [
+            {
+              "github_repository_id": 21827146,
+              "full_name": "seaweedfs/seaweedfs",
+              "assessment": "source_supported_positive"
+            },
+            {
+              "github_repository_id": 327859577,
+              "full_name": "juicedata/juicefs",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 29261473,
+              "full_name": "minio/minio",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 2310495,
+              "full_name": "ceph/ceph",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 182849188,
+              "full_name": "delta-io/delta",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 208038454,
+              "full_name": "treeverse/lakeFS",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 158256479,
+              "full_name": "apache/iceberg",
+              "assessment": "unjudged"
+            }
+          ]
+        },
+        "baseline": {
+          "target_rank": 1,
+          "target_packed": true,
+          "top12": [
+            {
+              "github_repository_id": 21827146,
+              "full_name": "seaweedfs/seaweedfs",
+              "assessment": "source_supported_positive"
+            },
+            {
+              "github_repository_id": 327859577,
+              "full_name": "juicedata/juicefs",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 2310495,
+              "full_name": "ceph/ceph",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 29261473,
+              "full_name": "minio/minio",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 182849188,
+              "full_name": "delta-io/delta",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 158256479,
+              "full_name": "apache/iceberg",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 208038454,
+              "full_name": "treeverse/lakeFS",
+              "assessment": "unjudged"
+            }
+          ]
+        },
+        "separated": {
+          "target_rank": 1,
+          "target_packed": true,
+          "top12": [
+            {
+              "github_repository_id": 21827146,
+              "full_name": "seaweedfs/seaweedfs",
+              "assessment": "source_supported_positive"
+            },
+            {
+              "github_repository_id": 327859577,
+              "full_name": "juicedata/juicefs",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 2310495,
+              "full_name": "ceph/ceph",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 29261473,
+              "full_name": "minio/minio",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 182849188,
+              "full_name": "delta-io/delta",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 158256479,
+              "full_name": "apache/iceberg",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 208038454,
+              "full_name": "treeverse/lakeFS",
+              "assessment": "unjudged"
+            }
+          ]
+        },
+        "new_required_first": {
+          "target_rank": 1,
+          "target_packed": true,
+          "top12": [
+            {
+              "github_repository_id": 21827146,
+              "full_name": "seaweedfs/seaweedfs",
+              "assessment": "source_supported_positive"
+            },
+            {
+              "github_repository_id": 327859577,
+              "full_name": "juicedata/juicefs",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 2310495,
+              "full_name": "ceph/ceph",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 29261473,
+              "full_name": "minio/minio",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 182849188,
+              "full_name": "delta-io/delta",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 158256479,
+              "full_name": "apache/iceberg",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 208038454,
+              "full_name": "treeverse/lakeFS",
+              "assessment": "unjudged"
+            }
+          ]
+        },
+        "all_required_first": {
+          "target_rank": 1,
+          "target_packed": true,
+          "top12": [
+            {
+              "github_repository_id": 21827146,
+              "full_name": "seaweedfs/seaweedfs",
+              "assessment": "source_supported_positive"
+            },
+            {
+              "github_repository_id": 327859577,
+              "full_name": "juicedata/juicefs",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 2310495,
+              "full_name": "ceph/ceph",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 29261473,
+              "full_name": "minio/minio",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 182849188,
+              "full_name": "delta-io/delta",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 158256479,
+              "full_name": "apache/iceberg",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 208038454,
+              "full_name": "treeverse/lakeFS",
+              "assessment": "unjudged"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "case_id": "CP04-ND-05",
+      "user_goal": "Единая идентификация с федерацией пользователей и правами доступа",
+      "known_useful_target": "keycloak/keycloak",
+      "source_url": "https://github.com/keycloak/keycloak",
+      "arms": {
+        "control": {
+          "target_rank": 21,
+          "target_packed": false,
+          "top12": [
+            {
+              "github_repository_id": 378310716,
+              "full_name": "logto-io/logto",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 230885748,
+              "full_name": "goauthentik/authentik",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 279488921,
+              "full_name": "supabase/auth",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 247714750,
+              "full_name": "zitadel/zitadel",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 36071697,
+              "full_name": "ory/hydra",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 501372599,
+              "full_name": "openfga/openfga",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 350005438,
+              "full_name": "cerbos/cerbos",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 231921809,
+              "full_name": "supertokens/supertokens-core",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 338791379,
+              "full_name": "permitio/opal",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 803014189,
+              "full_name": "better-auth/better-auth",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 119162419,
+              "full_name": "nextauthjs/next-auth",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 125619154,
+              "full_name": "ory/keto",
+              "assessment": "unjudged"
+            }
+          ]
+        },
+        "baseline": {
+          "target_rank": 21,
+          "target_packed": false,
+          "top12": [
+            {
+              "github_repository_id": 378310716,
+              "full_name": "logto-io/logto",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 230885748,
+              "full_name": "goauthentik/authentik",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 395891383,
+              "full_name": "ory/polis",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 20446681,
+              "full_name": "privacyidea/privacyidea",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 119162419,
+              "full_name": "nextauthjs/next-auth",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 350005438,
+              "full_name": "cerbos/cerbos",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 501372599,
+              "full_name": "openfga/openfga",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 803014189,
+              "full_name": "better-auth/better-auth",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 36071697,
+              "full_name": "ory/hydra",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 105262714,
+              "full_name": "oauth2-proxy/oauth2-proxy",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 135321861,
+              "full_name": "ory/kratos",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 231921809,
+              "full_name": "supertokens/supertokens-core",
+              "assessment": "unjudged"
+            }
+          ]
+        },
+        "separated": {
+          "target_rank": 9,
+          "target_packed": true,
+          "top12": [
+            {
+              "github_repository_id": 378310716,
+              "full_name": "logto-io/logto",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 230885748,
+              "full_name": "goauthentik/authentik",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 395891383,
+              "full_name": "ory/polis",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 20446681,
+              "full_name": "privacyidea/privacyidea",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 119162419,
+              "full_name": "nextauthjs/next-auth",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 350005438,
+              "full_name": "cerbos/cerbos",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 501372599,
+              "full_name": "openfga/openfga",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 803014189,
+              "full_name": "better-auth/better-auth",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 11125589,
+              "full_name": "keycloak/keycloak",
+              "assessment": "source_supported_positive"
+            },
+            {
+              "github_repository_id": 36071697,
+              "full_name": "ory/hydra",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 105262714,
+              "full_name": "oauth2-proxy/oauth2-proxy",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 135321861,
+              "full_name": "ory/kratos",
+              "assessment": "unjudged"
+            }
+          ]
+        },
+        "new_required_first": {
+          "target_rank": 1,
+          "target_packed": true,
+          "top12": [
+            {
+              "github_repository_id": 11125589,
+              "full_name": "keycloak/keycloak",
+              "assessment": "source_supported_positive"
+            },
+            {
+              "github_repository_id": 378310716,
+              "full_name": "logto-io/logto",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 230885748,
+              "full_name": "goauthentik/authentik",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 395891383,
+              "full_name": "ory/polis",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 20446681,
+              "full_name": "privacyidea/privacyidea",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 119162419,
+              "full_name": "nextauthjs/next-auth",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 350005438,
+              "full_name": "cerbos/cerbos",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 501372599,
+              "full_name": "openfga/openfga",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 803014189,
+              "full_name": "better-auth/better-auth",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 36071697,
+              "full_name": "ory/hydra",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 105262714,
+              "full_name": "oauth2-proxy/oauth2-proxy",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 135321861,
+              "full_name": "ory/kratos",
+              "assessment": "unjudged"
+            }
+          ]
+        },
+        "all_required_first": {
+          "target_rank": 1,
+          "target_packed": true,
+          "top12": [
+            {
+              "github_repository_id": 11125589,
+              "full_name": "keycloak/keycloak",
+              "assessment": "source_supported_positive"
+            },
+            {
+              "github_repository_id": 36071697,
+              "full_name": "ory/hydra",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 378310716,
+              "full_name": "logto-io/logto",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 230885748,
+              "full_name": "goauthentik/authentik",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 395891383,
+              "full_name": "ory/polis",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 20446681,
+              "full_name": "privacyidea/privacyidea",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 119162419,
+              "full_name": "nextauthjs/next-auth",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 350005438,
+              "full_name": "cerbos/cerbos",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 501372599,
+              "full_name": "openfga/openfga",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 803014189,
+              "full_name": "better-auth/better-auth",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 105262714,
+              "full_name": "oauth2-proxy/oauth2-proxy",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 135321861,
+              "full_name": "ory/kratos",
+              "assessment": "unjudged"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "case_id": "CP04-ND-06",
+      "user_goal": "Идентификация B2B SaaS с изолированными организациями",
+      "known_useful_target": "zitadel/zitadel",
+      "source_url": "https://github.com/zitadel/zitadel",
+      "arms": {
+        "control": {
+          "target_rank": 5,
+          "target_packed": true,
+          "top12": [
+            {
+              "github_repository_id": 378310716,
+              "full_name": "logto-io/logto",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 395891383,
+              "full_name": "ory/polis",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 75785240,
+              "full_name": "authelia/authelia",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 803014189,
+              "full_name": "better-auth/better-auth",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 247714750,
+              "full_name": "zitadel/zitadel",
+              "assessment": "source_supported_positive"
+            },
+            {
+              "github_repository_id": 230885748,
+              "full_name": "goauthentik/authentik",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 105262714,
+              "full_name": "oauth2-proxy/oauth2-proxy",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 1283907968,
+              "full_name": "oomol-lab/open-connector",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 306366900,
+              "full_name": "casdoor/casdoor",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 36071697,
+              "full_name": "ory/hydra",
+              "assessment": "unjudged"
+            }
+          ]
+        },
+        "baseline": {
+          "target_rank": 8,
+          "target_packed": true,
+          "top12": [
+            {
+              "github_repository_id": 378310716,
+              "full_name": "logto-io/logto",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 395891383,
+              "full_name": "ory/polis",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 1283907968,
+              "full_name": "oomol-lab/open-connector",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 36071697,
+              "full_name": "ory/hydra",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 75785240,
+              "full_name": "authelia/authelia",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 105262714,
+              "full_name": "oauth2-proxy/oauth2-proxy",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 230885748,
+              "full_name": "goauthentik/authentik",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 247714750,
+              "full_name": "zitadel/zitadel",
+              "assessment": "source_supported_positive"
+            },
+            {
+              "github_repository_id": 306366900,
+              "full_name": "casdoor/casdoor",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 803014189,
+              "full_name": "better-auth/better-auth",
+              "assessment": "unjudged"
+            }
+          ]
+        },
+        "separated": {
+          "target_rank": 2,
+          "target_packed": true,
+          "top12": [
+            {
+              "github_repository_id": 378310716,
+              "full_name": "logto-io/logto",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 247714750,
+              "full_name": "zitadel/zitadel",
+              "assessment": "source_supported_positive"
+            },
+            {
+              "github_repository_id": 395891383,
+              "full_name": "ory/polis",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 1283907968,
+              "full_name": "oomol-lab/open-connector",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 36071697,
+              "full_name": "ory/hydra",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 75785240,
+              "full_name": "authelia/authelia",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 105262714,
+              "full_name": "oauth2-proxy/oauth2-proxy",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 230885748,
+              "full_name": "goauthentik/authentik",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 306366900,
+              "full_name": "casdoor/casdoor",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 803014189,
+              "full_name": "better-auth/better-auth",
+              "assessment": "unjudged"
+            }
+          ]
+        },
+        "new_required_first": {
+          "target_rank": 1,
+          "target_packed": true,
+          "top12": [
+            {
+              "github_repository_id": 247714750,
+              "full_name": "zitadel/zitadel",
+              "assessment": "source_supported_positive"
+            },
+            {
+              "github_repository_id": 378310716,
+              "full_name": "logto-io/logto",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 395891383,
+              "full_name": "ory/polis",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 1283907968,
+              "full_name": "oomol-lab/open-connector",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 36071697,
+              "full_name": "ory/hydra",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 75785240,
+              "full_name": "authelia/authelia",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 105262714,
+              "full_name": "oauth2-proxy/oauth2-proxy",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 230885748,
+              "full_name": "goauthentik/authentik",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 306366900,
+              "full_name": "casdoor/casdoor",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 803014189,
+              "full_name": "better-auth/better-auth",
+              "assessment": "unjudged"
+            }
+          ]
+        },
+        "all_required_first": {
+          "target_rank": 1,
+          "target_packed": true,
+          "top12": [
+            {
+              "github_repository_id": 247714750,
+              "full_name": "zitadel/zitadel",
+              "assessment": "source_supported_positive"
+            },
+            {
+              "github_repository_id": 378310716,
+              "full_name": "logto-io/logto",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 395891383,
+              "full_name": "ory/polis",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 1283907968,
+              "full_name": "oomol-lab/open-connector",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 36071697,
+              "full_name": "ory/hydra",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 75785240,
+              "full_name": "authelia/authelia",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 105262714,
+              "full_name": "oauth2-proxy/oauth2-proxy",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 230885748,
+              "full_name": "goauthentik/authentik",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 306366900,
+              "full_name": "casdoor/casdoor",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 803014189,
+              "full_name": "better-auth/better-auth",
+              "assessment": "unjudged"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "case_id": "CP04-ND-07",
+      "user_goal": "Долгие бизнес-процессы с восстановлением после сбоев",
+      "known_useful_target": "temporalio/temporal",
+      "source_url": "https://github.com/temporalio/temporal",
+      "arms": {
+        "control": {
+          "target_rank": 2,
+          "target_packed": true,
+          "top12": [
+            {
+              "github_repository_id": 732124850,
+              "full_name": "hatchet-dev/hatchet",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 215654064,
+              "full_name": "temporalio/temporal",
+              "assessment": "source_supported_positive"
+            },
+            {
+              "github_repository_id": 374763231,
+              "full_name": "inngest/inngest",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 1033865617,
+              "full_name": "Pimzino/spec-workflow-mcp",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 573661753,
+              "full_name": "activepieces/activepieces",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 204164353,
+              "full_name": "kestra-io/kestra",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 676672661,
+              "full_name": "langchain-ai/langgraph",
+              "assessment": "unjudged"
+            }
+          ]
+        },
+        "baseline": {
+          "target_rank": 2,
+          "target_packed": true,
+          "top12": [
+            {
+              "github_repository_id": 732124850,
+              "full_name": "hatchet-dev/hatchet",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 215654064,
+              "full_name": "temporalio/temporal",
+              "assessment": "source_supported_positive"
+            },
+            {
+              "github_repository_id": 374763231,
+              "full_name": "inngest/inngest",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 573661753,
+              "full_name": "activepieces/activepieces",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 1033865617,
+              "full_name": "Pimzino/spec-workflow-mcp",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 204164353,
+              "full_name": "kestra-io/kestra",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 676672661,
+              "full_name": "langchain-ai/langgraph",
+              "assessment": "unjudged"
+            }
+          ]
+        },
+        "separated": {
+          "target_rank": 2,
+          "target_packed": true,
+          "top12": [
+            {
+              "github_repository_id": 732124850,
+              "full_name": "hatchet-dev/hatchet",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 215654064,
+              "full_name": "temporalio/temporal",
+              "assessment": "source_supported_positive"
+            },
+            {
+              "github_repository_id": 374763231,
+              "full_name": "inngest/inngest",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 573661753,
+              "full_name": "activepieces/activepieces",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 1033865617,
+              "full_name": "Pimzino/spec-workflow-mcp",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 204164353,
+              "full_name": "kestra-io/kestra",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 676672661,
+              "full_name": "langchain-ai/langgraph",
+              "assessment": "unjudged"
+            }
+          ]
+        },
+        "new_required_first": {
+          "target_rank": 1,
+          "target_packed": true,
+          "top12": [
+            {
+              "github_repository_id": 215654064,
+              "full_name": "temporalio/temporal",
+              "assessment": "source_supported_positive"
+            },
+            {
+              "github_repository_id": 732124850,
+              "full_name": "hatchet-dev/hatchet",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 374763231,
+              "full_name": "inngest/inngest",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 573661753,
+              "full_name": "activepieces/activepieces",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 1033865617,
+              "full_name": "Pimzino/spec-workflow-mcp",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 204164353,
+              "full_name": "kestra-io/kestra",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 676672661,
+              "full_name": "langchain-ai/langgraph",
+              "assessment": "unjudged"
+            }
+          ]
+        },
+        "all_required_first": {
+          "target_rank": 1,
+          "target_packed": true,
+          "top12": [
+            {
+              "github_repository_id": 215654064,
+              "full_name": "temporalio/temporal",
+              "assessment": "source_supported_positive"
+            },
+            {
+              "github_repository_id": 732124850,
+              "full_name": "hatchet-dev/hatchet",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 374763231,
+              "full_name": "inngest/inngest",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 573661753,
+              "full_name": "activepieces/activepieces",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 1033865617,
+              "full_name": "Pimzino/spec-workflow-mcp",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 204164353,
+              "full_name": "kestra-io/kestra",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 676672661,
+              "full_name": "langchain-ai/langgraph",
+              "assessment": "unjudged"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "case_id": "CP04-ND-08",
+      "user_goal": "Python-пайплайны с повторными попытками и расписанием",
+      "known_useful_target": "PrefectHQ/prefect",
+      "source_url": "https://github.com/PrefectHQ/prefect",
+      "arms": {
+        "control": {
+          "target_rank": 1,
+          "target_packed": true,
+          "top12": [
+            {
+              "github_repository_id": 139199684,
+              "full_name": "PrefectHQ/prefect",
+              "assessment": "source_supported_positive"
+            },
+            {
+              "github_repository_id": 451613653,
+              "full_name": "temporalio/sdk-python",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 2703394,
+              "full_name": "coleifer/huey",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 2771544,
+              "full_name": "rq/rq",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 92827980,
+              "full_name": "Bogdanp/dramatiq",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 162494199,
+              "full_name": "taskforcesh/bullmq",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 184460,
+              "full_name": "celery/celery",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 732124850,
+              "full_name": "hatchet-dev/hatchet",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 131619646,
+              "full_name": "dagster-io/dagster",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 488804911,
+              "full_name": "windmill-labs/windmill",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 33884891,
+              "full_name": "apache/airflow",
+              "assessment": "unjudged"
+            }
+          ]
+        },
+        "baseline": {
+          "target_rank": 1,
+          "target_packed": true,
+          "top12": [
+            {
+              "github_repository_id": 139199684,
+              "full_name": "PrefectHQ/prefect",
+              "assessment": "source_supported_positive"
+            },
+            {
+              "github_repository_id": 451613653,
+              "full_name": "temporalio/sdk-python",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 2703394,
+              "full_name": "coleifer/huey",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 2771544,
+              "full_name": "rq/rq",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 92827980,
+              "full_name": "Bogdanp/dramatiq",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 162494199,
+              "full_name": "taskforcesh/bullmq",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 33884891,
+              "full_name": "apache/airflow",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 131619646,
+              "full_name": "dagster-io/dagster",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 184460,
+              "full_name": "celery/celery",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 100982449,
+              "full_name": "argoproj/argo-workflows",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 488804911,
+              "full_name": "windmill-labs/windmill",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 732124850,
+              "full_name": "hatchet-dev/hatchet",
+              "assessment": "unjudged"
+            }
+          ]
+        },
+        "separated": {
+          "target_rank": 1,
+          "target_packed": true,
+          "top12": [
+            {
+              "github_repository_id": 139199684,
+              "full_name": "PrefectHQ/prefect",
+              "assessment": "source_supported_positive"
+            },
+            {
+              "github_repository_id": 451613653,
+              "full_name": "temporalio/sdk-python",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 2703394,
+              "full_name": "coleifer/huey",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 2771544,
+              "full_name": "rq/rq",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 92827980,
+              "full_name": "Bogdanp/dramatiq",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 162494199,
+              "full_name": "taskforcesh/bullmq",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 33884891,
+              "full_name": "apache/airflow",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 131619646,
+              "full_name": "dagster-io/dagster",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 184460,
+              "full_name": "celery/celery",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 100982449,
+              "full_name": "argoproj/argo-workflows",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 488804911,
+              "full_name": "windmill-labs/windmill",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 732124850,
+              "full_name": "hatchet-dev/hatchet",
+              "assessment": "unjudged"
+            }
+          ]
+        },
+        "new_required_first": {
+          "target_rank": 1,
+          "target_packed": true,
+          "top12": [
+            {
+              "github_repository_id": 139199684,
+              "full_name": "PrefectHQ/prefect",
+              "assessment": "source_supported_positive"
+            },
+            {
+              "github_repository_id": 451613653,
+              "full_name": "temporalio/sdk-python",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 2703394,
+              "full_name": "coleifer/huey",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 2771544,
+              "full_name": "rq/rq",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 92827980,
+              "full_name": "Bogdanp/dramatiq",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 162494199,
+              "full_name": "taskforcesh/bullmq",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 33884891,
+              "full_name": "apache/airflow",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 131619646,
+              "full_name": "dagster-io/dagster",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 184460,
+              "full_name": "celery/celery",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 100982449,
+              "full_name": "argoproj/argo-workflows",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 488804911,
+              "full_name": "windmill-labs/windmill",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 732124850,
+              "full_name": "hatchet-dev/hatchet",
+              "assessment": "unjudged"
+            }
+          ]
+        },
+        "all_required_first": {
+          "target_rank": 1,
+          "target_packed": true,
+          "top12": [
+            {
+              "github_repository_id": 139199684,
+              "full_name": "PrefectHQ/prefect",
+              "assessment": "source_supported_positive"
+            },
+            {
+              "github_repository_id": 451613653,
+              "full_name": "temporalio/sdk-python",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 2703394,
+              "full_name": "coleifer/huey",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 2771544,
+              "full_name": "rq/rq",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 92827980,
+              "full_name": "Bogdanp/dramatiq",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 162494199,
+              "full_name": "taskforcesh/bullmq",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 33884891,
+              "full_name": "apache/airflow",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 131619646,
+              "full_name": "dagster-io/dagster",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 184460,
+              "full_name": "celery/celery",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 100982449,
+              "full_name": "argoproj/argo-workflows",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 488804911,
+              "full_name": "windmill-labs/windmill",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 732124850,
+              "full_name": "hatchet-dev/hatchet",
+              "assessment": "unjudged"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "case_id": "CP04-ND-09",
+      "user_goal": "Поиск товаров с опечатками и фасетными фильтрами",
+      "known_useful_target": "meilisearch/meilisearch",
+      "source_url": "https://github.com/meilisearch/meilisearch",
+      "arms": {
+        "control": {
+          "target_rank": 2,
+          "target_packed": true,
+          "top12": [
+            {
+              "github_repository_id": 79317191,
+              "full_name": "typesense/typesense",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 130688011,
+              "full_name": "meilisearch/meilisearch",
+              "assessment": "source_supported_positive"
+            },
+            {
+              "github_repository_id": 60377070,
+              "full_name": "vespa-engine/vespa",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 334274271,
+              "full_name": "opensearch-project/OpenSearch",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 507775,
+              "full_name": "elastic/elasticsearch",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 1048068299,
+              "full_name": "serenedb/serenedb",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 1009504831,
+              "full_name": "mrkrsl/web-search-mcp",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 357707809,
+              "full_name": "quickwit-oss/quickwit",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 49412556,
+              "full_name": "quickwit-oss/tantivy",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 357241735,
+              "full_name": "searxng/searxng",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 997125912,
+              "full_name": "zilliztech/claude-context",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 787076358,
+              "full_name": "firecrawl/firecrawl",
+              "assessment": "unjudged"
+            }
+          ]
+        },
+        "baseline": {
+          "target_rank": 2,
+          "target_packed": true,
+          "top12": [
+            {
+              "github_repository_id": 79317191,
+              "full_name": "typesense/typesense",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 130688011,
+              "full_name": "meilisearch/meilisearch",
+              "assessment": "source_supported_positive"
+            },
+            {
+              "github_repository_id": 507775,
+              "full_name": "elastic/elasticsearch",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 334274271,
+              "full_name": "opensearch-project/OpenSearch",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 434218673,
+              "full_name": "zincsearch/zincsearch",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 49412556,
+              "full_name": "quickwit-oss/tantivy",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 60377070,
+              "full_name": "vespa-engine/vespa",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 357241735,
+              "full_name": "searxng/searxng",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 357707809,
+              "full_name": "quickwit-oss/quickwit",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 1009504831,
+              "full_name": "mrkrsl/web-search-mcp",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 787076358,
+              "full_name": "firecrawl/firecrawl",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 902662933,
+              "full_name": "kagisearch/kagimcp",
+              "assessment": "unjudged"
+            }
+          ]
+        },
+        "separated": {
+          "target_rank": 2,
+          "target_packed": true,
+          "top12": [
+            {
+              "github_repository_id": 79317191,
+              "full_name": "typesense/typesense",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 130688011,
+              "full_name": "meilisearch/meilisearch",
+              "assessment": "source_supported_positive"
+            },
+            {
+              "github_repository_id": 507775,
+              "full_name": "elastic/elasticsearch",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 334274271,
+              "full_name": "opensearch-project/OpenSearch",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 434218673,
+              "full_name": "zincsearch/zincsearch",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 49412556,
+              "full_name": "quickwit-oss/tantivy",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 60377070,
+              "full_name": "vespa-engine/vespa",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 357241735,
+              "full_name": "searxng/searxng",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 357707809,
+              "full_name": "quickwit-oss/quickwit",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 1009504831,
+              "full_name": "mrkrsl/web-search-mcp",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 787076358,
+              "full_name": "firecrawl/firecrawl",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 902662933,
+              "full_name": "kagisearch/kagimcp",
+              "assessment": "unjudged"
+            }
+          ]
+        },
+        "new_required_first": {
+          "target_rank": 2,
+          "target_packed": true,
+          "top12": [
+            {
+              "github_repository_id": 79317191,
+              "full_name": "typesense/typesense",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 130688011,
+              "full_name": "meilisearch/meilisearch",
+              "assessment": "source_supported_positive"
+            },
+            {
+              "github_repository_id": 507775,
+              "full_name": "elastic/elasticsearch",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 334274271,
+              "full_name": "opensearch-project/OpenSearch",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 434218673,
+              "full_name": "zincsearch/zincsearch",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 49412556,
+              "full_name": "quickwit-oss/tantivy",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 60377070,
+              "full_name": "vespa-engine/vespa",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 357241735,
+              "full_name": "searxng/searxng",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 357707809,
+              "full_name": "quickwit-oss/quickwit",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 1009504831,
+              "full_name": "mrkrsl/web-search-mcp",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 787076358,
+              "full_name": "firecrawl/firecrawl",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 902662933,
+              "full_name": "kagisearch/kagimcp",
+              "assessment": "unjudged"
+            }
+          ]
+        },
+        "all_required_first": {
+          "target_rank": 2,
+          "target_packed": true,
+          "top12": [
+            {
+              "github_repository_id": 79317191,
+              "full_name": "typesense/typesense",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 130688011,
+              "full_name": "meilisearch/meilisearch",
+              "assessment": "source_supported_positive"
+            },
+            {
+              "github_repository_id": 507775,
+              "full_name": "elastic/elasticsearch",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 334274271,
+              "full_name": "opensearch-project/OpenSearch",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 434218673,
+              "full_name": "zincsearch/zincsearch",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 49412556,
+              "full_name": "quickwit-oss/tantivy",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 60377070,
+              "full_name": "vespa-engine/vespa",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 357241735,
+              "full_name": "searxng/searxng",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 357707809,
+              "full_name": "quickwit-oss/quickwit",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 1009504831,
+              "full_name": "mrkrsl/web-search-mcp",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 787076358,
+              "full_name": "firecrawl/firecrawl",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 902662933,
+              "full_name": "kagisearch/kagimcp",
+              "assessment": "unjudged"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "case_id": "CP04-ND-10",
+      "user_goal": "Общий поиск по нескольким коллекциям приложения",
+      "known_useful_target": "typesense/typesense",
+      "source_url": "https://github.com/typesense/typesense",
+      "arms": {
+        "control": {
+          "target_rank": 4,
+          "target_packed": true,
+          "top12": [
+            {
+              "github_repository_id": 130688011,
+              "full_name": "meilisearch/meilisearch",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 1005553140,
+              "full_name": "Aas-ee/open-webSearch",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 946214670,
+              "full_name": "perplexityai/modelcontextprotocol",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 79317191,
+              "full_name": "typesense/typesense",
+              "assessment": "source_supported_positive"
+            },
+            {
+              "github_repository_id": 60377070,
+              "full_name": "vespa-engine/vespa",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 334274271,
+              "full_name": "opensearch-project/OpenSearch",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 507775,
+              "full_name": "elastic/elasticsearch",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 1048068299,
+              "full_name": "serenedb/serenedb",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 1009504831,
+              "full_name": "mrkrsl/web-search-mcp",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 357707809,
+              "full_name": "quickwit-oss/quickwit",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 49412556,
+              "full_name": "quickwit-oss/tantivy",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 357241735,
+              "full_name": "searxng/searxng",
+              "assessment": "unjudged"
+            }
+          ]
+        },
+        "baseline": {
+          "target_rank": 9,
+          "target_packed": true,
+          "top12": [
+            {
+              "github_repository_id": 130688011,
+              "full_name": "meilisearch/meilisearch",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 507775,
+              "full_name": "elastic/elasticsearch",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 66670819,
+              "full_name": "apify/crawlee",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 334274271,
+              "full_name": "opensearch-project/OpenSearch",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 434218673,
+              "full_name": "zincsearch/zincsearch",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 529502,
+              "full_name": "scrapy/scrapy",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 49412556,
+              "full_name": "quickwit-oss/tantivy",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 60377070,
+              "full_name": "vespa-engine/vespa",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 79317191,
+              "full_name": "typesense/typesense",
+              "assessment": "source_supported_positive"
+            },
+            {
+              "github_repository_id": 180136168,
+              "full_name": "adbar/trafilatura",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 357241735,
+              "full_name": "searxng/searxng",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 357707809,
+              "full_name": "quickwit-oss/quickwit",
+              "assessment": "unjudged"
+            }
+          ]
+        },
+        "separated": {
+          "target_rank": 2,
+          "target_packed": true,
+          "top12": [
+            {
+              "github_repository_id": 130688011,
+              "full_name": "meilisearch/meilisearch",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 79317191,
+              "full_name": "typesense/typesense",
+              "assessment": "source_supported_positive"
+            },
+            {
+              "github_repository_id": 507775,
+              "full_name": "elastic/elasticsearch",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 66670819,
+              "full_name": "apify/crawlee",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 334274271,
+              "full_name": "opensearch-project/OpenSearch",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 434218673,
+              "full_name": "zincsearch/zincsearch",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 529502,
+              "full_name": "scrapy/scrapy",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 49412556,
+              "full_name": "quickwit-oss/tantivy",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 60377070,
+              "full_name": "vespa-engine/vespa",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 180136168,
+              "full_name": "adbar/trafilatura",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 357241735,
+              "full_name": "searxng/searxng",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 357707809,
+              "full_name": "quickwit-oss/quickwit",
+              "assessment": "unjudged"
+            }
+          ]
+        },
+        "new_required_first": {
+          "target_rank": 1,
+          "target_packed": true,
+          "top12": [
+            {
+              "github_repository_id": 79317191,
+              "full_name": "typesense/typesense",
+              "assessment": "source_supported_positive"
+            },
+            {
+              "github_repository_id": 130688011,
+              "full_name": "meilisearch/meilisearch",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 507775,
+              "full_name": "elastic/elasticsearch",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 66670819,
+              "full_name": "apify/crawlee",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 334274271,
+              "full_name": "opensearch-project/OpenSearch",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 434218673,
+              "full_name": "zincsearch/zincsearch",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 529502,
+              "full_name": "scrapy/scrapy",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 49412556,
+              "full_name": "quickwit-oss/tantivy",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 60377070,
+              "full_name": "vespa-engine/vespa",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 180136168,
+              "full_name": "adbar/trafilatura",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 357241735,
+              "full_name": "searxng/searxng",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 357707809,
+              "full_name": "quickwit-oss/quickwit",
+              "assessment": "unjudged"
+            }
+          ]
+        },
+        "all_required_first": {
+          "target_rank": 1,
+          "target_packed": true,
+          "top12": [
+            {
+              "github_repository_id": 79317191,
+              "full_name": "typesense/typesense",
+              "assessment": "source_supported_positive"
+            },
+            {
+              "github_repository_id": 130688011,
+              "full_name": "meilisearch/meilisearch",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 507775,
+              "full_name": "elastic/elasticsearch",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 66670819,
+              "full_name": "apify/crawlee",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 334274271,
+              "full_name": "opensearch-project/OpenSearch",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 434218673,
+              "full_name": "zincsearch/zincsearch",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 529502,
+              "full_name": "scrapy/scrapy",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 49412556,
+              "full_name": "quickwit-oss/tantivy",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 60377070,
+              "full_name": "vespa-engine/vespa",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 180136168,
+              "full_name": "adbar/trafilatura",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 357241735,
+              "full_name": "searxng/searxng",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 357707809,
+              "full_name": "quickwit-oss/quickwit",
+              "assessment": "unjudged"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "case_id": "CP04-ND-11",
+      "user_goal": "REST и GraphQL поверх существующей SQL-базы с администрированием",
+      "known_useful_target": "directus/directus",
+      "source_url": "https://github.com/directus/directus",
+      "arms": {
+        "control": {
+          "target_rank": 1,
+          "target_packed": true,
+          "top12": [
+            {
+              "github_repository_id": 7122594,
+              "full_name": "directus/directus",
+              "assessment": "source_supported_positive"
+            },
+            {
+              "github_repository_id": 111562942,
+              "full_name": "statamic/cms",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 327089870,
+              "full_name": "payloadcms/payload",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 43441403,
+              "full_name": "strapi/strapi",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 128193054,
+              "full_name": "keystonejs/keystone",
+              "assessment": "unjudged"
+            }
+          ]
+        },
+        "baseline": {
+          "target_rank": 1,
+          "target_packed": true,
+          "top12": [
+            {
+              "github_repository_id": 7122594,
+              "full_name": "directus/directus",
+              "assessment": "source_supported_positive"
+            },
+            {
+              "github_repository_id": 43441403,
+              "full_name": "strapi/strapi",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 128193054,
+              "full_name": "keystonejs/keystone",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 327089870,
+              "full_name": "payloadcms/payload",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 111562942,
+              "full_name": "statamic/cms",
+              "assessment": "unjudged"
+            }
+          ]
+        },
+        "separated": {
+          "target_rank": 1,
+          "target_packed": true,
+          "top12": [
+            {
+              "github_repository_id": 7122594,
+              "full_name": "directus/directus",
+              "assessment": "source_supported_positive"
+            },
+            {
+              "github_repository_id": 43441403,
+              "full_name": "strapi/strapi",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 128193054,
+              "full_name": "keystonejs/keystone",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 327089870,
+              "full_name": "payloadcms/payload",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 111562942,
+              "full_name": "statamic/cms",
+              "assessment": "unjudged"
+            }
+          ]
+        },
+        "new_required_first": {
+          "target_rank": 1,
+          "target_packed": true,
+          "top12": [
+            {
+              "github_repository_id": 7122594,
+              "full_name": "directus/directus",
+              "assessment": "source_supported_positive"
+            },
+            {
+              "github_repository_id": 43441403,
+              "full_name": "strapi/strapi",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 128193054,
+              "full_name": "keystonejs/keystone",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 327089870,
+              "full_name": "payloadcms/payload",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 111562942,
+              "full_name": "statamic/cms",
+              "assessment": "unjudged"
+            }
+          ]
+        },
+        "all_required_first": {
+          "target_rank": 1,
+          "target_packed": true,
+          "top12": [
+            {
+              "github_repository_id": 7122594,
+              "full_name": "directus/directus",
+              "assessment": "source_supported_positive"
+            },
+            {
+              "github_repository_id": 43441403,
+              "full_name": "strapi/strapi",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 128193054,
+              "full_name": "keystonejs/keystone",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 327089870,
+              "full_name": "payloadcms/payload",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 111562942,
+              "full_name": "statamic/cms",
+              "assessment": "unjudged"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "case_id": "CP04-ND-12",
+      "user_goal": "Небольшой backend с SQLite и подписками на изменения",
+      "known_useful_target": "pocketbase/pocketbase",
+      "source_url": "https://github.com/pocketbase/pocketbase",
+      "arms": {
+        "control": {
+          "target_rank": 1,
+          "target_packed": true,
+          "top12": [
+            {
+              "github_repository_id": 510607652,
+              "full_name": "pocketbase/pocketbase",
+              "assessment": "source_supported_positive"
+            },
+            {
+              "github_repository_id": 180190854,
+              "full_name": "appwrite/appwrite",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 1028159967,
+              "full_name": "InsForge/InsForge",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 214587193,
+              "full_name": "supabase/supabase",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 769023213,
+              "full_name": "get-convex/convex-backend",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 337414495,
+              "full_name": "nhost/nhost",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 50603846,
+              "full_name": "parse-community/parse-server",
+              "assessment": "unjudged"
+            }
+          ]
+        },
+        "baseline": {
+          "target_rank": 1,
+          "target_packed": true,
+          "top12": [
+            {
+              "github_repository_id": 510607652,
+              "full_name": "pocketbase/pocketbase",
+              "assessment": "source_supported_positive"
+            },
+            {
+              "github_repository_id": 180190854,
+              "full_name": "appwrite/appwrite",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 769023213,
+              "full_name": "get-convex/convex-backend",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 1028159967,
+              "full_name": "InsForge/InsForge",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 50603846,
+              "full_name": "parse-community/parse-server",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 214587193,
+              "full_name": "supabase/supabase",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 337414495,
+              "full_name": "nhost/nhost",
+              "assessment": "unjudged"
+            }
+          ]
+        },
+        "separated": {
+          "target_rank": 1,
+          "target_packed": true,
+          "top12": [
+            {
+              "github_repository_id": 510607652,
+              "full_name": "pocketbase/pocketbase",
+              "assessment": "source_supported_positive"
+            },
+            {
+              "github_repository_id": 180190854,
+              "full_name": "appwrite/appwrite",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 769023213,
+              "full_name": "get-convex/convex-backend",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 1028159967,
+              "full_name": "InsForge/InsForge",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 50603846,
+              "full_name": "parse-community/parse-server",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 214587193,
+              "full_name": "supabase/supabase",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 337414495,
+              "full_name": "nhost/nhost",
+              "assessment": "unjudged"
+            }
+          ]
+        },
+        "new_required_first": {
+          "target_rank": 1,
+          "target_packed": true,
+          "top12": [
+            {
+              "github_repository_id": 510607652,
+              "full_name": "pocketbase/pocketbase",
+              "assessment": "source_supported_positive"
+            },
+            {
+              "github_repository_id": 180190854,
+              "full_name": "appwrite/appwrite",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 769023213,
+              "full_name": "get-convex/convex-backend",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 1028159967,
+              "full_name": "InsForge/InsForge",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 50603846,
+              "full_name": "parse-community/parse-server",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 214587193,
+              "full_name": "supabase/supabase",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 337414495,
+              "full_name": "nhost/nhost",
+              "assessment": "unjudged"
+            }
+          ]
+        },
+        "all_required_first": {
+          "target_rank": 1,
+          "target_packed": true,
+          "top12": [
+            {
+              "github_repository_id": 510607652,
+              "full_name": "pocketbase/pocketbase",
+              "assessment": "source_supported_positive"
+            },
+            {
+              "github_repository_id": 180190854,
+              "full_name": "appwrite/appwrite",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 769023213,
+              "full_name": "get-convex/convex-backend",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 1028159967,
+              "full_name": "InsForge/InsForge",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 50603846,
+              "full_name": "parse-community/parse-server",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 214587193,
+              "full_name": "supabase/supabase",
+              "assessment": "unjudged"
+            },
+            {
+              "github_repository_id": 337414495,
+              "full_name": "nhost/nhost",
+              "assessment": "unjudged"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

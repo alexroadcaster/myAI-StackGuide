@@ -1,0 +1,2005 @@
+{
+  "schema_version": "cp04_domain_review_oracle_v1",
+  "observed_on": "2026-10-11",
+  "reviewer": "same author; primary-source manual assessment after prior capture, before new capture",
+  "scope": "129 case-repository pairs in the prior union top12 only; not the full routed or ranked universe.",
+  "rubric": {
+    "3": "documented requested main capabilities",
+    "2": "conditionally useful core; named requirement gaps remain",
+    "1": "supplementary/assembly component",
+    "0": "documented role mismatch or explicit requirement conflict",
+    "null": "unknown mandatory fit"
+  },
+  "sources": [
+    {
+      "full_name": "nginx/nginx",
+      "source_urls": [
+        "https://github.com/nginx/nginx"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "HTTP server and reverse proxy; TLS configuration and request limiting. Automatic internal CA not confirmed."
+    },
+    {
+      "full_name": "haproxy/haproxy",
+      "source_urls": [
+        "https://github.com/haproxy/haproxy"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "TCP/HTTP load balancer and reverse proxy; automatic certificate lifecycle not confirmed."
+    },
+    {
+      "full_name": "caddyserver/caddy",
+      "source_urls": [
+        "https://github.com/caddyserver/caddy"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "HTTPS server/reverse proxy with public automatic certificates and managed internal CA."
+    },
+    {
+      "full_name": "fatedier/frp",
+      "source_urls": [
+        "https://github.com/fatedier/frp"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "Reverse tunnel exposes services behind NAT; documented TLS setup uses certificate files."
+    },
+    {
+      "full_name": "traefik/traefik",
+      "source_urls": [
+        "https://github.com/traefik/traefik"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "Container-aware reverse proxy with dynamic Docker/Kubernetes configuration."
+    },
+    {
+      "full_name": "envoyproxy/envoy",
+      "source_urls": [
+        "https://github.com/envoyproxy/envoy",
+        "https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_filters/rate_limit_filter"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "Edge/service proxy with documented HTTP rate-limit filter; response transformation not verified here."
+    },
+    {
+      "full_name": "Kong/kong",
+      "source_urls": [
+        "https://github.com/Kong/kong"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "API gateway; documented rate-limit and request/response transformation plugins."
+    },
+    {
+      "full_name": "apache/apisix",
+      "source_urls": [
+        "https://github.com/apache/apisix"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "API gateway with hot configuration, rewrite plugins, rate limiting and container/bare-metal deployment."
+    },
+    {
+      "full_name": "TykTechnologies/tyk",
+      "source_urls": [
+        "https://github.com/TykTechnologies/tyk"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "API gateway with request/response mediation, rate limits and quotas."
+    },
+    {
+      "full_name": "krakend/krakend-ce",
+      "source_urls": [
+        "https://github.com/krakend/krakend-ce"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "Declarative API gateway with rate limits and content transformation; live route updates not verified."
+    },
+    {
+      "full_name": "clash-verge-rev/clash-verge-rev",
+      "source_urls": [
+        "https://github.com/clash-verge-rev/clash-verge-rev"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "Desktop GUI for local proxy profiles/system proxy/TUN; not an application API gateway."
+    },
+    {
+      "full_name": "httpie/cli",
+      "source_urls": [
+        "https://github.com/httpie/cli"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "HTTP/URL client for sending requests; not a server-side API gateway."
+    },
+    {
+      "full_name": "curl/curl",
+      "source_urls": [
+        "https://github.com/curl/curl"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "HTTP/URL client for sending requests; not a server-side API gateway."
+    },
+    {
+      "full_name": "istio/istio",
+      "source_urls": [
+        "https://github.com/istio/istio"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "Kubernetes-oriented service mesh with proxies and control-plane traffic management."
+    },
+    {
+      "full_name": "pi-hole/pi-hole",
+      "source_urls": [
+        "https://github.com/pi-hole/pi-hole"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "DNS filtering/ad blocking and DHCP; not HTTP API response mediation."
+    },
+    {
+      "full_name": "GyulyVGC/sniffnet",
+      "source_urls": [
+        "https://github.com/GyulyVGC/sniffnet"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "Network traffic monitoring application; not an API gateway."
+    },
+    {
+      "full_name": "sirkirby/unifi-mcp",
+      "source_urls": [
+        "https://github.com/sirkirby/unifi-mcp"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "MCP tools for managing UniFi systems; not an application API gateway."
+    },
+    {
+      "full_name": "seaweedfs/seaweedfs",
+      "source_urls": [
+        "https://github.com/seaweedfs/seaweedfs"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "Distributed file/object storage with filer metadata and S3 endpoint; weed mini offers a single-process mode."
+    },
+    {
+      "full_name": "juicedata/juicefs",
+      "source_urls": [
+        "https://github.com/juicedata/juicefs"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "POSIX filesystem with metadata service and S3 gateway; storage can be local disk or object storage."
+    },
+    {
+      "full_name": "minio/minio",
+      "source_urls": [
+        "https://github.com/minio/minio"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "S3-compatible object store. Current README states that this repository is no longer maintained; directory/filer semantics not verified."
+    },
+    {
+      "full_name": "ceph/ceph",
+      "source_urls": [
+        "https://github.com/ceph/ceph"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "Distributed object, block and file storage; requested S3/filer details not verified in this read."
+    },
+    {
+      "full_name": "delta-io/delta",
+      "source_urls": [
+        "https://github.com/delta-io/delta"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "Analytical table format/library on storage; does not replace the requested object-storage server."
+    },
+    {
+      "full_name": "apache/iceberg",
+      "source_urls": [
+        "https://github.com/apache/iceberg"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "Analytical table format/library on storage; does not replace the requested object-storage server."
+    },
+    {
+      "full_name": "treeverse/lakeFS",
+      "source_urls": [
+        "https://github.com/treeverse/lakeFS"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "Versioning layer over existing object storage; useful supplementary component."
+    },
+    {
+      "full_name": "keycloak/keycloak",
+      "source_urls": [
+        "https://github.com/keycloak/keycloak"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "Identity provider with user federation and fine-grained authorization."
+    },
+    {
+      "full_name": "logto-io/logto",
+      "source_urls": [
+        "https://github.com/logto-io/logto"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "Identity platform with external IdP connectors, enterprise SSO, organizations and organization RBAC; local setup requires PostgreSQL."
+    },
+    {
+      "full_name": "zitadel/zitadel",
+      "source_urls": [
+        "https://github.com/zitadel/zitadel"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "Identity platform with SSO, SCIM and multiple tenant organizations; specific user-federation authorization combination needs verification."
+    },
+    {
+      "full_name": "goauthentik/authentik",
+      "source_urls": [
+        "https://github.com/goauthentik/authentik"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "Self-hosted identity provider supporting SAML, OIDC, LDAP and RADIUS; B2B organization isolation not verified."
+    },
+    {
+      "full_name": "supabase/auth",
+      "source_urls": [
+        "https://github.com/supabase/auth"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "JWT authentication and external identity login; row permissions require integration with the wider Postgres stack."
+    },
+    {
+      "full_name": "ory/hydra",
+      "source_urls": [
+        "https://github.com/ory/hydra"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "OAuth/OIDC server that delegates user login/consent to an existing identity provider/application."
+    },
+    {
+      "full_name": "openfga/openfga",
+      "source_urls": [
+        "https://github.com/openfga/openfga"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "Authorization decision/permission service; user authentication/federation requires separate components."
+    },
+    {
+      "full_name": "cerbos/cerbos",
+      "source_urls": [
+        "https://github.com/cerbos/cerbos"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "Authorization decision/permission service; user authentication/federation requires separate components."
+    },
+    {
+      "full_name": "ory/keto",
+      "source_urls": [
+        "https://github.com/ory/keto"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "Authorization decision/permission service; user authentication/federation requires separate components."
+    },
+    {
+      "full_name": "permitio/opal",
+      "source_urls": [
+        "https://github.com/permitio/opal"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "Policy/data synchronization for authorization engines; not a full identity provider."
+    },
+    {
+      "full_name": "supertokens/supertokens-core",
+      "source_urls": [
+        "https://github.com/supertokens/supertokens-core"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "Authentication/session service with social login, roles, SSO and multi-tenancy; federation-policy combination not fully verified."
+    },
+    {
+      "full_name": "better-auth/better-auth",
+      "source_urls": [
+        "https://github.com/better-auth/better-auth"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "TypeScript authentication/authorization framework with multi-tenant plugins; isolated organization behavior requires verification."
+    },
+    {
+      "full_name": "nextauthjs/next-auth",
+      "source_urls": [
+        "https://github.com/nextauthjs/next-auth"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "Application OAuth/OIDC authentication library; enterprise identity authority/authorization needs assembly."
+    },
+    {
+      "full_name": "ory/polis",
+      "source_urls": [
+        "https://github.com/ory/polis"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "Enterprise SSO and SCIM directory synchronization; organization isolation not established by this read."
+    },
+    {
+      "full_name": "privacyidea/privacyidea",
+      "source_urls": [
+        "https://github.com/privacyidea/privacyidea"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "MFA service supplementing existing LDAP/AD/SQL identities; not a complete federation/permission system."
+    },
+    {
+      "full_name": "oauth2-proxy/oauth2-proxy",
+      "source_urls": [
+        "https://github.com/oauth2-proxy/oauth2-proxy"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "Authentication reverse proxy delegating to existing IdPs; not an organization identity authority."
+    },
+    {
+      "full_name": "ory/kratos",
+      "source_urls": [
+        "https://github.com/ory/kratos"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "User identity/login/recovery service; OIDC/access policy uses additional Ory services."
+    },
+    {
+      "full_name": "authelia/authelia",
+      "source_urls": [
+        "https://github.com/authelia/authelia"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "SSO/MFA companion for reverse proxies; SaaS organization isolation not verified."
+    },
+    {
+      "full_name": "casdoor/casdoor",
+      "source_urls": [
+        "https://github.com/casdoor/casdoor"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "Identity/SSO platform with organizations and documented SQLite all-in-one setup; organization isolation semantics need checking."
+    },
+    {
+      "full_name": "oomol-lab/open-connector",
+      "source_urls": [
+        "https://github.com/oomol-lab/open-connector"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "SaaS action/OAuth connector infrastructure for agents, not app-user organization identity management."
+    },
+    {
+      "full_name": "hatchet-dev/hatchet",
+      "source_urls": [
+        "https://github.com/hatchet-dev/hatchet"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "Durable task/workflow service with Python SDK, retries and cron; persistence uses PostgreSQL."
+    },
+    {
+      "full_name": "temporalio/temporal",
+      "source_urls": [
+        "https://github.com/temporalio/temporal"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "Durable workflow runtime with failure recovery and retries."
+    },
+    {
+      "full_name": "inngest/inngest",
+      "source_urls": [
+        "https://github.com/inngest/inngest"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "Durable step execution with persisted state, recovery, retries and event/cron triggers."
+    },
+    {
+      "full_name": "kestra-io/kestra",
+      "source_urls": [
+        "https://github.com/kestra-io/kestra"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "Scheduled/event YAML orchestration across languages; exact durable replay/recovery semantics not verified."
+    },
+    {
+      "full_name": "activepieces/activepieces",
+      "source_urls": [
+        "https://github.com/activepieces/activepieces"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "Connector/business automation platform; durable replay/failure recovery not verified here."
+    },
+    {
+      "full_name": "langchain-ai/langgraph",
+      "source_urls": [
+        "https://github.com/langchain-ai/langgraph"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "Stateful agent/workflow library with persistent durable execution and resumption; requires application integration."
+    },
+    {
+      "full_name": "Pimzino/spec-workflow-mcp",
+      "source_urls": [
+        "https://github.com/Pimzino/spec-workflow-mcp"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "Development specification/approval/task workflow tool, not a durable business execution runtime."
+    },
+    {
+      "full_name": "PrefectHQ/prefect",
+      "source_urls": [
+        "https://github.com/PrefectHQ/prefect"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "Python pipeline orchestration with scheduling, caching and retries; supports local Python execution."
+    },
+    {
+      "full_name": "temporalio/sdk-python",
+      "source_urls": [
+        "https://github.com/temporalio/sdk-python"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "Python SDK for fault-tolerant workflows; requires a Temporal runtime."
+    },
+    {
+      "full_name": "coleifer/huey",
+      "source_urls": [
+        "https://github.com/coleifer/huey"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "Python task queue with retries, cron and pipelines; SQLite, filesystem and memory backends are documented alternatives to Redis."
+    },
+    {
+      "full_name": "rq/rq",
+      "source_urls": [
+        "https://github.com/rq/rq"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "Python task queue requiring Redis or Valkey."
+    },
+    {
+      "full_name": "Bogdanp/dramatiq",
+      "source_urls": [
+        "https://github.com/Bogdanp/dramatiq"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "Python background task queue with RabbitMQ/Redis transports documented; broker-free deployment not verified."
+    },
+    {
+      "full_name": "taskforcesh/bullmq",
+      "source_urls": [
+        "https://github.com/taskforcesh/bullmq"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "Redis-backed task queue; current README also documents a Python package, so Node-only rejection would be incorrect."
+    },
+    {
+      "full_name": "celery/celery",
+      "source_urls": [
+        "https://github.com/celery/celery"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "Python task queue; RabbitMQ/Redis feature-complete backends and experimental local SQLite are documented."
+    },
+    {
+      "full_name": "dagster-io/dagster",
+      "source_urls": [
+        "https://github.com/dagster-io/dagster"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "Python data-asset/pipeline orchestration; retries not verified in this read."
+    },
+    {
+      "full_name": "windmill-labs/windmill",
+      "source_urls": [
+        "https://github.com/windmill-labs/windmill"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "Script/job/flow orchestration including Python; PostgreSQL-backed queue/database."
+    },
+    {
+      "full_name": "apache/airflow",
+      "source_urls": [
+        "https://github.com/apache/airflow"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "Python workflow authoring/scheduling/monitoring; exact retries not checked in this read."
+    },
+    {
+      "full_name": "argoproj/argo-workflows",
+      "source_urls": [
+        "https://github.com/argoproj/argo-workflows"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "Container workflow engine implemented as Kubernetes CRDs; requires Kubernetes."
+    },
+    {
+      "full_name": "typesense/typesense",
+      "source_urls": [
+        "https://github.com/typesense/typesense"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "Application search engine with typo tolerance, facets and federated collections in one HTTP request."
+    },
+    {
+      "full_name": "meilisearch/meilisearch",
+      "source_urls": [
+        "https://github.com/meilisearch/meilisearch",
+        "https://www.meilisearch.com/docs/capabilities/multi_search/getting_started/federated_search"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "Application search engine with typo tolerance, facets and documented federated multi-index search."
+    },
+    {
+      "full_name": "vespa-engine/vespa",
+      "source_urls": [
+        "https://github.com/vespa-engine/vespa"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "Search/recommendation/aggregation platform; requested typo and federation details not verified."
+    },
+    {
+      "full_name": "opensearch-project/OpenSearch",
+      "source_urls": [
+        "https://github.com/opensearch-project/OpenSearch",
+        "https://docs.opensearch.org/latest/query-dsl/term/fuzzy/"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "Application full-text search engine with documented fuzzy matching; complete requested facet/federation combination not verified."
+    },
+    {
+      "full_name": "elastic/elasticsearch",
+      "source_urls": [
+        "https://github.com/elastic/elasticsearch"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "Full-text search/analytics engine; exact requested typo/facet/federation configuration not checked."
+    },
+    {
+      "full_name": "serenedb/serenedb",
+      "source_urls": [
+        "https://github.com/serenedb/serenedb"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "Search and analytics database; exact requested application-search features not verified."
+    },
+    {
+      "full_name": "quickwit-oss/quickwit",
+      "source_urls": [
+        "https://github.com/quickwit-oss/quickwit"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "Full-text search and aggregation engine focused on logs/traces; application-search requirements need verification."
+    },
+    {
+      "full_name": "quickwit-oss/tantivy",
+      "source_urls": [
+        "https://github.com/quickwit-oss/tantivy"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "Rust full-text search library with facets; API/server/distributed serving requires assembly."
+    },
+    {
+      "full_name": "zincsearch/zincsearch",
+      "source_urls": [
+        "https://github.com/zincsearch/zincsearch"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "Full-text search server with aggregation; requested typo/federation behavior not verified."
+    },
+    {
+      "full_name": "mrkrsl/web-search-mcp",
+      "source_urls": [
+        "https://github.com/mrkrsl/web-search-mcp"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "External web/provider search or metasearch tool; not serving the application-owned inventory index requested here."
+    },
+    {
+      "full_name": "searxng/searxng",
+      "source_urls": [
+        "https://github.com/searxng/searxng"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "External web/provider search or metasearch tool; not serving the application-owned inventory index requested here."
+    },
+    {
+      "full_name": "kagisearch/kagimcp",
+      "source_urls": [
+        "https://github.com/kagisearch/kagimcp"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "External web/provider search or metasearch tool; not serving the application-owned inventory index requested here."
+    },
+    {
+      "full_name": "Aas-ee/open-webSearch",
+      "source_urls": [
+        "https://github.com/Aas-ee/open-webSearch"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "External web/provider search or metasearch tool; not serving the application-owned inventory index requested here."
+    },
+    {
+      "full_name": "perplexityai/modelcontextprotocol",
+      "source_urls": [
+        "https://github.com/perplexityai/modelcontextprotocol"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "External web/provider search or metasearch tool; not serving the application-owned inventory index requested here."
+    },
+    {
+      "full_name": "zilliztech/claude-context",
+      "source_urls": [
+        "https://github.com/zilliztech/claude-context"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "Codebase semantic search for coding agents; different corpus from the requested ecommerce index."
+    },
+    {
+      "full_name": "firecrawl/firecrawl",
+      "source_urls": [
+        "https://github.com/firecrawl/firecrawl"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "Web search/crawl/extraction infrastructure; not the requested inventory search serving engine."
+    },
+    {
+      "full_name": "apify/crawlee",
+      "source_urls": [
+        "https://github.com/apify/crawlee"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "Web crawling/extraction library; useful ingestion component, needs separate indexing and search serving."
+    },
+    {
+      "full_name": "scrapy/scrapy",
+      "source_urls": [
+        "https://github.com/scrapy/scrapy"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "Web crawling/extraction library; useful ingestion component, needs separate indexing and search serving."
+    },
+    {
+      "full_name": "adbar/trafilatura",
+      "source_urls": [
+        "https://github.com/adbar/trafilatura"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "Web crawling/extraction library; useful ingestion component, needs separate indexing and search serving."
+    },
+    {
+      "full_name": "directus/directus",
+      "source_urls": [
+        "https://github.com/directus/directus"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "Wraps SQL databases with REST/GraphQL and administration; licensing conditions require a separate adoption check."
+    },
+    {
+      "full_name": "strapi/strapi",
+      "source_urls": [
+        "https://github.com/strapi/strapi"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "CMS content modeling with REST/GraphQL/admin and SQL backends; direct wrapping of an untouched existing schema not verified."
+    },
+    {
+      "full_name": "payloadcms/payload",
+      "source_urls": [
+        "https://github.com/payloadcms/payload"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "Application CMS/backend and admin with database adapters; direct existing-SQL wrapping not verified."
+    },
+    {
+      "full_name": "keystonejs/keystone",
+      "source_urls": [
+        "https://github.com/keystonejs/keystone"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "Schema-defined GraphQL/backend with management UI; REST and direct existing-SQL wrapping not verified."
+    },
+    {
+      "full_name": "statamic/cms",
+      "source_urls": [
+        "https://github.com/statamic/cms"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "Laravel flat-first CMS; not a verified existing-SQL REST/GraphQL wrapper."
+    },
+    {
+      "full_name": "pocketbase/pocketbase",
+      "source_urls": [
+        "https://github.com/pocketbase/pocketbase"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "Embedded SQLite backend with realtime, users, files and API; pre-1.0 compatibility caveat remains."
+    },
+    {
+      "full_name": "get-convex/convex-backend",
+      "source_urls": [
+        "https://github.com/get-convex/convex-backend"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "Reactive app database/backend with documented self-hosted SQLite support; platform compatibility needs adoption testing."
+    },
+    {
+      "full_name": "appwrite/appwrite",
+      "source_urls": [
+        "https://github.com/appwrite/appwrite"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "Backend platform with authentication, databases and realtime; required SQLite backend not confirmed."
+    },
+    {
+      "full_name": "InsForge/InsForge",
+      "source_urls": [
+        "https://github.com/InsForge/InsForge"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "Backend platform for agent-built apps; required SQLite and exact realtime contract not confirmed."
+    },
+    {
+      "full_name": "supabase/supabase",
+      "source_urls": [
+        "https://github.com/supabase/supabase"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "Postgres backend platform with auth, APIs and realtime; documented primary database conflicts with the requested SQLite backend."
+    },
+    {
+      "full_name": "nhost/nhost",
+      "source_urls": [
+        "https://github.com/nhost/nhost"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "PostgreSQL/Hasura backend platform; primary database conflicts with the requested SQLite backend."
+    },
+    {
+      "full_name": "parse-community/parse-server",
+      "source_urls": [
+        "https://github.com/parse-community/parse-server"
+      ],
+      "observed_on": "2026-10-11",
+      "supported_role": "App backend requiring MongoDB or PostgreSQL/PostGIS; required SQLite backend conflicts with documented prerequisites."
+    }
+  ],
+  "cases": [
+    {
+      "case_id": "CP04-ND-01",
+      "user_goal": "Автоматический HTTPS для публичного и внутреннего сервиса",
+      "assessments": [
+        {
+          "github_repository_id": 569041,
+          "full_name": "curl/curl",
+          "grade": 0,
+          "rationale": "Documented role or required primary database conflicts with the goal. HTTP/URL client for sending requests; not a server-side API gateway.",
+          "source_urls": [
+            "https://github.com/curl/curl"
+          ]
+        },
+        {
+          "github_repository_id": 19537979,
+          "full_name": "TykTechnologies/tyk",
+          "grade": 2,
+          "rationale": "Core solution is conditionally useful; the facts below name unverified requested details. This is not full hard-requirement satisfaction. API gateway with request/response mediation, rate limits and quotas.",
+          "source_urls": [
+            "https://github.com/TykTechnologies/tyk"
+          ]
+        },
+        {
+          "github_repository_id": 26783295,
+          "full_name": "Kong/kong",
+          "grade": 2,
+          "rationale": "Core solution is conditionally useful; the facts below name unverified requested details. This is not full hard-requirement satisfaction. API gateway; documented rate-limit and request/response transformation plugins.",
+          "source_urls": [
+            "https://github.com/Kong/kong"
+          ]
+        },
+        {
+          "github_repository_id": 29207621,
+          "full_name": "caddyserver/caddy",
+          "grade": 3,
+          "rationale": "Requested main capabilities are documented; deployment quality/readiness is not assessed. HTTPS server/reverse proxy with public automatic certificates and managed internal CA.",
+          "source_urls": [
+            "https://github.com/caddyserver/caddy"
+          ]
+        },
+        {
+          "github_repository_id": 37912398,
+          "full_name": "nginx/nginx",
+          "grade": 2,
+          "rationale": "Core solution is conditionally useful; the facts below name unverified requested details. This is not full hard-requirement satisfaction. HTTP server and reverse proxy; TLS configuration and request limiting. Automatic internal CA not confirmed.",
+          "source_urls": [
+            "https://github.com/nginx/nginx"
+          ]
+        },
+        {
+          "github_repository_id": 42408804,
+          "full_name": "traefik/traefik",
+          "grade": 2,
+          "rationale": "Core solution is conditionally useful; the facts below name unverified requested details. This is not full hard-requirement satisfaction. Container-aware reverse proxy with dynamic Docker/Kubernetes configuration.",
+          "source_urls": [
+            "https://github.com/traefik/traefik"
+          ]
+        },
+        {
+          "github_repository_id": 48378947,
+          "full_name": "fatedier/frp",
+          "grade": 1,
+          "rationale": "Supplementary component or solution requiring substantial assembly for this goal. Reverse tunnel exposes services behind NAT; documented TLS setup uses certificate files.",
+          "source_urls": [
+            "https://github.com/fatedier/frp"
+          ]
+        },
+        {
+          "github_repository_id": 65214191,
+          "full_name": "envoyproxy/envoy",
+          "grade": 2,
+          "rationale": "Core solution is conditionally useful; the facts below name unverified requested details. This is not full hard-requirement satisfaction. Edge/service proxy with documented HTTP rate-limit filter; response transformation not verified here.",
+          "source_urls": [
+            "https://github.com/envoyproxy/envoy",
+            "https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_filters/rate_limit_filter"
+          ]
+        },
+        {
+          "github_repository_id": 112944063,
+          "full_name": "krakend/krakend-ce",
+          "grade": 2,
+          "rationale": "Core solution is conditionally useful; the facts below name unverified requested details. This is not full hard-requirement satisfaction. Declarative API gateway with rate limits and content transformation; live route updates not verified.",
+          "source_urls": [
+            "https://github.com/krakend/krakend-ce"
+          ]
+        },
+        {
+          "github_repository_id": 128791889,
+          "full_name": "haproxy/haproxy",
+          "grade": 2,
+          "rationale": "Core solution is conditionally useful; the facts below name unverified requested details. This is not full hard-requirement satisfaction. TCP/HTTP load balancer and reverse proxy; automatic certificate lifecycle not confirmed.",
+          "source_urls": [
+            "https://github.com/haproxy/haproxy"
+          ]
+        },
+        {
+          "github_repository_id": 180481986,
+          "full_name": "apache/apisix",
+          "grade": 2,
+          "rationale": "Core solution is conditionally useful; the facts below name unverified requested details. This is not full hard-requirement satisfaction. API gateway with hot configuration, rewrite plugins, rate limiting and container/bare-metal deployment.",
+          "source_urls": [
+            "https://github.com/apache/apisix"
+          ]
+        },
+        {
+          "github_repository_id": 721767116,
+          "full_name": "clash-verge-rev/clash-verge-rev",
+          "grade": 0,
+          "rationale": "Documented role or required primary database conflicts with the goal. Desktop GUI for local proxy profiles/system proxy/TUN; not an application API gateway.",
+          "source_urls": [
+            "https://github.com/clash-verge-rev/clash-verge-rev"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "CP04-ND-02",
+      "user_goal": "Прокси для контейнеров с обновлением маршрутов без перезапуска",
+      "assessments": [
+        {
+          "github_repository_id": 19537979,
+          "full_name": "TykTechnologies/tyk",
+          "grade": 2,
+          "rationale": "Core solution is conditionally useful; the facts below name unverified requested details. This is not full hard-requirement satisfaction. API gateway with request/response mediation, rate limits and quotas.",
+          "source_urls": [
+            "https://github.com/TykTechnologies/tyk"
+          ]
+        },
+        {
+          "github_repository_id": 26783295,
+          "full_name": "Kong/kong",
+          "grade": 2,
+          "rationale": "Core solution is conditionally useful; the facts below name unverified requested details. This is not full hard-requirement satisfaction. API gateway; documented rate-limit and request/response transformation plugins.",
+          "source_urls": [
+            "https://github.com/Kong/kong"
+          ]
+        },
+        {
+          "github_repository_id": 42408804,
+          "full_name": "traefik/traefik",
+          "grade": 3,
+          "rationale": "Requested main capabilities are documented; deployment quality/readiness is not assessed. Container-aware reverse proxy with dynamic Docker/Kubernetes configuration.",
+          "source_urls": [
+            "https://github.com/traefik/traefik"
+          ]
+        },
+        {
+          "github_repository_id": 74175805,
+          "full_name": "istio/istio",
+          "grade": 2,
+          "rationale": "Core solution is conditionally useful; the facts below name unverified requested details. This is not full hard-requirement satisfaction. Kubernetes-oriented service mesh with proxies and control-plane traffic management.",
+          "source_urls": [
+            "https://github.com/istio/istio"
+          ]
+        },
+        {
+          "github_repository_id": 112944063,
+          "full_name": "krakend/krakend-ce",
+          "grade": 2,
+          "rationale": "Core solution is conditionally useful; the facts below name unverified requested details. This is not full hard-requirement satisfaction. Declarative API gateway with rate limits and content transformation; live route updates not verified.",
+          "source_urls": [
+            "https://github.com/krakend/krakend-ce"
+          ]
+        },
+        {
+          "github_repository_id": 180481986,
+          "full_name": "apache/apisix",
+          "grade": 3,
+          "rationale": "Requested main capabilities are documented; deployment quality/readiness is not assessed. API gateway with hot configuration, rewrite plugins, rate limiting and container/bare-metal deployment.",
+          "source_urls": [
+            "https://github.com/apache/apisix"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "CP04-ND-03",
+      "user_goal": "Ограничение частоты API-запросов и преобразование ответов",
+      "assessments": [
+        {
+          "github_repository_id": 569041,
+          "full_name": "curl/curl",
+          "grade": 0,
+          "rationale": "Documented role or required primary database conflicts with the goal. HTTP/URL client for sending requests; not a server-side API gateway.",
+          "source_urls": [
+            "https://github.com/curl/curl"
+          ]
+        },
+        {
+          "github_repository_id": 3544424,
+          "full_name": "httpie/cli",
+          "grade": 0,
+          "rationale": "Documented role or required primary database conflicts with the goal. HTTP/URL client for sending requests; not a server-side API gateway.",
+          "source_urls": [
+            "https://github.com/httpie/cli"
+          ]
+        },
+        {
+          "github_repository_id": 19537979,
+          "full_name": "TykTechnologies/tyk",
+          "grade": 3,
+          "rationale": "Requested main capabilities are documented; deployment quality/readiness is not assessed. API gateway with request/response mediation, rate limits and quotas.",
+          "source_urls": [
+            "https://github.com/TykTechnologies/tyk"
+          ]
+        },
+        {
+          "github_repository_id": 20619036,
+          "full_name": "pi-hole/pi-hole",
+          "grade": 0,
+          "rationale": "Documented role or required primary database conflicts with the goal. DNS filtering/ad blocking and DHCP; not HTTP API response mediation.",
+          "source_urls": [
+            "https://github.com/pi-hole/pi-hole"
+          ]
+        },
+        {
+          "github_repository_id": 26783295,
+          "full_name": "Kong/kong",
+          "grade": 3,
+          "rationale": "Requested main capabilities are documented; deployment quality/readiness is not assessed. API gateway; documented rate-limit and request/response transformation plugins.",
+          "source_urls": [
+            "https://github.com/Kong/kong"
+          ]
+        },
+        {
+          "github_repository_id": 29207621,
+          "full_name": "caddyserver/caddy",
+          "grade": 1,
+          "rationale": "Supplementary component or solution requiring substantial assembly for this goal. HTTPS server/reverse proxy with public automatic certificates and managed internal CA.",
+          "source_urls": [
+            "https://github.com/caddyserver/caddy"
+          ]
+        },
+        {
+          "github_repository_id": 37912398,
+          "full_name": "nginx/nginx",
+          "grade": 2,
+          "rationale": "Core solution is conditionally useful; the facts below name unverified requested details. This is not full hard-requirement satisfaction. HTTP server and reverse proxy; TLS configuration and request limiting. Automatic internal CA not confirmed.",
+          "source_urls": [
+            "https://github.com/nginx/nginx"
+          ]
+        },
+        {
+          "github_repository_id": 42408804,
+          "full_name": "traefik/traefik",
+          "grade": 1,
+          "rationale": "Supplementary component or solution requiring substantial assembly for this goal. Container-aware reverse proxy with dynamic Docker/Kubernetes configuration.",
+          "source_urls": [
+            "https://github.com/traefik/traefik"
+          ]
+        },
+        {
+          "github_repository_id": 48378947,
+          "full_name": "fatedier/frp",
+          "grade": 1,
+          "rationale": "Supplementary component or solution requiring substantial assembly for this goal. Reverse tunnel exposes services behind NAT; documented TLS setup uses certificate files.",
+          "source_urls": [
+            "https://github.com/fatedier/frp"
+          ]
+        },
+        {
+          "github_repository_id": 65214191,
+          "full_name": "envoyproxy/envoy",
+          "grade": 2,
+          "rationale": "Core solution is conditionally useful; the facts below name unverified requested details. This is not full hard-requirement satisfaction. Edge/service proxy with documented HTTP rate-limit filter; response transformation not verified here.",
+          "source_urls": [
+            "https://github.com/envoyproxy/envoy",
+            "https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_filters/rate_limit_filter"
+          ]
+        },
+        {
+          "github_repository_id": 74175805,
+          "full_name": "istio/istio",
+          "grade": 1,
+          "rationale": "Supplementary component or solution requiring substantial assembly for this goal. Kubernetes-oriented service mesh with proxies and control-plane traffic management.",
+          "source_urls": [
+            "https://github.com/istio/istio"
+          ]
+        },
+        {
+          "github_repository_id": 112944063,
+          "full_name": "krakend/krakend-ce",
+          "grade": 3,
+          "rationale": "Requested main capabilities are documented; deployment quality/readiness is not assessed. Declarative API gateway with rate limits and content transformation; live route updates not verified.",
+          "source_urls": [
+            "https://github.com/krakend/krakend-ce"
+          ]
+        },
+        {
+          "github_repository_id": 180481986,
+          "full_name": "apache/apisix",
+          "grade": 3,
+          "rationale": "Requested main capabilities are documented; deployment quality/readiness is not assessed. API gateway with hot configuration, rewrite plugins, rate limiting and container/bare-metal deployment.",
+          "source_urls": [
+            "https://github.com/apache/apisix"
+          ]
+        },
+        {
+          "github_repository_id": 519895363,
+          "full_name": "GyulyVGC/sniffnet",
+          "grade": 0,
+          "rationale": "Documented role or required primary database conflicts with the goal. Network traffic monitoring application; not an API gateway.",
+          "source_urls": [
+            "https://github.com/GyulyVGC/sniffnet"
+          ]
+        },
+        {
+          "github_repository_id": 721767116,
+          "full_name": "clash-verge-rev/clash-verge-rev",
+          "grade": 0,
+          "rationale": "Documented role or required primary database conflicts with the goal. Desktop GUI for local proxy profiles/system proxy/TUN; not an application API gateway.",
+          "source_urls": [
+            "https://github.com/clash-verge-rev/clash-verge-rev"
+          ]
+        },
+        {
+          "github_repository_id": 970267776,
+          "full_name": "sirkirby/unifi-mcp",
+          "grade": 0,
+          "rationale": "Documented role or required primary database conflicts with the goal. MCP tools for managing UniFi systems; not an application API gateway.",
+          "source_urls": [
+            "https://github.com/sirkirby/unifi-mcp"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "CP04-ND-04",
+      "user_goal": "S3-хранилище файлов с каталогами и метаданными",
+      "assessments": [
+        {
+          "github_repository_id": 2310495,
+          "full_name": "ceph/ceph",
+          "grade": 2,
+          "rationale": "Core solution is conditionally useful; the facts below name unverified requested details. This is not full hard-requirement satisfaction. Distributed object, block and file storage; requested S3/filer details not verified in this read.",
+          "source_urls": [
+            "https://github.com/ceph/ceph"
+          ]
+        },
+        {
+          "github_repository_id": 21827146,
+          "full_name": "seaweedfs/seaweedfs",
+          "grade": 3,
+          "rationale": "Requested main capabilities are documented; deployment quality/readiness is not assessed. Distributed file/object storage with filer metadata and S3 endpoint; weed mini offers a single-process mode.",
+          "source_urls": [
+            "https://github.com/seaweedfs/seaweedfs"
+          ]
+        },
+        {
+          "github_repository_id": 29261473,
+          "full_name": "minio/minio",
+          "grade": 2,
+          "rationale": "Core solution is conditionally useful; the facts below name unverified requested details. This is not full hard-requirement satisfaction. S3-compatible object store. Current README states that this repository is no longer maintained; directory/filer semantics not verified.",
+          "source_urls": [
+            "https://github.com/minio/minio"
+          ]
+        },
+        {
+          "github_repository_id": 158256479,
+          "full_name": "apache/iceberg",
+          "grade": 0,
+          "rationale": "Documented role or required primary database conflicts with the goal. Analytical table format/library on storage; does not replace the requested object-storage server.",
+          "source_urls": [
+            "https://github.com/apache/iceberg"
+          ]
+        },
+        {
+          "github_repository_id": 182849188,
+          "full_name": "delta-io/delta",
+          "grade": 0,
+          "rationale": "Documented role or required primary database conflicts with the goal. Analytical table format/library on storage; does not replace the requested object-storage server.",
+          "source_urls": [
+            "https://github.com/delta-io/delta"
+          ]
+        },
+        {
+          "github_repository_id": 208038454,
+          "full_name": "treeverse/lakeFS",
+          "grade": 1,
+          "rationale": "Supplementary component or solution requiring substantial assembly for this goal. Versioning layer over existing object storage; useful supplementary component.",
+          "source_urls": [
+            "https://github.com/treeverse/lakeFS"
+          ]
+        },
+        {
+          "github_repository_id": 327859577,
+          "full_name": "juicedata/juicefs",
+          "grade": 3,
+          "rationale": "Requested main capabilities are documented; deployment quality/readiness is not assessed. POSIX filesystem with metadata service and S3 gateway; storage can be local disk or object storage.",
+          "source_urls": [
+            "https://github.com/juicedata/juicefs"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "CP04-ND-05",
+      "user_goal": "Единая идентификация с федерацией пользователей и правами доступа",
+      "assessments": [
+        {
+          "github_repository_id": 11125589,
+          "full_name": "keycloak/keycloak",
+          "grade": 3,
+          "rationale": "Requested main capabilities are documented; deployment quality/readiness is not assessed. Identity provider with user federation and fine-grained authorization.",
+          "source_urls": [
+            "https://github.com/keycloak/keycloak"
+          ]
+        },
+        {
+          "github_repository_id": 20446681,
+          "full_name": "privacyidea/privacyidea",
+          "grade": 1,
+          "rationale": "Supplementary component or solution requiring substantial assembly for this goal. MFA service supplementing existing LDAP/AD/SQL identities; not a complete federation/permission system.",
+          "source_urls": [
+            "https://github.com/privacyidea/privacyidea"
+          ]
+        },
+        {
+          "github_repository_id": 36071697,
+          "full_name": "ory/hydra",
+          "grade": 1,
+          "rationale": "Supplementary component or solution requiring substantial assembly for this goal. OAuth/OIDC server that delegates user login/consent to an existing identity provider/application.",
+          "source_urls": [
+            "https://github.com/ory/hydra"
+          ]
+        },
+        {
+          "github_repository_id": 105262714,
+          "full_name": "oauth2-proxy/oauth2-proxy",
+          "grade": 1,
+          "rationale": "Supplementary component or solution requiring substantial assembly for this goal. Authentication reverse proxy delegating to existing IdPs; not an organization identity authority.",
+          "source_urls": [
+            "https://github.com/oauth2-proxy/oauth2-proxy"
+          ]
+        },
+        {
+          "github_repository_id": 119162419,
+          "full_name": "nextauthjs/next-auth",
+          "grade": 1,
+          "rationale": "Supplementary component or solution requiring substantial assembly for this goal. Application OAuth/OIDC authentication library; enterprise identity authority/authorization needs assembly.",
+          "source_urls": [
+            "https://github.com/nextauthjs/next-auth"
+          ]
+        },
+        {
+          "github_repository_id": 125619154,
+          "full_name": "ory/keto",
+          "grade": 1,
+          "rationale": "Supplementary component or solution requiring substantial assembly for this goal. Authorization decision/permission service; user authentication/federation requires separate components.",
+          "source_urls": [
+            "https://github.com/ory/keto"
+          ]
+        },
+        {
+          "github_repository_id": 135321861,
+          "full_name": "ory/kratos",
+          "grade": 2,
+          "rationale": "Core solution is conditionally useful; the facts below name unverified requested details. This is not full hard-requirement satisfaction. User identity/login/recovery service; OIDC/access policy uses additional Ory services.",
+          "source_urls": [
+            "https://github.com/ory/kratos"
+          ]
+        },
+        {
+          "github_repository_id": 230885748,
+          "full_name": "goauthentik/authentik",
+          "grade": 2,
+          "rationale": "Core solution is conditionally useful; the facts below name unverified requested details. This is not full hard-requirement satisfaction. Self-hosted identity provider supporting SAML, OIDC, LDAP and RADIUS; B2B organization isolation not verified.",
+          "source_urls": [
+            "https://github.com/goauthentik/authentik"
+          ]
+        },
+        {
+          "github_repository_id": 231921809,
+          "full_name": "supertokens/supertokens-core",
+          "grade": 2,
+          "rationale": "Core solution is conditionally useful; the facts below name unverified requested details. This is not full hard-requirement satisfaction. Authentication/session service with social login, roles, SSO and multi-tenancy; federation-policy combination not fully verified.",
+          "source_urls": [
+            "https://github.com/supertokens/supertokens-core"
+          ]
+        },
+        {
+          "github_repository_id": 247714750,
+          "full_name": "zitadel/zitadel",
+          "grade": 2,
+          "rationale": "Core solution is conditionally useful; the facts below name unverified requested details. This is not full hard-requirement satisfaction. Identity platform with SSO, SCIM and multiple tenant organizations; specific user-federation authorization combination needs verification.",
+          "source_urls": [
+            "https://github.com/zitadel/zitadel"
+          ]
+        },
+        {
+          "github_repository_id": 279488921,
+          "full_name": "supabase/auth",
+          "grade": 2,
+          "rationale": "Core solution is conditionally useful; the facts below name unverified requested details. This is not full hard-requirement satisfaction. JWT authentication and external identity login; row permissions require integration with the wider Postgres stack.",
+          "source_urls": [
+            "https://github.com/supabase/auth"
+          ]
+        },
+        {
+          "github_repository_id": 338791379,
+          "full_name": "permitio/opal",
+          "grade": 1,
+          "rationale": "Supplementary component or solution requiring substantial assembly for this goal. Policy/data synchronization for authorization engines; not a full identity provider.",
+          "source_urls": [
+            "https://github.com/permitio/opal"
+          ]
+        },
+        {
+          "github_repository_id": 350005438,
+          "full_name": "cerbos/cerbos",
+          "grade": 1,
+          "rationale": "Supplementary component or solution requiring substantial assembly for this goal. Authorization decision/permission service; user authentication/federation requires separate components.",
+          "source_urls": [
+            "https://github.com/cerbos/cerbos"
+          ]
+        },
+        {
+          "github_repository_id": 378310716,
+          "full_name": "logto-io/logto",
+          "grade": 3,
+          "rationale": "Requested main capabilities are documented; deployment quality/readiness is not assessed. Identity platform with external IdP connectors, enterprise SSO, organizations and organization RBAC; local setup requires PostgreSQL.",
+          "source_urls": [
+            "https://github.com/logto-io/logto"
+          ]
+        },
+        {
+          "github_repository_id": 395891383,
+          "full_name": "ory/polis",
+          "grade": 2,
+          "rationale": "Core solution is conditionally useful; the facts below name unverified requested details. This is not full hard-requirement satisfaction. Enterprise SSO and SCIM directory synchronization; organization isolation not established by this read.",
+          "source_urls": [
+            "https://github.com/ory/polis"
+          ]
+        },
+        {
+          "github_repository_id": 501372599,
+          "full_name": "openfga/openfga",
+          "grade": 1,
+          "rationale": "Supplementary component or solution requiring substantial assembly for this goal. Authorization decision/permission service; user authentication/federation requires separate components.",
+          "source_urls": [
+            "https://github.com/openfga/openfga"
+          ]
+        },
+        {
+          "github_repository_id": 803014189,
+          "full_name": "better-auth/better-auth",
+          "grade": 2,
+          "rationale": "Core solution is conditionally useful; the facts below name unverified requested details. This is not full hard-requirement satisfaction. TypeScript authentication/authorization framework with multi-tenant plugins; isolated organization behavior requires verification.",
+          "source_urls": [
+            "https://github.com/better-auth/better-auth"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "CP04-ND-06",
+      "user_goal": "Идентификация B2B SaaS с изолированными организациями",
+      "assessments": [
+        {
+          "github_repository_id": 36071697,
+          "full_name": "ory/hydra",
+          "grade": 1,
+          "rationale": "Supplementary component or solution requiring substantial assembly for this goal. OAuth/OIDC server that delegates user login/consent to an existing identity provider/application.",
+          "source_urls": [
+            "https://github.com/ory/hydra"
+          ]
+        },
+        {
+          "github_repository_id": 75785240,
+          "full_name": "authelia/authelia",
+          "grade": 1,
+          "rationale": "Supplementary component or solution requiring substantial assembly for this goal. SSO/MFA companion for reverse proxies; SaaS organization isolation not verified.",
+          "source_urls": [
+            "https://github.com/authelia/authelia"
+          ]
+        },
+        {
+          "github_repository_id": 105262714,
+          "full_name": "oauth2-proxy/oauth2-proxy",
+          "grade": 1,
+          "rationale": "Supplementary component or solution requiring substantial assembly for this goal. Authentication reverse proxy delegating to existing IdPs; not an organization identity authority.",
+          "source_urls": [
+            "https://github.com/oauth2-proxy/oauth2-proxy"
+          ]
+        },
+        {
+          "github_repository_id": 230885748,
+          "full_name": "goauthentik/authentik",
+          "grade": 2,
+          "rationale": "Core solution is conditionally useful; the facts below name unverified requested details. This is not full hard-requirement satisfaction. Self-hosted identity provider supporting SAML, OIDC, LDAP and RADIUS; B2B organization isolation not verified.",
+          "source_urls": [
+            "https://github.com/goauthentik/authentik"
+          ]
+        },
+        {
+          "github_repository_id": 247714750,
+          "full_name": "zitadel/zitadel",
+          "grade": 3,
+          "rationale": "Requested main capabilities are documented; deployment quality/readiness is not assessed. Identity platform with SSO, SCIM and multiple tenant organizations; specific user-federation authorization combination needs verification.",
+          "source_urls": [
+            "https://github.com/zitadel/zitadel"
+          ]
+        },
+        {
+          "github_repository_id": 306366900,
+          "full_name": "casdoor/casdoor",
+          "grade": 2,
+          "rationale": "Core solution is conditionally useful; the facts below name unverified requested details. This is not full hard-requirement satisfaction. Identity/SSO platform with organizations and documented SQLite all-in-one setup; organization isolation semantics need checking.",
+          "source_urls": [
+            "https://github.com/casdoor/casdoor"
+          ]
+        },
+        {
+          "github_repository_id": 378310716,
+          "full_name": "logto-io/logto",
+          "grade": 3,
+          "rationale": "Requested main capabilities are documented; deployment quality/readiness is not assessed. Identity platform with external IdP connectors, enterprise SSO, organizations and organization RBAC; local setup requires PostgreSQL.",
+          "source_urls": [
+            "https://github.com/logto-io/logto"
+          ]
+        },
+        {
+          "github_repository_id": 395891383,
+          "full_name": "ory/polis",
+          "grade": 2,
+          "rationale": "Core solution is conditionally useful; the facts below name unverified requested details. This is not full hard-requirement satisfaction. Enterprise SSO and SCIM directory synchronization; organization isolation not established by this read.",
+          "source_urls": [
+            "https://github.com/ory/polis"
+          ]
+        },
+        {
+          "github_repository_id": 803014189,
+          "full_name": "better-auth/better-auth",
+          "grade": 2,
+          "rationale": "Core solution is conditionally useful; the facts below name unverified requested details. This is not full hard-requirement satisfaction. TypeScript authentication/authorization framework with multi-tenant plugins; isolated organization behavior requires verification.",
+          "source_urls": [
+            "https://github.com/better-auth/better-auth"
+          ]
+        },
+        {
+          "github_repository_id": 1283907968,
+          "full_name": "oomol-lab/open-connector",
+          "grade": 0,
+          "rationale": "Documented role or required primary database conflicts with the goal. SaaS action/OAuth connector infrastructure for agents, not app-user organization identity management.",
+          "source_urls": [
+            "https://github.com/oomol-lab/open-connector"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "CP04-ND-07",
+      "user_goal": "Долгие бизнес-процессы с восстановлением после сбоев",
+      "assessments": [
+        {
+          "github_repository_id": 204164353,
+          "full_name": "kestra-io/kestra",
+          "grade": 2,
+          "rationale": "Core solution is conditionally useful; the facts below name unverified requested details. This is not full hard-requirement satisfaction. Scheduled/event YAML orchestration across languages; exact durable replay/recovery semantics not verified.",
+          "source_urls": [
+            "https://github.com/kestra-io/kestra"
+          ]
+        },
+        {
+          "github_repository_id": 215654064,
+          "full_name": "temporalio/temporal",
+          "grade": 3,
+          "rationale": "Requested main capabilities are documented; deployment quality/readiness is not assessed. Durable workflow runtime with failure recovery and retries.",
+          "source_urls": [
+            "https://github.com/temporalio/temporal"
+          ]
+        },
+        {
+          "github_repository_id": 374763231,
+          "full_name": "inngest/inngest",
+          "grade": 3,
+          "rationale": "Requested main capabilities are documented; deployment quality/readiness is not assessed. Durable step execution with persisted state, recovery, retries and event/cron triggers.",
+          "source_urls": [
+            "https://github.com/inngest/inngest"
+          ]
+        },
+        {
+          "github_repository_id": 573661753,
+          "full_name": "activepieces/activepieces",
+          "grade": 1,
+          "rationale": "Supplementary component or solution requiring substantial assembly for this goal. Connector/business automation platform; durable replay/failure recovery not verified here.",
+          "source_urls": [
+            "https://github.com/activepieces/activepieces"
+          ]
+        },
+        {
+          "github_repository_id": 676672661,
+          "full_name": "langchain-ai/langgraph",
+          "grade": 1,
+          "rationale": "Supplementary component or solution requiring substantial assembly for this goal. Stateful agent/workflow library with persistent durable execution and resumption; requires application integration.",
+          "source_urls": [
+            "https://github.com/langchain-ai/langgraph"
+          ]
+        },
+        {
+          "github_repository_id": 732124850,
+          "full_name": "hatchet-dev/hatchet",
+          "grade": 3,
+          "rationale": "Requested main capabilities are documented; deployment quality/readiness is not assessed. Durable task/workflow service with Python SDK, retries and cron; persistence uses PostgreSQL.",
+          "source_urls": [
+            "https://github.com/hatchet-dev/hatchet"
+          ]
+        },
+        {
+          "github_repository_id": 1033865617,
+          "full_name": "Pimzino/spec-workflow-mcp",
+          "grade": 0,
+          "rationale": "Documented role or required primary database conflicts with the goal. Development specification/approval/task workflow tool, not a durable business execution runtime.",
+          "source_urls": [
+            "https://github.com/Pimzino/spec-workflow-mcp"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "CP04-ND-08",
+      "user_goal": "Python-пайплайны с повторными попытками и расписанием",
+      "assessments": [
+        {
+          "github_repository_id": 184460,
+          "full_name": "celery/celery",
+          "grade": 2,
+          "rationale": "Core solution is conditionally useful; the facts below name unverified requested details. This is not full hard-requirement satisfaction. Python task queue; RabbitMQ/Redis feature-complete backends and experimental local SQLite are documented.",
+          "source_urls": [
+            "https://github.com/celery/celery"
+          ]
+        },
+        {
+          "github_repository_id": 2703394,
+          "full_name": "coleifer/huey",
+          "grade": 3,
+          "rationale": "Requested main capabilities are documented; deployment quality/readiness is not assessed. Python task queue with retries, cron and pipelines; SQLite, filesystem and memory backends are documented alternatives to Redis.",
+          "source_urls": [
+            "https://github.com/coleifer/huey"
+          ]
+        },
+        {
+          "github_repository_id": 2771544,
+          "full_name": "rq/rq",
+          "grade": 2,
+          "rationale": "Core solution is conditionally useful; the facts below name unverified requested details. This is not full hard-requirement satisfaction. Python task queue requiring Redis or Valkey.",
+          "source_urls": [
+            "https://github.com/rq/rq"
+          ]
+        },
+        {
+          "github_repository_id": 33884891,
+          "full_name": "apache/airflow",
+          "grade": 2,
+          "rationale": "Core solution is conditionally useful; the facts below name unverified requested details. This is not full hard-requirement satisfaction. Python workflow authoring/scheduling/monitoring; exact retries not checked in this read.",
+          "source_urls": [
+            "https://github.com/apache/airflow"
+          ]
+        },
+        {
+          "github_repository_id": 92827980,
+          "full_name": "Bogdanp/dramatiq",
+          "grade": 2,
+          "rationale": "Core solution is conditionally useful; the facts below name unverified requested details. This is not full hard-requirement satisfaction. Python background task queue with RabbitMQ/Redis transports documented; broker-free deployment not verified.",
+          "source_urls": [
+            "https://github.com/Bogdanp/dramatiq"
+          ]
+        },
+        {
+          "github_repository_id": 100982449,
+          "full_name": "argoproj/argo-workflows",
+          "grade": 1,
+          "rationale": "Supplementary component or solution requiring substantial assembly for this goal. Container workflow engine implemented as Kubernetes CRDs; requires Kubernetes.",
+          "source_urls": [
+            "https://github.com/argoproj/argo-workflows"
+          ]
+        },
+        {
+          "github_repository_id": 131619646,
+          "full_name": "dagster-io/dagster",
+          "grade": 2,
+          "rationale": "Core solution is conditionally useful; the facts below name unverified requested details. This is not full hard-requirement satisfaction. Python data-asset/pipeline orchestration; retries not verified in this read.",
+          "source_urls": [
+            "https://github.com/dagster-io/dagster"
+          ]
+        },
+        {
+          "github_repository_id": 139199684,
+          "full_name": "PrefectHQ/prefect",
+          "grade": 3,
+          "rationale": "Requested main capabilities are documented; deployment quality/readiness is not assessed. Python pipeline orchestration with scheduling, caching and retries; supports local Python execution.",
+          "source_urls": [
+            "https://github.com/PrefectHQ/prefect"
+          ]
+        },
+        {
+          "github_repository_id": 162494199,
+          "full_name": "taskforcesh/bullmq",
+          "grade": 2,
+          "rationale": "Core solution is conditionally useful; the facts below name unverified requested details. This is not full hard-requirement satisfaction. Redis-backed task queue; current README also documents a Python package, so Node-only rejection would be incorrect.",
+          "source_urls": [
+            "https://github.com/taskforcesh/bullmq"
+          ]
+        },
+        {
+          "github_repository_id": 451613653,
+          "full_name": "temporalio/sdk-python",
+          "grade": 2,
+          "rationale": "Core solution is conditionally useful; the facts below name unverified requested details. This is not full hard-requirement satisfaction. Python SDK for fault-tolerant workflows; requires a Temporal runtime.",
+          "source_urls": [
+            "https://github.com/temporalio/sdk-python"
+          ]
+        },
+        {
+          "github_repository_id": 488804911,
+          "full_name": "windmill-labs/windmill",
+          "grade": 2,
+          "rationale": "Core solution is conditionally useful; the facts below name unverified requested details. This is not full hard-requirement satisfaction. Script/job/flow orchestration including Python; PostgreSQL-backed queue/database.",
+          "source_urls": [
+            "https://github.com/windmill-labs/windmill"
+          ]
+        },
+        {
+          "github_repository_id": 732124850,
+          "full_name": "hatchet-dev/hatchet",
+          "grade": 3,
+          "rationale": "Requested main capabilities are documented; deployment quality/readiness is not assessed. Durable task/workflow service with Python SDK, retries and cron; persistence uses PostgreSQL.",
+          "source_urls": [
+            "https://github.com/hatchet-dev/hatchet"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "CP04-ND-09",
+      "user_goal": "Поиск товаров с опечатками и фасетными фильтрами",
+      "assessments": [
+        {
+          "github_repository_id": 507775,
+          "full_name": "elastic/elasticsearch",
+          "grade": 2,
+          "rationale": "Core solution is conditionally useful; the facts below name unverified requested details. This is not full hard-requirement satisfaction. Full-text search/analytics engine; exact requested typo/facet/federation configuration not checked.",
+          "source_urls": [
+            "https://github.com/elastic/elasticsearch"
+          ]
+        },
+        {
+          "github_repository_id": 49412556,
+          "full_name": "quickwit-oss/tantivy",
+          "grade": 1,
+          "rationale": "Supplementary component or solution requiring substantial assembly for this goal. Rust full-text search library with facets; API/server/distributed serving requires assembly.",
+          "source_urls": [
+            "https://github.com/quickwit-oss/tantivy"
+          ]
+        },
+        {
+          "github_repository_id": 60377070,
+          "full_name": "vespa-engine/vespa",
+          "grade": 2,
+          "rationale": "Core solution is conditionally useful; the facts below name unverified requested details. This is not full hard-requirement satisfaction. Search/recommendation/aggregation platform; requested typo and federation details not verified.",
+          "source_urls": [
+            "https://github.com/vespa-engine/vespa"
+          ]
+        },
+        {
+          "github_repository_id": 79317191,
+          "full_name": "typesense/typesense",
+          "grade": 3,
+          "rationale": "Requested main capabilities are documented; deployment quality/readiness is not assessed. Application search engine with typo tolerance, facets and federated collections in one HTTP request.",
+          "source_urls": [
+            "https://github.com/typesense/typesense"
+          ]
+        },
+        {
+          "github_repository_id": 130688011,
+          "full_name": "meilisearch/meilisearch",
+          "grade": 3,
+          "rationale": "Requested main capabilities are documented; deployment quality/readiness is not assessed. Application search engine with typo tolerance, facets and documented federated multi-index search.",
+          "source_urls": [
+            "https://github.com/meilisearch/meilisearch",
+            "https://www.meilisearch.com/docs/capabilities/multi_search/getting_started/federated_search"
+          ]
+        },
+        {
+          "github_repository_id": 334274271,
+          "full_name": "opensearch-project/OpenSearch",
+          "grade": 2,
+          "rationale": "Core solution is conditionally useful; the facts below name unverified requested details. This is not full hard-requirement satisfaction. Application full-text search engine with documented fuzzy matching; complete requested facet/federation combination not verified.",
+          "source_urls": [
+            "https://github.com/opensearch-project/OpenSearch",
+            "https://docs.opensearch.org/latest/query-dsl/term/fuzzy/"
+          ]
+        },
+        {
+          "github_repository_id": 357241735,
+          "full_name": "searxng/searxng",
+          "grade": 0,
+          "rationale": "Documented role or required primary database conflicts with the goal. External web/provider search or metasearch tool; not serving the application-owned inventory index requested here.",
+          "source_urls": [
+            "https://github.com/searxng/searxng"
+          ]
+        },
+        {
+          "github_repository_id": 357707809,
+          "full_name": "quickwit-oss/quickwit",
+          "grade": 2,
+          "rationale": "Core solution is conditionally useful; the facts below name unverified requested details. This is not full hard-requirement satisfaction. Full-text search and aggregation engine focused on logs/traces; application-search requirements need verification.",
+          "source_urls": [
+            "https://github.com/quickwit-oss/quickwit"
+          ]
+        },
+        {
+          "github_repository_id": 434218673,
+          "full_name": "zincsearch/zincsearch",
+          "grade": 2,
+          "rationale": "Core solution is conditionally useful; the facts below name unverified requested details. This is not full hard-requirement satisfaction. Full-text search server with aggregation; requested typo/federation behavior not verified.",
+          "source_urls": [
+            "https://github.com/zincsearch/zincsearch"
+          ]
+        },
+        {
+          "github_repository_id": 787076358,
+          "full_name": "firecrawl/firecrawl",
+          "grade": 0,
+          "rationale": "Documented role or required primary database conflicts with the goal. Web search/crawl/extraction infrastructure; not the requested inventory search serving engine.",
+          "source_urls": [
+            "https://github.com/firecrawl/firecrawl"
+          ]
+        },
+        {
+          "github_repository_id": 902662933,
+          "full_name": "kagisearch/kagimcp",
+          "grade": 0,
+          "rationale": "Documented role or required primary database conflicts with the goal. External web/provider search or metasearch tool; not serving the application-owned inventory index requested here.",
+          "source_urls": [
+            "https://github.com/kagisearch/kagimcp"
+          ]
+        },
+        {
+          "github_repository_id": 997125912,
+          "full_name": "zilliztech/claude-context",
+          "grade": 0,
+          "rationale": "Documented role or required primary database conflicts with the goal. Codebase semantic search for coding agents; different corpus from the requested ecommerce index.",
+          "source_urls": [
+            "https://github.com/zilliztech/claude-context"
+          ]
+        },
+        {
+          "github_repository_id": 1009504831,
+          "full_name": "mrkrsl/web-search-mcp",
+          "grade": 0,
+          "rationale": "Documented role or required primary database conflicts with the goal. External web/provider search or metasearch tool; not serving the application-owned inventory index requested here.",
+          "source_urls": [
+            "https://github.com/mrkrsl/web-search-mcp"
+          ]
+        },
+        {
+          "github_repository_id": 1048068299,
+          "full_name": "serenedb/serenedb",
+          "grade": 2,
+          "rationale": "Core solution is conditionally useful; the facts below name unverified requested details. This is not full hard-requirement satisfaction. Search and analytics database; exact requested application-search features not verified.",
+          "source_urls": [
+            "https://github.com/serenedb/serenedb"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "CP04-ND-10",
+      "user_goal": "Общий поиск по нескольким коллекциям приложения",
+      "assessments": [
+        {
+          "github_repository_id": 507775,
+          "full_name": "elastic/elasticsearch",
+          "grade": 2,
+          "rationale": "Core solution is conditionally useful; the facts below name unverified requested details. This is not full hard-requirement satisfaction. Full-text search/analytics engine; exact requested typo/facet/federation configuration not checked.",
+          "source_urls": [
+            "https://github.com/elastic/elasticsearch"
+          ]
+        },
+        {
+          "github_repository_id": 529502,
+          "full_name": "scrapy/scrapy",
+          "grade": 1,
+          "rationale": "Supplementary component or solution requiring substantial assembly for this goal. Web crawling/extraction library; useful ingestion component, needs separate indexing and search serving.",
+          "source_urls": [
+            "https://github.com/scrapy/scrapy"
+          ]
+        },
+        {
+          "github_repository_id": 49412556,
+          "full_name": "quickwit-oss/tantivy",
+          "grade": 1,
+          "rationale": "Supplementary component or solution requiring substantial assembly for this goal. Rust full-text search library with facets; API/server/distributed serving requires assembly.",
+          "source_urls": [
+            "https://github.com/quickwit-oss/tantivy"
+          ]
+        },
+        {
+          "github_repository_id": 60377070,
+          "full_name": "vespa-engine/vespa",
+          "grade": 2,
+          "rationale": "Core solution is conditionally useful; the facts below name unverified requested details. This is not full hard-requirement satisfaction. Search/recommendation/aggregation platform; requested typo and federation details not verified.",
+          "source_urls": [
+            "https://github.com/vespa-engine/vespa"
+          ]
+        },
+        {
+          "github_repository_id": 66670819,
+          "full_name": "apify/crawlee",
+          "grade": 1,
+          "rationale": "Supplementary component or solution requiring substantial assembly for this goal. Web crawling/extraction library; useful ingestion component, needs separate indexing and search serving.",
+          "source_urls": [
+            "https://github.com/apify/crawlee"
+          ]
+        },
+        {
+          "github_repository_id": 79317191,
+          "full_name": "typesense/typesense",
+          "grade": 3,
+          "rationale": "Requested main capabilities are documented; deployment quality/readiness is not assessed. Application search engine with typo tolerance, facets and federated collections in one HTTP request.",
+          "source_urls": [
+            "https://github.com/typesense/typesense"
+          ]
+        },
+        {
+          "github_repository_id": 130688011,
+          "full_name": "meilisearch/meilisearch",
+          "grade": 3,
+          "rationale": "Requested main capabilities are documented; deployment quality/readiness is not assessed. Application search engine with typo tolerance, facets and documented federated multi-index search.",
+          "source_urls": [
+            "https://github.com/meilisearch/meilisearch",
+            "https://www.meilisearch.com/docs/capabilities/multi_search/getting_started/federated_search"
+          ]
+        },
+        {
+          "github_repository_id": 180136168,
+          "full_name": "adbar/trafilatura",
+          "grade": 1,
+          "rationale": "Supplementary component or solution requiring substantial assembly for this goal. Web crawling/extraction library; useful ingestion component, needs separate indexing and search serving.",
+          "source_urls": [
+            "https://github.com/adbar/trafilatura"
+          ]
+        },
+        {
+          "github_repository_id": 334274271,
+          "full_name": "opensearch-project/OpenSearch",
+          "grade": 2,
+          "rationale": "Core solution is conditionally useful; the facts below name unverified requested details. This is not full hard-requirement satisfaction. Application full-text search engine with documented fuzzy matching; complete requested facet/federation combination not verified.",
+          "source_urls": [
+            "https://github.com/opensearch-project/OpenSearch",
+            "https://docs.opensearch.org/latest/query-dsl/term/fuzzy/"
+          ]
+        },
+        {
+          "github_repository_id": 357241735,
+          "full_name": "searxng/searxng",
+          "grade": 0,
+          "rationale": "Documented role or required primary database conflicts with the goal. External web/provider search or metasearch tool; not serving the application-owned inventory index requested here.",
+          "source_urls": [
+            "https://github.com/searxng/searxng"
+          ]
+        },
+        {
+          "github_repository_id": 357707809,
+          "full_name": "quickwit-oss/quickwit",
+          "grade": 2,
+          "rationale": "Core solution is conditionally useful; the facts below name unverified requested details. This is not full hard-requirement satisfaction. Full-text search and aggregation engine focused on logs/traces; application-search requirements need verification.",
+          "source_urls": [
+            "https://github.com/quickwit-oss/quickwit"
+          ]
+        },
+        {
+          "github_repository_id": 434218673,
+          "full_name": "zincsearch/zincsearch",
+          "grade": 2,
+          "rationale": "Core solution is conditionally useful; the facts below name unverified requested details. This is not full hard-requirement satisfaction. Full-text search server with aggregation; requested typo/federation behavior not verified.",
+          "source_urls": [
+            "https://github.com/zincsearch/zincsearch"
+          ]
+        },
+        {
+          "github_repository_id": 946214670,
+          "full_name": "perplexityai/modelcontextprotocol",
+          "grade": 0,
+          "rationale": "Documented role or required primary database conflicts with the goal. External web/provider search or metasearch tool; not serving the application-owned inventory index requested here.",
+          "source_urls": [
+            "https://github.com/perplexityai/modelcontextprotocol"
+          ]
+        },
+        {
+          "github_repository_id": 1005553140,
+          "full_name": "Aas-ee/open-webSearch",
+          "grade": 0,
+          "rationale": "Documented role or required primary database conflicts with the goal. External web/provider search or metasearch tool; not serving the application-owned inventory index requested here.",
+          "source_urls": [
+            "https://github.com/Aas-ee/open-webSearch"
+          ]
+        },
+        {
+          "github_repository_id": 1009504831,
+          "full_name": "mrkrsl/web-search-mcp",
+          "grade": 0,
+          "rationale": "Documented role or required primary database conflicts with the goal. External web/provider search or metasearch tool; not serving the application-owned inventory index requested here.",
+          "source_urls": [
+            "https://github.com/mrkrsl/web-search-mcp"
+          ]
+        },
+        {
+          "github_repository_id": 1048068299,
+          "full_name": "serenedb/serenedb",
+          "grade": 2,
+          "rationale": "Core solution is conditionally useful; the facts below name unverified requested details. This is not full hard-requirement satisfaction. Search and analytics database; exact requested application-search features not verified.",
+          "source_urls": [
+            "https://github.com/serenedb/serenedb"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "CP04-ND-11",
+      "user_goal": "REST и GraphQL поверх существующей SQL-базы с администрированием",
+      "assessments": [
+        {
+          "github_repository_id": 7122594,
+          "full_name": "directus/directus",
+          "grade": 3,
+          "rationale": "Requested main capabilities are documented; deployment quality/readiness is not assessed. Wraps SQL databases with REST/GraphQL and administration; licensing conditions require a separate adoption check.",
+          "source_urls": [
+            "https://github.com/directus/directus"
+          ]
+        },
+        {
+          "github_repository_id": 43441403,
+          "full_name": "strapi/strapi",
+          "grade": 2,
+          "rationale": "Core solution is conditionally useful; the facts below name unverified requested details. This is not full hard-requirement satisfaction. CMS content modeling with REST/GraphQL/admin and SQL backends; direct wrapping of an untouched existing schema not verified.",
+          "source_urls": [
+            "https://github.com/strapi/strapi"
+          ]
+        },
+        {
+          "github_repository_id": 111562942,
+          "full_name": "statamic/cms",
+          "grade": 1,
+          "rationale": "Supplementary component or solution requiring substantial assembly for this goal. Laravel flat-first CMS; not a verified existing-SQL REST/GraphQL wrapper.",
+          "source_urls": [
+            "https://github.com/statamic/cms"
+          ]
+        },
+        {
+          "github_repository_id": 128193054,
+          "full_name": "keystonejs/keystone",
+          "grade": 2,
+          "rationale": "Core solution is conditionally useful; the facts below name unverified requested details. This is not full hard-requirement satisfaction. Schema-defined GraphQL/backend with management UI; REST and direct existing-SQL wrapping not verified.",
+          "source_urls": [
+            "https://github.com/keystonejs/keystone"
+          ]
+        },
+        {
+          "github_repository_id": 327089870,
+          "full_name": "payloadcms/payload",
+          "grade": 2,
+          "rationale": "Core solution is conditionally useful; the facts below name unverified requested details. This is not full hard-requirement satisfaction. Application CMS/backend and admin with database adapters; direct existing-SQL wrapping not verified.",
+          "source_urls": [
+            "https://github.com/payloadcms/payload"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "CP04-ND-12",
+      "user_goal": "Небольшой backend с SQLite и подписками на изменения",
+      "assessments": [
+        {
+          "github_repository_id": 50603846,
+          "full_name": "parse-community/parse-server",
+          "grade": 0,
+          "rationale": "Documented role or required primary database conflicts with the goal. App backend requiring MongoDB or PostgreSQL/PostGIS; required SQLite backend conflicts with documented prerequisites.",
+          "source_urls": [
+            "https://github.com/parse-community/parse-server"
+          ]
+        },
+        {
+          "github_repository_id": 180190854,
+          "full_name": "appwrite/appwrite",
+          "grade": null,
+          "rationale": "Mandatory SQLite support is unverified; fit remains unknown. Backend platform with authentication, databases and realtime; required SQLite backend not confirmed.",
+          "source_urls": [
+            "https://github.com/appwrite/appwrite"
+          ]
+        },
+        {
+          "github_repository_id": 214587193,
+          "full_name": "supabase/supabase",
+          "grade": 0,
+          "rationale": "Documented role or required primary database conflicts with the goal. Postgres backend platform with auth, APIs and realtime; documented primary database conflicts with the requested SQLite backend.",
+          "source_urls": [
+            "https://github.com/supabase/supabase"
+          ]
+        },
+        {
+          "github_repository_id": 337414495,
+          "full_name": "nhost/nhost",
+          "grade": 0,
+          "rationale": "Documented role or required primary database conflicts with the goal. PostgreSQL/Hasura backend platform; primary database conflicts with the requested SQLite backend.",
+          "source_urls": [
+            "https://github.com/nhost/nhost"
+          ]
+        },
+        {
+          "github_repository_id": 510607652,
+          "full_name": "pocketbase/pocketbase",
+          "grade": 3,
+          "rationale": "Requested main capabilities are documented; deployment quality/readiness is not assessed. Embedded SQLite backend with realtime, users, files and API; pre-1.0 compatibility caveat remains.",
+          "source_urls": [
+            "https://github.com/pocketbase/pocketbase"
+          ]
+        },
+        {
+          "github_repository_id": 769023213,
+          "full_name": "get-convex/convex-backend",
+          "grade": 3,
+          "rationale": "Requested main capabilities are documented; deployment quality/readiness is not assessed. Reactive app database/backend with documented self-hosted SQLite support; platform compatibility needs adoption testing.",
+          "source_urls": [
+            "https://github.com/get-convex/convex-backend"
+          ]
+        },
+        {
+          "github_repository_id": 1028159967,
+          "full_name": "InsForge/InsForge",
+          "grade": null,
+          "rationale": "Mandatory SQLite support is unverified; fit remains unknown. Backend platform for agent-built apps; required SQLite and exact realtime contract not confirmed.",
+          "source_urls": [
+            "https://github.com/InsForge/InsForge"
+          ]
+        }
+      ]
+    }
+  ],
+  "official_relevance_metrics": null,
+  "promotion_ready": false
+}

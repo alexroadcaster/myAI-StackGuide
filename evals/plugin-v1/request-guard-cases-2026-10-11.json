@@ -1,0 +1,274 @@
+{
+  "schema_version": "cp04_request_guard_cases_v1",
+  "scope": "Structured Codex/interview interpretation frozen before capture; no automatic natural-language extraction or model quality claim.",
+  "cases": [
+    {
+      "case_id": "CP04-NEG-01",
+      "user_goal": "Python tasks with retries; no Redis, Valkey or RabbitMQ.",
+      "query_locale": "ru",
+      "query_terms": [
+        "Python",
+        "retries",
+        "pipeline",
+        "scheduling"
+      ],
+      "target_category_id": "queues_streaming_messaging",
+      "intent": {
+        "required_groups": [
+          [
+            "Python"
+          ],
+          [
+            "retries"
+          ]
+        ],
+        "context_terms": [
+          "pipeline",
+          "scheduling"
+        ]
+      },
+      "request_constraints": {
+        "excluded_repository_ids": [],
+        "excluded_dependencies": [
+          "redis",
+          "valkey",
+          "rabbitmq"
+        ],
+        "unresolved": []
+      }
+    },
+    {
+      "case_id": "CP04-NEG-02",
+      "user_goal": "Python scheduled pipelines with retries; Kubernetes is forbidden.",
+      "query_locale": "ru",
+      "query_terms": [
+        "Python",
+        "retries",
+        "pipeline",
+        "scheduling"
+      ],
+      "target_category_id": "queues_streaming_messaging",
+      "intent": {
+        "required_groups": [
+          [
+            "Python"
+          ],
+          [
+            "retries"
+          ]
+        ],
+        "context_terms": [
+          "pipeline",
+          "scheduling"
+        ]
+      },
+      "request_constraints": {
+        "excluded_repository_ids": [],
+        "excluded_dependencies": [
+          "kubernetes"
+        ],
+        "unresolved": []
+      }
+    },
+    {
+      "case_id": "CP04-NEG-03",
+      "user_goal": "Local SQLite realtime backend; no PostgreSQL or MongoDB service.",
+      "query_locale": "ru",
+      "query_terms": [
+        "SQLite",
+        "realtime",
+        "backend",
+        "local"
+      ],
+      "target_category_id": "baas_platforms",
+      "intent": {
+        "required_groups": [
+          [
+            "SQLite"
+          ],
+          [
+            "realtime"
+          ]
+        ],
+        "context_terms": [
+          "backend",
+          "local"
+        ]
+      },
+      "request_constraints": {
+        "excluded_repository_ids": [],
+        "excluded_dependencies": [
+          "postgresql",
+          "mongodb"
+        ],
+        "unresolved": []
+      }
+    },
+    {
+      "case_id": "CP04-NEG-04",
+      "user_goal": "B2B SaaS organizations and SSO; PostgreSQL is forbidden.",
+      "query_locale": "ru",
+      "query_terms": [
+        "multi-tenancy",
+        "organizations",
+        "SSO",
+        "SaaS"
+      ],
+      "target_category_id": "auth_identity_access",
+      "intent": {
+        "required_groups": [
+          [
+            "multi-tenancy"
+          ],
+          [
+            "organizations"
+          ]
+        ],
+        "context_terms": [
+          "SSO",
+          "SaaS"
+        ]
+      },
+      "request_constraints": {
+        "excluded_repository_ids": [],
+        "excluded_dependencies": [
+          "postgresql"
+        ],
+        "unresolved": []
+      }
+    },
+    {
+      "case_id": "CP04-NEG-05",
+      "user_goal": "S3 file storage and metadata; exclude MinIO from consideration.",
+      "query_locale": "ru",
+      "query_terms": [
+        "S3",
+        "filer",
+        "storage",
+        "files"
+      ],
+      "target_category_id": "data_lakes_object_storage",
+      "intent": {
+        "required_groups": [
+          [
+            "S3"
+          ],
+          [
+            "filer"
+          ]
+        ],
+        "context_terms": [
+          "storage",
+          "files"
+        ]
+      },
+      "request_constraints": {
+        "excluded_repository_ids": [
+          29261473
+        ],
+        "excluded_dependencies": [],
+        "unresolved": []
+      }
+    },
+    {
+      "case_id": "CP04-NEG-06",
+      "user_goal": "Automatic public/internal HTTPS proxy; Caddy is excluded by project policy.",
+      "query_locale": "ru",
+      "query_terms": [
+        "HTTPS",
+        "certificates",
+        "internal",
+        "proxy"
+      ],
+      "target_category_id": "network_proxies_gateways",
+      "intent": {
+        "required_groups": [
+          [
+            "HTTPS"
+          ],
+          [
+            "certificates"
+          ]
+        ],
+        "context_terms": [
+          "internal",
+          "proxy"
+        ]
+      },
+      "request_constraints": {
+        "excluded_repository_ids": [
+          29207621
+        ],
+        "excluded_dependencies": [],
+        "unresolved": []
+      }
+    },
+    {
+      "case_id": "CP04-AMB-01",
+      "user_goal": "Need search for my application.",
+      "query_locale": "ru",
+      "query_terms": null,
+      "target_category_id": null,
+      "intent": null,
+      "request_constraints": {
+        "excluded_repository_ids": [],
+        "excluded_dependencies": [],
+        "unresolved": [
+          {
+            "dimension": "search_corpus",
+            "question": "Search application-owned records or the external web? Which API/corpus constraints apply?",
+            "options": [
+              "application_data",
+              "external_web"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "CP04-AMB-02",
+      "user_goal": "Need federation for the project.",
+      "query_locale": "ru",
+      "query_terms": null,
+      "target_category_id": null,
+      "intent": null,
+      "request_constraints": {
+        "excluded_repository_ids": [],
+        "excluded_dependencies": [],
+        "unresolved": [
+          {
+            "dimension": "federation_domain",
+            "question": "User/identity federation, multi-index search, or another federation?",
+            "options": [
+              "identity",
+              "search"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "CP04-AMB-03",
+      "user_goal": "Need workflow support.",
+      "query_locale": "ru",
+      "query_terms": null,
+      "target_category_id": null,
+      "intent": null,
+      "request_constraints": {
+        "excluded_repository_ids": [],
+        "excluded_dependencies": [],
+        "unresolved": [
+          {
+            "dimension": "workflow_purpose",
+            "question": "Durable business execution, agent state, data pipelines, or development specifications?",
+            "options": [
+              "business_execution",
+              "development_specs",
+              "agent_state"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

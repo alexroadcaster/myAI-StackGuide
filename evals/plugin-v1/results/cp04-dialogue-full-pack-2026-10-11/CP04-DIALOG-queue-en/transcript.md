@@ -1,0 +1,55 @@
+# CP04-DIALOG-queue-en
+
+Presentation-only transcript. Raw dialogue.json is authoritative; literal newline escapes are expanded for reading.
+
+## user
+
+A small Python API needs background jobs, schedules and retries. Redis, Valkey, RabbitMQ and Kubernetes are forbidden. SQLite is available; one Python engineer. We want to ship features sooner without building a queue engine.
+
+## assistant
+
+**Conditionally prefer Huey (`coleifer/huey`, ID `2703394`) with its SQLite backend for the first validation.** It directly addresses your small Python API’s background jobs, schedules and retries without requiring the forbidden infrastructure. The supplied primary-source observation dated **2026-10-11** documents Python tasks, retries, cron scheduling, SQLite as an alternative to Redis, and a separate consumer process. This supports evaluating that specific configuration; it does not establish deployment compatibility, throughput or crash recovery for your application. [Huey repository](https://github.com/coleifer/huey)
+
+The frozen **2026-09-01 catalog** establishes repository identity and reports an MIT license, but its advisory fit fields remain unresolved. The dated host observation strengthens the SQLite configuration’s fit without changing the frozen catalog or proving operability. This answer uses the supplied evidence only; no execution or validation has occurred.
+
+**Proposed architecture and product benefit.** Retain the Python API and its business logic. Add Huey as the task library, a persistent SQLite queue file, and one separately supervised consumer process. Start with a single-host arrangement, conditional on your deployment supporting both a long-running process and durable local storage.
+
+Proposed data flow:
+
+`API → enqueue task with record ID → SQLite queue → Huey consumer → business handler → application-owned result/status`
+
+`Periodic schedule → task execution through the consumer → business handler`
+
+The API would validate and authorize the request before enqueueing. Workers would load the relevant application records using identifiers rather than copying sensitive request bodies into the queue. Application data would remain in its existing store; the queue would hold task information. Keep the queue file accessible only to trusted application and worker processes.
+
+The expected product benefit is that suitable work can continue outside the request, allowing the API to acknowledge an accepted job sooner. Huey supplies task execution, retry and scheduling primitives, so your engineer can concentrate on feature handlers rather than implementing those mechanisms. These are inferred benefits, not measured latency or delivery savings. [Documented Huey capabilities](https://github.com/coleifer/huey)
+
+**Technical work and complexity.** Your team still owns task boundaries, input validation, idempotent side effects, retry limits, timeouts, user-visible status, failure alerts and operational procedures. Queue adoption does not make a business operation exactly-once or make an application database update atomic with enqueueing.
+
+The main complexity drivers are:
+
+- **Deployment:** whether a consumer can remain running and the SQLite file survives restarts and redeployments. Multiple hosts or ephemeral storage would invalidate the proposed arrangement.
+- **Failure semantics:** exception retries are documented, but the supplied evidence does not establish recovery after abrupt termination during a task. Test that separately before relying on it.
+- **Workload:** task duration, arrival bursts and concurrency determine whether SQLite contention and backlog are acceptable. No capacity claim is supported yet.
+- **Scheduling and lifecycle:** verify time zones, behavior after downtime, task compatibility across releases, and a rollback procedure that preserves pending work.
+
+**Comparison with the current/native approach and custom development.** The current implementation is unknown. If it only executes work during requests or uses in-process background execution, keeping it may be sufficient for disposable work; it does not by itself demonstrate the persistent jobs, scheduling and retry behavior you requested. If an existing component already meets those requirements, keeping it could cost less than introducing Huey.
+
+For an equivalent single-host SQLite solution built from scratch, your engineer would also own job claiming, scheduling, retry state, concurrency behavior and recovery semantics. Huey is preferable provisionally because documented primitives already cover the requested capabilities. Its costs include a library dependency, version compatibility checks, consumer operations and SQLite maintenance. Custom development offers control over semantics but makes the queue engine your ongoing maintenance responsibility. Reuse would lose its advantage if the pilot reveals a required reliability behavior that needs extensive custom recovery machinery.
+
+**Conditional planning estimate.** Assume one Python engineer familiar with the API, working full-time at **8 engineering hours per day**, integrating two simple task types and one periodic schedule. Assume durable single-host storage, no existing queue migration, and no new dashboard, transactional outbox, high availability or complex workflows. Estimates have low confidence until deployment and failure requirements are known.
+
+| Phase | Huey adoption | Equivalent-scope custom SQLite queue |
+|---|---:|---:|
+| First validation slice | 4–8 engineer-hours | 4–8 engineer-hours |
+| Library configuration / queue engine implementation | 4–8 | 24–48 |
+| API and business-handler integration | 8–16 | 8–16 |
+| Failure, retry, schedule and workload validation | 8–16 | 16–32 |
+| Supervision, diagnostics and rollback procedure | 4–8 | 4–8 |
+| **Scoped total** | **28–56 engineer-hours** | **56–112 engineer-hours** |
+
+The first validation is included once in each total. With one engineer allocated 100%, these correspond to approximately **3.5–7 working days** and **7–14 working days**, respectively. External waiting for deployment access or decisions is unknown and additional. These are planning scenarios, not measured savings, equal-reliability proof or delivery commitments; both approaches retain maintenance costs.
+
+The smallest decision-changing question is: **Can the deployment run a persistent consumer alongside the API with durable local SQLite storage, or must jobs span multiple hosts or ephemeral instances?**
+
+**First validation:** in the actual deployment environment, explicitly configure SQLite and exercise one immediate task, one delayed task, one periodic task, and a task that fails twice before succeeding. Restart the consumer with pending work, then terminate it during execution and inspect the resulting task state and business effects. Run a representative burst while the API remains active. Proceed only if persistence, scheduling behavior, retry limits, crash outcomes and backlog satisfy agreed requirements. If automatic recovery of interrupted work is essential and the pilot cannot demonstrate it, stop adoption and reassess the design.

@@ -1,0 +1,442 @@
+{
+  "schema_version": "cp04_domain_adversarial_v1",
+  "scope": "Prospective request/query projection boundary probes. Positive terms/routes intentionally reused; negative annotations never rank/filter. Ambiguous projections are evaluator assumptions, not observed model choices.",
+  "cases": [
+    {
+      "case_id": "CP04-NEG-01",
+      "user_goal": "Python tasks with retries; no Redis, Valkey or RabbitMQ.",
+      "query_locale": "ru",
+      "query_terms": [
+        "Python",
+        "retries",
+        "pipeline",
+        "scheduling"
+      ],
+      "target_category_id": "queues_streaming_messaging",
+      "intent": {
+        "required_groups": [
+          [
+            "Python"
+          ],
+          [
+            "retries"
+          ]
+        ],
+        "context_terms": [
+          "pipeline",
+          "scheduling"
+        ]
+      },
+      "expected_target_id": 139199684,
+      "expected_target_name": "PrefectHQ/prefect",
+      "source_url": "https://github.com/PrefectHQ/prefect",
+      "observed_on": "2026-10-11",
+      "other_candidates": "unjudged; never implicit negatives",
+      "challenge": {
+        "kind": "negative",
+        "criterion": "Documented queue path depends on an excluded broker. Celery is not forbidden: experimental SQLite exists.",
+        "forbidden": [
+          {
+            "github_repository_id": 2771544,
+            "full_name": "rq/rq",
+            "source_urls": [
+              "https://github.com/rq/rq"
+            ],
+            "basis": "Python task queue requiring Redis or Valkey."
+          },
+          {
+            "github_repository_id": 162494199,
+            "full_name": "taskforcesh/bullmq",
+            "source_urls": [
+              "https://github.com/taskforcesh/bullmq"
+            ],
+            "basis": "Redis-backed task queue; current README also documents a Python package, so Node-only rejection would be incorrect."
+          }
+        ],
+        "known_alternatives": [
+          2703394
+        ],
+        "expected_action": "Do not present a known conflict as satisfying the request; qualify unknown dependencies before adoption.",
+        "projection_status": "unsupported: current positive-term query/intent does not represent this negative condition"
+      }
+    },
+    {
+      "case_id": "CP04-NEG-02",
+      "user_goal": "Python scheduled pipelines with retries; Kubernetes is forbidden.",
+      "query_locale": "ru",
+      "query_terms": [
+        "Python",
+        "retries",
+        "pipeline",
+        "scheduling"
+      ],
+      "target_category_id": "queues_streaming_messaging",
+      "intent": {
+        "required_groups": [
+          [
+            "Python"
+          ],
+          [
+            "retries"
+          ]
+        ],
+        "context_terms": [
+          "pipeline",
+          "scheduling"
+        ]
+      },
+      "expected_target_id": 139199684,
+      "expected_target_name": "PrefectHQ/prefect",
+      "source_url": "https://github.com/PrefectHQ/prefect",
+      "observed_on": "2026-10-11",
+      "other_candidates": "unjudged; never implicit negatives",
+      "challenge": {
+        "kind": "negative",
+        "criterion": "Kubernetes CRDs require the excluded platform.",
+        "forbidden": [
+          {
+            "github_repository_id": 100982449,
+            "full_name": "argoproj/argo-workflows",
+            "source_urls": [
+              "https://github.com/argoproj/argo-workflows"
+            ],
+            "basis": "Container workflow engine implemented as Kubernetes CRDs; requires Kubernetes."
+          }
+        ],
+        "known_alternatives": [
+          139199684,
+          2703394
+        ],
+        "expected_action": "Do not present a known conflict as satisfying the request; qualify unknown dependencies before adoption.",
+        "projection_status": "unsupported: current positive-term query/intent does not represent this negative condition"
+      }
+    },
+    {
+      "case_id": "CP04-NEG-03",
+      "user_goal": "Local SQLite realtime backend; no PostgreSQL or MongoDB service.",
+      "query_locale": "ru",
+      "query_terms": [
+        "SQLite",
+        "realtime",
+        "backend",
+        "local"
+      ],
+      "target_category_id": "baas_platforms",
+      "intent": {
+        "required_groups": [
+          [
+            "SQLite"
+          ],
+          [
+            "realtime"
+          ]
+        ],
+        "context_terms": [
+          "backend",
+          "local"
+        ]
+      },
+      "expected_target_id": 510607652,
+      "expected_target_name": "pocketbase/pocketbase",
+      "source_url": "https://github.com/pocketbase/pocketbase",
+      "observed_on": "2026-10-11",
+      "other_candidates": "unjudged; never implicit negatives",
+      "challenge": {
+        "kind": "negative",
+        "criterion": "Documented primary database is excluded.",
+        "forbidden": [
+          {
+            "github_repository_id": 214587193,
+            "full_name": "supabase/supabase",
+            "source_urls": [
+              "https://github.com/supabase/supabase"
+            ],
+            "basis": "Postgres backend platform with auth, APIs and realtime; documented primary database conflicts with the requested SQLite backend."
+          },
+          {
+            "github_repository_id": 337414495,
+            "full_name": "nhost/nhost",
+            "source_urls": [
+              "https://github.com/nhost/nhost"
+            ],
+            "basis": "PostgreSQL/Hasura backend platform; primary database conflicts with the requested SQLite backend."
+          },
+          {
+            "github_repository_id": 50603846,
+            "full_name": "parse-community/parse-server",
+            "source_urls": [
+              "https://github.com/parse-community/parse-server"
+            ],
+            "basis": "App backend requiring MongoDB or PostgreSQL/PostGIS; required SQLite backend conflicts with documented prerequisites."
+          }
+        ],
+        "known_alternatives": [
+          510607652,
+          769023213
+        ],
+        "expected_action": "Do not present a known conflict as satisfying the request; qualify unknown dependencies before adoption.",
+        "projection_status": "unsupported: current positive-term query/intent does not represent this negative condition"
+      }
+    },
+    {
+      "case_id": "CP04-NEG-04",
+      "user_goal": "B2B SaaS organizations and SSO; PostgreSQL is forbidden.",
+      "query_locale": "ru",
+      "query_terms": [
+        "multi-tenancy",
+        "organizations",
+        "SSO",
+        "SaaS"
+      ],
+      "target_category_id": "auth_identity_access",
+      "intent": {
+        "required_groups": [
+          [
+            "multi-tenancy"
+          ],
+          [
+            "organizations"
+          ]
+        ],
+        "context_terms": [
+          "SSO",
+          "SaaS"
+        ]
+      },
+      "expected_target_id": 247714750,
+      "expected_target_name": "zitadel/zitadel",
+      "source_url": "https://github.com/zitadel/zitadel",
+      "observed_on": "2026-10-11",
+      "other_candidates": "unjudged; never implicit negatives",
+      "challenge": {
+        "kind": "negative",
+        "criterion": "Documented local deployment requires excluded PostgreSQL. Unchecked providers remain unknown.",
+        "forbidden": [
+          {
+            "github_repository_id": 378310716,
+            "full_name": "logto-io/logto",
+            "source_urls": [
+              "https://github.com/logto-io/logto"
+            ],
+            "basis": "Identity platform with external IdP connectors, enterprise SSO, organizations and organization RBAC; local setup requires PostgreSQL."
+          }
+        ],
+        "known_alternatives": [
+          306366900
+        ],
+        "expected_action": "Do not present a known conflict as satisfying the request; qualify unknown dependencies before adoption.",
+        "projection_status": "unsupported: current positive-term query/intent does not represent this negative condition"
+      }
+    },
+    {
+      "case_id": "CP04-NEG-05",
+      "user_goal": "S3 file storage and metadata; exclude MinIO from consideration.",
+      "query_locale": "ru",
+      "query_terms": [
+        "S3",
+        "filer",
+        "storage",
+        "files"
+      ],
+      "target_category_id": "data_lakes_object_storage",
+      "intent": {
+        "required_groups": [
+          [
+            "S3"
+          ],
+          [
+            "filer"
+          ]
+        ],
+        "context_terms": [
+          "storage",
+          "files"
+        ]
+      },
+      "expected_target_id": 21827146,
+      "expected_target_name": "seaweedfs/seaweedfs",
+      "source_url": "https://github.com/seaweedfs/seaweedfs",
+      "observed_on": "2026-10-11",
+      "other_candidates": "unjudged; never implicit negatives",
+      "challenge": {
+        "kind": "negative",
+        "criterion": "Explicit user product exclusion; not inferred from repository quality.",
+        "forbidden": [
+          {
+            "github_repository_id": 29261473,
+            "full_name": "minio/minio",
+            "source_urls": [
+              "https://github.com/minio/minio"
+            ],
+            "basis": "S3-compatible object store. Current README states that this repository is no longer maintained; directory/filer semantics not verified."
+          }
+        ],
+        "known_alternatives": [
+          21827146,
+          327859577
+        ],
+        "expected_action": "Do not present a known conflict as satisfying the request; qualify unknown dependencies before adoption.",
+        "projection_status": "unsupported: current positive-term query/intent does not represent this negative condition"
+      }
+    },
+    {
+      "case_id": "CP04-NEG-06",
+      "user_goal": "Automatic public/internal HTTPS proxy; Caddy is excluded by project policy.",
+      "query_locale": "ru",
+      "query_terms": [
+        "HTTPS",
+        "certificates",
+        "internal",
+        "proxy"
+      ],
+      "target_category_id": "network_proxies_gateways",
+      "intent": {
+        "required_groups": [
+          [
+            "HTTPS"
+          ],
+          [
+            "certificates"
+          ]
+        ],
+        "context_terms": [
+          "internal",
+          "proxy"
+        ]
+      },
+      "expected_target_id": 29207621,
+      "expected_target_name": "caddyserver/caddy",
+      "source_url": "https://github.com/caddyserver/caddy",
+      "observed_on": "2026-10-11",
+      "other_candidates": "unjudged; never implicit negatives",
+      "challenge": {
+        "kind": "negative",
+        "criterion": "Explicit user product exclusion; no known alternative is assumed to satisfy automatic internal CA.",
+        "forbidden": [
+          {
+            "github_repository_id": 29207621,
+            "full_name": "caddyserver/caddy",
+            "source_urls": [
+              "https://github.com/caddyserver/caddy"
+            ],
+            "basis": "HTTPS server/reverse proxy with public automatic certificates and managed internal CA."
+          }
+        ],
+        "known_alternatives": [],
+        "expected_action": "Do not present a known conflict as satisfying the request; qualify unknown dependencies before adoption.",
+        "projection_status": "unsupported: current positive-term query/intent does not represent this negative condition"
+      }
+    },
+    {
+      "case_id": "CP04-AMB-01",
+      "user_goal": "Need search for my application.",
+      "query_locale": "ru",
+      "query_terms": [
+        "federated",
+        "collections",
+        "search",
+        "API"
+      ],
+      "target_category_id": "search_hybrid_retrieval",
+      "intent": {
+        "required_groups": [
+          [
+            "federated"
+          ],
+          [
+            "collections"
+          ]
+        ],
+        "context_terms": [
+          "search",
+          "API"
+        ]
+      },
+      "expected_target_id": 79317191,
+      "expected_target_name": "typesense/typesense",
+      "source_url": "https://github.com/typesense/typesense",
+      "observed_on": "2026-10-11",
+      "other_candidates": "unjudged; never implicit negatives",
+      "challenge": {
+        "kind": "ambiguous",
+        "clarification_question": "Search application-owned records or the external web? Which API/corpus constraints apply?",
+        "expected_action": "Ask a clarification before choosing a unique route or claiming a best fit.",
+        "projection_status": "not evaluated end-to-end: evaluator supplied the existing route and positive terms; no model/interview ran"
+      }
+    },
+    {
+      "case_id": "CP04-AMB-02",
+      "user_goal": "Need federation for the project.",
+      "query_locale": "ru",
+      "query_terms": [
+        "federation",
+        "authorization",
+        "authentication",
+        "Java"
+      ],
+      "target_category_id": "auth_identity_access",
+      "intent": {
+        "required_groups": [
+          [
+            "federation"
+          ],
+          [
+            "authorization"
+          ]
+        ],
+        "context_terms": [
+          "authentication",
+          "Java"
+        ]
+      },
+      "expected_target_id": 11125589,
+      "expected_target_name": "keycloak/keycloak",
+      "source_url": "https://github.com/keycloak/keycloak",
+      "observed_on": "2026-10-11",
+      "other_candidates": "unjudged; never implicit negatives",
+      "challenge": {
+        "kind": "ambiguous",
+        "clarification_question": "User/identity federation, multi-index search, or another federation?",
+        "expected_action": "Ask a clarification before choosing a unique route or claiming a best fit.",
+        "projection_status": "not evaluated end-to-end: evaluator supplied the existing route and positive terms; no model/interview ran"
+      }
+    },
+    {
+      "case_id": "CP04-AMB-03",
+      "user_goal": "Need workflow support.",
+      "query_locale": "ru",
+      "query_terms": [
+        "durable",
+        "retries",
+        "workflow",
+        "failures"
+      ],
+      "target_category_id": "workflow_state_machines_durable_agents",
+      "intent": {
+        "required_groups": [
+          [
+            "durable"
+          ],
+          [
+            "retries"
+          ]
+        ],
+        "context_terms": [
+          "workflow",
+          "failures"
+        ]
+      },
+      "expected_target_id": 215654064,
+      "expected_target_name": "temporalio/temporal",
+      "source_url": "https://github.com/temporalio/temporal",
+      "observed_on": "2026-10-11",
+      "other_candidates": "unjudged; never implicit negatives",
+      "challenge": {
+        "kind": "ambiguous",
+        "clarification_question": "Durable business execution, agent state, data pipelines, or development specifications?",
+        "expected_action": "Ask a clarification before choosing a unique route or claiming a best fit.",
+        "projection_status": "not evaluated end-to-end: evaluator supplied the existing route and positive terms; no model/interview ran"
+      }
+    }
+  ]
+}

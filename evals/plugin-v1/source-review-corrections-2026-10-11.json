@@ -1,0 +1,20 @@
+{
+  "corrections": [
+    {
+      "schema_version": "cp04_source_review_correction_v1",
+      "observed_on": "2026-10-11",
+      "timing": "Primary self-review after capture; correction is retrospective, not prospective or independent.",
+      "case_id": "CP04-NEG-01",
+      "github_repository_id": 162494199,
+      "full_name": "taskforcesh/bullmq",
+      "previous_label": "known forbidden at repository level",
+      "corrected_label": "unknown fit: documented default Redis path conflicts, but PostgreSQL alternative is advertised; Python transport compatibility not established",
+      "source_urls": [
+        "https://github.com/taskforcesh/bullmq"
+      ],
+      "reason": "GitHub About advertises Redis or PostgreSQL and repository lists PostgreSQL adapter tests. Do not infer universal Redis dependence from the README default example.",
+      "ranking_change": false,
+      "original_capture_preserved": true
+    }
+  ]
+}

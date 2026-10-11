@@ -1,5 +1,7 @@
 # EVALS.md
 
+CP-04 actual Brief/model dialogue evidence: [2026-10-11 report](docs/reports/cp04-brief-dialogue-2026-10-11.md). Four synthetic RU/EN conversations execute real Codex interpretation, optional clarification and active retrieval/composition. Separate fixed-interpretation full-pack replay corrects six-card prompt truncation. Objective checks and explicit primary self-review are distinct; no independent/human acceptance or statistical usefulness score is inferred. Installed skill activation cases remain specifications, not model-run discovery proof.
+
 Retrieval and recommendation-quality evaluation contract for local myAI-StackGuide V1. Owner revision: 2026-09-01; CP-04 successor v2 iteration recorded 2026-10-08 with complete routed judgments and `no_go`, product quality not accepted.
 
 ## Purpose
@@ -7,6 +9,16 @@ Retrieval and recommendation-quality evaluation contract for local myAI-StackGui
 Evaluate whether bounded local SQLite FTS5 retrieval and relevant authorized project context produce a useful OSS integration/modernization plan. Separate search relevance, safe data handling, recommendation quality and actual implementation outcomes. Recommendation output does not execute changes; a user coding request can authorize its own workflow.
 
 ## Promotion Rule
+
+Current [structured exclusions/clarification capture](docs/reports/cp04-request-guard-2026-10-11.md): ready envelopes preserve exclusions; unresolved envelopes stop before retrieval. Negative lists1/30→30/30 and packs6/30→30/30 without independently known conflicts; unknown fit remains explicit. Three unresolved requests/five arms give15/15 zero calls. Original60 orders and historical10 metrics/orders preserved. Model interpretation/final answers and complete new relevance remain unmeasured; parent no_go remains.
+
+Current [expanded alternatives/constraint review](docs/reports/cp04-domain-review-2026-10-11.md): 129 manually assessed prior union-top12 pairs (93 repositories), six negative and three ambiguity probes, frozen before the new21-case five-arm capture. Same-author retrospective oracle expansion is not independent held-out; full-universe metrics remain null. Conservative documented-full top3 count20→23 versus original literal, with exact60 old orders and10 historical regression orders preserved. Known negative conflicts remain in6/6 conservative lists; clarification/model answers remain unevaluated. Parent no_go remains.
+
+New [twelve-domain challenge](docs/reports/cp04-new-domain-challenge-2026-10-11.md): prospectively authored targets cover12/12 top12/pack versus11/12 original, with exact10 historical orders preserved. Report known-target coverage only; all other candidates remain unjudged and full new-case metrics are null. No independent held-out, adversarial semantic, RU query or end-user explanation acceptance follows. Parent no_go remains.
+
+Latest [required-feature priority comparison](docs/reports/cp04-requirement-priority-2026-10-11.md) moves all three newly discovered Kotlin candidates into top3 and preserves all10 original literal development orders. `new_required_first` is selected for further development; the broad mode is rejected on per-case regression even though its means improve. Existing intent/grades/thresholds remain frozen. Top12 positive coverage4/5 and packed coverage4/5 are exposed regression evidence, not unseen or user-facing usefulness acceptance; parent no_go remains.
+
+2026-10-11 [required/context comparison](docs/reports/cp04-capability-context-2026-10-11.md): generic missing-requirement enrichment scoring preserves the original literal baseline on all10 exposed development cases and restores the React Native regression. This resolves bounded enrichment non-regression; manually authored intent groups, lexical support and exposed Kotlin coverage do not establish independent semantic quality. Parent no_go and fresh/human/joined gates remain open.
 
 Latest package comparison: [source-qualified capability report](docs/reports/cp04-capability-package-2026-10-08.md) measures original FTS/literal against both methods on an independently pinned enriched bundle. Kotlin known-positive coverage improves, but both candidate arms fail original literal non-regression. Preserve original grades/thresholds and exposed-case status. Verified fixture seams do not activate a canonical trust anchor. Source enrichment alone is not recommendation-quality acceptance.
 

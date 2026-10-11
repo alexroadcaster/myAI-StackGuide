@@ -1,0 +1,26 @@
+{
+  "schema_version": "cp04_capability_context_validation_v1",
+  "observed_date": "2026-10-11",
+  "checks": {
+    "unit_tests_passed": 6,
+    "unit_tests_failed": 0,
+    "synonym_double_counting_red_green": true,
+    "original_package_parity": true,
+    "declaration_source_hashes_verified": 26,
+    "independent_macro_recalculation": true,
+    "exact_baseline_orders": 10,
+    "python_ast_files": 3,
+    "report_links": 8,
+    "control_plane_validator": "ok",
+    "git_diff_check": "pass; LF/CRLF warnings only"
+  },
+  "source_sha256": {
+    "scripts/rank_capability_context.py": "1f9ef68c5b7781ed0b5415150dbe7d75c39061a1580081ef5c2b9264d83aaed4",
+    "evals/plugin-v1/run_capability_context.py": "d5223b0799e87df8a80054350384440b8f778c9b00d468268a88fbf57f723422",
+    "evals/plugin-v1/capability-context-intents.json": "2cae99df79a913b2a846e086f68fb432925fded0322ea7654b2293e761ccfed4",
+    "evals/plugin-v1/capability-context-contract.md": "7ac38fa0611e0e04519144bbf2b8a1b9a2e90dc1828ae8467648ceafd43f1a14",
+    "tests/test_plugin_capability_context.py": "6599594b05ecb70e7e43152b430e0cff0c6fce0cbefa348fd8b897384d9fd84a",
+    "docs/reports/cp04-capability-context-2026-10-11.md": "cebe88c843a473e2894d0d36dd7b692cd283ab28ab3bda9dca70709a96f99d98"
+  },
+  "promotion_ready": false
+}

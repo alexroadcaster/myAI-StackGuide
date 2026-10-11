@@ -1,0 +1,223 @@
+{
+  "schema_version": "1.0.0",
+  "status": "candidate_not_promoted",
+  "selection_basis": "Previously qualified twelve facts plus twelve new-domain upstream README facts observed 2026-10-11; isolated prospective authored challenge, not independent held-out.",
+  "facts": [
+    {
+      "github_repository_id": 1148753,
+      "full_name": "spring-projects/spring-framework",
+      "capability": "Kotlin coroutines in Spring MVC and WebFlux controllers and WebFlux functional server APIs.",
+      "source_url": "https://github.com/spring-projects/spring-framework/blob/main/framework-docs/modules/ROOT/pages/languages/kotlin/coroutines.adoc",
+      "observed_on": "2026-10-08",
+      "scope": "Requires kotlinx-coroutines-core and kotlinx-coroutines-reactor.",
+      "limitations": "Upstream capability evidence does not establish project-version compatibility, implementation time or integration readiness."
+    },
+    {
+      "github_repository_id": 6296790,
+      "full_name": "spring-projects/spring-boot",
+      "capability": "Kotlin application support and Kotlin dependency management through Spring Framework and related Spring projects.",
+      "source_url": "https://github.com/spring-projects/spring-boot/blob/main/documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/features/kotlin.adoc",
+      "observed_on": "2026-10-08",
+      "scope": "Requires Kotlin libraries and compiler configuration.",
+      "limitations": "Upstream capability evidence does not establish project-version compatibility, implementation time or integration readiness."
+    },
+    {
+      "github_repository_id": 139914932,
+      "full_name": "quarkusio/quarkus",
+      "capability": "Kotlin REST service development using Quarkus Kotlin and REST extensions.",
+      "source_url": "https://github.com/quarkusio/quarkus/blob/main/docs/src/main/asciidoc/kotlin.adoc",
+      "observed_on": "2026-10-08",
+      "scope": "Requires quarkus-kotlin, REST extensions and Kotlin compiler configuration.",
+      "limitations": "Upstream capability evidence does not establish project-version compatibility, implementation time or integration readiness."
+    },
+    {
+      "github_repository_id": 124230204,
+      "full_name": "micronaut-projects/micronaut-core",
+      "capability": "Kotlin JVM application development with an HTTP server and HTTP routing.",
+      "source_url": "https://github.com/micronaut-projects/micronaut-core",
+      "observed_on": "2026-10-08",
+      "scope": "Selected HTTP server components must be configured.",
+      "limitations": "Upstream capability evidence does not establish project-version compatibility, implementation time or integration readiness."
+    },
+    {
+      "github_repository_id": 40136600,
+      "full_name": "ktorio/ktor",
+      "capability": "Kotlin asynchronous client and server application development with coroutines.",
+      "source_url": "https://github.com/ktorio/ktor",
+      "observed_on": "2026-10-08",
+      "scope": "Requires selection of a server engine and application plugins.",
+      "limitations": "Upstream capability evidence does not establish project-version compatibility, implementation time or integration readiness."
+    },
+    {
+      "github_repository_id": 221981891,
+      "full_name": "microsoft/playwright",
+      "capability": "Browser automation and end-to-end testing across Chromium, Firefox and WebKit using one API.",
+      "source_url": "https://github.com/microsoft/playwright",
+      "observed_on": "2026-10-08",
+      "scope": "Browser installation and a test runner configuration are separate setup steps.",
+      "limitations": "Upstream capability evidence does not establish project-version compatibility, implementation time or integration readiness."
+    },
+    {
+      "github_repository_id": 31629751,
+      "full_name": "cypress-io/cypress",
+      "capability": "End-to-end browser testing and component testing for web applications.",
+      "source_url": "https://github.com/cypress-io/cypress",
+      "observed_on": "2026-10-08",
+      "scope": "End-to-end and component test configuration depend on the application.",
+      "limitations": "Upstream capability evidence does not establish project-version compatibility, implementation time or integration readiness."
+    },
+    {
+      "github_repository_id": 90796663,
+      "full_name": "puppeteer/puppeteer",
+      "capability": "JavaScript browser automation API for Chrome and Firefox, headless by default.",
+      "source_url": "https://github.com/puppeteer/puppeteer",
+      "observed_on": "2026-10-08",
+      "scope": "A browser automation library requires a separate regression test suite.",
+      "limitations": "Upstream capability evidence does not establish project-version compatibility, implementation time or integration readiness."
+    },
+    {
+      "github_repository_id": 7613257,
+      "full_name": "SeleniumHQ/selenium",
+      "capability": "Browser automation through WebDriver with bindings for multiple programming languages.",
+      "source_url": "https://github.com/SeleniumHQ/selenium",
+      "observed_on": "2026-10-08",
+      "scope": "Requires browser and driver configuration plus an application test suite.",
+      "limitations": "Upstream capability evidence does not establish project-version compatibility, implementation time or integration readiness."
+    },
+    {
+      "github_repository_id": 46273445,
+      "full_name": "transloadit/uppy",
+      "capability": "Browser JavaScript file uploader with React integration and resumable upload through its Tus plugin.",
+      "source_url": "https://github.com/transloadit/uppy",
+      "observed_on": "2026-10-08",
+      "scope": "Tus uploads require a compatible endpoint; remote imports require the separate Companion server.",
+      "limitations": "Upstream capability evidence does not establish project-version compatibility, implementation time or integration readiness."
+    },
+    {
+      "github_repository_id": 132751855,
+      "full_name": "exiftool/exiftool",
+      "capability": "Read and write EXIF and other file metadata using a Perl library or command-line application.",
+      "source_url": "https://github.com/exiftool/exiftool",
+      "observed_on": "2026-10-08",
+      "scope": "Supported formats and tag write support must be checked for selected files.",
+      "limitations": "Upstream capability evidence does not establish project-version compatibility, implementation time or integration readiness."
+    },
+    {
+      "github_repository_id": 135300551,
+      "full_name": "PyPortfolio/PyPortfolioOpt",
+      "capability": "Python portfolio optimization with mean-variance, Black-Litterman and risk-parity methods.",
+      "source_url": "https://github.com/PyPortfolio/PyPortfolioOpt",
+      "observed_on": "2026-10-08",
+      "scope": "Requires user-provided market data and model assumptions; it is not a brokerage execution service.",
+      "limitations": "Upstream capability evidence does not establish project-version compatibility, implementation time or integration readiness."
+    },
+    {
+      "github_repository_id": 29207621,
+      "full_name": "caddyserver/caddy",
+      "capability": "Automatic HTTPS with managed TLS certificates for public and internal names.",
+      "scope": "Certificate issuers, DNS and network configuration must fit the deployment.",
+      "limitations": "Upstream documentation establishes a capability claim, not tested integration, implementation time or production readiness.",
+      "source_url": "https://github.com/caddyserver/caddy",
+      "observed_on": "2026-10-11"
+    },
+    {
+      "github_repository_id": 42408804,
+      "full_name": "traefik/traefik",
+      "capability": "HTTP reverse proxy with Docker and Kubernetes integration and automatic dynamic configuration.",
+      "scope": "Configure the selected service-discovery provider and routing rules.",
+      "limitations": "Upstream documentation establishes a capability claim, not tested integration, implementation time or production readiness.",
+      "source_url": "https://github.com/traefik/traefik",
+      "observed_on": "2026-10-11"
+    },
+    {
+      "github_repository_id": 26783295,
+      "full_name": "Kong/kong",
+      "capability": "API gateway with plugins for rate limiting and request and response transformations.",
+      "scope": "Select and configure the relevant plugins; verify availability in the selected edition.",
+      "limitations": "Upstream documentation establishes a capability claim, not tested integration, implementation time or production readiness.",
+      "source_url": "https://github.com/Kong/kong",
+      "observed_on": "2026-10-11"
+    },
+    {
+      "github_repository_id": 21827146,
+      "full_name": "seaweedfs/seaweedfs",
+      "capability": "Distributed file and object storage with S3 gateway and filer-backed directory and file metadata.",
+      "scope": "Master, volume, filer and S3 services require configuration and metadata persistence.",
+      "limitations": "Upstream documentation establishes a capability claim, not tested integration, implementation time or production readiness.",
+      "source_url": "https://github.com/seaweedfs/seaweedfs",
+      "observed_on": "2026-10-11"
+    },
+    {
+      "github_repository_id": 11125589,
+      "full_name": "keycloak/keycloak",
+      "capability": "Identity and access management server with user federation and fine-grained authorization.",
+      "scope": "Configure identity providers, user federation and application authorization.",
+      "limitations": "Upstream documentation establishes a capability claim, not tested integration, implementation time or production readiness.",
+      "source_url": "https://github.com/keycloak/keycloak",
+      "observed_on": "2026-10-11"
+    },
+    {
+      "github_repository_id": 247714750,
+      "full_name": "zitadel/zitadel",
+      "capability": "Identity and access management with multi-tenancy, B2B organizations, SSO and passkeys.",
+      "scope": "Model organizations, projects, roles and tenant isolation for the application.",
+      "limitations": "Upstream documentation establishes a capability claim, not tested integration, implementation time or production readiness.",
+      "source_url": "https://github.com/zitadel/zitadel",
+      "observed_on": "2026-10-11"
+    },
+    {
+      "github_repository_id": 215654064,
+      "full_name": "temporalio/temporal",
+      "capability": "Durable workflow execution handling intermittent failures and retries of failed operations.",
+      "scope": "Deploy the server and persistence, and implement workflows using an SDK.",
+      "limitations": "Upstream documentation establishes a capability claim, not tested integration, implementation time or production readiness.",
+      "source_url": "https://github.com/temporalio/temporal",
+      "observed_on": "2026-10-11"
+    },
+    {
+      "github_repository_id": 139199684,
+      "full_name": "PrefectHQ/prefect",
+      "capability": "Python data pipeline workflow orchestration with scheduling, retries and caching.",
+      "scope": "Implement Python flows and configure orchestration and workers.",
+      "limitations": "Upstream documentation establishes a capability claim, not tested integration, implementation time or production readiness.",
+      "source_url": "https://github.com/PrefectHQ/prefect",
+      "observed_on": "2026-10-11"
+    },
+    {
+      "github_repository_id": 130688011,
+      "full_name": "meilisearch/meilisearch",
+      "capability": "Application search with typo tolerance, faceted filtering and search-as-you-type.",
+      "scope": "Index application documents and configure searchable and filterable attributes.",
+      "limitations": "Upstream documentation establishes a capability claim, not tested integration, implementation time or production readiness.",
+      "source_url": "https://github.com/meilisearch/meilisearch",
+      "observed_on": "2026-10-11"
+    },
+    {
+      "github_repository_id": 79317191,
+      "full_name": "typesense/typesense",
+      "capability": "Search engine with federated search across collections, filtering and typo tolerance.",
+      "scope": "Define collection schemas, index documents and configure the search client.",
+      "limitations": "Upstream documentation establishes a capability claim, not tested integration, implementation time or production readiness.",
+      "source_url": "https://github.com/typesense/typesense",
+      "observed_on": "2026-10-11"
+    },
+    {
+      "github_repository_id": 7122594,
+      "full_name": "directus/directus",
+      "capability": "Wrap an existing SQL database with generated REST and GraphQL APIs and a visual data-management studio.",
+      "scope": "Connect a supported SQL database; configure schema access and permissions, and verify license conditions.",
+      "limitations": "Upstream documentation establishes a capability claim, not tested integration, implementation time or production readiness.",
+      "source_url": "https://github.com/directus/directus",
+      "observed_on": "2026-10-11"
+    },
+    {
+      "github_repository_id": 510607652,
+      "full_name": "pocketbase/pocketbase",
+      "capability": "Embedded SQLite backend with realtime subscriptions, file and user management and REST-style API.",
+      "scope": "Configure collections and access rules; check current release and migration guidance for critical workloads.",
+      "limitations": "Upstream documentation establishes a capability claim, not tested integration, implementation time or production readiness.",
+      "source_url": "https://github.com/pocketbase/pocketbase",
+      "observed_on": "2026-10-11"
+    }
+  ]
+}

@@ -1,0 +1,172 @@
+{
+  "schema_version": "cp04_capability_context_intents_v1",
+  "scope": "Manually authored intent partitions for exposed development; preferred details are context. No new query terms or relevance labels.",
+  "cases": {
+    "CP04-V2-D01": {
+      "required_groups": [
+        [
+          "browser",
+          "Chromium",
+          "WebKit",
+          "Firefox"
+        ],
+        [
+          "testing",
+          "automation"
+        ]
+      ],
+      "context_terms": []
+    },
+    "CP04-V2-D02": {
+      "required_groups": [
+        [
+          "React Native",
+          "mobile"
+        ],
+        [
+          "integration",
+          "testing",
+          "verification"
+        ]
+      ],
+      "context_terms": []
+    },
+    "CP04-V2-D03": {
+      "required_groups": [
+        [
+          "UI",
+          "component",
+          "components",
+          "library",
+          "libraries"
+        ]
+      ],
+      "context_terms": [
+        "React"
+      ]
+    },
+    "CP04-V2-D04": {
+      "required_groups": [
+        [
+          "isolation",
+          "isolated"
+        ]
+      ],
+      "context_terms": [
+        "component",
+        "components",
+        "documenting",
+        "testing"
+      ]
+    },
+    "CP04-V2-D05": {
+      "required_groups": [
+        [
+          "Go"
+        ],
+        [
+          "HTTP",
+          "router",
+          "routing",
+          "web",
+          "framework",
+          "frameworks"
+        ]
+      ],
+      "context_terms": []
+    },
+    "CP04-V2-D06": {
+      "required_groups": [
+        [
+          ".NET",
+          "dotnet",
+          "ASP.NET"
+        ],
+        [
+          "web",
+          "framework",
+          "enterprise"
+        ]
+      ],
+      "context_terms": []
+    },
+    "CP04-V2-D07": {
+      "required_groups": [
+        [
+          "resumable",
+          "protocol",
+          "chunk",
+          "chunked"
+        ],
+        [
+          "upload",
+          "uploads"
+        ]
+      ],
+      "context_terms": []
+    },
+    "CP04-V2-D08": {
+      "required_groups": [
+        [
+          "uploader",
+          "upload",
+          "uploading"
+        ],
+        [
+          "browser",
+          "JavaScript"
+        ]
+      ],
+      "context_terms": [
+        "React"
+      ]
+    },
+    "CP04-V2-D09": {
+      "required_groups": [
+        [
+          "metadata",
+          "tags"
+        ],
+        [
+          "Exif"
+        ]
+      ],
+      "context_terms": [
+        "image",
+        "images",
+        "audio",
+        "video"
+      ]
+    },
+    "CP04-V2-D10": {
+      "required_groups": [
+        [
+          "optimization",
+          "optimisation",
+          "allocation"
+        ],
+        [
+          "portfolio",
+          "portfolios"
+        ]
+      ],
+      "context_terms": [
+        "risk"
+      ]
+    },
+    "CP04-HV3-12": {
+      "required_groups": [
+        [
+          "Kotlin"
+        ]
+      ],
+      "context_terms": [
+        "web framework",
+        "server",
+        "async",
+        "асинхронный",
+        "веб"
+      ]
+    }
+  }
+}

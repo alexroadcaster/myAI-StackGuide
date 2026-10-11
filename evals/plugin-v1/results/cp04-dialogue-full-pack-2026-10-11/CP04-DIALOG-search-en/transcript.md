@@ -1,0 +1,66 @@
+# CP04-DIALOG-search-en
+
+Presentation-only transcript. Raw dialogue.json is authoritative; literal newline escapes are expanded for reading.
+
+## user
+
+Our app needs search. Typesense is excluded. One JavaScript developer; we want shoppers to find products more easily.
+
+## assistant
+
+For the first version of product search, should shoppers find products by matching words, by meaning, or both?
+
+- Keyword matching
+- Semantic matching for natural-language queries
+- Both keyword and semantic matching
+
+## user
+
+Search our own product catalogue with typo tolerance and brand/price filters, not the external web. Typesense remains excluded.
+
+## assistant
+
+**Conditionally prefer Meilisearch (ID `130688011`) for the first product-search validation.** Your confirmed requirement is search over your own catalogue with typo tolerance and brand/price filters, with one JavaScript developer. The supplied primary-source observation confirms application search, typo tolerance and facets—directly relevant capabilities. The expected benefit is helping shoppers recover from misspellings and narrow results; improved discovery or conversion remains a hypothesis to test. [Meilisearch repository](https://github.com/meilisearch/meilisearch)
+
+Typesense remains excluded. The supplied evidence does not justify adding a crawler, external-web search service, MCP server or semantic-search pipeline to this scope. Meilisearch is the single proposed search component.
+
+**Evidence and decision limits.** The frozen catalogue snapshot is dated September 1, 2026 and marks Meilisearch `reference_only`, with unresolved advisory facts and license metadata. The host-supplied repository read dated October 11, 2026 confirms the capability fit and strengthens this conditional preference, but does not establish compatibility, performance, licensing suitability or operational readiness. It is transient answer evidence; it does not refresh the catalogue or change its eligibility status. Numeric price-range behavior, deployment fit and the license applicable to the selected release still need verification.
+
+**Proposed architecture and technical work.** Retain your current catalogue source, application backend and shopper interface, wherever those components already exist. Add a derived Meilisearch index and a JavaScript integration through the documented search API. The catalogue remains authoritative; the index is a rebuildable search projection.
+
+`Catalogue source → initial export + update/delete synchronization → Meilisearch index`
+
+`Shopper query + brand/price filters → application search endpoint → Meilisearch → product results`
+
+Index only fields needed for discovery: stable product IDs, searchable names/descriptions, normalized brand and a consistently represented price. Keep indexing credentials on the server. Fetch or verify authoritative price and availability through the application before purchase; search results may lag behind catalogue changes.
+
+Meilisearch supplies search capabilities, while your developer still owns data normalization, import and synchronization, filter configuration, UI behavior, relevance assessment and failure handling. The supplied observation explicitly identifies indexing, source-data synchronization and relevance validation as project work. [Meilisearch repository](https://github.com/meilisearch/meilisearch)
+
+The main complexity drivers are product-versus-variant modeling, inconsistent brand names, currencies or personalized prices, update frequency, deletion propagation, deployment restrictions and recovery after failed indexing. If these are simple, this is a bounded integration. If prices depend on customer identity or updates must appear immediately, the design and estimate need revision.
+
+**Comparison with the current solution and custom development.**
+
+| Approach | Why consider it | Costs and condition that changes the choice |
+|---|---|---|
+| Meilisearch reuse | Source-supported typo tolerance and facets align with this first version. | Adds a service, duplicated search data, synchronization, version management and operating costs. Prefer it only if the pilot meets relevance/filter needs and hosting is acceptable. |
+| Current/native search | May preserve one data source and avoid another service. | Its capabilities are unknown. Keep it if it already passes the same typo, relevance and filter checks at acceptable effort and latency. |
+| Scoped custom search | Gives direct control over matching, ranking and filter semantics. | Your developer owns typo handling, ranking behavior, performance and regressions. It may be preferable if requirements are unusually specific or a separate service is prohibited. |
+
+These are alternatives for the same role, not components to install together. Reuse is the initial preference because it addresses the confirmed capabilities, not because measured savings or reliability have been established.
+
+**Conditional planning estimate.** Assume one developer experienced with JavaScript backend integration, an accessible catalogue export/update path, up to roughly 10,000 products, one language and currency, ordinary public prices, and a single deployable search instance. Scope is a limited first release with basic synchronization, search UI, recovery checks and rollback—not high availability, personalization or semantic search. Estimates have low confidence until the pilot.
+
+| Phase | Meilisearch reuse | Equivalent-scope custom implementation |
+|---|---:|---:|
+| First validation and acceptance dataset | 6–10 engineer-hours | 6–10 engineer-hours |
+| Matching, ranking and filter implementation | Included in configuration below | 20–40 engineer-hours |
+| Data import, normalization and update/delete synchronization | 8–14 engineer-hours | 8–14 engineer-hours |
+| Search configuration/API and shopper UI | 8–12 engineer-hours | 8–12 engineer-hours |
+| Failure checks, deployment, monitoring and rollback | 6–12 engineer-hours | 6–12 engineer-hours |
+| **Total, including first validation once** | **28–48 engineer-hours** | **48–88 engineer-hours** |
+
+At eight engineering hours per day and 100% allocation, these correspond to **3.5–6 working days** and **6–11 working days** respectively. Hosting approval, license clarification and other external waiting are additional and unknown. These are planning scenarios, not measured savings or delivery commitments. Both approaches retain ongoing maintenance; Meilisearch shifts core search maintenance upstream while leaving integration and operations with your team. The current/native option cannot be estimated without knowing what exists.
+
+**First validation:** propose a 6–10-hour isolated pilot using 500–1,000 representative products and 30–50 owner-reviewed queries covering misspellings, exact brands, ambiguous names, empty results and price boundaries. Agree expected products before tuning. Check top-five relevance, exact brand restrictions, numeric price boundaries, an update and deletion becoming searchable, and end-to-end latency. Compare the same cases against current/native search if available. This validates a slice, not complete adoption.
+
+The smallest decision-changing question is: **Can the app host a separate search service, and does its existing database/search layer already support typo-tolerant matching?** Confirm that alongside the pilot. Proceed with Meilisearch only if the service boundary is acceptable, selected-release licensing is resolved, and the representative catalogue passes the agreed relevance and filter checks.

@@ -1,0 +1,5 @@
+{"type":"thread.started","thread_id":"01a12a27-d839-7ba0-ac37-09273f6dd360"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"reasoning","text":"**Selecting terms for job scheduling context**"}}
+{"type":"item.completed","item":{"id":"item_1","type":"agent_message","text":"{\n  \"route\": \"queues_streaming_messaging\",\n  \"terms\": [\n    \"background jobs\",\n    \"scheduling\",\n    \"retries\",\n    \"python\",\n    \"sqlite\"\n  ],\n  \"intent\": {\n    \"required_groups\": [\n      [\"background jobs\"],\n      [\"scheduling\"],\n      [\"retries\"]\n    ],\n    \"context_terms\": [\n      \"python\",\n      \"sqlite\"\n    ]\n  },\n  \"excluded_repository_ids\": [],\n  \"excluded_dependencies\": [\n    \"redis\",\n    \"valkey\",\n    \"rabbitmq\",\n    \"kubernetes\"\n  ],\n  \"unresolved\": []\n}"}}
+{"type":"turn.completed","usage":{"input_tokens":33848,"cached_input_tokens":0,"cache_write_input_tokens":0,"output_tokens":355,"reasoning_output_tokens":214}}

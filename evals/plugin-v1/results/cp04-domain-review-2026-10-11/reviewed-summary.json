@@ -1,0 +1,116 @@
+{
+  "ambiguity_routing_evaluated": false,
+  "ambiguous_cases": 3,
+  "arms": {
+    "all_required_first": {
+      "exact_prior_orders": 12,
+      "negative_cases_with_known_conflict_pack": 5,
+      "negative_cases_with_known_conflict_top12": 6,
+      "negative_conflict_slots_top12": 8,
+      "totals": {
+        "conditional_core": 45,
+        "full_capabilities": 26,
+        "mismatch": 19,
+        "returned": 114,
+        "supplementary": 22,
+        "unknown": 2
+      }
+    },
+    "baseline": {
+      "exact_prior_orders": 12,
+      "negative_cases_with_known_conflict_pack": 5,
+      "negative_cases_with_known_conflict_top12": 6,
+      "negative_conflict_slots_top12": 8,
+      "totals": {
+        "conditional_core": 46,
+        "full_capabilities": 25,
+        "mismatch": 19,
+        "returned": 114,
+        "supplementary": 22,
+        "unknown": 2
+      }
+    },
+    "control": {
+      "exact_prior_orders": 12,
+      "negative_cases_with_known_conflict_pack": 4,
+      "negative_cases_with_known_conflict_top12": 5,
+      "negative_conflict_slots_top12": 7,
+      "totals": {
+        "conditional_core": 47,
+        "full_capabilities": 25,
+        "mismatch": 20,
+        "returned": 113,
+        "supplementary": 19,
+        "unknown": 2
+      }
+    },
+    "new_required_first": {
+      "exact_prior_orders": 12,
+      "negative_cases_with_known_conflict_pack": 5,
+      "negative_cases_with_known_conflict_top12": 6,
+      "negative_conflict_slots_top12": 8,
+      "totals": {
+        "conditional_core": 45,
+        "full_capabilities": 26,
+        "mismatch": 19,
+        "returned": 114,
+        "supplementary": 22,
+        "unknown": 2
+      }
+    },
+    "separated": {
+      "exact_prior_orders": 12,
+      "negative_cases_with_known_conflict_pack": 5,
+      "negative_cases_with_known_conflict_top12": 6,
+      "negative_conflict_slots_top12": 8,
+      "totals": {
+        "conditional_core": 45,
+        "full_capabilities": 26,
+        "mismatch": 19,
+        "returned": 114,
+        "supplementary": 22,
+        "unknown": 2
+      }
+    }
+  },
+  "candidate_public_pack_rejected": true,
+  "candidate_public_rejected": "index_incompatible",
+  "case_count": 21,
+  "historical_regressions": {
+    "cases": 10,
+    "exact_orders": 10,
+    "macros": {
+      "baseline": {
+        "complete": true,
+        "ndcg_at_12": 0.8745552065363883,
+        "recall_at_12": 0.8048992673992673
+      },
+      "new_required_first": {
+        "complete": true,
+        "ndcg_at_12": 0.8745552065363883,
+        "recall_at_12": 0.8048992673992673
+      }
+    }
+  },
+  "independent_held_out": false,
+  "model_run": false,
+  "negative_cases": 6,
+  "negative_projection_supported": false,
+  "official_relevance_metrics": null,
+  "package_verification": {
+    "alias_search_github_repository_id": 323965659,
+    "catalog_description_search_github_repository_id": 691347156,
+    "classifications": 2630,
+    "logical_routes_sha256": "25682afda8d95ef295b337cfe32025438c9e5f65e7c37fcc87ff2ca82495cb55",
+    "read_only_write_rejected": true,
+    "route_members": 162,
+    "routes": 126,
+    "rows": 2500,
+    "sqlite_version": "3.49.1"
+  },
+  "promotion_ready": false,
+  "reviewed_original_cases": 12,
+  "reviewed_pairs": 129,
+  "source_repositories": 93,
+  "post_capture_source_correction": "evals/plugin-v1/source-review-corrections-2026-10-11.json"
+}

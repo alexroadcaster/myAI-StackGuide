@@ -1,0 +1,11 @@
+{
+  "status": "failed_capture_preserved",
+  "error": "ValueError: invalid retrieval candidate",
+  "cause": "Filtered FTS candidates retained non-contiguous original ranks; C9 requires consecutive ranks.",
+  "repair": "Reindex surviving transport ranks while preserving original scores, identity and order.",
+  "source_snapshots": [
+    "runner-failed.py",
+    "guard-failed.py",
+    "tests-failed.py"
+  ]
+}

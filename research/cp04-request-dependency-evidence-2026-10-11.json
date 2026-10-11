@@ -1,0 +1,165 @@
+{
+  "schema_version": "cp04_dependency_evidence_v1",
+  "scope": "Development-only source-supported deployment alternatives; not canonical card metadata. Missing repositories and unverified transport combinations remain unknown. BullMQ omitted: Python PostgreSQL transport support unresolved.",
+  "facts": [
+    {
+      "github_repository_id": 2771544,
+      "full_name": "rq/rq",
+      "alternatives": [
+        [
+          "redis"
+        ],
+        [
+          "valkey"
+        ]
+      ],
+      "source_urls": [
+        "https://github.com/rq/rq"
+      ],
+      "observed_on": "2026-10-11",
+      "basis": "Documented queue backends require Redis or Valkey."
+    },
+    {
+      "github_repository_id": 100982449,
+      "full_name": "argoproj/argo-workflows",
+      "alternatives": [
+        [
+          "kubernetes"
+        ]
+      ],
+      "source_urls": [
+        "https://github.com/argoproj/argo-workflows"
+      ],
+      "observed_on": "2026-10-11",
+      "basis": "Kubernetes CRDs require Kubernetes."
+    },
+    {
+      "github_repository_id": 214587193,
+      "full_name": "supabase/supabase",
+      "alternatives": [
+        [
+          "postgresql"
+        ]
+      ],
+      "source_urls": [
+        "https://github.com/supabase/supabase"
+      ],
+      "observed_on": "2026-10-11",
+      "basis": "Postgres is the platform database."
+    },
+    {
+      "github_repository_id": 337414495,
+      "full_name": "nhost/nhost",
+      "alternatives": [
+        [
+          "postgresql"
+        ]
+      ],
+      "source_urls": [
+        "https://github.com/nhost/nhost"
+      ],
+      "observed_on": "2026-10-11",
+      "basis": "Postgres/Hasura backend."
+    },
+    {
+      "github_repository_id": 50603846,
+      "full_name": "parse-community/parse-server",
+      "alternatives": [
+        [
+          "mongodb"
+        ],
+        [
+          "postgresql"
+        ]
+      ],
+      "source_urls": [
+        "https://github.com/parse-community/parse-server"
+      ],
+      "observed_on": "2026-10-11",
+      "basis": "Documented backend prerequisites."
+    },
+    {
+      "github_repository_id": 378310716,
+      "full_name": "logto-io/logto",
+      "alternatives": [
+        [
+          "postgresql"
+        ]
+      ],
+      "source_urls": [
+        "https://github.com/logto-io/logto"
+      ],
+      "observed_on": "2026-10-11",
+      "basis": "Documented local deployment requires PostgreSQL."
+    },
+    {
+      "github_repository_id": 2703394,
+      "full_name": "coleifer/huey",
+      "alternatives": [
+        [
+          "redis"
+        ],
+        [
+          "valkey"
+        ],
+        [
+          "postgresql"
+        ],
+        [
+          "sqlite"
+        ],
+        []
+      ],
+      "source_urls": [
+        "https://github.com/coleifer/huey"
+      ],
+      "observed_on": "2026-10-11",
+      "basis": "SQLite, filesystem and memory queue modes are documented; select and test a mode."
+    },
+    {
+      "github_repository_id": 510607652,
+      "full_name": "pocketbase/pocketbase",
+      "alternatives": [
+        [
+          "sqlite"
+        ]
+      ],
+      "source_urls": [
+        "https://github.com/pocketbase/pocketbase"
+      ],
+      "observed_on": "2026-10-11",
+      "basis": "Embedded SQLite mode."
+    },
+    {
+      "github_repository_id": 769023213,
+      "full_name": "get-convex/convex-backend",
+      "alternatives": [
+        [
+          "sqlite"
+        ],
+        [
+          "postgresql"
+        ]
+      ],
+      "source_urls": [
+        "https://github.com/get-convex/convex-backend"
+      ],
+      "observed_on": "2026-10-11",
+      "basis": "Self-hosted SQLite is documented; test deployment."
+    },
+    {
+      "github_repository_id": 306366900,
+      "full_name": "casdoor/casdoor",
+      "alternatives": [
+        [
+          "sqlite"
+        ]
+      ],
+      "source_urls": [
+        "https://github.com/casdoor/casdoor"
+      ],
+      "observed_on": "2026-10-11",
+      "basis": "SQLite all-in-one mode; organization isolation still needs verification."
+    }
+  ]
+}

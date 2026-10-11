@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "answer_markdown": {
+      "type": "string"
+    },
+    "recommended_ids": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "cited_urls": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "answer_markdown",
+    "recommended_ids",
+    "cited_urls"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,341 @@
+{
+  "scope": "Four synthetic RU/EN dialogues, no grades supplied to model. Search answer is supplied only after a relevant clarification.",
+  "cases": [
+    {
+      "case_id": "CP04-DIALOG-queue-ru",
+      "language": "ru",
+      "brief": {
+        "schema_version": "1.1.0",
+        "run_id": "11111111-1111-4111-8111-111111111111",
+        "brief_id": "synthetic-dialogue",
+        "brief_version": 1,
+        "goal": "Небольшой Python API выполняет фоновые задания и расписания. Нужны повторы при ошибке. Redis, Valkey, RabbitMQ и Kubernetes запрещены. Есть SQLite; один Python-разработчик. Цель — выпускать функции быстрее, без своей системы очередей.",
+        "decision": "evaluate",
+        "project_stage": "prototype",
+        "success_criterion": "Explain the fit and a first validation step.",
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "observations": {
+          "run_id": "11111111-1111-4111-8111-111111111111"
+        },
+        "assumptions": [],
+        "user_corrections": [],
+        "context_status": "preliminary",
+        "updated_at": "2026-10-11T00:00:00Z",
+        "details": {
+          "problem": {
+            "text": null,
+            "kind": "unknown",
+            "evidence_refs": [],
+            "answer_ids": [],
+            "limitation": "Synthetic fixture; not established."
+          },
+          "target_user": {
+            "text": null,
+            "kind": "unknown",
+            "evidence_refs": [],
+            "answer_ids": [],
+            "limitation": "Synthetic fixture; not established."
+          },
+          "workflow": {
+            "text": null,
+            "kind": "unknown",
+            "evidence_refs": [],
+            "answer_ids": [],
+            "limitation": "Synthetic fixture; not established."
+          },
+          "current_behavior": {
+            "text": null,
+            "kind": "unknown",
+            "evidence_refs": [],
+            "answer_ids": [],
+            "limitation": "Synthetic fixture; not established."
+          },
+          "target_behavior": {
+            "text": null,
+            "kind": "unknown",
+            "evidence_refs": [],
+            "answer_ids": [],
+            "limitation": "Synthetic fixture; not established."
+          },
+          "baseline": {
+            "text": null,
+            "kind": "unknown",
+            "evidence_refs": [],
+            "answer_ids": [],
+            "limitation": "Synthetic fixture; not established."
+          },
+          "scope": {
+            "text": null,
+            "kind": "unknown",
+            "evidence_refs": [],
+            "answer_ids": [],
+            "limitation": "Synthetic fixture; not established."
+          },
+          "non_goals": [],
+          "constraint_notes": [],
+          "tensions": []
+        }
+      },
+      "clarification_answer": null
+    },
+    {
+      "case_id": "CP04-DIALOG-search-ru",
+      "language": "ru",
+      "brief": {
+        "schema_version": "1.1.0",
+        "run_id": "11111111-1111-4111-8111-111111111111",
+        "brief_id": "synthetic-dialogue",
+        "brief_version": 1,
+        "goal": "Нашему приложению нужен поиск. Typesense исключён. Один разработчик JavaScript; хотим облегчить поиск для покупателей.",
+        "decision": "evaluate",
+        "project_stage": "prototype",
+        "success_criterion": "Explain the fit and a first validation step.",
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "observations": {
+          "run_id": "11111111-1111-4111-8111-111111111111"
+        },
+        "assumptions": [],
+        "user_corrections": [],
+        "context_status": "preliminary",
+        "updated_at": "2026-10-11T00:00:00Z",
+        "details": {
+          "problem": {
+            "text": null,
+            "kind": "unknown",
+            "evidence_refs": [],
+            "answer_ids": [],
+            "limitation": "Synthetic fixture; not established."
+          },
+          "target_user": {
+            "text": null,
+            "kind": "unknown",
+            "evidence_refs": [],
+            "answer_ids": [],
+            "limitation": "Synthetic fixture; not established."
+          },
+          "workflow": {
+            "text": null,
+            "kind": "unknown",
+            "evidence_refs": [],
+            "answer_ids": [],
+            "limitation": "Synthetic fixture; not established."
+          },
+          "current_behavior": {
+            "text": null,
+            "kind": "unknown",
+            "evidence_refs": [],
+            "answer_ids": [],
+            "limitation": "Synthetic fixture; not established."
+          },
+          "target_behavior": {
+            "text": null,
+            "kind": "unknown",
+            "evidence_refs": [],
+            "answer_ids": [],
+            "limitation": "Synthetic fixture; not established."
+          },
+          "baseline": {
+            "text": null,
+            "kind": "unknown",
+            "evidence_refs": [],
+            "answer_ids": [],
+            "limitation": "Synthetic fixture; not established."
+          },
+          "scope": {
+            "text": null,
+            "kind": "unknown",
+            "evidence_refs": [],
+            "answer_ids": [],
+            "limitation": "Synthetic fixture; not established."
+          },
+          "non_goals": [],
+          "constraint_notes": [],
+          "tensions": []
+        }
+      },
+      "clarification_answer": "Нужен поиск по нашему каталогу товаров: опечатки и фильтры по бренду и цене. Не поиск в интернете. Typesense по-прежнему исключён."
+    },
+    {
+      "case_id": "CP04-DIALOG-queue-en",
+      "language": "en",
+      "brief": {
+        "schema_version": "1.1.0",
+        "run_id": "11111111-1111-4111-8111-111111111111",
+        "brief_id": "synthetic-dialogue",
+        "brief_version": 1,
+        "goal": "A small Python API needs background jobs, schedules and retries. Redis, Valkey, RabbitMQ and Kubernetes are forbidden. SQLite is available; one Python engineer. We want to ship features sooner without building a queue engine.",
+        "decision": "evaluate",
+        "project_stage": "prototype",
+        "success_criterion": "Explain the fit and a first validation step.",
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "observations": {
+          "run_id": "11111111-1111-4111-8111-111111111111"
+        },
+        "assumptions": [],
+        "user_corrections": [],
+        "context_status": "preliminary",
+        "updated_at": "2026-10-11T00:00:00Z",
+        "details": {
+          "problem": {
+            "text": null,
+            "kind": "unknown",
+            "evidence_refs": [],
+            "answer_ids": [],
+            "limitation": "Synthetic fixture; not established."
+          },
+          "target_user": {
+            "text": null,
+            "kind": "unknown",
+            "evidence_refs": [],
+            "answer_ids": [],
+            "limitation": "Synthetic fixture; not established."
+          },
+          "workflow": {
+            "text": null,
+            "kind": "unknown",
+            "evidence_refs": [],
+            "answer_ids": [],
+            "limitation": "Synthetic fixture; not established."
+          },
+          "current_behavior": {
+            "text": null,
+            "kind": "unknown",
+            "evidence_refs": [],
+            "answer_ids": [],
+            "limitation": "Synthetic fixture; not established."
+          },
+          "target_behavior": {
+            "text": null,
+            "kind": "unknown",
+            "evidence_refs": [],
+            "answer_ids": [],
+            "limitation": "Synthetic fixture; not established."
+          },
+          "baseline": {
+            "text": null,
+            "kind": "unknown",
+            "evidence_refs": [],
+            "answer_ids": [],
+            "limitation": "Synthetic fixture; not established."
+          },
+          "scope": {
+            "text": null,
+            "kind": "unknown",
+            "evidence_refs": [],
+            "answer_ids": [],
+            "limitation": "Synthetic fixture; not established."
+          },
+          "non_goals": [],
+          "constraint_notes": [],
+          "tensions": []
+        }
+      },
+      "clarification_answer": null
+    },
+    {
+      "case_id": "CP04-DIALOG-search-en",
+      "language": "en",
+      "brief": {
+        "schema_version": "1.1.0",
+        "run_id": "11111111-1111-4111-8111-111111111111",
+        "brief_id": "synthetic-dialogue",
+        "brief_version": 1,
+        "goal": "Our app needs search. Typesense is excluded. One JavaScript developer; we want shoppers to find products more easily.",
+        "decision": "evaluate",
+        "project_stage": "prototype",
+        "success_criterion": "Explain the fit and a first validation step.",
+        "constraints": {
+          "languages": [],
+          "deployment": [],
+          "allowed_licenses": [],
+          "compatibility": [],
+          "require_no_server": null,
+          "mandatory_fields": []
+        },
+        "observations": {
+          "run_id": "11111111-1111-4111-8111-111111111111"
+        },
+        "assumptions": [],
+        "user_corrections": [],
+        "context_status": "preliminary",
+        "updated_at": "2026-10-11T00:00:00Z",
+        "details": {
+          "problem": {
+            "text": null,
+            "kind": "unknown",
+            "evidence_refs": [],
+            "answer_ids": [],
+            "limitation": "Synthetic fixture; not established."
+          },
+          "target_user": {
+            "text": null,
+            "kind": "unknown",
+            "evidence_refs": [],
+            "answer_ids": [],
+            "limitation": "Synthetic fixture; not established."
+          },
+          "workflow": {
+            "text": null,
+            "kind": "unknown",
+            "evidence_refs": [],
+            "answer_ids": [],
+            "limitation": "Synthetic fixture; not established."
+          },
+          "current_behavior": {
+            "text": null,
+            "kind": "unknown",
+            "evidence_refs": [],
+            "answer_ids": [],
+            "limitation": "Synthetic fixture; not established."
+          },
+          "target_behavior": {
+            "text": null,
+            "kind": "unknown",
+            "evidence_refs": [],
+            "answer_ids": [],
+            "limitation": "Synthetic fixture; not established."
+          },
+          "baseline": {
+            "text": null,
+            "kind": "unknown",
+            "evidence_refs": [],
+            "answer_ids": [],
+            "limitation": "Synthetic fixture; not established."
+          },
+          "scope": {
+            "text": null,
+            "kind": "unknown",
+            "evidence_refs": [],
+            "answer_ids": [],
+            "limitation": "Synthetic fixture; not established."
+          },
+          "non_goals": [],
+          "constraint_notes": [],
+          "tensions": []
+        }
+      },
+      "clarification_answer": "Search our own product catalogue with typo tolerance and brand/price filters, not the external web. Typesense remains excluded."
+    }
+  ]
+}

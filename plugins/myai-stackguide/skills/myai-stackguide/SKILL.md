@@ -35,6 +35,27 @@ remote service, or silently use another engine. Recommendations and displayed
 commands are proposals. Execute an integration only after a separate explicit
 implementation request under its actual authorization boundary.
 
+After reviewing a validated Brief, interpret the user's positive capabilities,
+context, explicit product/dependency prohibitions and decision-changing gaps.
+Use `scripts/recommendation_request.py` with a UTF-8 stdin object containing
+`brief`, `interpretation` and transient `public_observations`. Bind interpretation
+to the exact Brief SHA256 and version; copy canonical Brief constraints rather
+than resetting them. Keep exclusions out of positive query terms. The entry point
+constructs the pinned C9 query and filters documented conflicts before the pack.
+When a material goal is ambiguous, leave route/terms/intent null and supply
+localized unresolved questions with alternatives. Ask the smallest question,
+retain all prohibitions when the user answers, and reinterpret the corrected Brief
+before retrieval. A changed Brief invalidates the previous interpretation.
+
+Use the returned pack together with its request and selection annotations for
+composition. Never present an explicitly excluded product or a documented
+dependency conflict as an eligible recommendation. Missing dependency facts and
+available alternative configurations remain conditional, with concrete checks;
+surviving a filter does not prove full fit. Public observations are host-supplied,
+source-dated transient evidence, not new catalog fields or saved state. This
+read-only command does not scan, write the Brief/HTML or complete the CP-11 writer
+join. Save corrections only through the existing intake/context writer.
+
 Before finalizing recommendations, inspect the shortlisted known public
 repositories with available authorized host public-web tools. Check the README,
 official documentation, license, release or compatibility sources needed to

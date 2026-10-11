@@ -1,0 +1,4761 @@
+{
+  "case_id": "CP04-DIALOG-search-en",
+  "language": "en",
+  "brief": {
+    "schema_version": "1.1.0",
+    "run_id": "11111111-1111-4111-8111-111111111111",
+    "brief_id": "synthetic-dialogue",
+    "brief_version": 2,
+    "goal": "Our app needs search. Typesense is excluded. One JavaScript developer; we want shoppers to find products more easily. Search our own product catalogue with typo tolerance and brand/price filters, not the external web. Typesense remains excluded.",
+    "decision": "evaluate",
+    "project_stage": "prototype",
+    "success_criterion": "Explain the fit and a first validation step.",
+    "constraints": {
+      "languages": [],
+      "deployment": [],
+      "allowed_licenses": [],
+      "compatibility": [],
+      "require_no_server": null,
+      "mandatory_fields": []
+    },
+    "observations": {
+      "run_id": "11111111-1111-4111-8111-111111111111"
+    },
+    "assumptions": [],
+    "user_corrections": [
+      "dialogue-clarification"
+    ],
+    "context_status": "preliminary",
+    "updated_at": "2026-10-11T00:00:00Z",
+    "details": {
+      "problem": {
+        "text": null,
+        "kind": "unknown",
+        "evidence_refs": [],
+        "answer_ids": [],
+        "limitation": "Synthetic fixture; not established."
+      },
+      "target_user": {
+        "text": null,
+        "kind": "unknown",
+        "evidence_refs": [],
+        "answer_ids": [],
+        "limitation": "Synthetic fixture; not established."
+      },
+      "workflow": {
+        "text": null,
+        "kind": "unknown",
+        "evidence_refs": [],
+        "answer_ids": [],
+        "limitation": "Synthetic fixture; not established."
+      },
+      "current_behavior": {
+        "text": null,
+        "kind": "unknown",
+        "evidence_refs": [],
+        "answer_ids": [],
+        "limitation": "Synthetic fixture; not established."
+      },
+      "target_behavior": {
+        "text": null,
+        "kind": "unknown",
+        "evidence_refs": [],
+        "answer_ids": [],
+        "limitation": "Synthetic fixture; not established."
+      },
+      "baseline": {
+        "text": null,
+        "kind": "unknown",
+        "evidence_refs": [],
+        "answer_ids": [],
+        "limitation": "Synthetic fixture; not established."
+      },
+      "scope": {
+        "text": null,
+        "kind": "unknown",
+        "evidence_refs": [],
+        "answer_ids": [],
+        "limitation": "Synthetic fixture; not established."
+      },
+      "non_goals": [],
+      "constraint_notes": [],
+      "tensions": []
+    }
+  },
+  "interpretations": [
+    {
+      "route": null,
+      "terms": null,
+      "intent": null,
+      "excluded_repository_ids": [
+        79317191
+      ],
+      "excluded_dependencies": [],
+      "unresolved": [
+        {
+          "dimension": "search_capabilities",
+          "question": "For the first version of product search, should shoppers find products by matching words, by meaning, or both?",
+          "options": [
+            "Keyword matching",
+            "Semantic matching for natural-language queries",
+            "Both keyword and semantic matching"
+          ]
+        }
+      ]
+    },
+    {
+      "route": "search_hybrid_retrieval",
+      "terms": [
+        "search",
+        "typo tolerance",
+        "filters",
+        "product catalog",
+        "brand",
+        "price",
+        "JavaScript"
+      ],
+      "intent": {
+        "required_groups": [
+          [
+            "search"
+          ],
+          [
+            "typo tolerance"
+          ],
+          [
+            "filters"
+          ]
+        ],
+        "context_terms": [
+          "product catalog",
+          "brand",
+          "price",
+          "JavaScript"
+        ]
+      },
+      "excluded_repository_ids": [
+        79317191
+      ],
+      "excluded_dependencies": [],
+      "unresolved": []
+    }
+  ],
+  "requests": [
+    {
+      "status": "needs_clarification",
+      "request": {
+        "schema_version": "cp04_recommendation_request_v1",
+        "status": "needs_clarification",
+        "catalog_query": null,
+        "intent": null,
+        "exclusions": {
+          "repository_ids": [
+            79317191
+          ],
+          "dependencies": []
+        },
+        "unresolved": [
+          {
+            "dimension": "search_capabilities",
+            "question": "For the first version of product search, should shoppers find products by matching words, by meaning, or both?",
+            "options": [
+              "Keyword matching",
+              "Semantic matching for natural-language queries",
+              "Both keyword and semantic matching"
+            ]
+          }
+        ]
+      },
+      "questions": [
+        {
+          "dimension": "search_capabilities",
+          "question": "For the first version of product search, should shoppers find products by matching words, by meaning, or both?",
+          "options": [
+            "Keyword matching",
+            "Semantic matching for natural-language queries",
+            "Both keyword and semantic matching"
+          ]
+        }
+      ],
+      "retrieval_calls": 0,
+      "evidence_pack": null
+    },
+    {
+      "status": "ready",
+      "request": {
+        "schema_version": "cp04_recommendation_request_v1",
+        "status": "ready",
+        "catalog_query": {
+          "schema_version": "2.1.0",
+          "query_id": "request-fa065da7b37ae4c86e50cd0f",
+          "brief_version": 2,
+          "source_mode": "catalog_only",
+          "retrieval_engine": "sqlite_fts5",
+          "policy_version": "2.1.0",
+          "policy_sha256": "ff6e8444c4664492bb099f0819b2d284aa5c28f0d44c7a745c63f434c3489dbf",
+          "card_schema_version": "2.0.0",
+          "activity_schema_version": "2.0.0",
+          "index_format_version": 3,
+          "taxonomy_route_id": "search_hybrid_retrieval",
+          "language": "en",
+          "variants": [
+            {
+              "variant_id": "q1",
+              "terms": [
+                "search",
+                "typo tolerance",
+                "filters",
+                "product catalog",
+                "brand",
+                "price",
+                "JavaScript"
+              ]
+            }
+          ],
+          "constraints": {
+            "languages": [],
+            "deployment": [],
+            "allowed_licenses": [],
+            "compatibility": [],
+            "require_no_server": null,
+            "mandatory_fields": []
+          },
+          "max_candidates": 150,
+          "max_cards": 12,
+          "max_evidence_bytes": 163840
+        },
+        "intent": {
+          "required_groups": [
+            [
+              "search"
+            ],
+            [
+              "typo tolerance"
+            ],
+            [
+              "filters"
+            ]
+          ],
+          "context_terms": [
+            "product catalog",
+            "brand",
+            "price",
+            "JavaScript"
+          ]
+        },
+        "exclusions": {
+          "repository_ids": [
+            79317191
+          ],
+          "dependencies": []
+        },
+        "unresolved": []
+      },
+      "selection": {
+        "status": "ready",
+        "selected_ids": [
+          130688011,
+          66670819,
+          60377070,
+          334274271,
+          507775,
+          1048068299,
+          1009504831,
+          357707809,
+          49412556,
+          357241735,
+          997125912,
+          787076358,
+          902662933,
+          434218673,
+          1005553140,
+          937346388,
+          30231828,
+          41943138,
+          18893367,
+          105279544,
+          122775780,
+          946214670,
+          1034777076,
+          118311747,
+          66387122,
+          974086497,
+          529502,
+          798201435,
+          14681876,
+          956842312,
+          945763259,
+          1153178500,
+          180136168
+        ],
+        "excluded": [
+          {
+            "github_repository_id": 79317191,
+            "reason": "explicit_product_exclusion",
+            "source_urls": []
+          }
+        ],
+        "verification_required": [],
+        "conditional_configuration_ids": []
+      },
+      "retrieval_calls": 1,
+      "evidence_pack": {
+        "schema_version": "2.1.0",
+        "run_id": "11111111-1111-4111-8111-111111111111",
+        "pack_id": "request-pack-fa065da7b37ae4c86e50cd0f",
+        "query_id": "request-fa065da7b37ae4c86e50cd0f",
+        "query_sha256": "516ddbf8e0ca7e3103e23cbdd6ef0053f95731cc9102bfc05a9a26143e9e5e70",
+        "brief_version": 2,
+        "pins": {
+          "activity_schema_version": "2.0.0",
+          "card_schema_version": "2.0.0",
+          "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+          "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "corpus_kind": "catalog_snapshot",
+          "index_format_version": 3,
+          "index_sha256": "9678f5e265e4e3a33df3818f94c509c60728e994051ee72ec2050b0b093306c4",
+          "policy_sha256": "ff6e8444c4664492bb099f0819b2d284aa5c28f0d44c7a745c63f434c3489dbf",
+          "retrieval_policy_version": "2.1.0",
+          "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+          "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+        },
+        "status": "ready",
+        "cards": [
+          {
+            "card": {
+              "activity": {
+                "created_at": "2018-04-23T11:45:28Z",
+                "last_commit_at": "2026-08-13T09:36:25Z",
+                "last_commit_branch": "main",
+                "last_commit_sha": "577f7af28942b71782eab1e59f44ad8296ce0a92",
+                "last_release_at": "2026-08-13T13:03:58Z",
+                "last_synced_at": "2026-08-11T12:51:00Z",
+                "observations": [
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "created_at",
+                    "observed_at": "2026-09-01T02:42:35.606504Z",
+                    "source_field": "activity.createdAt",
+                    "verification": "source_reported"
+                  },
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "repository_updated_at",
+                    "observed_at": "2026-09-01T02:42:35.606504Z",
+                    "source_field": "activity.updatedAt",
+                    "verification": "source_reported"
+                  },
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "pushed_at",
+                    "observed_at": "2026-09-01T02:42:35.606504Z",
+                    "source_field": "activity.pushedAt",
+                    "verification": "source_reported"
+                  },
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "last_commit_at",
+                    "observed_at": "2026-09-01T02:42:36.985626Z",
+                    "source_field": "activity.lastCommitAt",
+                    "verification": "source_reported"
+                  },
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "last_release_at",
+                    "observed_at": "2026-09-01T02:42:40.642063Z",
+                    "source_field": "activity.lastReleaseAt",
+                    "verification": "source_reported"
+                  },
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "last_synced_at",
+                    "observed_at": "2026-09-01T02:42:35.606504Z",
+                    "source_field": "activity.lastSyncedAt",
+                    "verification": "derived_reviewed"
+                  },
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "observed_at",
+                    "observed_at": "2026-09-01T02:42:35.606504Z",
+                    "source_field": "activity.observedAt",
+                    "verification": "source_reported"
+                  }
+                ],
+                "observed_at": "2026-09-01T02:42:35.606504Z",
+                "pushed_at": "2026-08-31T09:04:58Z",
+                "repository_updated_at": "2026-09-01T02:31:23Z",
+                "schema_version": "2.0.0",
+                "status": "pending_enrichment"
+              },
+              "advisory": {
+                "adoption_mode": null,
+                "adoption_status": null,
+                "avoid_if": [],
+                "best_for": [],
+                "compatibility": [],
+                "complexity": null,
+                "eligibility": {
+                  "catalog_acceptance_changed": false,
+                  "data_gate_passed": false,
+                  "evidence_completeness": 77.42,
+                  "minimum_stars": 500,
+                  "reasons": [
+                    "mandatory_fields_unresolved"
+                  ],
+                  "replacement_required": false
+                },
+                "gaps": [],
+                "integration_surface": null,
+                "project_stages": [],
+                "recommendation_reason": null,
+                "recommendation_status": null,
+                "tradeoffs": [],
+                "use_cases": []
+              },
+              "catalog": {
+                "evidence_stage": "identity_validated",
+                "membership_cohort": "baseline",
+                "review_status": "curated_seed_needs_metadata",
+                "status": "candidate",
+                "status_source": "catalog_snapshot"
+              },
+              "classifications": [
+                {
+                  "category_id": "search_hybrid_retrieval",
+                  "kind": "category",
+                  "parent_id": null,
+                  "placement_source": "cat08-canonical-reconciliation",
+                  "role": "primary",
+                  "title": "Search & Hybrid Retrieval"
+                }
+              ],
+              "corpus_kind": "catalog_snapshot",
+              "delivery": {
+                "deployment": {
+                  "rationale": null,
+                  "values": []
+                },
+                "difficulty": "intermediate",
+                "form": {
+                  "rationale": null,
+                  "value": "platform"
+                },
+                "hosting": null,
+                "lifecycle": null,
+                "maturity": null,
+                "persona": "both",
+                "requires_server": null
+              },
+              "descriptions": {
+                "catalog": "A lightning-fast search engine API bringing AI-powered hybrid search to your sites and applications.",
+                "catalog_origin": "upstream",
+                "upstream": "A lightning-fast search engine API bringing AI-powered hybrid search to your sites and applications."
+              },
+              "evidence": [
+                {
+                  "evidence_id": "ev-catalog-card",
+                  "fields": [
+                    "/identity",
+                    "/catalog",
+                    "/descriptions",
+                    "/classifications",
+                    "/delivery",
+                    "/advisory",
+                    "/provenance"
+                  ],
+                  "observed_at": "2026-09-01T02:42:35.606504Z",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/130688011",
+                  "verification": "derived_reviewed"
+                },
+                {
+                  "evidence_id": "ev-catalog-repository",
+                  "fields": [
+                    "/repository",
+                    "/activity"
+                  ],
+                  "observed_at": "2026-09-01T02:42:35.606504Z",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/130688011",
+                  "verification": "source_reported"
+                }
+              ],
+              "identity": {
+                "catalog_record_id": "gh-pending:meilisearch/meilisearch",
+                "full_name": "meilisearch/meilisearch",
+                "full_name_aliases": [],
+                "github_repository_id": 130688011,
+                "identity_status": "resolved",
+                "merged_catalog_record_ids": [],
+                "url": "https://github.com/meilisearch/meilisearch"
+              },
+              "provenance": {
+                "frozen_pins": {
+                  "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                  "field_contract_sha256": "9c0d6fd6e12ef42a37e26d8607405a7cbafdf1b7a633c8f8b53da159eaa7f456",
+                  "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                  "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+                },
+                "sources": [
+                  {
+                    "observed_at": "2026-09-01T02:42:35.606504Z",
+                    "source_id": "src-catalog-snapshot",
+                    "source_kind": "catalog_snapshot",
+                    "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/130688011",
+                    "verification": "derived_reviewed"
+                  }
+                ]
+              },
+              "repository": {
+                "archived": false,
+                "availability": "available",
+                "default_branch": "main",
+                "disabled": false,
+                "forks": 2695,
+                "homepage": "https://www.meilisearch.com",
+                "is_fork": false,
+                "languages": [
+                  {
+                    "name": "Rust",
+                    "scope": "primary"
+                  },
+                  {
+                    "name": "Shell",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "Dockerfile",
+                    "scope": "secondary"
+                  }
+                ],
+                "license": {
+                  "confidence": "source_reported",
+                  "name": "Other",
+                  "source": "pending",
+                  "spdx": null
+                },
+                "size_kb": 91062,
+                "stack": [
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "technology": "Rust"
+                  }
+                ],
+                "stars": 59153,
+                "topics": [
+                  "ai",
+                  "api",
+                  "app-search",
+                  "database",
+                  "enterprise-search",
+                  "faceting",
+                  "full-text-search",
+                  "fuzzy-search",
+                  "geosearch",
+                  "hybrid-search",
+                  "instantsearch",
+                  "search",
+                  "search-as-you-type",
+                  "search-engine",
+                  "semantic-search",
+                  "site-search",
+                  "typo-tolerance",
+                  "vector-database",
+                  "vector-search",
+                  "vectors"
+                ],
+                "visibility": "public",
+                "watchers": 299,
+                "watchers_scope": "subscribers_count"
+              },
+              "schema_version": "2.0.0"
+            },
+            "retrieval_rank": 1,
+            "eligibility": {
+              "schema_version": "2.1.0",
+              "github_repository_id": 130688011,
+              "query_id": "request-fa065da7b37ae4c86e50cd0f",
+              "status": "reference_only",
+              "checks": [
+                {
+                  "field": "availability",
+                  "outcome": "pass",
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ]
+                },
+                {
+                  "field": "archived",
+                  "outcome": "pass",
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ]
+                },
+                {
+                  "field": "advisory_evidence",
+                  "outcome": "unknown",
+                  "evidence_refs": [
+                    "ev-catalog-card"
+                  ]
+                }
+              ],
+              "reason_codes": [
+                "mandatory_fact_unknown"
+              ],
+              "required_verifications": [
+                "Verify the advisory fit fields against source-backed public evidence."
+              ]
+            },
+            "rrf_score": 0.01639344262295082,
+            "matched_fields": [
+              "upstream_description",
+              "catalog_description",
+              "topics",
+              "category_labels"
+            ]
+          },
+          {
+            "card": {
+              "activity": {
+                "created_at": "2016-08-26T18:35:03Z",
+                "last_commit_at": "2026-08-31T13:29:44Z",
+                "last_commit_branch": "master",
+                "last_commit_sha": "d405370d1cce04ab757e533572a9b9dfd387b90d",
+                "last_release_at": "2026-08-12T15:39:11Z",
+                "last_synced_at": "2026-08-11T10:45:33Z",
+                "observations": [
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "created_at",
+                    "observed_at": "2026-08-31T18:49:28.214600Z",
+                    "source_field": "activity.createdAt",
+                    "verification": "source_reported"
+                  },
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "repository_updated_at",
+                    "observed_at": "2026-08-31T18:49:28.214600Z",
+                    "source_field": "activity.updatedAt",
+                    "verification": "source_reported"
+                  },
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "pushed_at",
+                    "observed_at": "2026-08-31T18:49:28.214600Z",
+                    "source_field": "activity.pushedAt",
+                    "verification": "source_reported"
+                  },
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "last_commit_at",
+                    "observed_at": "2026-08-31T18:49:30.095801Z",
+                    "source_field": "activity.lastCommitAt",
+                    "verification": "source_reported"
+                  },
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "last_release_at",
+                    "observed_at": "2026-08-31T18:49:33.840972Z",
+                    "source_field": "activity.lastReleaseAt",
+                    "verification": "source_reported"
+                  },
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "last_synced_at",
+                    "observed_at": "2026-08-31T18:49:28.214600Z",
+                    "source_field": "activity.lastSyncedAt",
+                    "verification": "derived_reviewed"
+                  },
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "observed_at",
+                    "observed_at": "2026-08-31T18:49:28.214600Z",
+                    "source_field": "activity.observedAt",
+                    "verification": "source_reported"
+                  }
+                ],
+                "observed_at": "2026-08-31T18:49:28.214600Z",
+                "pushed_at": "2026-08-31T13:29:47Z",
+                "repository_updated_at": "2026-08-31T18:47:37Z",
+                "schema_version": "2.0.0",
+                "status": "pending_enrichment"
+              },
+              "advisory": {
+                "adoption_mode": null,
+                "adoption_status": null,
+                "avoid_if": [],
+                "best_for": [],
+                "compatibility": [],
+                "complexity": null,
+                "eligibility": {
+                  "catalog_acceptance_changed": false,
+                  "data_gate_passed": false,
+                  "evidence_completeness": 77.42,
+                  "minimum_stars": 500,
+                  "reasons": [
+                    "mandatory_fields_unresolved"
+                  ],
+                  "replacement_required": false
+                },
+                "gaps": [],
+                "integration_surface": null,
+                "project_stages": [],
+                "recommendation_reason": null,
+                "recommendation_status": null,
+                "tradeoffs": [],
+                "use_cases": []
+              },
+              "catalog": {
+                "evidence_stage": "identity_validated",
+                "membership_cohort": "baseline",
+                "review_status": "curated_seed_needs_metadata",
+                "status": "candidate",
+                "status_source": "catalog_snapshot"
+              },
+              "classifications": [
+                {
+                  "category_id": "browser_computer_use",
+                  "kind": "category",
+                  "parent_id": null,
+                  "placement_source": "cat08-canonical-reconciliation",
+                  "role": "primary",
+                  "title": "Browser & Computer Use"
+                },
+                {
+                  "category_id": "search_hybrid_retrieval",
+                  "kind": "category",
+                  "parent_id": null,
+                  "placement_source": "cat08-canonical-reconciliation",
+                  "role": "secondary",
+                  "title": "Search & Hybrid Retrieval"
+                }
+              ],
+              "corpus_kind": "catalog_snapshot",
+              "delivery": {
+                "deployment": {
+                  "rationale": null,
+                  "values": []
+                },
+                "difficulty": "intermediate",
+                "form": {
+                  "rationale": null,
+                  "value": "framework"
+                },
+                "hosting": null,
+                "lifecycle": null,
+                "maturity": null,
+                "persona": "both",
+                "requires_server": null
+              },
+              "descriptions": {
+                "catalog": "Crawlee—A web scraping and browser automation library for Node.js to build reliable crawlers. In JavaScript and TypeScript. Extract data for AI, LLMs, RAG, or GPTs. Download HTML, PDF, JPG, PNG, and other files from websites. Works with Puppeteer, Playwright, Cheerio, JSDOM, and raw HTTP. Both headful and headless mode. With proxy rotation.",
+                "catalog_origin": "upstream",
+                "upstream": "Crawlee—A web scraping and browser automation library for Node.js to build reliable crawlers. In JavaScript and TypeScript. Extract data for AI, LLMs, RAG, or GPTs. Download HTML, PDF, JPG, PNG, and other files from websites. Works with Puppeteer, Playwright, Cheerio, JSDOM, and raw HTTP. Both headful and headless mode. With proxy rotation."
+              },
+              "evidence": [
+                {
+                  "evidence_id": "ev-catalog-card",
+                  "fields": [
+                    "/identity",
+                    "/catalog",
+                    "/descriptions",
+                    "/classifications",
+                    "/delivery",
+                    "/advisory",
+                    "/provenance"
+                  ],
+                  "observed_at": "2026-08-31T18:49:28.214600Z",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/66670819",
+                  "verification": "derived_reviewed"
+                },
+                {
+                  "evidence_id": "ev-catalog-repository",
+                  "fields": [
+                    "/repository",
+                    "/activity"
+                  ],
+                  "observed_at": "2026-08-31T18:49:28.214600Z",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/66670819",
+                  "verification": "source_reported"
+                }
+              ],
+              "identity": {
+                "catalog_record_id": "gh-pending:apify/crawlee",
+                "full_name": "apify/crawlee",
+                "full_name_aliases": [],
+                "github_repository_id": 66670819,
+                "identity_status": "resolved",
+                "merged_catalog_record_ids": [],
+                "url": "https://github.com/apify/crawlee"
+              },
+              "provenance": {
+                "frozen_pins": {
+                  "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                  "field_contract_sha256": "9c0d6fd6e12ef42a37e26d8607405a7cbafdf1b7a633c8f8b53da159eaa7f456",
+                  "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                  "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+                },
+                "sources": [
+                  {
+                    "observed_at": "2026-08-31T18:49:28.214600Z",
+                    "source_id": "src-catalog-snapshot",
+                    "source_kind": "catalog_snapshot",
+                    "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/66670819",
+                    "verification": "derived_reviewed"
+                  }
+                ]
+              },
+              "repository": {
+                "archived": false,
+                "availability": "available",
+                "default_branch": "master",
+                "disabled": false,
+                "forks": 1653,
+                "homepage": "https://crawlee.dev",
+                "is_fork": false,
+                "languages": [
+                  {
+                    "name": "TypeScript",
+                    "scope": "primary"
+                  },
+                  {
+                    "name": "MDX",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "JavaScript",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "CSS",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "Dockerfile",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "Python",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "HTML",
+                    "scope": "secondary"
+                  }
+                ],
+                "license": {
+                  "confidence": "source_confirmed",
+                  "name": "Apache License 2.0",
+                  "source": "github_current_page",
+                  "spdx": "Apache-2.0"
+                },
+                "size_kb": 174790,
+                "stack": [
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "technology": "TypeScript"
+                  }
+                ],
+                "stars": 25582,
+                "topics": [
+                  "apify",
+                  "automation",
+                  "crawler",
+                  "crawling",
+                  "headless",
+                  "headless-chrome",
+                  "javascript",
+                  "nodejs",
+                  "npm",
+                  "playwright",
+                  "puppeteer",
+                  "scraper",
+                  "scraping",
+                  "typescript",
+                  "web-crawler",
+                  "web-crawling",
+                  "web-scraping"
+                ],
+                "visibility": "public",
+                "watchers": 130,
+                "watchers_scope": "subscribers_count"
+              },
+              "schema_version": "2.0.0"
+            },
+            "retrieval_rank": 2,
+            "eligibility": {
+              "schema_version": "2.1.0",
+              "github_repository_id": 66670819,
+              "query_id": "request-fa065da7b37ae4c86e50cd0f",
+              "status": "reference_only",
+              "checks": [
+                {
+                  "field": "availability",
+                  "outcome": "pass",
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ]
+                },
+                {
+                  "field": "archived",
+                  "outcome": "pass",
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ]
+                },
+                {
+                  "field": "advisory_evidence",
+                  "outcome": "unknown",
+                  "evidence_refs": [
+                    "ev-catalog-card"
+                  ]
+                }
+              ],
+              "reason_codes": [
+                "mandatory_fact_unknown"
+              ],
+              "required_verifications": [
+                "Verify the advisory fit fields against source-backed public evidence."
+              ]
+            },
+            "rrf_score": 0.015873015873015872,
+            "matched_fields": [
+              "upstream_description",
+              "catalog_description",
+              "topics",
+              "category_labels"
+            ]
+          },
+          {
+            "card": {
+              "activity": {
+                "created_at": "2016-06-03T20:54:20Z",
+                "last_commit_at": "2026-08-31T16:45:25Z",
+                "last_commit_branch": "master",
+                "last_commit_sha": "f05b4e42a8817b6a8a64e2db7654bbf90e79fc7b",
+                "last_release_at": "2026-08-13T04:51:03Z",
+                "last_synced_at": "2026-08-11T13:41:45Z",
+                "observations": [
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "created_at",
+                    "observed_at": "2026-09-01T03:39:01.410406Z",
+                    "source_field": "activity.createdAt",
+                    "verification": "source_reported"
+                  },
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "repository_updated_at",
+                    "observed_at": "2026-09-01T03:39:01.410406Z",
+                    "source_field": "activity.updatedAt",
+                    "verification": "source_reported"
+                  },
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "pushed_at",
+                    "observed_at": "2026-09-01T03:39:01.410406Z",
+                    "source_field": "activity.pushedAt",
+                    "verification": "source_reported"
+                  },
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "last_commit_at",
+                    "observed_at": "2026-09-01T03:39:02.796588Z",
+                    "source_field": "activity.lastCommitAt",
+                    "verification": "source_reported"
+                  },
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "last_release_at",
+                    "observed_at": "2026-09-01T03:39:07.102797Z",
+                    "source_field": "activity.lastReleaseAt",
+                    "verification": "source_reported"
+                  },
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "last_synced_at",
+                    "observed_at": "2026-09-01T03:39:01.410406Z",
+                    "source_field": "activity.lastSyncedAt",
+                    "verification": "derived_reviewed"
+                  },
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "observed_at",
+                    "observed_at": "2026-09-01T03:39:01.410406Z",
+                    "source_field": "activity.observedAt",
+                    "verification": "source_reported"
+                  }
+                ],
+                "observed_at": "2026-09-01T03:39:01.410406Z",
+                "pushed_at": "2026-09-01T03:14:13Z",
+                "repository_updated_at": "2026-08-31T22:14:31Z",
+                "schema_version": "2.0.0",
+                "status": "pending_enrichment"
+              },
+              "advisory": {
+                "adoption_mode": null,
+                "adoption_status": null,
+                "avoid_if": [],
+                "best_for": [],
+                "compatibility": [],
+                "complexity": null,
+                "eligibility": {
+                  "catalog_acceptance_changed": false,
+                  "data_gate_passed": false,
+                  "evidence_completeness": 77.42,
+                  "minimum_stars": 500,
+                  "reasons": [
+                    "mandatory_fields_unresolved"
+                  ],
+                  "replacement_required": false
+                },
+                "gaps": [],
+                "integration_surface": null,
+                "project_stages": [],
+                "recommendation_reason": null,
+                "recommendation_status": null,
+                "tradeoffs": [],
+                "use_cases": []
+              },
+              "catalog": {
+                "evidence_stage": "identity_validated",
+                "membership_cohort": "baseline",
+                "review_status": "curated_seed_needs_metadata",
+                "status": "candidate",
+                "status_source": "catalog_snapshot"
+              },
+              "classifications": [
+                {
+                  "category_id": "search_hybrid_retrieval",
+                  "kind": "category",
+                  "parent_id": null,
+                  "placement_source": "cat08-canonical-reconciliation",
+                  "role": "primary",
+                  "title": "Search & Hybrid Retrieval"
+                }
+              ],
+              "corpus_kind": "catalog_snapshot",
+              "delivery": {
+                "deployment": {
+                  "rationale": null,
+                  "values": []
+                },
+                "difficulty": "intermediate",
+                "form": {
+                  "rationale": null,
+                  "value": "platform"
+                },
+                "hosting": null,
+                "lifecycle": null,
+                "maturity": null,
+                "persona": "both",
+                "requires_server": null
+              },
+              "descriptions": {
+                "catalog": "The AI search platform",
+                "catalog_origin": "upstream",
+                "upstream": "The AI search platform"
+              },
+              "evidence": [
+                {
+                  "evidence_id": "ev-catalog-card",
+                  "fields": [
+                    "/identity",
+                    "/catalog",
+                    "/descriptions",
+                    "/classifications",
+                    "/delivery",
+                    "/advisory",
+                    "/provenance"
+                  ],
+                  "observed_at": "2026-09-01T03:39:01.410406Z",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/60377070",
+                  "verification": "derived_reviewed"
+                },
+                {
+                  "evidence_id": "ev-catalog-repository",
+                  "fields": [
+                    "/repository",
+                    "/activity"
+                  ],
+                  "observed_at": "2026-09-01T03:39:01.410406Z",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/60377070",
+                  "verification": "source_reported"
+                }
+              ],
+              "identity": {
+                "catalog_record_id": "gh-pending:vespa-engine/vespa",
+                "full_name": "vespa-engine/vespa",
+                "full_name_aliases": [],
+                "github_repository_id": 60377070,
+                "identity_status": "resolved",
+                "merged_catalog_record_ids": [],
+                "url": "https://github.com/vespa-engine/vespa"
+              },
+              "provenance": {
+                "frozen_pins": {
+                  "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                  "field_contract_sha256": "9c0d6fd6e12ef42a37e26d8607405a7cbafdf1b7a633c8f8b53da159eaa7f456",
+                  "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                  "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+                },
+                "sources": [
+                  {
+                    "observed_at": "2026-09-01T03:39:01.410406Z",
+                    "source_id": "src-catalog-snapshot",
+                    "source_kind": "catalog_snapshot",
+                    "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/60377070",
+                    "verification": "derived_reviewed"
+                  }
+                ]
+              },
+              "repository": {
+                "archived": false,
+                "availability": "available",
+                "default_branch": "master",
+                "disabled": false,
+                "forks": 738,
+                "homepage": "https://vespa.ai",
+                "is_fork": false,
+                "languages": [
+                  {
+                    "name": "Java",
+                    "scope": "primary"
+                  },
+                  {
+                    "name": "C++",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "Go",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "CMake",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "Shell",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "Python",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "JavaScript",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "HTML",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "C",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "TLA",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "Ruby",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "Perl",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "Roff",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "Yacc",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "Objective-C",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "TypeScript",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "Makefile",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "ANTLR",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "LLVM",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "GAP",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "templ",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "CSS",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "Dockerfile",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "Emacs Lisp",
+                    "scope": "secondary"
+                  }
+                ],
+                "license": {
+                  "confidence": "source_reported",
+                  "name": "Apache License 2.0",
+                  "source": "https://api.github.com/licenses/apache-2.0",
+                  "spdx": "Apache-2.0"
+                },
+                "size_kb": 493708,
+                "stack": [
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "technology": "Java"
+                  }
+                ],
+                "stars": 7073,
+                "topics": [
+                  "ai",
+                  "big-data",
+                  "java",
+                  "machine-learning",
+                  "rag",
+                  "search",
+                  "search-engine",
+                  "server",
+                  "serving-recommendation",
+                  "tensor",
+                  "vector",
+                  "vector-database",
+                  "vector-search",
+                  "vespa"
+                ],
+                "visibility": "public",
+                "watchers": 163,
+                "watchers_scope": "subscribers_count"
+              },
+              "schema_version": "2.0.0"
+            },
+            "retrieval_rank": 3,
+            "eligibility": {
+              "schema_version": "2.1.0",
+              "github_repository_id": 60377070,
+              "query_id": "request-fa065da7b37ae4c86e50cd0f",
+              "status": "reference_only",
+              "checks": [
+                {
+                  "field": "availability",
+                  "outcome": "pass",
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ]
+                },
+                {
+                  "field": "archived",
+                  "outcome": "pass",
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ]
+                },
+                {
+                  "field": "advisory_evidence",
+                  "outcome": "unknown",
+                  "evidence_refs": [
+                    "ev-catalog-card"
+                  ]
+                }
+              ],
+              "reason_codes": [
+                "mandatory_fact_unknown"
+              ],
+              "required_verifications": [
+                "Verify the advisory fit fields against source-backed public evidence."
+              ]
+            },
+            "rrf_score": 0.015625,
+            "matched_fields": [
+              "upstream_description",
+              "catalog_description",
+              "topics",
+              "category_labels"
+            ]
+          },
+          {
+            "card": {
+              "activity": {
+                "created_at": "2021-01-29T22:10:00Z",
+                "last_commit_at": "2026-08-31T22:36:46Z",
+                "last_commit_branch": "main",
+                "last_commit_sha": "f5fa51505557933b79ff5e96d32d7e3a4cb090ec",
+                "last_release_at": "2026-08-05T17:20:33Z",
+                "last_synced_at": "2026-08-11T13:03:47Z",
+                "observations": [
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "created_at",
+                    "observed_at": "2026-09-01T02:56:49.094094Z",
+                    "source_field": "activity.createdAt",
+                    "verification": "source_reported"
+                  },
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "repository_updated_at",
+                    "observed_at": "2026-09-01T02:56:49.094094Z",
+                    "source_field": "activity.updatedAt",
+                    "verification": "source_reported"
+                  },
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "pushed_at",
+                    "observed_at": "2026-09-01T02:56:49.094094Z",
+                    "source_field": "activity.pushedAt",
+                    "verification": "source_reported"
+                  },
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "last_commit_at",
+                    "observed_at": "2026-09-01T02:56:50.760434Z",
+                    "source_field": "activity.lastCommitAt",
+                    "verification": "source_reported"
+                  },
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "last_release_at",
+                    "observed_at": "2026-09-01T02:56:54.829352Z",
+                    "source_field": "activity.lastReleaseAt",
+                    "verification": "source_reported"
+                  },
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "last_synced_at",
+                    "observed_at": "2026-09-01T02:56:49.094094Z",
+                    "source_field": "activity.lastSyncedAt",
+                    "verification": "derived_reviewed"
+                  },
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "observed_at",
+                    "observed_at": "2026-09-01T02:56:49.094094Z",
+                    "source_field": "activity.observedAt",
+                    "verification": "source_reported"
+                  }
+                ],
+                "observed_at": "2026-09-01T02:56:49.094094Z",
+                "pushed_at": "2026-08-31T22:36:46Z",
+                "repository_updated_at": "2026-09-01T02:25:18Z",
+                "schema_version": "2.0.0",
+                "status": "pending_enrichment"
+              },
+              "advisory": {
+                "adoption_mode": null,
+                "adoption_status": null,
+                "avoid_if": [],
+                "best_for": [],
+                "compatibility": [],
+                "complexity": null,
+                "eligibility": {
+                  "catalog_acceptance_changed": false,
+                  "data_gate_passed": false,
+                  "evidence_completeness": 77.42,
+                  "minimum_stars": 500,
+                  "reasons": [
+                    "mandatory_fields_unresolved"
+                  ],
+                  "replacement_required": false
+                },
+                "gaps": [],
+                "integration_surface": null,
+                "project_stages": [],
+                "recommendation_reason": null,
+                "recommendation_status": null,
+                "tradeoffs": [],
+                "use_cases": []
+              },
+              "catalog": {
+                "evidence_stage": "identity_validated",
+                "membership_cohort": "baseline",
+                "review_status": "curated_seed_needs_metadata",
+                "status": "candidate",
+                "status_source": "catalog_snapshot"
+              },
+              "classifications": [
+                {
+                  "category_id": "search_hybrid_retrieval",
+                  "kind": "category",
+                  "parent_id": null,
+                  "placement_source": "cat08-canonical-reconciliation",
+                  "role": "primary",
+                  "title": "Search & Hybrid Retrieval"
+                }
+              ],
+              "corpus_kind": "catalog_snapshot",
+              "delivery": {
+                "deployment": {
+                  "rationale": null,
+                  "values": []
+                },
+                "difficulty": "intermediate",
+                "form": {
+                  "rationale": null,
+                  "value": "platform"
+                },
+                "hosting": null,
+                "lifecycle": null,
+                "maturity": null,
+                "persona": "both",
+                "requires_server": null
+              },
+              "descriptions": {
+                "catalog": "🔎 Open source distributed and RESTful search engine.",
+                "catalog_origin": "upstream",
+                "upstream": "🔎 Open source distributed and RESTful search engine."
+              },
+              "evidence": [
+                {
+                  "evidence_id": "ev-catalog-card",
+                  "fields": [
+                    "/identity",
+                    "/catalog",
+                    "/descriptions",
+                    "/classifications",
+                    "/delivery",
+                    "/advisory",
+                    "/provenance"
+                  ],
+                  "observed_at": "2026-09-01T02:56:49.094094Z",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/334274271",
+                  "verification": "derived_reviewed"
+                },
+                {
+                  "evidence_id": "ev-catalog-repository",
+                  "fields": [
+                    "/repository",
+                    "/activity"
+                  ],
+                  "observed_at": "2026-09-01T02:56:49.094094Z",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/334274271",
+                  "verification": "source_reported"
+                }
+              ],
+              "identity": {
+                "catalog_record_id": "gh-pending:opensearch-project/opensearch",
+                "full_name": "opensearch-project/OpenSearch",
+                "full_name_aliases": [],
+                "github_repository_id": 334274271,
+                "identity_status": "resolved",
+                "merged_catalog_record_ids": [],
+                "url": "https://github.com/opensearch-project/OpenSearch"
+              },
+              "provenance": {
+                "frozen_pins": {
+                  "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                  "field_contract_sha256": "9c0d6fd6e12ef42a37e26d8607405a7cbafdf1b7a633c8f8b53da159eaa7f456",
+                  "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                  "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+                },
+                "sources": [
+                  {
+                    "observed_at": "2026-09-01T02:56:49.094094Z",
+                    "source_id": "src-catalog-snapshot",
+                    "source_kind": "catalog_snapshot",
+                    "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/334274271",
+                    "verification": "derived_reviewed"
+                  }
+                ]
+              },
+              "repository": {
+                "archived": false,
+                "availability": "available",
+                "default_branch": "main",
+                "disabled": false,
+                "forks": 2944,
+                "homepage": "https://opensearch.org/docs/latest/opensearch/index/",
+                "is_fork": false,
+                "languages": [
+                  {
+                    "name": "Java",
+                    "scope": "primary"
+                  },
+                  {
+                    "name": "Rust",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "Groovy",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "Shell",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "Batchfile",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "ANTLR",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "Thrift",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "Dockerfile",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "Python",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "Standard ML",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "Emacs Lisp",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "HTML",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "FreeMarker",
+                    "scope": "secondary"
+                  }
+                ],
+                "license": {
+                  "confidence": "source_reported",
+                  "name": "Apache License 2.0",
+                  "source": "https://api.github.com/licenses/apache-2.0",
+                  "spdx": "Apache-2.0"
+                },
+                "size_kb": 621706,
+                "stack": [
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "technology": "Java"
+                  }
+                ],
+                "stars": 13623,
+                "topics": [
+                  "analytics",
+                  "apache2",
+                  "foss",
+                  "java",
+                  "search",
+                  "search-engine"
+                ],
+                "visibility": "public",
+                "watchers": 184,
+                "watchers_scope": "subscribers_count"
+              },
+              "schema_version": "2.0.0"
+            },
+            "retrieval_rank": 4,
+            "eligibility": {
+              "schema_version": "2.1.0",
+              "github_repository_id": 334274271,
+              "query_id": "request-fa065da7b37ae4c86e50cd0f",
+              "status": "reference_only",
+              "checks": [
+                {
+                  "field": "availability",
+                  "outcome": "pass",
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ]
+                },
+                {
+                  "field": "archived",
+                  "outcome": "pass",
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ]
+                },
+                {
+                  "field": "advisory_evidence",
+                  "outcome": "unknown",
+                  "evidence_refs": [
+                    "ev-catalog-card"
+                  ]
+                }
+              ],
+              "reason_codes": [
+                "mandatory_fact_unknown"
+              ],
+              "required_verifications": [
+                "Verify the advisory fit fields against source-backed public evidence."
+              ]
+            },
+            "rrf_score": 0.015384615384615385,
+            "matched_fields": [
+              "upstream_description",
+              "catalog_description",
+              "topics",
+              "category_labels"
+            ]
+          },
+          {
+            "card": {
+              "activity": {
+                "created_at": "2010-02-08T13:20:56Z",
+                "last_commit_at": "2026-08-31T18:11:31Z",
+                "last_commit_branch": "main",
+                "last_commit_sha": "d3c85a62f63ab14ab98432f7519798a5acc298ac",
+                "last_release_at": "2026-08-20T16:44:04Z",
+                "last_synced_at": "2026-08-11T11:30:04Z",
+                "observations": [
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "created_at",
+                    "observed_at": "2026-08-31T19:02:24.143195Z",
+                    "source_field": "activity.createdAt",
+                    "verification": "source_reported"
+                  },
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "repository_updated_at",
+                    "observed_at": "2026-08-31T19:02:24.143195Z",
+                    "source_field": "activity.updatedAt",
+                    "verification": "source_reported"
+                  },
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "pushed_at",
+                    "observed_at": "2026-08-31T19:02:24.143195Z",
+                    "source_field": "activity.pushedAt",
+                    "verification": "source_reported"
+                  },
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "last_commit_at",
+                    "observed_at": "2026-08-31T19:02:25.564685Z",
+                    "source_field": "activity.lastCommitAt",
+                    "verification": "source_reported"
+                  },
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "last_release_at",
+                    "observed_at": "2026-08-31T19:02:28.555543Z",
+                    "source_field": "activity.lastReleaseAt",
+                    "verification": "source_reported"
+                  },
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "last_synced_at",
+                    "observed_at": "2026-08-31T19:02:24.143195Z",
+                    "source_field": "activity.lastSyncedAt",
+                    "verification": "derived_reviewed"
+                  },
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "observed_at",
+                    "observed_at": "2026-08-31T19:02:24.143195Z",
+                    "source_field": "activity.observedAt",
+                    "verification": "source_reported"
+                  }
+                ],
+                "observed_at": "2026-08-31T19:02:24.143195Z",
+                "pushed_at": "2026-08-31T18:22:29Z",
+                "repository_updated_at": "2026-08-31T18:15:00Z",
+                "schema_version": "2.0.0",
+                "status": "pending_enrichment"
+              },
+              "advisory": {
+                "adoption_mode": null,
+                "adoption_status": null,
+                "avoid_if": [],
+                "best_for": [],
+                "compatibility": [],
+                "complexity": null,
+                "eligibility": {
+                  "catalog_acceptance_changed": false,
+                  "data_gate_passed": false,
+                  "evidence_completeness": 77.42,
+                  "minimum_stars": 500,
+                  "reasons": [
+                    "mandatory_fields_unresolved"
+                  ],
+                  "replacement_required": false
+                },
+                "gaps": [],
+                "integration_surface": null,
+                "project_stages": [],
+                "recommendation_reason": null,
+                "recommendation_status": null,
+                "tradeoffs": [],
+                "use_cases": []
+              },
+              "catalog": {
+                "evidence_stage": "identity_validated",
+                "membership_cohort": "baseline",
+                "review_status": "curated_seed_needs_metadata",
+                "status": "candidate",
+                "status_source": "catalog_snapshot"
+              },
+              "classifications": [
+                {
+                  "category_id": "search_hybrid_retrieval",
+                  "kind": "category",
+                  "parent_id": null,
+                  "placement_source": "cat08-canonical-reconciliation",
+                  "role": "primary",
+                  "title": "Search & Hybrid Retrieval"
+                }
+              ],
+              "corpus_kind": "catalog_snapshot",
+              "delivery": {
+                "deployment": {
+                  "rationale": null,
+                  "values": []
+                },
+                "difficulty": "intermediate",
+                "form": {
+                  "rationale": null,
+                  "value": "platform"
+                },
+                "hosting": null,
+                "lifecycle": null,
+                "maturity": null,
+                "persona": "both",
+                "requires_server": null
+              },
+              "descriptions": {
+                "catalog": "Free and Open Source, Distributed, RESTful Search Engine",
+                "catalog_origin": "upstream",
+                "upstream": "Free and Open Source, Distributed, RESTful Search Engine"
+              },
+              "evidence": [
+                {
+                  "evidence_id": "ev-catalog-card",
+                  "fields": [
+                    "/identity",
+                    "/catalog",
+                    "/descriptions",
+                    "/classifications",
+                    "/delivery",
+                    "/advisory",
+                    "/provenance"
+                  ],
+                  "observed_at": "2026-08-31T19:02:24.143195Z",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/507775",
+                  "verification": "derived_reviewed"
+                },
+                {
+                  "evidence_id": "ev-catalog-repository",
+                  "fields": [
+                    "/repository",
+                    "/activity"
+                  ],
+                  "observed_at": "2026-08-31T19:02:24.143195Z",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/507775",
+                  "verification": "source_reported"
+                }
+              ],
+              "identity": {
+                "catalog_record_id": "gh-pending:elastic/elasticsearch",
+                "full_name": "elastic/elasticsearch",
+                "full_name_aliases": [],
+                "github_repository_id": 507775,
+                "identity_status": "resolved",
+                "merged_catalog_record_ids": [],
+                "url": "https://github.com/elastic/elasticsearch"
+              },
+              "provenance": {
+                "frozen_pins": {
+                  "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                  "field_contract_sha256": "9c0d6fd6e12ef42a37e26d8607405a7cbafdf1b7a633c8f8b53da159eaa7f456",
+                  "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                  "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+                },
+                "sources": [
+                  {
+                    "observed_at": "2026-08-31T19:02:24.143195Z",
+                    "source_id": "src-catalog-snapshot",
+                    "source_kind": "catalog_snapshot",
+                    "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/507775",
+                    "verification": "derived_reviewed"
+                  }
+                ]
+              },
+              "repository": {
+                "archived": false,
+                "availability": "available",
+                "default_branch": "main",
+                "disabled": false,
+                "forks": 26076,
+                "homepage": "https://www.elastic.co/products/elasticsearch",
+                "is_fork": false,
+                "languages": [
+                  {
+                    "name": "Java",
+                    "scope": "primary"
+                  },
+                  {
+                    "name": "Groovy",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "StringTemplate",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "C++",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "TypeScript",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "Shell",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "ANTLR",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "Dockerfile",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "Batchfile",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "Python",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "PowerShell",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "Makefile",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "C",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "CSS",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "Emacs Lisp",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "AMPL",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "HTML",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "JavaScript",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "Mustache",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "FreeMarker",
+                    "scope": "secondary"
+                  }
+                ],
+                "license": {
+                  "confidence": "source_reported",
+                  "name": "Other",
+                  "source": "pending",
+                  "spdx": null
+                },
+                "size_kb": 1743760,
+                "stack": [
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "technology": "Java"
+                  }
+                ],
+                "stars": 77883,
+                "topics": [
+                  "elasticsearch",
+                  "java",
+                  "search-engine"
+                ],
+                "visibility": "public",
+                "watchers": 2632,
+                "watchers_scope": "subscribers_count"
+              },
+              "schema_version": "2.0.0"
+            },
+            "retrieval_rank": 5,
+            "eligibility": {
+              "schema_version": "2.1.0",
+              "github_repository_id": 507775,
+              "query_id": "request-fa065da7b37ae4c86e50cd0f",
+              "status": "reference_only",
+              "checks": [
+                {
+                  "field": "availability",
+                  "outcome": "pass",
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ]
+                },
+                {
+                  "field": "archived",
+                  "outcome": "pass",
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ]
+                },
+                {
+                  "field": "advisory_evidence",
+                  "outcome": "unknown",
+                  "evidence_refs": [
+                    "ev-catalog-card"
+                  ]
+                }
+              ],
+              "reason_codes": [
+                "mandatory_fact_unknown"
+              ],
+              "required_verifications": [
+                "Verify the advisory fit fields against source-backed public evidence."
+              ]
+            },
+            "rrf_score": 0.015151515151515152,
+            "matched_fields": [
+              "upstream_description",
+              "catalog_description",
+              "topics",
+              "category_labels"
+            ]
+          },
+          {
+            "card": {
+              "activity": {
+                "created_at": "2025-08-31T21:00:23Z",
+                "last_commit_at": "2026-08-31T22:16:59Z",
+                "last_commit_branch": "main",
+                "last_commit_sha": "a6001863210718b78ef5de818f411ea89e28c4cd",
+                "last_release_at": "2026-08-25T06:37:43Z",
+                "last_synced_at": "2026-08-11T10:45:33Z",
+                "observations": [
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "created_at",
+                    "observed_at": "2026-09-01T04:16:56.375662Z",
+                    "source_field": "activity.createdAt",
+                    "verification": "source_reported"
+                  },
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "repository_updated_at",
+                    "observed_at": "2026-09-01T04:16:56.375662Z",
+                    "source_field": "activity.updatedAt",
+                    "verification": "source_reported"
+                  },
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "pushed_at",
+                    "observed_at": "2026-09-01T04:16:56.375662Z",
+                    "source_field": "activity.pushedAt",
+                    "verification": "source_reported"
+                  },
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "last_commit_at",
+                    "observed_at": "2026-09-01T04:16:58.231303Z",
+                    "source_field": "activity.lastCommitAt",
+                    "verification": "source_reported"
+                  },
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "last_release_at",
+                    "observed_at": "2026-09-01T04:17:00.541542Z",
+                    "source_field": "activity.lastReleaseAt",
+                    "verification": "source_reported"
+                  },
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "last_synced_at",
+                    "observed_at": "2026-09-01T04:16:56.375662Z",
+                    "source_field": "activity.lastSyncedAt",
+                    "verification": "derived_reviewed"
+                  },
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "observed_at",
+                    "observed_at": "2026-09-01T04:16:56.375662Z",
+                    "source_field": "activity.observedAt",
+                    "verification": "source_reported"
+                  }
+                ],
+                "observed_at": "2026-09-01T04:16:56.375662Z",
+                "pushed_at": "2026-09-01T00:41:01Z",
+                "repository_updated_at": "2026-08-31T22:17:04Z",
+                "schema_version": "2.0.0",
+                "status": "pending_enrichment"
+              },
+              "advisory": {
+                "adoption_mode": null,
+                "adoption_status": null,
+                "avoid_if": [],
+                "best_for": [],
+                "compatibility": [],
+                "complexity": null,
+                "eligibility": {
+                  "catalog_acceptance_changed": false,
+                  "data_gate_passed": false,
+                  "evidence_completeness": 77.42,
+                  "minimum_stars": 500,
+                  "reasons": [
+                    "mandatory_fields_unresolved"
+                  ],
+                  "replacement_required": false
+                },
+                "gaps": [],
+                "integration_surface": null,
+                "project_stages": [],
+                "recommendation_reason": null,
+                "recommendation_status": null,
+                "tradeoffs": [],
+                "use_cases": []
+              },
+              "catalog": {
+                "evidence_stage": "identity_validated",
+                "membership_cohort": "baseline",
+                "review_status": "legacy_migrated",
+                "status": "accepted",
+                "status_source": "catalog_snapshot"
+              },
+              "classifications": [
+                {
+                  "category_id": "search_hybrid_retrieval",
+                  "kind": "category",
+                  "parent_id": null,
+                  "placement_source": "cat08-canonical-reconciliation",
+                  "role": "primary",
+                  "title": "Search & Hybrid Retrieval"
+                }
+              ],
+              "corpus_kind": "catalog_snapshot",
+              "delivery": {
+                "deployment": {
+                  "rationale": null,
+                  "values": []
+                },
+                "difficulty": "intermediate",
+                "form": null,
+                "hosting": null,
+                "lifecycle": null,
+                "maturity": null,
+                "persona": "both",
+                "requires_server": null
+              },
+              "descriptions": {
+                "catalog": null,
+                "catalog_origin": null,
+                "upstream": "The First Real-Time Search Analytics Database"
+              },
+              "evidence": [
+                {
+                  "evidence_id": "ev-catalog-card",
+                  "fields": [
+                    "/identity",
+                    "/catalog",
+                    "/descriptions",
+                    "/classifications",
+                    "/delivery",
+                    "/advisory",
+                    "/provenance"
+                  ],
+                  "observed_at": "2026-09-01T04:16:56.375662Z",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/1048068299",
+                  "verification": "derived_reviewed"
+                },
+                {
+                  "evidence_id": "ev-catalog-repository",
+                  "fields": [
+                    "/repository",
+                    "/activity"
+                  ],
+                  "observed_at": "2026-09-01T04:16:56.375662Z",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/1048068299",
+                  "verification": "source_reported"
+                }
+              ],
+              "identity": {
+                "catalog_record_id": "gh-pending:serenedb/serenedb",
+                "full_name": "serenedb/serenedb",
+                "full_name_aliases": [],
+                "github_repository_id": 1048068299,
+                "identity_status": "resolved",
+                "merged_catalog_record_ids": [],
+                "url": "https://github.com/serenedb/serenedb"
+              },
+              "provenance": {
+                "frozen_pins": {
+                  "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                  "field_contract_sha256": "9c0d6fd6e12ef42a37e26d8607405a7cbafdf1b7a633c8f8b53da159eaa7f456",
+                  "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                  "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+                },
+                "sources": [
+                  {
+                    "observed_at": "2026-09-01T04:16:56.375662Z",
+                    "source_id": "src-catalog-snapshot",
+                    "source_kind": "catalog_snapshot",
+                    "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/1048068299",
+                    "verification": "derived_reviewed"
+                  }
+                ]
+              },
+              "repository": {
+                "archived": false,
+                "availability": "available",
+                "default_branch": "main",
+                "disabled": false,
+                "forks": 44,
+                "homepage": "https://serenedb.com",
+                "is_fork": false,
+                "languages": [
+                  {
+                    "name": "C++",
+                    "scope": "primary"
+                  },
+                  {
+                    "name": "TypeScript",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "Shell",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "Python",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "CMake",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "CSS",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "C",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "Lex",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "Yacc",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "Dockerfile",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "JavaScript",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "PLpgSQL",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "HTML",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "Go Template",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "Makefile",
+                    "scope": "secondary"
+                  }
+                ],
+                "license": {
+                  "confidence": "legacy_detected",
+                  "name": "Apache License 2.0",
+                  "source": "legacy",
+                  "spdx": "Apache-2.0"
+                },
+                "size_kb": 231007,
+                "stack": [
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "technology": "C++"
+                  }
+                ],
+                "stars": 520,
+                "topics": [
+                  "analytics",
+                  "bm25",
+                  "clickhouse",
+                  "cpp",
+                  "database",
+                  "dbms",
+                  "duckdb",
+                  "elasticsearch",
+                  "olap",
+                  "postgresql",
+                  "relational-database",
+                  "search-engine",
+                  "search-engines",
+                  "sql"
+                ],
+                "visibility": "public",
+                "watchers": 8,
+                "watchers_scope": "subscribers_count"
+              },
+              "schema_version": "2.0.0"
+            },
+            "retrieval_rank": 6,
+            "eligibility": {
+              "schema_version": "2.1.0",
+              "github_repository_id": 1048068299,
+              "query_id": "request-fa065da7b37ae4c86e50cd0f",
+              "status": "reference_only",
+              "checks": [
+                {
+                  "field": "availability",
+                  "outcome": "pass",
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ]
+                },
+                {
+                  "field": "archived",
+                  "outcome": "pass",
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ]
+                },
+                {
+                  "field": "advisory_evidence",
+                  "outcome": "unknown",
+                  "evidence_refs": [
+                    "ev-catalog-card"
+                  ]
+                }
+              ],
+              "reason_codes": [
+                "mandatory_fact_unknown"
+              ],
+              "required_verifications": [
+                "Verify the advisory fit fields against source-backed public evidence."
+              ]
+            },
+            "rrf_score": 0.014925373134328358,
+            "matched_fields": [
+              "upstream_description",
+              "topics",
+              "category_labels"
+            ]
+          },
+          {
+            "card": {
+              "activity": {
+                "created_at": "2025-06-27T08:38:50Z",
+                "last_commit_at": "2025-08-08T19:58:45Z",
+                "last_commit_branch": "main",
+                "last_commit_sha": "eeb03f88525cbf74c4019e59a3fea45a537a760b",
+                "last_release_at": "2025-08-07T16:28:12Z",
+                "last_synced_at": "2026-08-30T12:35:20Z",
+                "observations": [
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "created_at",
+                    "observed_at": "2026-09-01T05:14:52.316854Z",
+                    "source_field": "activity.createdAt",
+                    "verification": "source_reported"
+                  },
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "repository_updated_at",
+                    "observed_at": "2026-09-01T05:14:52.316854Z",
+                    "source_field": "activity.updatedAt",
+                    "verification": "source_reported"
+                  },
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "pushed_at",
+                    "observed_at": "2026-09-01T05:14:52.316854Z",
+                    "source_field": "activity.pushedAt",
+                    "verification": "source_reported"
+                  },
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "last_commit_at",
+                    "observed_at": "2026-09-01T05:14:53.187103Z",
+                    "source_field": "activity.lastCommitAt",
+                    "verification": "source_reported"
+                  },
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "last_release_at",
+                    "observed_at": "2026-09-01T05:14:56.242777Z",
+                    "source_field": "activity.lastReleaseAt",
+                    "verification": "source_reported"
+                  },
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "last_synced_at",
+                    "observed_at": "2026-09-01T05:14:52.316854Z",
+                    "source_field": "activity.lastSyncedAt",
+                    "verification": "derived_reviewed"
+                  },
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "observed_at",
+                    "observed_at": "2026-09-01T05:14:52.316854Z",
+                    "source_field": "activity.observedAt",
+                    "verification": "source_reported"
+                  }
+                ],
+                "observed_at": "2026-09-01T05:14:52.316854Z",
+                "pushed_at": "2025-08-08T19:58:47Z",
+                "repository_updated_at": "2026-09-01T00:04:34Z",
+                "schema_version": "2.0.0",
+                "status": "enriched"
+              },
+              "advisory": {
+                "adoption_mode": null,
+                "adoption_status": "adopt-with-validation",
+                "avoid_if": [],
+                "best_for": [
+                  "Products that require web, documentation, code, or domain-specific retrieval for grounded agent responses."
+                ],
+                "compatibility": [],
+                "complexity": null,
+                "eligibility": {
+                  "catalog_acceptance_changed": false,
+                  "data_gate_passed": false,
+                  "evidence_completeness": 77.42,
+                  "minimum_stars": 500,
+                  "reasons": [
+                    "mandatory_fields_unresolved"
+                  ],
+                  "replacement_required": false
+                },
+                "gaps": [],
+                "integration_surface": null,
+                "project_stages": [],
+                "recommendation_reason": "Selected as a search and retrieval integration because its source description maps directly to Search & Hybrid Retrieval: A simple, locally hosted Web Search MCP server for use with Local LLMs The scanner snapshot records a TypeScript stack, 1,115 GitHub stars, creation on 2025-06-27, and a last push on 2025-08-08. These are discovery signals for evaluation, not production, security, legal, or procurement approval.",
+                "recommendation_status": null,
+                "tradeoffs": [
+                  "Verify index freshness, ranking quality, source permissions, citation support, latency, cost, and behavior when evidence is missing."
+                ],
+                "use_cases": []
+              },
+              "catalog": {
+                "evidence_stage": "identity_validated",
+                "membership_cohort": "baseline",
+                "review_status": "source_verified_required_fields",
+                "status": "candidate",
+                "status_source": "catalog_snapshot"
+              },
+              "classifications": [
+                {
+                  "category_id": "search_hybrid_retrieval",
+                  "kind": "category",
+                  "parent_id": null,
+                  "placement_source": "cat08-canonical-reconciliation",
+                  "role": "primary",
+                  "title": "Search & Hybrid Retrieval"
+                }
+              ],
+              "corpus_kind": "catalog_snapshot",
+              "delivery": {
+                "deployment": {
+                  "rationale": null,
+                  "values": [
+                    "local"
+                  ]
+                },
+                "difficulty": "intermediate",
+                "form": {
+                  "rationale": null,
+                  "value": "integration"
+                },
+                "hosting": {
+                  "rationale": null,
+                  "value": "self_hosted"
+                },
+                "lifecycle": "maintenance",
+                "maturity": null,
+                "persona": "both",
+                "requires_server": null
+              },
+              "descriptions": {
+                "catalog": null,
+                "catalog_origin": null,
+                "upstream": "A simple, locally hosted Web Search MCP server for use with Local LLMs"
+              },
+              "evidence": [
+                {
+                  "evidence_id": "ev-catalog-card",
+                  "fields": [
+                    "/identity",
+                    "/catalog",
+                    "/descriptions",
+                    "/classifications",
+                    "/delivery",
+                    "/advisory",
+                    "/provenance"
+                  ],
+                  "observed_at": "2026-09-01T05:14:52.316854Z",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/1009504831",
+                  "verification": "derived_reviewed"
+                },
+                {
+                  "evidence_id": "ev-catalog-repository",
+                  "fields": [
+                    "/repository",
+                    "/activity"
+                  ],
+                  "observed_at": "2026-09-01T05:14:52.316854Z",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/1009504831",
+                  "verification": "source_reported"
+                }
+              ],
+              "identity": {
+                "catalog_record_id": "gh-1700:mrkrsl/web-search-mcp",
+                "full_name": "mrkrsl/web-search-mcp",
+                "full_name_aliases": [],
+                "github_repository_id": 1009504831,
+                "identity_status": "resolved",
+                "merged_catalog_record_ids": [],
+                "url": "https://github.com/mrkrsl/web-search-mcp"
+              },
+              "provenance": {
+                "frozen_pins": {
+                  "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                  "field_contract_sha256": "9c0d6fd6e12ef42a37e26d8607405a7cbafdf1b7a633c8f8b53da159eaa7f456",
+                  "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                  "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+                },
+                "sources": [
+                  {
+                    "observed_at": "2026-09-01T05:14:52.316854Z",
+                    "source_id": "src-catalog-snapshot",
+                    "source_kind": "catalog_snapshot",
+                    "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/1009504831",
+                    "verification": "derived_reviewed"
+                  }
+                ]
+              },
+              "repository": {
+                "archived": false,
+                "availability": "available",
+                "default_branch": "main",
+                "disabled": false,
+                "forks": 161,
+                "homepage": null,
+                "is_fork": false,
+                "languages": [
+                  {
+                    "name": "TypeScript",
+                    "scope": "primary"
+                  }
+                ],
+                "license": {
+                  "confidence": "not_collected_for_batch",
+                  "name": "MIT License",
+                  "source": "PurpleHaze2320/mcp-ecosystem-scanner:data/latest.json",
+                  "spdx": "MIT"
+                },
+                "size_kb": 126,
+                "stack": [
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "technology": "TypeScript"
+                  }
+                ],
+                "stars": 1115,
+                "topics": [
+                  "llm",
+                  "lmstudio",
+                  "local-llm",
+                  "mcp",
+                  "web-search"
+                ],
+                "visibility": "public",
+                "watchers": 9,
+                "watchers_scope": "subscribers_count"
+              },
+              "schema_version": "2.0.0"
+            },
+            "retrieval_rank": 7,
+            "eligibility": {
+              "schema_version": "2.1.0",
+              "github_repository_id": 1009504831,
+              "query_id": "request-fa065da7b37ae4c86e50cd0f",
+              "status": "reference_only",
+              "checks": [
+                {
+                  "field": "availability",
+                  "outcome": "pass",
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ]
+                },
+                {
+                  "field": "archived",
+                  "outcome": "pass",
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ]
+                },
+                {
+                  "field": "advisory_evidence",
+                  "outcome": "unknown",
+                  "evidence_refs": [
+                    "ev-catalog-card"
+                  ]
+                }
+              ],
+              "reason_codes": [
+                "mandatory_fact_unknown"
+              ],
+              "required_verifications": [
+                "Verify the advisory fit fields against source-backed public evidence."
+              ]
+            },
+            "rrf_score": 0.014705882352941176,
+            "matched_fields": [
+              "full_name",
+              "upstream_description",
+              "topics",
+              "category_labels"
+            ]
+          },
+          {
+            "card": {
+              "activity": {
+                "created_at": "2021-04-13T22:45:40Z",
+                "last_commit_at": "2026-08-31T20:05:17Z",
+                "last_commit_branch": "main",
+                "last_commit_sha": "4b4c6442cc88321ce1206228f165be40e09500f0",
+                "last_release_at": "2026-07-25T18:37:48Z",
+                "last_synced_at": "2026-08-11T13:41:45Z",
+                "observations": [
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "created_at",
+                    "observed_at": "2026-09-01T03:21:56.635651Z",
+                    "source_field": "activity.createdAt",
+                    "verification": "source_reported"
+                  },
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "repository_updated_at",
+                    "observed_at": "2026-09-01T03:21:56.635651Z",
+                    "source_field": "activity.updatedAt",
+                    "verification": "source_reported"
+                  },
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "pushed_at",
+                    "observed_at": "2026-09-01T03:21:56.635651Z",
+                    "source_field": "activity.pushedAt",
+                    "verification": "source_reported"
+                  },
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "last_commit_at",
+                    "observed_at": "2026-09-01T03:21:58.214200Z",
+                    "source_field": "activity.lastCommitAt",
+                    "verification": "source_reported"
+                  },
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "last_release_at",
+                    "observed_at": "2026-09-01T03:22:01.462593Z",
+                    "source_field": "activity.lastReleaseAt",
+                    "verification": "source_reported"
+                  },
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "last_synced_at",
+                    "observed_at": "2026-09-01T03:21:56.635651Z",
+                    "source_field": "activity.lastSyncedAt",
+                    "verification": "derived_reviewed"
+                  },
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "observed_at",
+                    "observed_at": "2026-09-01T03:21:56.635651Z",
+                    "source_field": "activity.observedAt",
+                    "verification": "source_reported"
+                  }
+                ],
+                "observed_at": "2026-09-01T03:21:56.635651Z",
+                "pushed_at": "2026-08-31T20:11:55Z",
+                "repository_updated_at": "2026-09-01T03:15:45Z",
+                "schema_version": "2.0.0",
+                "status": "pending_enrichment"
+              },
+              "advisory": {
+                "adoption_mode": null,
+                "adoption_status": null,
+                "avoid_if": [],
+                "best_for": [],
+                "compatibility": [],
+                "complexity": null,
+                "eligibility": {
+                  "catalog_acceptance_changed": false,
+                  "data_gate_passed": false,
+                  "evidence_completeness": 77.42,
+                  "minimum_stars": 500,
+                  "reasons": [
+                    "mandatory_fields_unresolved"
+                  ],
+                  "replacement_required": false
+                },
+                "gaps": [],
+                "integration_surface": null,
+                "project_stages": [],
+                "recommendation_reason": null,
+                "recommendation_status": null,
+                "tradeoffs": [],
+                "use_cases": []
+              },
+              "catalog": {
+                "evidence_stage": "identity_validated",
+                "membership_cohort": "baseline",
+                "review_status": "curated_seed_needs_metadata",
+                "status": "candidate",
+                "status_source": "catalog_snapshot"
+              },
+              "classifications": [
+                {
+                  "category_id": "search_hybrid_retrieval",
+                  "kind": "category",
+                  "parent_id": null,
+                  "placement_source": "cat08-canonical-reconciliation",
+                  "role": "primary",
+                  "title": "Search & Hybrid Retrieval"
+                }
+              ],
+              "corpus_kind": "catalog_snapshot",
+              "delivery": {
+                "deployment": {
+                  "rationale": null,
+                  "values": []
+                },
+                "difficulty": "intermediate",
+                "form": {
+                  "rationale": null,
+                  "value": "platform"
+                },
+                "hosting": null,
+                "lifecycle": null,
+                "maturity": null,
+                "persona": "both",
+                "requires_server": null
+              },
+              "descriptions": {
+                "catalog": "Cloud-native OSS search engine for observability",
+                "catalog_origin": "upstream",
+                "upstream": "Cloud-native OSS search engine for observability"
+              },
+              "evidence": [
+                {
+                  "evidence_id": "ev-catalog-card",
+                  "fields": [
+                    "/identity",
+                    "/catalog",
+                    "/descriptions",
+                    "/classifications",
+                    "/delivery",
+                    "/advisory",
+                    "/provenance"
+                  ],
+                  "observed_at": "2026-09-01T03:21:56.635651Z",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/357707809",
+                  "verification": "derived_reviewed"
+                },
+                {
+                  "evidence_id": "ev-catalog-repository",
+                  "fields": [
+                    "/repository",
+                    "/activity"
+                  ],
+                  "observed_at": "2026-09-01T03:21:56.635651Z",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/357707809",
+                  "verification": "source_reported"
+                }
+              ],
+              "identity": {
+                "catalog_record_id": "gh-pending:quickwit-oss/quickwit",
+                "full_name": "quickwit-oss/quickwit",
+                "full_name_aliases": [],
+                "github_repository_id": 357707809,
+                "identity_status": "resolved",
+                "merged_catalog_record_ids": [],
+                "url": "https://github.com/quickwit-oss/quickwit"
+              },
+              "provenance": {
+                "frozen_pins": {
+                  "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                  "field_contract_sha256": "9c0d6fd6e12ef42a37e26d8607405a7cbafdf1b7a633c8f8b53da159eaa7f456",
+                  "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                  "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+                },
+                "sources": [
+                  {
+                    "observed_at": "2026-09-01T03:21:56.635651Z",
+                    "source_id": "src-catalog-snapshot",
+                    "source_kind": "catalog_snapshot",
+                    "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/357707809",
+                    "verification": "derived_reviewed"
+                  }
+                ]
+              },
+              "repository": {
+                "archived": false,
+                "availability": "available",
+                "default_branch": "main",
+                "disabled": false,
+                "forks": 585,
+                "homepage": "https://quickwit.io",
+                "is_fork": false,
+                "languages": [
+                  {
+                    "name": "Rust",
+                    "scope": "primary"
+                  },
+                  {
+                    "name": "HTML",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "TypeScript",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "HCL",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "Python",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "Shell",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "JavaScript",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "Dockerfile",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "PLpgSQL",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "Makefile",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "Handlebars",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "CSS",
+                    "scope": "secondary"
+                  }
+                ],
+                "license": {
+                  "confidence": "source_reported",
+                  "name": "Apache License 2.0",
+                  "source": "https://api.github.com/licenses/apache-2.0",
+                  "spdx": "Apache-2.0"
+                },
+                "size_kb": 90023,
+                "stack": [
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "technology": "Rust"
+                  }
+                ],
+                "stars": 11561,
+                "topics": [
+                  "big-data",
+                  "cloud-native",
+                  "cloud-storage",
+                  "distributed-tracing",
+                  "log-management",
+                  "logs",
+                  "open-source",
+                  "rust",
+                  "search-engine",
+                  "tantivy"
+                ],
+                "visibility": "public",
+                "watchers": 69,
+                "watchers_scope": "subscribers_count"
+              },
+              "schema_version": "2.0.0"
+            },
+            "retrieval_rank": 8,
+            "eligibility": {
+              "schema_version": "2.1.0",
+              "github_repository_id": 357707809,
+              "query_id": "request-fa065da7b37ae4c86e50cd0f",
+              "status": "reference_only",
+              "checks": [
+                {
+                  "field": "availability",
+                  "outcome": "pass",
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ]
+                },
+                {
+                  "field": "archived",
+                  "outcome": "pass",
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ]
+                },
+                {
+                  "field": "advisory_evidence",
+                  "outcome": "unknown",
+                  "evidence_refs": [
+                    "ev-catalog-card"
+                  ]
+                }
+              ],
+              "reason_codes": [
+                "mandatory_fact_unknown"
+              ],
+              "required_verifications": [
+                "Verify the advisory fit fields against source-backed public evidence."
+              ]
+            },
+            "rrf_score": 0.014492753623188406,
+            "matched_fields": [
+              "upstream_description",
+              "catalog_description",
+              "topics",
+              "category_labels"
+            ]
+          },
+          {
+            "card": {
+              "activity": {
+                "created_at": "2016-01-11T08:32:16Z",
+                "last_commit_at": "2026-08-31T12:40:27Z",
+                "last_commit_branch": "main",
+                "last_commit_sha": "35a6187ed107e946c22921ede01773675078c537",
+                "last_release_at": "2026-05-10T18:38:25Z",
+                "last_synced_at": "2026-08-11T13:41:45Z",
+                "observations": [
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "created_at",
+                    "observed_at": "2026-09-01T03:22:02.443411Z",
+                    "source_field": "activity.createdAt",
+                    "verification": "source_reported"
+                  },
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "repository_updated_at",
+                    "observed_at": "2026-09-01T03:22:02.443411Z",
+                    "source_field": "activity.updatedAt",
+                    "verification": "source_reported"
+                  },
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "pushed_at",
+                    "observed_at": "2026-09-01T03:22:02.443411Z",
+                    "source_field": "activity.pushedAt",
+                    "verification": "source_reported"
+                  },
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "last_commit_at",
+                    "observed_at": "2026-09-01T03:22:04.071561Z",
+                    "source_field": "activity.lastCommitAt",
+                    "verification": "source_reported"
+                  },
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "last_release_at",
+                    "observed_at": "2026-09-01T03:22:07.724364Z",
+                    "source_field": "activity.lastReleaseAt",
+                    "verification": "source_reported"
+                  },
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "last_synced_at",
+                    "observed_at": "2026-09-01T03:22:02.443411Z",
+                    "source_field": "activity.lastSyncedAt",
+                    "verification": "derived_reviewed"
+                  },
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "observed_at",
+                    "observed_at": "2026-09-01T03:22:02.443411Z",
+                    "source_field": "activity.observedAt",
+                    "verification": "source_reported"
+                  }
+                ],
+                "observed_at": "2026-09-01T03:22:02.443411Z",
+                "pushed_at": "2026-08-31T16:45:54Z",
+                "repository_updated_at": "2026-09-01T03:15:31Z",
+                "schema_version": "2.0.0",
+                "status": "pending_enrichment"
+              },
+              "advisory": {
+                "adoption_mode": null,
+                "adoption_status": null,
+                "avoid_if": [],
+                "best_for": [],
+                "compatibility": [],
+                "complexity": null,
+                "eligibility": {
+                  "catalog_acceptance_changed": false,
+                  "data_gate_passed": false,
+                  "evidence_completeness": 77.42,
+                  "minimum_stars": 500,
+                  "reasons": [
+                    "mandatory_fields_unresolved"
+                  ],
+                  "replacement_required": false
+                },
+                "gaps": [],
+                "integration_surface": null,
+                "project_stages": [],
+                "recommendation_reason": null,
+                "recommendation_status": null,
+                "tradeoffs": [],
+                "use_cases": []
+              },
+              "catalog": {
+                "evidence_stage": "identity_validated",
+                "membership_cohort": "baseline",
+                "review_status": "curated_seed_needs_metadata",
+                "status": "candidate",
+                "status_source": "catalog_snapshot"
+              },
+              "classifications": [
+                {
+                  "category_id": "search_hybrid_retrieval",
+                  "kind": "category",
+                  "parent_id": null,
+                  "placement_source": "cat08-canonical-reconciliation",
+                  "role": "primary",
+                  "title": "Search & Hybrid Retrieval"
+                }
+              ],
+              "corpus_kind": "catalog_snapshot",
+              "delivery": {
+                "deployment": {
+                  "rationale": null,
+                  "values": []
+                },
+                "difficulty": "intermediate",
+                "form": {
+                  "rationale": null,
+                  "value": "engine"
+                },
+                "hosting": null,
+                "lifecycle": null,
+                "maturity": null,
+                "persona": "both",
+                "requires_server": null
+              },
+              "descriptions": {
+                "catalog": "Tantivy is a full-text search engine library inspired by Apache Lucene and written in Rust",
+                "catalog_origin": "upstream",
+                "upstream": "Tantivy is a full-text search engine library inspired by Apache Lucene and written in Rust"
+              },
+              "evidence": [
+                {
+                  "evidence_id": "ev-catalog-card",
+                  "fields": [
+                    "/identity",
+                    "/catalog",
+                    "/descriptions",
+                    "/classifications",
+                    "/delivery",
+                    "/advisory",
+                    "/provenance"
+                  ],
+                  "observed_at": "2026-09-01T03:22:02.443411Z",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/49412556",
+                  "verification": "derived_reviewed"
+                },
+                {
+                  "evidence_id": "ev-catalog-repository",
+                  "fields": [
+                    "/repository",
+                    "/activity"
+                  ],
+                  "observed_at": "2026-09-01T03:22:02.443411Z",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/49412556",
+                  "verification": "source_reported"
+                }
+              ],
+              "identity": {
+                "catalog_record_id": "gh-pending:quickwit-oss/tantivy",
+                "full_name": "quickwit-oss/tantivy",
+                "full_name_aliases": [],
+                "github_repository_id": 49412556,
+                "identity_status": "resolved",
+                "merged_catalog_record_ids": [],
+                "url": "https://github.com/quickwit-oss/tantivy"
+              },
+              "provenance": {
+                "frozen_pins": {
+                  "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                  "field_contract_sha256": "9c0d6fd6e12ef42a37e26d8607405a7cbafdf1b7a633c8f8b53da159eaa7f456",
+                  "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                  "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+                },
+                "sources": [
+                  {
+                    "observed_at": "2026-09-01T03:22:02.443411Z",
+                    "source_id": "src-catalog-snapshot",
+                    "source_kind": "catalog_snapshot",
+                    "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/49412556",
+                    "verification": "derived_reviewed"
+                  }
+                ]
+              },
+              "repository": {
+                "archived": false,
+                "availability": "available",
+                "default_branch": "main",
+                "disabled": false,
+                "forks": 985,
+                "homepage": null,
+                "is_fork": false,
+                "languages": [
+                  {
+                    "name": "Rust",
+                    "scope": "primary"
+                  },
+                  {
+                    "name": "Python",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "Makefile",
+                    "scope": "secondary"
+                  }
+                ],
+                "license": {
+                  "confidence": "source_reported",
+                  "name": "MIT License",
+                  "source": "https://api.github.com/licenses/mit",
+                  "spdx": "MIT"
+                },
+                "size_kb": 66040,
+                "stack": [
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "technology": "Rust"
+                  }
+                ],
+                "stars": 16020,
+                "topics": [
+                  "rust",
+                  "search-engine"
+                ],
+                "visibility": "public",
+                "watchers": 141,
+                "watchers_scope": "subscribers_count"
+              },
+              "schema_version": "2.0.0"
+            },
+            "retrieval_rank": 9,
+            "eligibility": {
+              "schema_version": "2.1.0",
+              "github_repository_id": 49412556,
+              "query_id": "request-fa065da7b37ae4c86e50cd0f",
+              "status": "reference_only",
+              "checks": [
+                {
+                  "field": "availability",
+                  "outcome": "pass",
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ]
+                },
+                {
+                  "field": "archived",
+                  "outcome": "pass",
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ]
+                },
+                {
+                  "field": "advisory_evidence",
+                  "outcome": "unknown",
+                  "evidence_refs": [
+                    "ev-catalog-card"
+                  ]
+                }
+              ],
+              "reason_codes": [
+                "mandatory_fact_unknown"
+              ],
+              "required_verifications": [
+                "Verify the advisory fit fields against source-backed public evidence."
+              ]
+            },
+            "rrf_score": 0.014285714285714285,
+            "matched_fields": [
+              "upstream_description",
+              "catalog_description",
+              "topics",
+              "category_labels"
+            ]
+          },
+          {
+            "card": {
+              "activity": {
+                "created_at": "2021-04-12T15:18:15Z",
+                "last_commit_at": "2026-08-29T08:14:39Z",
+                "last_commit_branch": "master",
+                "last_commit_sha": "d226b78bc4c9ab93a84849b8ad128a68c41be17c",
+                "last_release_at": null,
+                "last_synced_at": "2026-08-11T13:41:45Z",
+                "observations": [
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "created_at",
+                    "observed_at": "2026-09-01T03:26:22.732882Z",
+                    "source_field": "activity.createdAt",
+                    "verification": "source_reported"
+                  },
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "repository_updated_at",
+                    "observed_at": "2026-09-01T03:26:22.732882Z",
+                    "source_field": "activity.updatedAt",
+                    "verification": "source_reported"
+                  },
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "pushed_at",
+                    "observed_at": "2026-09-01T03:26:22.732882Z",
+                    "source_field": "activity.pushedAt",
+                    "verification": "source_reported"
+                  },
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "last_commit_at",
+                    "observed_at": "2026-09-01T03:26:24.077148Z",
+                    "source_field": "activity.lastCommitAt",
+                    "verification": "source_reported"
+                  },
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "last_synced_at",
+                    "observed_at": "2026-09-01T03:26:22.732882Z",
+                    "source_field": "activity.lastSyncedAt",
+                    "verification": "derived_reviewed"
+                  },
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "observed_at",
+                    "observed_at": "2026-09-01T03:26:22.732882Z",
+                    "source_field": "activity.observedAt",
+                    "verification": "source_reported"
+                  }
+                ],
+                "observed_at": "2026-09-01T03:26:22.732882Z",
+                "pushed_at": "2026-08-29T08:19:34Z",
+                "repository_updated_at": "2026-09-01T03:15:42Z",
+                "schema_version": "2.0.0",
+                "status": "pending_enrichment"
+              },
+              "advisory": {
+                "adoption_mode": null,
+                "adoption_status": null,
+                "avoid_if": [],
+                "best_for": [],
+                "compatibility": [],
+                "complexity": null,
+                "eligibility": {
+                  "catalog_acceptance_changed": false,
+                  "data_gate_passed": false,
+                  "evidence_completeness": 77.42,
+                  "minimum_stars": 500,
+                  "reasons": [
+                    "mandatory_fields_unresolved"
+                  ],
+                  "replacement_required": false
+                },
+                "gaps": [],
+                "integration_surface": null,
+                "project_stages": [],
+                "recommendation_reason": null,
+                "recommendation_status": null,
+                "tradeoffs": [],
+                "use_cases": []
+              },
+              "catalog": {
+                "evidence_stage": "identity_validated",
+                "membership_cohort": "baseline",
+                "review_status": "curated_seed_needs_metadata",
+                "status": "candidate",
+                "status_source": "catalog_snapshot"
+              },
+              "classifications": [
+                {
+                  "category_id": "search_hybrid_retrieval",
+                  "kind": "category",
+                  "parent_id": null,
+                  "placement_source": "cat08-canonical-reconciliation",
+                  "role": "primary",
+                  "title": "Search & Hybrid Retrieval"
+                }
+              ],
+              "corpus_kind": "catalog_snapshot",
+              "delivery": {
+                "deployment": {
+                  "rationale": null,
+                  "values": []
+                },
+                "difficulty": "intermediate",
+                "form": {
+                  "rationale": null,
+                  "value": "engine"
+                },
+                "hosting": null,
+                "lifecycle": null,
+                "maturity": null,
+                "persona": "both",
+                "requires_server": null
+              },
+              "descriptions": {
+                "catalog": "SearXNG is a free internet metasearch engine which aggregates results from various search services and databases. Users are neither tracked nor profiled.",
+                "catalog_origin": "upstream",
+                "upstream": "SearXNG is a free internet metasearch engine which aggregates results from various search services and databases. Users are neither tracked nor profiled."
+              },
+              "evidence": [
+                {
+                  "evidence_id": "ev-catalog-card",
+                  "fields": [
+                    "/identity",
+                    "/catalog",
+                    "/descriptions",
+                    "/classifications",
+                    "/delivery",
+                    "/advisory",
+                    "/provenance"
+                  ],
+                  "observed_at": "2026-09-01T03:26:22.732882Z",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/357241735",
+                  "verification": "derived_reviewed"
+                },
+                {
+                  "evidence_id": "ev-catalog-repository",
+                  "fields": [
+                    "/repository",
+                    "/activity"
+                  ],
+                  "observed_at": "2026-09-01T03:26:22.732882Z",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/357241735",
+                  "verification": "source_reported"
+                }
+              ],
+              "identity": {
+                "catalog_record_id": "gh-pending:searxng/searxng",
+                "full_name": "searxng/searxng",
+                "full_name_aliases": [],
+                "github_repository_id": 357241735,
+                "identity_status": "resolved",
+                "merged_catalog_record_ids": [],
+                "url": "https://github.com/searxng/searxng"
+              },
+              "provenance": {
+                "frozen_pins": {
+                  "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                  "field_contract_sha256": "9c0d6fd6e12ef42a37e26d8607405a7cbafdf1b7a633c8f8b53da159eaa7f456",
+                  "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                  "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+                },
+                "sources": [
+                  {
+                    "observed_at": "2026-09-01T03:26:22.732882Z",
+                    "source_id": "src-catalog-snapshot",
+                    "source_kind": "catalog_snapshot",
+                    "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/357241735",
+                    "verification": "derived_reviewed"
+                  }
+                ]
+              },
+              "repository": {
+                "archived": false,
+                "availability": "available",
+                "default_branch": "master",
+                "disabled": false,
+                "forks": 3323,
+                "homepage": "https://docs.searxng.org",
+                "is_fork": false,
+                "languages": [
+                  {
+                    "name": "Python",
+                    "scope": "primary"
+                  },
+                  {
+                    "name": "Shell",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "HTML",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "Less",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "TypeScript",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "Dockerfile",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "Makefile",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "XSLT",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "Edge",
+                    "scope": "secondary"
+                  }
+                ],
+                "license": {
+                  "confidence": "source_reported",
+                  "name": "GNU Affero General Public License v3.0",
+                  "source": "https://api.github.com/licenses/agpl-3.0",
+                  "spdx": "AGPL-3.0"
+                },
+                "size_kb": 121282,
+                "stack": [
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "technology": "Python"
+                  }
+                ],
+                "stars": 36346,
+                "topics": [
+                  "bing",
+                  "brave",
+                  "degoogle",
+                  "duckduckgo",
+                  "google",
+                  "metasearch",
+                  "privacy",
+                  "python",
+                  "qwant",
+                  "search",
+                  "search-engine",
+                  "searx",
+                  "searxng",
+                  "startpage",
+                  "yahoo"
+                ],
+                "visibility": "public",
+                "watchers": 176,
+                "watchers_scope": "subscribers_count"
+              },
+              "schema_version": "2.0.0"
+            },
+            "retrieval_rank": 10,
+            "eligibility": {
+              "schema_version": "2.1.0",
+              "github_repository_id": 357241735,
+              "query_id": "request-fa065da7b37ae4c86e50cd0f",
+              "status": "reference_only",
+              "checks": [
+                {
+                  "field": "availability",
+                  "outcome": "pass",
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ]
+                },
+                {
+                  "field": "archived",
+                  "outcome": "pass",
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ]
+                },
+                {
+                  "field": "advisory_evidence",
+                  "outcome": "unknown",
+                  "evidence_refs": [
+                    "ev-catalog-card"
+                  ]
+                }
+              ],
+              "reason_codes": [
+                "mandatory_fact_unknown"
+              ],
+              "required_verifications": [
+                "Verify the advisory fit fields against source-backed public evidence."
+              ]
+            },
+            "rrf_score": 0.014084507042253521,
+            "matched_fields": [
+              "upstream_description",
+              "catalog_description",
+              "topics",
+              "category_labels"
+            ]
+          },
+          {
+            "card": {
+              "activity": {
+                "created_at": "2025-06-06T02:12:47Z",
+                "last_commit_at": "2026-07-14T12:00:38Z",
+                "last_commit_branch": "master",
+                "last_commit_sha": "6fc318b4e3ce58e2898b00a9c3538ead9e24dee5",
+                "last_release_at": null,
+                "last_synced_at": "2026-08-30T16:00:00Z",
+                "observations": [
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "created_at",
+                    "observed_at": "2026-09-01T04:30:59.288860Z",
+                    "source_field": "activity.createdAt",
+                    "verification": "source_reported"
+                  },
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "repository_updated_at",
+                    "observed_at": "2026-09-01T04:30:59.288860Z",
+                    "source_field": "activity.updatedAt",
+                    "verification": "source_reported"
+                  },
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "pushed_at",
+                    "observed_at": "2026-09-01T04:30:59.288860Z",
+                    "source_field": "activity.pushedAt",
+                    "verification": "source_reported"
+                  },
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "last_commit_at",
+                    "observed_at": "2026-09-01T04:31:01.059444Z",
+                    "source_field": "activity.lastCommitAt",
+                    "verification": "source_reported"
+                  },
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "last_synced_at",
+                    "observed_at": "2026-09-01T04:30:59.288860Z",
+                    "source_field": "activity.lastSyncedAt",
+                    "verification": "derived_reviewed"
+                  },
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "observed_at",
+                    "observed_at": "2026-09-01T04:30:59.288860Z",
+                    "source_field": "activity.observedAt",
+                    "verification": "source_reported"
+                  }
+                ],
+                "observed_at": "2026-09-01T04:30:59.288860Z",
+                "pushed_at": "2026-07-14T12:00:38Z",
+                "repository_updated_at": "2026-08-30T09:55:56Z",
+                "schema_version": "2.0.0",
+                "status": "enriched"
+              },
+              "advisory": {
+                "adoption_mode": null,
+                "adoption_status": null,
+                "avoid_if": [],
+                "best_for": [],
+                "compatibility": [],
+                "complexity": null,
+                "eligibility": {
+                  "catalog_acceptance_changed": false,
+                  "data_gate_passed": false,
+                  "evidence_completeness": 77.42,
+                  "minimum_stars": 500,
+                  "reasons": [
+                    "mandatory_fields_unresolved"
+                  ],
+                  "replacement_required": false
+                },
+                "gaps": [],
+                "integration_surface": null,
+                "project_stages": [],
+                "recommendation_reason": null,
+                "recommendation_status": null,
+                "tradeoffs": [],
+                "use_cases": []
+              },
+              "catalog": {
+                "evidence_stage": "identity_validated",
+                "membership_cohort": "baseline",
+                "review_status": "source_verified_batch",
+                "status": "accepted",
+                "status_source": "catalog_snapshot"
+              },
+              "classifications": [
+                {
+                  "category_id": "search_hybrid_retrieval",
+                  "kind": "category",
+                  "parent_id": null,
+                  "placement_source": "cat08-canonical-reconciliation",
+                  "role": "primary",
+                  "title": "Search & Hybrid Retrieval"
+                }
+              ],
+              "corpus_kind": "catalog_snapshot",
+              "delivery": {
+                "deployment": {
+                  "rationale": null,
+                  "values": []
+                },
+                "difficulty": "intermediate",
+                "form": {
+                  "rationale": null,
+                  "value": "integration"
+                },
+                "hosting": null,
+                "lifecycle": "active",
+                "maturity": "emerging",
+                "persona": "both",
+                "requires_server": null
+              },
+              "descriptions": {
+                "catalog": null,
+                "catalog_origin": null,
+                "upstream": "Code search MCP for Claude Code. Make entire codebase the context for any coding agent."
+              },
+              "evidence": [
+                {
+                  "evidence_id": "ev-catalog-card",
+                  "fields": [
+                    "/identity",
+                    "/catalog",
+                    "/descriptions",
+                    "/classifications",
+                    "/delivery",
+                    "/advisory",
+                    "/provenance"
+                  ],
+                  "observed_at": "2026-09-01T04:30:59.288860Z",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/997125912",
+                  "verification": "derived_reviewed"
+                },
+                {
+                  "evidence_id": "ev-catalog-repository",
+                  "fields": [
+                    "/repository",
+                    "/activity"
+                  ],
+                  "observed_at": "2026-09-01T04:30:59.288860Z",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/997125912",
+                  "verification": "source_reported"
+                }
+              ],
+              "identity": {
+                "catalog_record_id": "gh:zilliztech/claude-context",
+                "full_name": "zilliztech/claude-context",
+                "full_name_aliases": [],
+                "github_repository_id": 997125912,
+                "identity_status": "resolved",
+                "merged_catalog_record_ids": [],
+                "url": "https://github.com/zilliztech/claude-context"
+              },
+              "provenance": {
+                "frozen_pins": {
+                  "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                  "field_contract_sha256": "9c0d6fd6e12ef42a37e26d8607405a7cbafdf1b7a633c8f8b53da159eaa7f456",
+                  "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                  "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+                },
+                "sources": [
+                  {
+                    "observed_at": "2026-09-01T04:30:59.288860Z",
+                    "source_id": "src-catalog-snapshot",
+                    "source_kind": "catalog_snapshot",
+                    "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/997125912",
+                    "verification": "derived_reviewed"
+                  }
+                ]
+              },
+              "repository": {
+                "archived": false,
+                "availability": "available",
+                "default_branch": "master",
+                "disabled": false,
+                "forks": 919,
+                "homepage": "https://github.com/zilliztech/claude-context/tree/master/docs",
+                "is_fork": false,
+                "languages": [
+                  {
+                    "name": "TypeScript",
+                    "scope": "primary"
+                  },
+                  {
+                    "name": "Python",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "JavaScript",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "CSS",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "HTML",
+                    "scope": "secondary"
+                  }
+                ],
+                "license": {
+                  "confidence": "source",
+                  "name": "MIT License",
+                  "source": "GitHub REST API via connected GitHub tool (2026-08-30)",
+                  "spdx": "MIT"
+                },
+                "size_kb": 7758,
+                "stack": [
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "technology": "TypeScript"
+                  }
+                ],
+                "stars": 12455,
+                "topics": [
+                  "agent",
+                  "agentic-rag",
+                  "ai-coding",
+                  "claude-code",
+                  "code-generation",
+                  "code-search",
+                  "cursor",
+                  "embedding",
+                  "gemini-cli",
+                  "mcp",
+                  "merkle-tree",
+                  "nodejs",
+                  "openai",
+                  "rag",
+                  "semantic-search",
+                  "typescript",
+                  "vector-database",
+                  "vibe-coding",
+                  "voyage-ai",
+                  "vscode-extension"
+                ],
+                "visibility": "public",
+                "watchers": 0,
+                "watchers_scope": "subscribers_count"
+              },
+              "schema_version": "2.0.0"
+            },
+            "retrieval_rank": 11,
+            "eligibility": {
+              "schema_version": "2.1.0",
+              "github_repository_id": 997125912,
+              "query_id": "request-fa065da7b37ae4c86e50cd0f",
+              "status": "reference_only",
+              "checks": [
+                {
+                  "field": "availability",
+                  "outcome": "pass",
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ]
+                },
+                {
+                  "field": "archived",
+                  "outcome": "pass",
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ]
+                },
+                {
+                  "field": "advisory_evidence",
+                  "outcome": "unknown",
+                  "evidence_refs": [
+                    "ev-catalog-card"
+                  ]
+                }
+              ],
+              "reason_codes": [
+                "mandatory_fact_unknown"
+              ],
+              "required_verifications": [
+                "Verify the advisory fit fields against source-backed public evidence."
+              ]
+            },
+            "rrf_score": 0.013888888888888888,
+            "matched_fields": [
+              "upstream_description",
+              "topics",
+              "category_labels"
+            ]
+          },
+          {
+            "card": {
+              "activity": {
+                "created_at": "2024-04-15T21:02:29Z",
+                "last_commit_at": "2026-08-31T21:17:35Z",
+                "last_commit_branch": "main",
+                "last_commit_sha": "162e660426f2f1fa2947eceecef1244bc7f35600",
+                "last_release_at": "2026-06-19T15:09:30Z",
+                "last_synced_at": "2026-08-11T09:59:37Z",
+                "observations": [
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "created_at",
+                    "observed_at": "2026-09-01T04:03:00.258011Z",
+                    "source_field": "activity.createdAt",
+                    "verification": "source_reported"
+                  },
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "repository_updated_at",
+                    "observed_at": "2026-09-01T04:03:00.258011Z",
+                    "source_field": "activity.updatedAt",
+                    "verification": "source_reported"
+                  },
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "pushed_at",
+                    "observed_at": "2026-09-01T04:03:00.258011Z",
+                    "source_field": "activity.pushedAt",
+                    "verification": "source_reported"
+                  },
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "last_commit_at",
+                    "observed_at": "2026-09-01T04:03:01.764291Z",
+                    "source_field": "activity.lastCommitAt",
+                    "verification": "source_reported"
+                  },
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "last_release_at",
+                    "observed_at": "2026-09-01T04:03:03.919513Z",
+                    "source_field": "activity.lastReleaseAt",
+                    "verification": "source_reported"
+                  },
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "last_synced_at",
+                    "observed_at": "2026-09-01T04:03:00.258011Z",
+                    "source_field": "activity.lastSyncedAt",
+                    "verification": "derived_reviewed"
+                  },
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "field": "observed_at",
+                    "observed_at": "2026-09-01T04:03:00.258011Z",
+                    "source_field": "activity.observedAt",
+                    "verification": "source_reported"
+                  }
+                ],
+                "observed_at": "2026-09-01T04:03:00.258011Z",
+                "pushed_at": "2026-08-09T13:04:52Z",
+                "repository_updated_at": "2026-09-01T03:56:40Z",
+                "schema_version": "2.0.0",
+                "status": "pending_enrichment"
+              },
+              "advisory": {
+                "adoption_mode": null,
+                "adoption_status": null,
+                "avoid_if": [],
+                "best_for": [],
+                "compatibility": [],
+                "complexity": null,
+                "eligibility": {
+                  "catalog_acceptance_changed": false,
+                  "data_gate_passed": false,
+                  "evidence_completeness": 77.42,
+                  "minimum_stars": 500,
+                  "reasons": [
+                    "mandatory_fields_unresolved"
+                  ],
+                  "replacement_required": false
+                },
+                "gaps": [],
+                "integration_surface": null,
+                "project_stages": [],
+                "recommendation_reason": null,
+                "recommendation_status": null,
+                "tradeoffs": [],
+                "use_cases": []
+              },
+              "catalog": {
+                "evidence_stage": "identity_validated",
+                "membership_cohort": "baseline",
+                "review_status": "legacy_migrated",
+                "status": "accepted",
+                "status_source": "catalog_snapshot"
+              },
+              "classifications": [
+                {
+                  "category_id": "web_crawling_data_ingestion",
+                  "kind": "category",
+                  "parent_id": null,
+                  "placement_source": "cat08-canonical-reconciliation",
+                  "role": "primary",
+                  "title": "Web Crawling & Data Ingestion"
+                },
+                {
+                  "category_id": "browser_computer_use",
+                  "kind": "category",
+                  "parent_id": null,
+                  "placement_source": "cat08-canonical-reconciliation",
+                  "role": "secondary",
+                  "title": "Browser & Computer Use"
+                },
+                {
+                  "category_id": "market_research_competitive_intel",
+                  "kind": "category",
+                  "parent_id": null,
+                  "placement_source": "cat08-canonical-reconciliation",
+                  "role": "secondary",
+                  "title": "Market Research & Competitive Intelligence"
+                },
+                {
+                  "category_id": "search_hybrid_retrieval",
+                  "kind": "category",
+                  "parent_id": null,
+                  "placement_source": "cat08-canonical-reconciliation",
+                  "role": "secondary",
+                  "title": "Search & Hybrid Retrieval"
+                }
+              ],
+              "corpus_kind": "catalog_snapshot",
+              "delivery": {
+                "deployment": {
+                  "rationale": null,
+                  "values": []
+                },
+                "difficulty": "intermediate",
+                "form": null,
+                "hosting": null,
+                "lifecycle": null,
+                "maturity": null,
+                "persona": "both",
+                "requires_server": null
+              },
+              "descriptions": {
+                "catalog": null,
+                "catalog_origin": null,
+                "upstream": "🔥 Search, scrape, and clean the web for AI agents."
+              },
+              "evidence": [
+                {
+                  "evidence_id": "ev-catalog-card",
+                  "fields": [
+                    "/identity",
+                    "/catalog",
+                    "/descriptions",
+                    "/classifications",
+                    "/delivery",
+                    "/advisory",
+                    "/provenance"
+                  ],
+                  "observed_at": "2026-09-01T04:03:00.258011Z",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/787076358",
+                  "verification": "derived_reviewed"
+                },
+                {
+                  "evidence_id": "ev-catalog-repository",
+                  "fields": [
+                    "/repository",
+                    "/activity"
+                  ],
+                  "observed_at": "2026-09-01T04:03:00.258011Z",
+                  "source_kind": "catalog_snapshot",
+                  "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/787076358",
+                  "verification": "source_reported"
+                }
+              ],
+              "identity": {
+                "catalog_record_id": "gh-pending:firecrawl/firecrawl",
+                "full_name": "firecrawl/firecrawl",
+                "full_name_aliases": [
+                  "mendableai/firecrawl"
+                ],
+                "github_repository_id": 787076358,
+                "identity_status": "resolved",
+                "merged_catalog_record_ids": [
+                  "gh-pending:mendableai/firecrawl"
+                ],
+                "url": "https://github.com/firecrawl/firecrawl"
+              },
+              "provenance": {
+                "frozen_pins": {
+                  "catalog_snapshot_id": "catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                  "field_contract_sha256": "9c0d6fd6e12ef42a37e26d8607405a7cbafdf1b7a633c8f8b53da159eaa7f456",
+                  "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+                  "taxonomy_sha256": "09dcaac99e1e1d7110e9ab64ef33e20654be225fb6ea81dc5bfbf3483f3a721f"
+                },
+                "sources": [
+                  {
+                    "observed_at": "2026-09-01T04:03:00.258011Z",
+                    "source_id": "src-catalog-snapshot",
+                    "source_kind": "catalog_snapshot",
+                    "source_ref": "catalog:catalog-v5.1-2026-09-01-d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e/repositories/787076358",
+                    "verification": "derived_reviewed"
+                  }
+                ]
+              },
+              "repository": {
+                "archived": false,
+                "availability": "available",
+                "default_branch": "main",
+                "disabled": false,
+                "forks": 9245,
+                "homepage": "https://firecrawl.dev",
+                "is_fork": false,
+                "languages": [
+                  {
+                    "name": "TypeScript",
+                    "scope": "primary"
+                  },
+                  {
+                    "name": "Python",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "Rust",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "Java",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "PHP",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "C#",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "Go",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "Elixir",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "Ruby",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "Astro",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "PLpgSQL",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "JavaScript",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "Jupyter Notebook",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "Shell",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "Dockerfile",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "Rich Text Format",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "CSS",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "Makefile",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "HTML",
+                    "scope": "secondary"
+                  },
+                  {
+                    "name": "Procfile",
+                    "scope": "secondary"
+                  }
+                ],
+                "license": {
+                  "confidence": "legacy_detected",
+                  "name": "GNU Affero General Public License v3.0",
+                  "source": "legacy",
+                  "spdx": "AGPL-3.0"
+                },
+                "size_kb": 176024,
+                "stack": [
+                  {
+                    "evidence_refs": [
+                      "ev-catalog-repository"
+                    ],
+                    "technology": "TypeScript"
+                  }
+                ],
+                "stars": 164290,
+                "topics": [
+                  "ai",
+                  "ai-agents",
+                  "ai-crawler",
+                  "ai-scraping",
+                  "ai-search",
+                  "crawler",
+                  "data-extraction",
+                  "html-to-markdown",
+                  "llm",
+                  "markdown",
+                  "scraper",
+                  "scraping",
+                  "web-crawler",
+                  "web-data",
+                  "web-data-extraction",
+                  "web-scraper",
+                  "web-scraping",
+                  "web-search",
+                  "webscraping"
+                ],
+                "visibility": "public",
+                "watchers": 451,
+                "watchers_scope": "subscribers_count"
+              },
+              "schema_version": "2.0.0"
+            },
+            "retrieval_rank": 12,
+            "eligibility": {
+              "schema_version": "2.1.0",
+              "github_repository_id": 787076358,
+              "query_id": "request-fa065da7b37ae4c86e50cd0f",
+              "status": "reference_only",
+              "checks": [
+                {
+                  "field": "availability",
+                  "outcome": "pass",
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ]
+                },
+                {
+                  "field": "archived",
+                  "outcome": "pass",
+                  "evidence_refs": [
+                    "ev-catalog-repository"
+                  ]
+                },
+                {
+                  "field": "advisory_evidence",
+                  "outcome": "unknown",
+                  "evidence_refs": [
+                    "ev-catalog-card"
+                  ]
+                }
+              ],
+              "reason_codes": [
+                "mandatory_fact_unknown"
+              ],
+              "required_verifications": [
+                "Verify the advisory fit fields against source-backed public evidence."
+              ]
+            },
+            "rrf_score": 0.0136986301369863,
+            "matched_fields": [
+              "upstream_description",
+              "topics",
+              "category_labels"
+            ]
+          }
+        ],
+        "exclusions": [
+          {
+            "github_repository_id": 902662933,
+            "reason_codes": [
+              "candidate_budget"
+            ]
+          },
+          {
+            "github_repository_id": 434218673,
+            "reason_codes": [
+              "candidate_budget"
+            ]
+          },
+          {
+            "github_repository_id": 1005553140,
+            "reason_codes": [
+              "candidate_budget"
+            ]
+          },
+          {
+            "github_repository_id": 937346388,
+            "reason_codes": [
+              "candidate_budget"
+            ]
+          },
+          {
+            "github_repository_id": 30231828,
+            "reason_codes": [
+              "candidate_budget"
+            ]
+          },
+          {
+            "github_repository_id": 41943138,
+            "reason_codes": [
+              "candidate_budget"
+            ]
+          },
+          {
+            "github_repository_id": 18893367,
+            "reason_codes": [
+              "candidate_budget"
+            ]
+          },
+          {
+            "github_repository_id": 105279544,
+            "reason_codes": [
+              "candidate_budget"
+            ]
+          },
+          {
+            "github_repository_id": 122775780,
+            "reason_codes": [
+              "candidate_budget"
+            ]
+          },
+          {
+            "github_repository_id": 946214670,
+            "reason_codes": [
+              "candidate_budget"
+            ]
+          },
+          {
+            "github_repository_id": 1034777076,
+            "reason_codes": [
+              "candidate_budget"
+            ]
+          },
+          {
+            "github_repository_id": 118311747,
+            "reason_codes": [
+              "mandatory_fact_unknown",
+              "archived"
+            ]
+          },
+          {
+            "github_repository_id": 66387122,
+            "reason_codes": [
+              "candidate_budget"
+            ]
+          },
+          {
+            "github_repository_id": 974086497,
+            "reason_codes": [
+              "candidate_budget"
+            ]
+          },
+          {
+            "github_repository_id": 529502,
+            "reason_codes": [
+              "candidate_budget"
+            ]
+          },
+          {
+            "github_repository_id": 798201435,
+            "reason_codes": [
+              "candidate_budget"
+            ]
+          },
+          {
+            "github_repository_id": 14681876,
+            "reason_codes": [
+              "candidate_budget"
+            ]
+          },
+          {
+            "github_repository_id": 956842312,
+            "reason_codes": [
+              "candidate_budget"
+            ]
+          },
+          {
+            "github_repository_id": 945763259,
+            "reason_codes": [
+              "candidate_budget"
+            ]
+          },
+          {
+            "github_repository_id": 1153178500,
+            "reason_codes": [
+              "candidate_budget"
+            ]
+          },
+          {
+            "github_repository_id": 180136168,
+            "reason_codes": [
+              "candidate_budget"
+            ]
+          }
+        ],
+        "truncated": true,
+        "reason_codes": [
+          "mandatory_fact_unknown",
+          "archived",
+          "candidate_budget"
+        ]
+      },
+      "public_observations": [
+        {
+          "github_repository_id": 2771544,
+          "full_name": "rq/rq",
+          "alternatives": [
+            [
+              "redis"
+            ],
+            [
+              "valkey"
+            ]
+          ],
+          "source_urls": [
+            "https://github.com/rq/rq"
+          ],
+          "observed_on": "2026-10-11",
+          "basis": "Documented queue backends require Redis or Valkey."
+        },
+        {
+          "github_repository_id": 100982449,
+          "full_name": "argoproj/argo-workflows",
+          "alternatives": [
+            [
+              "kubernetes"
+            ]
+          ],
+          "source_urls": [
+            "https://github.com/argoproj/argo-workflows"
+          ],
+          "observed_on": "2026-10-11",
+          "basis": "Kubernetes CRDs require Kubernetes."
+        },
+        {
+          "github_repository_id": 214587193,
+          "full_name": "supabase/supabase",
+          "alternatives": [
+            [
+              "postgresql"
+            ]
+          ],
+          "source_urls": [
+            "https://github.com/supabase/supabase"
+          ],
+          "observed_on": "2026-10-11",
+          "basis": "Postgres is the platform database."
+        },
+        {
+          "github_repository_id": 337414495,
+          "full_name": "nhost/nhost",
+          "alternatives": [
+            [
+              "postgresql"
+            ]
+          ],
+          "source_urls": [
+            "https://github.com/nhost/nhost"
+          ],
+          "observed_on": "2026-10-11",
+          "basis": "Postgres/Hasura backend."
+        },
+        {
+          "github_repository_id": 50603846,
+          "full_name": "parse-community/parse-server",
+          "alternatives": [
+            [
+              "mongodb"
+            ],
+            [
+              "postgresql"
+            ]
+          ],
+          "source_urls": [
+            "https://github.com/parse-community/parse-server"
+          ],
+          "observed_on": "2026-10-11",
+          "basis": "Documented backend prerequisites."
+        },
+        {
+          "github_repository_id": 378310716,
+          "full_name": "logto-io/logto",
+          "alternatives": [
+            [
+              "postgresql"
+            ]
+          ],
+          "source_urls": [
+            "https://github.com/logto-io/logto"
+          ],
+          "observed_on": "2026-10-11",
+          "basis": "Documented local deployment requires PostgreSQL."
+        },
+        {
+          "github_repository_id": 2703394,
+          "full_name": "coleifer/huey",
+          "alternatives": [
+            [
+              "redis"
+            ],
+            [
+              "valkey"
+            ],
+            [
+              "postgresql"
+            ],
+            [
+              "sqlite"
+            ],
+            []
+          ],
+          "source_urls": [
+            "https://github.com/coleifer/huey"
+          ],
+          "observed_on": "2026-10-11",
+          "basis": "SQLite, filesystem and memory queue modes are documented; select and test a mode."
+        },
+        {
+          "github_repository_id": 510607652,
+          "full_name": "pocketbase/pocketbase",
+          "alternatives": [
+            [
+              "sqlite"
+            ]
+          ],
+          "source_urls": [
+            "https://github.com/pocketbase/pocketbase"
+          ],
+          "observed_on": "2026-10-11",
+          "basis": "Embedded SQLite mode."
+        },
+        {
+          "github_repository_id": 769023213,
+          "full_name": "get-convex/convex-backend",
+          "alternatives": [
+            [
+              "sqlite"
+            ],
+            [
+              "postgresql"
+            ]
+          ],
+          "source_urls": [
+            "https://github.com/get-convex/convex-backend"
+          ],
+          "observed_on": "2026-10-11",
+          "basis": "Self-hosted SQLite is documented; test deployment."
+        },
+        {
+          "github_repository_id": 306366900,
+          "full_name": "casdoor/casdoor",
+          "alternatives": [
+            [
+              "sqlite"
+            ]
+          ],
+          "source_urls": [
+            "https://github.com/casdoor/casdoor"
+          ],
+          "observed_on": "2026-10-11",
+          "basis": "SQLite all-in-one mode; organization isolation still needs verification."
+        }
+      ],
+      "observations_persisted": false,
+      "raw_ranked_ids": [
+        130688011,
+        79317191,
+        66670819,
+        60377070,
+        334274271,
+        507775,
+        1048068299,
+        1009504831,
+        357707809,
+        49412556,
+        357241735,
+        997125912,
+        787076358,
+        902662933,
+        434218673,
+        1005553140,
+        937346388,
+        30231828,
+        41943138,
+        18893367,
+        105279544,
+        122775780,
+        946214670,
+        1034777076,
+        118311747,
+        66387122,
+        974086497,
+        529502,
+        798201435,
+        14681876,
+        956842312,
+        945763259,
+        1153178500,
+        180136168
+      ],
+      "selected_ids": [
+        130688011,
+        66670819,
+        60377070,
+        334274271,
+        507775,
+        1048068299,
+        1009504831,
+        357707809,
+        49412556,
+        357241735,
+        997125912,
+        787076358,
+        902662933,
+        434218673,
+        1005553140,
+        937346388,
+        30231828,
+        41943138,
+        18893367,
+        105279544,
+        122775780,
+        946214670,
+        1034777076,
+        118311747,
+        66387122,
+        974086497,
+        529502,
+        798201435,
+        14681876,
+        956842312,
+        945763259,
+        1153178500,
+        180136168
+      ]
+    }
+  ],
+  "history": [
+    {
+      "role": "user",
+      "content": "Our app needs search. Typesense is excluded. One JavaScript developer; we want shoppers to find products more easily."
+    },
+    {
+      "role": "assistant",
+      "content": [
+        {
+          "dimension": "search_capabilities",
+          "question": "For the first version of product search, should shoppers find products by matching words, by meaning, or both?",
+          "options": [
+            "Keyword matching",
+            "Semantic matching for natural-language queries",
+            "Both keyword and semantic matching"
+          ]
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "content": "Search our own product catalogue with typo tolerance and brand/price filters, not the external web. Typesense remains excluded."
+    },
+    {
+      "role": "assistant",
+      "content": "**Evaluate Meilisearch (ID `130688011`) first for your product-search prototype.** Its documented application search, typo tolerance and facets directly address shoppers mistyping product names and narrowing results by brand. The supplied host read dated **2026-10-11** supports this preference, while explicitly leaving indexing, synchronization and relevance validation to your team. Better product discovery is an expected benefit to test, not a measured result. [Meilisearch repository](https://github.com/meilisearch/meilisearch)\n\nThis is a **conditional recommendation for validation**, rather than approval for complete adoption. The supplied evidence does not establish numeric price-range filtering, suitability for your catalog size and languages, hosting compatibility, or the license terms of the exact version you would deploy. In particular, facets alone do not prove that the required price-filter behavior works. Typesense remains excluded.\n\n**Proposed architecture and technical work**\n\nRetain whichever system currently owns your product records and the existing application. Add Meilisearch as a derived search index, with a small JavaScript integration layer:\n\n`Product source → initial export + update/delete synchronization → Meilisearch index`\n\n`Shopper UI → application search endpoint → Meilisearch → product results + filter information`\n\nThe application endpoint is a proposed boundary for validating queries and enforcing any visibility rules. Keep indexing/admin credentials on the server. Index only fields shoppers may see; use the authoritative product source to confirm current price and availability when purchasing. This avoids treating a potentially stale search result as transaction authority.\n\nMeilisearch would cover the search-engine role. Your developer would still own the product-document mapping, brand normalization, numeric price representation, synchronization, search UI, relevance tuning and operational checks. The supplied host observation explicitly identifies indexing, synchronization and relevance validation as remaining project work. [Meilisearch repository](https://github.com/meilisearch/meilisearch)\n\nFor shoppers, the proposed outcome is a search box that can recover from common spelling mistakes and allow useful narrowing of results. Whether that actually helps depends on your product names, brands and real query patterns. Semantic search is not established as a requirement, so it should stay outside the first slice.\n\n**Comparison with the other transmitted options and the current solution**\n\n| Option | Assessment for this project | Condition that could change the choice |\n|---|---|---|\n| **Meilisearch** | Best-supported first validation candidate: the dated host evidence confirms typo tolerance and facets. | Required price filtering, relevance, license or deployment checks fail. |\n| **OpenSearch / Elasticsearch** | The frozen cards identify distributed search engines. A broader engine may be appropriate, but these materials do not establish a better fit for this prototype. Mapping, query design and operations would need investigation. | You already operate one, or demonstrate requirements the simpler candidate cannot meet. |\n| **Vespa** | The frozen card identifies an AI search platform; the supplied evidence does not resolve the specific typo-tolerance and brand/price workflow. There is no demonstrated reason to introduce that platform scope yet. | A concrete advanced ranking or serving requirement justifies it, and product-search fit is verified. |\n| **Crawlee** | Its documented role is crawling and browser automation. Your requirement is search over your own catalog, so it does not supply the required search-engine role. | A separate ingestion need emerges; that would still require a search component. |\n| **SereneDB** | The frozen card describes a search analytics database, but the required shopper-search behavior remains unverified. Catalog acceptance does not establish application fit. | A pilot proves the required matching and filters and identifies a relevant architectural advantage. |\n\nThese comparisons use the supplied frozen cards, not fresh checks of those alternatives. Sources: [OpenSearch](https://github.com/opensearch-project/OpenSearch), [Elasticsearch](https://github.com/elastic/elasticsearch), [Vespa](https://github.com/vespa-engine/vespa), [Crawlee](https://github.com/apify/crawlee), [SereneDB](https://github.com/serenedb/serenedb). They are alternatives or out-of-scope references, not a set to install together.\n\nKeeping your current/native search could be preferable if it already provides acceptable typo recovery and filters. That would avoid another service and synchronization path. Its capabilities are unknown here, so the first validation should compare against it if available. Reuse introduces dependency upgrades, hosting, index recovery and freshness monitoring; custom development introduces ownership of matching, ranking and filter correctness. Reuse does not automatically win.\n\n**Conditional effort estimate**\n\nFor planning only, assume one JavaScript developer familiar with the application and HTTP integrations, an accessible product export and update mechanism, at most roughly 10,000 products, one language/currency, public product visibility, and an available deployment environment. Scope is one search UI with typo handling, brand/price filters, synchronization and basic operational recovery. It excludes high availability, personalized pricing, semantic search and a platform migration. Confidence is low to moderate until validation.\n\n| Phase | Meilisearch integration | Equivalent-scope custom search |\n|---|---:|---:|\n| First validation / baseline and design | 6–10 engineer-hours | 6–10 engineer-hours |\n| Matching, ranking and filter implementation | 4–8 | 24–48 |\n| Product mapping and update/delete synchronization | 8–16 | 8–16 |\n| Application endpoint and search UI | 10–18 | 10–18 |\n| Regression checks, recovery and rollout/rollback preparation | 8–14 | 12–24 |\n| **Total, including first validation once** | **36–66 engineer-hours** | **60–116 engineer-hours** |\n\nAt **8 engineer-hours per engineer-day**, with that developer allocated full time and phases performed sequentially, these scenarios imply **4.5–8.25 working days** for integration and **7.5–14.5 working days** for custom development. The custom estimate means application-specific search over this bounded catalog, not building a general search platform. Neither range is a commitment or measured saving. Hosting procurement, license decisions and owner feedback add unknown waiting time; part-time allocation extends elapsed time. Ongoing maintenance and provider costs are not quantified.\n\nThe main complexity drivers are catalog cleanliness, update frequency, multilingual matching, product variants, customer-specific visibility/prices and deployment ownership. If those assumptions do not hold, the complete-adoption total is unknown until scoped. The most useful scope clarification is: **approximately how many products must be searched, and how are product changes available to the application?**\n\n**Concrete first validation**\n\nUse the 6–10-hour slice to index **500–1,000 representative products**, including similar names, inconsistent brand spellings and price-boundary cases. Create **30–50 owner-labeled queries** covering exact names, common typos, ambiguous terms and combined brand/price filters. Compare against current search if available.\n\nCheck that intended products appear in the agreed result positions, filters never return out-of-range or wrong-brand items, and a product update and deletion reach the index within an owner-agreed freshness target. Also check the exact deployment version's license, required runtime/client compatibility and credential boundaries. Agree relevance and latency acceptance targets before judging the results; none have been measured here.\n\nProceed only if that slice demonstrates the required numeric price filtering, useful relevance and an acceptable synchronization/deployment path. Otherwise retain the current component while investigating the failed requirement. The frozen catalog remains unchanged; the supplied 2026-10-11 host observations are transient answer evidence, and no implementation or validation has been executed."
+    }
+  ],
+  "answer": {
+    "answer_markdown": "**Evaluate Meilisearch (ID `130688011`) first for your product-search prototype.** Its documented application search, typo tolerance and facets directly address shoppers mistyping product names and narrowing results by brand. The supplied host read dated **2026-10-11** supports this preference, while explicitly leaving indexing, synchronization and relevance validation to your team. Better product discovery is an expected benefit to test, not a measured result. [Meilisearch repository](https://github.com/meilisearch/meilisearch)\n\nThis is a **conditional recommendation for validation**, rather than approval for complete adoption. The supplied evidence does not establish numeric price-range filtering, suitability for your catalog size and languages, hosting compatibility, or the license terms of the exact version you would deploy. In particular, facets alone do not prove that the required price-filter behavior works. Typesense remains excluded.\n\n**Proposed architecture and technical work**\n\nRetain whichever system currently owns your product records and the existing application. Add Meilisearch as a derived search index, with a small JavaScript integration layer:\n\n`Product source → initial export + update/delete synchronization → Meilisearch index`\n\n`Shopper UI → application search endpoint → Meilisearch → product results + filter information`\n\nThe application endpoint is a proposed boundary for validating queries and enforcing any visibility rules. Keep indexing/admin credentials on the server. Index only fields shoppers may see; use the authoritative product source to confirm current price and availability when purchasing. This avoids treating a potentially stale search result as transaction authority.\n\nMeilisearch would cover the search-engine role. Your developer would still own the product-document mapping, brand normalization, numeric price representation, synchronization, search UI, relevance tuning and operational checks. The supplied host observation explicitly identifies indexing, synchronization and relevance validation as remaining project work. [Meilisearch repository](https://github.com/meilisearch/meilisearch)\n\nFor shoppers, the proposed outcome is a search box that can recover from common spelling mistakes and allow useful narrowing of results. Whether that actually helps depends on your product names, brands and real query patterns. Semantic search is not established as a requirement, so it should stay outside the first slice.\n\n**Comparison with the other transmitted options and the current solution**\n\n| Option | Assessment for this project | Condition that could change the choice |\n|---|---|---|\n| **Meilisearch** | Best-supported first validation candidate: the dated host evidence confirms typo tolerance and facets. | Required price filtering, relevance, license or deployment checks fail. |\n| **OpenSearch / Elasticsearch** | The frozen cards identify distributed search engines. A broader engine may be appropriate, but these materials do not establish a better fit for this prototype. Mapping, query design and operations would need investigation. | You already operate one, or demonstrate requirements the simpler candidate cannot meet. |\n| **Vespa** | The frozen card identifies an AI search platform; the supplied evidence does not resolve the specific typo-tolerance and brand/price workflow. There is no demonstrated reason to introduce that platform scope yet. | A concrete advanced ranking or serving requirement justifies it, and product-search fit is verified. |\n| **Crawlee** | Its documented role is crawling and browser automation. Your requirement is search over your own catalog, so it does not supply the required search-engine role. | A separate ingestion need emerges; that would still require a search component. |\n| **SereneDB** | The frozen card describes a search analytics database, but the required shopper-search behavior remains unverified. Catalog acceptance does not establish application fit. | A pilot proves the required matching and filters and identifies a relevant architectural advantage. |\n\nThese comparisons use the supplied frozen cards, not fresh checks of those alternatives. Sources: [OpenSearch](https://github.com/opensearch-project/OpenSearch), [Elasticsearch](https://github.com/elastic/elasticsearch), [Vespa](https://github.com/vespa-engine/vespa), [Crawlee](https://github.com/apify/crawlee), [SereneDB](https://github.com/serenedb/serenedb). They are alternatives or out-of-scope references, not a set to install together.\n\nKeeping your current/native search could be preferable if it already provides acceptable typo recovery and filters. That would avoid another service and synchronization path. Its capabilities are unknown here, so the first validation should compare against it if available. Reuse introduces dependency upgrades, hosting, index recovery and freshness monitoring; custom development introduces ownership of matching, ranking and filter correctness. Reuse does not automatically win.\n\n**Conditional effort estimate**\n\nFor planning only, assume one JavaScript developer familiar with the application and HTTP integrations, an accessible product export and update mechanism, at most roughly 10,000 products, one language/currency, public product visibility, and an available deployment environment. Scope is one search UI with typo handling, brand/price filters, synchronization and basic operational recovery. It excludes high availability, personalized pricing, semantic search and a platform migration. Confidence is low to moderate until validation.\n\n| Phase | Meilisearch integration | Equivalent-scope custom search |\n|---|---:|---:|\n| First validation / baseline and design | 6–10 engineer-hours | 6–10 engineer-hours |\n| Matching, ranking and filter implementation | 4–8 | 24–48 |\n| Product mapping and update/delete synchronization | 8–16 | 8–16 |\n| Application endpoint and search UI | 10–18 | 10–18 |\n| Regression checks, recovery and rollout/rollback preparation | 8–14 | 12–24 |\n| **Total, including first validation once** | **36–66 engineer-hours** | **60–116 engineer-hours** |\n\nAt **8 engineer-hours per engineer-day**, with that developer allocated full time and phases performed sequentially, these scenarios imply **4.5–8.25 working days** for integration and **7.5–14.5 working days** for custom development. The custom estimate means application-specific search over this bounded catalog, not building a general search platform. Neither range is a commitment or measured saving. Hosting procurement, license decisions and owner feedback add unknown waiting time; part-time allocation extends elapsed time. Ongoing maintenance and provider costs are not quantified.\n\nThe main complexity drivers are catalog cleanliness, update frequency, multilingual matching, product variants, customer-specific visibility/prices and deployment ownership. If those assumptions do not hold, the complete-adoption total is unknown until scoped. The most useful scope clarification is: **approximately how many products must be searched, and how are product changes available to the application?**\n\n**Concrete first validation**\n\nUse the 6–10-hour slice to index **500–1,000 representative products**, including similar names, inconsistent brand spellings and price-boundary cases. Create **30–50 owner-labeled queries** covering exact names, common typos, ambiguous terms and combined brand/price filters. Compare against current search if available.\n\nCheck that intended products appear in the agreed result positions, filters never return out-of-range or wrong-brand items, and a product update and deletion reach the index within an owner-agreed freshness target. Also check the exact deployment version's license, required runtime/client compatibility and credential boundaries. Agree relevance and latency acceptance targets before judging the results; none have been measured here.\n\nProceed only if that slice demonstrates the required numeric price filtering, useful relevance and an acceptable synchronization/deployment path. Otherwise retain the current component while investigating the failed requirement. The frozen catalog remains unchanged; the supplied 2026-10-11 host observations are transient answer evidence, and no implementation or validation has been executed.",
+    "recommended_ids": [
+      130688011
+    ],
+    "cited_urls": [
+      "https://github.com/meilisearch/meilisearch",
+      "https://github.com/opensearch-project/OpenSearch",
+      "https://github.com/elastic/elasticsearch",
+      "https://github.com/vespa-engine/vespa",
+      "https://github.com/apify/crawlee",
+      "https://github.com/serenedb/serenedb"
+    ]
+  },
+  "transmitted_card_ids": [
+    130688011,
+    66670819,
+    60377070,
+    334274271,
+    507775,
+    1048068299
+  ]
+}

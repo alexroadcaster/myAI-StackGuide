@@ -1,6 +1,18 @@
 # TEST.md
 
+CP-04 Brief-bound entry-point checks and actual dialogue traces are recorded in [the bilingual report](docs/reports/cp04-brief-dialogue-2026-10-11.md). Brief tests6/6, retrieval18/18, matching5/5 and active bundle parity pass. Codex contracts11/13 pass; two unchanged model-baseline expectations conflict with current configuration and remain recorded. Actual CLI calls remain read-only, with synthetic history; persisted writer/desktop lifecycle is outside this evidence.
+
 ## CP-04 Current Successor Evidence — 2026-10-08
+
+Current [request-guard implementation](docs/reports/cp04-request-guard-2026-10-11.md): guard tests7/7 pass after semantic exclusion RED/GREEN and a measured integration rank failure/repair. Failed first capture/source snapshots retained, corrected v2 frozen capture passes30 negative top12/pack checks,15 no-call clarification checks,60 prior-order comparisons and10 historical regressions. Active bundle --check and control-plane validator pass. No installed/model interpretation or answer-quality acceptance.
+
+Current 2026-10-11 [expanded alternatives/constraint review](docs/reports/cp04-domain-review-2026-10-11.md): evaluator tests4/4 pass after unknown-as-negative semantic RED/GREEN; a test query-key error was separately corrected. Frozen runner executes21 cases/five arms plus10 historical two-arm regressions, exact60 prior orders and candidate trust rejection. Existing rankers/policy/assets are unchanged. Negative projection and ambiguous clarification remain explicit gaps; report contains full129 pair assessments.
+
+New 2026-10-11 [twelve-domain challenge](docs/reports/cp04-new-domain-challenge-2026-10-11.md): source/route/unknown-rank tests3/3 pass after route-mismatch RED/GREEN. New 24-fact isolated bundle validates2,500 cards/126 routes and rejects public trust activation. Frozen five-arm capture gives conservative target top12/pack12/12; re-executed historical10 preserve full orders and complete Recall/nDCG. Source-aligned authored queries and unknown peers limit the quality claim.
+
+Latest 2026-10-11 top12 priority: [report](docs/reports/cp04-requirement-priority-2026-10-11.md). New priority tests6/6 pass after observed RED, previous separation tests6/6 still pass; original package --check passes. Five-arm prospective capture selects new-required priority with seven passing development gates, exact10 baseline orders, Kotlin top12/packed positives4/5 and new repository ranks1/2/3. Broad mode fails per-case recall/nDCG despite improved macros. No independent/unseen/semantic response or production activation proof.
+
+2026-10-11 required/context slice: [report](docs/reports/cp04-capability-context-2026-10-11.md), generic ranking tests6/6 pass with observed synonym double-counting RED/GREEN; exact original package `--check` passes. Final paired development capture preserves all10 original literal orders and passes macro/per-case non-regression, identity/constraints and pack survival. Kotlin pool5/5, top121/5. First capture/source bytes retained before cap/React-intent correction and re-declaration. No fresh held-out, model intent extraction, human usefulness or canonical activation proof.
 
 Latest source-qualified package: [report](docs/reports/cp04-capability-package-2026-10-08.md). Package tests3/3 and fixture-trust tests2/2 pass; all2,500 cards/activity objects validate, four bundle assets and receipt reproduce byte-for-byte, SQLite logical parity/write rejection and original package `--check` pass. Four arms/ten exposed cases captured after a new declaration; public retrieval and packing reject unactivated candidate pins. Initial setup failure retained. Compatibility passes, quality non-regression fails; no new held-out, human or canonical activation evidence.
 

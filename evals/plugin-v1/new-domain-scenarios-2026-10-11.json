@@ -1,0 +1,378 @@
+{
+  "schema_version": "cp04_new_domain_cases_v1",
+  "scope": "Prospectively authored source-supported target coverage; no complete relevance oracle.",
+  "cases": [
+    {
+      "case_id": "CP04-ND-01",
+      "user_goal": "Автоматический HTTPS для публичного и внутреннего сервиса",
+      "query_locale": "ru",
+      "query_terms": [
+        "HTTPS",
+        "certificates",
+        "internal",
+        "proxy"
+      ],
+      "target_category_id": "network_proxies_gateways",
+      "intent": {
+        "required_groups": [
+          [
+            "HTTPS"
+          ],
+          [
+            "certificates"
+          ]
+        ],
+        "context_terms": [
+          "internal",
+          "proxy"
+        ]
+      },
+      "expected_target_id": 29207621,
+      "expected_target_name": "caddyserver/caddy",
+      "source_url": "https://github.com/caddyserver/caddy",
+      "observed_on": "2026-10-11",
+      "other_candidates": "unjudged; never implicit negatives"
+    },
+    {
+      "case_id": "CP04-ND-02",
+      "user_goal": "Прокси для контейнеров с обновлением маршрутов без перезапуска",
+      "query_locale": "ru",
+      "query_terms": [
+        "dynamic",
+        "configuration",
+        "Docker",
+        "Kubernetes"
+      ],
+      "target_category_id": "network_proxies_gateways",
+      "intent": {
+        "required_groups": [
+          [
+            "dynamic"
+          ],
+          [
+            "configuration"
+          ]
+        ],
+        "context_terms": [
+          "Docker",
+          "Kubernetes"
+        ]
+      },
+      "expected_target_id": 42408804,
+      "expected_target_name": "traefik/traefik",
+      "source_url": "https://github.com/traefik/traefik",
+      "observed_on": "2026-10-11",
+      "other_candidates": "unjudged; never implicit negatives"
+    },
+    {
+      "case_id": "CP04-ND-03",
+      "user_goal": "Ограничение частоты API-запросов и преобразование ответов",
+      "query_locale": "ru",
+      "query_terms": [
+        "rate",
+        "limiting",
+        "transformations",
+        "API"
+      ],
+      "target_category_id": "network_proxies_gateways",
+      "intent": {
+        "required_groups": [
+          [
+            "rate",
+            "limiting"
+          ],
+          [
+            "transformations"
+          ]
+        ],
+        "context_terms": [
+          "API"
+        ]
+      },
+      "expected_target_id": 26783295,
+      "expected_target_name": "Kong/kong",
+      "source_url": "https://github.com/Kong/kong",
+      "observed_on": "2026-10-11",
+      "other_candidates": "unjudged; never implicit negatives"
+    },
+    {
+      "case_id": "CP04-ND-04",
+      "user_goal": "S3-хранилище файлов с каталогами и метаданными",
+      "query_locale": "ru",
+      "query_terms": [
+        "S3",
+        "filer",
+        "storage",
+        "files"
+      ],
+      "target_category_id": "data_lakes_object_storage",
+      "intent": {
+        "required_groups": [
+          [
+            "S3"
+          ],
+          [
+            "filer"
+          ]
+        ],
+        "context_terms": [
+          "storage",
+          "files"
+        ]
+      },
+      "expected_target_id": 21827146,
+      "expected_target_name": "seaweedfs/seaweedfs",
+      "source_url": "https://github.com/seaweedfs/seaweedfs",
+      "observed_on": "2026-10-11",
+      "other_candidates": "unjudged; never implicit negatives"
+    },
+    {
+      "case_id": "CP04-ND-05",
+      "user_goal": "Единая идентификация с федерацией пользователей и правами доступа",
+      "query_locale": "ru",
+      "query_terms": [
+        "federation",
+        "authorization",
+        "authentication",
+        "Java"
+      ],
+      "target_category_id": "auth_identity_access",
+      "intent": {
+        "required_groups": [
+          [
+            "federation"
+          ],
+          [
+            "authorization"
+          ]
+        ],
+        "context_terms": [
+          "authentication",
+          "Java"
+        ]
+      },
+      "expected_target_id": 11125589,
+      "expected_target_name": "keycloak/keycloak",
+      "source_url": "https://github.com/keycloak/keycloak",
+      "observed_on": "2026-10-11",
+      "other_candidates": "unjudged; never implicit negatives"
+    },
+    {
+      "case_id": "CP04-ND-06",
+      "user_goal": "Идентификация B2B SaaS с изолированными организациями",
+      "query_locale": "ru",
+      "query_terms": [
+        "multi-tenancy",
+        "organizations",
+        "SSO",
+        "SaaS"
+      ],
+      "target_category_id": "auth_identity_access",
+      "intent": {
+        "required_groups": [
+          [
+            "multi-tenancy"
+          ],
+          [
+            "organizations"
+          ]
+        ],
+        "context_terms": [
+          "SSO",
+          "SaaS"
+        ]
+      },
+      "expected_target_id": 247714750,
+      "expected_target_name": "zitadel/zitadel",
+      "source_url": "https://github.com/zitadel/zitadel",
+      "observed_on": "2026-10-11",
+      "other_candidates": "unjudged; never implicit negatives"
+    },
+    {
+      "case_id": "CP04-ND-07",
+      "user_goal": "Долгие бизнес-процессы с восстановлением после сбоев",
+      "query_locale": "ru",
+      "query_terms": [
+        "durable",
+        "retries",
+        "workflow",
+        "failures"
+      ],
+      "target_category_id": "workflow_state_machines_durable_agents",
+      "intent": {
+        "required_groups": [
+          [
+            "durable"
+          ],
+          [
+            "retries"
+          ]
+        ],
+        "context_terms": [
+          "workflow",
+          "failures"
+        ]
+      },
+      "expected_target_id": 215654064,
+      "expected_target_name": "temporalio/temporal",
+      "source_url": "https://github.com/temporalio/temporal",
+      "observed_on": "2026-10-11",
+      "other_candidates": "unjudged; never implicit negatives"
+    },
+    {
+      "case_id": "CP04-ND-08",
+      "user_goal": "Python-пайплайны с повторными попытками и расписанием",
+      "query_locale": "ru",
+      "query_terms": [
+        "Python",
+        "retries",
+        "pipeline",
+        "scheduling"
+      ],
+      "target_category_id": "queues_streaming_messaging",
+      "intent": {
+        "required_groups": [
+          [
+            "Python"
+          ],
+          [
+            "retries"
+          ]
+        ],
+        "context_terms": [
+          "pipeline",
+          "scheduling"
+        ]
+      },
+      "expected_target_id": 139199684,
+      "expected_target_name": "PrefectHQ/prefect",
+      "source_url": "https://github.com/PrefectHQ/prefect",
+      "observed_on": "2026-10-11",
+      "other_candidates": "unjudged; never implicit negatives"
+    },
+    {
+      "case_id": "CP04-ND-09",
+      "user_goal": "Поиск товаров с опечатками и фасетными фильтрами",
+      "query_locale": "ru",
+      "query_terms": [
+        "typo",
+        "search",
+        "faceted",
+        "ecommerce"
+      ],
+      "target_category_id": "search_hybrid_retrieval",
+      "intent": {
+        "required_groups": [
+          [
+            "typo"
+          ],
+          [
+            "search"
+          ]
+        ],
+        "context_terms": [
+          "faceted",
+          "ecommerce"
+        ]
+      },
+      "expected_target_id": 130688011,
+      "expected_target_name": "meilisearch/meilisearch",
+      "source_url": "https://github.com/meilisearch/meilisearch",
+      "observed_on": "2026-10-11",
+      "other_candidates": "unjudged; never implicit negatives"
+    },
+    {
+      "case_id": "CP04-ND-10",
+      "user_goal": "Общий поиск по нескольким коллекциям приложения",
+      "query_locale": "ru",
+      "query_terms": [
+        "federated",
+        "collections",
+        "search",
+        "API"
+      ],
+      "target_category_id": "search_hybrid_retrieval",
+      "intent": {
+        "required_groups": [
+          [
+            "federated"
+          ],
+          [
+            "collections"
+          ]
+        ],
+        "context_terms": [
+          "search",
+          "API"
+        ]
+      },
+      "expected_target_id": 79317191,
+      "expected_target_name": "typesense/typesense",
+      "source_url": "https://github.com/typesense/typesense",
+      "observed_on": "2026-10-11",
+      "other_candidates": "unjudged; never implicit negatives"
+    },
+    {
+      "case_id": "CP04-ND-11",
+      "user_goal": "REST и GraphQL поверх существующей SQL-базы с администрированием",
+      "query_locale": "ru",
+      "query_terms": [
+        "SQL",
+        "GraphQL",
+        "REST",
+        "admin"
+      ],
+      "target_category_id": "content_management_systems",
+      "intent": {
+        "required_groups": [
+          [
+            "SQL"
+          ],
+          [
+            "GraphQL"
+          ]
+        ],
+        "context_terms": [
+          "REST",
+          "admin"
+        ]
+      },
+      "expected_target_id": 7122594,
+      "expected_target_name": "directus/directus",
+      "source_url": "https://github.com/directus/directus",
+      "observed_on": "2026-10-11",
+      "other_candidates": "unjudged; never implicit negatives"
+    },
+    {
+      "case_id": "CP04-ND-12",
+      "user_goal": "Небольшой backend с SQLite и подписками на изменения",
+      "query_locale": "ru",
+      "query_terms": [
+        "SQLite",
+        "realtime",
+        "backend",
+        "local"
+      ],
+      "target_category_id": "baas_platforms",
+      "intent": {
+        "required_groups": [
+          [
+            "SQLite"
+          ],
+          [
+            "realtime"
+          ]
+        ],
+        "context_terms": [
+          "backend",
+          "local"
+        ]
+      },
+      "expected_target_id": 510607652,
+      "expected_target_name": "pocketbase/pocketbase",
+      "source_url": "https://github.com/pocketbase/pocketbase",
+      "observed_on": "2026-10-11",
+      "other_candidates": "unjudged; never implicit negatives"
+    }
+  ]
+}
