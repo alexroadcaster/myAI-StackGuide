@@ -1,0 +1,67 @@
+{
+  "schema_version": "cp10_browser_acceptance_attempt_v1",
+  "task_id": "CP-10",
+  "checked_on": "2026-10-17",
+  "timezone": "Europe/Moscow",
+  "task_status": "implemented_local_partially_verified",
+  "browser_acceptance": "blocked",
+  "attempt": {
+    "surface": "Codex in-app browser (iab)",
+    "target_protocol": "file:",
+    "target_path": ".codex-tmp/cp10-d-preview/docs/myai-stackguide/status.html",
+    "result": "rejected_by_browser_security_policy",
+    "reason": "Requested URL protocol is not allowed; browser URL policy did not grant authority. The tool explicitly forbids workarounds, alternate surfaces, indirect execution and raw CDP.",
+    "allowed_protocols_reported": [
+      "http:",
+      "https:"
+    ]
+  },
+  "alternate_browser_navigation": false,
+  "proxy_or_server_started": false,
+  "CDP_or_security_changes": false,
+  "browser_page_loaded": false,
+  "rendered_UI_checks_executed": 0,
+  "browser_screenshots": [],
+  "read_only_source_parity": {
+    "passed": true,
+    "current_renderer_bytes_equal_retained_preview": true,
+    "html_bytes": 123344,
+    "html_sha256": "e92152682fd31afdac23b349196bd8b286fd15ef8b291fc9572e3185ed17e4b9",
+    "saved_revision": 3,
+    "history_runs": 1,
+    "synthetic_fixture": true,
+    "note": "Canonical fixture validated and current CP-07 render adapter recomputed bytes without writes; this is not browser evidence"
+  },
+  "artifact_sha256": {
+    "plugins/myai-stackguide/scripts/render_report.py": "2875b67ac48b8dd69f065584c493f38be7d6669056090aafb3c9d9db49717eb7",
+    "plugins/myai-stackguide/scripts/state_store.py": "cbf22c94f291241f531bb13392cb9e6d98196b4a569586034f1fe89f623b0222",
+    "plugins/myai-stackguide/assets/status-template.html": "61fdec87eea695a44ed8484ee581a95df7740937081fed3e71f4271016d3b26f",
+    "plugins/myai-stackguide/assets/locales/ru.json": "b182cb2f9955112f9b98225d9b6916c3c32926f50cc27ecb4f195986923c2924",
+    "plugins/myai-stackguide/assets/locales/en.json": "e390aad8857b5289b33a7ac7da27894e87c19572a7ba34725ebab0a5dded9e02",
+    "specs/artifact/session-workspace-contract.md": "932495298d9afc178839f5962f1d57e0b70ef84855d00c34f216e6d2f49c0d98",
+    "docs/plan/plugin-v1-session-workspace-design.md": "65894527a058cbbc58ba2e428e02871fcee8ea6c8a8a00f6257cb4ddb8116503",
+    "tests/test_plugin_artifact.py": "28b23a5ab38e870afed61f737844e4293b35af42a659e53dc53a2c3a30185728",
+    ".codex-tmp/cp10-d-preview/docs/myai-stackguide/state.json": "91098c3a3a40c495bbcaceb1cdbb1ebfbb4c8c0a9aefe99a80384ac4d7f3d04d",
+    ".codex-tmp/cp10-d-preview/docs/myai-stackguide/status.html": "e92152682fd31afdac23b349196bd8b286fd15ef8b291fc9572e3185ed17e4b9",
+    ".codex-tmp/cp10-d-preview/docs/myai-stackguide/runs/bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb.json": "a999f353c3ff06001907292985993576bbab6f33892964176c63ff410d7b089d"
+  },
+  "required_rendered_checks": [
+    "Eight views in RU and EN",
+    "1280/1440/1920 desktop and narrow-window layout",
+    "Keyboard, skip link, focus, Back and invalid-fragment fallback",
+    "200 percent zoom",
+    "Print appearance and source/caveat retention",
+    "No-JS and clipboard-denied fallback",
+    "Partial/missing translation, immutable identifiers and state",
+    "Empty/partial/history and failed-publication recovery presentation",
+    "Offline/no unexpected requests and no domain-state changes"
+  ],
+  "cp10_complete": false,
+  "cp11_prerequisite_ready": false,
+  "next_steps": [
+    "Restore a policy-permitted tool path for the local artifact without bypassing the current denial, then execute the rendered checklist",
+    "Alternatively the owner can independently perform the documented manual browser review and supply actual per-check results; no automatic pass inferred"
+  ],
+  "human_browser_acceptance": false,
+  "promotion_ready": false
+}

@@ -2,11 +2,11 @@
 
 Planning date: 2026-08-30; owner revision: 2026-08-31. Timezone: `Europe/Moscow`.
 
-Document status: the detailed eight-view desktop/laptop design and RU-EN implementation scope are `owner_accepted`. CP-01/02 are implemented documentation; CP-03 addendum and earlier CP-04 C8/scorer evidence remain contract-level history; CP-04 quality calibration remains open. CP-05 is owner-accepted at `measured_local`, CP-07 is `implemented`, CP-08 is `completed_local_v13`, and CP-09 is `implemented_verified_local` on index format 3. CP-10/11 still own presentation and the complete joined lifecycle. No relevance, human usefulness, browser, remote integration, release or publication claim follows from CP-09 completion.
+Document status: the detailed eight-view desktop/laptop design and RU-EN implementation scope are `owner_accepted`. CP-01/02 are implemented documentation; CP-03 addendum and earlier CP-04 C8/scorer evidence remain contract-level history; CP-04 local quality and human example calibration are owner-accepted on 2026-10-17; see its completed task block below. CP-05 is owner-accepted at `measured_local`, CP-07 is `implemented`, CP-08 is `completed_local_v13`, and CP-09 is `implemented_verified_local` on index format 3. CP-10/11 still own presentation and the complete joined lifecycle. No relevance, human usefulness, browser, remote integration, release or publication claim follows from CP-09 completion.
 
 ## 1. Goal, Sources, And Boundaries
 
-Owner revision: 2026-09-01, with CP-07/08 closure accepted 2026-09-21 and CP-09 local implementation verified 2026-09-22. SQLite FTS5/BM25 is the local route. The owner-approved CP-03/06 prerequisite expansion migrated the active bundle from historical index format 2 to format 3 with a source-owned taxonomy route registry. CP-09 now has current read-only retrieval/matching evidence across all routes, caps, matched fields, provenance and typed failures, plus current CP-03/C8/scorer gates through the pinned project-local development environment. Product evidence remains `partially_verified`: CP-04 relevance calibration, RU/EN, browser, CP-11, human acceptance, installation and release remain open; mixed primary-before-reference interaction is a non-blocking residual. CP-12-CP-14 remain deferred, and no remote, MCP, vector or deployment path is active.
+Owner revision: 2026-09-01, with CP-07/08 closure accepted 2026-09-21 and CP-09 local implementation verified 2026-09-22. SQLite FTS5/BM25 is the local route. The owner-approved CP-03/06 prerequisite expansion migrated the active bundle from historical index format 2 to format 3 with a source-owned taxonomy route registry. CP-09 now has current read-only retrieval/matching evidence across all routes, caps, matched fields, provenance and typed failures, plus current CP-03/C8/scorer gates through the pinned project-local development environment. Product evidence remains `partially_verified`: CP-04 local relevance and paired-answer quality are accepted, while desktop RU/EN/browser, CP-11, wider human product acceptance, installation and release remain open; mixed primary-before-reference interaction is a non-blocking residual. CP-12-CP-14 remain deferred, and no remote, MCP, vector or deployment path is active.
 
 Goal: help users build or modernize their solutions faster by selecting suitable OSS components and handing off a concrete integration plan grounded in their project. The saved output is a Project Context Brief plus an offline Decision Report with comparison, integration steps, a first useful validation slice and rollback. Measured speed/quality improvements are hypotheses until evaluated.
 
@@ -113,7 +113,7 @@ The diagram shows planned plugin data flow, not host-wide isolation. SQLite cont
 
 Package layout: `plugins/myai-stackguide/.codex-plugin/plugin.json`, `skills/myai-stackguide/SKILL.md`, `scripts/`, `assets/`. Omit `.app.json`, `.mcp.json`, connection entries and hooks in local V1. CP-07/16 recheck current official packaging and verify installed/cache identity; files existing do not prove activation. Runtime remains the selected trusted Windows CPython standard-library path from the ADR, with an explicit FTS5 capability preflight.
 
-Schema/artifact registry: local CP-03 and bounded C8 files now pass full contract compatibility verification; full CP-04 quality calibration remains open. Deferred remote and future runtime paths are owned outputs, not claimed implementations:
+Schema/artifact registry: local CP-03 and bounded C8 files pass contract compatibility verification; CP-04 local quality and four-pair human calibration were separately accepted on 2026-10-17. Deferred remote and future runtime paths are owned outputs, not claimed implementations:
 
 - C1 intake / CP-03: `specs/intake/intake-state.schema.json`, `specs/intake/interview-answer.schema.json`.
 - C2 scanner / CP-03: `specs/scanner/scan-policy.schema.json`, `scan-policy.yaml`, `scan-manifest.schema.json`, `scan-report.schema.json`, `exclusion-cases.json` under `specs/scanner/`.
@@ -175,7 +175,7 @@ Rollback preserves the previous compatible package/index and valid user state/hi
 
 ## 7. Detailed Task Matrix
 
-The task contracts below are amended to the 2026-09-01 local scope, the owner-accepted 2026-09-21 CP-07/08 boundaries and the 2026-09-22 CP-09 structural/runtime acceptance. CP-01/02 completion reports and earlier format-2 CP-03/C8 results remain historical evidence. CP-05 through CP-09 are implemented or accepted at their stated ceilings; CP-04 quality calibration and CP-10 onward remain open.
+The task contracts below are amended to the 2026-09-01 local scope, the owner-accepted 2026-09-21 CP-07/08 boundaries and the 2026-09-22 CP-09 structural/runtime acceptance. CP-01/02 completion reports and earlier format-2 CP-03/C8 results remain historical evidence. CP-05 through CP-09 are implemented or accepted at their stated ceilings; CP-04 completed on 2026-10-17 within its local quality acceptance scope, while CP-10 onward retain their separate gates.
 
 ### Task `CP-01`
 
@@ -335,13 +335,13 @@ The preceding Completion report is preserved first-pass history. This report rec
 ### Task `CP-04`
 
 - Task: CP-04 — define retrieval and integration-usefulness evaluation contracts
-- Status: in_progress
-- Current evidence: `technical_verified / needs_user_acceptance`, lifecycle in_progress and promotion_ready=false. The [canonical2026-10-11 report](../reports/cp04-final-closure-2026-10-11.md) owns current allocation1.1, retained-order60 compatibility, actual4orders+8answers, independent numerical/usefulness/meaning/provenance and bounded resources. Earlier v2/V3 and failed captures remain historical. The sole CP-04 remaining gate is actual human calibration of the [current exact examples/scores](../reports/cp04-owner-acceptance-2026-10-11.md).
+- Status: completed
+- Current evidence: `completed_local_quality_owner_accepted` on2026-10-17. The owner explicitly confirmed four exact RU/EN pairs and conservative final scores. The [acceptance receipt](../../evals/plugin-v1/results/cp04-owner-acceptance-2026-10-17/owner-acceptance.json) and [canonical report](../reports/cp04-final-closure-2026-10-11.md) bind existing technical evidence and accepted limitations. Human calibration is complete for these examples; whole-product promotion remains false and CP-10/11/15/16 gates stay separate.
 - Schema version: task_matrix_plan_v1
 - Timezone: Europe/Moscow
 - Plan trigger: Owner revision 2026-08-31: local SQLite FTS5, relevant context, activity-aware evidence and actionable OSS integration. This task remains within the local product path.
 - Validator target: detailed task blocks
-- Date and time of task implementation: 2026-08-31 (bounded C8 compatibility accepted; quality calibration open)
+- Date and time of task implementation: 2026-10-17 (owner acceptance and CP-04 closure; technical evidence2026-10-11; original bounded C8 compatibility2026-08-31).
 - Depends on: CP-01
 - Blocks: CP-11, CP-15
 - Source: Owner decisions 2026-08-31; active PRD R06, R12, R14; accepted CP-02 ADRs and Section 3 registries. R15 session workspace/localization amendment and linked design addendum.
@@ -354,7 +354,7 @@ The preceding Completion report is preserved first-pass history. This report rec
 - Acceptance criteria: Predeclare Recall@k/nDCG@k, wrong-exclusion and hard-constraint checks, total context bytes/token measurement method, latency/memory methodology and thresholds before running. Keep the owner-accepted 150-hit/12-card/160-KiB/200-KiB-input capacity caps explicit and quality-uncalibrated. Preserve 16/20 rubric and zero critical failures; calibrate authorized reads/handoff instead of blanket coding refusal. Use the actual 2,500-card CAT-10/CP-06 snapshot for capacity and relevance, retain a separately labeled 10,000-row synthetic headroom fixture, and stratify held-out judgments across the 14 containers, thin/dense leaves, baseline/expansion cohorts, aliases and secondary-category dedupe. No vectors/model provider dependency for lexical eval.
 - Session workspace / R15 (planned): Freeze paired RU/EN presentation cases separately from lexical-query cases: one canonical result, identical evidence/constraints/roles/negation/authority, explicit missing translations, and measured generation/byte overhead within existing limits.
 - Verification gates: V-DOC, C8 fixtures, runner-contract review and python -B -m unittest discover -s tests -p test_plugin_retrieval_eval.py -v. Tiny known-result fixtures verify metric computation/error handling; human calibration and actual CP-11 captures are required before a product quality verdict.
-- Risks / approval gates: Preserve pre-existing dirty work and source-owned boundaries. Public research is read-only; sensitive scope, credentials, material cost, external writes, publication and destructive operations follow actual authorization. Selected caps and ranking quality are not yet measured.
+- Risks / approval gates: Preserve pre-existing dirty work and source-owned boundaries. Public research is read-only; sensitive scope, credentials, material cost, external writes, publication and destructive operations follow actual authorization. Existing bounded measurements and owner acceptance do not establish universal capacity, installed runtime or release readiness.
 - Complexity: M
 - Estimated execution time: Time-box the first ready-made prototype to 2–4 engineer-hours; this is a planning budget, not a measured duration or full-task commitment. The earlier 24–44-hour custom experiment is superseded as the initial approach. Estimate remaining work from prototype compatibility, quality and resource measurements.
 - Agents: Owner quality_evaluator; product usefulness reviewer product_planner; independent claims reviewer evidence_reviewer.
@@ -364,11 +364,12 @@ The preceding Completion report is preserved first-pass history. This report rec
 - Docs update path: Product Planner updates PLAN.md/task status; Quality Evaluator records TEST.md/EVALS.md evidence; Docs Maintainer appends RUNLOG.md after handoff. No unsupported completion claim.
 - Rollback: Undo only owned changes; preserve prior valid state, finalized history and compatible package/index. No automatic deletion, Git reset, permission weakening or silent retrieval fallback.
 - Stop conditions: Unexpected sensitive data or side effects, ownership overlap, incompatible accepted contract, unsafe containment, failed mandatory evidence or missing required external authorization. Routine relevant reads are not failures; report useful partial results when safe.
-- Next step: Record the owner's explicit current example/calibration acceptance or corrections; then close CP-04 within its local evidence ceiling. No further identical-input model call is required. CP-10 browser, CP-11 lifecycle and CP-15/16 product/release gates remain separate; the following FlashRank continuation is retained historical direction, not a redispatch instruction.
+- Next step: CP-04 is closed; consume its accepted local quality handoff under existing CP-11/15 dependencies after their other prerequisites. CP-10 browser, CP-11 lifecycle and CP-15/16 product/release gates remain separately owned. Retain all historical captures and accepted limitations.
 
 - Historical compatibility evidence: Both C8 schemas and scorer passed all 27 v1 tests; both CLI gates passed for four synthetic v1 captures, and independent review repeated that suite. This remains historical v1 compatibility evidence. Before new baseline/held-out work, CP-04 must migrate the four captures and compatibility join to the paired v2 card/policy/index pins and re-run the same positive/no-match/denied/missing-index gates. Held-out corpus, baseline, human calibration and quality thresholds remain open. The Completion report below preserves the original planning record.
 
 - Historical audit follow-up: use provenance-backed real public catalog judgments alongside synthetic private-project contexts; map logical quality requirements to C8 envelopes/artifacts without adding unsupported schema keys. The four compatibility captures remain unchanged; actual baseline/held-out/RU-EN/usefulness calibration stays open.
+
 
 #### Ready-made continuation — owner direction 2026-10-08
 
@@ -688,12 +689,12 @@ Completion status: `implemented_verified` at the synthetic contract-compatibilit
 ### Task `CP-10`
 
 - Task: CP-10 — render offline decisions with integration plan and coding handoff
-- Status: implemented_local, partially_verified; CP-10 A-D code complete, mandatory browser acceptance pending
+- Status: completed_local_ui_owner_accepted; owner closed CP-10 on 2026-10-17 with disclosed unverified UI limits
 - Schema version: task_matrix_plan_v1
 - Timezone: Europe/Moscow
 - Plan trigger: Owner revision 2026-08-31: local SQLite FTS5, relevant context, activity-aware evidence and actionable OSS integration. This task remains within the local product path.
 - Validator target: detailed task blocks
-- Date and time of task implementation: A-C 2026-09-23; D 2026-10-08 (Europe/Moscow; browser acceptance pending)
+- Date and time of task implementation: A-C 2026-09-23; D 2026-10-08; local UI owner acceptance 2026-10-17 (Europe/Moscow; no exact acceptance time supplied)
 - Depends on: CP-03, CP-05, CP-07
 - Blocks: CP-11, CP-15
 - Source: Owner decisions 2026-08-31; active PRD R05, R07, R10, R13; accepted CP-02 ADRs and Section 3 registries. R15 session workspace/localization amendment and linked design addendum.
@@ -704,6 +705,7 @@ Completion status: `implemented_verified` at the synthetic contract-compatibilit
 - Non-goals: Unassigned files, model/permission changes, Git history, automatic installs, private-data disclosure or external activation. No remote architecture/runtime or vector/embedding dependency.
 - Expected result: One offline status.html exists from the first committed session state and updates at the same path after saved answers/phases. It progressively exposes goal/questions, context/coverage, ranked roles/comparison, actual activity versus observation, evidence/gaps, integration steps/prerequisites, first validation slice, rollback, handoff and history in RU/EN.
 - Acceptance criteria: Complete CP-10 A-D against the approved design and source mapping. Bind the real renderer to the shared CP-07 commit/publication boundary; no separate manual report command per answer. Early/partial states work without C5 recommendations. Render committed data only, reject obsolete publication and preserve saved answers/previous valid HTML on failure. Explain proposed versus executed actions, unknowns and dependencies; no automatic code changes/install. Escape content/links; no fetch/CDN/analytics; desktop/laptop, keyboard/zoom/print/fallback checks, with mobile excluded.
+- Owner acceptance (2026-10-17): [receipt](../reports/cp10-owner-acceptance-2026-10-17.json) closes CP-10 after the supported HTTP browser report. Actual200% zoom, print preview and globally disabled-JavaScript notice remain unverified; exact OS clipboard delivery and global-offline tracing also retain evidence limits. The owner accepts these limits for CP-10 closure; no technical pass is invented and CP-11/15/16 gates remain independent.
 - Session workspace / R15 (planned): A: shell, eight-view navigation and embedded RU/EN dictionaries; B: Goal/Questions/Scan/Context; C: Options/Compare/Integration; D: History/recovery and full states. Implement the design subsection inventory, stable local fragment/comparison/disclosure, original-language and partial-translation labels, lang/focus and no-JS/clipboard fallback. Dynamic prose comes from the validated canonical result, not independent renderer recommendations. Language control makes no network, filesystem, scan or model call; concept approval is already complete.
 - CP-10-A checkpoint (2026-09-23): Primary implemented the renderer/template/paired dictionaries and sequential CP-07 adapter, plus `tests/test_plugin_artifact.py`, without delegation. The isolated CLI publishes the real shell at the existing path; all eight targets, saved-default-language no-JS markup, explicit unavailable/unimplemented detail, state metadata and next Codex action are present. Artifact checks 5/5 and intake checks 9/9 pass; JavaScript syntax and focused diff checks pass. Browser `file:` navigation was denied by the available browser policy, so actual switching/navigation/visual acceptance remains unverified. At the A checkpoint, B-D were unimplemented. See RUNLOG for the unrelated legacy state-test expectation drift and rollback.
 - CP-10-B checkpoint (2026-09-23): Primary implemented source-bound Goal, Questions, Scan and Context views in the existing renderer with exact RU/EN labels and per-field narrative display from saved presentation entries. Current data, unknowns, observed facts, inferences, answer/evidence refs, partial coverage, policy ceilings, correction impact and requested-but-unread sources remain distinct. Static dictionaries reject missing keys; a consumed translation with a stale source digest fails rendering and preserves the prior publication. Artifact tests passed 7/7, intake tests 9/9, extracted JavaScript syntax and focused diff checks passed, and the isolated CLI rendered the accepted synthetic full-state fixture at the same HTML path. Actual browser switching, layout and user usefulness remain unverified because local `file:` navigation is blocked by the available browser policy; C-D remain unimplemented. See RUNLOG for the precise evidence ceiling and rollback.
@@ -723,26 +725,27 @@ Completion status: `implemented_verified` at the synthetic contract-compatibilit
 
 #### Completion report
 
-- status: implemented_local, partially_verified
-- what was done: All CP-10 A-D code is implemented; History/recovery and the bounded history-reader join were completed on 2026-10-08. Browser acceptance remains an unmet mandatory gate.
+- status: completed_local_ui_owner_accepted
+- what was done: All CP-10 A-D code is implemented; supported HTTP browser verification ran on 2026-10-17 and the owner explicitly closed CP-10 accepting the disclosed evidence gaps. No CP-10 action remains pending.
 - files touched / work locations: render_report.py, state_store.py, status-template.html, assets/locales/ru.json and en.json, tests/test_plugin_artifact.py; ignored synthetic preview at .codex-tmp/cp10-d-preview/docs/myai-stackguide/status.html.
 - technical value delivered: Eight escaped offline views from committed state; validated immutable history detail, truthful revision/recovery metadata, RU/EN dictionaries and manual copy fallback.
-- product value delivered: A reviewable saved decision and integration handoff; human usefulness and translation equivalence are not yet accepted.
+- product value delivered: The owner accepted the bounded eight-view local UI and saved integration handoff. This does not establish the joined CP-11 lifecycle or wider CP-15 product usefulness.
 - actual implementation date and time: A-C 2026-09-23; D 2026-10-08 (Europe/Moscow).
-- verification evidence: Artifact 16/16; preceding joined artifact/intake/state 31/31; extracted JavaScript syntax and focused diff checks. See TEST.md and RUNLOG.md for environment and command provenance.
-- residual risks: Existing browser URL-policy refusal prevents mandatory interaction, focus, 200% zoom, print, layout and rendered language-parity evidence. No alternate browser/URL/CDP route was attempted. CP-04 relevance, CP-11 actual lifecycle, CP-15 usefulness/privacy and CP-16 release remain open.
-- follow-up: Obtain permitted rendered acceptance for CP-10, then CP-11 subject to CP-04 readiness; no remote prerequisite.
+- verification evidence: [Current browser report](../reports/cp10-browser-http-2026-10-17.md) binds16 view/language pairs,16 layouts,14 state panels,16 server-down pairs and fresh artifact16/16 tests on required CPython3.14.6. [Owner receipt](../reports/cp10-owner-acceptance-2026-10-17.json) closes the task with accepted gaps. Earlier31/31 and syntax checks remain dated evidence; no new runtime check ran during documentation closure.
+- residual risks: Actual200% zoom, print preview, globally disabled-JavaScript notice, exact OS clipboard delivery and global-offline tracing remain unverified and owner-accepted for CP-10 closure. CP-11 actual lifecycle, CP-15 independent usefulness/privacy/UI and CP-16 release remain open. CP-04 is already owner-accepted. No technical observation is overwritten.
+- follow-up: CP-11 is next; CP-04/CP-10 acceptance prerequisites are satisfied. Preserve the accepted CP-10 limitations and independent CP-15/16 gates; no remote prerequisite.
 
 ### Task `CP-11`
 
 - Task: CP-11 — verify one useful local FTS5-to-integration vertical slice
-- Status: planned
+- Status: in_progress
 - Schema version: task_matrix_plan_v1
 - Timezone: Europe/Moscow
 - Plan trigger: Owner revision 2026-08-31: local SQLite FTS5, relevant context, activity-aware evidence and actionable OSS integration. This task remains within the local product path.
 - Validator target: detailed task blocks
-- Date and time of task implementation: pending_execution_timestamp
+- Date and time of task implementation: 2026-10-17, Europe/Moscow; mandatory full test join remains open
 - Depends on: CP-03, CP-04, CP-06, CP-07, CP-08, CP-09, CP-10
+- Dependency readiness (2026-10-17): CP-04 and CP-10 owner acceptance remains closed. CP-11 local lifecycle/recovery/browser/capacity checks have executed; task closure waits on its mandatory full test join. [Current report](../reports/cp11-local-lifecycle-2026-10-17.md) owns evidence and remaining scope.
 - Blocks: CP-12, CP-13, CP-15
 - Source: Owner decisions 2026-08-31; active PRD R02, R06, R10, R11, R12, R13; accepted CP-02 ADRs and Section 3 registries. R15 session workspace/localization amendment and linked design addendum.
 - Short description: Join intake, context, public index, bounded evidence and saved integration report.
@@ -768,15 +771,15 @@ Completion status: `implemented_verified` at the synthetic contract-compatibilit
 
 #### Completion report
 
-- status: planned
-- what was done: Task contract and dependencies revised on 2026-08-31; no task implementation executed by this plan revision.
-- files touched / work locations: Planning/control/ADR documentation only; future owned outputs are listed above.
-- technical value delivered: Implementation benefit not claimed; planned result is Demonstrate intended routing and version/cap integrity without mock or remote masking.
-- product value delivered: User outcome not measured; planned result is One real build/modernization decision reaches an actionable next step.
-- actual implementation date and time: pending_execution_timestamp
-- verification evidence: Current documentation checks belong in RUNLOG.md; no task-specific runtime, schema, index, model or release pass claimed.
-- residual risks: Upstream acceptance and task-specific evidence remain open. Remote extension and vectors are not prerequisites.
-- follow-up: CP-15 independent local acceptance; CP-12 only after a separate extension decision.
+- status: in_progress / partially_verified; **CP-11 is not closed**.
+- what was done: Implemented existing-schema matching/memo writer adapters and bounded host-selected questions; verified the complete actual packaged FTS5-to-HTML lifecycle, correction/reload/finalization/immutable History, publication/crash/storage failures, paired locale UI and actual2500/separate synthetic10000 capacity. Added source-bound observed C9 validation without relabeling actual retrieval as synthetic C8 evidence.
+- files touched / work locations: Exact implementation/test/scorer/bundle/capacity files and current status/evidence docs are listed in the [canonical report](../reports/cp11-local-lifecycle-2026-10-17.md); synthetic state/HTML/history/capture remain in its task-local lane. Frozen catalog/policy/index and CP-04/10 evidence remain unchanged.
+- technical value delivered: One CP-07 writer now persists validated C9 matching and memo objects, preserving revision, pin, eligibility/evidence ownership and publication boundaries. No fallback/model/install/integration execution occurs in this join.
+- product value delivered: Source-bound Product Planner review accepts the narrow authored conditional trial as useful; no new model quality, comparative superiority or human acceptance is claimed.
+- actual implementation date and time: 2026-10-17, Europe/Moscow; exact current timestamps/source/artifact hashes are in the report.
+- verification evidence: Local runtime4/4, validator13/13, scorer/default-C8 regression28/28, actual capture and original C8 CLIs, two parity checks, browser16 combinations and capacity120 samples pass. All23 new CP-11 cases pass in the final product join. That mandatory command fails:456 tests,5 failures,12 errors,2 optional native-backend skips. No gate is waived.
+- residual risks: Historical CP-04 fixtures open current assets/producer bytes; baseline read-only replay reproduces the drift. Old assets exist in the exact source archive but some earliest measurement sources are unavailable. A separately assigned tests-only archive/declaration fixture migration is needed; do not repin old captures/judgments or reopen accepted quality. Narrative locale coverage remains partial; CP-10 accepted limits remain explicit. Product/release promotion remains false.
+- follow-up: Assign the bounded historical test-fixture migration and pass the full join before closing CP-11 and unblocking CP-15. CP-12 remains a separately approved optional extension; CP-16 packaging/install/release is independent.
 
 ### Task `CP-12`
 

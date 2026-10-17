@@ -1,0 +1,92 @@
+{
+  "schema_version": "cp11_host_intake_observation_v1",
+  "evidence_kind": "current_host_authored_choices_actual_cli",
+  "records": [
+    {
+      "case_id": "HOST-GAP-STACK",
+      "goal": "Evaluate a replacement testing component for an existing local Python service. The current test framework is unspecified.",
+      "selected": "current_stack",
+      "rationale": "The existing test framework changes whether to keep the native path, add an adapter or replace a component.",
+      "selector": "answer.next_question_id",
+      "prior_default": "success",
+      "saved_question": {
+        "answer_examples": [
+          "Python и PostgreSQL",
+          "Next.js и внешний API"
+        ],
+        "decision_consequence": "Ответ сузит варианты по языкам, фреймворкам и точкам интеграции.",
+        "ordinal": 2,
+        "question_id": "current_stack",
+        "rationale": "Совместимость с существующими границами важнее общего рейтинга инструмента.",
+        "text": "Какие технологии и компоненты уже являются обязательной частью проекта?",
+        "topics": [
+          "stack"
+        ]
+      },
+      "saved": {
+        "content_revision": 2,
+        "revision": 2,
+        "run_id": "6d19aac7-b8c8-4e0a-a7c0-11c0f63ecfb5"
+      },
+      "published": {
+        "content_revision": 2,
+        "generated_at": "2026-10-17T20:46:29Z",
+        "html_sha256": "2048c4bb2aa493b5383c018ce81f2f1175aeac443062f151b1219786ff804118",
+        "presentation_revision": 2,
+        "revision": 2,
+        "run_id": "6d19aac7-b8c8-4e0a-a7c0-11c0f63ecfb5"
+      },
+      "saved_answer_count": 1,
+      "terminal_status": "finalized_incomplete",
+      "state_sha256": "33eea883219017ee1a8aaca26e465f7fe6751727c3b8426685ae8d08dd8f23a9"
+    },
+    {
+      "case_id": "HOST-GAP-LICENSE",
+      "goal": "Evaluate a pure-Python calculation regression trial for a proprietary project that already uses unittest. The allowed dependency licenses are undecided.",
+      "selected": "license",
+      "rationale": "The existing test path is known; allowed dependency licenses may rule out an added component before adoption.",
+      "selector": "answer.next_question_id",
+      "prior_default": "success",
+      "saved_question": {
+        "answer_examples": [
+          "Только permissive",
+          "GPL допустима",
+          "Нужна юридическая проверка"
+        ],
+        "decision_consequence": "Ответ задаст жёсткий фильтр или конкретную проверку перед внедрением.",
+        "ordinal": 2,
+        "question_id": "license",
+        "rationale": "Неизвестная или несовместимая лицензия не допускает безусловную рекомендацию.",
+        "text": "Есть ли обязательные или недопустимые лицензии?",
+        "topics": [
+          "license_data"
+        ]
+      },
+      "saved": {
+        "content_revision": 2,
+        "revision": 2,
+        "run_id": "6a800a02-ed24-43f9-be7d-f9d8fd4bb347"
+      },
+      "published": {
+        "content_revision": 2,
+        "generated_at": "2026-10-17T20:46:31Z",
+        "html_sha256": "48e368b40e5dee118113a872b64529fda1fb52e36e7e3e657ff5f60069407b9b",
+        "presentation_revision": 2,
+        "revision": 2,
+        "run_id": "6a800a02-ed24-43f9-be7d-f9d8fd4bb347"
+      },
+      "saved_answer_count": 1,
+      "terminal_status": "finalized_incomplete",
+      "state_sha256": "fafeb4bb0d42ff541e3dd1bb437158957294e4aec3c2cd4e648d254a6e3c5b2c"
+    }
+  ],
+  "passed": true,
+  "additional_provider_calls": 0,
+  "host_model_identity": null,
+  "independent_semantic_evaluation": false,
+  "side_effect_guard": "child audit hook rejects socket, subprocess and shell execution; not host OS isolation",
+  "source_sha256": {
+    "plugins/myai-stackguide/scripts/intake.py": "c2b5edd9799d8969db1566c61eba3eebc33e7d19b02e234bb6550a06a585099b",
+    "plugins/myai-stackguide/assets/question-bank.json": "9fba3802fd9acc02fa242fbe002432ba9ba8397812d924f83a17ce725246d909"
+  }
+}

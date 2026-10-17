@@ -1,0 +1,59 @@
+{
+  "schema_version": "cp10_owner_acceptance_v1",
+  "accepted_on": "2026-10-17",
+  "timezone": "Europe/Moscow",
+  "task_id": "CP-10",
+  "task_name": "render offline decisions with integration plan and coding handoff",
+  "status": "completed_local_ui_owner_accepted",
+  "lifecycle_status": "completed",
+  "owner_acceptance": true,
+  "cp10_gate_closed": true,
+  "owner_statement": "CP-10 можно считать закрытым. Обнови документацию. Что делаем дальше ?",
+  "acceptance_basis": "Explicit owner acceptance of the local UI and disclosed technical evidence ceiling, including unverified items. Not a claim that the missing browser checks passed.",
+  "technical_browser_gate_passed": false,
+  "observations_unchanged": true,
+  "accepted_unverified_items": [
+    "Actual 200% browser zoom",
+    "Actual print preview",
+    "Globally disabled JavaScript/no-script notice"
+  ],
+  "additional_accepted_evidence_limits": [
+    "Exact operating-system clipboard delivery not verified by tool readback",
+    "Offline proof is server-down in-memory operation with CSP, not global network-off mode"
+  ],
+  "evidence": {
+    "report": "cp10-browser-http-2026-10-17.md",
+    "observations": "cp10-browser-http-2026-10-17.json",
+    "observations_sha256": "6317137640ab20564da1b33025abb5ab57fc70294de7e8176cf72ba6e1d2b476",
+    "report_sha256": "508ff613c1c4d11ee59cafd6af9a4fe32a988719097e69692b345d95365914a7",
+    "source_sha256": {
+      "plugins/myai-stackguide/scripts/render_report.py": "2875b67ac48b8dd69f065584c493f38be7d6669056090aafb3c9d9db49717eb7",
+      "plugins/myai-stackguide/scripts/state_store.py": "cbf22c94f291241f531bb13392cb9e6d98196b4a569586034f1fe89f623b0222",
+      "plugins/myai-stackguide/scripts/intake.py": "64c07620e936077427239cb4532964a24777475afe3e7a002f00fa8fe3cdaf3b",
+      "plugins/myai-stackguide/assets/status-template.html": "61fdec87eea695a44ed8484ee581a95df7740937081fed3e71f4271016d3b26f",
+      "plugins/myai-stackguide/assets/locales/ru.json": "b182cb2f9955112f9b98225d9b6916c3c32926f50cc27ecb4f195986923c2924",
+      "plugins/myai-stackguide/assets/locales/en.json": "e390aad8857b5289b33a7ac7da27894e87c19572a7ba34725ebab0a5dded9e02",
+      "tests/test_plugin_artifact.py": "28b23a5ab38e870afed61f737844e4293b35af42a659e53dc53a2c3a30185728",
+      "tests/fixtures/plugin_contracts.json": "706e31ad5925f2fc681bbaf37828abc1c8ab358964e61aa522b41ed5f454285a"
+    },
+    "screenshots": {
+      "cp10-http-goal-ru-2026-10-17.jpg": "624f0e169b24a395f858321fb843193a8fa4de1db8a816a5816e6c8b078ded0b",
+      "cp10-http-matrix-ru-2026-10-17.jpg": "5a651cb532a9e0cd67e306265c4d825f02bc128978456799cb62c542f561515a"
+    }
+  },
+  "new_runtime_or_browser_run": false,
+  "new_human_check_results": false,
+  "remaining_cp10_actions": [],
+  "cp04_acceptance_unchanged": true,
+  "next_task": "CP-11",
+  "next_task_status": "planned",
+  "cp04_cp10_prerequisites_satisfied": true,
+  "independent_remaining_gates": [
+    "CP-11 joined lifecycle and capacity",
+    "CP-15 independent local product/UI/privacy acceptance",
+    "CP-16 package and release acceptance"
+  ],
+  "whole_product_promotion_ready": false,
+  "permissions_changed_by_closure": false,
+  "git_history_changed": false
+}

@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://myai-stackguide.invalid/evals/cp11-observed-c9-capture-v1",
+  "title": "CP-11 local observed lifecycle capture, independently versioned from synthetic C8",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "case_id", "case_sha256", "evidence_kind", "evidence_ceiling", "manifest", "captures", "lifecycle", "source_sha256", "artifact_sha256", "history_sha256", "html_sha256"],
+  "properties": {
+    "schema_version": {"const": "cp11_observed_c9_capture_v1"},
+    "case_id": {"type": "string", "minLength": 1},
+    "case_sha256": {"$ref": "#/$defs/hash"},
+    "evidence_kind": {"const": "synthetic_project_actual_packaged_retrieval_authored_memo"},
+    "evidence_ceiling": {"type": "string", "minLength": 1},
+    "manifest": {"$ref": "https://myai-stackguide.invalid/contracts/v2/retrieval/index-manifest.schema.json"},
+    "source_sha256": {"type": "object", "additionalProperties": {"$ref": "#/$defs/hash"}},
+    "artifact_sha256": {"type": "object", "additionalProperties": {"$ref": "#/$defs/hash"}},
+    "history_sha256": {"$ref": "#/$defs/hash"},
+    "html_sha256": {"$ref": "#/$defs/hash"},
+    "captures": {
+      "type": "array", "minItems": 2, "maxItems": 2,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["brief", "brief_sha256", "query_sha256", "request", "retrieval", "evidence_pack", "memo", "sqlite_connections", "sql_route", "bytes"],
+        "properties": {
+          "brief": {"$ref": "https://myai-stackguide.invalid/contracts/v1/context/project-context-brief.schema.json"},
+          "brief_sha256": {"$ref": "#/$defs/hash"},
+          "query_sha256": {"$ref": "#/$defs/hash"},
+          "request": {"$ref": "https://myai-stackguide.invalid/contracts/v1/recommendation/recommendation-request.schema.json"},
+          "retrieval": {"$ref": "https://myai-stackguide.invalid/contracts/v2/retrieval/retrieval-result.schema.json"},
+          "evidence_pack": {"$ref": "https://myai-stackguide.invalid/contracts/v2/retrieval/evidence-pack.schema.json"},
+          "memo": {"$ref": "https://myai-stackguide.invalid/contracts/v2/recommendation/recommendation-memo.schema.json"},
+          "sqlite_connections": {"type": "array", "minItems": 1, "maxItems": 10, "items": {
+            "type": "object", "additionalProperties": false, "required": ["index", "uri", "mode", "immutable"],
+            "properties": {"index": {"const": "catalog.search.sqlite"}, "uri": {"const": true}, "mode": {"const": "ro"}, "immutable": {"const": true}}
+          }},
+          "sql_route": {"type": "array", "minItems": 1, "maxItems": 10, "items": {"type": "string", "maxLength": 10000}},
+          "bytes": {"type": "object", "additionalProperties": false, "required": ["brief", "request", "pack", "memo"],
+            "properties": {"brief": {"type": "integer", "minimum": 1}, "request": {"type": "integer", "minimum": 1}, "pack": {"type": "integer", "minimum": 1}, "memo": {"type": "integer", "minimum": 1}}}
+        }
+      }
+    },
+    "lifecycle": {"type": "array", "minItems": 12, "maxItems": 12, "items": {
+      "type": "object", "additionalProperties": false, "required": ["command", "response"],
+      "properties": {"command": {"type": "string"}, "response": {"$ref": "https://myai-stackguide.invalid/contracts/v1/artifact/publication-result.schema.json"}}
+    }}
+  },
+  "$defs": {"hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"}}
+}

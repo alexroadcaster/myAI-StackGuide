@@ -827,5 +827,5 @@ def _retrieve_verified_bundle(query, *, run_id, index_path, manifest, policy):
         "retrieved_hits": retrieved_hits,
         "candidates": output_candidates,
         "truncated": retrieved_hits >= query["max_candidates"],
-        "reason_codes": [],
+        "reason_codes": ["candidate_budget"] if retrieved_hits >= query["max_candidates"] else [],
     }

@@ -62,7 +62,7 @@ context = scanner.context
 
 COMMANDS = {
     "preflight", "start", "resume", "answer", "correct", "cancel", "finalize",
-    "retry-publication", "commit-scan", "commit-context",
+    "retry-publication", "commit-scan", "commit-context", "commit-matching", "commit-memo",
 }
 
 
@@ -79,6 +79,8 @@ def _read_payload(command: str) -> dict[str, Any]:
     limit = {
         "commit-scan": COMMIT_SCAN_INPUT_BYTES,
         "commit-context": COMMIT_CONTEXT_INPUT_BYTES,
+        "commit-matching": store.MAX_STATE_BYTES,
+        "commit-memo": store.MAX_STATE_BYTES,
     }.get(command, MAX_INPUT_BYTES)
     data = sys.stdin.buffer.read(limit + 1)
     if len(data) > limit:
@@ -518,6 +520,25 @@ def _question(bank: dict[str, Any], ordinal: int) -> dict[str, Any]:
     }
 
 
+def _selected_question(bank: dict[str, Any], ordinal: int, selected: str | None,
+                       questions: list[dict[str, Any]]) -> dict[str, Any]:
+    """Codex may choose a decision-changing gap from the trusted question bank.
+
+    The ledger ordinal records when it was asked, independently of bank order.
+    Without a host selection the bounded CP-07 ordering remains the fallback.
+    """
+    asked = {item["question_id"] for item in questions}
+    if selected is None:
+        source = next((item for item in bank["questions"] if item["question_id"] not in asked), None)
+    else:
+        source = next((item for item in bank["questions"] if item["question_id"] == selected), None)
+    if source is None or source["question_id"] in asked:
+        raise store.StateError("invalid_input")
+    result = _question(bank, bank["questions"].index(source) + 1)
+    result["ordinal"] = ordinal
+    return result
+
+
 _FIELD_POINTER = re.compile(
     r"^/(?:intake/questions/[0-9]+/(?:text|rationale|decision_consequence|answer_examples/[0-9]+)|intake/(?:completion_reason|assumptions/[0-9]+|answers/[0-9]+/sanitized_value)|brief/(?:goal|success_criterion|assumptions/[0-9]+)|brief/details/(?:problem|target_user|workflow|current_behavior|target_behavior|baseline|scope)/(?:text|limitation)|brief/details/non_goals/[0-9]+/(?:text|limitation)|brief/details/constraint_notes/[0-9]+/(?:claim/text|claim/limitation|consequence)|brief/details/tensions/[0-9]+/(?:detail|next_decision)|brief/observations/(?:facts/[0-9]+/value|inferences/[0-9]+/statement|gaps/[0-9]+/(?:detail|next_check))|scan/summary/(?:facts/[0-9]+/value|inferences/[0-9]+/statement|gaps/[0-9]+/(?:detail|next_check))|corrections/[0-9]+/sanitized_correction|memo/(?:summary|next_action|comparison/[0-9]+|avoid_defer/[0-9]+|missing_context/[0-9]+|reading_path/[0-9]+/purpose|category_path/[0-9]+/reason)|memo/recommendations/[0-9]+/(?:fit_rationale|caveats/[0-9]+|next_checks/[0-9]+)|memo/comparison_details/(?:scope|selection_rationale|strongest_counterargument|reconsider_when|next_decision|cells/[0-9]+/(?:claim/text|claim/limitation|next_check))|memo/avoid_defer_details/[0-9]+/(?:rationale|revisit_when)|memo/integration_plan/(?:goal|integration_surface|prerequisites/[0-9]+|risks/[0-9]+|rollback/[0-9]+|unresolved_questions/[0-9]+)|memo/integration_plan/steps/[0-9]+/(?:action|prerequisites/[0-9]+|acceptance)|memo/integration_plan/first_validation/(?:goal|success_criterion)|memo/integration_plan/handoff/(?:goal|scope|non_goals/[0-9]+|stop_conditions/[0-9]+)|memo/integration_plan/details/(?:validation_input|expected_behavior|widen_when|diagram/(?:nodes/[0-9]+/label|edges/[0-9]+/label)|prerequisite_checks/[0-9]+/(?:detail|next_check)))$"
 )
@@ -708,7 +729,12 @@ def _validate_empty(payload: dict[str, Any]) -> None:
 
 
 def _validate_answer_payload(payload: dict[str, Any]) -> None:
-    if set(payload) != {"answer_id", "question_id", "status", "value", "ready"}:
+    required = {"answer_id", "question_id", "status", "value", "ready"}
+    if set(payload) not in (required, required | {"next_question_id"}):
+        raise store.StateError("invalid_input")
+    if "next_question_id" in payload and (
+        not isinstance(payload["next_question_id"], str) or payload["ready"] is not False
+    ):
         raise store.StateError("invalid_input")
     if not isinstance(payload["answer_id"], str) or not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9._:-]{0,127}", payload["answer_id"]):
         raise store.StateError("invalid_input")
@@ -778,6 +804,13 @@ def command_answer(project_root: Path, payload: dict[str, Any], run_id: str | No
             )
             if not same:
                 raise store.StateError("state_conflict")
+            if not expected_ready and current["intake"]["status"] == "asking":
+                prior = [item for item in current["intake"]["questions"]
+                         if item["ordinal"] <= existing["ordinal"]]
+                expected_question = _selected_question(bank, existing["ordinal"] + 1,
+                    payload.get("next_question_id"), prior)
+                if current["intake"]["pending_question_id"] != expected_question["question_id"]:
+                    raise store.StateError("state_conflict")
             state = current
         else:
             _expected(current, run_id, revision)
@@ -821,7 +854,8 @@ def command_answer(project_root: Path, payload: dict[str, Any], run_id: str | No
                 )
             else:
                 ordinal = state["intake"]["questions_asked"] + 1
-                question = _question(bank, ordinal)
+                question = _selected_question(bank, ordinal, payload.get("next_question_id"),
+                                              state["intake"]["questions"])
                 state["intake"]["questions"].append(question)
                 state["intake"]["questions_asked"] = ordinal
                 state["intake"]["pending_question_id"] = question["question_id"]
@@ -885,7 +919,7 @@ def command_resume(project_root: Path, payload: dict[str, Any], run_id: str | No
                 else:
                     state = current
             else:
-                question = _question(bank, ordinal)
+                question = _selected_question(bank, ordinal, None, state["intake"]["questions"])
                 state["intake"]["questions"].append(question)
                 state["intake"].update(
                     status="asking", questions_asked=ordinal,
@@ -1067,6 +1101,63 @@ def command_commit_context(project_root: Path, payload: dict[str, Any], run_id: 
             locked.commit(state, current)
         scanner.remove_checkpoint_locked(locked.root, run_id=state["run_id"])
     return _publication_success(state, operation="commit_and_publish", commit_status="saved")
+
+
+def _commit_recommendation_part(project_root: Path, payload: dict[str, Any],
+                                run_id: str | None, revision: int | None,
+                                *, part: str) -> dict[str, Any]:
+    """Join validated C9 objects to the sole state writer, then publish once.
+
+    Retrieval and composition happen before this bounded commit. Neither a
+    render retry nor an immediate identical commit retry repeats those actions.
+    """
+    keys = ("request", "retrieval", "evidence_pack") if part == "matching" else ("memo",)
+    if not isinstance(payload, dict) or set(payload) != set(keys):
+        raise store.StateError("invalid_input")
+    bank = _load_question_bank()
+    with store.locked_store(project_root, create=False) as locked:
+        current = locked.load(required=True, writable=True)
+        assert current is not None
+        target_phase = "matching" if part == "matching" else "report"
+        immediate_retry = (
+            run_id is not None and revision is not None
+            and current["run_id"] == run_id and current["revision"] == revision + 1
+            and current["status"] == "active" and current["phase"] == target_phase
+            and all(current.get(key) == payload[key] for key in keys)
+        )
+        if immediate_retry:
+            state = current
+        else:
+            _expected(current, run_id, revision)
+            legal_phases = ("context_review", "matching") if part == "matching" else ("matching",)
+            if (current["status"] != "active" or current["phase"] not in legal_phases
+                    or current["intake"]["status"] != "ready" or current.get("brief") is None):
+                raise store.StateError("state_conflict")
+            try:
+                adapter = _load_trusted("myai_stackguide_session_recommendation",
+                                        SCRIPT_ROOT / "session_recommendation.py")
+                validate = adapter.validate_matching if part == "matching" else adapter.validate_memo
+                validated = validate(current, payload)
+            except (ValueError, TypeError, KeyError, OSError) as error:
+                raise store.StateError("invalid_input") from error
+            state = copy.deepcopy(current)
+            state.update(validated)
+            if part == "matching":
+                state["memo"] = None
+            state["phase"] = target_phase
+            _advance_revision(state, locked, bank)
+            locked.commit(state, current)
+    return _publication_success(state, operation="commit_and_publish", commit_status="saved")
+
+
+def command_commit_matching(project_root: Path, payload: dict[str, Any], run_id: str | None,
+                            revision: int | None) -> dict[str, Any]:
+    return _commit_recommendation_part(project_root, payload, run_id, revision, part="matching")
+
+
+def command_commit_memo(project_root: Path, payload: dict[str, Any], run_id: str | None,
+                        revision: int | None) -> dict[str, Any]:
+    return _commit_recommendation_part(project_root, payload, run_id, revision, part="memo")
 
 
 def _validate_correction_payload(payload: dict[str, Any]) -> str:
@@ -1321,6 +1412,10 @@ def main(argv: list[str]) -> int:
             result = command_commit_scan(project_root, payload, run_id, revision)
         elif command == "commit-context":
             result = command_commit_context(project_root, payload, run_id, revision)
+        elif command == "commit-matching":
+            result = command_commit_matching(project_root, payload, run_id, revision)
+        elif command == "commit-memo":
+            result = command_commit_memo(project_root, payload, run_id, revision)
         elif command == "finalize":
             result = command_finalize(project_root, payload, run_id, revision)
         else:

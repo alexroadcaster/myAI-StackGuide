@@ -1,0 +1,117 @@
+{
+  "schema_version": "cp10_browser_policy_audit_v1",
+  "checked_on": "2026-10-17",
+  "timezone": "Europe/Moscow",
+  "request_scope": "Inspect current policy/settings and prepare a minimal origin exception; do not apply it",
+  "origin": "http://127.0.0.1:8765",
+  "confirmed_failure": {
+    "operation": "Observe already-open file tab, and earlier navigate to file preview",
+    "gate": "Browser Use URL protocol validation",
+    "reason": "file: unsupported; allowed protocols reported as http: and https:",
+    "not_an_origin_denial_for_requested_http_origin": true,
+    "forbids_circumvention": true
+  },
+  "local_sources": [
+    {
+      "path": "C:\\Users\\user\\Desktop\\project\\github_research\\agentic-engineering-catalog\\.codex\\config.toml",
+      "layer": "project",
+      "exists": true,
+      "sha256": "5691850c7dd4679723f95ac806b9419de29b85f1b418ad823056587fd872b612",
+      "browser_use_present": false,
+      "relevant_config": {},
+      "browser_related_feature_keys": []
+    },
+    {
+      "path": "C:\\Users\\user\\.codex\\config.toml",
+      "layer": "user",
+      "exists": true,
+      "sha256": "15b9d7dd89e66201c06a888b4400ca063c6934b5c16850746ce67d6e08ae19d6",
+      "browser_use_present": false,
+      "relevant_config": {
+        "sandbox_mode": "workspace-write",
+        "approval_policy": "on-request",
+        "approvals_reviewer": "user",
+        "default_permissions": ":workspace"
+      },
+      "browser_related_feature_keys": []
+    },
+    {
+      "path": "C:\\ProgramData\\OpenAI\\Codex\\config.toml",
+      "layer": "system_defaults",
+      "exists": false
+    },
+    {
+      "path": "C:\\ProgramData\\OpenAI\\Codex\\requirements.toml",
+      "layer": "system_requirements",
+      "exists": false
+    },
+    {
+      "path": "C:\\ProgramData\\OpenAI\\Codex\\managed_config.toml",
+      "layer": "legacy_system",
+      "exists": false
+    },
+    {
+      "path": "C:\\Users\\user\\.codex\\managed_config.toml",
+      "layer": "legacy_user_candidate",
+      "exists": false
+    }
+  ],
+  "parent_project_configs_found": [],
+  "local_browser_deny_found": false,
+  "local_managed_requirements_present": false,
+  "global_or_cloud_policy_absence_proven": false,
+  "effective_desktop_policy_verified": false,
+  "app_state_check": "Only top-level browser-related key names inspected; no effective origin-policy table exposed; unrelated data excluded from this receipt",
+  "cli_diagnostics": {
+    "cli_version": "0.163.0",
+    "cli_is_not_running_desktop_policy_authority": true,
+    "read_only_existing_app_server_proxy": {
+      "new_daemon_started": false,
+      "requests": [
+        "initialize",
+        "configRequirements/read",
+        "config/read"
+      ],
+      "responses_received": 0,
+      "native_shim_exit_code": 1,
+      "error": "Unable to connect to the local app-server control socket; OS error10050",
+      "first_wrapper_issue": "PowerShell child script wrapper was rejected by execution policy; existing native .cmd shim used for one bounded diagnostic retry; execution policy unchanged"
+    },
+    "other_warnings": "CLI help emitted arg0 temporary-directory ACL warnings; not repaired and not attributed to Browser Use"
+  },
+  "proposal": {
+    "path": "docs/reports/cp10-loopback-8765.proposed.toml",
+    "sha256": "0d41e5c9cc75fb277eb7beb11e3ee9860566c1bdbadbd60f9b8ea8cbcfaeebeb",
+    "settings": {
+      "access": "allow",
+      "uploads": "deny",
+      "downloads": "deny",
+      "full_cdp_access": "deny",
+      "persistent_approval": false,
+      "access_approval_lifetime": "turn"
+    },
+    "applied": false,
+    "activation_verified": false,
+    "merge_target_if_authorized": "User config.toml supported browser_use origin policy; managed restrictions still win",
+    "no_path_scope_in_origin_policy": true,
+    "manual_product_review_not_required_for_automated_workflow": true
+  },
+  "verification_limits": [
+    "No request to the HTTP origin was attempted; no claim it is allowed or denied",
+    "No server/listener, browser control, CDP or network-policy bypass was attempted",
+    "The installed CLI was inspected, but browser-rule runtime support and live desktop policy are not proven by TOML parsing",
+    "Full CDP is kept denied in the base proposal; print/no-JS/offline advanced checks may require additional separately reviewed capabilities",
+    "An allow rule does not override higher-priority denies or the existing explicit no-workaround instruction"
+  ],
+  "required_server_boundary": [
+    "127.0.0.1 binding only, port8765 only",
+    "Fixed allowlisted synthetic HTML fixtures and required local static assets only",
+    "GET/HEAD only; no directory listing, state JSON, immutable-run JSON, repository browsing, write endpoints, symlink escape or redirects",
+    "No credentials, personal browser profile or external requests",
+    "Stop the temporary listener after approved checks"
+  ],
+  "status": "proposal_prepared_not_applied",
+  "cp10_complete": false,
+  "cp11_prerequisite_ready": false,
+  "promotion_ready": false
+}

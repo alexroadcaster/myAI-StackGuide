@@ -1,0 +1,26 @@
+{
+  "schema_version": "cp10_origin_application_v1",
+  "applied_on": "2026-10-17",
+  "origin": "http://127.0.0.1:8765",
+  "config_path": "C:\\Users\\user\\.codex\\config.toml",
+  "backup_path": "C:\\Users\\user\\.codex\\config.toml.cp10-8765-20261017.bak",
+  "before_sha256": "15b9d7dd89e66201c06a888b4400ca063c6934b5c16850746ce67d6e08ae19d6",
+  "after_sha256": "fade05ce3fcc62b369c64a7d7eb48ea1dce9b356767d972f288f4dbd162c6e0f",
+  "original_bytes_preserved_as_prefix": true,
+  "only_parsed_change": "Added exactly browser_use.origins.http://127.0.0.1:8765",
+  "other_settings_preserved": true,
+  "settings": {
+    "access": "allow",
+    "uploads": "deny",
+    "downloads": "deny",
+    "full_cdp_access": "deny",
+    "persistent_approval": false,
+    "access_approval_lifetime": "turn"
+  },
+  "runtime_loading_verified": false,
+  "browser_access_verified": true,
+  "user_authorization": "Применяй подготовленное разрешение только для http://127.0.0.1:8765, сохрани остальные настройки, проверь штатный доступ и, если он разрешён, сам заверши браузерную приёмку CP-10.",
+  "browser_access_observation": "Codex in-app browser rendered HTTP200 synthetic CP-10 preview and executed DOM/keyboard/locale checks on the exact origin.",
+  "runtime_loading_note": "Observed HTTP access does not attest the complete effective desktop policy or prove which config layer permitted it.",
+  "preview_server_stopped": true
+}

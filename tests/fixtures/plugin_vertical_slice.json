@@ -1,0 +1,114 @@
+{
+  "case_id": "CP11-USEFUL-LIFECYCLE-01",
+  "evidence_kind": "synthetic_project_actual_packaged_retrieval_authored_memo",
+  "evidence_ceiling": "Local lifecycle wiring only; no model quality, fresh source verification, browser or human usefulness claim.",
+  "project_files": {
+    "README.md": "# Synthetic invoice API\nA small Python API needs one repeatable regression test for its total calculation.\n",
+    "pyproject.toml": "[project]\nname = 'synthetic-invoice-api'\nversion = '0.0.1'\nrequires-python = '>=3.14'\n",
+    "src/invoice.py": "def total(amount, tax):\n    return amount + tax\n"
+  },
+  "goal": "Оценить pytest для одного регрессионного теста синтетического invoice API; предложить пробу без установки зависимостей и изменения кода.",
+  "correction": "Оценить pytest только для чистой функции расчёта invoice total; отложить интеграцию API и сервисов до проверки изолированной пробы.",
+  "interpretation": {
+    "language": "en",
+    "route": "unit_component_testing",
+    "terms": ["pytest-dev/pytest"],
+    "intent": {"required_groups": [["pytest-dev/pytest"]], "context_terms": []},
+    "excluded_repository_ids": [],
+    "excluded_dependencies": [],
+    "unresolved": []
+  },
+  "request_caps": {"max_candidates": 1, "max_cards": 1},
+  "expected": {
+    "github_repository_id": 37489525,
+    "full_name": "pytest-dev/pytest",
+    "card_schema_version": "2.0.0",
+    "index_format_version": 3,
+    "retrieval_policy_version": "2.1.0",
+    "row_count": 2500,
+    "source_mode": "catalog_only",
+    "retrieval_engine": "sqlite_fts5",
+    "pins": {
+      "source_sha256": "d2acb067017707bf6a01fcdfcedf1cc5324719acc7648b449980a5d4cecb371e",
+      "cards_sha256": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+      "index_sha256": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+      "policy_sha256": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b"
+    }
+  },
+  "memo_template": {
+    "schema_version": "2.1.0",
+    "run_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
+    "memo_id": "cp11-memo-placeholder",
+    "request_id": "cp11-request-placeholder",
+    "brief_version": 1,
+    "pack_id": "cp11-pack-placeholder",
+    "pins": null,
+    "status": "conditional_guidance",
+    "summary": "Рассмотреть pytest для изолированной регрессионной пробы функции invoice total. Описание в публичном snapshot подтверждает назначение для тестирования; факты о внедрении и интеграции требуют проверки.",
+    "recommendations": [{
+      "github_repository_id": 37489525,
+      "role": "reference_only",
+      "fit_rationale": "Публичный snapshot описывает pytest как framework для небольших тестов и сложного функционального тестирования; синтетическому проекту нужна одна небольшая регрессионная проба.",
+      "confidence": "low",
+      "evidence_refs": ["ev-catalog-card"],
+      "caveats": ["В карточке отсутствуют проверенные integration surface и adoption status. Активность в snapshot не доказывает текущую работоспособность."],
+      "next_checks": ["Перед запросом установки проверить документированный upstream test API, поддерживаемые версии Python и лицензию package."]
+    }],
+    "comparison": [],
+    "avoid_defer": [],
+    "reading_path": [],
+    "missing_context": ["Фактическая совместимость зависимости и разрешение пользователя на реализацию остаются неизвестными."],
+    "integration_plan": {
+      "schema_version": "2.0.0",
+      "run_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
+      "plan_id": "cp11-plan-placeholder",
+      "brief_version": 1,
+      "selected_github_repository_ids": [37489525],
+      "goal": "Предложить одну изолированную регрессионную пробу функции invoice total.",
+      "integration_surface": "Предлагаемая граница теста вокруг существующей чистой функции invoice total синтетического проекта; сначала проверить upstream pytest API.",
+      "affected_components": ["функция invoice total", "предлагаемый регрессионный тест"],
+      "prerequisites": ["Подтвердить документированный pytest API и совместимость Python; перед установкой или изменением кода получить отдельный запрос реализации."],
+      "steps": [{
+        "step_id": "trial-1",
+        "action": "После проверки источника и запроса реализации добавить один тест сравнения ожидаемого invoice total с результатом существующей функции.",
+        "affected_components": ["функция invoice total", "предлагаемый регрессионный тест"],
+        "prerequisites": ["Проверить upstream API и существующее поведение расчёта."],
+        "proposed_commands": [],
+        "command_status": "not_executed",
+        "acceptance": "Для синтетических amount 100 и tax 20 ожидается total 120; тест не запускает API и не обращается к сервисам."
+      }],
+      "first_validation": {
+        "goal": "Проверить одну регрессию чистой функции на синтетических значениях.",
+        "success_criterion": "Для amount 100 и tax 20 предлагаемый тест ожидает 120; фактическое выполнение теста не заявляется.",
+        "proposed_commands": [],
+        "status": "not_executed"
+      },
+      "risks": ["Package API и совместимость Python не проверялись по текущим upstream источникам."],
+      "rollback": ["Если разрешённая проба впоследствии не пройдёт, удалить только её новый тест и конфигурацию; сохранить существующую реализацию invoice."],
+      "unresolved_questions": ["Какой документированный pytest API и поддерживаемая версия подходят проекту?"],
+      "evidence_refs": [],
+      "handoff": {
+        "goal": "Исследовать одну изолированную регрессионную пробу invoice total.",
+        "scope": "Один тест чистой функции после проверки upstream и отдельного запроса реализации.",
+        "non_goals": ["Интеграция API", "Активация сервисов", "Автоматическая установка"],
+        "stop_conditions": ["Нет свидетельств совместимости", "Неожиданные чувствительные данные или внешние побочные эффекты"],
+        "execution_authority": "separate_user_implementation_request",
+        "permission_changes": false
+      },
+      "execution_status": "not_started",
+      "details": {
+        "diagram": null,
+        "prerequisite_checks": [],
+        "validation_input": null,
+        "expected_behavior": null,
+        "widen_when": null,
+        "step_dependencies": [{"step_id": "trial-1", "depends_on": [], "safe_paths": [], "evidence_refs": []}]
+      }
+    },
+    "next_action": "Проверить upstream совместимость и изолированную пробу; для любой реализации нужен отдельный запрос.",
+    "evidence_ceiling": "guidance_not_operability_security_or_release_proof",
+    "category_path": [{"category_id": "unit_component_testing", "reason": "Запрошенная проба — один регрессионный тест чистой функции."}],
+    "comparison_details": null,
+    "avoid_defer_details": []
+  }
+}

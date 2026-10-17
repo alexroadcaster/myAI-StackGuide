@@ -1,0 +1,11 @@
+# CP-10 browser-origin proposal. INACTIVE: this file is not loaded by Codex.
+# Merge into a supported user policy layer only after scoped approval.
+# Never replace the whole user configuration with this fragment.
+# access=allow permits normal approval/policy checks; it is not an approval.
+[browser_use.origins."http://127.0.0.1:8765"]
+access = "allow"
+uploads = "deny"
+downloads = "deny"
+full_cdp_access = "deny"
+persistent_approval = false
+access_approval_lifetime = "turn"

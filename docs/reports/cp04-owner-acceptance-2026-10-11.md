@@ -1,6 +1,6 @@
 # CP-04 owner acceptance packet — 2026-10-11
 
-Status: `needs_user_acceptance`. Technical implementation, current retrieval compatibility, independent answer/usefulness reviews and bounded resource/provenance checks pass. Actual human calibration is not recorded. The [canonical closure report](cp04-final-closure-2026-10-11.md) owns the full evidence and immutable failure history.
+Status: `owner_accepted`; CP-04 completed on 2026-10-17 at `completed_local_quality_owner_accepted`. The owner explicitly confirmed all four exact RU/EN answer pairs and final conservative scores. The [acceptance receipt](../../evals/plugin-v1/results/cp04-owner-acceptance-2026-10-17/owner-acceptance.json) binds the eight answer hashes, rubric, adjudication and existing technical evidence. The [canonical closure report](cp04-final-closure-2026-10-11.md) retains the full evidence and immutable failure history. Wider product/release promotion remains outside this acceptance.
 
 ## Exact current examples and independent scores
 
@@ -19,7 +19,7 @@ Current observations SHA256: `c8deb9430812cc7e601a194ca60b8cef6afff3bacbc3886045
 
 ## What the owner reviews
 
-Confirm that these exact explanations make the conditional choice useful: which problem the component addresses, technical and architecture roles, expected product benefit, integration ownership, complexity, first validation, what could reverse the choice and an equivalent-scope reuse/custom/current comparison. Confirm whether the conservative scores reflect these examples, or identify the case or dimension requiring correction.
+The owner confirmed on 2026-10-17 that these exact explanations and final scores are accepted. The presented review criteria were: which problem the component addresses, technical and architecture roles, expected product benefit, integration ownership, complexity, first validation, what could reverse the choice and an equivalent-scope reuse/custom/current comparison. Acceptance adopts the conservative final totals above without inferring separate human dimension scores or measured engineering savings.
 
 - Stripe is preferred only if Python and the provider fit. The SDK reduces custom API-client work; application payment rules, reconciliation, security and operations remain team responsibilities. Founder-facing wording remains dense.
 - Training distinguishes Kubernetes orchestration from PyTorch training libraries and restores three useful detailed alternatives. Framework/platform/workload are unknown. The proposed first check lacks a concrete worker-failure/checkpoint-recovery example and pass criterion. Only3of99 cards fit;96 alternatives are explicitly omitted by context budget.
@@ -31,8 +31,10 @@ Confirm that these exact explanations make the conditional choice useful: which 
 
 After the frozen capture, primary separately inspected the newly selected training READMEs on2026-10-11. These facts were not captured inputs and do not change the scores or catalog snapshot2026-09-01. [Kubeflow Trainer](https://github.com/kubeflow/trainer) retains an alpha/API-change warning; pin and check the target interface. [NeMo AutoModel](https://github.com/NVIDIA-NeMo/Automodel) distinguishes main-branch roadmap from released features; qualify the chosen release/model/platform. [veScale](https://github.com/volcengine/veScale) moved the older implementation to `legacy/` and exposes only part of its internal library; establish the required released interface before adoption. Product accepts this separate attributed qualification for the bounded comparison, not as interoperability or release approval. No private Brief or source content was sent to those pages.
 
-## Recording acceptance
+## Recorded acceptance — 2026-10-17
 
-The one remaining CP-04 action is the owner's explicit acceptance of these four exact RU/EN examples and conservative calibration scores, or concrete corrections. Earlier general format acceptance does not provide per-case calibration. [EVALS.md](../../EVALS.md) requires: “CP-04 must calibrate the rubric with human examples”; a score alone cannot close that gate. Agents cannot provide this judgment on the owner's behalf.
+The owner explicitly stated: “Подтверждаю четыре пары ответов RU/EN и итоговые оценки. Закрываем CP-04, зафиксируй приёмку и обнови статусы в документах проекта.”
 
-On an explicit reply, record its scope and exact evidence hashes in a separate acceptance receipt and close the CP-04 lifecycle within this local evidence ceiling. Until then: `human_acceptance=false`, `promotion_ready=false`. CP-10 browser, CP-11 persistence/lifecycle and CP-15/16 product/release acceptance remain separate. No further identical-input model run is required for the accepted bounded technical claim.
+The [separate acceptance receipt](../../evals/plugin-v1/results/cp04-owner-acceptance-2026-10-17/owner-acceptance.json) records this confirmation, exact eight answer hashes and existing conservative final totals. This supplies the actual human example/rubric calibration required by [EVALS.md](../../EVALS.md), through owner confirmation of the examples and totals, rather than invented independent human dimension scores. Earlier general format acceptance and historical agent reviews remain separate and unchanged.
+
+CP-04 is `completed`, `human_acceptance=true`, `human_rubric_calibrated=true` within these accepted examples and the bounded local quality evidence. No CP-04 gate remains pending. `promotion_ready=false` continues to mean whole-product/release promotion: CP-10 browser, CP-11 persistence/lifecycle and CP-15/16 product/release acceptance remain separate. Source-qualification and other accepted limitations above remain visible. No new model, retrieval or resource run is claimed for this status update.

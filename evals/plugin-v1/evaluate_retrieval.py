@@ -682,7 +682,7 @@ def validate_card_eligibility(entry, query):
                 'missing conditional verification')
 
 
-def validate_capture(case, capture, contracts):
+def validate_capture(case, capture, contracts, *, card_validator=None):
     """Cross-object invariants supplement, and do not replace, JSON Schema."""
     query, manifest = case['query'], case['index_manifest']
     policy = load_json(ROOT / 'specs/retrieval/retrieval-policy.json')
@@ -746,7 +746,7 @@ def validate_capture(case, capture, contracts):
     candidates_by_id = {item['github_repository_id']: item for item in candidates}
     aliases = []
     for item in pack['cards']:
-        validate_card_eligibility(item, query)
+        (card_validator or validate_card_eligibility)(item, query)
         card_id = item['card']['identity']['github_repository_id']
         aliases.extend([item['card']['identity']['full_name'], *item['card']['identity']['full_name_aliases']])
         candidate = candidates_by_id[card_id]

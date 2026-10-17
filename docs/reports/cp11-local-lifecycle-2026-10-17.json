@@ -1,0 +1,151 @@
+{
+  "schema_version": "cp11_local_lifecycle_report_v1",
+  "status": "partially_verified",
+  "lifecycle": "implemented_verified_local",
+  "cp11_closed": false,
+  "mandatory_full_join_passed": false,
+  "promotion_ready": false,
+  "quality_observed": false,
+  "recorded_at": "2026-10-17T20:54:12.508864+00:00",
+  "capture_sha256": "4cd6bec15746883ebddfe97dc67beffe5578e7abe7736bd5285c8e3bf751fdb9",
+  "case_sha256": "a427103467612e77e272d0fd447fe96f723fef4ee59d14f9d1e9107496ba686f",
+  "run_id": "63f609ca-67ca-4786-9898-6272bf501602",
+  "revision": 10,
+  "brief_version": 2,
+  "retained_artifacts": {
+    "docs/myai-stackguide/runs/63f609ca-67ca-4786-9898-6272bf501602.json": "a76feb8dbbdda45c8546e91b6360da045363635d37377ce2888b9b4883771609",
+    "docs/myai-stackguide/state.json": "a76feb8dbbdda45c8546e91b6360da045363635d37377ce2888b9b4883771609",
+    "docs/myai-stackguide/status.html": "01dc83a72886cb8bdb22facd93d15514de3ad4c2ae03dc30f55cbfb31060a967",
+    "successor-state.json": "d391bd0460ffde1d3794896c76d3fa2392abc662f4f4caeae349ea6f780b4787"
+  },
+  "source_sha256": {
+    "evals/plugin-v1/evaluate_retrieval.py": "6b846bef1d05bf6624292a68f132cd350b3094ffbdbd329420266532f1883ac8",
+    "evals/plugin-v1/evaluate_vertical_slice.py": "04433991b314a03fc212258df0a19c88e35532a61b5d61b83cc2965ae4f98d22",
+    "evals/vertical-slice-result.schema.json": "4fa4c9595da7902cf9415f8108bb046e3ee9977bfaf566de5b24ec3a59c9cf86",
+    "plugins/myai-stackguide/assets/catalog.search-manifest.json": "4c1c9eccf6df60d92da5d780a8152ce3fb00e43ccbf80e8ed01c3c660135a1bb",
+    "plugins/myai-stackguide/assets/catalog.search.sqlite": "4ccec277b4014b6ae245652296c5fc6997f4e2747842641b78778d4fcff0331b",
+    "plugins/myai-stackguide/assets/catalog.snapshot.json": "fceeaa7eaf1d83e280ed4244fed2717a820d59fcdc5b1aa849fd82f245f2ef5b",
+    "plugins/myai-stackguide/assets/retrieval-policy.json": "8dfcdc6991f06ded48340e1008d13c67f24d55f2889824124e5aae296b07054b",
+    "plugins/myai-stackguide/assets/session-contracts.json": "3342fa68269308b928429d5bb0a1598d79085d08f98fafac46c15d2c60285af9",
+    "plugins/myai-stackguide/assets/status-template.html": "61fdec87eea695a44ed8484ee581a95df7740937081fed3e71f4271016d3b26f",
+    "plugins/myai-stackguide/scripts/context.py": "e47623d6c3147c7702d3d5b3565bcd651838b2d107ae105a996989cf60fc29dd",
+    "plugins/myai-stackguide/scripts/context_pack.py": "0dd03df31580b3980275aa42fcdae01e3d446986e9e32995879f4502c1198276",
+    "plugins/myai-stackguide/scripts/intake.py": "c2b5edd9799d8969db1566c61eba3eebc33e7d19b02e234bb6550a06a585099b",
+    "plugins/myai-stackguide/scripts/matcher.py": "c560158f15390f662e55eac39e9ffc31fd983a9af8c5086a234fbec0280933c2",
+    "plugins/myai-stackguide/scripts/recommendation_request.py": "4f45e1c0e17aca09149e94602fbc8d84f2d2a74ce25f53de40b48f5f14c53b56",
+    "plugins/myai-stackguide/scripts/render_report.py": "2875b67ac48b8dd69f065584c493f38be7d6669056090aafb3c9d9db49717eb7",
+    "plugins/myai-stackguide/scripts/request_guard.py": "e6745044d2e90a17b830bc6ba7d14a46ea7b7ba7a7ca2141a2b97d3b9639d775",
+    "plugins/myai-stackguide/scripts/retrieval.py": "2ac5ca2c89c65746548008e8cde1d33aef272b887295503908e496690f0a2c10",
+    "plugins/myai-stackguide/scripts/scanner.py": "a1c96b48817c5478df0eacf64ba677c0f0a3b15a762352743a10a2f0b315f7ca",
+    "plugins/myai-stackguide/scripts/session_recommendation.py": "2f7c4c8fdbcb7d0e1d40474a1692cf835043c948c6e2dd71a5f4d96293930a7d",
+    "plugins/myai-stackguide/scripts/state_store.py": "cbf22c94f291241f531bb13392cb9e6d98196b4a569586034f1fe89f623b0222",
+    "scripts/build_session_contracts.py": "6a46c79c306756036d805a2b82f466839edff5bbec785977a42b3d900a9bb095",
+    "tests/test_plugin_vertical_slice.py": "1f2d819dfd81547d439b10c4b0f7ac9f5f87c46fe6ce09b5f0396f9350a276fc"
+  },
+  "checks": {
+    "vertical_runtime_cases": 4,
+    "new_cp11_cases_in_full_join": 23,
+    "validator_cases": 13,
+    "scorer_cases": 4,
+    "scorer_plus_preserved_c8_cases": 28,
+    "host_intake_choices": 2,
+    "browser_view_locale_pairs": 16,
+    "browser_canonical_fields": 15,
+    "source_bundle_parity": true,
+    "packaged_index_parity": true,
+    "observed_capture_scorer": true,
+    "c8_synthetic_compatibility": true,
+    "full_join": {
+      "tests_run": 456,
+      "failures": 5,
+      "errors": 12,
+      "skipped": 2,
+      "exit_code": 1,
+      "seconds": 177.783,
+      "log_sha256": "5f15912d3b0869492320629695eefa9ccc50b655ea0411d5c611c78aaec088b1"
+    }
+  },
+  "capacity": {
+    "report": "cp11-capacity-2026-10-17.json",
+    "sha256": "08d1b1038665a77e87d8a181d09e679320a58da4e4045ecd6f22e60e48c81d88",
+    "verdict": "capacity_pass_only",
+    "summaries": {
+      "actual": {
+        "cold_p50_ms": 79.4586,
+        "cold_p95_ms": 141.8033,
+        "gates": {
+          "cold": true,
+          "index_bytes": true,
+          "native_schema_and_budgets": true,
+          "peak_memory": true,
+          "warm": true
+        },
+        "index_bytes": 2048000,
+        "peak_memory_bytes": 45899776,
+        "serialized_bytes_max": {
+          "pack": 79810,
+          "query": 703,
+          "result": 25495
+        },
+        "warm_p50_ms": 6.8152,
+        "warm_p95_ms": 9.2737
+      },
+      "synthetic": {
+        "cold_p50_ms": 180.5242,
+        "cold_p95_ms": 202.9908,
+        "gates": {
+          "cold": true,
+          "index_bytes": true,
+          "native_schema_and_budgets": true,
+          "peak_memory": true,
+          "warm": true
+        },
+        "index_bytes": 8474624,
+        "peak_memory_bytes": 47476736,
+        "serialized_bytes_max": {
+          "pack": 90637,
+          "query": 703,
+          "result": 37373
+        },
+        "warm_p50_ms": 19.1402,
+        "warm_p95_ms": 23.4042
+      }
+    }
+  },
+  "browser": {
+    "observations_sha256": "a9c9a609134782ae63f2749a429e3973d7f5e180de2e64b7d997371974b876e0",
+    "screenshot_sha256": "bc09a5d1f9f036acc886183c48647d1a41f56622e22a298127428788c66ec45a",
+    "offline": {
+      "hasRun": true,
+      "heading": "History",
+      "url": "#view=history&lang=en"
+    },
+    "console_errors": [],
+    "canonical_fields_equal": true,
+    "artifacts_unchanged": true
+  },
+  "reviews": {
+    "code": "No remaining scoped blocking finding after two S2 corrections; additive C8 adapter independently accepted",
+    "product": "useful_conditional_local_scenario",
+    "product_fixture_sha256": "a427103467612e77e272d0fd447fe96f723fef4ee59d14f9d1e9107496ba686f"
+  },
+  "remaining_gate": {
+    "kind": "historical_cp04_fixture_source_binding_migration",
+    "frozen_plans_or_judgments_changed": false,
+    "old_byte_baselines_changed": false,
+    "mandatory_gate_waived": false,
+    "shared_reader_baseline_replay_sha256": "63853ac5a07507d30977845ddc4fb9a236a60a7783f8b1d5be20b2aa86d562d9"
+  },
+  "limitations": [
+    "Synthetic project and authored conditional memo; no new model-quality result or human acceptance",
+    "RU/EN UI and canonical facts verified; narrative coverage remains partial, no new semantic equivalence verdict",
+    "Capacity is mixed workload retrieval timing, OS caches not flushed; synthetic duplicates only headroom",
+    "No install, real-project integration, production, deployment, remote or whole-product acceptance"
+  ],
+  "documentation_checks": {
+    "control_plane_validator": "pass",
+    "focused_diff_whitespace": "pass",
+    "local_links_checked": 176,
+    "utf8_checked": true
+  }
+}
